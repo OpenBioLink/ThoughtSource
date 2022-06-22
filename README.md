@@ -1,6 +1,18 @@
 # ThoughtSource
 This repository is dedicated to datasets that are converted to our intended COT format.
 
+## Usage
+
+1. Clone repository
+2. Run `pip install -e .`
+   
+```python
+from thoughtsource import load_datasets
+a = load_datasets(["gsm8k", "open_book_qa"])
+print(a)
+print(a["gsm8k"]["train"][0])
+```
+
 <h2>Datasets</h2>
 <p>The following table represents statistics of datasets we converted to the COT format.</p>
 </p>
