@@ -23,7 +23,6 @@ from thoughtsource.utils.configs import ThoughtSourceConfig
 
 _LOCAL = False
 
-# TODO: Add BibTeX citation
 _CITATION = """\
 @inproceedings{OpenBookQA2018,
  title={Can a Suit of Armor Conduct Electricity? A New Dataset for Open Book Question Answering},

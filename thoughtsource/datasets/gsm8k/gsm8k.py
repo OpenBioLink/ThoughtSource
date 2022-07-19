@@ -23,7 +23,6 @@ from thoughtsource.utils.configs import ThoughtSourceConfig
 
 _LOCAL = False
 
-# TODO: Add BibTeX citation
 _CITATION = """\
 @article{cobbe2021gsm8k,
   title={Training Verifiers to Solve Math Word Problems},
@@ -131,7 +130,6 @@ class NewDataset(datasets.GeneratorBasedBuilder):
         return [
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
-                # Whatever you put in gen_kwargs will be passed to _generate_examples
                 gen_kwargs={
                     "filepath": os.path.join(data_dir["train"]),
                 },

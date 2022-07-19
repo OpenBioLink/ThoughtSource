@@ -24,7 +24,6 @@ from thoughtsource.utils.configs import ThoughtSourceConfig
 
 _LOCAL = False
 
-# TODO: Add BibTeX citation
 _CITATION = """\
 @inproceedings{xie-etal-2020-worldtree,
     title = "{W}orld{T}ree V2: A Corpus of Science-Domain Structured Explanations and Inference Patterns supporting Multi-Hop Inference",
@@ -69,9 +68,6 @@ _URLS = {
 # TODO: add supported task by dataset. One dataset may support multiple tasks
 _SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
-# TODO: set this to a version that is associated with the dataset. if none exists use "1.0.0"
-#  This version doesn't have to be consistent with semantic versioning. Anything that is
-#  provided by the original dataset as a version goes.
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
@@ -102,12 +98,6 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "worldtree_thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
-        # Create the source schema; this schema will keep all keys/information/labels as close to the original dataset as possible.
-
-        # You can arbitrarily nest lists and dictionaries.
-        # For iterables, use lists over tuples or `datasets.Sequence`
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {

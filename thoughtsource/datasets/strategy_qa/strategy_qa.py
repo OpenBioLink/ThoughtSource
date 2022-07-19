@@ -24,7 +24,6 @@ from thoughtsource.utils.configs import ThoughtSourceConfig
 
 _LOCAL = False
 
-# TODO: Add BibTeX citation
 _CITATION = """\
 @article{geva2021strategyqa,
   title = {{Did Aristotle Use a Laptop? A Question Answering Benchmark with Implicit Reasoning Strategies}},
