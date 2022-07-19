@@ -1,5 +1,5 @@
 """
-Question Answering Schema
+Chain-of-Thought Schema
 """
 import datasets
 

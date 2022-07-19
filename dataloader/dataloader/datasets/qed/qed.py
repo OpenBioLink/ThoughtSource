@@ -18,8 +18,8 @@ import json
 from typing import List, Tuple, Dict
 
 import datasets
-from thoughtsource.utils import schemas
-from thoughtsource.utils.configs import ThoughtSourceConfig
+from dataloader.utils import schemas
+from dataloader.utils.configs import ThoughtSourceConfig
 
 _LOCAL = False
 
