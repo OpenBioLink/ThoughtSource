@@ -103,7 +103,7 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                         ],
                     ],
                     "annotation": {
-                        "referential_equalities": datasets.Sequence(
+                        "referential_equalities": [
                             {
                                 "question_reference": {
                                     "start": datasets.Value("int64"),
@@ -117,8 +117,8 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                                     "string": datasets.Value("string"),
                                 },
                             },
-                        ),
-                        "answer": datasets.Sequence(
+                        ],
+                        "answer": [
                             {
                                 "sentence_reference": {
                                     "start": datasets.Value("int64"),
@@ -132,7 +132,7 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                                     "string": datasets.Value("string"),
                                 }
                             }
-                        ),
+                        ],
                         "explanation_type": datasets.Value("string"),
                         "selected_sentence": {
                             "start": datasets.Value("int64"),
@@ -157,8 +157,6 @@ class QedDataset(datasets.GeneratorBasedBuilder):
         """Returns SplitGenerators."""
         
         data_dir = dl_manager.download_and_extract(_URLS)
-        print(data_dir["train"])
-        print(data_dir["dev"])
 
         return [
             datasets.SplitGenerator(
@@ -193,21 +191,50 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                         "end": None,
                         "string": None,
                     }
+                for x in example["annotation"]["answer"]:
+                    x["sentence_reference"]["bridge"] = str(x["sentence_reference"]["bridge"])
+                for x in example["annotation"]["referential_equalities"]:
+                    x["sentence_reference"]["bridge"] = str(x["sentence_reference"]["bridge"])
                 yield key, example
 
         elif self.config.schema == "thoughtsource":
             for key, example in enumerate(data):
+
+                annotation = example["annotation"]
+
+                #skip examples without explanation
+                if annotation["explanation_type"] == "none" or annotation["explanation_type"] == "multi_sentence":
+                    continue
+
+                cot = []
+                cot.append(f"The answer is contained in the following sentence: {annotation['selected_sentence']['string']}")
+                for x in annotation["referential_equalities"]:
+
+                    if x['sentence_reference']['bridge'] != False:
+                        if x['sentence_reference']['string'] != "":
+                            cot.append(f"The noun phrase {x['sentence_reference']['string']} in the sentence refers to {x['sentence_reference']['string']} {x['sentence_reference']['bridge']} the noun phrase {x['question_reference']['string']} in the question.")
+                    else:
+                        cot.append(f"The noun phrase {x['sentence_reference']['string']} in the sentence and the noun phrase {x['question_reference']['string']} in the question refer to the same thing.")
+                        
+                for x in annotation["answer"]:
+                    if x['sentence_reference']['bridge'] != False:
+                        if x['sentence_reference']['string'] != "":
+                            cot.append(f"The noun phrase {x['sentence_reference']['string']} in the sentence and the noun phrase {x['paragraph_reference']['string']} in the context refer to the same thing.")
+                    else:
+                        assert (x['sentence_reference']['string'] == x['paragraph_reference']['string']), f"Ohno {x}"
+
+
                 example_ = {
-                        "id": example["qid"],
-                        "question_id": example["qid"],
-                        "document_id": example["qid"],
-                        "question": example["question"],
-                        "type": "bool",
-                        "cot_type": None,
+                        "id": example["example_id"],
+                        "question_id": example["example_id"],
+                        "document_id": example["example_id"],
+                        "question": example["question_text"],
+                        "type": "collection",
+                        "cot_type": "list",
                         "choices": None,
-                        "context": None,
-                        "cot": None,
-                        "answer": None,
+                        "context": f"Title: {example['title_text']} Text: {example['paragraph_text']}",
+                        "cot": cot,
+                        "answer": [x[0]["string"] for x in example["original_nq_answers"]],
                         "feedback": None,
                         "cot_after_feedback": None,
                         "answer_after_feedback": None,
