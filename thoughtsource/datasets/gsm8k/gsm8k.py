@@ -47,8 +47,14 @@ _HOMEPAGE = "https://github.com/openai/grade-school-math"
 _LICENSE = "MIT"
 
 _URLS = {
-    "train": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/train.jsonl",
-    "test": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/test.jsonl"
+    "gsm8k": {
+        "train": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/train.jsonl",
+        "test": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/test.jsonl"
+    },
+    "gsm8k_socratic": {
+        "train": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/train_socratic.jsonl",
+        "test": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/test_socratic.jsonl"
+    },
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -79,6 +85,20 @@ class NewDataset(datasets.GeneratorBasedBuilder):
             schema="thoughtsource",
             subset_id="gsm8k",
         ),
+        ThoughtSourceConfig(
+            name="gsm8k_socratic_source",
+            version=SOURCE_VERSION,
+            description="GSM8K Socratic source schema",
+            schema="source",
+            subset_id="gsm8k_socratic",
+        ),
+        ThoughtSourceConfig(
+            name="gsm8k_socratic_thoughtsource",
+            version=BIGBIO_VERSION,
+            description="GSM8K Socratic thoughtsource schema",
+            schema="thoughtsource",
+            subset_id="gsm8k_socratic",
+        ),
     ]
 
     DEFAULT_CONFIG_NAME = "gsm8k_thoughtsource"
@@ -106,7 +126,7 @@ class NewDataset(datasets.GeneratorBasedBuilder):
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
         
-        data_dir = dl_manager.download_and_extract(_URLS)
+        data_dir = dl_manager.download_and_extract(_URLS[self.config.subset_id])
 
         return [
             datasets.SplitGenerator(
