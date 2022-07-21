@@ -13,92 +13,19 @@ print(a)
 print(a["gsm8k"]["train"][0])
 ```
 
-<h2>Datasets</h2>
-<p>The following table represents statistics of datasets we converted to the COT format.</p>
-</p>
-<table>
-  <tr>
-    <th>
-      Dataset
-    </th>
-    <th width="20">
-      Training samples
-    </th>
-    <th>
-      Dev samples
-    </th>
-    <th>
-      Test samples
-    </th>
-  </tr>
-  <tr>
-    <td>
-      GSM8K
-    </td>
-    <td>
-      7473
-    </td>
-    <td>
-      -
-    </td>
-    <td>
-      1319
-    </td>
-  </tr>
-  <tr>
-    <td>
-      StrategyQA
-    </td>
-    <td>
-      2290
-    </td>
-    <td>
-      -
-    </td>
-    <td>
-      490
-    </td>
-  </tr>
-  <tr>
-    <td>
-      QED
-    </td>
-    <td>
-      5154
-    </td>
-    <td>
-      -
-    </td>
-    <td>
-      1021
-    </td>
-  </tr>
-  <tr>
-    <td>
-      OpenBookQA
-    </td>
-    <td>
-      4957
-    </td>
-    <td>
-      500
-    </td>
-    <td>
-      500
-    </td>
-  </tr>
-  <tr>
-    <td>
-      WorldTree
-    </td>
-    <td>
-      2206
-    </td>
-    <td>
-      496
-    </td>
-    <td>
-      1663
-    </td>
-  </tr>
-</table>
+## Datasets
+
+The following table represents statistics of datasets that can currently be loaded with the dataloader.
+
+| Name | Train | Validation | Test |
+|----|----|----|----|
+| aqua | 97467 | 254 | 254 |
+| asdiv | 1217 | - | - |
+| entailment_bank | 1313 | 187 | 340 |
+| gsm8k | 7473 | - | 1319 |
+| mawps | 1921 | - | - |
+| open_book_qa | 4957 | 500 | 500 |
+| qed | 5154 | 1021 | - |
+| strategy_qa | 2290 | - | 490 |
+| svamp | 1000 | - | - |
+| worldtree | 2207 | 496 | 1664 |
