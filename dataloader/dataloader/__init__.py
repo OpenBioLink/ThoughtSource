@@ -1,3 +1,3 @@
 __version__ = "0.0.1"
 
-from .dataloader import load_datasets
+from .dataloader import Collection
