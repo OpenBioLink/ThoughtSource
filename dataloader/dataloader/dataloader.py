@@ -64,6 +64,22 @@ class Collection:
             print(f"Loading {name}")
             self._cache[name] = ds.load_dataset(str(script))
 
+    def unload_datasets(self, names=None):
+        """
+        It takes a list of names and unloads the datasets
+        
+        :param names: A list of dataset names to load. If None, all datasets are unloaded
+        """
+        if names is None:
+            self._cache.clear()
+        else:
+            for name in names:
+                if name in self._cache:
+                    del self._cache[name]
+
+    def clear(self):
+        self.unload_datasets()
+
     def dump(self, path_to_directory = "./dump"):
         for name, dataset_dict in self._cache.items():
             for split, data in dataset_dict.items():
