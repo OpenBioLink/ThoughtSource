@@ -1,7 +1,7 @@
 # ThoughtSource⚡
 __A framework for the science of machine thinking__
 
-ThoughtSource⚡ aims to provide a central, open resource for data and tools related to chain-of-thought (CoT) reasoning in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our goal is to enable trustworthy and robust reasoning in advance AI systems for driving scientific and technological development.
+ThoughtSource⚡ aims to provide a central, open resource for data and tools related to chain-of-thought (CoT) reasoning in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific and technological development.
 
 ## Dataloader Usage
 
