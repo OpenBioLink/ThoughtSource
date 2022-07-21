@@ -1,7 +1,7 @@
 import pathlib
 import os
 import pandas as pd
-from datasets import load_dataset
+import datasets as ds
 
 class Collection:
 
@@ -62,10 +62,22 @@ class Collection:
         datasets = self._find_datasets(names)
         for name, script in datasets:
             print(f"Loading {name}")
-            self._cache[name] = load_dataset(str(script))
+            self._cache[name] = ds.load_dataset(str(script))
 
     def dump(self, path_to_directory = "./dump"):
         for name, dataset_dict in self._cache.items():
             for split, data in dataset_dict.items():
                 data.to_json(pathlib.Path(path_to_directory) / name / f"{split}.json")
+
+    @property
+    def all_train(self):
+        return ds.concatenate_datasets([self._cache[name]["train"] for name in self._cache])
+
+    @property
+    def all_validation(self):
+        return ds.concatenate_datasets([self._cache[name]["validation"] for name in self._cache if "validation" in self._cache[name]])
+
+    @property
+    def all_test(self):
+        return ds.concatenate_datasets([self._cache[name]["test"] for name in self._cache if "test" in self._cache[name]])
 
