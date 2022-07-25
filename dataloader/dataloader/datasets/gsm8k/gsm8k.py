@@ -63,7 +63,7 @@ _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
 
-class NewDataset(datasets.GeneratorBasedBuilder):
+class Gsm8kDataset(datasets.GeneratorBasedBuilder):
     """High quality linguistically diverse grade school math word problem."""
 
     SOURCE_VERSION = datasets.Version(_SOURCE_VERSION)
