@@ -68,7 +68,7 @@ _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
 
-class NewDataset(datasets.GeneratorBasedBuilder):
+class OpenBookQADataset(datasets.GeneratorBasedBuilder):
     """Question-answering dataset modeled after open book exams for assessing human understanding of a subject."""
 
     SOURCE_VERSION = datasets.Version(_SOURCE_VERSION)
