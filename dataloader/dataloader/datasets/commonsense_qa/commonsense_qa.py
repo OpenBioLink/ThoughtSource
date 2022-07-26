@@ -195,7 +195,7 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                     "question_id": example["id"],
                     "document_id": example["id"],
                     "question": example["question"]["stem"],
-                    "type": "choices",
+                    "type": "multiplechoice",
                     "cot_type": "list",
                     "choices": choices.values(),
                     "context": "",

@@ -231,7 +231,7 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                         "question": example["question_text"],
                         "type": "collection",
                         "cot_type": "list",
-                        "choices": None,
+                        "choices": [],
                         "context": f"Title: {example['title_text']} Text: {example['paragraph_text']}",
                         "cot": cot,
                         "answer": [x[0]["string"] for x in example["original_nq_answers"]],

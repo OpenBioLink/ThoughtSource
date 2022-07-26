@@ -185,7 +185,7 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
                     "question_id": key,
                     "document_id": key,
                     "question": example["question"],
-                    "type": "text",
+                    "type": "multiplechoice",
                     "cot_type": "list",
                     "choices": choices.values(),
                     "context": "",
