@@ -62,6 +62,9 @@ CommonsenseQA is a new multiple-choice question answering dataset that requires 
 predict the correct answers . It contains 12,102 questions with one correct answer and four distractor answers.  The dataset is
 provided in two major training/validation/testing set splits: "Random split" which is the main evaluation split, and "Question
 token split", see paper for details.
+
+CommonsenseQA does not come with explanations per default. We use explanations from Aggarwal et al, 2021, which can be found at 
+https://github.com/dair-iitd/ECQA-Dataset.
 """
 
 _HOMEPAGE = "https://www.tau-nlp.sites.tau.ac.il/commonsenseqa"
