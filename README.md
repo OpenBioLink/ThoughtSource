@@ -23,7 +23,9 @@ We aim to build a central, open resource and community around data and tools rel
 
 
 ## Current datasets
-__Datasets can be browsed online through the [ThoughtSource⚡ Dataset Viewer](http://thought.samwald.info/)__. We have converted the following datasets into a common chain-of-thought format:
+__Datasets can be browsed online through the [ThoughtSource⚡ Dataset Viewer](http://thought.samwald.info/)__. 
+
+We have converted the following datasets into a common chain-of-thought format:
 
 * __[aqua](https://github.com/deepmind/AQuA):__ Math word problems from the AQUA-RAT (Algebra Question Answering with Rationales) dataset ([Ling 2017](https://arxiv.org/pdf/1705.04146.pdf)).
 * __[asdiv](https://github.com/chaochun/nlu-asdiv-dataset):__ Math word problems from the Academia Sinica Diverse MWP dataset ([Miao 2020](https://aclanthology.org/2020.acl-main.92/)).
