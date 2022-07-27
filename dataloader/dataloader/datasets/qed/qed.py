@@ -215,7 +215,6 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                             cot.append(f"The noun phrase {x['sentence_reference']['string']} in the sentence refers to {x['sentence_reference']['string']} {x['sentence_reference']['bridge']} the noun phrase {x['question_reference']['string']} in the question.")
                     else:
                         cot.append(f"The noun phrase {x['sentence_reference']['string']} in the sentence and the noun phrase {x['question_reference']['string']} in the question refer to the same thing.")
-                        
                 for x in annotation["answer"]:
                     if x['sentence_reference']['bridge'] != False:
                         if x['sentence_reference']['string'] != "":
@@ -223,6 +222,21 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                     else:
                         assert (x['sentence_reference']['string'] == x['paragraph_reference']['string']), f"Ohno {x}"
 
+                example["question_text"] = example["question_text"].capitalize()
+                example["question_text"] = example["question_text"] + "?" if example["question_text"][-1] != "?" else example["question_text"]
+
+                # Detokenization
+                cot = [x.strip() for x in cot]
+                for punct in ",;.:-_!?')]}/":
+                    cot = [x.replace(f" {punct}", punct) for x in cot]
+                    example["question_text"] = example["question_text"].replace(f" {punct}", punct)
+                    example["title_text"] = example["title_text"].replace(f" {punct}", punct)
+                    example["paragraph_text"] = example["paragraph_text"].replace(f" {punct}", punct)
+                for punct in "{[(/":
+                    cot = [x.replace(f"{punct} ", punct) for x in cot]
+                    example["question_text"] = example["question_text"].replace(f"{punct} ", punct)
+                    example["title_text"] = example["title_text"].replace(f"{punct} ", punct)
+                    example["paragraph_text"] = example["paragraph_text"].replace(f"{punct} ", punct)
 
                 example_ = {
                         "id": example["example_id"],
