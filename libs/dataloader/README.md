@@ -1,5 +1,7 @@
 # ThoughtSource⚡ Dataloader
 
+Library for efficient retrieval and processing of ThoughtSource datasets. We provide code to build dataset objects in the [🤗 Datasets format](https://huggingface.co/docs/datasets/index)
+
 ## Installation
 
 1. Clone repository
@@ -59,3 +61,21 @@ Dataset({
     num_rows: 12430
 })
 ```
+
+## Statistics
+
+The following table represents statistics of datasets that can currently be loaded with the dataloader.
+
+| Name            |   Train | Valid   | Test   |
+|-----------------|---------|---------|--------|
+| aqua            |   97467 | 254     | 254    |
+| asdiv           |    1217 | -       | -      |
+| commonsense_qa  |    9741 | 1221    | 1140   |
+| entailment_bank |    1313 | 187     | 340    |
+| gsm8k           |    7473 | -       | 1319   |
+| mawps           |    1921 | -       | -      |
+| open_book_qa    |    4957 | 500     | 500    |
+| qed             |    5154 | 1021    | -      |
+| strategy_qa     |    2290 | -       | 490    |
+| svamp           |    1000 | -       | -      |
+| worldtree       |    2207 | 496     | 1664   |
