@@ -61,10 +61,10 @@ Explain Algebraic Word Problems. In Proc. ACL.
 The dataset consists of about 100,000 algebraic word problems with natural language rationales. Each problem is a json object
 consisting of four parts:
 
-question - A natural language definition of the problem to solve
-options - 5 possible options (A, B, C, D and E), among which one is correct
-rationale - A natural language description of the solution to the problem
-correct - The correct option
+- question: A natural language definition of the problem to solve
+- options: 5 possible options (A, B, C, D and E), among which one is correct
+- rationale: A natural language description of the solution to the problem
+- correct: The correct option
 """
 
 _HOMEPAGE = "https://github.com/deepmind/AQuA"
