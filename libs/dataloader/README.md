@@ -3,7 +3,7 @@
 ## Installation
 
 1. Clone repository
-2. Run `pip install -e ./dataloader`
+2. Run `pip install -e ./libs/dataloader`
    
 ## Usage examples
 

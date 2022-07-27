@@ -1,4 +1,5 @@
 import pathlib
+import importlib
 import os
 import pandas as pd
 import datasets as ds
@@ -52,6 +53,13 @@ class Collection:
                 (name, path_to_biodatasets / name / (name + ".py")) for name in names
             ]
         return dataloader_scripts
+
+    def _get_metadata(self):
+        for name, script_path in self._find_datasets():
+            spec = importlib.util.spec_from_file_location("foo", script_path)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            break
 
     def load_datasets(self, names=None):
         """
