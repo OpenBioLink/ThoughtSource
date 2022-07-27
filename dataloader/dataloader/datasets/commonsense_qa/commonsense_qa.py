@@ -202,7 +202,7 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                     "cot_type": "list",
                     "choices": choices.values(),
                     "context": "",
-                    "cot": sent_tokenize(ecqa[example["id"]]) if ecqa.get(example["id"], None) is not None else [],
+                    "cot": [x.capitalize() for x in sent_tokenize()] if ecqa.get(example["id"], None) is not None else [],
                     "answer": [choices[example["answerKey"]]] if "answerKey" in example else [],
                     "feedback": [],
                     "cot_after_feedback": [],
