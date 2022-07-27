@@ -1,7 +1,15 @@
 # ThoughtSource⚡
 __A framework for the science of machine thinking__
 
-ThoughtSource⚡ aims to provide a central, open resource for data and tools related to chain-of-thought reasoning in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
+ThoughtSource⚡ aims to provide a central, open resource and community around data and tools related to _chain-of-thought reasoning_ (CoT) in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
+
+## Roadmap
+
+1. Create a collection of datasets through a central, standardized interface. ✅
+2. Create a conceptual model of different CoT styles and phenomena.
+3. Create tools for exploring, diagnosing and evaluating CoT (based on performance, transparency and value-alignment).
+4. Unify CoT with learning from natural language feedback ([Scheurer 2022](https://arxiv.org/abs/2204.14146)) and argumentation/debate.
+5. Adapt CoT approaches for high-impact scientific use-cases such as biomedical research.
 
 ## Framework
 
@@ -11,11 +19,11 @@ ThoughtSource⚡ aims to provide a central, open resource for data and tools rel
 
 ### Libraries
 
-* __[dataloader](./libs/dataloader/):__ Library for efficient retrieval and processing of ThoughtSource datasets
+* __[dataloader](./libs/dataloader/):__ Library for creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
 
 
 ## Current datasets
-Datasets can be browsed online through the [ThoughtSource⚡ Dataset Viewer](http://thought.samwald.info/). We have converted the following datasets into a common chain-of-thought format:
+Datasets can be browsed online through the __[ThoughtSource⚡ Dataset Viewer](http://thought.samwald.info/)__. We have converted the following datasets into a common chain-of-thought format:
 
 * __[aqua](https://github.com/deepmind/AQuA):__ Math word problems from the AQUA-RAT (Algebra Question Answering with Rationales) dataset ([Ling 2017](https://arxiv.org/pdf/1705.04146.pdf)).
 * __[asdiv](https://github.com/chaochun/nlu-asdiv-dataset):__ Math word problems from the Academia Sinica Diverse MWP dataset ([Miao 2020](https://aclanthology.org/2020.acl-main.92/)).
