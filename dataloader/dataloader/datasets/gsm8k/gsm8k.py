@@ -15,6 +15,7 @@
 
 import json
 import os
+import re
 from typing import List, Tuple, Dict
 
 import datasets
@@ -153,8 +154,10 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
 
         elif self.config.schema == "thoughtsource":
             for key, example in enumerate(data):
-
-                chain = example['answer'].split('\n')
+                chain = re.sub(r"<<[0-9\.\(\)+\-/*=]+>>", "", example['answer'])
+                assert "<<" not in chain, chain
+                assert ">>" not in chain, chain
+                chain = chain.split('\n')
                 chain_of_thought = chain[:-1]
                 answer = chain[-1].replace("#### ", "")
 
