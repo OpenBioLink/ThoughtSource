@@ -191,6 +191,19 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
             yield raw_document
 
     def _source_to_thoughtsource(self, example):
+        cot = example["explanation"]
+
+        # resolve ( tree ; plant ) synsets
+        pattern = r"\((.*?) ; (.*?)\)"
+        for idx in range(len(cot)):
+            match = re.search(pattern, cot[idx])
+            while match:
+                cot[idx] = cot[idx][:match.span()[0]] + match.group(1) + cot[idx][match.span()[1]:]
+                match = re.search(pattern, cot[idx])
+
+        cot = [x.capitalize() for x in cot]
+        cot = [x + "." if x[-1] not in ['.', '!', '?'] else x for x in cot]
+
         example_ = {
             "id": example["question_id"],
             "question_id": example["question_id"],
@@ -200,7 +213,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
             "cot_type": "list",
             "choices": example["choices"],
             "context": "",
-            "cot": example["explanation"],
+            "cot": cot,
             "answer": [example["answer"]],
             "feedback": [],
             "cot_after_feedback": [],
