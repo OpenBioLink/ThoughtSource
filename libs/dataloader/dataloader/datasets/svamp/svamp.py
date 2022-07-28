@@ -13,9 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
+import json
 import re
-import pandas as pd
 from typing import List, Tuple, Dict
 
 import datasets
@@ -73,7 +72,7 @@ _HOMEPAGE = "https://github.com/arkilpatel/SVAMP"
 _LICENSE = "MIT"
 
 _URLS = {
-    _DATASETNAME: "https://github.com/arkilpatel/SVAMP/raw/main/data/mawps-asdiv-a_svamp/dev.csv",
+    _DATASETNAME: "https://github.com/arkilpatel/SVAMP/raw/main/SVAMP.json",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -113,15 +112,12 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
         if self.config.schema == "source":
             features = datasets.Features(
                 {
-                    "question": datasets.Value("string"),
-                    "numbers": [datasets.Value("int32")],
-                    "equation": datasets.Value("string"),
-                    "answer": datasets.Value("float"),
-                    "group_nums": [datasets.Value("int32")],
-                    "type": datasets.Value("string"),
-                    "variation_type": [datasets.Value("int32")],
-                    "body": datasets.Value("string"),
-                    "ques": datasets.Value("string"),
+                    "ID": datasets.Value("string"),
+                    "Body": [datasets.Value("string")],
+                    "Question": datasets.Value("string"),
+                    "Equation": datasets.Value("string"),
+                    "Answer": [datasets.Value("float")],
+                    "Type": datasets.Value("string"),
                 }
             )
         elif self.config.schema == "thoughtsource":
@@ -153,27 +149,12 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
     def _generate_examples(self, filepath) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
         
-        data = pd.read_csv(filepath)
+        with open(filepath, "r") as jsonfile:
+            data = json.load(jsonfile)
 
         if self.config.schema == "source":
-            for key, example in data.iterrows():
-
-                all_numbers = {f"number{i}": x for i,x in enumerate([int(x) for x in example["Numbers"].split(" ")])}
-                for number_id, number in all_numbers.items():
-                    example["Question"] = example["Question"].replace(number_id, str(number))
-
-                example_ = {
-                    "question": example["Question"],
-                    "numbers": [float(x) for x in example["Numbers"].split(" ")],
-                    "equation": example["Equation"],
-                    "answer": float(example["Answer"]),
-                    "group_nums": [int(x.strip()) for x in example["group_nums"][1:-1].split(",")],
-                    "type": example["Type"],
-                    "variation_type": [int(x.strip()) for x in example["Variation Type"].split(",")],
-                    "body": example["Body"],
-                    "ques": example["Ques"],
-                }
-                yield key, example_
+            for key, example in enumerate(data):
+                yield key, example
 
         elif self.config.schema == "thoughtsource":
 
@@ -196,24 +177,18 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
                 "/": "divide"
             }
 
-            for key, example in data.iterrows():
-
-                all_numbers = {f"number{i}": x for i,x in enumerate([float(x) for x in example["Numbers"].split(" ")])}
-                for number_id, number in all_numbers.items():
-                    example["Question"] = example["Question"].replace(number_id, str(number))
+            for key, example in enumerate(data):
 
                 steps = self._decompose_equation(example["Equation"])
 
                 int_ = {}
-                chain_of_thought = []
-                for idx, (operator, num1, num2) in enumerate(steps):
-                    num1 = all_numbers.get(num1, num1)
-                    num2 = all_numbers.get(num2, num2)
+                chain_of_thought = [f"To get to the correct answer we have to perform {example['Type']}."]
+                for idx, (num1, operator, num2) in enumerate(steps):
                     num1 = str(int_[num1]) if str(num1).startswith("int") else str(num1)
                     num2 = str(int_[num2]) if str(num2).startswith("int") else str(num2)
                     int_[f"int{idx}"] = eval(num1 + operator + num2)
 
-                    cot = f"{'First' if idx == 0 else 'Then'} we {operator_to_verb[operator]} "
+                    cot = f"{'First we' if (idx == 0 and len(steps) > 1) else 'Then we' if (idx > 0 and len(steps) > 1) else 'We'} {operator_to_verb[operator]} "
 
                     if operator == "+":
                         cot += f"{num1} to {num2} "
@@ -246,10 +221,10 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
     
     def _decompose_equation(self, equation, idx=0):
         # special case equation single number no operator
-        if equation == "number0":
+        if equation.replace('.', '', 1).isdigit():
             return []
 
-        pattern = "[+\-/*] (number[0-9]|int[0-9]|[0-9]+(\.[0-9]+)?) (number[0-9]|int[0-9]|[0-9]+(\.[0-9]+)?)"
+        pattern = r"\( (int[0-9]|[0-9]+(\.[0-9]+)?) ([+\-*/]) (int[0-9]|[0-9]+(\.[0-9]+)?) \)"
         if equation == f"int{idx-1}":
             return []
         else:
@@ -257,7 +232,7 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
             assert (result), equation
             # assert (len(re.findall(pattern, equation)) == 1), equation
             equation = equation[:result.span()[0]] + "int" + str(idx) + equation[result.span()[1]:]
-            return [result.group().split(" ")] + self._decompose_equation(equation, idx+1)
+            return [[result.group(1), result.group(3), result.group(4)]] + self._decompose_equation(equation, idx+1)
 
 
 # This template is based on the following template from the datasets package:
