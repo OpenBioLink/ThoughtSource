@@ -201,12 +201,20 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
                     cot += f"and get {int_[f'int{idx}']}."
 
                     chain_of_thought.append(cot)
+
+
+                question = example["Body"]
+                if example["Body"][-1] != ".":
+                    question += ","
+                    example["Question"] = example["Question"][0].lower() + example["Question"][1:]
+                question += " " + example["Question"]
+
                         
                 example_ = {
                     "id": key,
                     "question_id": key,
                     "document_id": key,
-                    "question": example["Question"],
+                    "question": question,
                     "type": "number",
                     "cot_type": "list",
                     "choices": [],
