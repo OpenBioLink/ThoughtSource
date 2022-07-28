@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import os
+import re
 import json
 from typing import List, Tuple, Dict
 
@@ -226,17 +227,10 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                 example["question_text"] = example["question_text"] + "?" if example["question_text"][-1] != "?" else example["question_text"]
 
                 # Detokenization
-                cot = [x.strip() for x in cot]
-                for punct in ",;.:-_!?')]}/":
-                    cot = [x.replace(f" {punct}", punct) for x in cot]
-                    example["question_text"] = example["question_text"].replace(f" {punct}", punct)
-                    example["title_text"] = example["title_text"].replace(f" {punct}", punct)
-                    example["paragraph_text"] = example["paragraph_text"].replace(f" {punct}", punct)
-                for punct in "{[(/":
-                    cot = [x.replace(f"{punct} ", punct) for x in cot]
-                    example["question_text"] = example["question_text"].replace(f"{punct} ", punct)
-                    example["title_text"] = example["title_text"].replace(f"{punct} ", punct)
-                    example["paragraph_text"] = example["paragraph_text"].replace(f"{punct} ", punct)
+                cot = [self._untokenize(x.strip()) for x in cot]
+                example["question_text"] = self._untokenize(example["question_text"])
+                example["title_text"] = self._untokenize(example["title_text"])
+                example["paragraph_text"] = self._untokenize(example["paragraph_text"])
 
                 example_ = {
                         "id": example["example_id"],
@@ -254,6 +248,22 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                         "answer_after_feedback": None,
                     }
                 yield key, example_
+
+    def _untokenize(self, text):
+        """
+        Untokenizing a text undoes the tokenizing operation, restoring
+        punctuation and spaces to the places that people expect them to be.
+        Ideally, `untokenize(tokenize(text))` should be identical to `text`,
+        except for line breaks.
+        """
+        step1 = text.replace("`` ", '"').replace(" ''", '"').replace('. . .',  '...')
+        step2 = step1.replace(" ( ", " (").replace(" ) ", ") ")
+        step3 = re.sub(r' ([.,:;?!%]+)([ \'"`])', r"\1\2", step2)
+        step4 = re.sub(r' ([.,:;?!%]+)$', r"\1", step3)
+        step5 = step4.replace(" '", "'").replace(" n't", "n't").replace(
+            "can not", "cannot")
+        step6 = step5.replace(" ` ", " '")
+        return step6.strip()
 
 if __name__ == "__main__":
     datasets.load_dataset(__file__)
