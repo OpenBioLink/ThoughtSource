@@ -2,7 +2,7 @@
 
 *You can browse datasets on the hosted version of [ThoughtSource Dataset Viewer](http://thought.samwald.info).*
 
-![Dataset viewer example](/res/dataset-viewer.PNG)
+![Dataset viewer example](/resources/images/dataset-viewer.PNG)
 
 ## Setup
 
