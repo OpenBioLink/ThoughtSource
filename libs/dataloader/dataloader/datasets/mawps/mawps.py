@@ -178,7 +178,8 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
             }
 
             for key, example in data.iterrows():
-
+                
+                example["Question"] = self._untokenize(example["Question"])
                 all_numbers = {f"number{i}": x for i,x in enumerate([float(x) for x in example["Numbers"].split(" ")])}
                 for number_id, number in all_numbers.items():
                     example["Question"] = example["Question"].replace(number_id, str(number))
@@ -194,7 +195,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                     num2 = str(int_[num2]) if str(num2).startswith("int") else str(num2)
                     int_[f"int{idx}"] = eval(num1 + operator + num2)
 
-                    cot = f"{'First' if idx == 0 else 'Then'} we {operator_to_verb[operator]} "
+                    cot = f"{'First we' if (idx == 0 and len(steps) > 1) else 'Then we' if (idx > 0 and len(steps) > 1) else 'We'} {operator_to_verb[operator]} "
 
                     if operator == "+":
                         cot += f"{num1} to {num2} "
@@ -239,6 +240,22 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
             # assert (len(re.findall(pattern, equation)) == 1), equation
             equation = equation[:result.span()[0]] + "int" + str(idx) + equation[result.span()[1]:]
             return [result.group().split(" ")] + self._decompose_equation(equation, idx+1)
+
+    def _untokenize(self, text):
+        """
+        Untokenizing a text undoes the tokenizing operation, restoring
+        punctuation and spaces to the places that people expect them to be.
+        Ideally, `untokenize(tokenize(text))` should be identical to `text`,
+        except for line breaks.
+        """
+        step1 = text.replace("`` ", '"').replace(" ''", '"').replace('. . .',  '...')
+        step2 = step1.replace(" ( ", " (").replace(" ) ", ") ")
+        step3 = re.sub(r' ([.,:;?!%]+)([ \'"`])', r"\1\2", step2)
+        step4 = re.sub(r' ([.,:;?!%]+)$', r"\1", step3)
+        step5 = step4.replace(" '", "'").replace(" n't", "n't").replace(
+            "can not", "cannot")
+        step6 = step5.replace(" ` ", " '")
+        return step6.strip()
 
 
 # This template is based on the following template from the datasets package:
