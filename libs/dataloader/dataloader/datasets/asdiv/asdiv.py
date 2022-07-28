@@ -17,6 +17,7 @@ import os
 import re
 import pandas as pd
 from typing import List, Tuple, Dict
+import xml.etree.ElementTree as et
 
 import datasets
 from dataloader.utils import schemas
@@ -48,8 +49,12 @@ _HOMEPAGE = "https://github.com/chaochun/nlu-asdiv-dataset"
 _LICENSE = "MIT"
 
 _URLS = {
-    "train": "https://github.com/arkilpatel/SVAMP/raw/main/data/cv_asdiv-a/fold0/train.csv",
-    "dev": "https://github.com/arkilpatel/SVAMP/raw/main/data/cv_asdiv-a/fold0/dev.csv",
+    "corpus": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/ASDiv.xml",
+    "fold0": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold0.txt",
+    "fold1": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold1.txt",
+    "fold2": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold2.txt",
+    "fold3": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold3.txt",
+    "fold4": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold4.txt"
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -89,15 +94,15 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
         if self.config.schema == "source":
             features = datasets.Features(
                 {
-                    "question": datasets.Value("string"),
-                    "numbers": [datasets.Value("int32")],
-                    "equation": datasets.Value("string"),
-                    "answer": datasets.Value("float"),
-                    "group_nums": [datasets.Value("int32")],
-                    "grade": datasets.Value("int32"),
-                    "type": datasets.Value("string"),
-                    "body": datasets.Value("string"),
-                    "ques": datasets.Value("string"),
+                    "ID": datasets.Value("string"),
+                    "Body": datasets.Value("string"),
+                    "Question": datasets.Value("string"),
+                    "Solution-Type": datasets.Value("string"),
+                    "Answer": datasets.Value("string"),
+                    "Formula": datasets.Value("string"),
+                    "Grade": datasets.Value("int32"),
+                    "Class": datasets.Value("string"),
+                    "Source": datasets.Value("string"),
                 }
             )
         elif self.config.schema == "thoughtsource":
@@ -114,41 +119,41 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
         
-        data_dir = dl_manager.download_and_extract(_URLS)
+        files = dl_manager.download_and_extract(_URLS)
 
         return [
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
                 gen_kwargs={
-                    "data_dir": data_dir,
+                    "corpuspath": files["corpus"],
+                    "folds": [files[f"fold{x}"] for x in [0,1,2,3,4]]
                 },
             ),
         ]
 
-    def _generate_examples(self, data_dir) -> Tuple[int, Dict]:
+    def _generate_examples(self, corpuspath, folds) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
+
+        ids = set()
+        for fold in folds:
+            with open(fold) as infile:
+                content = infile.readlines()
+                for id in content:
+                    ids.add(id.strip())
         
-        train = pd.read_csv(data_dir["train"])
-        dev = pd.read_csv(data_dir["dev"])
-        data = pd.concat([train, dev], ignore_index=True)
+        tree = et.parse(corpuspath)
+        problems = tree.findall("ProblemSet/Problem")
+        problems = [x for x in problems if x.attrib["ID"] in ids]
+
 
         if self.config.schema == "source":
-            for key, example in data.iterrows():
-                
-                all_numbers = {f"number{i}": x for i,x in enumerate([float(x) for x in example["Numbers"].split(" ")])}
-                for number_id, number in all_numbers.items():
-                    example["Question"] = example["Question"].replace(number_id, str(number))
-                example_ = {
-                    "question": example["Question"],
-                    "numbers": [float(x) for x in example["Numbers"].split(" ")],
-                    "equation": example["Equation"],
-                    "answer": float(example["Answer"]),
-                    "group_nums": [int(x.strip()) for x in example["group_nums"][1:-1].split(",")],
-                    "grade": example["Grade"],
-                    "type": example["Type"],
-                    "body": example["Body"],
-                    "ques": example["Ques_Statement"],
-                }
+            
+            for key, example in enumerate(problems):
+                example_ = example.attrib
+                if "Class" not in example_:
+                    example_["Class"] = None
+                for child in example:
+                    example_[child.tag] = child.text
                 yield key, example_
 
         elif self.config.schema == "thoughtsource":
@@ -172,24 +177,22 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                 "/": "divide"
             }
 
-            for key, example in data.iterrows():
+            for key, example in enumerate(problems):
 
-                all_numbers = {f"number{i}": x for i,x in enumerate([float(x) for x in example["Numbers"].split(" ")])}
-                for number_id, number in all_numbers.items():
-                    example["Question"] = example["Question"].replace(number_id, str(number))
+                formula = example.find("Formula").text.replace(" ", "")
+                equation, ans = formula.split("=")
+                assert ("r" in ans or float(ans)), f"Answer is not number {ans}"
 
-                steps = self._decompose_equation(example["Equation"])
+                steps = self._decompose_equation(equation)
 
                 int_ = {}
                 chain_of_thought = []
-                for idx, (operator, num1, num2) in enumerate(steps):
-                    num1 = all_numbers.get(num1, num1)
-                    num2 = all_numbers.get(num2, num2)
+                for idx, (num1, operator, num2) in enumerate(steps):
                     num1 = str(int_[num1]) if str(num1).startswith("int") else str(num1)
                     num2 = str(int_[num2]) if str(num2).startswith("int") else str(num2)
                     int_[f"int{idx}"] = eval(num1 + operator + num2)
 
-                    cot = f"{'First' if idx == 0 else 'Then'} we {operator_to_verb[operator]} "
+                    cot = f"{'First we' if (idx == 0 and len(steps) > 1) else 'Then we' if (idx > 0 and len(steps) > 1) else 'We'} {operator_to_verb[operator]} "
 
                     if operator == "+":
                         cot += f"{num1} to {num2} "
@@ -202,38 +205,44 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                     cot += f"and get {int_[f'int{idx}']}."
 
                     chain_of_thought.append(cot)
-                        
+
                 example_ = {
-                    "id": key,
-                    "question_id": key,
-                    "document_id": key,
-                    "question": example["Question"],
+                    "id": example.attrib["ID"],
+                    "question_id": example.attrib["ID"],
+                    "document_id": example.attrib["ID"],
+                    "question": " ".join([example.find("Body").text, example.find("Question").text]),
                     "type": "number",
                     "cot_type": "list",
                     "choices": [],
                     "context": "",
                     "cot": chain_of_thought,
-                    "answer": [example["Answer"]],
+                    "answer": [example.find("Answer").text],
                     "feedback": [],
                     "cot_after_feedback": [],
                     "answer_after_feedback": [],
                 }
                 yield key, example_
+            
     
     def _decompose_equation(self, equation, idx=0):
+
+        equation = equation.replace(" ", "")
+
         # special case equation single number no operator
-        if equation == "number0":
+        if equation.replace('.', '', 1).isdigit():
             return []
 
-        pattern = "[+\-/*] (number[0-9]|int[0-9]|[0-9]+(\.[0-9]+)?) (number[0-9]|int[0-9]|[0-9]+(\.[0-9]+)?)"
         if equation == f"int{idx-1}":
             return []
         else:
+            pattern = r"\((int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)\)"
             result = re.search(pattern, equation)
+            if not result:
+                pattern = r"(int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)"
+                result = re.search(pattern, equation)
             assert (result), equation
-            # assert (len(re.findall(pattern, equation)) == 1), equation
             equation = equation[:result.span()[0]] + "int" + str(idx) + equation[result.span()[1]:]
-            return [result.group().split(" ")] + self._decompose_equation(equation, idx+1)
+            return [[result.group(1), result.group(3), result.group(4)]] + self._decompose_equation(equation, idx+1)
 
 
 # This template is based on the following template from the datasets package:
