@@ -192,8 +192,7 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
                     "cot": example["rationale"].split("\n"),
                     "answer": [choices[example["correct"]]],
                     "feedback": [],
-                    "cot_after_feedback": [],
-                    "answer_after_feedback": [],
+                    "generated_cot": []
                 }
                 yield key, example_
 

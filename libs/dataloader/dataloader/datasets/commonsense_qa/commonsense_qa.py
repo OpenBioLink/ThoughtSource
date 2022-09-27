@@ -205,8 +205,7 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                     "cot": [x.capitalize() for x in sent_tokenize(ecqa[example["id"]])] if example["id"] in ecqa else [],
                     "answer": [choices[example["answerKey"]]] if "answerKey" in example else [],
                     "feedback": [],
-                    "cot_after_feedback": [],
-                    "answer_after_feedback": [],
+                    "generated_cot": []
                 }
                 yield key, example_
 

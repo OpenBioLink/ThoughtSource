@@ -173,8 +173,7 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
                     "cot": chain_of_thought,
                     "answer": [answer],
                     "feedback": [],
-                    "cot_after_feedback": [],
-                    "answer_after_feedback": [],
+                    "generated_cot": []
                 }
                 yield key, example_
 

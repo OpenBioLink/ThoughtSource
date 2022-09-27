@@ -221,8 +221,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                     "cot": chain_of_thought,
                     "answer": [example["Answer"]],
                     "feedback": [],
-                    "cot_after_feedback": [],
-                    "answer_after_feedback": [],
+                    "generated_cot": []
                 }
                 yield key, example_
     

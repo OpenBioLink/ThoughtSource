@@ -244,8 +244,7 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                         "cot": cot,
                         "answer": [x[0]["string"] for x in example["original_nq_answers"]],
                         "feedback": None,
-                        "cot_after_feedback": None,
-                        "answer_after_feedback": None,
+                        "generated_cot": []
                     }
                 yield key, example_
 

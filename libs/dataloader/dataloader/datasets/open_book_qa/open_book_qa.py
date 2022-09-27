@@ -182,8 +182,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
                     "cot": [example["fact1"]],
                     "answer": [answer],
                     "feedback": [],
-                    "cot_after_feedback": [],
-                    "answer_after_feedback": [],
+                    "generated_cot": []
                 }
                 
                 yield key, example_

@@ -196,8 +196,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                         "cot": example["facts"],
                         "answer": [example["answer"]],
                         "feedback": None,
-                        "cot_after_feedback": None,
-                        "answer_after_feedback": None,
+                        "generated_cot": []
                     }
                     yield key, example_
 
@@ -230,8 +229,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                         "cot": None,
                         "answer": None,
                         "feedback": None,
-                        "cot_after_feedback": None,
-                        "answer_after_feedback": None,
+                        "generated_cot": []
                     }
                     yield key, example_
 

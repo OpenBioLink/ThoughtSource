@@ -1,14 +1,15 @@
 import pathlib
 import importlib
+import io
 import json
 import os
 from typing import Iterable
 import pandas as pd
 import datasets as ds
 import pkgutil
+from collections import defaultdict
 
 TEMPLATES = json.loads(pkgutil.get_data(__name__, "templates.json"))
-print(TEMPLATES)
 
 class Collection:
 
@@ -94,10 +95,23 @@ class Collection:
     def clear(self):
         self.unload_datasets()
 
-    def dump(self, path_to_directory = "./dump"):
-        for name, dataset_dict in self._cache.items():
-            for split, data in dataset_dict.items():
-                data.to_json(pathlib.Path(path_to_directory) / name / f"{split}.json")
+    def dump(self, path_to_directory = "./dump", single_file=False):
+        if single_file:
+            d_dict = defaultdict(dict)
+            for name, dataset_dict in self._cache.items():
+                for split, data in dataset_dict.items():
+                    data_stream = io.BytesIO()
+                    data.to_json(data_stream)
+                    data_stream.seek(0)
+                    d_dict[name][split] = [json.loads(x.decode()) for x in data_stream.readlines()]
+
+            with open(f"all.json", "w") as outfile:
+                # use json library to prettify output
+                json.dump(d_dict, outfile, indent = 4)
+        else:
+            for name, dataset_dict in self._cache.items():
+                for split, data in dataset_dict.items():
+                    data.to_json(pathlib.Path(path_to_directory) / name / f"{split}.json")
 
     @property
     def all_train(self):

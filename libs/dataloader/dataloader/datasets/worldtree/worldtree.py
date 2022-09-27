@@ -216,8 +216,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
             "cot": cot,
             "answer": [example["answer"]],
             "feedback": [],
-            "cot_after_feedback": [],
-            "answer_after_feedback": [],
+            "generated_cot": []
         }
         return example_
 
