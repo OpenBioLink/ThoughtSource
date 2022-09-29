@@ -1,9 +1,9 @@
 {
     "instructions": {
-        "qa-1": "Answer the following question through step-by-step reasoning.",
-        "qa-2": "Answer the following question through careful, concise step-by-step reasoning.",
-        "qa-3": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\".",
-        "qa-4": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. Generate sub-questions that are required to answer the original question, answer them until you can answer the original question. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\"."
+        "qa-01": "Answer the following question through step-by-step reasoning.",
+        "qa-02": "Answer the following question through careful, concise step-by-step reasoning.",
+        "qa-03": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\".",
+        "qa-04": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. Generate sub-questions that are required to answer the original question, answer them until you can answer the original question. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\"."
     },
     "cot-triggers": {
         "kojima-01": "Answer: Let's think step by step.",
@@ -50,9 +50,9 @@
         "lievin-28": "Answer: Let’s use step by step Bayesian reasoning, given the medical nature of the question."
     },
     "answer-extractions":{
-        "kojima-1": "Therefore, the answer is",
-        "kojima-2": "Therefore,",
-        "kojima-3": "The answer is",
+        "kojima-01": "Therefore, the answer is",
+        "kojima-02": "Therefore,",
+        "kojima-03": "The answer is",
         "kojima-numerals": "Therefore, the answer (arabic numerals) is",
         "kojima-yes-no": "Therefore, the answer (Yes or No) is",
         "kojima-A-C": "Therefore, among A through C, the answer is",
