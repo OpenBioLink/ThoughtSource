@@ -7,9 +7,8 @@ from typing import Iterable
 import pandas as pd
 import datasets as ds
 import pkgutil
+from pathlib import Path
 from collections import defaultdict
-
-TEMPLATES = json.loads(pkgutil.get_data(__name__, "templates.json"))
 
 class Collection:
 
@@ -95,6 +94,7 @@ class Collection:
     def clear(self):
         self.unload_datasets()
 
+    """
     def dump(self, path_to_directory = "./dump", single_file=False):
         if single_file:
             d_dict = defaultdict(dict)
@@ -112,6 +112,19 @@ class Collection:
             for name, dataset_dict in self._cache.items():
                 for split, data in dataset_dict.items():
                     data.to_json(pathlib.Path(path_to_directory) / name / f"{split}.json")
+    """
+
+    def save_to_disk(self, path_to_directory = "datasets"):
+        for name, dataset_dict in self._cache.items():
+            dataset_dict.save_to_disk(f"{path_to_directory}/{name}")
+
+    def load_from_disk(self, path_to_directory = "datasets"):
+        for name in next(os.walk(path_to_directory))[1]:
+            self._cache[name] = ds.load_from_disk(os.path.join(path_to_directory, name))
+
+
+
+
 
     @property
     def all_train(self):
@@ -124,30 +137,4 @@ class Collection:
     @property
     def all_test(self):
         return ds.concatenate_datasets([self._cache[name]["test"] for name in self._cache if "test" in self._cache[name]])
-
-
-def apply_templates(item, answer_extraction=False, instruction_keys=None, cot_trigger_keys=None, answer_extraction_keys=None):
-
-    if not instruction_keys:
-        instruction_keys = TEMPLATES["instructions"].keys()
-    if not cot_trigger_keys:
-        cot_trigger_keys = TEMPLATES["cot-triggers"].keys()
-    if not answer_extraction_keys:
-        answer_extraction_keys = TEMPLATES["answer-extractions"].keys()
-
-    prompts = {}
-    if not answer_extraction:
-        for instruction_key in instruction_keys:
-            for cot_trigger_key in cot_trigger_keys: 
-                choices = '\n'.join([f'{chr(65+i)}) {example}' for i, example in enumerate(item['choices'])])
-                prompt = TEMPLATES["instructions"][instruction_key] + "\n\n" + item['question'] + "\n" + choices + "\n\n" + TEMPLATES["cot-triggers"][cot_trigger_key]
-                prompts[(f"instruction-{instruction_key}", f"cot-triggers-{cot_trigger_key}")] = prompt
-    else:
-        for answer_extraction_key in answer_extraction_keys:
-            choices = '\n'.join([f'{chr(65+i)}) {example}' for i, example in enumerate(item['choices'])])
-            cot = "\n".join(item["cot"])
-            prompt = item['question'] + "\n" + choices + "\n\n" + cot + "\n" + TEMPLATES["answer-extractions"][answer_extraction_key]
-            prompts[f"answer-extraction-{answer_extraction_key}"] = prompt
-
-    return prompts
 

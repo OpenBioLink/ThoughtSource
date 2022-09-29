@@ -16,9 +16,10 @@ features = datasets.Features(
         "cot": [datasets.Value("string")],
         "answer": [datasets.Value("string")],
         "generated_cot": [{
+            "templates_version": datasets.Value("string"),
             "instruction": datasets.Value("string"),
             "cot-trigger": datasets.Value("string"),
-            "answer": [{
+            "answers": [{
                 "answer-extraction": datasets.Value("string"),
                 "answer": datasets.Value("string"),
             }],
