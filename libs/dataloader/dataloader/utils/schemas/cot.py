@@ -20,7 +20,7 @@ features = datasets.Features(
             "cot-trigger": datasets.Value("string"),
             "answer": [{
                 "answer-extraction": datasets.Value("string"),
-                "answer": [datasets.Value("string")],
+                "answer": datasets.Value("string"),
             }],
             "cot": [datasets.Value("string")],
             "author": datasets.Value("string"),
