@@ -1,15 +1,15 @@
 # ThoughtSource⚡
 __A framework for the science of machine thinking__
 
-We aim to build a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
+We aim to build a central, open resource around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
 
 ## Roadmap
 
-1. Create a central repository of chain-of-thought (CoT) datasets converted to a standardized format. ✅
-2. Create a conceptual model of different CoT reasoning styles and phenomena.
-3. Create tools for exploring, diagnosing and evaluating CoT reasoning (based on performance, transparency and value-alignment).
-4. Unify CoT reasoning with learning from natural language feedback ([Scheurer 2022](https://arxiv.org/abs/2204.14146)) and argumentation/debate.
-5. Adapt CoT approaches to high-impact scientific use-cases such as biomedical research.
+1. Create a repository of chain-of-thought (CoT) datasets converted to a unified format. ✅
+2. Create a conceptual model of different CoT reasoning styles and errors.
+3. Create tools for diagnosing, annotating and evaluating CoT reasoning.
+4. Provide models fine-tuned on high-quality CoT data.
+4. Apply CoT reasoning to high-impact use-cases such as biomedical research.
 
 ## Framework
 
@@ -40,4 +40,3 @@ We have converted the following datasets into a common chain-of-thought format:
 * __[worldtree](http://cognitiveai.org/explanationbank/):__ Scientific question-answering data from the WorldTree v2 dataset ([Xie 2020](https://aclanthology.org/2020.lrec-1.671/))
 
 We are working on collecting and generating additional datasets, and on further improving the quality of existing datasets (see [dataset issues](https://github.com/OpenBioLink/ThoughtSource/issues?q=is%3Aissue+label%3Adataset)). We welcome suggestions for the inclusion of other datasets!
-
