@@ -239,17 +239,14 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                         inferral = inferral.replace(int_id, value)
 
                     for stmt in inferral.split("&"):
-                        stmt = stmt.strip()
-
-                        for punct in [",", ";", ".", ":", "!", "?"]:
-                            stmt = stmt.replace(f" {punct} ", punct)
+                        stmt = self._untokenize(stmt)
 
                         if "->" in stmt:
                             stmt, therefore = stmt.split("->")
-                            cot_.append(stmt.strip().capitalize() + ".")
-                            cot_.append("Therefore, " + therefore.strip()  + ".")
+                            cot_.append(self._untokenize(stmt).capitalize() + ".")
+                            cot_.append("Therefore, " + self._untokenize(therefore)  + ".")
                         else:
-                            cot_.append(stmt.strip().capitalize() + ".")
+                            cot_.append(self._untokenize(stmt).capitalize() + ".")
 
                 example_ = {
                     "id": example["id"],
@@ -268,6 +265,21 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
 
                 yield key, example_
 
+    def _untokenize(self, text):
+        """
+        Untokenizing a text undoes the tokenizing operation, restoring
+        punctuation and spaces to the places that people expect them to be.
+        Ideally, `untokenize(tokenize(text))` should be identical to `text`,
+        except for line breaks.
+        """
+        step1 = text.replace("`` ", '"').replace(" ''", '"').replace('. . .',  '...')
+        step2 = step1.replace(" ( ", " (").replace(" ) ", ") ")
+        step3 = re.sub(r' ([.,:;?!%]+)([ \'"`])', r"\1\2", step2)
+        step4 = re.sub(r' ([.,:;?!%]+)$', r"\1", step3)
+        step5 = step4.replace(" '", "'").replace(" n't", "n't").replace(
+            "can not", "cannot")
+        step6 = step5.replace(" ` ", " '")
+        return step6.strip()
 
 # This template is based on the following template from the datasets package:
 # https://github.com/huggingface/datasets/blob/master/templates/new_dataset_script.py
