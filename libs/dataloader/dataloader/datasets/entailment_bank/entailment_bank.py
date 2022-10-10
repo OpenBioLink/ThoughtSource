@@ -217,19 +217,39 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                 yield key, example
 
         elif self.config.schema == "thoughtsource":
+
             for key, example in enumerate(data):
 
-                cot = example["full_text_proof"]
-
-                cot = cot.replace(" [AND] ", " and ")
-                cot = cot.replace(" [INFER] ", " infer that ")
+                cot = example["proof"]
 
                 pattern = r'int[0-9]: '
                 cot = re.sub(pattern, "", cot)
 
-                for int_id, value in example["meta"]["intermediate_conclusions"].items():
-                    cot = cot.replace(int_id, value)
-                cot = cot.split(" [BECAUSE] ")[1:]
+                assert (cot[-2:] == "; "), cot
+
+                cot_ = []
+                cot = cot.split(";")[:-1]
+                for inferral in cot:
+                    inferral = inferral.replace("hypothesis", example["hypothesis"])
+
+                    for sent_id, value in example["meta"]["triples"].items():
+                        inferral = inferral.replace(sent_id, value)
+
+                    for int_id, value in example["meta"]["intermediate_conclusions"].items():
+                        inferral = inferral.replace(int_id, value)
+
+                    for stmt in inferral.split("&"):
+                        stmt = stmt.strip()
+
+                        for punct in [",", ";", ".", ":", "!", "?"]:
+                            stmt = stmt.replace(f" {punct} ", punct)
+
+                        if "->" in stmt:
+                            stmt, therefore = stmt.split("->")
+                            cot_.append(stmt.strip().capitalize() + ".")
+                            cot_.append("Therefore, " + therefore.strip()  + ".")
+                        else:
+                            cot_.append(stmt.strip().capitalize() + ".")
 
                 example_ = {
                     "id": example["id"],
@@ -240,7 +260,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                     "cot_type": "list",
                     "choices": [],
                     "context": "",
-                    "cot": cot,
+                    "cot": cot_,
                     "answer": [example["answer"]],
                     "feedback": [],
                     "generated_cot": []
