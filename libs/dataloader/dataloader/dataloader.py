@@ -94,7 +94,6 @@ class Collection:
     def clear(self):
         self.unload_datasets()
 
-    """
     def dump(self, path_to_directory = "./dump", single_file=False):
         if single_file:
             d_dict = defaultdict(dict)
@@ -112,7 +111,6 @@ class Collection:
             for name, dataset_dict in self._cache.items():
                 for split, data in dataset_dict.items():
                     data.to_json(pathlib.Path(path_to_directory) / name / f"{split}.json")
-    """
 
     def save_to_disk(self, path_to_directory = "datasets"):
         for name, dataset_dict in self._cache.items():
