@@ -37,7 +37,7 @@ def generate_and_extract(data, config):
     if isinstance(data, ds.arrow_dataset.Dataset):
         n_samples = config['idx_range'][1] - config['idx_range'][0] if (('idx_range' in config) or (config['idx_range'] is None)) else len(data)
     elif isinstance(data, ds.dataset_dict.DatasetDict):
-        n_samples = config['idx_range'][1] - config['idx_range'][0] if (('idx_range' in config) or (config['idx_range'] is None)) else sum([len(x) for x in data])
+        n_samples = (config['idx_range'][1] - config['idx_range'][0]) * len(data) if (('idx_range' in config) or (config['idx_range'] is None)) else sum([len(x) for x in data])
     else:
         raise ValueError("Not recognized data")
 
@@ -51,6 +51,8 @@ def generate_and_extract(data, config):
     if "debug" in config and not config["debug"]:
         warning = f"You are about to call the openai API which produces costs." + "\n"
         warning += f"Due to your settings you are about to call the openai API in total {n_total} times." + "\n"
+        warning += f"Number API calls for CoT generation: n_samples * n_instruction_keys * n_cot_trigger_keys" + "\n"
+        warning += f"Number API calls for answer extraction: n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys" + "\n"
         warning += f"Do you want to continue? y/n" + "\n"
         print(warning)
         ans = input()
