@@ -192,7 +192,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                         "type": "bool",
                         "cot_type": "set",
                         "choices": [],
-                        "context": None,
+                        "context": "",
                         "cot": example["facts"],
                         "answer": [example["answer"]],
                         "feedback": None,
@@ -225,9 +225,9 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                         "type": "bool",
                         "cot_type": None,
                         "choices": [],
-                        "context": None,
-                        "cot": None,
-                        "answer": None,
+                        "context": "",
+                        "cot": [],
+                        "answer": "",
                         "feedback": None,
                         "generated_cot": []
                     }
