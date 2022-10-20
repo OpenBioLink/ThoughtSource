@@ -10,9 +10,35 @@ import pkgutil
 from pathlib import Path
 from collections import defaultdict
 
+
+from contextlib import contextmanager,redirect_stderr,redirect_stdout
+from os import devnull
+
+@contextmanager
+def suppress_stdout_stderr():
+    """A context manager that redirects stdout and stderr to devnull"""
+    with open(devnull, 'w') as fnull:
+        with redirect_stderr(fnull) as err, redirect_stdout(fnull) as out:
+            yield (err, out)
+
+# Collection is a class that represents a collection of datasets.
 class Collection:
 
-    def __init__(self, names=None):
+    def __init__(self, names=None, verbose=True):
+        """
+        The function takes in a list of names and a boolean value. If the boolean value is true, it will
+        print out the progress of the function. If the boolean value is false, it will not print out the
+        progress of the function. If the list of names is "all", it will load all the datasets. If the
+        list of names is a list, it will load the datasets in the list.
+        
+        :param names: List of dataset names to load. If None, load no dataset. If "all", load all
+        datasets
+        :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
+        True (optional)
+        """
+        self.verbose = verbose
+        if not verbose:
+            ds.disable_progress_bar()
         self._cache = {}
         if names == "all":
             self.load_datasets()
@@ -20,15 +46,37 @@ class Collection:
             self.load_datasets(names)
 
     def __getitem__(self, key):
+        """
+        Returns a dataset. If the key is not in the cache, load the dataset.
+        
+        :param key: The name of the dataset to load
+        :return: The dataset is being returned.
+        """
         if key not in self._cache:
             self.load_datasets(names=[key])
         return self._cache[key]
   
-    def __setitem__(self, key, newvalue):
-        self._cache[key] = newvalue
+    def __setitem__(self, key, dataset):
+        """
+        The function takes in a key and a dataset and sets the key to the dataset.
+        
+        :param key: The key to store the dataset under
+        :param dataset: The dataset to be stored
+        """
+        self._cache[key] = dataset
 
     def __iter__(self):
+        """
+        The function is a generator that yields the loaded datasets as tuples (name, data).
+        """
         yield from self._cache.items()
+
+    def __len__(self):
+        """
+        The function returns the number of loaded datasets.
+        :return: The number of loaded datasets.
+        """
+        return len(self._cache)
 
     def __repr__(self):
         data = [
@@ -75,8 +123,12 @@ class Collection:
         """
         datasets = self._find_datasets(names)
         for name, script in datasets:
-            print(f"Loading {name}")
-            self._cache[name] = ds.load_dataset(str(script))
+            print(f"Loading {name}...")
+            if self.verbose:
+                self._cache[name] = ds.load_dataset(str(script))
+            else:
+                with suppress_stdout_stderr():
+                    self._cache[name] = ds.load_dataset(str(script))
 
     def unload_datasets(self, names=None):
         """
@@ -120,19 +172,27 @@ class Collection:
         for name in next(os.walk(path_to_directory))[1]:
             self._cache[name] = ds.load_from_disk(os.path.join(path_to_directory, name))
 
-
-
-
-
     @property
     def all_train(self):
+        """
+        It takes the training sets all the datasets in the cache and concatenates them into one big dataset
+        :return: A concatenated dataset of all the training data.
+        """
         return ds.concatenate_datasets([self._cache[name]["train"] for name in self._cache])
 
     @property
     def all_validation(self):
+        """
+        It takes the validation sets all the datasets in the cache and concatenates them into one big dataset
+        :return: A concatenated dataset of all the validation data.
+        """
         return ds.concatenate_datasets([self._cache[name]["validation"] for name in self._cache if "validation" in self._cache[name]])
 
     @property
     def all_test(self):
+        """
+        It takes the testing sets all the datasets in the cache and concatenates them into one big dataset
+        :return: A concatenated dataset of all the testing data.
+        """
         return ds.concatenate_datasets([self._cache[name]["test"] for name in self._cache if "test" in self._cache[name]])
 
