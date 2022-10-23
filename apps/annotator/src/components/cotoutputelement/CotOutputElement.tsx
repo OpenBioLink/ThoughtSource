@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { annotate, CotOutput, findExistingAnnotation } from '../../dtos/CotData';
 import { annotationList, FREETEXT, SentenceElement } from '../datasetentry/DatasetEntry';
 import { levenshtein } from '../levenshtein';
@@ -10,6 +10,7 @@ interface CotOutputElementProps {
   bestCot: boolean
   correctAnswer: string
   username: string
+  visualisationTreshold: number
   updateBestCot: () => void
   updateExportFile: () => void
 }
@@ -53,7 +54,9 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
 
   const sentenceOutputs = props.sentenceElements.map((sentenceElement, index) => {
     const color = getSimilarityBackgroundColor(sentenceElement?.similarityIndex)
-    return <span style={{ 'backgroundColor': color } as any}>{sentenceElement.sentence}</span>
+    const style = sentenceElement?.similarityScore != null && sentenceElement.similarityScore > props.visualisationTreshold ?
+      { 'backgroundColor': color } : {}
+    return <span style={style as any}>{sentenceElement.sentence}</span>
   })
 
   const answer = props.cotOutput.answers?.find(a => a['answer-extraction'] == "kojima-01")?.answer

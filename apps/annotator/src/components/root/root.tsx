@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import Slider from 'react-input-slider';
 import CotData from '../../dtos/CotData';
 import Annotator from '../annotator/annotator';
 import Login from '../login/login';
@@ -12,6 +13,8 @@ const Root: FC<RootProps> = () => {
   const [cotData, setCotData] = useState<CotData[]>()
   const [loggedIn, setLoggedIn] = useState(false)
   const [downloadData, setDownloadData] = useState<string>()
+
+  const [sliderX, setSliderX] = useState(0.5)
 
   function onFileRead(allData: any, cotData: CotData[]) {
     setAllData(allData)
@@ -33,11 +36,14 @@ const Root: FC<RootProps> = () => {
     {loggedIn ?
       <div>
         <div className={styles.Header}>
-          <span>ThoughtSource Annotator</span>
-          <a href={downloadData} download="export.json">Download current</a>
+          <span style={{ color: 'white' }}>ThoughtSource Annotator | </span>
+          <a href={downloadData} download="export.json" style={{ color: 'white' }}>Download current | </a>
+          <span style={{ color: 'white' }}>Visualisation treshold</span>
+          <Slider axis="x" x={sliderX} onChange={({ x }) => setSliderX(x)} xmin={0} xmax={1} xstep={0.05} />
         </div>
         <Annotator
           username={username as string}
+          visualisationTreshold={sliderX}
           cotData={cotData as CotData[]}
           anyUpdatePerformed={updateExportFile} />
       </div>

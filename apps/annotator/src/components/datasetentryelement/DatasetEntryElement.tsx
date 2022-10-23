@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import CotData, { findExistingAnnotation } from '../../dtos/CotData';
 import CotOutputElement from '../cotoutputelement/CotOutputElement';
 import { FAVORED, SentenceElement, SentenceElementDict, SimilarityInfo } from '../datasetentry/DatasetEntry';
@@ -7,6 +7,7 @@ import styles from './DatasetEntryElement.module.scss';
 interface DatasetEntryElementProps {
   cotData: CotData
   username: string
+  visualisationTreshold: number
   anyUpdatePerformed: () => void
 }
 
@@ -93,6 +94,7 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
         bestCot={bestCotIndex == index}
         correctAnswer={props.cotData.answer[0]}
         username={props.username}
+        visualisationTreshold={props.visualisationTreshold}
         updateBestCot={() => updateBestCot(index)}
         updateExportFile={props.anyUpdatePerformed} />
     </li>)
