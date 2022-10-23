@@ -1,0 +1,28 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+
+.Root {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.Header {
+    background-color: rebeccapurple;
+    position: sticky;
+    top: 0px;
+    width: 100vw;
+}
+
+body {
+    margin: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px
+}

@@ -1,0 +1,34 @@
+.CotOutputElement {
+    // keep all items the same width
+    // flex basis 0 -> they have the same starting point, then grow
+    //flex: 1 1 0px;
+
+
+    background-color: #EEEEEE;
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+
+    max-width: 400px;
+}
+
+.BestCot {
+    text-align: center;
+    margin: 5px;
+}
+
+.Annotations {
+    user-select: none;
+
+    @media screen and (min-width: 1200px) {
+        padding-left: 100px;
+    }
+
+    li {
+        padding-top: 5px;
+    }
+
+    input {
+        margin-right: 10px;
+    }
+}

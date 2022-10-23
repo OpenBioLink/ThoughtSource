@@ -1,0 +1,14 @@
+{
+    "instructions": {
+        "1": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. Generate sub-questions that are required to answer the original question, answer them until you can answer the original question. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\"."
+    },
+    "cot-triggers": {
+        "1": "Let's think step by step.",
+        "2": "Let's use step by step inductive reasoning, given the medical nature of the question."
+    },
+    "answer-extractions":{
+        "1": "Therefore, the answer is",
+        "2": "From this follows, that the answer is",
+        "3": "Following this reasoning, the answer is"
+    }
+}

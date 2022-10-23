@@ -1,0 +1,26 @@
+.DatasetEntryElement {
+    margin: 30px;
+    border-radius: 3px;
+
+    align-self: center;
+    max-width: 1400px;
+}
+
+.EntryHeader {
+    h3 {
+        margin-bottom: 5px;
+    }
+
+    margin-bottom: 20px;
+}
+
+.OutputsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    // at least 10 px between items
+    gap: 10px;
+}
