@@ -180,4 +180,4 @@ def get_color_for_sentence(sentence_index, similarities):
   return None
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(host='0.0.0.0')
