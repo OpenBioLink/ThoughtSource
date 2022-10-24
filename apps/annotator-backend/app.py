@@ -1,7 +1,39 @@
-from flask import Flask, jsonify, make_response, request
+import os
+from datetime import timedelta
+
+from flask import Flask, jsonify, make_response, request, session
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 app = Flask(__name__)
+
+app.secret_key = b'\x1d\x12\xc72\xf2\xd9\xcd\x92\x87/\x87P\x8e\xfe\xa0\xff[F\xe5S/\xa1\\\xe9'
+SESSION_ID = 'SESSION_ID'
+sessions_dict = {}
+
+
+@app.before_request
+def make_session_permanent():
+    if SESSION_ID in session:
+      print(f"already existed: {session[SESSION_ID]}")
+    else:
+      # Generate new session id
+      new_sid = os.urandom(10)
+      while new_sid in sessions_dict:
+        new_sid = os.urandom(10)
+      new_sid = 1234
+      session[SESSION_ID] = new_sid
+      sessions_dict[new_sid] = session
+      print(f"newly minted {new_sid}")
+
+    session.permanent = True
+    # default lifetime is 31 days
+    #app.permanent_session_lifetime = timedelta(minutes=5)
+
+@app.route("/backup", methods=['POST', 'OPTIONS'])
+def backup():
+    if request.method == "OPTIONS":
+        return _build_cors_preflight_response()
+    return _corsify_actual_response("OK")
 
 @app.route("/textcompare", methods=['POST', 'OPTIONS'])
 def textcompare():
@@ -10,6 +42,7 @@ def textcompare():
     data = request.get_json()
     sentences = data['sentences']
     lengths = data['lengths']
+    username = data['username']
 
     sentence_elements = create_sentence_elements(sentences, lengths)
     top_similarities = determine_top_similarities(sentence_elements, len(lengths))
