@@ -31,7 +31,8 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         sentences: sentences,
-        lengths: lengths
+        lengths: lengths,
+        username: props.username
       })
     }
 
