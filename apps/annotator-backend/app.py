@@ -4,41 +4,46 @@ from datetime import timedelta
 from flask import Flask, jsonify, make_response, request, session
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+from cors_handling import cors_handling
+
 app = Flask(__name__)
 
 app.secret_key = b'\x1d\x12\xc72\xf2\xd9\xcd\x92\x87/\x87P\x8e\xfe\xa0\xff[F\xe5S/\xa1\\\xe9'
 SESSION_ID = 'SESSION_ID'
 sessions_dict = {}
 
-
 @app.before_request
-def make_session_permanent():
-    if SESSION_ID in session:
-      print(f"already existed: {session[SESSION_ID]}")
-    else:
+def session_handling():
+    if SESSION_ID not in session:
       # Generate new session id
       new_sid = os.urandom(10)
       while new_sid in sessions_dict:
         new_sid = os.urandom(10)
-      new_sid = 1234
       session[SESSION_ID] = new_sid
       sessions_dict[new_sid] = session
-      print(f"newly minted {new_sid}")
+      print(f"New session {new_sid}")
+    else:
+      print(f"Existing session {session[SESSION_ID]}")
 
+    # Make session permanent, default lifetime is 31 days
     session.permanent = True
-    # default lifetime is 31 days
     #app.permanent_session_lifetime = timedelta(minutes=5)
 
+@app.route("/checkin", methods=['GET', 'POST', 'OPTIONS'])
+@cors_handling
+def checkin():
+  # TODO this
+  return {'text': "OK"}
+
 @app.route("/backup", methods=['POST', 'OPTIONS'])
+@cors_handling
 def backup():
-    if request.method == "OPTIONS":
-        return _build_cors_preflight_response()
-    return _corsify_actual_response("OK")
+    # TODO
+    return "TODO"
 
 @app.route("/textcompare", methods=['POST', 'OPTIONS'])
+@cors_handling
 def textcompare():
-    if request.method == "OPTIONS":
-        return _build_cors_preflight_response()
     data = request.get_json()
     sentences = data['sentences']
     lengths = data['lengths']
@@ -46,20 +51,7 @@ def textcompare():
 
     sentence_elements = create_sentence_elements(sentences, lengths)
     top_similarities = determine_top_similarities(sentence_elements, len(lengths))
-
-    return _corsify_actual_response(jsonify(top_similarities))
-
-def _build_cors_preflight_response():
-    response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "*")
-    response.headers.add("Access-Control-Allow-Methods", "*")
-    return response
-
-def _corsify_actual_response(response):
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    return response
-
+    return jsonify(top_similarities)
 
 # returns index of block for index of sentence (offset 0 for both)
 def get_block_index(index, lengths):
