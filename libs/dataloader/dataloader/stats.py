@@ -1,5 +1,6 @@
 import spacy
 import re
+import subprocess
 from nltk.util import ngrams
 from itertools import chain
 from rich import print as rprint
@@ -8,6 +9,13 @@ import pandas as pd
 from collections import Counter, defaultdict
 import plotly.express as px
 import plotly.graph_objects as go
+
+# download language package if not already installed
+if not spacy.util.is_package("en_core_web_sm"):
+    _ = subprocess.run("spacy download en_core_web_sm --quiet",
+        shell=True,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.STDOUT)
 
 nlp = spacy.load("en_core_web_sm")
 nlp.add_pipe("sentencizer")
