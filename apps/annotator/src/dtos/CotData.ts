@@ -55,7 +55,24 @@ export function annotate(cotOutput: CotOutput, key: string, value: any, author: 
     return annotation
 }
 
+export type SimilaritiesDict = Record<string, SimilarityInfo[]>
+
+export type SimilarityInfo = {
+    indices: number[]
+    similarity_score: number
+    index?: number
+}
+
+export type SentenceElementDict = Record<number, SentenceElement[]>
+
+export type SentenceElement = {
+    sentence: string,
+    similarityIndex?: number,
+    similarityScore?: number
+}
+
 type CotData = {
+    // Properties to interface with ThoughtSource
     id?: string
     question_id?: string
     document_id?: string
@@ -69,6 +86,11 @@ type CotData = {
 
     generated_cot: CotOutput[]
     feedback?: [string]
+
+    // Internal to annotator frontend
+    similarities?: SimilaritiesDict
+    sentences?: string[]    // Stores sentences of all generated_cot, seperated by full stops
+    lengths?: number[]      // Stores number of sentences for each generated_cot
 }
 
 export default CotData;

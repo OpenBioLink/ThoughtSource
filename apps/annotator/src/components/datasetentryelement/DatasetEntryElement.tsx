@@ -1,11 +1,13 @@
-import { FC, useEffect, useState } from 'react';
-import CotData, { findExistingAnnotation } from '../../dtos/CotData';
+import { FC, useState } from 'react';
+import CotData, { findExistingAnnotation, SentenceElement, SentenceElementDict, SimilarityInfo } from '../../dtos/CotData';
 import CotOutputElement from '../cotoutputelement/CotOutputElement';
-import { FAVORED, SentenceElement, SentenceElementDict, SimilarityInfo } from '../datasetentry/DatasetEntry';
+import { FAVORED } from '../datasetentry/DatasetEntry';
 import styles from './DatasetEntryElement.module.scss';
 
 interface DatasetEntryElementProps {
   cotData: CotData
+  similarityDict: SimilaritiesDict
+  selectedSimilarityType: string
   username: string
   visualisationTreshold: number
   anyUpdatePerformed: () => void
@@ -14,53 +16,15 @@ interface DatasetEntryElementProps {
 type SimilaritiesDict = Record<string, SimilarityInfo[]>
 
 const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
-  const [similarities, setSimilarities] = useState<SimilaritiesDict>({})
-  const [similarityType, setSimilarityType] = useState<string>()
+  //const [similarities, setSimilarities] = useState<SimilaritiesDict>({})
+  //const [similarityType, setSimilarityType] = useState<string>()
   const [bestCotIndex, setBestCotIndex] = useState<number>(props.cotData.generated_cot.findIndex(cotData => cotData['isFavored']))
 
+  const lengths = props.cotData.lengths
+  const sentences = props.cotData.sentences
 
-  // Previously in constructor
-  const answers = props.cotData.generated_cot.map(cotData => cotData.cot)
-  const splitAnswers = answers.map(answer => answer.split(". ")
-    .map((sentence, index, arr) => (index != arr.length - 1) ? sentence + ". " : sentence))
-
-  const lengths = splitAnswers.map(answerArray => answerArray.length)
-  const sentences = splitAnswers.flatMap(answerArray => answerArray)
-
-  // Previously in componentDidMount
-  useEffect(() => {
-    const requestOptions = {
-      method: 'POST',
-      credentials: 'include',
-      origin: 'http://localhost:3000',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        sentences: sentences,
-        lengths: lengths,
-        username: props.username
-      })
-    } as any
-
-    fetch('http://localhost:5000/textcompare', requestOptions)
-      .then(response => response.json())
-      .then((data: SimilaritiesDict) => {
-        // Store index of similarity to visualise colour later
-        for (let [key, similarityInfos] of Object.entries(data)) {
-          similarityInfos.forEach((value, index) => value.index = index)
-        }
-        setSimilarities(data)
-
-        // Initially show similarities for first algorithm
-        const firstKeyName = Object.keys(data).at(0)
-        setSimilarityType(firstKeyName)
-      })
-      .catch(error => {
-        console.log("Error fetching similarities")
-        console.log(error)
-      })
-  }, [])  // Pass an empty array to run callback on mount only.
+  const similarities = props.similarityDict
+  const similarityType = props.selectedSimilarityType
 
   // Previously methods of class
   function updateBestCot(bestCotIndex: number) {
@@ -78,8 +42,8 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
   function getBlockIndex(index: number) {
     let blockIndex = 0
     let currentLength = 0
-    while (blockIndex + 1 < lengths.length && index >= lengths[blockIndex] + currentLength) {
-      currentLength += lengths[blockIndex]
+    while (blockIndex + 1 < lengths!.length && index >= lengths![blockIndex] + currentLength) {
+      currentLength += lengths![blockIndex]
       blockIndex++
     }
     return blockIndex
@@ -91,7 +55,7 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
     return aggr
   }, {} as SentenceElementDict)
 
-  sentences.forEach((sentence, index) => {
+  sentences!.forEach((sentence, index) => {
     const blockIndex = getBlockIndex(index)
 
     // by contract, sentence can only appear once in entire similarities information

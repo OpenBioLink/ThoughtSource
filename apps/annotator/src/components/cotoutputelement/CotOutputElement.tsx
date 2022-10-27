@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { annotate, CotOutput, findExistingAnnotation } from '../../dtos/CotData';
-import { annotationList, FREETEXT, SentenceElement } from '../datasetentry/DatasetEntry';
+import { annotate, CotOutput, findExistingAnnotation, SentenceElement } from '../../dtos/CotData';
+import { annotationList, FREETEXT } from '../datasetentry/DatasetEntry';
 import { levenshtein } from '../levenshtein';
 import styles from './CotOutputElement.module.scss';
 
