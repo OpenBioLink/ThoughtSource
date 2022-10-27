@@ -45,6 +45,27 @@ def backup():
     # TODO
     return "TODO"
 
+@app.route("/compareall", methods=['POST', 'OPTIONS'])
+@cors_handling
+def compare_all():
+    data = request.get_json()
+    username = data['username']
+    entries = data['entries']
+
+    similarities_for_cots = []
+    for entry in entries:
+      sentences = entry['sentences']
+      lengths = entry['lengths']
+      similarities_by_methods = similarities_for_multple_methods(sentences, lengths)
+      similarities_for_cots.append(similarities_by_methods)
+    return jsonify(similarities_for_cots)
+
+def similarities_for_multple_methods(sentences, lengths):
+  similarities_by_methods = {}
+  similarities_by_methods['tfidf'] = calculate_with_tfidf(sentences, lengths)
+  #similarities_by_methods['jaccard'] = calculate_with_jaccard(sentences, lengths)
+  return similarities_by_methods
+
 @app.route("/textcompare", methods=['POST', 'OPTIONS'])
 @cors_handling
 def textcompare():
