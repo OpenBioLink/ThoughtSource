@@ -1,9 +1,26 @@
 .Dropdown {
+    display: inline;
+
+    span {
+        cursor: pointer;
+    }
+
     li {
         cursor: pointer;
     }
 
+    .selected {
+        background-color: violet;
+    }
+
+
     ul {
         list-style-type: none;
+
     }
+
+}
+
+li>.selected {
+    background-color: aqua;
 }

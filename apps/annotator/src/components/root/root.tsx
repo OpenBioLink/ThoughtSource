@@ -97,10 +97,10 @@ const Root: FC<RootProps> = () => {
     {loggedIn ?
       <div>
         <div className={styles.Header}>
-          <span style={{ color: 'white' }}>ThoughtSource Annotator | </span>
-          <a href={downloadData} download="export.json" style={{ color: 'white' }}>Download current | </a>
-          <Dropdown options={similarityTypes || []} onClick={setSelectedSimilarityType} />
-          <span style={{ color: 'white' }}>Visualisation treshold</span>
+          <span className={styles.Logo}>⚡ThoughtSource Annotator | </span>
+          <a href={downloadData} download="export.json">Download current | </a>
+          <Dropdown options={similarityTypes || []} onClick={setSelectedSimilarityType} currentChoice={selectedSimilarityType} />
+          <span>Visualisation treshold</span>
           <Slider axis="x" x={sliderX} onChange={({ x }) => setSliderX(x)} xmin={0} xmax={1} xstep={0.05} />
         </div>
         <Annotator
