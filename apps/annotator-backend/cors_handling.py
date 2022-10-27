@@ -8,7 +8,9 @@ def cors_handling(base_function):
         return _build_cors_preflight_response()
       return _corsify_actual_response(base_function())
 
-    # Renaming the function name:
+    # Renaming the function name
+    # (otherwise we get "AssertionError: View function mapping is overwriting an existing endpoint"
+    # as soon as we use the annotation on multiple routes)
     corse_response.__name__ = base_function.__name__
     return corse_response
 
