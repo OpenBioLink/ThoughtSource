@@ -31,8 +31,8 @@ class Collection:
         progress of the function. If the list of names is "all", it will load all the datasets. If the
         list of names is a list, it will load the datasets in the list.
         
-        :param names: List of dataset names to load. If None, load no dataset. If "all", load all
-        datasets
+        :param names: List of dataset names to load. One sigle dataset can also be given as string. 
+        If None, load no dataset. If "all", load all datasets
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
         """
@@ -44,6 +44,8 @@ class Collection:
             self.load_datasets()
         elif isinstance(names, list):
             self.load_datasets(names)
+        elif isinstance(names, str):
+            self.load_datasets([names])
 
     def __getitem__(self, key):
         """
