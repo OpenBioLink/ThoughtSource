@@ -69,18 +69,18 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
     sentenceElementsDict[blockIndex].push(sentenceElement)
   })
 
-  const resultElements = props.cotData.generated_cot?.map((cotOutput, index) =>
-    <li key={index}>
-      <CotOutputElement
-        cotOutput={cotOutput}
-        sentenceElements={sentenceElementsDict[index]}
-        bestCot={bestCotIndex == index}
-        correctAnswer={props.cotData.answer[0]}
-        username={props.username}
-        visualisationTreshold={props.visualisationTreshold}
-        updateBestCot={() => updateBestCot(index)}
-        updateExportFile={props.anyUpdatePerformed} />
-    </li>)
+  const resultElements = props.cotData.generated_cot?.map((cotOutput, index) => (
+    <CotOutputElement
+      key={props.cotData.id + "/" + index}
+      cotOutput={cotOutput}
+      sentenceElements={sentenceElementsDict[index]}
+      bestCot={bestCotIndex == index}
+      correctAnswer={props.cotData.answer[0]}
+      username={props.username}
+      visualisationTreshold={props.visualisationTreshold}
+      updateBestCot={() => updateBestCot(index)}
+      updateExportFile={props.anyUpdatePerformed} />
+  ))
 
   return <div className={styles.DatasetEntryElement}>
     <div className={styles.EntryHeader}>

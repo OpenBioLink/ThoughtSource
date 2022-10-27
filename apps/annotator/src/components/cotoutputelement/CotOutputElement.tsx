@@ -44,7 +44,7 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
     return null
   }
 
-  const annotationInputs = annotationList.map((annotationString, index) => <li key={index}>
+  const annotationInputs = annotationList.map((annotationString, index) => <li>
     <label><input
       type="checkbox" name="name"
       checked={findExistingAnnotation(props.cotOutput, annotationString)?.value == "true"}

@@ -1,1 +1,9 @@
-.Dropdown {}
+.Dropdown {
+    li {
+        cursor: pointer;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+}
