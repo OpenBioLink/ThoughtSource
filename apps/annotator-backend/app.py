@@ -1,10 +1,13 @@
 import os
 from datetime import timedelta
+from operator import le
 
 from flask import Flask, jsonify, make_response, request, session
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from cors_handling import cors_handling
+
+#from similarity_maximisation import calculate_with_tfidf, calculate_with_jaccard
 
 app = Flask(__name__)
 
@@ -33,6 +36,8 @@ def session_handling():
 @cors_handling
 def checkin():
   # TODO this
+  # Keep sessions for each username as well
+  # Think of fitting datastructure to prioritise either session or username (probably session first, then username)
   return {'text': "OK"}
 
 @app.route("/backup", methods=['POST', 'OPTIONS'])
@@ -49,9 +54,10 @@ def textcompare():
     lengths = data['lengths']
     username = data['username']
 
-    sentence_elements = create_sentence_elements(sentences, lengths)
-    top_similarities = determine_top_similarities(sentence_elements, len(lengths))
-    return jsonify(top_similarities)
+    similarities_by_methods = {}
+    similarities_by_methods['tfidf'] = calculate_with_tfidf(sentences, lengths)
+    #similarities_by_methods['jaccard'] = calculate_with_jaccard(sentences, lengths)
+    return jsonify(similarities_by_methods)
 
 # returns index of block for index of sentence (offset 0 for both)
 def get_block_index(index, lengths):
@@ -101,15 +107,24 @@ def remove_index_everywhere(sentence_elements, index_to_remove):
       sentence_element['block_similarities'][block_id] = [item for item in sentence_element['block_similarities'][block_id] if item['other_index'] is not index_to_remove]
   return sentence_elements
 
-def create_sentence_elements(sentences, lengths):
+def calculate_with_jaccard(sentences, lengths):
+  similarity_matrix = [[1, 0], [0, 1]]
+
+  return calculate_with_similarity_matrix(similarity_matrix, sentences, lengths)
+
+def calculate_with_tfidf(sentences, lengths):
   tfidf = TfidfVectorizer().fit_transform(sentences)
   # no need to normalise, since Vectorizer will return normalised tf-idf
   pairwise_similarity = tfidf * tfidf.T
-  result_array = pairwise_similarity.toarray()
-  
-  # PRINT to show similarity matrix
-  #print(result_array)
+  similarity_matrix = pairwise_similarity.toarray()
 
+  return calculate_with_similarity_matrix(similarity_matrix, sentences, lengths)
+
+def calculate_with_similarity_matrix(similarity_matrix, sentences, lengths):
+  sentence_elements = create_sentence_elements(similarity_matrix, sentences, lengths)
+  return determine_top_similarities(sentence_elements, len(lengths))
+
+def create_sentence_elements(similarity_matrix, sentences, lengths):
   # iterate over each sentence
   sentence_elements = []
   for i, sentence in enumerate(sentences):
@@ -130,7 +145,7 @@ def create_sentence_elements(sentences, lengths):
           # Iterate over all sentences of other blocks
           similarity_elements = []
           for other_sentence_index in range(current_length, current_length + length):
-              similarity = result_array[i][other_sentence_index]
+              similarity = similarity_matrix[i][other_sentence_index]
               if similarity > 0:
                   similarity_elements.append({
                       'other_index': other_sentence_index,
