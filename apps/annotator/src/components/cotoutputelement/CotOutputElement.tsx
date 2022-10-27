@@ -47,7 +47,7 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
   const annotationInputs = annotationList.map((annotationString, index) => <li>
     <label><input
       type="checkbox" name="name"
-      checked={findExistingAnnotation(props.cotOutput, annotationString)?.value == "true"}
+      checked={findExistingAnnotation(props.cotOutput, annotationString, props.username)?.value == "true"}
       onChange={(e) => { onAnnotationClicked(annotationString, e) }} />
       {annotationString}</label>
   </li>)
@@ -84,7 +84,7 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
     </div>
     <ul className={styles.Annotations}>
       {annotationInputs}
-      <input onBlur={onFreetext} value={findExistingAnnotation(props.cotOutput, FREETEXT)?.comment} title="freetext"></input>
+      <input onBlur={onFreetext} value={findExistingAnnotation(props.cotOutput, FREETEXT, props.username)?.comment} title="freetext"></input>
     </ul>  </div>
 }
 

@@ -33,7 +33,7 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
     props.cotData.generated_cot?.forEach((cotOutput, index) => {
       cotOutput.isFavored = bestCotIndex == index
       // find annotation for it
-      const annotation = findExistingAnnotation(cotOutput, FAVORED)
+      const annotation = findExistingAnnotation(cotOutput, FAVORED, props.username)
     })
 
     props.anyUpdatePerformed()

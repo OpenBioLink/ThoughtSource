@@ -24,13 +24,13 @@ export type CotOutput = {
     isFavored?: boolean
 }
 
-export function findExistingAnnotation(cotOutput: CotOutput, key: string) {
-    return cotOutput.annotations?.find(annotation => annotation.key == key)
+export function findExistingAnnotation(cotOutput: CotOutput, key: string, username: string) {
+    return cotOutput.annotations?.find(annotation => annotation.key == key && annotation.author == username)
 }
 
 export function annotate(cotOutput: CotOutput, key: string, value: any, author: string, comment: any) {
     const today = new Date().toISOString().slice(0, 10)
-    let annotation = findExistingAnnotation(cotOutput, key)
+    let annotation = findExistingAnnotation(cotOutput, key, author)
 
     if (!annotation) {
         annotation = {
