@@ -1,10 +1,29 @@
+import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 def calculate_with_jaccard(sentences, lengths):
-  similarity_matrix = [[1, 0], [0, 1]]
+  sentence_count = len(sentences)
+  similarity_matrix = np.ones([sentence_count, sentence_count])
 
-  return calculate_with_similarity_matrix(similarity_matrix, sentences, lengths)
+  for i in range(0, sentence_count):
+    for j in range(i + 1, sentence_count):
+      words_i = _split_sentence_into_words(sentences[i])
+      words_j = _split_sentence_into_words(sentences[j])
+      similarity_matrix[i, j] = _jaccard(words_i, words_j)
+      similarity_matrix[j, i] = _jaccard(words_i, words_j)
+  
+  return _calculate_with_similarity_matrix(similarity_matrix, sentences, lengths)
+
+def _split_sentence_into_words(sentence: str):
+  words = sentence.split(" ")
+  return [word.strip(" .,;") for word in words]
+
+#define Jaccard Similarity function
+def _jaccard(list1, list2):
+    intersection = len(list(set(list1).intersection(list2)))
+    union = (len(list1) + len(list2)) - intersection
+    return float(intersection) / union
 
 def calculate_with_tfidf(sentences, lengths):
   tfidf = TfidfVectorizer().fit_transform(sentences)
@@ -12,10 +31,10 @@ def calculate_with_tfidf(sentences, lengths):
   pairwise_similarity = tfidf * tfidf.T
   similarity_matrix = pairwise_similarity.toarray()
 
-  return calculate_with_similarity_matrix(similarity_matrix, sentences, lengths)
+  return _calculate_with_similarity_matrix(similarity_matrix, sentences, lengths)
 
 # Returns elements that contain the sentence indices (one or none for each block), and the similarity score.
-def calculate_with_similarity_matrix(similarity_matrix, sentences, lengths):
+def _calculate_with_similarity_matrix(similarity_matrix, sentences, lengths):
   sentence_elements = _create_sentence_elements(similarity_matrix, sentences, lengths)
   return _determine_top_similarities(sentence_elements, len(lengths))
 

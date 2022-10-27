@@ -49,7 +49,7 @@ def backup():
 @cors_handling
 def compare_all():
     data = request.get_json()
-    username = data['username']
+    #username = data['username']
     entries = data['entries']
 
     similarities_for_cots = []
@@ -63,7 +63,8 @@ def compare_all():
 def similarities_for_multple_methods(sentences, lengths):
   similarities_by_methods = {}
   similarities_by_methods['tfidf'] = calculate_with_tfidf(sentences, lengths)
-  #similarities_by_methods['jaccard'] = calculate_with_jaccard(sentences, lengths)
+  similarities_by_methods['jaccard'] = calculate_with_jaccard(sentences, lengths)
+  print(similarities_by_methods)
   return similarities_by_methods
 
 @app.route("/textcompare", methods=['POST', 'OPTIONS'])
@@ -76,7 +77,7 @@ def textcompare():
 
     similarities_by_methods = {}
     similarities_by_methods['tfidf'] = calculate_with_tfidf(sentences, lengths)
-    #similarities_by_methods['jaccard'] = calculate_with_jaccard(sentences, lengths)
+    similarities_by_methods['jaccard'] = calculate_with_jaccard(sentences, lengths)
     return jsonify(similarities_by_methods)
 
 if __name__ == "__main__":
