@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import CotData from '../../dtos/CotData';
 import styles from './login.module.scss';
 
@@ -9,6 +9,29 @@ interface LoginProps {
 }
 
 const Login: FC<LoginProps> = (props) => {
+
+  function makePostRequest() {
+
+  }
+
+  useEffect(() => {
+    const requestOptions = {
+      method: 'GET',
+      credentials: 'include',
+      origin: 'http://localhost:3000',
+    }
+
+    fetch('http://localhost:5000/checkin', requestOptions as any)
+      .then(response => response.json())
+      .then((data) => {
+        console.log("Success")
+        console.log(data)
+      })
+      .catch(error => {
+        console.log("Error request")
+        console.log(error)
+      })
+  }, [])  // Pass an empty array to run callback on mount only.
 
   function onFileChange(event: any) {
     const reader = new FileReader()

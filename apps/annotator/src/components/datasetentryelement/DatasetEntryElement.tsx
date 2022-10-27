@@ -11,8 +11,11 @@ interface DatasetEntryElementProps {
   anyUpdatePerformed: () => void
 }
 
+type SimilaritiesDict = Record<string, SimilarityInfo[]>
+
 const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
-  const [similarities, setSimilarities] = useState<SimilarityInfo[]>([])
+  const [similarities, setSimilarities] = useState<SimilaritiesDict>({})
+  const [similarityType, setSimilarityType] = useState<string>()
   const [bestCotIndex, setBestCotIndex] = useState<number>(props.cotData.generated_cot.findIndex(cotData => cotData['isFavored']))
 
 
@@ -28,19 +31,30 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
   useEffect(() => {
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      origin: 'http://localhost:3000',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         sentences: sentences,
         lengths: lengths,
         username: props.username
       })
-    }
+    } as any
 
     fetch('http://localhost:5000/textcompare', requestOptions)
       .then(response => response.json())
-      .then((data: SimilarityInfo[]) => {
-        data.forEach((value, index) => value.index = index)
+      .then((data: SimilaritiesDict) => {
+        // Store index of similarity to visualise colour later
+        for (let [key, similarityInfos] of Object.entries(data)) {
+          similarityInfos.forEach((value, index) => value.index = index)
+        }
         setSimilarities(data)
+
+        // Initially show similarities for first algorithm
+        const firstKeyName = Object.keys(data).at(0)
+        setSimilarityType(firstKeyName)
       })
       .catch(error => {
         console.log("Error fetching similarities")
@@ -81,7 +95,11 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
     const blockIndex = getBlockIndex(index)
 
     // by contract, sentence can only appear once in entire similarities information
-    const similarity = similarities?.find(similarity => similarity.indices?.find(i => i == index) != null)
+    let similarity
+    if (similarityType && similarities) {
+      const similaritiesForType = similarities[similarityType]
+      similarity = similaritiesForType.find(similarity => similarity.indices?.find(i => i == index) != null)
+    }
 
     const sentenceElement = { sentence: sentence, similarityIndex: similarity?.index, similarityScore: similarity?.similarity_score } as SentenceElement
     sentenceElementsDict[blockIndex].push(sentenceElement)

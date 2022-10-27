@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import Slider from 'react-input-slider';
 import CotData from '../../dtos/CotData';
 import Annotator from '../annotator/annotator';
+import Dropdown from '../dropdown/dropdown';
 import Login from '../login/login';
 import styles from './root.module.scss';
 
@@ -38,6 +39,9 @@ const Root: FC<RootProps> = () => {
         <div className={styles.Header}>
           <span style={{ color: 'white' }}>ThoughtSource Annotator | </span>
           <a href={downloadData} download="export.json" style={{ color: 'white' }}>Download current | </a>
+          <Dropdown options={{
+
+          }} />
           <span style={{ color: 'white' }}>Visualisation treshold</span>
           <Slider axis="x" x={sliderX} onChange={({ x }) => setSliderX(x)} xmin={0} xmax={1} xstep={0.05} />
         </div>
