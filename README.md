@@ -1,7 +1,13 @@
 # ThoughtSource⚡
 __A framework for the science of machine thinking__
 
-ThoughtSource⚡ is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
+ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
+
+![ThoughtSource overview 1](/resources/images/thoughtsource-overview-1-small.png)
+
+![ThoughtSource overview 2](/resources/images/thoughtsource-overview-2-small.png)
+
+![ThoughtSource overview 3](/resources/images/thoughtsource-overview-3-small.png)
 
 ## Roadmap
 
