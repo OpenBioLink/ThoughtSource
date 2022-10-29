@@ -35,7 +35,7 @@
      inkscape:window-x="841"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g113" />
+     inkscape:current-layer="text503" />
   <clipPath
      id="g14d790bc90c_0_30.0">
     <path
@@ -332,21 +332,15 @@
        d="m 397.98688,444.6108 v 0 17.86603 0 z"
        fill-rule="nonzero"
        id="path111" />
-    <text
-       xml:space="preserve"
-       style="font-size:16px;font-family:'Courier New';-inkscape-font-specification:'Courier New';fill:#565656;stroke-width:6.80315;stroke-linejoin:bevel"
-       x="257.29938"
-       y="230.30475"
-       id="text503"><tspan
-         sodipodi:role="line"
-         id="tspan501"
-         x="257.29938"
-         y="230.30475"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:Calibri">⚡</tspan><tspan
-         sodipodi:role="line"
-         x="257.29938"
-         y="252.54118"
-         id="tspan505"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial" /></text>
+    <g
+       aria-label="⚡
+"
+       id="text503"
+       style="font-size:16px;font-family:'Courier New';-inkscape-font-specification:'Courier New';fill:#565656;stroke-width:6.80315;stroke-linejoin:bevel">
+      <path
+         d="m 265.95561,223.97143 q 0,-0.13542 0.0833,-0.25 l 7.28124,-10.40624 q 0.0833,-0.11458 0.1875,-0.17708 0.11458,-0.0729 0.24999,-0.0729 0.16667,0 0.30209,0.11459 0.13541,0.10416 0.13541,0.28125 v 8.60415 q 0,0.14583 0.0625,0.28125 0.0625,0.125 0.16667,0.23958 0.10417,0.10417 0.22917,0.16667 0.13541,0.0625 0.28125,0.0625 h 2.62499 q 0.16667,0 0.27084,0.11458 0.10416,0.11458 0.10416,0.28125 0,0.15625 -0.0833,0.27083 l -7.19791,9.60415 q -0.15625,0.21875 -0.41666,0.21875 -0.23959,0 -0.39584,-0.16666 -0.14583,-0.16667 -0.14583,-0.39584 v -8.05207 q 0,-0.20833 -0.0833,-0.29166 -0.0833,-0.0833 -0.29167,-0.0833 h -2.98958 q -0.14583,0 -0.26041,-0.0937 -0.11459,-0.0937 -0.11459,-0.24999 z"
+         style="font-size:21.3333px;font-family:Calibri;-inkscape-font-specification:Calibri"
+         id="path8218" />
+    </g>
   </g>
 </svg>
