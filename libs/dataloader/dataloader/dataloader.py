@@ -4,6 +4,7 @@ import io
 import json
 import os
 from typing import Iterable
+from importlib_metadata import Deprecated
 import pandas as pd
 import datasets as ds
 import pkgutil
@@ -24,7 +25,7 @@ def suppress_stdout_stderr():
 # Collection is a class that represents a collection of datasets.
 class Collection:
 
-    def __init__(self, names=None, verbose=True):
+    def __init__(self, names=None, verbose=True, download_mode="reuse_dataset_if_exists"):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -35,8 +36,11 @@ class Collection:
         datasets
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
+        :param download_mode: "reuse_dataset_if_exists" (default), "reuse_cache_if_exists", "force_redownload"
+        see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
         """
         self.verbose = verbose
+        self.download_mode = download_mode
         if not verbose:
             ds.disable_progress_bar()
         self._cache = {}
@@ -90,10 +94,11 @@ class Collection:
         ]
         table = pd.DataFrame.from_records(data, columns=["Name", "Train", "Valid", "Test"])
         table = table.to_markdown(index=False, tablefmt="github")
-        not_loaded = [name for name, _ in self._find_datasets() if name not in self._cache]
+        not_loaded = [name for name, _ in Collection._find_datasets() if name not in self._cache]
         return table + "\n\nNot loaded: " + str(not_loaded)
 
-    def _find_datasets(self, names=None):
+    @staticmethod
+    def _find_datasets(names=None):
         path_to_biodatasets = (pathlib.Path(__file__).parent.absolute() / "datasets").resolve()
         if names is None:
             dataloader_scripts = sorted(
@@ -109,7 +114,7 @@ class Collection:
         return dataloader_scripts
 
     def _get_metadata(self):
-        for name, script_path in self._find_datasets():
+        for name, script_path in Collection._find_datasets():
             spec = importlib.util.spec_from_file_location("foo", script_path)
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
@@ -121,14 +126,14 @@ class Collection:
         
         :param names: A list of dataset names to load. If None, all datasets are loaded
         """
-        datasets = self._find_datasets(names)
+        datasets = Collection._find_datasets(names)
         for name, script in datasets:
             print(f"Loading {name}...")
             if self.verbose:
-                self._cache[name] = ds.load_dataset(str(script))
+                self._cache[name] = ds.load_dataset(str(script), download_mode=self.download_mode)
             else:
                 with suppress_stdout_stderr():
-                    self._cache[name] = ds.load_dataset(str(script))
+                    self._cache[name] = ds.load_dataset(str(script), download_mode=self.download_mode)
 
     def unload_datasets(self, names=None):
         """
@@ -146,7 +151,7 @@ class Collection:
     def clear(self):
         self.unload_datasets()
 
-    def dump(self, path_to_directory = "./dump", single_file=False):
+    def dump(self, path_to_file_or_directory = "./dump", single_file=False):
         if single_file:
             d_dict = defaultdict(dict)
             for name, dataset_dict in self._cache.items():
@@ -156,18 +161,62 @@ class Collection:
                     data_stream.seek(0)
                     d_dict[name][split] = [json.loads(x.decode()) for x in data_stream.readlines()]
 
-            with open(f"all.json", "w") as outfile:
+            if not path_to_file_or_directory.endswith(".json"):
+                path_to_file_or_directory = path_to_file_or_directory + ".json"
+
+            with open(path_to_file_or_directory, "w") as outfile:
                 # use json library to prettify output
                 json.dump(d_dict, outfile, indent = 4)
         else:
             for name, dataset_dict in self._cache.items():
                 for split, data in dataset_dict.items():
-                    data.to_json(pathlib.Path(path_to_directory) / name / f"{split}.json")
+                    data.to_json(pathlib.Path(path_to_file_or_directory) / name / f"{split}.json")
+                
+    def _replace(batch, data):
+        return data
+                
+    # pretty dirty loading function which presevers metadata (load and replace data :/ )
+    # metadata needed?
+    @staticmethod
+    def from_json(path_to_json, single_file=True, download_mode="reuse_dataset_if_exists"):
+        if single_file:
+            with open(path_to_json, "r") as infile:
+                content = json.load(infile)
 
+            scripts = {x[0]: x[1] for x in Collection._find_datasets(names=list(content.keys()))}
+
+            collection = Collection()
+            for dataset_name in content.keys():
+                info = ds.load_dataset_builder(str(scripts[dataset_name]), download_mode=download_mode).info
+                dataset_dict = dict()
+                for split_name in content[dataset_name].keys():
+
+                    split = None
+                    if split_name == "train":
+                        split = ds.Split.TRAIN
+                    elif split_name == "validation":
+                        split = ds.Split.VALIDATION
+                    elif split_name == "test":
+                        split = ds.Split.TEST
+
+                    dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict('series')
+                    dic = {k: list(v) for (k,v) in dic.items()}
+                    dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
+                collection[dataset_name] = ds.DatasetDict(dataset_dict)
+            return collection
+        else:
+            # TODO add ability to load directory dump (single_file=False)??  
+            raise NotImplementedError
+        
+
+
+
+    # Deprecated
     def save_to_disk(self, path_to_directory = "datasets"):
         for name, dataset_dict in self._cache.items():
             dataset_dict.save_to_disk(f"{path_to_directory}/{name}")
 
+    # Deprecated
     def load_from_disk(self, path_to_directory = "datasets"):
         for name in next(os.walk(path_to_directory))[1]:
             self._cache[name] = ds.load_from_disk(os.path.join(path_to_directory, name))
@@ -195,4 +244,3 @@ class Collection:
         :return: A concatenated dataset of all the testing data.
         """
         return ds.concatenate_datasets([self._cache[name]["test"] for name in self._cache if "test" in self._cache[name]])
-
