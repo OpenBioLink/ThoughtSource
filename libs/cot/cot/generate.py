@@ -1,3 +1,4 @@
+from logging import debug
 import os
 import openai
 import re
@@ -6,6 +7,10 @@ import time
 import json
 import pkgutil
 import datasets as ds
+
+# disable transformation (e.g. map) caching
+# https://huggingface.co/docs/datasets/v2.6.1/en/package_reference/main_classes#datasets.disable_caching
+ds.disable_caching()
 
 TEMPLATES = json.loads(pkgutil.get_data(__name__, "templates.json"))
 
@@ -48,26 +53,43 @@ def generate_and_extract(data, config):
     :return: the dataset with generated cots and extracted answers
     """
 
-    if "instruction_keys" not in config or not config["instruction_keys"]:
-        config["instruction_keys"] = TEMPLATES["instructions"].keys()
-    if "cot_trigger_keys" not in config or not config["cot_trigger_keys"]:
-        config["cot_trigger_keys"] = TEMPLATES["cot-triggers"].keys()
-    if "answer_extraction_keys" not in config or not config["answer_extraction_keys"]:
-        config["answer_extraction_keys"] = TEMPLATES["answer-extractions"].keys()
+    ds.disable_caching()
 
+    if "instruction_keys" not in config or not config["instruction_keys"]:
+        config["instruction_keys"] = [None] + list(TEMPLATES["instructions"].keys())
+    if "cot_trigger_keys" not in config or not config["cot_trigger_keys"]:
+        config["cot_trigger_keys"] = list(TEMPLATES["cot-triggers"].keys())
+    if "answer_extraction_keys" not in config or not config["answer_extraction_keys"]:
+        config["answer_extraction_keys"] = list(TEMPLATES["answer-extractions"].keys())
+
+    
+    # Inserts None at index 0 of instruction_keys to query without an explicit instruction
+    # Now it is asserted that there is at least one generation without an instruction
+    # TODO maybe add option to disable this?
+    # TODO maybe rethink this
+    if None not in config["instruction_keys"]:
+        config["instruction_keys"].insert(0, None)
+
+    
     if isinstance(data, ds.arrow_dataset.Dataset):
-        n_samples = config['idx_range'][1] - config['idx_range'][0] if (('idx_range' in config) or (config['idx_range'] is None)) else len(data)
+        if 'idx_range' in config and config['idx_range'] is not None:
+            n_samples = config['idx_range'][1] - config['idx_range'][0]
+        else:
+            n_samples = len(data)
     elif isinstance(data, ds.dataset_dict.DatasetDict):
-        n_samples = (config['idx_range'][1] - config['idx_range'][0]) * len(data) if (('idx_range' in config) or (config['idx_range'] is None)) else sum([len(x) for x in data])
+        if 'idx_range' in config and config['idx_range'] is not None:
+            n_samples = (config['idx_range'][1] - config['idx_range'][0]) * len(data)
+        else:
+            n_samples = sum([len(data[x]) for x in data])
     else:
         raise ValueError("Not recognized data")
 
-    n_samples = config['idx_range'][1] - config['idx_range'][0] if (('idx_range' in config) or (config['idx_range'] is None)) else len(data)
     n_instruction_keys = len(config["instruction_keys"])
     n_cot_trigger_keys = len(config["cot_trigger_keys"])
     n_answer_extraction_keys = len(config["answer_extraction_keys"])
 
     n_total = n_samples * n_instruction_keys * n_cot_trigger_keys + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
+    print(n_samples, n_instruction_keys, n_cot_trigger_keys, n_answer_extraction_keys)
 
     if True or ("debug" in config and not config["debug"]):
         warning = f"You are about to call the openai API which produces costs." + "\n"
@@ -81,7 +103,6 @@ def generate_and_extract(data, config):
             pass
         else:
             return
-
     return data.map(_generate_and_extract, with_indices=True, fn_kwargs=config)
 
 
@@ -97,7 +118,8 @@ def _generate_and_extract(
         instruction_keys=None, 
         cot_trigger_keys=None, 
         answer_extraction_keys=None,
-        debug=True
+        debug=True,
+        verbose=False
     ):
     """    
     The function takes in a JSON object (item) and generates a CoT (Chain-of-Thought) for each combination of 
@@ -118,7 +140,6 @@ def _generate_and_extract(
     :param debug: If True, will print out the prompts and generated text, defaults to True (optional)
     :return: item populated with various fields
     """
-
     if idx_range is None or (idx >= idx_range[0] and idx < idx_range[1]):
         pass
     else:
@@ -143,11 +164,11 @@ def _generate_and_extract(
                 "annotation": [],
             }
             template_version, generate_cot_prompt = get_cot_generation_prompt(item, instruction_key, cot_trigger_key)
-            print("\n-------------------COT TRIGGER-------------------")
-            print(generate_cot_prompt)
+            if verbose: print("\n-------------------COT TRIGGER-------------------")
+            if verbose: print(generate_cot_prompt)
             cot = query_gpt3(generate_cot_prompt, engine, temperature, max_tokens, api_time_interval, debug)
-            print("\n------------------GENERATED COT-------------------")
-            print(cot)
+            if verbose: print("\n------------------GENERATED COT-------------------")
+            if verbose: print(cot)
             generated_cot["cot"] = cot
             generated_cot["date"] = print_now(1)
 
@@ -157,21 +178,24 @@ def _generate_and_extract(
                     "answer": ""
                 }
                 _, answer_extraction_prompt = get_answer_extraction_prompt(item, cot, answer_extraction_key)
-                print("\n------------------ANSWER EXTRACTION-------------------")
-                print(TEMPLATES["answer-extractions"][answer_extraction_key])
+                if verbose: print("\n------------------ANSWER EXTRACTION-------------------")
+                if verbose: print(answer_extraction_prompt)
                 assert (_ == template_version), "Version mismatch cot trigger <-> answer extraction"
                 predicted_answer = query_gpt3(answer_extraction_prompt, engine, temperature, max_tokens, api_time_interval, debug)
-                print("\n------------------EXTRACTED ANSWER-------------------")
-                print(predicted_answer)
+                if verbose: print("\n------------------EXTRACTED ANSWER-------------------")
+                if verbose: print(predicted_answer)
                 answer["answer"] = predicted_answer
                 generated_cot["answers"].append(answer)
             item["generated_cot"].append(generated_cot)
+
     return item
 
 
 def get_cot_generation_prompt(item, instruction_key, cot_trigger_key):
     choices = '\n'.join([f'{chr(65+i)}) {example}' for i, example in enumerate(item['choices'])])
-    prompt = TEMPLATES["instructions"][instruction_key] + "\n\n" + item['question'] + "\n" + choices + "\n\n" + TEMPLATES["cot-triggers"][cot_trigger_key]
+    if instruction_key is not None:
+        prompt = TEMPLATES["instructions"][instruction_key] + "\n\n"
+    prompt = item['question'] + "\n" + choices + "\n\n" + TEMPLATES["cot-triggers"][cot_trigger_key]
     return TEMPLATES["version"], prompt
 
 def get_answer_extraction_prompt(item, generated_cot, answer_extraction_key):
