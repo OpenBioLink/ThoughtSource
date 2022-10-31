@@ -1,5 +1,6 @@
 # dumped files (collections saved to jsons via dump function)
 dump/
+notebooks/example/testing/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
