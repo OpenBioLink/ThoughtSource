@@ -24,8 +24,6 @@ const Login: FC<LoginProps> = (props) => {
         [FILE_NAME_KEY]: data[FILE_NAME_KEY],
         [FILE_CONTENT_KEY]: data[FILE_CONTENT_KEY]
       })
-      console.log("Checkin success")
-      console.log(data)
     })
   }
 
@@ -54,9 +52,6 @@ const Login: FC<LoginProps> = (props) => {
     props.onFileRead(filename, data, stateEntries)
   }
 
-  console.log("trying the session element")
-  console.log(state)
-  console.log(state ? 'true' : 'false')
   const existingSessionElement = state ? <div onClick={() => {
     props.onUsername(state[USERNAME_KEY])
     onFileRead(state[FILE_NAME_KEY], state[FILE_CONTENT_KEY])
