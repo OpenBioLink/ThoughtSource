@@ -1,63 +1,67 @@
 import re
+import datasets as ds
+from collections import defaultdict
 
 # ver 0.2
-def answer_cleansing(args, pred):
-
-    print("pred_before : " + pred)
-    
-    if args.method in ("few_shot", "few_shot_cot"):
-        preds = pred.split(args.direct_answer_trigger_for_fewshot)
-        answer_flag = True if len(preds) > 1 else False 
-        pred = preds[-1]
-
-    if args.dataset in ("aqua", "commonsensqa"):
-        pred = re.findall(r'A|B|C|D|E', pred)
-    elif args.dataset == "bigbench_date":
-        pred = re.findall(r'A|B|C|D|E|F', pred)
-    elif args.dataset in ("object_tracking"):
-        pred = re.findall(r'A|B|C', pred)
-    elif args.dataset in ("gsm8k", "addsub", "multiarith", "svamp", "singleeq"):
-        pred = pred.replace(",", "")
-        pred = [s for s in re.findall(r'-?\d+\.?\d*', pred)]
-    elif args.dataset in ("strategyqa", "coin_flip"):
-        pred = pred.lower()
-        pred = re.sub("\"|\'|\n|\.|\s|\:|\,"," ", pred)
-        pred = pred.split(" ")
-        pred = [i for i in pred if i in ("yes", "no")]
-    elif args.dataset == "last_letters":
-        pred = re.sub("\"|\'|\n|\.|\s","", pred)
-        pred = [pred]
-    else:
-        raise ValueError("dataset is not properly defined ...")
-
-    # If there is no candidate in list, null is set.
-    if len(pred) == 0:
-        pred = ""
-    else:
-        if args.method in ("few_shot", "few_shot_cot"):
-            if answer_flag:
-                # choose the first element in list ...
-                pred = pred[0]
-            else:
-                # choose the last element in list ...
-                pred = pred[-1]
-        elif args.method in ("zero_shot", "zero_shot_cot"):
-            # choose the first element in list ...
+def clean(type_, pred):
+    if type_ == "multiplechoice":
+        pred = re.findall(r"A|B|C|D", pred)
+        if len(pred):
             pred = pred[0]
         else:
-            raise ValueError("method is not properly defined ...")
-    
-    # (For arithmetic tasks) if a word ends with period, it will be omitted ...
-    if pred != "":
-        if pred[-1] == ".":
-            pred = pred[:-1]
-    
-    print("pred_after : " + pred)
-    
+            pred = ""
+    else:
+        raise ValueError("type is not supported ...")
+
     return pred
 
-def evaluate_example(example):
-    pass
 
-def evaluate(dataset):
-    pass
+def evaluate_example(type_, pred, gold):
+    if type_ == "multiplechoice":
+        return pred == gold
+
+def answer_to_multiplechoice(answer, choices):
+    for ix, choice in enumerate(choices):
+        if choice == answer:
+            return chr(65+ix)
+    raise ValueError("Thats weird, gold-answer not found in choices")
+
+
+def evaluate(dataset, config=None):
+
+    # implemented for single dataset right now collection["worldtree"]["train"]
+    # TODO implement for ds.dataset_dict.DatasetDict collection["worldtree"]
+    assert isinstance(
+        dataset, ds.arrow_dataset.Dataset
+    ), "Only implemented for single datasets right now e.g. collection['worldtree']['train']"
+
+    keys = set()
+    predictions = defaultdict(int)
+
+    # support only one type per dataset
+    # TODO support datasets contining different example types (mulichoice, number, ...), if needed?
+    type_ = dataset[0]["type"]
+    for example in dataset:
+        assert (
+            type_ == example["type"]
+        ), "Datasets contains examples with multiple different types"
+
+        gold_answer = example["answer"][0]
+
+        if type_ == "multiplechoice":
+            gold_answer = answer_to_multiplechoice(gold_answer, example["choices"])
+        
+        for cot in example["generated_cot"]:
+            for answer in cot["answers"]:
+                key = f"{cot['instruction']}_{cot['cot-trigger']}_{answer['answer-extraction']}"
+                keys.add(key)
+                answer_str = answer["answer"]
+                answer_str = clean(type_, answer_str)
+                if evaluate_example(type_, answer_str, gold_answer):
+                    predictions[key] += 1
+                
+    evaluations = defaultdict(dict)
+    for key in keys:
+        for metric in ["accuracy"]:
+            evaluations[metric][key] = predictions[key] / len(dataset)
+    return dict(evaluations)
