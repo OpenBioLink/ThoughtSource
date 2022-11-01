@@ -85,7 +85,7 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
     <ul className={styles.Annotations}>
       {annotationInputs}
     </ul>
-    <input onBlur={onFreetext} default-value={findExistingAnnotation(props.cotOutput, FREETEXT, props.username)?.comment} title="freetext" className={styles.Comment}></input>
+    <input onBlur={onFreetext} defaultValue={findExistingAnnotation(props.cotOutput, FREETEXT, props.username)?.comment} title="freetext" className={styles.Comment}></input>
   </div>
 }
 
