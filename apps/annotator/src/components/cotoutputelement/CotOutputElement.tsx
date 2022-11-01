@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { annotate, CotOutput, findExistingAnnotation, SentenceElement } from '../../dtos/CotData';
-import { annotationList, FREETEXT } from '../datasetentry/DatasetEntry';
+import { annotationList, COMMENT } from '../datasetentry/DatasetEntry';
 import { levenshtein } from '../levenshtein';
 import styles from './CotOutputElement.module.scss';
 
@@ -19,7 +19,7 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
 
   function onFreetext(event: any) {
     const text = event.target.value
-    annotate(props.cotOutput, FREETEXT, null, props.username, text)
+    annotate(props.cotOutput, COMMENT, text, props.username, null)
 
     props.updateExportFile()
   }
@@ -85,7 +85,7 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
     <ul className={styles.Annotations}>
       {annotationInputs}
     </ul>
-    <input onBlur={onFreetext} defaultValue={findExistingAnnotation(props.cotOutput, FREETEXT, props.username)?.comment} title="freetext" className={styles.Comment}></input>
+    <input onBlur={onFreetext} defaultValue={findExistingAnnotation(props.cotOutput, COMMENT, props.username)?.value} title="freetext" className={styles.Comment}></input>
   </div>
 }
 

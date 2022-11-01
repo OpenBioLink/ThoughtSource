@@ -21,7 +21,6 @@ export type CotOutput = {
     model?: string
     comment?: string
     annotations?: Annotation[]
-    isFavored?: boolean
 }
 
 export function findExistingAnnotation(cotOutput: CotOutput, key: string, username: string) {

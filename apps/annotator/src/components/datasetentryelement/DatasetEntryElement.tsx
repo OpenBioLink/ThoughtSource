@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import CotData, { findExistingAnnotation, SentenceElement, SentenceElementDict, SimilarityInfo } from '../../dtos/CotData';
+import CotData, { annotate, findExistingAnnotation, SentenceElement, SentenceElementDict, SimilarityInfo } from '../../dtos/CotData';
 import CotOutputElement from '../cotoutputelement/CotOutputElement';
 import { FAVORED } from '../datasetentry/DatasetEntry';
 import styles from './DatasetEntryElement.module.scss';
@@ -18,7 +18,7 @@ type SimilaritiesDict = Record<string, SimilarityInfo[]>
 const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
   //const [similarities, setSimilarities] = useState<SimilaritiesDict>({})
   //const [similarityType, setSimilarityType] = useState<string>()
-  const [bestCotIndex, setBestCotIndex] = useState<number>(props.cotData.generated_cot.findIndex(cotData => cotData['isFavored']))
+  const [bestCotIndex, setBestCotIndex] = useState<number>(props.cotData.generated_cot.findIndex(cotData => findExistingAnnotation(cotData, FAVORED, props.username)?.value))
 
   const lengths = props.cotData.lengths
   const sentences = props.cotData.sentences
@@ -30,10 +30,10 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
   function updateBestCot(bestCotIndex: number) {
     setBestCotIndex(bestCotIndex)
 
+    // Update each CotOutput's 'favored' annotation
     props.cotData.generated_cot?.forEach((cotOutput, index) => {
-      cotOutput.isFavored = bestCotIndex == index
-      // find annotation for it
-      const annotation = findExistingAnnotation(cotOutput, FAVORED, props.username)
+      const isBest = bestCotIndex == index
+      annotate(cotOutput, FAVORED, isBest, props.username, null)
     })
 
     props.anyUpdatePerformed()
