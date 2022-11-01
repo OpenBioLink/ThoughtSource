@@ -1,1 +1,42 @@
-.Header {}
+.HeaderBackground {
+    background-color: #101010;
+    position: sticky;
+    top: 0px;
+    width: 100vw;
+
+    // To center Header
+    text-align: center;
+    //display: flex;
+    //justify-content: center;
+    //align-items: center;
+
+    .Header {
+        // To center within HeaderBackground
+        margin: auto;
+
+        padding: 4px;
+        color: white;
+        //max-width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+
+    }
+
+    .Title {
+        font-size: 24px;
+    }
+
+    .User {
+        display: inline;
+
+        span {}
+
+        .InnerUser {
+            display: flex;
+        }
+    }
+}

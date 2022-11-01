@@ -1,8 +1,7 @@
 import { FC, useEffect, useState } from 'react';
-import Slider from 'react-input-slider';
 import CotData, { SimilaritiesDict } from '../../dtos/CotData';
 import Annotator from '../annotator/annotator';
-import Dropdown from '../dropdown/dropdown';
+import Header from '../header/header';
 import { post } from '../httpservice';
 import Login from '../login/login';
 import styles from './root.module.scss';
@@ -16,10 +15,10 @@ const Root: FC<RootProps> = () => {
   const [cotData, setCotData] = useState<CotData[]>()
   const [loggedIn, setLoggedIn] = useState(false)
   const [downloadData, setDownloadData] = useState<string>()
-  const [sliderX, setSliderX] = useState(0.5)
   const [similarityDicts, setSimilarityDicts] = useState<SimilaritiesDict[]>([])
   const [similarityTypes, setSimilarityTypes] = useState<string[]>()
   const [selectedSimilarityType, setSelectedSimilarityType] = useState<string>("")
+  const [tresholdValue, setTresholdValue] = useState(0.5)
   const [lastBackupTime, setLastBackupTime] = useState(0)
 
   useEffect(() => {
@@ -115,28 +114,24 @@ const Root: FC<RootProps> = () => {
   }
 
   return <div className={styles.Root}>
-    <div className={styles.HeaderBackground}>
-      <div className={styles.Header}>
-        <div className={styles.Title}>⚡ThoughtSource Annotator</div>
-        <div className={styles.Menu}>
-          <a href={downloadData} download="export.json">Download current | </a>
-          <Dropdown options={similarityTypes || []} onClick={setSelectedSimilarityType} currentChoice={selectedSimilarityType} />
-          <span>Visualisation treshold</span>
-          <Slider axis="x" x={sliderX} onChange={({ x }) => setSliderX(x)} xmin={0} xmax={1} xstep={0.05} />
-          <div className={styles.User}><div className={styles.InnerUser}><span>{username}</span><span onClick={logout}>Logout</span></div></div>
-        </div>
-      </div>
-    </div>
+    <Header
+      username={username}
+      onLogout={logout}
+      tresholdValue={tresholdValue}
+      setTresholdValue={setTresholdValue}
+      downloadData={downloadData}
+      similarityTypes={similarityTypes}
+      selectedSimilarityType={selectedSimilarityType}
+      onSelectSimilarityType={setSelectedSimilarityType}
+    />
     {loggedIn ?
-      <div>
-        <Annotator
-          username={username as string}
-          visualisationTreshold={sliderX}
-          cotData={cotData as CotData[]}
-          similarityDicts={similarityDicts}
-          selectedSimilarityType={selectedSimilarityType}
-          anyUpdatePerformed={updateExportFile} />
-      </div>
+      <Annotator
+        username={username as string}
+        visualisationTreshold={tresholdValue}
+        cotData={cotData as CotData[]}
+        similarityDicts={similarityDicts}
+        selectedSimilarityType={selectedSimilarityType}
+        anyUpdatePerformed={updateExportFile} />
       :
       <Login
         onUsername={setUsername}
