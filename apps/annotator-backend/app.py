@@ -1,5 +1,8 @@
+import atexit
 import json
 import os
+import pickle
+from asyncore import write
 from datetime import timedelta
 from operator import le
 
@@ -17,6 +20,7 @@ USERNAME_KEY = 'username'
 FILE_NAME_KEY = 'filename'
 FILE_CONTENT_KEY = 'filecontent'
 
+DICT_FILE_NAME = 'sessions_dict.pickle'
 sessions_dict = {}
 
 @app.before_request
@@ -102,7 +106,6 @@ def similarities_for_multple_methods(sentences, lengths):
   similarities_by_methods = {}
   similarities_by_methods['tfidf'] = calculate_with_tfidf(sentences, lengths)
   similarities_by_methods['jaccard'] = calculate_with_jaccard(sentences, lengths)
-  #print(similarities_by_methods)
   return similarities_by_methods
 
 @app.route("/textcompare", methods=['POST', 'OPTIONS'])
@@ -117,5 +120,29 @@ def textcompare():
     similarities_by_methods['jaccard'] = calculate_with_jaccard(sentences, lengths)
     return jsonify(similarities_by_methods)
 
+def read_sessions_dict_from_file():
+  print("Load sessions dict from file")
+  try:
+    with open(DICT_FILE_NAME, 'rb') as file:
+      loaded_dict = pickle.load(file)
+      sessions_dict.update(loaded_dict)
+
+  except FileNotFoundError as error:
+    print("No dict file yet")
+  except Exception as anything:
+    print(anything)
+
+# Careful - Debug mode calls this twice, overwrites with empty file the second time around
+def write_sessions_dict_to_file():
+  try:
+    # write to file binary
+    with open(DICT_FILE_NAME, 'wb') as file:
+      pickle.dump(sessions_dict, file, protocol=pickle.HIGHEST_PROTOCOL)
+  except IOError as error:
+    print("Error writing dict file")
+
+read_sessions_dict_from_file()
+atexit.register(write_sessions_dict_to_file)
+
 if __name__ == "__main__":
-    app.run(debug = True)
+  app.run(debug = True)
