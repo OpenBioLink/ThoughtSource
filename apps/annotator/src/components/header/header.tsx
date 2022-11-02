@@ -10,6 +10,7 @@ interface HeaderProps {
   tresholdValue: number
   setTresholdValue: (value: number) => void
   downloadData: any
+  filename: string
   similarityTypes?: string[]
   selectedSimilarityType: string
   onSelectSimilarityType: (type: string) => void
@@ -23,11 +24,20 @@ const Header: FC<HeaderProps> = (props) => {
       <div className={styles.Title}>⚡ThoughtSource Annotator</div>
       {props.isLoggedIn ?
         <div className={styles.Menu}>
-          <a href={props.downloadData} download="export.json">Download current | </a>
-          <Dropdown options={props.similarityTypes || []} onClick={props.onSelectSimilarityType} currentChoice={props.selectedSimilarityType} />
-          <span>Visualisation treshold</span>
-          <Slider axis="x" x={props.tresholdValue} onChange={({ x }) => props.setTresholdValue(x)} xmin={0} xmax={1} xstep={0.05} />
-          <div className={styles.User}><div className={styles.InnerUser}><span>{props.username}</span><span onClick={props.onLogout}>Logout</span></div></div>
+          <div>
+            <Dropdown options={props.similarityTypes || []} onClick={props.onSelectSimilarityType} currentChoice={props.selectedSimilarityType} />
+          </div>
+          <div>
+            <span>Visualisation treshold </span>
+            <Slider axis="x" x={props.tresholdValue} onChange={({ x }) => props.setTresholdValue(x)} xmin={0} xmax={0.5} xstep={0.05} />
+          </div>
+          <div>
+            <a href={props.downloadData} download={props.filename} className={styles.Clickable}>Download current</a>
+          </div>
+          <div className={styles.User}>
+            <span>{props.username}  </span>
+            <span className={styles.Clickable} onClick={props.onLogout}>Logout</span>
+          </div>
         </div> : null
       }
     </div>

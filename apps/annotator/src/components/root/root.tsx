@@ -10,7 +10,7 @@ interface RootProps { }
 
 const Root: FC<RootProps> = () => {
   const [username, setUsername] = useState<string>()
-  const [filename, setFilename] = useState('')
+  const [filename, setFilename] = useState('export')
   const [allData, setAllData] = useState<any>()
   const [cotData, setCotData] = useState<CotData[]>()
   const [loggedIn, setLoggedIn] = useState(false)
@@ -18,7 +18,7 @@ const Root: FC<RootProps> = () => {
   const [similarityDicts, setSimilarityDicts] = useState<SimilaritiesDict[]>([])
   const [similarityTypes, setSimilarityTypes] = useState<string[]>()
   const [selectedSimilarityType, setSelectedSimilarityType] = useState<string>("")
-  const [tresholdValue, setTresholdValue] = useState(0.5)
+  const [tresholdValue, setTresholdValue] = useState(0.25)
   const [lastBackupTime, setLastBackupTime] = useState(0)
 
   useEffect(() => {
@@ -121,6 +121,7 @@ const Root: FC<RootProps> = () => {
       tresholdValue={tresholdValue}
       setTresholdValue={setTresholdValue}
       downloadData={downloadData}
+      filename={filename}
       similarityTypes={similarityTypes}
       selectedSimilarityType={selectedSimilarityType}
       onSelectSimilarityType={setSelectedSimilarityType}

@@ -1,26 +1,33 @@
 .Dropdown {
     display: inline;
+    text-align: left;
 
     span {
         cursor: pointer;
     }
 
     li {
+        padding: 6px;
+        border-radius: 4px;
         cursor: pointer;
     }
 
-    .selected {
-        background-color: violet;
+    li:hover {
+        background-color: #bebe2b;
     }
 
-
     ul {
+        margin-top: 2px;
+        //padding: 4px;
+        border-radius: 4px;
         list-style-type: none;
-
+        position: absolute;
+        z-index: 1;
+        background-color: #303030;
     }
 
 }
 
-li>.selected {
-    background-color: aqua;
+.Dropdown:hover {
+    cursor: pointer;
 }

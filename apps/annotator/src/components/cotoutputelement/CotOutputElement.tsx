@@ -38,8 +38,9 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
 
     const colors_bright = ['#FBFA30', '#3CFA72', '#32B5FF']
     const colors = ['#20729E', '#249945', '#7d2cc7']
-    if (similarityIndex >= 0 && similarityIndex < colors.length) {
-      return colors_bright[similarityIndex]
+    const colors_v5 = ['#23DCAE', '#536AD8', '#AE66E1', '#DEC721', '#76D965']
+    if (similarityIndex >= 0 && similarityIndex < colors_v5.length) {
+      return colors_v5[similarityIndex]
     }
     return null
   }

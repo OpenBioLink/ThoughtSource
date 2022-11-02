@@ -20,7 +20,10 @@ const Dropdown: FC<DropdownProps> = (props) => {
     </li>))
 
   return <div className={styles.Dropdown}>
-    <span onClick={() => setDroppedDown(!droppedDown)}>{props.currentChoice}</span>
+    <div onClick={() => setDroppedDown(!droppedDown)}>
+      <span>{props.currentChoice} </span>
+      <i className="fa-solid fa-caret-down"></i>
+    </div>
     {
       droppedDown ?
         <ul>{optionElements}</ul>

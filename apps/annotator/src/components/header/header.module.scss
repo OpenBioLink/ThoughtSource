@@ -22,8 +22,12 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
 
-
+    .Menu>div {
+        padding-left: 8px;
+        padding-right: 8px;
+        display: inline-block;
     }
 
     .Title {
@@ -38,5 +42,10 @@
         .InnerUser {
             display: flex;
         }
+    }
+
+    .Clickable:hover {
+        cursor: pointer;
+        color: #bebe2b;
     }
 }
