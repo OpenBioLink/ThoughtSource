@@ -82,12 +82,16 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
       updateExportFile={props.anyUpdatePerformed} />
   ))
 
+  const answerElements = props.cotData.choices?.map(choice => {
+    const isCorrectAnswer = choice == props.cotData.answer[0]
+    return <li className={isCorrectAnswer ? styles.CorrectAnswer : ''}>{choice}</li>
+  })
+
   return <div className={styles.DatasetEntryElement}>
     <div className={styles.EntryHeader}>
       <h3>Question</h3>
       <span>{props.cotData.question}</span>
-      <br />
-      <span style={{ fontStyle: "oblique" }}>Correct answer: {props.cotData.answer}</span>
+      <ol>{answerElements}</ol>
     </div>
     <ul className={styles.OutputsContainer}>
       {resultElements}

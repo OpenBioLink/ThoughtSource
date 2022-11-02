@@ -29,16 +29,15 @@ const Root: FC<RootProps> = () => {
   }, [])  // Pass an empty array to run callback on mount only.
 
   // Setup the `beforeunload` event listener
+  // TODO here but better - hier geht momentan nur der OPTIONS request durch...
   const setupBeforeUnloadListener = () => {
     window.addEventListener("beforeunload", (ev) => {
       // ev.preventDefault();
-      post('backup', JSON.stringify({ smt: 'smtaaa' }), (data) => {
-        console.log("Backup success")
-      })
+      backupFileToSession()
     });
   };
 
-  function onFileRead(filename: string, allData: any, cotData: CotData[]) {
+  function onFileRead(filename: string, allData: any, cotData: CotData[], startAnnotating: boolean) {
     cotData.forEach(cotData => {
       const cot = cotData.generated_cot.map(cotData => cotData.cot)
       const sentencesForCots = cot.map(cot => cot.split(". ")
@@ -77,12 +76,14 @@ const Root: FC<RootProps> = () => {
         setSelectedSimilarityType(firstKeyName)
       }
     })
+
+    if (startAnnotating) {
+      onLogin()
+    }
   }
 
   function onLogin() {
-    if (username && username.length > 0 && cotData && cotData.length > 0) {
-      setLoggedIn(true)
-    }
+    setLoggedIn(true)
   }
 
   function updateExportFile() {
@@ -123,21 +124,26 @@ const Root: FC<RootProps> = () => {
       similarityTypes={similarityTypes}
       selectedSimilarityType={selectedSimilarityType}
       onSelectSimilarityType={setSelectedSimilarityType}
+      isLoggedIn={loggedIn}
     />
-    {loggedIn ?
-      <Annotator
-        username={username as string}
-        visualisationTreshold={tresholdValue}
-        cotData={cotData as CotData[]}
-        similarityDicts={similarityDicts}
-        selectedSimilarityType={selectedSimilarityType}
-        anyUpdatePerformed={updateExportFile} />
-      :
-      <Login
-        onUsername={setUsername}
-        onFileRead={onFileRead}
-        onLogin={onLogin} />
-    }
+    <div className={styles.Main}>
+      {loggedIn ?
+        <Annotator
+          username={username as string}
+          visualisationTreshold={tresholdValue}
+          cotData={cotData as CotData[]}
+          similarityDicts={similarityDicts}
+          selectedSimilarityType={selectedSimilarityType}
+          anyUpdatePerformed={updateExportFile} />
+        :
+        <Login
+          onUsername={setUsername}
+          onFileRead={onFileRead}
+          onLogin={onLogin}
+          username={username}
+          hasCotDataLoaded={cotData != null && cotData.length > 0} />
+      }
+    </div>
   </div>
 }
 
