@@ -61,7 +61,10 @@ def evaluate(dataset, config=None):
                 answer_str = answer["answer"]
                 answer_str = clean(type_, answer_str)
                 if evaluate_example(type_, answer_str, gold_answer):
+                    answer["correct_answer"] = True
                     predictions[key] += 1
+                else:
+                    answer["correct_answer"] = False
 
     evaluations = defaultdict(dict)
     for key in keys:

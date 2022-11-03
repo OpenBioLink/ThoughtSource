@@ -201,7 +201,7 @@ def _generate_and_extract(
             generated_cot["date"] = print_now(1)
 
             for answer_extraction_key in answer_extraction_keys:
-                answer = {"answer-extraction": answer_extraction_key, "answer": ""}
+                answer = {"answer-extraction": answer_extraction_key, "answer": "", "correct_answer": None}
                 _, answer_extraction_prompt = get_answer_extraction_prompt(
                     item, cot, answer_extraction_key
                 )
