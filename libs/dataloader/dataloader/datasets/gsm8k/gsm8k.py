@@ -16,9 +16,10 @@
 import json
 import os
 import re
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 import datasets
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -49,20 +50,23 @@ _LICENSE = "MIT"
 _URLS = {
     "gsm8k": {
         "train": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/train.jsonl",
-        "test": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/test.jsonl"
+        "test": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/test.jsonl",
     },
     "gsm8k_socratic": {
         "train": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/train_socratic.jsonl",
-        "test": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/test_socratic.jsonl"
+        "test": "https://github.com/openai/grade-school-math/raw/master/grade_school_math/data/test_socratic.jsonl",
     },
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class Gsm8kDataset(datasets.GeneratorBasedBuilder):
     """High quality linguistically diverse grade school math word problem."""
@@ -125,7 +129,7 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
-        
+
         data_dir = dl_manager.download_and_extract(_URLS[self.config.subset_id])
 
         return [
@@ -145,7 +149,7 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
 
     def _generate_examples(self, filepath) -> Tuple[int, Dict]:
 
-        with open(filepath, 'r') as json_file:
+        with open(filepath, "r") as json_file:
             data = [json.loads(line) for line in json_file]
 
         if self.config.schema == "source":
@@ -154,10 +158,10 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
 
         elif self.config.schema == "thoughtsource":
             for key, example in enumerate(data):
-                chain = re.sub(r"<<[0-9\.\(\)+\-/*=]+>>", "", example['answer'])
+                chain = re.sub(r"<<[0-9\.\(\)+\-/*=]+>>", "", example["answer"])
                 assert "<<" not in chain, chain
                 assert ">>" not in chain, chain
-                chain = chain.split('\n')
+                chain = chain.split("\n")
                 chain_of_thought = chain[:-1]
                 answer = chain[-1].replace("#### ", "")
 
@@ -173,9 +177,10 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
                     "cot": chain_of_thought,
                     "answer": [answer],
                     "feedback": [],
-                    "generated_cot": []
+                    "generated_cot": [],
                 }
                 yield key, example_
+
 
 if __name__ == "__main__":
     datasets.load_dataset(__file__)

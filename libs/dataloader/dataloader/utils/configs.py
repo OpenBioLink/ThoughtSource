@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 import datasets
 
+
 @dataclass
 class ThoughtSourceConfig(datasets.BuilderConfig):
     """BuilderConfig for BigBio."""

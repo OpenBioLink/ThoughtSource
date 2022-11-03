@@ -15,9 +15,10 @@
 
 import json
 import os
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 import datasets
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -78,11 +79,14 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class AquaDataset(datasets.GeneratorBasedBuilder):
     """AQUA-RAT (Algebra Question Answering with Rationales) Dataset"""
@@ -160,7 +164,7 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
 
     def _generate_examples(self, filepath) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
-        
+
         with open(filepath, "r", encoding="utf8") as infile:
             data = [json.loads(line) for line in infile]
 
@@ -168,9 +172,9 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
             for key, example in enumerate(data):
                 choices = [x.split(")") for x in example["options"]]
                 choices = {x[0]: x[1] for x in choices}
-                example['choices'] = choices.values()
-                example.pop('options')
-                example['answer'] = choices[example.pop('correct')]
+                example["choices"] = choices.values()
+                example.pop("options")
+                example["answer"] = choices[example.pop("correct")]
 
                 yield key, example
 
@@ -192,7 +196,7 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
                     "cot": example["rationale"].split("\n"),
                     "answer": [choices[example["correct"]]],
                     "feedback": [],
-                    "generated_cot": []
+                    "generated_cot": [],
                 }
                 yield key, example_
 

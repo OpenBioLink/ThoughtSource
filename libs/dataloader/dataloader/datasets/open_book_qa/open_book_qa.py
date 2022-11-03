@@ -13,11 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 import json
-from typing import List, Tuple, Dict
+import os
+from typing import Dict, List, Tuple
 
 import datasets
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -62,11 +63,14 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class OpenBookQADataset(datasets.GeneratorBasedBuilder):
     """Question-answering dataset modeled after open book exams for assessing human understanding of a subject."""
@@ -101,17 +105,19 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
                     "id": datasets.Value("string"),
                     "question": {
                         "stem": datasets.Value("string"),
-                        "choices": [{
-                            "text": datasets.Value("string"), 
-                            "label": datasets.Value("string"),
-                        }],
+                        "choices": [
+                            {
+                                "text": datasets.Value("string"),
+                                "label": datasets.Value("string"),
+                            }
+                        ],
                     },
                     "fact": datasets.Value("string"),
                     "humanScore": datasets.Value("float"),
                     "clarity": datasets.Value("float"),
                     "turkIdAnonymized": datasets.Value("string"),
                     "answerKey": datasets.Value("string"),
-               }
+                }
             )
         elif self.config.schema == "thoughtsource":
             features = schemas.cot_features
@@ -126,7 +132,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
-        
+
         urls = _URLS[_DATASETNAME]
         data_dir = dl_manager.download_and_extract(urls)
 
@@ -135,19 +141,37 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
                 gen_kwargs={
-                    "filepath": os.path.join(data_dir, "OpenBookQA-V1-Sep2018", "Data", "Additional", "train_complete.jsonl"),
+                    "filepath": os.path.join(
+                        data_dir,
+                        "OpenBookQA-V1-Sep2018",
+                        "Data",
+                        "Additional",
+                        "train_complete.jsonl",
+                    ),
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
-                    "filepath": os.path.join(data_dir, "OpenBookQA-V1-Sep2018", "Data", "Additional", "test_complete.jsonl"),
+                    "filepath": os.path.join(
+                        data_dir,
+                        "OpenBookQA-V1-Sep2018",
+                        "Data",
+                        "Additional",
+                        "test_complete.jsonl",
+                    ),
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
-                    "filepath": os.path.join(data_dir, "OpenBookQA-V1-Sep2018", "Data", "Additional", "dev_complete.jsonl"),
+                    "filepath": os.path.join(
+                        data_dir,
+                        "OpenBookQA-V1-Sep2018",
+                        "Data",
+                        "Additional",
+                        "dev_complete.jsonl",
+                    ),
                 },
             ),
         ]
@@ -155,7 +179,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
     def _generate_examples(self, filepath) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
-        with open(filepath, 'r') as json_file:
+        with open(filepath, "r") as json_file:
             data = [json.loads(line) for line in json_file]
 
         if self.config.schema == "source":
@@ -165,7 +189,9 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
         elif self.config.schema == "thoughtsource":
             for key, example in enumerate(data):
 
-                choices_ = {x["label"]: x["text"] for x in example["question"]["choices"]}
+                choices_ = {
+                    x["label"]: x["text"] for x in example["question"]["choices"]
+                }
 
                 answer = choices_[example["answerKey"]]
                 choices = choices_.values()
@@ -182,9 +208,9 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
                     "cot": [example["fact1"]],
                     "answer": [answer],
                     "feedback": [],
-                    "generated_cot": []
+                    "generated_cot": [],
                 }
-                
+
                 yield key, example_
 
 

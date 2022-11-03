@@ -1,29 +1,32 @@
-import spacy
 import re
 import subprocess
-from nltk.util import ngrams
-from itertools import chain
-from rich import print as rprint
-from rich.progress import Progress
-import pandas as pd
 from collections import Counter, defaultdict
+from itertools import chain
+
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import spacy
+from nltk.util import ngrams
+from rich import print as rprint
+from rich.progress import Progress
 
 # download language package if not already installed
 if not spacy.util.is_package("en_core_web_sm"):
-    _ = subprocess.run("spacy download en_core_web_sm --quiet",
+    _ = subprocess.run(
+        "spacy download en_core_web_sm --quiet",
         shell=True,
         stdout=subprocess.DEVNULL,
-        stderr=subprocess.STDOUT)
+        stderr=subprocess.STDOUT,
+    )
 
 nlp = spacy.load("en_core_web_sm")
 nlp.add_pipe("sentencizer")
 STOPWORDS = nlp.Defaults.stop_words
-re_sent_ends_naive = re.compile(r'[.\n]')
-re_stripper_naive = re.compile('[^a-zA-Z\.\n]')
+re_sent_ends_naive = re.compile(r"[.\n]")
+re_stripper_naive = re.compile("[^a-zA-Z\.\n]")
 
-splitter_naive = lambda x: re_sent_ends_naive.split(re_stripper_naive.sub(' ', x))
+splitter_naive = lambda x: re_sent_ends_naive.split(re_stripper_naive.sub(" ", x))
 
 # list of tokens for one sentence
 def remove_stop_words(text):
@@ -33,11 +36,13 @@ def remove_stop_words(text):
             result.append(w)
     return result
 
+
 def split_sentences(txt):
     """Naive sentence splitter that uses periods or newlines to denote sentences."""
     sentences = (x.split() for x in splitter_naive(txt) if x)
     sentences = list(map(remove_stop_words, list(sentences)))
     return sentences
+
 
 def get_n_grams(sentences, N):
     ng = (ngrams(x, N) for x in sentences if len(x) >= N)
@@ -47,7 +52,8 @@ def get_n_grams(sentences, N):
 def get_tuples_manual_sentences(txt, N):
     if not txt:
         return [], []
-    
+
+
 def get_token_length_per_examples(example):
     result = {}
     for key in ["context", "question", "cot"]:
@@ -63,6 +69,7 @@ def get_token_length_per_examples(example):
             result[key] = len(toks)
     return result
 
+
 def get_n_grams_counter(example, counter, N):
     result = {}
     for key in ["context", "question", "cot"]:
@@ -77,6 +84,7 @@ def get_n_grams_counter(example, counter, N):
             ngrams = get_n_grams(sentences, N)
             tups = ["_".join(tup) for tup in ngrams]
             counter.update(tups)
+
 
 def isna(val):
     if val is None:
@@ -119,6 +127,7 @@ def _generate_counter_data(collection):
             progress.update(task0, advance=1.0)
         progress.refresh()
     return counters
+
 
 def _generate_ngrams_data(collection, N):
     n_grams_counters = defaultdict(dict)
@@ -171,6 +180,7 @@ def _generate_token_length_data(collection):
 
         return pd.DataFrame(hist_data)
 
+
 def _print_table(table):
     try:
         display
@@ -185,31 +195,35 @@ def display_stats_tables(collection):
     data = []
     for key, counter in counters["na"].items():
         data.append(
-            [key] + [counter[ckey] for ckey in ['question', 'choices', 'cot', 'answer']]
+            [key] + [counter[ckey] for ckey in ["question", "choices", "cot", "answer"]]
         )
-    table = pd.DataFrame.from_records(data, columns=['dataset', 'question', 'choices', 'cot', 'answer'])
+    table = pd.DataFrame.from_records(
+        data, columns=["dataset", "question", "choices", "cot", "answer"]
+    )
     _print_table(table)
-
 
     data = []
     for key, count in counters["types"].items():
-        data.append(
-            [key, count, counters["types_datasets"][key]]
-        )
-    table = pd.DataFrame.from_records(data, columns=['type', 'number samples', 'datasets'])
+        data.append([key, count, counters["types_datasets"][key]])
+    table = pd.DataFrame.from_records(
+        data, columns=["type", "number samples", "datasets"]
+    )
     _print_table(table)
+
 
 def plot_dataset_overlap(collection, N=3):
     """
     It takes the n-grams from each dataset and calculates the Jaccard similarity between each pair of
     datasets
-    
+
     :param data: the data dictionary returned by the function generate_data
     """
     n_gram_counters = _generate_ngrams_data(collection, N)
     n_grams_merge = {}
     for name, n_grams in n_gram_counters.items():
-        n_grams_merge[name] = set([item for counters in n_grams.values() for item in counters.keys()])
+        n_grams_merge[name] = set(
+            [item for counters in n_grams.values() for item in counters.keys()]
+        )
 
     n_grams_merge
 
@@ -220,23 +234,27 @@ def plot_dataset_overlap(collection, N=3):
             if name_x != name_y:
                 inters = len(n_grams_merge[name_x].intersection(n_grams_merge[name_y]))
                 uni = len(n_grams_merge[name_x].union(n_grams_merge[name_y]))
-                jacc = inters/uni
+                jacc = inters / uni
             else:
                 jacc = None
             vals.append(jacc)
         data.append(vals)
 
-    fig = go.Figure(data=go.Heatmap(
-                    z=data,
-                    x=list(sorted(n_grams_merge.keys())),
-                    y=list(sorted(n_grams_merge.keys(), reverse=True)),
-                    hoverongaps = False))
+    fig = go.Figure(
+        data=go.Heatmap(
+            z=data,
+            x=list(sorted(n_grams_merge.keys())),
+            y=list(sorted(n_grams_merge.keys(), reverse=True)),
+            hoverongaps=False,
+        )
+    )
     fig.update_layout(
         autosize=False,
         width=700,
         height=700,
     )
     fig.show()
+
 
 def plot_token_length_distribution(collection):
     token_len = _generate_token_length_data(collection)

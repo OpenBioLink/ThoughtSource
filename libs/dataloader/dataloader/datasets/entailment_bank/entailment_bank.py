@@ -14,12 +14,13 @@
 # limitations under the License.
 
 import json
-from multiprocessing.sharedctypes import Value
 import os
 import re
-from typing import List, Tuple, Dict
+from multiprocessing.sharedctypes import Value
+from typing import Dict, List, Tuple
 
 import datasets
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -58,11 +59,14 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
     """2k multi-step entailment trees, explaining the answers to ARC science questions"""
@@ -71,20 +75,20 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
     BIGBIO_VERSION = datasets.Version(_BIGBIO_VERSION)
 
     BUILDER_CONFIGS = [
-            ThoughtSourceConfig(
-                name=f"entailment_bank_source",
-                version=SOURCE_VERSION,
-                description=f"EntailmentBank source schema",
-                schema="source",
-                subset_id=f"entailment_bank",
-            ),
-            ThoughtSourceConfig(
-                name=f"entailment_bank_thoughtsource",
-                version=BIGBIO_VERSION,
-                description=f"EntailmentBank thoughtsource schema",
-                schema="thoughtsource",
-                subset_id=f"entailment_bank",
-            ),
+        ThoughtSourceConfig(
+            name=f"entailment_bank_source",
+            version=SOURCE_VERSION,
+            description=f"EntailmentBank source schema",
+            schema="source",
+            subset_id=f"entailment_bank",
+        ),
+        ThoughtSourceConfig(
+            name=f"entailment_bank_thoughtsource",
+            version=BIGBIO_VERSION,
+            description=f"EntailmentBank thoughtsource schema",
+            schema="thoughtsource",
+            subset_id=f"entailment_bank",
+        ),
     ]
 
     DEFAULT_CONFIG_NAME = "entailment_bank_thoughtsource"
@@ -113,8 +117,12 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                                 "value": datasets.Value("string"),
                             }
                         ],
-                        "distractors": [datasets.Value("string"),],
-                        "distractors_relevance": [datasets.Value("float32"),],
+                        "distractors": [
+                            datasets.Value("string"),
+                        ],
+                        "distractors_relevance": [
+                            datasets.Value("float32"),
+                        ],
                         "intermediate_conclusions": [
                             {
                                 "int_id": datasets.Value("string"),
@@ -135,18 +143,18 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                             },
                         ],
                         "add_list": [
-                        {
-                            "sid": datasets.Value("string"),
-                            "fact": datasets.Value("string"),
-                        }
+                            {
+                                "sid": datasets.Value("string"),
+                                "fact": datasets.Value("string"),
+                            }
                         ],
                         "delete_list": [
-                        {
-                            "uuid": datasets.Value("string"),
-                            "fact": datasets.Value("string"),
-                        },
-                        ]
-                    }
+                            {
+                                "uuid": datasets.Value("string"),
+                                "fact": datasets.Value("string"),
+                            },
+                        ],
+                    },
                 }
             )
         elif self.config.schema == "thoughtsource":
@@ -162,14 +170,11 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
-        
+
         urls = _URLS[_DATASETNAME]
         data_dir = dl_manager.download_and_extract(urls)
         dataset_path = os.path.join(
-            data_dir, 
-            "entailment_trees_emnlp2021_data_v3", 
-            "dataset", 
-            f"task_1"
+            data_dir, "entailment_trees_emnlp2021_data_v3", "dataset", f"task_1"
         )
 
         return [
@@ -177,28 +182,19 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
                 gen_kwargs={
-                    "filepath": os.path.join(
-                        dataset_path, 
-                        "train.jsonl"
-                    ),
+                    "filepath": os.path.join(dataset_path, "train.jsonl"),
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
-                    "filepath": os.path.join(
-                        dataset_path,
-                        "test.jsonl"
-                    ),
+                    "filepath": os.path.join(dataset_path, "test.jsonl"),
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
-                    "filepath": os.path.join(
-                        dataset_path,
-                        "dev.jsonl"
-                    ),
+                    "filepath": os.path.join(dataset_path, "dev.jsonl"),
                 },
             ),
         ]
@@ -206,14 +202,25 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
     def _generate_examples(self, filepath) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
-        with open(filepath, 'r') as json_file:
+        with open(filepath, "r") as json_file:
             data = [json.loads(line) for line in json_file]
 
         if self.config.schema == "source":
             for key, example in enumerate(data):
-                example["meta"]["triples"] = [{"sent_id": key, "value": value} for key, value in example["meta"]["triples"].items()]
-                example["meta"]["intermediate_conclusions"] = [{"int_id": key, "value": value} for key, value in example["meta"]["intermediate_conclusions"].items()]
-                example["meta"]["worldtree_provenance"] = [{"sent_id": key, **value} for key, value in example["meta"]["worldtree_provenance"].items()]
+                example["meta"]["triples"] = [
+                    {"sent_id": key, "value": value}
+                    for key, value in example["meta"]["triples"].items()
+                ]
+                example["meta"]["intermediate_conclusions"] = [
+                    {"int_id": key, "value": value}
+                    for key, value in example["meta"][
+                        "intermediate_conclusions"
+                    ].items()
+                ]
+                example["meta"]["worldtree_provenance"] = [
+                    {"sent_id": key, **value}
+                    for key, value in example["meta"]["worldtree_provenance"].items()
+                ]
                 yield key, example
 
         elif self.config.schema == "thoughtsource":
@@ -222,10 +229,10 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
 
                 cot = example["proof"]
 
-                pattern = r'int[0-9]: '
+                pattern = r"int[0-9]: "
                 cot = re.sub(pattern, "", cot)
 
-                assert (cot[-2:] == "; "), cot
+                assert cot[-2:] == "; ", cot
 
                 cot_ = []
                 cot = cot.split(";")[:-1]
@@ -235,7 +242,9 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                     for sent_id, value in example["meta"]["triples"].items():
                         inferral = inferral.replace(sent_id, value)
 
-                    for int_id, value in example["meta"]["intermediate_conclusions"].items():
+                    for int_id, value in example["meta"][
+                        "intermediate_conclusions"
+                    ].items():
                         inferral = inferral.replace(int_id, value)
 
                     for stmt in inferral.split("&"):
@@ -244,7 +253,9 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                         if "->" in stmt:
                             stmt, therefore = stmt.split("->")
                             cot_.append(self._untokenize(stmt).capitalize() + ".")
-                            cot_.append("Therefore, " + self._untokenize(therefore)  + ".")
+                            cot_.append(
+                                "Therefore, " + self._untokenize(therefore) + "."
+                            )
                         else:
                             cot_.append(self._untokenize(stmt).capitalize() + ".")
 
@@ -260,7 +271,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                     "cot": cot_,
                     "answer": [example["answer"]],
                     "feedback": [],
-                    "generated_cot": []
+                    "generated_cot": [],
                 }
 
                 yield key, example_
@@ -272,14 +283,16 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
         Ideally, `untokenize(tokenize(text))` should be identical to `text`,
         except for line breaks.
         """
-        step1 = text.replace("`` ", '"').replace(" ''", '"').replace('. . .',  '...')
+        step1 = text.replace("`` ", '"').replace(" ''", '"').replace(". . .", "...")
         step2 = step1.replace(" ( ", " (").replace(" ) ", ") ")
         step3 = re.sub(r' ([.,:;?!%]+)([ \'"`])', r"\1\2", step2)
-        step4 = re.sub(r' ([.,:;?!%]+)$', r"\1", step3)
-        step5 = step4.replace(" '", "'").replace(" n't", "n't").replace(
-            "can not", "cannot")
+        step4 = re.sub(r" ([.,:;?!%]+)$", r"\1", step3)
+        step5 = (
+            step4.replace(" '", "'").replace(" n't", "n't").replace("can not", "cannot")
+        )
         step6 = step5.replace(" ` ", " '")
         return step6.strip()
+
 
 # This template is based on the following template from the datasets package:
 # https://github.com/huggingface/datasets/blob/master/templates/new_dataset_script.py

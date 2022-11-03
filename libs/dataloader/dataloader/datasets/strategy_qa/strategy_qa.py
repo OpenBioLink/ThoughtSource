@@ -14,11 +14,12 @@
 # limitations under the License.
 
 import copy
-import os
 import json
-from typing import List, Tuple, Dict
+import os
+from typing import Dict, List, Tuple
 
 import datasets
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -50,11 +51,14 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class StrategyQADataset(datasets.GeneratorBasedBuilder):
     """StrategyQA is a question-answering benchmark focusing on open-domain questions."""
@@ -85,7 +89,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
 
         if self.config.schema == "source":
             features = datasets.Features(
-               {
+                {
                     "qid": datasets.Value("string"),
                     "term": datasets.Value("string"),
                     "description": datasets.Value("string"),
@@ -96,21 +100,21 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                     "evidence": datasets.Sequence(
                         datasets.Sequence(
                             {
-                                "paragraphs": [{
-                                    "title": datasets.Value("string"),
-                                    "section": datasets.Value("string"),
-                                    "headers": [
-                                        datasets.Value("string")
-                                    ],
-                                    "para_index": datasets.Value("int64"),
-                                    "content": datasets.Value("string"),
-                                }],
+                                "paragraphs": [
+                                    {
+                                        "title": datasets.Value("string"),
+                                        "section": datasets.Value("string"),
+                                        "headers": [datasets.Value("string")],
+                                        "para_index": datasets.Value("int64"),
+                                        "content": datasets.Value("string"),
+                                    }
+                                ],
                                 "no_evidence": datasets.Value("string"),
                                 "operation": datasets.Value("string"),
                             }
                         )
                     ),
-               }
+                }
             )
         elif self.config.schema == "thoughtsource":
             features = schemas.cot_features
@@ -125,11 +129,15 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
-        
+
         urls = _URLS[_DATASETNAME]
         data_dir = dl_manager.download_and_extract(urls)
 
-        with open(os.path.join(data_dir, "strategyqa_train_paragraphs.json"), "r", encoding="utf8") as jsonfile:
+        with open(
+            os.path.join(data_dir, "strategyqa_train_paragraphs.json"),
+            "r",
+            encoding="utf8",
+        ) as jsonfile:
             paragraphs = json.load(jsonfile)
 
         return [
@@ -138,7 +146,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                 gen_kwargs={
                     "filepath": os.path.join(data_dir, "strategyqa_train.json"),
                     "paragraphs": paragraphs,
-                    "split": "train"
+                    "split": "train",
                 },
             ),
             datasets.SplitGenerator(
@@ -146,14 +154,14 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                 gen_kwargs={
                     "filepath": os.path.join(data_dir, "strategyqa_test.json"),
                     "paragraphs": paragraphs,
-                    "split": "test"
+                    "split": "test",
                 },
             ),
         ]
 
     def _generate_examples(self, filepath, paragraphs, split) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
-        
+
         with open(filepath, "r", encoding="utf8") as jsonfile:
             data = json.load(jsonfile)
 
@@ -169,7 +177,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                                 foo = {
                                     "no_evidence": False,
                                     "operation": False,
-                                    "paragraphs": []
+                                    "paragraphs": [],
                                 }
                                 if element == "no_evidence":
                                     foo["no_evidence"] = True
@@ -196,7 +204,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                         "cot": example["facts"],
                         "answer": [example["answer"]],
                         "feedback": None,
-                        "generated_cot": []
+                        "generated_cot": [],
                     }
                     yield key, example_
 
@@ -229,9 +237,10 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                         "cot": [],
                         "answer": "",
                         "feedback": None,
-                        "generated_cot": []
+                        "generated_cot": [],
                     }
                     yield key, example_
+
 
 if __name__ == "__main__":
     datasets.load_dataset(__file__)

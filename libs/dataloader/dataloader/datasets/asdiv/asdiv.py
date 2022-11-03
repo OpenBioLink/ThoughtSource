@@ -15,11 +15,12 @@
 
 import os
 import re
-import pandas as pd
-from typing import List, Tuple, Dict
 import xml.etree.ElementTree as et
+from typing import Dict, List, Tuple
 
 import datasets
+import pandas as pd
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -54,15 +55,18 @@ _URLS = {
     "fold1": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold1.txt",
     "fold2": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold2.txt",
     "fold3": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold3.txt",
-    "fold4": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold4.txt"
+    "fold4": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/nfolds/asdiv-a/fold4.txt",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class AsdivDataset(datasets.GeneratorBasedBuilder):
     """Dataset containing 2305 english Math Word Problems (MWPs)."""
@@ -118,7 +122,7 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
-        
+
         files = dl_manager.download_and_extract(_URLS)
 
         return [
@@ -126,7 +130,7 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 gen_kwargs={
                     "corpuspath": files["corpus"],
-                    "folds": [files[f"fold{x}"] for x in [0,1,2,3,4]]
+                    "folds": [files[f"fold{x}"] for x in [0, 1, 2, 3, 4]],
                 },
             ),
         ]
@@ -140,14 +144,13 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                 content = infile.readlines()
                 for id in content:
                     ids.add(id.strip())
-        
+
         tree = et.parse(corpuspath)
         problems = tree.findall("ProblemSet/Problem")
         problems = [x for x in problems if x.attrib["ID"] in ids]
 
-
         if self.config.schema == "source":
-            
+
             for key, example in enumerate(problems):
                 example_ = example.attrib
                 if "Class" not in example_:
@@ -162,26 +165,26 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                 "+": "sum",
                 "-": "difference",
                 "*": "product",
-                "/": "quotient"
+                "/": "quotient",
             }
             operator_to_nomen = {
                 "+": "addition",
                 "-": "subtraction",
                 "*": "multiplication",
-                "/": "division"
+                "/": "division",
             }
             operator_to_verb = {
                 "+": "add",
                 "-": "subtract",
                 "*": "multiply",
-                "/": "divide"
+                "/": "divide",
             }
 
             for key, example in enumerate(problems):
 
                 formula = example.find("Formula").text.replace(" ", "")
                 equation, ans = formula.split("=")
-                assert ("r" in ans or float(ans)), f"Answer is not number {ans}"
+                assert "r" in ans or float(ans), f"Answer is not number {ans}"
 
                 steps = self._decompose_equation(equation)
 
@@ -210,7 +213,9 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                     "id": example.attrib["ID"],
                     "question_id": example.attrib["ID"],
                     "document_id": example.attrib["ID"],
-                    "question": " ".join([example.find("Body").text, example.find("Question").text]),
+                    "question": " ".join(
+                        [example.find("Body").text, example.find("Question").text]
+                    ),
                     "type": "number",
                     "cot_type": "list",
                     "choices": [],
@@ -218,30 +223,40 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                     "cot": chain_of_thought,
                     "answer": [example.find("Answer").text],
                     "feedback": [],
-                    "generated_cot": []
+                    "generated_cot": [],
                 }
                 yield key, example_
-            
-    
+
     def _decompose_equation(self, equation, idx=0):
 
         equation = equation.replace(" ", "")
 
         # special case equation single number no operator
-        if equation.replace('.', '', 1).isdigit():
+        if equation.replace(".", "", 1).isdigit():
             return []
 
         if equation == f"int{idx-1}":
             return []
         else:
-            pattern = r"\((int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)\)"
+            pattern = (
+                r"\((int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)\)"
+            )
             result = re.search(pattern, equation)
             if not result:
-                pattern = r"(int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)"
+                pattern = (
+                    r"(int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)"
+                )
                 result = re.search(pattern, equation)
-            assert (result), equation
-            equation = equation[:result.span()[0]] + "int" + str(idx) + equation[result.span()[1]:]
-            return [[result.group(1), result.group(3), result.group(4)]] + self._decompose_equation(equation, idx+1)
+            assert result, equation
+            equation = (
+                equation[: result.span()[0]]
+                + "int"
+                + str(idx)
+                + equation[result.span()[1] :]
+            )
+            return [
+                [result.group(1), result.group(3), result.group(4)]
+            ] + self._decompose_equation(equation, idx + 1)
 
 
 # This template is based on the following template from the datasets package:

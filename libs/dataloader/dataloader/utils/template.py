@@ -32,9 +32,10 @@ TODO: Before submitting your script, delete this doc string and replace it with 
 """
 
 import os
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 import datasets
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -86,7 +87,9 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 # TODO: set this to a version that is associated with the dataset. if none exists use "1.0.0"
 #  This version doesn't have to be consistent with semantic versioning. Anything that is
@@ -205,7 +208,9 @@ class NewDataset(datasets.GeneratorBasedBuilder):
 
         # TODO: KEEP if your dataset is LOCAL; remove if NOT
         if self.config.data_dir is None:
-            raise ValueError("This is a local dataset. Please pass the data_dir kwarg to load_dataset.")
+            raise ValueError(
+                "This is a local dataset. Please pass the data_dir kwarg to load_dataset."
+            )
         else:
             data_dir = self.config.data_dir
 

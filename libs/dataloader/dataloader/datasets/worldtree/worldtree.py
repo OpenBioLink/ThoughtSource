@@ -13,12 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from multiprocessing.sharedctypes import Value
 import os
 import re
-from typing import List, Tuple, Dict
+from multiprocessing.sharedctypes import Value
+from typing import Dict, List, Tuple
 
 import datasets
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -66,11 +67,14 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class WorldtreeDataset(datasets.GeneratorBasedBuilder):
     """Worldtree is of the most detailed multi-hop question answering/explanation datasets"""
@@ -105,7 +109,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
                     "question": datasets.Value("string"),
                     "answer": datasets.Value("string"),
                     "choices": datasets.Value("string"),
-                    "explanation": [datasets.Value("string")]
+                    "explanation": [datasets.Value("string")],
                 }
             )
         elif self.config.schema == "thoughtsource":
@@ -121,7 +125,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
-        
+
         urls = _URLS[_DATASETNAME]
         data_dir = dl_manager.download_and_extract(urls)
 
@@ -130,19 +134,34 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
                 gen_kwargs={
-                    "filepath": os.path.join(data_dir, "WorldtreeExplanationCorpusV2.1_Feb2020", "explanations-plaintext", "explanations.plaintext.train.txt")
+                    "filepath": os.path.join(
+                        data_dir,
+                        "WorldtreeExplanationCorpusV2.1_Feb2020",
+                        "explanations-plaintext",
+                        "explanations.plaintext.train.txt",
+                    )
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
-                    "filepath": os.path.join(data_dir, "WorldtreeExplanationCorpusV2.1_Feb2020", "explanations-plaintext", "explanations.plaintext.test.txt")
+                    "filepath": os.path.join(
+                        data_dir,
+                        "WorldtreeExplanationCorpusV2.1_Feb2020",
+                        "explanations-plaintext",
+                        "explanations.plaintext.test.txt",
+                    )
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
-                    "filepath": os.path.join(data_dir, "WorldtreeExplanationCorpusV2.1_Feb2020", "explanations-plaintext", "explanations.plaintext.dev.txt")
+                    "filepath": os.path.join(
+                        data_dir,
+                        "WorldtreeExplanationCorpusV2.1_Feb2020",
+                        "explanations-plaintext",
+                        "explanations.plaintext.dev.txt",
+                    )
                 },
             ),
         ]
@@ -151,12 +170,12 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
         """Yields examples as (key, example) tuples."""
 
         if self.config.schema == "source":
-            with open(filepath, 'r') as infile:
+            with open(filepath, "r") as infile:
                 for key, example in enumerate(self._generate_parsed_documents(infile)):
                     yield key, example
 
         elif self.config.schema == "thoughtsource":
-            with open(filepath, 'r') as infile:
+            with open(filepath, "r") as infile:
                 for key, example in enumerate(self._generate_parsed_documents(infile)):
                     yield key, self._source_to_thoughtsource(example)
 
@@ -169,14 +188,18 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
             choices = [x.split(": ")[1] for x in field1]
             answer = int(raw_document[2][16:])
             answer = choices[answer]
-            explanations = [re.search(r".*(?= \(.*\) \(.*\))", x).group() for x in raw_document[4:] if "No UUID specified" not in x]
-            
+            explanations = [
+                re.search(r".*(?= \(.*\) \(.*\))", x).group()
+                for x in raw_document[4:]
+                if "No UUID specified" not in x
+            ]
+
             yield {
                 "question_id": question_id,
                 "question": question,
                 "answer": answer,
                 "choices": choices,
-                "explanation": explanations
+                "explanation": explanations,
             }
 
     def _generate_raw_documents(self, fstream):
@@ -198,11 +221,15 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
         for idx in range(len(cot)):
             match = re.search(pattern, cot[idx])
             while match:
-                cot[idx] = cot[idx][:match.span()[0]] + match.group(1) + cot[idx][match.span()[1]:]
+                cot[idx] = (
+                    cot[idx][: match.span()[0]]
+                    + match.group(1)
+                    + cot[idx][match.span()[1] :]
+                )
                 match = re.search(pattern, cot[idx])
 
         cot = [x.capitalize() for x in cot]
-        cot = [x + "." if x[-1] not in ['.', '!', '?'] else x for x in cot]
+        cot = [x + "." if x[-1] not in [".", "!", "?"] else x for x in cot]
 
         example_ = {
             "id": example["question_id"],
@@ -216,9 +243,10 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
             "cot": cot,
             "answer": [example["answer"]],
             "feedback": [],
-            "generated_cot": []
+            "generated_cot": [],
         }
         return example_
+
 
 if __name__ == "__main__":
     datasets.load_dataset(__file__)

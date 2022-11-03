@@ -15,10 +15,11 @@
 
 import os
 import re
-import pandas as pd
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 import datasets
+import pandas as pd
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -66,11 +67,14 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class MawpsDataset(datasets.GeneratorBasedBuilder):
     """Dataset containing 3,320 english Math Word Problems (MWPs)."""
@@ -124,7 +128,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
-        
+
         data_dir = dl_manager.download_and_extract(_URLS)
 
         return [
@@ -138,7 +142,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
 
     def _generate_examples(self, data_dir) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
-        
+
         train = pd.read_csv(data_dir["train"])
         dev = pd.read_csv(data_dir["dev"])
         data = pd.concat([train, dev], ignore_index=True)
@@ -150,7 +154,9 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                     "numbers": [float(x) for x in example["Numbers"].split(" ")],
                     "equation": example["Equation"],
                     "answer": float(example["Answer"]),
-                    "group_nums": [int(x.strip()) for x in example["group_nums"][1:-1].split(",")],
+                    "group_nums": [
+                        int(x.strip()) for x in example["group_nums"][1:-1].split(",")
+                    ],
                     "body": example["Body"],
                     "ques": example["Ques_Statement"],
                 }
@@ -162,27 +168,34 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                 "+": "sum",
                 "-": "difference",
                 "*": "product",
-                "/": "quotient"
+                "/": "quotient",
             }
             operator_to_nomen = {
                 "+": "addition",
                 "-": "subtraction",
                 "*": "multiplication",
-                "/": "division"
+                "/": "division",
             }
             operator_to_verb = {
                 "+": "add",
                 "-": "subtract",
                 "*": "multiply",
-                "/": "divide"
+                "/": "divide",
             }
 
             for key, example in data.iterrows():
-                
+
                 example["Question"] = self._untokenize(example["Question"])
-                all_numbers = {f"number{i}": x for i,x in enumerate([float(x) for x in example["Numbers"].split(" ")])}
+                all_numbers = {
+                    f"number{i}": x
+                    for i, x in enumerate(
+                        [float(x) for x in example["Numbers"].split(" ")]
+                    )
+                }
                 for number_id, number in all_numbers.items():
-                    example["Question"] = example["Question"].replace(number_id, str(number))
+                    example["Question"] = example["Question"].replace(
+                        number_id, str(number)
+                    )
 
                 steps = self._decompose_equation(example["Equation"])
 
@@ -208,7 +221,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                     cot += f"and get {int_[f'int{idx}']}."
 
                     chain_of_thought.append(cot)
-                        
+
                 example_ = {
                     "id": key,
                     "question_id": key,
@@ -221,10 +234,10 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                     "cot": chain_of_thought,
                     "answer": [example["Answer"]],
                     "feedback": [],
-                    "generated_cot": []
+                    "generated_cot": [],
                 }
                 yield key, example_
-    
+
     def _decompose_equation(self, equation, idx=0):
         # special case equation single number no operator
         if equation == "number0":
@@ -235,10 +248,17 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
             return []
         else:
             result = re.search(pattern, equation)
-            assert (result), equation
+            assert result, equation
             # assert (len(re.findall(pattern, equation)) == 1), equation
-            equation = equation[:result.span()[0]] + "int" + str(idx) + equation[result.span()[1]:]
-            return [result.group().split(" ")] + self._decompose_equation(equation, idx+1)
+            equation = (
+                equation[: result.span()[0]]
+                + "int"
+                + str(idx)
+                + equation[result.span()[1] :]
+            )
+            return [result.group().split(" ")] + self._decompose_equation(
+                equation, idx + 1
+            )
 
     def _untokenize(self, text):
         """
@@ -247,12 +267,13 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
         Ideally, `untokenize(tokenize(text))` should be identical to `text`,
         except for line breaks.
         """
-        step1 = text.replace("`` ", '"').replace(" ''", '"').replace('. . .',  '...')
+        step1 = text.replace("`` ", '"').replace(" ''", '"').replace(". . .", "...")
         step2 = step1.replace(" ( ", " (").replace(" ) ", ") ")
         step3 = re.sub(r' ([.,:;?!%]+)([ \'"`])', r"\1\2", step2)
-        step4 = re.sub(r' ([.,:;?!%]+)$', r"\1", step3)
-        step5 = step4.replace(" '", "'").replace(" n't", "n't").replace(
-            "can not", "cannot")
+        step4 = re.sub(r" ([.,:;?!%]+)$", r"\1", step3)
+        step5 = (
+            step4.replace(" '", "'").replace(" n't", "n't").replace("can not", "cannot")
+        )
         step6 = step5.replace(" ` ", " '")
         return step6.strip()
 

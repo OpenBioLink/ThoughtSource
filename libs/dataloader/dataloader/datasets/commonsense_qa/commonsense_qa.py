@@ -14,13 +14,16 @@
 # limitations under the License.
 
 import json
+
 import nltk
-nltk.download('punkt')
-from nltk.tokenize import sent_tokenize
+
+nltk.download("punkt")
 import os
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 import datasets
+from nltk.tokenize import sent_tokenize
+
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
 
@@ -77,15 +80,18 @@ _URLS = {
         "dev": "https://s3.amazonaws.com/commensenseqa/dev_rand_split.jsonl",
         "test": "https://s3.amazonaws.com/commensenseqa/test_rand_split_no_answers.jsonl",
     },
-    "ecqa": "https://github.com/dair-iitd/ECQA-Dataset/raw/main/ecqa.jsonl"
+    "ecqa": "https://github.com/dair-iitd/ECQA-Dataset/raw/main/ecqa.jsonl",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = (
+    []
+)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
     """CommonsenseQA is a new multiple-choice commonsense knowledge question answering dataset containing 12,102 questions."""
@@ -144,10 +150,10 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
-        
+
         data_dir = dl_manager.download_and_extract(_URLS)
 
-        with open(data_dir["ecqa"], 'r') as json_file:
+        with open(data_dir["ecqa"], "r") as json_file:
             ecqa = [json.loads(line) for line in json_file]
         ecqa = {x["id"]: x["explanation"] for x in ecqa}
 
@@ -178,8 +184,8 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
 
     def _generate_examples(self, filepath, ecqa) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
-        
-        with open(filepath, 'r') as json_file:
+
+        with open(filepath, "r") as json_file:
             data = [json.loads(line) for line in json_file]
 
         if self.config.schema == "source":
@@ -191,8 +197,10 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
 
         elif self.config.schema == "thoughtsource":
             for key, example in enumerate(data):
-                
-                choices = {x["label"]: x["text"] for x in example["question"]["choices"]}
+
+                choices = {
+                    x["label"]: x["text"] for x in example["question"]["choices"]
+                }
                 example_ = {
                     "id": example["id"],
                     "question_id": example["id"],
@@ -202,10 +210,14 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                     "cot_type": "list",
                     "choices": choices.values(),
                     "context": "",
-                    "cot": [x.capitalize() for x in sent_tokenize(ecqa[example["id"]])] if example["id"] in ecqa else [],
-                    "answer": [choices[example["answerKey"]]] if "answerKey" in example else [],
+                    "cot": [x.capitalize() for x in sent_tokenize(ecqa[example["id"]])]
+                    if example["id"] in ecqa
+                    else [],
+                    "answer": [choices[example["answerKey"]]]
+                    if "answerKey" in example
+                    else [],
                     "feedback": [],
-                    "generated_cot": []
+                    "generated_cot": [],
                 }
                 yield key, example_
 
