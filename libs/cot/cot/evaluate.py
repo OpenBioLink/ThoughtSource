@@ -1,6 +1,8 @@
 import re
-import datasets as ds
 from collections import defaultdict
+
+import datasets as ds
+
 
 # ver 0.2
 def clean(type_, pred):
@@ -20,10 +22,11 @@ def evaluate_example(type_, pred, gold):
     if type_ == "multiplechoice":
         return pred == gold
 
+
 def answer_to_multiplechoice(answer, choices):
     for ix, choice in enumerate(choices):
         if choice == answer:
-            return chr(65+ix)
+            return chr(65 + ix)
     raise ValueError("Thats weird, gold-answer not found in choices")
 
 
@@ -50,7 +53,7 @@ def evaluate(dataset, config=None):
 
         if type_ == "multiplechoice":
             gold_answer = answer_to_multiplechoice(gold_answer, example["choices"])
-        
+
         for cot in example["generated_cot"]:
             for answer in cot["answers"]:
                 key = f"{cot['instruction']}_{cot['cot-trigger']}_{answer['answer-extraction']}"
@@ -59,7 +62,7 @@ def evaluate(dataset, config=None):
                 answer_str = clean(type_, answer_str)
                 if evaluate_example(type_, answer_str, gold_answer):
                     predictions[key] += 1
-                
+
     evaluations = defaultdict(dict)
     for key in keys:
         for metric in ["accuracy"]:
