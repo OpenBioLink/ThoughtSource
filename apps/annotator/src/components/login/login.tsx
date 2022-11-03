@@ -1,47 +1,44 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import CotData from '../../dtos/CotData';
+import { FILE_CONTENT_KEY, FILE_NAME_KEY, get, USERNAME_KEY } from '../httpservice';
 import styles from './login.module.scss';
 
 interface LoginProps {
   onUsername: (username: string) => void
-  onFileRead: (allData: any, cotData: CotData[]) => void
+  onFileRead: (filename: string, allData: any, cotData: CotData[], startAnnotating: boolean) => void
   onLogin: () => void
+  username?: string
+  hasCotDataLoaded: boolean
 }
 
 const Login: FC<LoginProps> = (props) => {
 
-  function makePostRequest() {
-
-  }
+  const [state, setState] = useState<any>()
 
   useEffect(() => {
-    const requestOptions = {
-      method: 'GET',
-      credentials: 'include',
-      origin: 'http://localhost:3000',
-    }
-
-    fetch('http://localhost:5000/checkin', requestOptions as any)
-      .then(response => response.json())
-      .then((data) => {
-        console.log("Success")
-        console.log(data)
-      })
-      .catch(error => {
-        console.log("Error request")
-        console.log(error)
-      })
+    performServerCheckin()
   }, [])  // Pass an empty array to run callback on mount only.
 
-  function onFileChange(event: any) {
-    const reader = new FileReader()
-    reader.readAsText(event.target.files[0], "UTF-8")
-    reader.onload = onFileRead
+  function performServerCheckin() {
+    get('checkin', (data) => {
+      setState({
+        [USERNAME_KEY]: data[USERNAME_KEY],
+        [FILE_NAME_KEY]: data[FILE_NAME_KEY],
+        [FILE_CONTENT_KEY]: data[FILE_CONTENT_KEY]
+      })
+    })
   }
 
-  function onFileRead(event: any) {
+  function onFileChange(event: any) {
+    const filename = event.target.files[0].name
+
+    const reader = new FileReader()
+    reader.readAsText(event.target.files[0], "UTF-8")
+    reader.onload = (loadEvent) => onFileRead(filename, JSON.parse(loadEvent.target?.result as any), false)
+  }
+
+  function onFileRead(filename: string, data: any, startAnnotating: boolean) {
     // Flatmap all dataset entries
-    const data = JSON.parse(event.target.result)
     let stateEntries: CotData[] = []
     for (let [i, dataset] of Object.entries(data)) {
       const trainingEntries = (dataset as any)['train']
@@ -54,15 +51,27 @@ const Login: FC<LoginProps> = (props) => {
     stateEntries = stateEntries.filter(entry => entry.generated_cot?.length > 0)
 
     // Pass both original and parsed data back to Root
-    props.onFileRead(data, stateEntries)
+    props.onFileRead(filename, data, stateEntries, startAnnotating)
   }
 
+  const existingSessionElement = state ? <div className={styles.RestoreSession}>
+    <h5>
+      Restore previous session
+    </h5>
+    <div onClick={() => {
+      props.onUsername(state[USERNAME_KEY])
+      onFileRead(state[FILE_NAME_KEY], state[FILE_CONTENT_KEY], true)
+    }}>
+      {state[USERNAME_KEY]} | {state[FILE_NAME_KEY]}
+    </div>
+  </div> : null
+
   return <div className={styles.Login}>
-    <label>File</label>
+    <h5>Login</h5>
+    <input placeholder='Author' onChange={(event) => props.onUsername(event.target.value)}></input>
     <input type="file" onChange={onFileChange} />
-    <label>Name</label>
-    <input onChange={(event) => props.onUsername(event.target.value)}></input>
-    <button onClick={props.onLogin}>Start annotating</button>
+    <button onClick={props.onLogin} disabled={props.username == null || props.username.length == 0 || !props.hasCotDataLoaded}>Start annotating</button>
+    {existingSessionElement}
   </div>
 }
 

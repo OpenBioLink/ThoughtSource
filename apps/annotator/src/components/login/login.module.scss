@@ -1,1 +1,34 @@
-.Login {}
+.Login {
+    margin-top: 5vh;
+    text-align: center;
+
+    input,
+    button {
+        box-sizing: border-box;
+        margin: 8px;
+        padding: 4px;
+        offset: 0px;
+        display: block;
+        width: 100%;
+    }
+
+    button:disabled,
+    button[disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    h5 {
+        margin: 0px;
+        margin-bottom: 4px;
+    }
+
+    .RestoreSession {
+        margin-top: 5vh;
+
+        div:hover {
+            cursor: pointer;
+            background-color: antiquewhite;
+        }
+    }
+}

@@ -1,8 +1,8 @@
-import { FC, useState } from 'react';
-import Slider from 'react-input-slider';
+import { FC, useEffect, useState } from 'react';
 import CotData, { SimilaritiesDict } from '../../dtos/CotData';
 import Annotator from '../annotator/annotator';
-import Dropdown from '../dropdown/dropdown';
+import Header from '../header/header';
+import { post } from '../httpservice';
 import Login from '../login/login';
 import styles from './root.module.scss';
 
@@ -10,20 +10,34 @@ interface RootProps { }
 
 const Root: FC<RootProps> = () => {
   const [username, setUsername] = useState<string>()
+  const [filename, setFilename] = useState('export')
   const [allData, setAllData] = useState<any>()
   const [cotData, setCotData] = useState<CotData[]>()
   const [loggedIn, setLoggedIn] = useState(false)
   const [downloadData, setDownloadData] = useState<string>()
-
-  const [sliderX, setSliderX] = useState(0.5)
-
-
   const [similarityDicts, setSimilarityDicts] = useState<SimilaritiesDict[]>([])
   const [similarityTypes, setSimilarityTypes] = useState<string[]>()
   const [selectedSimilarityType, setSelectedSimilarityType] = useState<string>("")
+  const [tresholdValue, setTresholdValue] = useState(0.25)
+  const [lastBackupTime, setLastBackupTime] = useState(0)
 
+  useEffect(() => {
+    setupBeforeUnloadListener()
 
-  function onFileRead(allData: any, cotData: CotData[]) {
+    // Function called on unmount
+    return () => backupFileToSession()
+  }, [])  // Pass an empty array to run callback on mount only.
+
+  // Setup the `beforeunload` event listener
+  // TODO here but better - hier geht momentan nur der OPTIONS request durch...
+  const setupBeforeUnloadListener = () => {
+    window.addEventListener("beforeunload", (ev) => {
+      // ev.preventDefault();
+      backupFileToSession()
+    });
+  };
+
+  function onFileRead(filename: string, allData: any, cotData: CotData[], startAnnotating: boolean) {
     cotData.forEach(cotData => {
       const cot = cotData.generated_cot.map(cotData => cotData.cot)
       const sentencesForCots = cot.map(cot => cot.split(". ")
@@ -33,6 +47,7 @@ const Root: FC<RootProps> = () => {
       cotData.lengths = sentencesForCots.map(sentences => sentences.length)
     })
 
+    setFilename(filename)
     setAllData(allData)
     setCotData(cotData)
 
@@ -42,82 +57,94 @@ const Root: FC<RootProps> = () => {
         'lengths': cotData.lengths
       }
     })
-    const requestOptions = {
-      method: 'POST',
-      credentials: 'include',
-      origin: 'http://localhost:3000',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        entries: postData,
-        username: "TODO testuser"
-      })
-    } as any
 
-    fetch('http://localhost:5000/compareall', requestOptions)
-      .then(response => response.json())
-      .then((similarityDicts: SimilaritiesDict[]) => {
-        // Store index of similarity to visualise colour later
-        similarityDicts.forEach(similarityDict => {
-          for (let [key, similarityInfos] of Object.entries(similarityDict)) {
-            // TODO does index exist already..?
-            similarityInfos.forEach((value, index) => value.index = index)
-          }
-        })
-        setSimilarityDicts(similarityDicts)
-
-        if (similarityDicts != null && similarityDicts.length > 0) {
-          const keyNames = Object.keys(similarityDicts[0])
-          setSimilarityTypes(keyNames)
-          // Initially show similarities for first algorithm
-          const firstKeyName = keyNames.at(0) as string
-          setSelectedSimilarityType(firstKeyName)
+    post('compareall', postData, (similarityDicts: SimilaritiesDict[]) => {
+      // Store index of similarity to visualise colour later
+      similarityDicts.forEach(similarityDict => {
+        for (let [key, similarityInfos] of Object.entries(similarityDict)) {
+          // TODO does index exist already..?
+          similarityInfos.forEach((value, index) => value.index = index)
         }
       })
-      .catch(error => {
-        console.log("Error fetching similarities")
-        console.log(error)
-      })
+      setSimilarityDicts(similarityDicts)
+
+      if (similarityDicts != null && similarityDicts.length > 0) {
+        const keyNames = Object.keys(similarityDicts[0])
+        setSimilarityTypes(keyNames)
+        // Initially show similarities for first algorithm
+        const firstKeyName = keyNames.at(0) as string
+        setSelectedSimilarityType(firstKeyName)
+      }
+    })
+
+    if (startAnnotating) {
+      onLogin()
+    }
   }
 
   function onLogin() {
-    if (username && username.length > 0 && cotData && cotData.length > 0) {
-      setLoggedIn(true)
-    }
+    setLoggedIn(true)
   }
 
   function updateExportFile() {
     const downloadData = "data:text/plain;charset=utf-8," + encodeURIComponent(JSON.stringify(allData))
     setDownloadData(downloadData)
+
+    const currentTimeMillis = Date.now()
+    if (currentTimeMillis - lastBackupTime > 15_000) {
+      backupFileToSession()
+      setLastBackupTime(currentTimeMillis)
+    }
+  }
+
+  function backupFileToSession() {
+    const postData = {
+      username: username,
+      filename: filename,
+      filecontent: allData
+    }
+
+    console.log(postData)
+    post('backup', postData, (data) => {
+      console.log("Backup success")
+    })
+  }
+
+  function logout() {
+    setLoggedIn(false)
   }
 
   return <div className={styles.Root}>
-    {loggedIn ?
-      <div>
-        <div className={styles.Header}>
-          <span style={{ color: 'white' }}>ThoughtSource Annotator | </span>
-          <a href={downloadData} download="export.json" style={{ color: 'white' }}>Download current | </a>
-          <Dropdown options={{
-
-          }} />
-          <span style={{ color: 'white' }}>Visualisation treshold</span>
-          <Slider axis="x" x={sliderX} onChange={({ x }) => setSliderX(x)} xmin={0} xmax={1} xstep={0.05} />
-        </div>
+    <Header
+      username={username}
+      onLogout={logout}
+      tresholdValue={tresholdValue}
+      setTresholdValue={setTresholdValue}
+      downloadData={downloadData}
+      filename={filename}
+      similarityTypes={similarityTypes}
+      selectedSimilarityType={selectedSimilarityType}
+      onSelectSimilarityType={setSelectedSimilarityType}
+      isLoggedIn={loggedIn}
+    />
+    <div className={styles.Main}>
+      {loggedIn ?
         <Annotator
           username={username as string}
-          visualisationTreshold={sliderX}
+          visualisationTreshold={tresholdValue}
           cotData={cotData as CotData[]}
           similarityDicts={similarityDicts}
           selectedSimilarityType={selectedSimilarityType}
           anyUpdatePerformed={updateExportFile} />
-      </div>
-      :
-      <Login
-        onUsername={setUsername}
-        onFileRead={onFileRead}
-        onLogin={onLogin} />
-    }
+        :
+        <Login
+          onUsername={setUsername}
+          onFileRead={onFileRead}
+          onLogin={onLogin}
+          username={username}
+          hasCotDataLoaded={cotData != null && cotData.length > 0} />
+      }
+    </div>
   </div>
 }
 

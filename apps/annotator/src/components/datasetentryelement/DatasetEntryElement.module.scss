@@ -4,6 +4,22 @@
 
     align-self: center;
     max-width: 1400px;
+
+
+    ol {
+        //list-style-type: none;
+        margin: 0px;
+        margin-top: 4px;
+        //padding: 0px
+    }
+
+    ol li {
+        list-style: upper-alpha;
+    }
+
+    .CorrectAnswer {
+        font-weight: bold;
+    }
 }
 
 .EntryHeader {

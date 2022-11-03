@@ -3,14 +3,15 @@
 .Root {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.1rem;
-    text-align: justify;
-}
 
-.Header {
-    background-color: rebeccapurple;
-    position: sticky;
-    top: 0px;
-    width: 100vw;
+    .Main {
+        display: flex;
+        width: 100vw;
+        //height: 100vh;
+        justify-content: center;
+        //align-items: center;
+    }
+
 }
 
 body {

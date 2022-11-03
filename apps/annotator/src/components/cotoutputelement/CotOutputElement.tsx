@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { annotate, CotOutput, findExistingAnnotation, SentenceElement } from '../../dtos/CotData';
-import { annotationList, FREETEXT } from '../datasetentry/DatasetEntry';
+import { annotationList, COMMENT } from '../datasetentry/DatasetEntry';
 import { levenshtein } from '../levenshtein';
 import styles from './CotOutputElement.module.scss';
 
@@ -19,7 +19,7 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
 
   function onFreetext(event: any) {
     const text = event.target.value
-    annotate(props.cotOutput, FREETEXT, null, props.username, text)
+    annotate(props.cotOutput, COMMENT, text, props.username, null)
 
     props.updateExportFile()
   }
@@ -38,16 +38,17 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
 
     const colors_bright = ['#FBFA30', '#3CFA72', '#32B5FF']
     const colors = ['#20729E', '#249945', '#7d2cc7']
-    if (similarityIndex >= 0 && similarityIndex < colors.length) {
-      return colors_bright[similarityIndex]
+    const colors_v5 = ['#23DCAE', '#536AD8', '#AE66E1', '#DEC721', '#76D965']
+    if (similarityIndex >= 0 && similarityIndex < colors_v5.length) {
+      return colors_v5[similarityIndex]
     }
     return null
   }
 
-  const annotationInputs = annotationList.map((annotationString, index) => <li key={index}>
+  const annotationInputs = annotationList.map((annotationString, index) => <li>
     <label><input
       type="checkbox" name="name"
-      checked={findExistingAnnotation(props.cotOutput, annotationString)?.value == "true"}
+      checked={findExistingAnnotation(props.cotOutput, annotationString, props.username)?.value == "true"}
       onChange={(e) => { onAnnotationClicked(annotationString, e) }} />
       {annotationString}</label>
   </li>)
@@ -84,8 +85,9 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
     </div>
     <ul className={styles.Annotations}>
       {annotationInputs}
-      <input onBlur={onFreetext} value={findExistingAnnotation(props.cotOutput, FREETEXT)?.comment} title="freetext"></input>
-    </ul>  </div>
+    </ul>
+    <input onBlur={onFreetext} defaultValue={findExistingAnnotation(props.cotOutput, COMMENT, props.username)?.value} title="freetext" className={styles.Comment}></input>
+  </div>
 }
 
 export default CotOutputElement;

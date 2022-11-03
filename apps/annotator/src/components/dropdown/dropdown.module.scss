@@ -1,1 +1,33 @@
-.Dropdown {}
+.Dropdown {
+    display: inline;
+    text-align: left;
+
+    span {
+        cursor: pointer;
+    }
+
+    li {
+        padding: 6px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    li:hover {
+        background-color: #bebe2b;
+    }
+
+    ul {
+        margin-top: 2px;
+        //padding: 4px;
+        border-radius: 4px;
+        list-style-type: none;
+        position: absolute;
+        z-index: 1;
+        background-color: #303030;
+    }
+
+}
+
+.Dropdown:hover {
+    cursor: pointer;
+}
