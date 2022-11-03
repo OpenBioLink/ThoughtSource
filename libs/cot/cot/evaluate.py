@@ -18,7 +18,7 @@ def clean(type_, pred):
     return pred
 
 
-def evaluate_example(type_, pred, gold):
+def is_correct(type_, pred, gold):
     if type_ == "multiplechoice":
         return pred == gold
 
@@ -29,6 +29,25 @@ def answer_to_multiplechoice(answer, choices):
             return chr(65 + ix)
     raise ValueError("Thats weird, gold-answer not found in choices")
 
+def evaluate_sample(example, type_):
+    assert (
+        type_ == example["type"]
+    ), "Datasets contains examples with multiple different types"
+
+    gold_answer = example["answer"][0]
+
+    if type_ == "multiplechoice":
+        gold_answer = answer_to_multiplechoice(gold_answer, example["choices"])
+
+    for cot in example["generated_cot"]:
+        for answer in cot["answers"]:
+            answer_str = answer["answer"]
+            answer_str = clean(type_, answer_str)
+            if is_correct(type_, answer_str, gold_answer):
+                answer["correct_answer"] = True
+            else:
+                answer["correct_answer"] = False
+    return example
 
 def evaluate(dataset, config=None):
 
@@ -38,36 +57,25 @@ def evaluate(dataset, config=None):
         dataset, ds.arrow_dataset.Dataset
     ), "Only implemented for single datasets right now e.g. collection['worldtree']['train']"
 
-    keys = set()
-    predictions = defaultdict(int)
-
     # support only one type per dataset
     # TODO support datasets contining different example types (mulichoice, number, ...), if needed?
     type_ = dataset[0]["type"]
+        
+    dataset = dataset.map(evaluate_sample, fn_kwargs={"type_": type_})
+
+    keys = set()
+    predictions = defaultdict(int)
     for example in dataset:
-        assert (
-            type_ == example["type"]
-        ), "Datasets contains examples with multiple different types"
-
-        gold_answer = example["answer"][0]
-
-        if type_ == "multiplechoice":
-            gold_answer = answer_to_multiplechoice(gold_answer, example["choices"])
-
         for cot in example["generated_cot"]:
             for answer in cot["answers"]:
                 key = f"{cot['instruction']}_{cot['cot-trigger']}_{answer['answer-extraction']}"
                 keys.add(key)
-                answer_str = answer["answer"]
-                answer_str = clean(type_, answer_str)
-                if evaluate_example(type_, answer_str, gold_answer):
-                    answer["correct_answer"] = True
+                if answer["correct_answer"]:
                     predictions[key] += 1
-                else:
-                    answer["correct_answer"] = False
 
     evaluations = defaultdict(dict)
     for key in keys:
         for metric in ["accuracy"]:
             evaluations[metric][key] = predictions[key] / len(dataset)
-    return dict(evaluations)
+    print(dict(evaluations))
+    return dataset
