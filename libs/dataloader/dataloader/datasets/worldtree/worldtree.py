@@ -15,7 +15,6 @@
 
 import os
 import re
-from multiprocessing.sharedctypes import Value
 from typing import Dict, List, Tuple
 
 import datasets
@@ -41,7 +40,6 @@ _CITATION = """\
     publisher = "European Language Resources Association",
     url = "https://aclanthology.org/2020.lrec-1.671",
     pages = "5456--5473",
-    abstract = "Explainable question answering for complex questions often requires combining large numbers of facts to answer a question while providing a human-readable explanation for the answer, a process known as multi-hop inference. Standardized science questions require combining an average of 6 facts, and as many as 16 facts, in order to answer and explain, but most existing datasets for multi-hop reasoning focus on combining only two facts, significantly limiting the ability of multi-hop inference algorithms to learn to generate large inferences. In this work we present the second iteration of the WorldTree project, a corpus of 5,114 standardized science exam questions paired with large detailed multi-fact explanations that combine core scientific knowledge and world knowledge. Each explanation is represented as a lexically-connected {``}explanation graph{''} that combines an average of 6 facts drawn from a semi-structured knowledge base of 9,216 facts across 66 tables. We use this explanation corpus to author a set of 344 high-level science domain inference patterns similar to semantic frames supporting multi-hop inference. Together, these resources provide training data and instrumentation for developing many-fact multi-hop inference models for question answering.",
     language = "English",
     ISBN = "979-10-95546-34-4",
 }

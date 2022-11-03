@@ -172,9 +172,11 @@ class NewDataset(datasets.GeneratorBasedBuilder):
             #    }
             # )
 
-        # Choose the appropriate bigbio schema for your task and copy it here. You can find information on the schemas in the CONTRIBUTING guide.
+        # Choose the appropriate bigbio schema for your task and copy it here.
+        # You can find information on the schemas in the CONTRIBUTING guide.
 
-        # In rare cases you may get a dataset that supports multiple tasks requiring multiple schemas. In that case you can define multiple bigbio configs with a bigbio_[bigbio_schema_name] format.
+        # In rare cases you may get a dataset that supports multiple tasks requiring multiple schemas.
+        # In that case you can define multiple bigbio configs with a bigbio_[bigbio_schema_name] format.
 
         # For example bigbio_kb, bigbio_t2t
         elif self.config.schema == "thoughtsource":
@@ -194,13 +196,17 @@ class NewDataset(datasets.GeneratorBasedBuilder):
 
         # If you need to access the "source" or "bigbio" config choice, that will be in self.config.name
 
-        # LOCAL DATASETS: You do not need the dl_manager; you can ignore this argument. Make sure `gen_kwargs` in the return gets passed the right filepath
+        # LOCAL DATASETS: You do not need the dl_manager; you can ignore this argument.
+        # Make sure `gen_kwargs` in the return gets passed the right filepath
 
         # PUBLIC DATASETS: Assign your data-dir based on the dl_manager.
 
-        # dl_manager is a datasets.download.DownloadManager that can be used to download and extract URLs; many examples use the download_and_extract method; see the DownloadManager docs here: https://huggingface.co/docs/datasets/package_reference/builder_classes.html#datasets.DownloadManager
+        # dl_manager is a datasets.download.DownloadManager that can be used to download and extract URLs;
+        # many examples use the download_and_extract method; see the DownloadManager docs here:
+        # https://huggingface.co/docs/datasets/package_reference/builder_classes.html#datasets.DownloadManager
 
-        # dl_manager can accept any type of nested list/dict and will give back the same structure with the url replaced with the path to local files.
+        # dl_manager can accept any type of nested list/dict and
+        # will give back the same structure with the url replaced with the path to local files.
 
         # TODO: KEEP if your dataset is PUBLIC; remove if not
         urls = _URLS[_DATASETNAME]
@@ -254,14 +260,16 @@ class NewDataset(datasets.GeneratorBasedBuilder):
 
         # NOTE: For local datasets you will have access to self.config.data_dir and self.config.data_files
 
+        data = None
+
         if self.config.schema == "source":
             # TODO: yield (key, example) tuples in the original dataset schema
-            for key, example in thing:
+            for key, example in data:
                 yield key, example
 
         elif self.config.schema == "thoughtsource":
             # TODO: yield (key, example) tuples in the bigbio schema
-            for key, example in thing:
+            for key, example in data:
                 yield key, example
 
 

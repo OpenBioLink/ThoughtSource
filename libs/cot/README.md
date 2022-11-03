@@ -8,4 +8,7 @@
 ## Usage examples
 
 
+## Developer
 
+To format run `make format`.
+To lint run `make lint`.

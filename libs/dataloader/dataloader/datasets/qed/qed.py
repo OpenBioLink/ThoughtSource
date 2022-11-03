@@ -14,7 +14,6 @@
 # limitations under the License.
 
 import json
-import os
 import re
 from typing import Dict, List, Tuple
 
@@ -28,7 +27,8 @@ _LOCAL = False
 _CITATION = """\
 @misc{lamm2020qed,
     title={QED: A Framework and Dataset for Explanations in Question Answering},
-    author={Matthew Lamm and Jennimaria Palomaki and Chris Alberti and Daniel Andor and Eunsol Choi and Livio Baldini Soares and Michael Collins},
+    author={Matthew Lamm and Jennimaria Palomaki and Chris Alberti and Daniel Andor
+    and Eunsol Choi and Livio Baldini Soares and Michael Collins},
     year={2020},
     eprint={2009.06354},
     archivePrefix={arXiv},
@@ -224,20 +224,26 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                 )
                 for x in annotation["referential_equalities"]:
 
-                    if x["sentence_reference"]["bridge"] != False:
+                    if x["sentence_reference"]["bridge"] is not False:
                         if x["sentence_reference"]["string"] != "":
                             cot.append(
-                                f"The noun phrase {x['sentence_reference']['string']} in the sentence refers to {x['sentence_reference']['string']} {x['sentence_reference']['bridge']} the noun phrase {x['question_reference']['string']} in the question."
+                                f"The noun phrase {x['sentence_reference']['string']} "
+                                + f"in the sentence refers to {x['sentence_reference']['string']} {x['sentence_reference']['bridge']} "
+                                + f"the noun phrase {x['question_reference']['string']} in the question."
                             )
                     else:
                         cot.append(
-                            f"The noun phrase {x['sentence_reference']['string']} in the sentence and the noun phrase {x['question_reference']['string']} in the question refer to the same thing."
+                            f"The noun phrase {x['sentence_reference']['string']} "
+                            + f"in the sentence and the noun phrase {x['question_reference']['string']} "
+                            + "in the question refer to the same thing."
                         )
                 for x in annotation["answer"]:
-                    if x["sentence_reference"]["bridge"] != False:
+                    if x["sentence_reference"]["bridge"] is not False:
                         if x["sentence_reference"]["string"] != "":
                             cot.append(
-                                f"The noun phrase {x['sentence_reference']['string']} in the sentence and the noun phrase {x['paragraph_reference']['string']} in the context refer to the same thing."
+                                f"The noun phrase {x['sentence_reference']['string']} "
+                                + f"in the sentence and the noun phrase {x['paragraph_reference']['string']} "
+                                + "in the context refer to the same thing."
                             )
                     else:
                         assert (

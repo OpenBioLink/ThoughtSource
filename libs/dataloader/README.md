@@ -79,3 +79,8 @@ The following table represents statistics of datasets that can currently be load
 | strategy_qa     |    2290 | -       | 490    |
 | svamp           |    1000 | -       | -      |
 | worldtree       |    2207 | 496     | 1664   |
+
+## Developer
+
+To format run `make format`.
+To lint run `make lint`.

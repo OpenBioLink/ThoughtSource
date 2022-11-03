@@ -8,7 +8,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import spacy
 from nltk.util import ngrams
-from rich import print as rprint
 from rich.progress import Progress
 
 # download language package if not already installed
@@ -24,9 +23,12 @@ nlp = spacy.load("en_core_web_sm")
 nlp.add_pipe("sentencizer")
 STOPWORDS = nlp.Defaults.stop_words
 re_sent_ends_naive = re.compile(r"[.\n]")
-re_stripper_naive = re.compile("[^a-zA-Z\.\n]")
+re_stripper_naive = re.compile(r"[^a-zA-Z\.\n]")
 
-splitter_naive = lambda x: re_sent_ends_naive.split(re_stripper_naive.sub(" ", x))
+
+def splitter_naive(x):
+    return re_sent_ends_naive.split(re_stripper_naive.sub(" ", x))
+
 
 # list of tokens for one sentence
 def remove_stop_words(text):
@@ -183,11 +185,11 @@ def _generate_token_length_data(collection):
 
 def _print_table(table):
     try:
-        display
+        display  # noqa
     except NameError:
         print(table)
     else:
-        display(table)
+        display(table)  # noqa
 
 
 def display_stats_tables(collection):

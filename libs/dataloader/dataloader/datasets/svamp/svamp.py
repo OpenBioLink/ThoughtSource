@@ -65,7 +65,7 @@ Our experiments indicate that existing models rely on shallow heuristics in benc
 performance. Our experiments render the benchmark datasets unreliable to measure model performance. To enable more robust
 evaluation of automatic MWP solvers, we created a challenge set called "SVAMP". The examples in SVAMP test a model across
 different aspects of solving MWPs. Table 1 provides three examples from SVAMP that test whether a model is Question-sensitive,
-has robust reasoning ability or is invariant to structural alterations respectively. 
+has robust reasoning ability or is invariant to structural alterations respectively.
 """
 
 _HOMEPAGE = "https://github.com/arkilpatel/SVAMP"
@@ -162,18 +162,6 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
 
         elif self.config.schema == "thoughtsource":
 
-            operator_to_result = {
-                "+": "sum",
-                "-": "difference",
-                "*": "product",
-                "/": "quotient",
-            }
-            operator_to_nomen = {
-                "+": "addition",
-                "-": "subtraction",
-                "*": "multiplication",
-                "/": "division",
-            }
             operator_to_verb = {
                 "+": "add",
                 "-": "subtract",
@@ -194,7 +182,13 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
                     num2 = str(int_[num2]) if str(num2).startswith("int") else str(num2)
                     int_[f"int{idx}"] = eval(num1 + operator + num2)
 
-                    cot = f"{'First we' if (idx == 0 and len(steps) > 1) else 'Then we' if (idx > 0 and len(steps) > 1) else 'We'} {operator_to_verb[operator]} "
+                    if idx == 0 and len(steps) > 1:
+                        "First we"
+                    elif idx > 0 and len(steps) > 1:
+                        cot = "Then we"
+                    else:
+                        cot = "We"
+                    cot += f" {operator_to_verb[operator]} "
 
                     if operator == "+":
                         cot += f"{num1} to {num2} "

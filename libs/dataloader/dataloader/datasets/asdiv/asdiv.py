@@ -13,13 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 import re
 import xml.etree.ElementTree as et
 from typing import Dict, List, Tuple
 
 import datasets
-import pandas as pd
 
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
@@ -161,18 +159,6 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
 
         elif self.config.schema == "thoughtsource":
 
-            operator_to_result = {
-                "+": "sum",
-                "-": "difference",
-                "*": "product",
-                "/": "quotient",
-            }
-            operator_to_nomen = {
-                "+": "addition",
-                "-": "subtraction",
-                "*": "multiplication",
-                "/": "division",
-            }
             operator_to_verb = {
                 "+": "add",
                 "-": "subtract",
@@ -195,7 +181,13 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                     num2 = str(int_[num2]) if str(num2).startswith("int") else str(num2)
                     int_[f"int{idx}"] = eval(num1 + operator + num2)
 
-                    cot = f"{'First we' if (idx == 0 and len(steps) > 1) else 'Then we' if (idx > 0 and len(steps) > 1) else 'We'} {operator_to_verb[operator]} "
+                    if idx == 0 and len(steps) > 1:
+                        "First we"
+                    elif idx > 0 and len(steps) > 1:
+                        cot = "Then we"
+                    else:
+                        cot = "We"
+                    cot += f" {operator_to_verb[operator]} "
 
                     if operator == "+":
                         cot += f"{num1} to {num2} "

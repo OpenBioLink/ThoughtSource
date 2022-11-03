@@ -14,18 +14,16 @@
 # limitations under the License.
 
 import json
-
-import nltk
-
-nltk.download("punkt")
-import os
 from typing import Dict, List, Tuple
 
 import datasets
+import nltk
 from nltk.tokenize import sent_tokenize
 
 from dataloader.utils import schemas
 from dataloader.utils.configs import ThoughtSourceConfig
+
+nltk.download("punkt")
 
 _LOCAL = False
 
@@ -54,7 +52,7 @@ _CITATION = """\
         between each of the target concepts. This encourages workers to create questions with complex semantics that often
         require prior knowledge. We create 12,247 questions through this procedure and demonstrate the difficulty of our task
         with a large number of strong baselines. Our best baseline is based on BERT-large (Devlin et al., 2018) and obtains
-        56{\%} accuracy, well below human performance, which is 89{\%}.",
+        56% accuracy, well below human performance, which is 89%.",
 }
 """
 
@@ -66,7 +64,7 @@ predict the correct answers . It contains 12,102 questions with one correct answ
 provided in two major training/validation/testing set splits: "Random split" which is the main evaluation split, and "Question
 token split", see paper for details.
 
-CommonsenseQA does not come with explanations per default. We use explanations from Aggarwal et al, 2021, which can be found at 
+CommonsenseQA does not come with explanations per default. We use explanations from Aggarwal et al, 2021, which can be found at
 https://github.com/dair-iitd/ECQA-Dataset.
 """
 

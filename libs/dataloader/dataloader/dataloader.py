@@ -3,16 +3,12 @@ import io
 import json
 import os
 import pathlib
-import pkgutil
 from collections import defaultdict
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from os import devnull
-from pathlib import Path
-from typing import Iterable
 
 import datasets as ds
 import pandas as pd
-from importlib_metadata import Deprecated
 
 
 @contextmanager

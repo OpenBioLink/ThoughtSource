@@ -2,9 +2,7 @@ import datetime
 import json
 import os
 import pkgutil
-import re
 import time
-from logging import debug
 
 import datasets as ds
 import openai
@@ -42,11 +40,16 @@ def generate_and_extract(data, config):
 
     :param data: Dataset/DatasetDict - the dataset you want to generate CoTs for and extract answers
     :param config: a dictionary with the following keys:
-        "idx_range": tuple(int,int) - Determines which indices the generate_and_extract routine is applied to, Default: None (All items are used)
-        "debug": bool - Determines whether the openai api is called or a mock is returned, used for debugging, Default: True (openai api is not used)
-        "instruction_keys": list(str) - Determines which instructions are used from templates.json, Default: None (All used)
-        "cot_trigger_keys": list(str) - Determines which cot triggers are used from templates.json, Default: None (All are used)
-        "answer_extraction_keys": list(str) - Determines which answer extraction prompts are used from templates.json, Default: None (All are used)
+        "idx_range": tuple(int,int) - Determines which indices the generate_and_extract routine is applied to,
+            Default: None (All items are used)
+        "debug": bool - Determines whether the openai api is called or a mock is returned, used for debugging,
+            Default: True (openai api is not used)
+        "instruction_keys": list(str) - Determines which instructions are used from templates.json,
+            Default: None (All used)
+        "cot_trigger_keys": list(str) - Determines which cot triggers are used from templates.json,
+            Default: None (All are used)
+        "answer_extraction_keys": list(str) - Determines which answer extraction prompts are used from templates.json,
+            Default: None (All are used)
         "author" : str - Name of the person responsible for generation, Default: ""
         "engine": str -  Name of the openai engine used, Default: "text-davinci-002"
         "temperature": float - Name of the person responsible for generation, Default: 0
@@ -95,20 +98,20 @@ def generate_and_extract(data, config):
     print(n_samples, n_instruction_keys, n_cot_trigger_keys, n_answer_extraction_keys)
 
     if True or ("debug" in config and not config["debug"]):
-        warning = f"You are about to call the openai API which produces costs." + "\n"
+        warning = "You are about to call the openai API which produces costs.\n"
         warning += (
             f"Due to your settings you are about to call the openai API in total {n_total} times."
             + "\n"
         )
         warning += (
-            f"Number API calls for CoT generation: n_samples * n_instruction_keys * n_cot_trigger_keys"
+            "Number API calls for CoT generation: n_samples * n_instruction_keys * n_cot_trigger_keys"
             + "\n"
         )
         warning += (
-            f"Number API calls for answer extraction: n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys"
+            "Number API calls for answer extraction: n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys"
             + "\n"
         )
-        warning += f"Do you want to continue? y/n" + "\n"
+        warning += "Do you want to continue? y/n\n"
         print(warning)
         ans = input()
         if ans.lower() == "y":

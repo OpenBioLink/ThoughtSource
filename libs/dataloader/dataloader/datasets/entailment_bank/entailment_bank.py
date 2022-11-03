@@ -16,7 +16,6 @@
 import json
 import os
 import re
-from multiprocessing.sharedctypes import Value
 from typing import Dict, List, Tuple
 
 import datasets
@@ -76,18 +75,18 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name=f"entailment_bank_source",
+            name="entailment_bank_source",
             version=SOURCE_VERSION,
-            description=f"EntailmentBank source schema",
+            description="EntailmentBank source schema",
             schema="source",
-            subset_id=f"entailment_bank",
+            subset_id="entailment_bank",
         ),
         ThoughtSourceConfig(
-            name=f"entailment_bank_thoughtsource",
+            name="entailment_bank_thoughtsource",
             version=BIGBIO_VERSION,
-            description=f"EntailmentBank thoughtsource schema",
+            description="EntailmentBank thoughtsource schema",
             schema="thoughtsource",
-            subset_id=f"entailment_bank",
+            subset_id="entailment_bank",
         ),
     ]
 
@@ -174,7 +173,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
         urls = _URLS[_DATASETNAME]
         data_dir = dl_manager.download_and_extract(urls)
         dataset_path = os.path.join(
-            data_dir, "entailment_trees_emnlp2021_data_v3", "dataset", f"task_1"
+            data_dir, "entailment_trees_emnlp2021_data_v3", "dataset", "task_1"
         )
 
         return [

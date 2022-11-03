@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
 import re
 from typing import Dict, List, Tuple
 
@@ -54,7 +53,7 @@ MAWPS, an online repository of Math Word Problems, to provide a unified testbed 
 for the automatic construction of datasets with particular characteristics, providing tools for tuning the lexical and template
 overlap of a dataset as well as for filtering ungrammatical problems from web-sourced corpora. The online nature of this
 repository facilitates easy community contribution. At present, we have amassed 3,320 problems, including the full datasets used
-in several prominent works. 
+in several prominent works.
 """
 
 _HOMEPAGE = "https://github.com/sroy9/mawps"
@@ -164,18 +163,6 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
 
         elif self.config.schema == "thoughtsource":
 
-            operator_to_result = {
-                "+": "sum",
-                "-": "difference",
-                "*": "product",
-                "/": "quotient",
-            }
-            operator_to_nomen = {
-                "+": "addition",
-                "-": "subtraction",
-                "*": "multiplication",
-                "/": "division",
-            }
             operator_to_verb = {
                 "+": "add",
                 "-": "subtract",
@@ -208,7 +195,13 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                     num2 = str(int_[num2]) if str(num2).startswith("int") else str(num2)
                     int_[f"int{idx}"] = eval(num1 + operator + num2)
 
-                    cot = f"{'First we' if (idx == 0 and len(steps) > 1) else 'Then we' if (idx > 0 and len(steps) > 1) else 'We'} {operator_to_verb[operator]} "
+                    if idx == 0 and len(steps) > 1:
+                        "First we"
+                    elif idx > 0 and len(steps) > 1:
+                        cot = "Then we"
+                    else:
+                        cot = "We"
+                    cot += f" {operator_to_verb[operator]} "
 
                     if operator == "+":
                         cot += f"{num1} to {num2} "
@@ -243,7 +236,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
         if equation == "number0":
             return []
 
-        pattern = "[+\-/*] (number[0-9]|int[0-9]|[0-9]+(\.[0-9]+)?) (number[0-9]|int[0-9]|[0-9]+(\.[0-9]+)?)"
+        pattern = r"[+\-/*] (number[0-9]|int[0-9]|[0-9]+(\.[0-9]+)?) (number[0-9]|int[0-9]|[0-9]+(\.[0-9]+)?)"
         if equation == f"int{idx-1}":
             return []
         else:

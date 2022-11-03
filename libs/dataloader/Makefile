@@ -5,10 +5,9 @@ format:
 	isort .
 
 lint:
-	mypy .
 	black . --check
 	isort . --check
-	flake8 .
+	flake8 . --max-line-length=140
 
 tests:
 	pytest tests/unit_tests
