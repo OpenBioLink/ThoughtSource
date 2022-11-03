@@ -24,6 +24,7 @@ features = datasets.Features(
                     {
                         "answer-extraction": datasets.Value("string"),
                         "answer": datasets.Value("string"),
+                        "correct_answer": datasets.Value("bool"),
                     }
                 ],
                 "cot": datasets.Value("string"),
