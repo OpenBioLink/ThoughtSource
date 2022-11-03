@@ -167,7 +167,7 @@ class Collection:
     def clear(self):
         self.unload_datasets()
 
-    def dump(self, path_to_file_or_directory="./dump", single_file=False):
+    def dump(self, path_to_file_or_directory="./dump", single_file=True):
         if single_file:
             d_dict = defaultdict(dict)
             for name, dataset_dict in self._cache.items():
