@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { annotate, CotOutput, findExistingAnnotation, SentenceElement } from '../../dtos/CotData';
 import { annotationList, COMMENT } from '../datasetentry/DatasetEntry';
-import { levenshtein } from '../levenshtein';
 import styles from './CotOutputElement.module.scss';
 
 interface CotOutputElementProps {
@@ -60,11 +59,9 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
     return <span style={style as any}>{sentenceElement.sentence}</span>
   })
 
-  const answer = props.cotOutput.answers?.find(a => a['answer-extraction'] == "kojima-01")?.answer
-  const answerExtractionRegex = /^ *[A-Z][)] */i
-  const trimmedAnswer = answer?.replace(answerExtractionRegex, "").trim()
-  const distance = levenshtein(trimmedAnswer, props.correctAnswer.trim())
-  const isCorrect = distance <= 1
+  const answerEntry = props.cotOutput.answers?.find(a => a['answer-extraction'] == "kojima-01")
+  const answer = answerEntry?.answer
+  const isCorrect = answerEntry?.correct_answer == true
   const correctnessIcon = isCorrect ?
     <i className="fa-regular fa-circle-check" style={{ color: "green" }}></i>
     : <i className="fa-regular fa-circle-xmark" style={{ color: "#ce1c1c" }}></i>

@@ -13,6 +13,7 @@ export type CotOutput = {
     answers?: [{
         'answer-extraction': string
         answer?: string
+        correct_answer?: boolean
     }]
     answer: string
     cot: string
