@@ -19,8 +19,8 @@ from typing import Dict, List, Tuple
 import datasets
 import pandas as pd
 
-from dataloader.utils import schemas
-from dataloader.utils.configs import ThoughtSourceConfig
+from cot.utils import schemas
+from cot.utils.configs import ThoughtSourceConfig
 
 _LOCAL = False
 

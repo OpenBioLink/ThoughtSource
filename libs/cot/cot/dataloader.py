@@ -5,6 +5,8 @@ import os
 import pathlib
 from collections import defaultdict
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
+from .evaluate import evaluate
+from .generate import generate_and_extract
 from os import devnull
 
 import datasets as ds
@@ -244,6 +246,28 @@ class Collection:
         for name, dataset_dict in self._cache.items():
             dataset_dict.save_to_disk(f"{path_to_directory}/{name}")
 
+    def generate(self, name=None, split=None, config={}):
+        if name is None:
+            for name in self._cache:
+                self[name] = generate_and_extract(self[name], config=config)
+        else:
+            if split is None:
+                self[name] = generate_and_extract(self[name], config=config)
+            else:
+                self[name][split] = generate_and_extract(self[name][split], config=config)
+
+    def evaluate(self, name=None, split=None):
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    self[name][split] = evaluate(self[name][split])
+        else:
+            if split is None:
+                for split in self._cache[name]:
+                    self[name][split] = evaluate(self[name][split])
+            else:
+                self[name][split] = evaluate(self[name][split])
+
     # Deprecated
     def load_from_disk(self, path_to_directory="datasets"):
         for name in next(os.walk(path_to_directory))[1]:
@@ -286,3 +310,4 @@ class Collection:
                 if "test" in self._cache[name]
             ]
         )
+

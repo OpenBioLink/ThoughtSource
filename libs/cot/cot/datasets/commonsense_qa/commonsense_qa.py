@@ -20,8 +20,8 @@ import datasets
 import nltk
 from nltk.tokenize import sent_tokenize
 
-from dataloader.utils import schemas
-from dataloader.utils.configs import ThoughtSourceConfig
+from cot.utils import schemas
+from cot.utils.configs import ThoughtSourceConfig
 
 nltk.download("punkt")
 
