@@ -6,7 +6,7 @@ import glob
 import importlib
 import datasets
 from datasets import load_dataset
-from dataloader import Collection
+from cot import Collection
 
 def render_features(features):
     """Recursively render the dataset schema (i.e. the fields)."""
