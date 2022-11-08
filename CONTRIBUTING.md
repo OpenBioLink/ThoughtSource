@@ -62,7 +62,7 @@ You can make an environment in any way you choose to. We highlight two possible 
 The following instructions will create an Anaconda `thoughtsource` environment.
 
 - Install [anaconda](https://docs.anaconda.com/anaconda/install/) for your appropriate operating system.
-- Run the following command while in the `ThoughtSource` folder (you can pick your python version):
+- Run the following command while in the `libs\cot` folder (you can pick your python version):
 
 ```
 conda env create -f conda.yml  # Creates a conda env
@@ -78,7 +78,7 @@ Python 3.3+ has venv automatically installed; official information is found [her
 ```
 python3 -m venv <your_env_name_here>
 source <your_env_name_here>/bin/activate  # activate environment
-pip install -r requirements.txt # Install this while in the datasets folder
+pip install -e . # Install this while in the `libs\cot` folder
 ```
 Make sure your `pip` package points to your environment's source.
 
