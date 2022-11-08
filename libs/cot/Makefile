@@ -1,12 +1,13 @@
 .PHONY: format lint tests integration_tests
 
-format:
-	black .
-	isort .
+quality:
+	black --line-length 140 $(check_file)
+	isort $(check_file)
+	flake8 $(check_file) --max-line-length=140
 
-lint:
-	black . --check
-	isort . --check
+quality_all:
+	black --line-length 140 .
+	isort .
 	flake8 . --max-line-length=140
 
 tests:
