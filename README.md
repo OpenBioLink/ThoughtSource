@@ -4,14 +4,19 @@ __A framework for the science of machine thinking__
 ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
 
 <p align="center">
+  <img alt="ThoughtSource overview 3" src="./resources/images/thoughtsource-overview-3.svg">
+</p>
+
+## Generate interpretable reasoning chains
+<p align="center">
   <img alt="ThoughtSource overview 1" src="./resources/images/thoughtsource-overview-1.svg">
 </p>
+
+## Annotate, evaluate and improve
 <p align="center">
   <img alt="ThoughtSource overview 2" src="./resources/images/thoughtsource-overview-2.svg">
 </p>
-<p align="center">
-  <img alt="ThoughtSource overview 3" src="./resources/images/thoughtsource-overview-3.svg">
-</p>
+
 
 ## Roadmap
 
@@ -55,6 +60,15 @@ We are working on collecting and generating additional datasets, and on further 
 ### Applications
 
 * __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
+* __annotator:__ Web-based tool for annotating chain-of-thought data (soon to be released)
+
+<p align="center">
+  <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp">
+  The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
+</p>
+
+
+
 
 
 
