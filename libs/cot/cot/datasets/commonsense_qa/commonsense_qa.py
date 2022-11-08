@@ -20,7 +20,7 @@ import datasets
 import nltk
 from nltk.tokenize import sent_tokenize
 
-from cot.utils import schemas
+from cot.utils import parse_kojima_log, schemas
 from cot.utils.configs import ThoughtSourceConfig
 
 nltk.download("punkt")
@@ -79,6 +79,7 @@ _URLS = {
         "test": "https://s3.amazonaws.com/commensenseqa/test_rand_split_no_answers.jsonl",
     },
     "ecqa": "https://github.com/dair-iitd/ECQA-Dataset/raw/main/ecqa.jsonl",
+    "kojimalogs": "https://github.com/kojima-takeshi188/zero_shot_cot/raw/main/log/commonsensqa_zero_shot_cot.log",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -157,28 +158,19 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
-                gen_kwargs={
-                    "filepath": data_dir["commonsense"]["train"],
-                    "ecqa": ecqa,
-                },
+                gen_kwargs={"filepath": data_dir["commonsense"]["train"], "ecqa": ecqa, "kojimalogs": None},
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
-                gen_kwargs={
-                    "filepath": data_dir["commonsense"]["test"],
-                    "ecqa": ecqa,
-                },
+                gen_kwargs={"filepath": data_dir["commonsense"]["test"], "ecqa": ecqa, "kojimalogs": None},
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
-                gen_kwargs={
-                    "filepath": data_dir["commonsense"]["dev"],
-                    "ecqa": ecqa,
-                },
+                gen_kwargs={"filepath": data_dir["commonsense"]["dev"], "ecqa": ecqa, "kojimalogs": data_dir["kojimalogs"]},
             ),
         ]
 
-    def _generate_examples(self, filepath, ecqa) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, ecqa, kojimalogs) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         with open(filepath, "r") as json_file:
@@ -192,7 +184,43 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                 yield key, example
 
         elif self.config.schema == "thoughtsource":
+
+            kojima_cots = []
+            if kojimalogs is not None:
+                kojima_cots = parse_kojima_log(kojimalogs, "commonsenseqa")
+
+            yes = 0
+            no = 0
+
             for key, example in enumerate(data):
+
+                generated_cot = []
+                for generated_kojima_cot in kojima_cots:
+                    if example["question"]["stem"] in generated_kojima_cot["question"]:
+                        yes += 1
+                        generated_cot.append(
+                            {
+                                "templates_version": "0.01",
+                                "instruction": None,
+                                "cot-trigger": "kojima-01",
+                                "answers": [
+                                    {
+                                        "answer-extraction": "kojima-A-E",
+                                        "answer": generated_kojima_cot["prediction"],
+                                        "correct_answer": None,
+                                    }
+                                ],
+                                "cot": generated_kojima_cot["cot"],
+                                "author": "kojima",
+                                "date": None,
+                                "model": "gpt-3",
+                                "comment": "",
+                                "annotation": [],
+                            }
+                        )
+                        break
+                else:
+                    no += 1
 
                 choices = {x["label"]: x["text"] for x in example["question"]["choices"]}
                 example_ = {
@@ -207,9 +235,13 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                     "cot": [x.capitalize() for x in sent_tokenize(ecqa[example["id"]])] if example["id"] in ecqa else [],
                     "answer": [choices[example["answerKey"]]] if "answerKey" in example else [],
                     "feedback": [],
-                    "generated_cot": [],
+                    "generated_cot": generated_cot,
                 }
+
                 yield key, example_
+
+            print(f"{yes} kojima cots mapped.")
+            print(f"{no} kojima cots not mapped.")
 
 
 # This template is based on the following template from the datasets package:
