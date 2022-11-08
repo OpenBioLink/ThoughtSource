@@ -77,9 +77,7 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = (
-    []
-)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
@@ -174,9 +172,7 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
                 steps = self._decompose_equation(example["Equation"])
 
                 int_ = {}
-                chain_of_thought = [
-                    f"To get to the correct answer we have to perform {example['Type']}."
-                ]
+                chain_of_thought = [f"To get to the correct answer we have to perform {example['Type']}."]
                 for idx, (num1, operator, num2) in enumerate(steps):
                     num1 = str(int_[num1]) if str(num1).startswith("int") else str(num1)
                     num2 = str(int_[num2]) if str(num2).startswith("int") else str(num2)
@@ -205,9 +201,7 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
                 question = example["Body"]
                 if example["Body"][-1] != ".":
                     question += ","
-                    example["Question"] = (
-                        example["Question"][0].lower() + example["Question"][1:]
-                    )
+                    example["Question"] = example["Question"][0].lower() + example["Question"][1:]
                 question += " " + example["Question"]
 
                 example_ = {
@@ -231,24 +225,15 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
         if equation.replace(".", "", 1).isdigit():
             return []
 
-        pattern = (
-            r"\( (int[0-9]|[0-9]+(\.[0-9]+)?) ([+\-*/]) (int[0-9]|[0-9]+(\.[0-9]+)?) \)"
-        )
+        pattern = r"\( (int[0-9]|[0-9]+(\.[0-9]+)?) ([+\-*/]) (int[0-9]|[0-9]+(\.[0-9]+)?) \)"
         if equation == f"int{idx-1}":
             return []
         else:
             result = re.search(pattern, equation)
             assert result, equation
             # assert (len(re.findall(pattern, equation)) == 1), equation
-            equation = (
-                equation[: result.span()[0]]
-                + "int"
-                + str(idx)
-                + equation[result.span()[1] :]
-            )
-            return [
-                [result.group(1), result.group(3), result.group(4)]
-            ] + self._decompose_equation(equation, idx + 1)
+            equation = equation[: result.span()[0]] + "int" + str(idx) + equation[result.span()[1] :]
+            return [[result.group(1), result.group(3), result.group(4)]] + self._decompose_equation(equation, idx + 1)
 
 
 # This template is based on the following template from the datasets package:

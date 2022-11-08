@@ -58,9 +58,7 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = (
-    []
-)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
@@ -172,9 +170,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
 
         urls = _URLS[_DATASETNAME]
         data_dir = dl_manager.download_and_extract(urls)
-        dataset_path = os.path.join(
-            data_dir, "entailment_trees_emnlp2021_data_v3", "dataset", "task_1"
-        )
+        dataset_path = os.path.join(data_dir, "entailment_trees_emnlp2021_data_v3", "dataset", "task_1")
 
         return [
             datasets.SplitGenerator(
@@ -206,19 +202,12 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
 
         if self.config.schema == "source":
             for key, example in enumerate(data):
-                example["meta"]["triples"] = [
-                    {"sent_id": key, "value": value}
-                    for key, value in example["meta"]["triples"].items()
-                ]
+                example["meta"]["triples"] = [{"sent_id": key, "value": value} for key, value in example["meta"]["triples"].items()]
                 example["meta"]["intermediate_conclusions"] = [
-                    {"int_id": key, "value": value}
-                    for key, value in example["meta"][
-                        "intermediate_conclusions"
-                    ].items()
+                    {"int_id": key, "value": value} for key, value in example["meta"]["intermediate_conclusions"].items()
                 ]
                 example["meta"]["worldtree_provenance"] = [
-                    {"sent_id": key, **value}
-                    for key, value in example["meta"]["worldtree_provenance"].items()
+                    {"sent_id": key, **value} for key, value in example["meta"]["worldtree_provenance"].items()
                 ]
                 yield key, example
 
@@ -241,9 +230,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                     for sent_id, value in example["meta"]["triples"].items():
                         inferral = inferral.replace(sent_id, value)
 
-                    for int_id, value in example["meta"][
-                        "intermediate_conclusions"
-                    ].items():
+                    for int_id, value in example["meta"]["intermediate_conclusions"].items():
                         inferral = inferral.replace(int_id, value)
 
                     for stmt in inferral.split("&"):
@@ -252,9 +239,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                         if "->" in stmt:
                             stmt, therefore = stmt.split("->")
                             cot_.append(self._untokenize(stmt).capitalize() + ".")
-                            cot_.append(
-                                "Therefore, " + self._untokenize(therefore) + "."
-                            )
+                            cot_.append("Therefore, " + self._untokenize(therefore) + ".")
                         else:
                             cot_.append(self._untokenize(stmt).capitalize() + ".")
 
@@ -286,9 +271,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
         step2 = step1.replace(" ( ", " (").replace(" ) ", ") ")
         step3 = re.sub(r' ([.,:;?!%]+)([ \'"`])', r"\1\2", step2)
         step4 = re.sub(r" ([.,:;?!%]+)$", r"\1", step3)
-        step5 = (
-            step4.replace(" '", "'").replace(" n't", "n't").replace("can not", "cannot")
-        )
+        step5 = step4.replace(" '", "'").replace(" n't", "n't").replace("can not", "cannot")
         step6 = step5.replace(" ` ", " '")
         return step6.strip()
 

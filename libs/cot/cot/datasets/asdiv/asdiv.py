@@ -57,9 +57,7 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = (
-    []
-)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
@@ -205,9 +203,7 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                     "id": example.attrib["ID"],
                     "question_id": example.attrib["ID"],
                     "document_id": example.attrib["ID"],
-                    "question": " ".join(
-                        [example.find("Body").text, example.find("Question").text]
-                    ),
+                    "question": " ".join([example.find("Body").text, example.find("Question").text]),
                     "type": "number",
                     "cot_type": "list",
                     "choices": [],
@@ -230,25 +226,14 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
         if equation == f"int{idx-1}":
             return []
         else:
-            pattern = (
-                r"\((int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)\)"
-            )
+            pattern = r"\((int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)\)"
             result = re.search(pattern, equation)
             if not result:
-                pattern = (
-                    r"(int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)"
-                )
+                pattern = r"(int[0-9]|[0-9]+(\.[0-9]+)?)([+\-*/])(int[0-9]|[0-9]+(\.[0-9]+)?)"
                 result = re.search(pattern, equation)
             assert result, equation
-            equation = (
-                equation[: result.span()[0]]
-                + "int"
-                + str(idx)
-                + equation[result.span()[1] :]
-            )
-            return [
-                [result.group(1), result.group(3), result.group(4)]
-            ] + self._decompose_equation(equation, idx + 1)
+            equation = equation[: result.span()[0]] + "int" + str(idx) + equation[result.span()[1] :]
+            return [[result.group(1), result.group(3), result.group(4)]] + self._decompose_equation(equation, idx + 1)
 
 
 # This template is based on the following template from the datasets package:

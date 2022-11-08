@@ -29,10 +29,9 @@ def answer_to_multiplechoice(answer, choices):
             return chr(65 + ix)
     raise ValueError("Thats weird, gold-answer not found in choices")
 
+
 def evaluate_sample(example, type_):
-    assert (
-        type_ == example["type"]
-    ), "Datasets contains examples with multiple different types"
+    assert type_ == example["type"], "Datasets contains examples with multiple different types"
 
     gold_answer = example["answer"][0]
 
@@ -49,6 +48,7 @@ def evaluate_sample(example, type_):
                 answer["correct_answer"] = False
     return example
 
+
 def evaluate(dataset, config=None):
 
     # implemented for single dataset right now collection["worldtree"]["train"]
@@ -60,7 +60,7 @@ def evaluate(dataset, config=None):
     # support only one type per dataset
     # TODO support datasets contining different example types (mulichoice, number, ...), if needed?
     type_ = dataset[0]["type"]
-        
+
     dataset = dataset.map(evaluate_sample, fn_kwargs={"type_": type_})
 
     keys = set()

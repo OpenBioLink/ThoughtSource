@@ -65,9 +65,7 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = (
-    []
-)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
@@ -186,11 +184,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
             choices = [x.split(": ")[1] for x in field1]
             answer = int(raw_document[2][16:])
             answer = choices[answer]
-            explanations = [
-                re.search(r".*(?= \(.*\) \(.*\))", x).group()
-                for x in raw_document[4:]
-                if "No UUID specified" not in x
-            ]
+            explanations = [re.search(r".*(?= \(.*\) \(.*\))", x).group() for x in raw_document[4:] if "No UUID specified" not in x]
 
             yield {
                 "question_id": question_id,
@@ -219,11 +213,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
         for idx in range(len(cot)):
             match = re.search(pattern, cot[idx])
             while match:
-                cot[idx] = (
-                    cot[idx][: match.span()[0]]
-                    + match.group(1)
-                    + cot[idx][match.span()[1] :]
-                )
+                cot[idx] = cot[idx][: match.span()[0]] + match.group(1) + cot[idx][match.span()[1] :]
                 match = re.search(pattern, cot[idx])
 
         cot = [x.capitalize() for x in cot]

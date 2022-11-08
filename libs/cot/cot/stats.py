@@ -196,20 +196,14 @@ def display_stats_tables(collection):
     counters = _generate_counter_data(collection)
     data = []
     for key, counter in counters["na"].items():
-        data.append(
-            [key] + [counter[ckey] for ckey in ["question", "choices", "cot", "answer"]]
-        )
-    table = pd.DataFrame.from_records(
-        data, columns=["dataset", "question", "choices", "cot", "answer"]
-    )
+        data.append([key] + [counter[ckey] for ckey in ["question", "choices", "cot", "answer"]])
+    table = pd.DataFrame.from_records(data, columns=["dataset", "question", "choices", "cot", "answer"])
     _print_table(table)
 
     data = []
     for key, count in counters["types"].items():
         data.append([key, count, counters["types_datasets"][key]])
-    table = pd.DataFrame.from_records(
-        data, columns=["type", "number samples", "datasets"]
-    )
+    table = pd.DataFrame.from_records(data, columns=["type", "number samples", "datasets"])
     _print_table(table)
 
 
@@ -223,9 +217,7 @@ def plot_dataset_overlap(collection, N=3):
     n_gram_counters = _generate_ngrams_data(collection, N)
     n_grams_merge = {}
     for name, n_grams in n_gram_counters.items():
-        n_grams_merge[name] = set(
-            [item for counters in n_grams.values() for item in counters.keys()]
-        )
+        n_grams_merge[name] = set([item for counters in n_grams.values() for item in counters.keys()])
 
     n_grams_merge
 

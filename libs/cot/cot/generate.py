@@ -34,9 +34,6 @@ def print_now(return_flag=0):
         pass
 
 
-
-
-
 def generate_and_extract(data, config):
     """
     It takes a dataset and a config and generates cots for each example and extract answers.
@@ -96,24 +93,16 @@ def generate_and_extract(data, config):
     n_answer_extraction_keys = len(config["answer_extraction_keys"])
 
     n_total = (
-        n_samples * n_instruction_keys * n_cot_trigger_keys
-        + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
+        n_samples * n_instruction_keys * n_cot_trigger_keys + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
     )
 
     warn = True if "warn" not in config else config["warn"]
     if warn:
         warning = "You are about to call the openai API which produces costs.\n"
+        warning += f"Due to your settings you are about to call the openai API in total {n_total} times." + "\n"
+        warning += "Number API calls for CoT generation: n_samples * n_instruction_keys * n_cot_trigger_keys" + "\n"
         warning += (
-            f"Due to your settings you are about to call the openai API in total {n_total} times."
-            + "\n"
-        )
-        warning += (
-            "Number API calls for CoT generation: n_samples * n_instruction_keys * n_cot_trigger_keys"
-            + "\n"
-        )
-        warning += (
-            "Number API calls for answer extraction: n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys"
-            + "\n"
+            "Number API calls for answer extraction: n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys" + "\n"
         )
         warning += "Do you want to continue? y/n\n"
         print(warning)
@@ -182,9 +171,7 @@ def _generate_and_extract(
                 "comment": "",
                 "annotation": [],
             }
-            template_version, generate_cot_prompt = get_cot_generation_prompt(
-                item, instruction_key, cot_trigger_key
-            )
+            template_version, generate_cot_prompt = get_cot_generation_prompt(item, instruction_key, cot_trigger_key)
             if verbose:
                 print("\n-------------------COT TRIGGER-------------------")
             if verbose:
@@ -206,16 +193,12 @@ def _generate_and_extract(
 
             for answer_extraction_key in answer_extraction_keys:
                 answer = {"answer-extraction": answer_extraction_key, "answer": "", "correct_answer": None}
-                _, answer_extraction_prompt = get_answer_extraction_prompt(
-                    item, cot, answer_extraction_key
-                )
+                _, answer_extraction_prompt = get_answer_extraction_prompt(item, cot, answer_extraction_key)
                 if verbose:
                     print("\n------------------ANSWER EXTRACTION-------------------")
                 if verbose:
                     print(answer_extraction_prompt)
-                assert (
-                    _ == template_version
-                ), "Version mismatch cot trigger <-> answer extraction"
+                assert _ == template_version, "Version mismatch cot trigger <-> answer extraction"
                 predicted_answer = query_gpt3(
                     answer_extraction_prompt,
                     engine,
@@ -236,34 +219,16 @@ def _generate_and_extract(
 
 
 def get_cot_generation_prompt(item, instruction_key, cot_trigger_key):
-    choices = "\n".join(
-        [f"{chr(65+i)}) {example}" for i, example in enumerate(item["choices"])]
-    )
+    choices = "\n".join([f"{chr(65+i)}) {example}" for i, example in enumerate(item["choices"])])
     if instruction_key is not None:
         prompt = TEMPLATES["instructions"][instruction_key] + "\n\n"
-    prompt = (
-        item["question"]
-        + "\n"
-        + choices
-        + "\n\n"
-        + TEMPLATES["cot-triggers"][cot_trigger_key]
-    )
+    prompt = item["question"] + "\n" + choices + "\n\n" + TEMPLATES["cot-triggers"][cot_trigger_key]
     return TEMPLATES["version"], prompt
 
 
 def get_answer_extraction_prompt(item, generated_cot, answer_extraction_key):
-    choices = "\n".join(
-        [f"{chr(65+i)}) {example}" for i, example in enumerate(item["choices"])]
-    )
-    prompt = (
-        item["question"]
-        + "\n"
-        + choices
-        + "\n\n"
-        + generated_cot
-        + "\n"
-        + TEMPLATES["answer-extractions"][answer_extraction_key]
-    )
+    choices = "\n".join([f"{chr(65+i)}) {example}" for i, example in enumerate(item["choices"])])
+    prompt = item["question"] + "\n" + choices + "\n\n" + generated_cot + "\n" + TEMPLATES["answer-extractions"][answer_extraction_key]
     return TEMPLATES["version"], prompt
 
 

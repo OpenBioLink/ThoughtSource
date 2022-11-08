@@ -53,9 +53,7 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = (
-    []
-)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
@@ -197,13 +195,9 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                         "string": None,
                     }
                 for x in example["annotation"]["answer"]:
-                    x["sentence_reference"]["bridge"] = str(
-                        x["sentence_reference"]["bridge"]
-                    )
+                    x["sentence_reference"]["bridge"] = str(x["sentence_reference"]["bridge"])
                 for x in example["annotation"]["referential_equalities"]:
-                    x["sentence_reference"]["bridge"] = str(
-                        x["sentence_reference"]["bridge"]
-                    )
+                    x["sentence_reference"]["bridge"] = str(x["sentence_reference"]["bridge"])
                 yield key, example
 
         elif self.config.schema == "thoughtsource":
@@ -212,16 +206,11 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                 annotation = example["annotation"]
 
                 # skip examples without explanation
-                if (
-                    annotation["explanation_type"] == "none"
-                    or annotation["explanation_type"] == "multi_sentence"
-                ):
+                if annotation["explanation_type"] == "none" or annotation["explanation_type"] == "multi_sentence":
                     continue
 
                 cot = []
-                cot.append(
-                    f"The answer is contained in the following sentence: {annotation['selected_sentence']['string']}"
-                )
+                cot.append(f"The answer is contained in the following sentence: {annotation['selected_sentence']['string']}")
                 for x in annotation["referential_equalities"]:
 
                     if x["sentence_reference"]["bridge"] is not False:
@@ -246,16 +235,11 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                                 + "in the context refer to the same thing."
                             )
                     else:
-                        assert (
-                            x["sentence_reference"]["string"]
-                            == x["paragraph_reference"]["string"]
-                        ), f"Ohno {x}"
+                        assert x["sentence_reference"]["string"] == x["paragraph_reference"]["string"], f"Ohno {x}"
 
                 example["question_text"] = example["question_text"].capitalize()
                 example["question_text"] = (
-                    example["question_text"] + "?"
-                    if example["question_text"][-1] != "?"
-                    else example["question_text"]
+                    example["question_text"] + "?" if example["question_text"][-1] != "?" else example["question_text"]
                 )
 
                 # Detokenization
@@ -291,9 +275,7 @@ class QedDataset(datasets.GeneratorBasedBuilder):
         step2 = step1.replace(" ( ", " (").replace(" ) ", ") ")
         step3 = re.sub(r' ([.,:;?!%]+)([ \'"`])', r"\1\2", step2)
         step4 = re.sub(r" ([.,:;?!%]+)$", r"\1", step3)
-        step5 = (
-            step4.replace(" '", "'").replace(" n't", "n't").replace("can not", "cannot")
-        )
+        step5 = step4.replace(" '", "'").replace(" n't", "n't").replace("can not", "cannot")
         step6 = step5.replace(" ` ", " '")
         return step6.strip()
 

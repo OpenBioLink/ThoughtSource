@@ -5,12 +5,13 @@ import os
 import pathlib
 from collections import defaultdict
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
-from .evaluate import evaluate
-from .generate import generate_and_extract
 from os import devnull
 
 import datasets as ds
 import pandas as pd
+
+from .evaluate import evaluate
+from .generate import generate_and_extract
 
 
 @contextmanager
@@ -23,9 +24,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(
-        self, names=None, verbose=True, download_mode="reuse_dataset_if_exists"
-    ):
+    def __init__(self, names=None, verbose=True, download_mode="reuse_dataset_if_exists"):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -86,45 +85,25 @@ class Collection:
         data = [
             (
                 name,
-                self._cache[name]["train"].num_rows
-                if "train" in self._cache[name]
-                else "-",
-                self._cache[name]["validation"].num_rows
-                if "validation" in self._cache[name]
-                else "-",
-                self._cache[name]["test"].num_rows
-                if "test" in self._cache[name]
-                else "-",
+                self._cache[name]["train"].num_rows if "train" in self._cache[name] else "-",
+                self._cache[name]["validation"].num_rows if "validation" in self._cache[name] else "-",
+                self._cache[name]["test"].num_rows if "test" in self._cache[name] else "-",
             )
             for name in self._cache.keys()
         ]
-        table = pd.DataFrame.from_records(
-            data, columns=["Name", "Train", "Valid", "Test"]
-        )
+        table = pd.DataFrame.from_records(data, columns=["Name", "Train", "Valid", "Test"])
         table = table.to_markdown(index=False, tablefmt="github")
-        not_loaded = [
-            name for name, _ in Collection._find_datasets() if name not in self._cache
-        ]
+        not_loaded = [name for name, _ in Collection._find_datasets() if name not in self._cache]
         return table + "\n\nNot loaded: " + str(not_loaded)
 
     @staticmethod
     def _find_datasets(names=None):
-        path_to_biodatasets = (
-            pathlib.Path(__file__).parent.absolute() / "datasets"
-        ).resolve()
+        path_to_biodatasets = (pathlib.Path(__file__).parent.absolute() / "datasets").resolve()
         if names is None:
-            dataloader_scripts = sorted(
-                path_to_biodatasets.glob(os.path.join("*", "*.py"))
-            )
-            dataloader_scripts = [
-                (el.name.replace(".py", ""), el)
-                for el in dataloader_scripts
-                if el.name != "__init__.py"
-            ]
+            dataloader_scripts = sorted(path_to_biodatasets.glob(os.path.join("*", "*.py")))
+            dataloader_scripts = [(el.name.replace(".py", ""), el) for el in dataloader_scripts if el.name != "__init__.py"]
         else:
-            dataloader_scripts = [
-                (name, path_to_biodatasets / name / (name + ".py")) for name in names
-            ]
+            dataloader_scripts = [(name, path_to_biodatasets / name / (name + ".py")) for name in names]
         return dataloader_scripts
 
     def _get_metadata(self):
@@ -144,14 +123,10 @@ class Collection:
         for name, script in datasets:
             print(f"Loading {name}...")
             if self.verbose:
-                self._cache[name] = ds.load_dataset(
-                    str(script), download_mode=self.download_mode
-                )
+                self._cache[name] = ds.load_dataset(str(script), download_mode=self.download_mode)
             else:
                 with suppress_stdout_stderr():
-                    self._cache[name] = ds.load_dataset(
-                        str(script), download_mode=self.download_mode
-                    )
+                    self._cache[name] = ds.load_dataset(str(script), download_mode=self.download_mode)
 
     def unload_datasets(self, names=None):
         """
@@ -177,9 +152,7 @@ class Collection:
                     data_stream = io.BytesIO()
                     data.to_json(data_stream)
                     data_stream.seek(0)
-                    d_dict[name][split] = [
-                        json.loads(x.decode()) for x in data_stream.readlines()
-                    ]
+                    d_dict[name][split] = [json.loads(x.decode()) for x in data_stream.readlines()]
 
             if not path_to_file_or_directory.endswith(".json"):
                 path_to_file_or_directory = path_to_file_or_directory + ".json"
@@ -190,9 +163,7 @@ class Collection:
         else:
             for name, dataset_dict in self._cache.items():
                 for split, data in dataset_dict.items():
-                    data.to_json(
-                        pathlib.Path(path_to_file_or_directory) / name / f"{split}.json"
-                    )
+                    data.to_json(pathlib.Path(path_to_file_or_directory) / name / f"{split}.json")
 
     def _replace(batch, data):
         return data
@@ -200,23 +171,16 @@ class Collection:
     # pretty dirty loading function which presevers metadata (load and replace data :/ )
     # metadata needed?
     @staticmethod
-    def from_json(
-        path_to_json, single_file=True, download_mode="reuse_dataset_if_exists"
-    ):
+    def from_json(path_to_json, single_file=True, download_mode="reuse_dataset_if_exists"):
         if single_file:
             with open(path_to_json, "r") as infile:
                 content = json.load(infile)
 
-            scripts = {
-                x[0]: x[1]
-                for x in Collection._find_datasets(names=list(content.keys()))
-            }
+            scripts = {x[0]: x[1] for x in Collection._find_datasets(names=list(content.keys()))}
 
             collection = Collection()
             for dataset_name in content.keys():
-                info = ds.load_dataset_builder(
-                    str(scripts[dataset_name]), download_mode=download_mode
-                ).info
+                info = ds.load_dataset_builder(str(scripts[dataset_name]), download_mode=download_mode).info
                 dataset_dict = dict()
                 for split_name in content[dataset_name].keys():
 
@@ -228,13 +192,9 @@ class Collection:
                     elif split_name == "test":
                         split = ds.Split.TEST
 
-                    dic = pd.DataFrame.from_records(
-                        content[dataset_name][split]
-                    ).to_dict("series")
+                    dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict("series")
                     dic = {k: list(v) for (k, v) in dic.items()}
-                    dataset_dict[split_name] = ds.Dataset.from_dict(
-                        dic, info.features, info, split
-                    )
+                    dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
                 collection[dataset_name] = ds.DatasetDict(dataset_dict)
             return collection
         else:
@@ -279,9 +239,7 @@ class Collection:
         It takes the training sets all the datasets in the cache and concatenates them into one big dataset
         :return: A concatenated dataset of all the training data.
         """
-        return ds.concatenate_datasets(
-            [self._cache[name]["train"] for name in self._cache]
-        )
+        return ds.concatenate_datasets([self._cache[name]["train"] for name in self._cache])
 
     @property
     def all_validation(self):
@@ -289,13 +247,7 @@ class Collection:
         It takes the validation sets all the datasets in the cache and concatenates them into one big dataset
         :return: A concatenated dataset of all the validation data.
         """
-        return ds.concatenate_datasets(
-            [
-                self._cache[name]["validation"]
-                for name in self._cache
-                if "validation" in self._cache[name]
-            ]
-        )
+        return ds.concatenate_datasets([self._cache[name]["validation"] for name in self._cache if "validation" in self._cache[name]])
 
     @property
     def all_test(self):
@@ -303,11 +255,4 @@ class Collection:
         It takes the testing sets all the datasets in the cache and concatenates them into one big dataset
         :return: A concatenated dataset of all the testing data.
         """
-        return ds.concatenate_datasets(
-            [
-                self._cache[name]["test"]
-                for name in self._cache
-                if "test" in self._cache[name]
-            ]
-        )
-
+        return ds.concatenate_datasets([self._cache[name]["test"] for name in self._cache if "test" in self._cache[name]])

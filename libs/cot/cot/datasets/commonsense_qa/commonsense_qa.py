@@ -82,9 +82,7 @@ _URLS = {
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
-_SUPPORTED_TASKS = (
-    []
-)  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
+_SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNITION, Tasks.RELATION_EXTRACTION]
 
 _SOURCE_VERSION = "1.0.0"
 
@@ -196,9 +194,7 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
         elif self.config.schema == "thoughtsource":
             for key, example in enumerate(data):
 
-                choices = {
-                    x["label"]: x["text"] for x in example["question"]["choices"]
-                }
+                choices = {x["label"]: x["text"] for x in example["question"]["choices"]}
                 example_ = {
                     "id": example["id"],
                     "question_id": example["id"],
@@ -208,12 +204,8 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                     "cot_type": "list",
                     "choices": choices.values(),
                     "context": "",
-                    "cot": [x.capitalize() for x in sent_tokenize(ecqa[example["id"]])]
-                    if example["id"] in ecqa
-                    else [],
-                    "answer": [choices[example["answerKey"]]]
-                    if "answerKey" in example
-                    else [],
+                    "cot": [x.capitalize() for x in sent_tokenize(ecqa[example["id"]])] if example["id"] in ecqa else [],
+                    "answer": [choices[example["answerKey"]]] if "answerKey" in example else [],
                     "feedback": [],
                     "generated_cot": [],
                 }
