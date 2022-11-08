@@ -60,6 +60,15 @@ We are working on collecting and generating additional datasets, and on further 
 ### Applications
 
 * __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
+* __annotator:__ Web-based tool for annotating chain-of-thought data (soon to be released)
+
+<p align="center">
+  <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp">
+  The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
+</p>
+
+
+
 
 
 
