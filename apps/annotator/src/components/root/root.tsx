@@ -45,6 +45,11 @@ const Root: FC<RootProps> = () => {
 
       cotData.sentences = sentencesForCots.flatMap(sentences => sentences)
       cotData.lengths = sentencesForCots.map(sentences => sentences.length)
+
+      if (cotData.cot != null && cotData.cot.length > 0) {
+        cotData.sentences.push(...cotData.cot)
+        cotData.lengths.push(cotData.cot.length)
+      }
     })
 
     setFilename(filename)
@@ -98,13 +103,16 @@ const Root: FC<RootProps> = () => {
   }
 
   function backupFileToSession() {
+    if (!username || username.length <= 0) {
+      return
+    }
+
     const postData = {
       username: username,
       filename: filename,
       filecontent: allData
     }
 
-    console.log(postData)
     post('backup', postData, (data) => {
       console.log("Backup success")
     })
