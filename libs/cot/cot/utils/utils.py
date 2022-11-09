@@ -73,15 +73,20 @@ def parse_kojima_log(path, dataset):
 
                 element["cot"] = cot_multiline[len("A: " + cot_trigger + " ") :]
 
-                pred_before = next(iterator)
-                if not pred_before.startswith("pred_before :"):
-                    while not pred_before.startswith("pred_before"):
-                        pred_before = next(iterator)
+                answer_mulitiline = ""
+                answer_mulitiline += next_line
+                next_line = next(iterator)
+                while not next_line.startswith("pred_before"):
+                    answer_mulitiline += next_line
+                    next_line = next(iterator)
+                element["prediction"] = answer_mulitiline
+
+                pred_before = next_line
                 assert pred_before.startswith("pred_before :"), f"pred_before {pred_before}"
 
                 pred_after = next(iterator)
                 assert pred_after.startswith("pred_after :"), f"pred_after {pred_after}"
-                element["prediction"] = pred_after[len("pred_after : ") :]
+                # element["prediction"] = pred_after[len("pred_after : ") :]
                 pred_list = next(iterator)
                 assert pred_list.startswith("pred_list :"), f"pred_list {pred_list}"
                 pred_mode = next(iterator)
@@ -124,8 +129,6 @@ def parse_wei_log(path_to_directory, dataset):
 
         # skip few shot examples
         question = input[skip:].split(spl)[0].strip()
-        target = True if target == "yes" else False
-
         split = prediction.split(" So the answer is ")
         if len(split) == 1:
             cot = prediction
@@ -135,9 +138,7 @@ def parse_wei_log(path_to_directory, dataset):
             answer = answer[:-1] if answer[-1] == "." else answer # remove . at the end
         else:
             raise ValueError
-        
-
-        elements.append({"id": "", "question": question, "cot": cot, "prediction": answer, "correct_answer": (target == answer)})
+        elements.append({"id": "", "question": question, "cot": cot, "prediction": "So the answer is " + answer, "correct_answer": (target == answer)})
     return elements
 
 
