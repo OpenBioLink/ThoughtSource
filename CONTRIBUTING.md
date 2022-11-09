@@ -78,7 +78,7 @@ Python 3.3+ has venv automatically installed; official information is found [her
 ```
 python3 -m venv <your_env_name_here>
 source <your_env_name_here>/bin/activate  # activate environment
-pip install -e . # Install this while in the `libs\cot` folder
+pip install -e libs/cot # Install the CoT library
 ```
 Make sure your `pip` package points to your environment's source.
 
