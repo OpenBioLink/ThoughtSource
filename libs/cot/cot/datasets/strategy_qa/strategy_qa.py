@@ -210,11 +210,11 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                 for key, example in enumerate(data):
 
                     generated_cot = []
-                    kojima_cot = map_example_to_kojima_cot(example, kojima_cots)
+                    kojima_cot = map_example_to_kojima_cot(example["question"], kojima_cots)
                     if kojima_cot is not None:
                         generated_cot.append(kojima_cot)
                         kojima_cot_mapped += 1
-                    wei_cot = map_example_to_wei_cot(example, wei_cots)
+                    wei_cot = map_example_to_wei_cot(example["question"], wei_cots)
                     if wei_cot is not None:
                         generated_cot.append(wei_cot)
                         wei_cot_mapped += 1
@@ -236,7 +236,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                     yield key, example_
 
                 print(f"{kojima_cot_mapped} kojima cots mapped.")
-                print(f"{wei_cot_mapped} wei cots not mapped.")
+                print(f"{wei_cot_mapped} wei cots mapped.")
 
         elif split == "test":
             if self.config.schema == "source":

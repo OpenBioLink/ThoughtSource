@@ -1,9 +1,14 @@
 import os
 
-def parse_kojima_log(path, dataset):
+
+def _read_file(path):
     with open(path, "r", encoding="utf8") as infile:
         content = infile.readlines()
     content = [x.strip() for x in content]
+    return content
+
+def parse_kojima_log(path, dataset):
+    content = _read_file(path)
 
     assert content[9] == "*************************"
 
@@ -19,7 +24,7 @@ def parse_kojima_log(path, dataset):
     def parse_elements(iterator):
         try:
             while True:
-                element = {"question": "", "cot": "", "prediction": ""}
+                element = {"question": "", "cot": "", "prediction": "", "correct_answer": ""}
 
                 stars = next(iterator)
                 if stars.startswith("accuracy"):
@@ -83,6 +88,7 @@ def parse_kojima_log(path, dataset):
                 assert pred_mode.startswith("pred_mode :"), f"pred_mode {pred_mode}"
                 GT = next(iterator)
                 assert GT.startswith("GT :"), f"GT {GT}"
+                element["correct_answer"] = (GT == pred_after)
 
                 stars = next(iterator)
                 assert stars == "*************************", "Stars end"
@@ -99,11 +105,6 @@ def parse_kojima_log(path, dataset):
     return elements
 
 
-def _read_file(path):
-    with open(path, "r") as infile:
-        content = infile.readlines()
-    content = [x.strip() for x in content]
-    return content
 
 
 def parse_wei_log(path_to_directory, dataset):
@@ -111,19 +112,38 @@ def parse_wei_log(path_to_directory, dataset):
     targets = _read_file(os.path.join(path_to_directory, dataset + "_stream_targets"))
     predictions = _read_file(os.path.join(path_to_directory, dataset + "_stream_predictions"))
 
+    if dataset == "commonsenseqa":
+        spl = "Answer Choices"
+        skip = 2149
+    elif dataset == "strategyqa":
+        spl = "A:"
+        skip = 1467
+
     elements = []
     for (input, target, prediction) in zip(inputs, targets, predictions):
+
         # skip few shot examples
-        question = input[2149:].split("Answer Choices")[0].strip()
+        question = input[skip:].split(spl)[0].strip()
         target = True if target == "yes" else False
 
-        elements.append({"id": "", "question": question, "cot": prediction, "prediction": prediction})
+        split = prediction.split(" So the answer is ")
+        if len(split) == 1:
+            cot = prediction
+            answer = ""
+        elif len(split) == 2:
+            (cot, answer) = split
+            answer = answer[:-1] if answer[-1] == "." else answer # remove . at the end
+        else:
+            raise ValueError
+        
+
+        elements.append({"id": "", "question": question, "cot": cot, "prediction": answer, "correct_answer": (target == answer)})
     return elements
 
 
-def map_example_to_kojima_cot(example, cots):
+def map_example_to_kojima_cot(question, cots):
     for cot in cots:
-        if example["question"]["stem"] in cot["question"]:
+        if question in cot["question"]:
             generated_cot = {
                 "templates_version": "0.01",
                 "instruction": None,
@@ -132,7 +152,7 @@ def map_example_to_kojima_cot(example, cots):
                     {
                         "answer-extraction": "kojima-A-E",
                         "answer": cot["prediction"],
-                        "correct_answer": None,
+                        "correct_answer": cot["correct_answer"],
                     }
                 ],
                 "cot": cot["cot"],
@@ -146,9 +166,9 @@ def map_example_to_kojima_cot(example, cots):
     else:
         return None
 
-def map_example_to_wei_cot(example, cots):
+def map_example_to_wei_cot(question, cots):
     for cot in cots:
-        if example["question"]["stem"] in cot["question"]:
+        if question in cot["question"]:
             generated_cot = {
                 "templates_version": "0.01",
                 "instruction": None,
@@ -157,7 +177,7 @@ def map_example_to_wei_cot(example, cots):
                     {
                         "answer-extraction": None,
                         "answer": cot["prediction"],
-                        "correct_answer": None,
+                        "correct_answer": cot["correct_answer"],
                     }
                 ],
                 "cot": cot["cot"],
