@@ -275,6 +275,10 @@ class Collection:
         return sampled_collection
 
     @property
+    def loaded(self):
+        return list(self._cache.keys())
+
+    @property
     def all_train(self):
         """
         It takes the training sets all the datasets in the cache and concatenates them into one big dataset
