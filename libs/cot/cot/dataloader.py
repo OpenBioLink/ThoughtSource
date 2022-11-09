@@ -234,6 +234,10 @@ class Collection:
             self._cache[name] = ds.load_from_disk(os.path.join(path_to_directory, name))
 
     @property
+    def loaded(self):
+        return list(self._cache.keys())
+
+    @property
     def all_train(self):
         """
         It takes the training sets all the datasets in the cache and concatenates them into one big dataset
