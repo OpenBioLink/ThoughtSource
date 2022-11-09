@@ -86,13 +86,17 @@ def parse_kojima_log(path, dataset):
 
                 pred_after = next(iterator)
                 assert pred_after.startswith("pred_after :"), f"pred_after {pred_after}"
-                # element["prediction"] = pred_after[len("pred_after : ") :]
+                pred_after = pred_after[len("pred_after : ") :]
+
                 pred_list = next(iterator)
                 assert pred_list.startswith("pred_list :"), f"pred_list {pred_list}"
+
                 pred_mode = next(iterator)
                 assert pred_mode.startswith("pred_mode :"), f"pred_mode {pred_mode}"
+
                 GT = next(iterator)
                 assert GT.startswith("GT :"), f"GT {GT}"
+                GT = GT[len("GT : ") :]
                 element["correct_answer"] = (GT == pred_after)
 
                 stars = next(iterator)
