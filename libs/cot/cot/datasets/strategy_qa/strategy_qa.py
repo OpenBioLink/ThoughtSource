@@ -231,7 +231,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                         "cot": example["facts"],
                         "answer": [example["answer"]],
                         "feedback": None,
-                        "generated_cot": [],
+                        "generated_cot": generated_cot,
                     }
                     yield key, example_
 
