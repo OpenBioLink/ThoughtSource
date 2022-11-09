@@ -20,7 +20,7 @@ from typing import Dict, List, Tuple
 
 import datasets
 
-from cot.utils import parse_kojima_log, schemas
+from cot.utils import parse_kojima_log, parse_wei_log, map_example_to_kojima_cot, map_example_to_wei_cot, schemas
 from cot.utils.configs import ThoughtSourceConfig
 
 _LOCAL = False
@@ -49,6 +49,7 @@ _LICENSE = "MIT"
 _URLS = {
     _DATASETNAME: "https://storage.googleapis.com/ai2i/strategyqa/data/strategyqa_dataset.zip",
     "kojimalogs": "https://github.com/kojima-takeshi188/zero_shot_cot/raw/main/log/strategyqa_zero_shot_cot.log",
+    "weilogs": "https://github.com/jasonwei20/chain-of-thought-prompting/raw/main/chain-of-thought-zip.zip",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -146,6 +147,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                     "paragraphs": paragraphs,
                     "split": "train",
                     "kojimalogs": data_dir["kojimalogs"],
+                    "weilogs": data_dir["weilogs"],
                 },
             ),
             datasets.SplitGenerator(
@@ -155,11 +157,12 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                     "paragraphs": paragraphs,
                     "split": "test",
                     "kojimalogs": None,
+                    "weilogs": None,
                 },
             ),
         ]
 
-    def _generate_examples(self, filepath, paragraphs, split, kojimalogs) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, paragraphs, split, kojimalogs, weilogs) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         with open(filepath, "r", encoding="utf8") as jsonfile:
@@ -195,39 +198,26 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                 kojima_cots = []
                 if kojimalogs is not None:
                     kojima_cots = parse_kojima_log(kojimalogs, "strategyqa")
+                wei_cots = []
+                if weilogs is not None:
+                    wei_cots = parse_wei_log(
+                        os.path.join(weilogs, "chain-of-thought-zip", "gpt-3-text-davinci-002", "strategyqa_stream"), "strategyqa"
+                    )
 
-                yes = 0
-                no = 0
+                kojima_cot_mapped = 0
+                wei_cot_mapped = 0
 
                 for key, example in enumerate(data):
 
                     generated_cot = []
-                    for generated_kojima_cot in kojima_cots:
-                        if example["question"] in generated_kojima_cot["question"]:
-                            yes += 1
-                            generated_cot.append(
-                                {
-                                    "templates_version": "0.01",
-                                    "instruction": None,
-                                    "cot-trigger": "kojima-01",
-                                    "answers": [
-                                        {
-                                            "answer-extraction": "kojima-A-E",
-                                            "answer": generated_kojima_cot["prediction"],
-                                            "correct_answer": None,
-                                        }
-                                    ],
-                                    "cot": generated_kojima_cot["cot"],
-                                    "author": "kojima",
-                                    "date": None,
-                                    "model": "gpt-3",
-                                    "comment": "",
-                                    "annotation": [],
-                                }
-                            )
-                            break
-                    else:
-                        no += 1
+                    kojima_cot = map_example_to_kojima_cot(example, kojima_cots)
+                    if kojima_cot is not None:
+                        generated_cot.append(kojima_cot)
+                        kojima_cot_mapped += 1
+                    wei_cot = map_example_to_wei_cot(example, wei_cots)
+                    if wei_cot is not None:
+                        generated_cot.append(wei_cot)
+                        wei_cot_mapped += 1
 
                     example_ = {
                         "id": example["qid"],
@@ -245,8 +235,8 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                     }
                     yield key, example_
 
-                print(f"{yes} kojima cots mapped.")
-                print(f"{no} kojima cots not mapped.")
+                print(f"{kojima_cot_mapped} kojima cots mapped.")
+                print(f"{wei_cot_mapped} wei cots not mapped.")
 
         elif split == "test":
             if self.config.schema == "source":

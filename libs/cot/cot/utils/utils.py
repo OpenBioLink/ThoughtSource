@@ -1,3 +1,5 @@
+import os
+
 def parse_kojima_log(path, dataset):
     with open(path, "r", encoding="utf8") as infile:
         content = infile.readlines()
@@ -17,7 +19,7 @@ def parse_kojima_log(path, dataset):
     def parse_elements(iterator):
         try:
             while True:
-                element = {"id": "", "question": "", "cot": "", "prediction": ""}
+                element = {"question": "", "cot": "", "prediction": ""}
 
                 stars = next(iterator)
                 if stars.startswith("accuracy"):
@@ -25,7 +27,6 @@ def parse_kojima_log(path, dataset):
                 assert stars == "*************************", "Stars begin"
 
                 st_data = next(iterator)
-                element["id"] = st_data
                 assert st_data.endswith("st data"), f"st data {st_data}"
 
                 # skip headaches at all
@@ -96,3 +97,76 @@ def parse_kojima_log(path, dataset):
     for element in parse_elements(iterator):
         elements.append(element)
     return elements
+
+
+def _read_file(path):
+    with open(path, "r") as infile:
+        content = infile.readlines()
+    content = [x.strip() for x in content]
+    return content
+
+
+def parse_wei_log(path_to_directory, dataset):
+    inputs = _read_file(os.path.join(path_to_directory, dataset + "_stream_inputs"))
+    targets = _read_file(os.path.join(path_to_directory, dataset + "_stream_targets"))
+    predictions = _read_file(os.path.join(path_to_directory, dataset + "_stream_predictions"))
+
+    elements = []
+    for (input, target, prediction) in zip(inputs, targets, predictions):
+        # skip few shot examples
+        question = input[2149:].split("Answer Choices")[0].strip()
+        target = True if target == "yes" else False
+
+        elements.append({"id": "", "question": question, "cot": prediction, "prediction": prediction})
+    return elements
+
+
+def map_example_to_kojima_cot(example, cots):
+    for cot in cots:
+        if example["question"]["stem"] in cot["question"]:
+            generated_cot = {
+                "templates_version": "0.01",
+                "instruction": None,
+                "cot-trigger": "kojima-01",
+                "answers": [
+                    {
+                        "answer-extraction": "kojima-A-E",
+                        "answer": cot["prediction"],
+                        "correct_answer": None,
+                    }
+                ],
+                "cot": cot["cot"],
+                "author": "kojima",
+                "date": None,
+                "model": "gpt-3",
+                "comment": "",
+                "annotation": [],
+            }
+            return generated_cot
+    else:
+        return None
+
+def map_example_to_wei_cot(example, cots):
+    for cot in cots:
+        if example["question"]["stem"] in cot["question"]:
+            generated_cot = {
+                "templates_version": "0.01",
+                "instruction": None,
+                "cot-trigger": None,
+                "answers": [
+                    {
+                        "answer-extraction": None,
+                        "answer": cot["prediction"],
+                        "correct_answer": None,
+                    }
+                ],
+                "cot": cot["cot"],
+                "author": "wei",
+                "date": None,
+                "model": "gpt-3",
+                "comment": "",
+                "annotation": [],
+            }
+            return generated_cot
+    else:
+        return None
