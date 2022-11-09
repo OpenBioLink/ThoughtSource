@@ -3,16 +3,18 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import glob
+import os
 import importlib
 import datasets
 from datasets import load_dataset
 from cot import Collection
+import yaml
 
-FROM_LOCAL = False
-LOCAL_PATH = r"C:\Users\path\to\json.json"
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.yml'), 'r') as file:
+    config = yaml.safe_load(file)
 
-if FROM_LOCAL:
-    COLLECTION = Collection.from_json(LOCAL_PATH)
+if config["from_local"]:
+    COLLECTION = Collection.from_json(config["local_path"])
 
 def render_features(features):
     """Recursively render the dataset schema (i.e. the fields)."""
@@ -30,7 +32,7 @@ def render_features(features):
 
 def list_datasets():
     """Get all the datasets to work with."""
-    if FROM_LOCAL:
+    if config["from_local"]:
         dataset_list = [(x, None) for x in COLLECTION.loaded]
         dataset_list.sort()
     else:
@@ -83,7 +85,7 @@ def load_local_ds(dataset: str):
 
 def display_dataset(dataset):
     dataset_name, dataset_path = dataset
-    if FROM_LOCAL:
+    if config["from_local"]:
         dataset, conf_option = load_local_ds(dataset)
     else:
         dataset, conf_option = load_ds(dataset)
