@@ -138,7 +138,7 @@ def parse_wei_log(path_to_directory, dataset):
             answer = answer[:-1] if answer[-1] == "." else answer # remove . at the end
         else:
             raise ValueError
-        elements.append({"id": "", "question": question, "cot": cot, "prediction": "So the answer is " + answer, "correct_answer": (target == answer)})
+        elements.append({"id": "", "question": question, "cot": cot, "prediction": "So the answer is " + answer + ".", "correct_answer": (target == answer)})
     return elements
 
 
