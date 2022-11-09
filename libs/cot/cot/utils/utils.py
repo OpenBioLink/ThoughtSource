@@ -7,6 +7,7 @@ def _read_file(path):
     content = [x.strip() for x in content]
     return content
 
+
 def parse_kojima_log(path, dataset):
     content = _read_file(path)
 
@@ -97,7 +98,7 @@ def parse_kojima_log(path, dataset):
                 GT = next(iterator)
                 assert GT.startswith("GT :"), f"GT {GT}"
                 GT = GT[len("GT : ") :]
-                element["correct_answer"] = (GT == pred_after)
+                element["correct_answer"] = GT == pred_after
 
                 stars = next(iterator)
                 assert stars == "*************************", "Stars end"
@@ -112,8 +113,6 @@ def parse_kojima_log(path, dataset):
     for element in parse_elements(iterator):
         elements.append(element)
     return elements
-
-
 
 
 def parse_wei_log(path_to_directory, dataset):
@@ -139,10 +138,18 @@ def parse_wei_log(path_to_directory, dataset):
             answer = ""
         elif len(split) == 2:
             (cot, answer) = split
-            answer = answer[:-1] if answer[-1] == "." else answer # remove . at the end
+            answer = answer[:-1] if answer[-1] == "." else answer  # remove . at the end
         else:
             raise ValueError
-        elements.append({"id": "", "question": question, "cot": cot, "prediction": "So the answer is " + answer + ".", "correct_answer": (target == answer)})
+        elements.append(
+            {
+                "id": "",
+                "question": question,
+                "cot": cot,
+                "prediction": "So the answer is " + answer + ".",
+                "correct_answer": (target == answer),
+            }
+        )
     return elements
 
 
@@ -170,6 +177,7 @@ def map_example_to_kojima_cot(question, cots):
             return generated_cot
     else:
         return None
+
 
 def map_example_to_wei_cot(question, cots):
     for cot in cots:
