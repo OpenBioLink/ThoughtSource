@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { annotate, CotOutput, findExistingAnnotation, SentenceElement } from '../../dtos/CotData';
 import { annotationList, COMMENT } from '../datasetentry/DatasetEntry';
-import { levenshtein } from '../levenshtein';
 import styles from './CotOutputElement.module.scss';
 
 interface CotOutputElementProps {
@@ -13,13 +12,31 @@ interface CotOutputElementProps {
   visualisationTreshold: number
   updateBestCot: () => void
   updateExportFile: () => void
+  isGoldstandard?: boolean
 }
 
 const CotOutputElement: FC<CotOutputElementProps> = (props) => {
 
+  const sentenceOutputs = props.sentenceElements.map((sentenceElement, index) => {
+    const color = getSimilarityBackgroundColor(sentenceElement?.similarityIndex)
+    const style = sentenceElement?.similarityScore != null && sentenceElement.similarityScore > props.visualisationTreshold ?
+      { 'backgroundColor': color } : {}
+    const sentenceText = sentenceElement.sentence.endsWith(" ") ? sentenceElement.sentence : sentenceElement.sentence + " "
+    return <span style={style as any}>{sentenceText}</span>
+  })
+
+  if (props.isGoldstandard) {
+    return <div className={styles.CotOutputElement}>
+      <p style={{ fontStyle: 'oblique', textAlign: 'center' }}>Gold standard CoT</p>
+      <div>
+        {sentenceOutputs}
+      </div>
+    </div>
+  }
+
   function onFreetext(event: any) {
     const text = event.target.value
-    annotate(props.cotOutput, COMMENT, text, props.username, null)
+    annotate(props.cotOutput!, COMMENT, text, props.username, null)
 
     props.updateExportFile()
   }
@@ -53,24 +70,14 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
       {annotationString}</label>
   </li>)
 
-  const sentenceOutputs = props.sentenceElements.map((sentenceElement, index) => {
-    const color = getSimilarityBackgroundColor(sentenceElement?.similarityIndex)
-    const style = sentenceElement?.similarityScore != null && sentenceElement.similarityScore > props.visualisationTreshold ?
-      { 'backgroundColor': color } : {}
-    return <span style={style as any}>{sentenceElement.sentence}</span>
-  })
-
-  const answer = props.cotOutput.answers?.find(a => a['answer-extraction'] == "kojima-01")?.answer
-  const answerExtractionRegex = /^ *[A-Z][)] */i
-  const trimmedAnswer = answer?.replace(answerExtractionRegex, "").trim()
-  const distance = levenshtein(trimmedAnswer, props.correctAnswer.trim())
-  const isCorrect = distance <= 1
+  const answerEntry = props.cotOutput.answers?.find(a => a['answer-extraction'] == "kojima-01")
+  const answer = answerEntry?.answer
+  const isCorrect = answerEntry?.correct_answer == true
   const correctnessIcon = isCorrect ?
     <i className="fa-regular fa-circle-check" style={{ color: "green" }}></i>
     : <i className="fa-regular fa-circle-xmark" style={{ color: "#ce1c1c" }}></i>
 
   const favIcon = props.bestCot ? "fa-solid fa-star" : "fa-regular fa-star"
-
 
   return <div className={styles.CotOutputElement}>
     <div>

@@ -1,6 +1,9 @@
+import os
+
 from flask import make_response, request
 
-CORS_ORIGIN = 'http://localhost:3000'
+os.environ.get("FRONTEND_URL")
+CORS_ORIGIN = os.environ.get("FRONTEND_URL")
 
 def cors_handling(base_function):
     def corse_response(*args, **kwargs):
@@ -16,7 +19,7 @@ def cors_handling(base_function):
 
 def _build_cors_preflight_response():
     response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+    response.headers.add("Access-Control-Allow-Origin", CORS_ORIGIN)
     response.headers.add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     response.headers.add("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET")
     response.headers.add("Access-Control-Allow-Credentials", "true")
@@ -25,6 +28,6 @@ def _build_cors_preflight_response():
 
 def _corsify_actual_response(base_response):
     response = make_response(base_response)
-    response.headers.add("Access-Control-Allow-Origin", "http://localhost:3000")
+    response.headers.add("Access-Control-Allow-Origin", CORS_ORIGIN)
     response.headers.add("Access-Control-Allow-Credentials", "true")
     return response

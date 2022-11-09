@@ -40,11 +40,20 @@ const Login: FC<LoginProps> = (props) => {
   function onFileRead(filename: string, data: any, startAnnotating: boolean) {
     // Flatmap all dataset entries
     let stateEntries: CotData[] = []
+
+    // Loop through datasets
     for (let [i, dataset] of Object.entries(data)) {
-      const trainingEntries = (dataset as any)['train']
-      const testEntries = (dataset as any)['test']
-      const validationEntries = (dataset as any)['validation']
-      stateEntries = [...stateEntries, ...trainingEntries, ...testEntries, ...validationEntries]
+
+      // Each dataset is expected to have subsets such as "train" or "test" - iterate through these
+      for (let setType of Object.keys(dataset as any)) {
+        console.log(`Reading ${setType} of ${dataset}`)
+        const entries = (dataset as any)[setType]
+        stateEntries = [...stateEntries, ...entries]
+      }
+      //const trainingEntries = (dataset as any)['train']
+      //const testEntries = (dataset as any)['test']
+      //const validationEntries = (dataset as any)['validation']
+      //stateEntries = [...stateEntries, ...trainingEntries, ...testEntries, ...validationEntries]
     }
 
     // Filter all entries without CoT

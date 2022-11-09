@@ -1,5 +1,5 @@
-export const SERVER_URL = 'http://localhost:5000'
-export const APP_URL = 'http://localhost:3000'
+export const SERVER_URL = process.env.REACT_APP_BACKEND_URL
+export const APP_URL = process.env.REACT_APP_FRONTEND_URL
 
 export const USERNAME_KEY = 'username'
 export const FILE_NAME_KEY = 'filename'

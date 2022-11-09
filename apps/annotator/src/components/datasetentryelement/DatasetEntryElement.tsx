@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import CotData, { annotate, findExistingAnnotation, SentenceElement, SentenceElementDict, SimilarityInfo } from '../../dtos/CotData';
+import CotData, { annotate, CotOutput, findExistingAnnotation, SentenceElement, SentenceElementDict, SimilarityInfo } from '../../dtos/CotData';
 import CotOutputElement from '../cotoutputelement/CotOutputElement';
 import { FAVORED } from '../datasetentry/DatasetEntry';
 import styles from './DatasetEntryElement.module.scss';
@@ -55,6 +55,11 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
     return aggr
   }, {} as SentenceElementDict)
 
+  const goldstandardIndex = (props.cotData.cot && props.cotData.cot.length > 0) ? props.cotData.generated_cot.length : -1
+  if (goldstandardIndex >= 0) {
+    sentenceElementsDict[props.cotData.generated_cot.length] = []
+  }
+
   sentences!.forEach((sentence, index) => {
     const blockIndex = getBlockIndex(index)
 
@@ -69,7 +74,9 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
     sentenceElementsDict[blockIndex].push(sentenceElement)
   })
 
-  const resultElements = props.cotData.generated_cot?.map((cotOutput, index) => (
+
+
+  let resultElements = props.cotData.generated_cot?.map((cotOutput, index) => (
     <CotOutputElement
       key={props.cotData.id + "/" + index}
       cotOutput={cotOutput}
@@ -81,6 +88,21 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
       updateBestCot={() => updateBestCot(index)}
       updateExportFile={props.anyUpdatePerformed} />
   ))
+
+  if (goldstandardIndex >= 0) {
+    resultElements = [<CotOutputElement
+      isGoldstandard={true}
+      key={props.cotData.id + "/" + goldstandardIndex}
+      cotOutput={{} as CotOutput}
+      sentenceElements={sentenceElementsDict[goldstandardIndex]}
+      bestCot={false}
+      correctAnswer={props.cotData.answer[0]}
+      username={props.username}
+      visualisationTreshold={props.visualisationTreshold}
+      updateBestCot={() => { }}
+      updateExportFile={props.anyUpdatePerformed} />,
+    ...resultElements]
+  }
 
   const answerElements = props.cotData.choices?.map(choice => {
     const isCorrectAnswer = choice == props.cotData.answer[0]
