@@ -1,6 +1,3 @@
-#specific
-/konstantin
-
 # dumped files (collections saved to jsons via dump function)
 dump/
 
@@ -169,7 +166,6 @@ cython_debug/
 #.idea/
 
 # VS Code
-.vscode
-
+.vscode/
 
 test.py
