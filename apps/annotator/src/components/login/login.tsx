@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import CotData from '../../dtos/CotData';
 import { FILE_CONTENT_KEY, FILE_NAME_KEY, get, USERNAME_KEY } from '../httpservice';
+import { parseCotData } from '../readfileservice';
 import styles from './login.module.scss';
 
 interface LoginProps {
@@ -34,33 +35,7 @@ const Login: FC<LoginProps> = (props) => {
 
     const reader = new FileReader()
     reader.readAsText(event.target.files[0], "UTF-8")
-    reader.onload = (loadEvent) => onFileRead(filename, JSON.parse(loadEvent.target?.result as any), false)
-  }
-
-  function onFileRead(filename: string, data: any, startAnnotating: boolean) {
-    // Flatmap all dataset entries
-    let stateEntries: CotData[] = []
-
-    // Loop through datasets
-    for (let [i, dataset] of Object.entries(data)) {
-
-      // Each dataset is expected to have subsets such as "train" or "test" - iterate through these
-      for (let setType of Object.keys(dataset as any)) {
-        console.log(`Reading ${setType} of ${dataset}`)
-        const entries = (dataset as any)[setType]
-        stateEntries = [...stateEntries, ...entries]
-      }
-      //const trainingEntries = (dataset as any)['train']
-      //const testEntries = (dataset as any)['test']
-      //const validationEntries = (dataset as any)['validation']
-      //stateEntries = [...stateEntries, ...trainingEntries, ...testEntries, ...validationEntries]
-    }
-
-    // Filter all entries without CoT
-    stateEntries = stateEntries.filter(entry => entry.generated_cot?.length > 0)
-
-    // Pass both original and parsed data back to Root
-    props.onFileRead(filename, data, stateEntries, startAnnotating)
+    reader.onload = (loadEvent) => parseCotData(filename, JSON.parse(loadEvent.target?.result as any), false, props.onFileRead)
   }
 
   const existingSessionElement = state ? <div className={styles.RestoreSession}>
@@ -69,7 +44,7 @@ const Login: FC<LoginProps> = (props) => {
     </h5>
     <div onClick={() => {
       props.onUsername(state[USERNAME_KEY])
-      onFileRead(state[FILE_NAME_KEY], state[FILE_CONTENT_KEY], true)
+      parseCotData(state[FILE_NAME_KEY], state[FILE_CONTENT_KEY], true, props.onFileRead)
     }}>
       {state[USERNAME_KEY]} | {state[FILE_NAME_KEY]}
     </div>

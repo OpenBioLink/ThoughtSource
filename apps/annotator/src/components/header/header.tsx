@@ -28,7 +28,7 @@ const Header: FC<HeaderProps> = (props) => {
             <Dropdown options={props.similarityTypes || []} onClick={props.onSelectSimilarityType} currentChoice={props.selectedSimilarityType} />
           </div>
           <div>
-            <span>Visualisation treshold </span>
+            <span>Visualisation threshold </span>
             <Slider axis="x" x={props.tresholdValue} onChange={({ x }) => props.setTresholdValue(x)} xmin={0} xmax={0.5} xstep={0.05} />
           </div>
           <div>

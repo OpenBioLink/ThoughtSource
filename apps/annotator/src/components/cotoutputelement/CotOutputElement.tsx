@@ -1,7 +1,10 @@
 import { FC } from 'react';
 import { annotate, CotOutput, findExistingAnnotation, SentenceElement } from '../../dtos/CotData';
-import { annotationList, COMMENT } from '../datasetentry/DatasetEntry';
 import styles from './CotOutputElement.module.scss';
+
+const COMMENT = "comment"
+const annotationList = ["Incorrect reasoning", "Insufficient knowledge", "Incorrect reading comprehension", "Too verbose"]
+const colors_v5 = ['#23DCAE', '#536AD8', '#AE66E1', '#DEC721', '#76D965']
 
 interface CotOutputElementProps {
   cotOutput: CotOutput
@@ -53,9 +56,6 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
       return null
     }
 
-    const colors_bright = ['#FBFA30', '#3CFA72', '#32B5FF']
-    const colors = ['#20729E', '#249945', '#7d2cc7']
-    const colors_v5 = ['#23DCAE', '#536AD8', '#AE66E1', '#DEC721', '#76D965']
     if (similarityIndex >= 0 && similarityIndex < colors_v5.length) {
       return colors_v5[similarityIndex]
     }

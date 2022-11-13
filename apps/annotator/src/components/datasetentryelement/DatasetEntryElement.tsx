@@ -1,8 +1,9 @@
 import { FC, useState } from 'react';
 import CotData, { annotate, CotOutput, findExistingAnnotation, SentenceElement, SentenceElementDict, SimilarityInfo } from '../../dtos/CotData';
 import CotOutputElement from '../cotoutputelement/CotOutputElement';
-import { FAVORED } from '../datasetentry/DatasetEntry';
 import styles from './DatasetEntryElement.module.scss';
+
+export const FAVORED = "preferred"
 
 interface DatasetEntryElementProps {
   cotData: CotData
@@ -16,8 +17,6 @@ interface DatasetEntryElementProps {
 type SimilaritiesDict = Record<string, SimilarityInfo[]>
 
 const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
-  //const [similarities, setSimilarities] = useState<SimilaritiesDict>({})
-  //const [similarityType, setSimilarityType] = useState<string>()
   const [bestCotIndex, setBestCotIndex] = useState<number>(props.cotData.generated_cot.findIndex(cotData => findExistingAnnotation(cotData, FAVORED, props.username)?.value))
 
   const lengths = props.cotData.lengths
@@ -74,8 +73,6 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
     sentenceElementsDict[blockIndex].push(sentenceElement)
   })
 
-
-
   let resultElements = props.cotData.generated_cot?.map((cotOutput, index) => (
     <CotOutputElement
       key={props.cotData.id + "/" + index}
@@ -111,7 +108,7 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
 
   return <div className={styles.DatasetEntryElement}>
     <div className={styles.EntryHeader}>
-      <h3>Question</h3>
+      <h3>Question {props.cotData.id} ({props.cotData.subsetType})</h3>
       <span>{props.cotData.question}</span>
       <ol>{answerElements}</ol>
     </div>

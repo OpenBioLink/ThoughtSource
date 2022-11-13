@@ -91,6 +91,7 @@ type CotData = {
     similarities?: SimilaritiesDict
     sentences?: string[]    // Stores sentences of all generated_cot, seperated by full stops
     lengths?: number[]      // Stores number of sentences for each generated_cot
+    subsetType?: string     // subset name, eg train, evaluation, test
 }
 
 export default CotData;
