@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import CotData, { SimilaritiesDict } from '../../dtos/CotData';
 import Annotator from '../annotator/annotator';
+import { backupCurrentData } from '../backupservice';
 import Header from '../header/header';
 import { post } from '../httpservice';
 import Login from '../login/login';
@@ -21,21 +22,16 @@ const Root: FC<RootProps> = () => {
   const [tresholdValue, setTresholdValue] = useState(0.25)
   const [lastBackupTime, setLastBackupTime] = useState(0)
 
+  // Setup backup function when window closes
   useEffect(() => {
-    setupBeforeUnloadListener()
+    const onBeforeUnload = () => backupCurrentData(username, filename, allData)
 
-    // Function called on unmount
-    return () => backupFileToSession()
-  }, [])  // Pass an empty array to run callback on mount only.
+    window.addEventListener("beforeunload", onBeforeUnload)
 
-  // Setup the `beforeunload` event listener
-  // TODO here but better - hier geht momentan nur der OPTIONS request durch...
-  const setupBeforeUnloadListener = () => {
-    window.addEventListener("beforeunload", (ev) => {
-      // ev.preventDefault();
-      backupFileToSession()
-    });
-  };
+    return () => {
+      window.removeEventListener("beforeunload", onBeforeUnload)
+    }
+  })
 
   function onFileRead(filename: string, allData: any, cotData: CotData[], startAnnotating: boolean) {
     cotData.forEach(cotData => {
@@ -97,7 +93,7 @@ const Root: FC<RootProps> = () => {
 
     const currentTimeMillis = Date.now()
     if (currentTimeMillis - lastBackupTime > 15_000) {
-      backupFileToSession()
+      backupCurrentData(username, filename, allData)
       setLastBackupTime(currentTimeMillis)
     }
   }

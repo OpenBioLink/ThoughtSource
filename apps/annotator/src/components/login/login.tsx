@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import CotData from '../../dtos/CotData';
+import { restoreBackup } from '../backupservice';
 import { FILE_CONTENT_KEY, FILE_NAME_KEY, get, USERNAME_KEY } from '../httpservice';
 import { parseCotData } from '../readfileservice';
 import styles from './login.module.scss';
@@ -17,7 +18,16 @@ const Login: FC<LoginProps> = (props) => {
   const [state, setState] = useState<any>()
 
   useEffect(() => {
-    performServerCheckin()
+    const backupData = restoreBackup()
+    if (!backupData) {
+      return
+    }
+
+    setState({
+      [USERNAME_KEY]: backupData[USERNAME_KEY],
+      [FILE_NAME_KEY]: backupData[FILE_NAME_KEY],
+      [FILE_CONTENT_KEY]: backupData[FILE_CONTENT_KEY]
+    })
   }, [])  // Pass an empty array to run callback on mount only.
 
   function performServerCheckin() {
