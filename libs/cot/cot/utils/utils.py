@@ -1,7 +1,15 @@
-def parse_kojima_log(path, dataset):
+import os
+
+
+def _read_file(path):
     with open(path, "r", encoding="utf8") as infile:
         content = infile.readlines()
     content = [x.strip() for x in content]
+    return content
+
+
+def parse_kojima_log(path, dataset):
+    content = _read_file(path)
 
     assert content[9] == "*************************"
 
@@ -17,7 +25,7 @@ def parse_kojima_log(path, dataset):
     def parse_elements(iterator):
         try:
             while True:
-                element = {"id": "", "question": "", "cot": "", "prediction": ""}
+                element = {"question": "", "cot": "", "prediction": "", "correct_answer": ""}
 
                 stars = next(iterator)
                 if stars.startswith("accuracy"):
@@ -25,7 +33,6 @@ def parse_kojima_log(path, dataset):
                 assert stars == "*************************", "Stars begin"
 
                 st_data = next(iterator)
-                element["id"] = st_data
                 assert st_data.endswith("st data"), f"st data {st_data}"
 
                 # skip headaches at all
@@ -67,21 +74,31 @@ def parse_kojima_log(path, dataset):
 
                 element["cot"] = cot_multiline[len("A: " + cot_trigger + " ") :]
 
-                pred_before = next(iterator)
-                if not pred_before.startswith("pred_before :"):
-                    while not pred_before.startswith("pred_before"):
-                        pred_before = next(iterator)
+                answer_mulitiline = ""
+                answer_mulitiline += next_line
+                next_line = next(iterator)
+                while not next_line.startswith("pred_before"):
+                    answer_mulitiline += next_line
+                    next_line = next(iterator)
+                element["prediction"] = answer_mulitiline
+
+                pred_before = next_line
                 assert pred_before.startswith("pred_before :"), f"pred_before {pred_before}"
 
                 pred_after = next(iterator)
                 assert pred_after.startswith("pred_after :"), f"pred_after {pred_after}"
-                element["prediction"] = pred_after[len("pred_after : ") :]
+                pred_after = pred_after[len("pred_after : ") :]
+
                 pred_list = next(iterator)
                 assert pred_list.startswith("pred_list :"), f"pred_list {pred_list}"
+
                 pred_mode = next(iterator)
                 assert pred_mode.startswith("pred_mode :"), f"pred_mode {pred_mode}"
+
                 GT = next(iterator)
                 assert GT.startswith("GT :"), f"GT {GT}"
+                GT = GT[len("GT : ") :]
+                element["correct_answer"] = GT == pred_after
 
                 stars = next(iterator)
                 assert stars == "*************************", "Stars end"
@@ -96,3 +113,93 @@ def parse_kojima_log(path, dataset):
     for element in parse_elements(iterator):
         elements.append(element)
     return elements
+
+
+def parse_wei_log(path_to_directory, dataset):
+    inputs = _read_file(os.path.join(path_to_directory, dataset + "_stream_inputs"))
+    targets = _read_file(os.path.join(path_to_directory, dataset + "_stream_targets"))
+    predictions = _read_file(os.path.join(path_to_directory, dataset + "_stream_predictions"))
+
+    if dataset == "commonsenseqa":
+        spl = "Answer Choices"
+        skip = 2149
+    elif dataset == "strategyqa":
+        spl = "A:"
+        skip = 1467
+
+    elements = []
+    for (input, target, prediction) in zip(inputs, targets, predictions):
+
+        # skip few shot examples
+        question = input[skip:].split(spl)[0].strip()
+        split = prediction.split(" So the answer is ")
+        if len(split) == 1:
+            cot = prediction
+            answer = ""
+        elif len(split) == 2:
+            (cot, answer) = split
+            answer = answer[:-1] if answer[-1] == "." else answer  # remove . at the end
+        else:
+            raise ValueError
+        elements.append(
+            {
+                "id": "",
+                "question": question,
+                "cot": cot,
+                "prediction": "So the answer is " + answer + ".",
+                "correct_answer": (target == answer),
+            }
+        )
+    return elements
+
+
+def map_example_to_kojima_cot(question, cots):
+    for cot in cots:
+        if question in cot["question"]:
+            generated_cot = {
+                "templates_version": "0.01",
+                "instruction": None,
+                "cot-trigger": "kojima-01",
+                "answers": [
+                    {
+                        "answer-extraction": "kojima-A-E",
+                        "answer": cot["prediction"],
+                        "correct_answer": cot["correct_answer"],
+                    }
+                ],
+                "cot": cot["cot"],
+                "author": "kojima",
+                "date": None,
+                "model": "gpt-3",
+                "comment": "",
+                "annotation": [],
+            }
+            return generated_cot
+    else:
+        return None
+
+
+def map_example_to_wei_cot(question, cots):
+    for cot in cots:
+        if question in cot["question"]:
+            generated_cot = {
+                "templates_version": "0.01",
+                "instruction": None,
+                "cot-trigger": None,
+                "answers": [
+                    {
+                        "answer-extraction": None,
+                        "answer": cot["prediction"],
+                        "correct_answer": cot["correct_answer"],
+                    }
+                ],
+                "cot": cot["cot"],
+                "author": "wei",
+                "date": None,
+                "model": "gpt-3",
+                "comment": "",
+                "annotation": [],
+            }
+            return generated_cot
+    else:
+        return None

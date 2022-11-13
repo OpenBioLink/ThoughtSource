@@ -14,13 +14,15 @@
 # limitations under the License.
 
 import json
+import os
 from typing import Dict, List, Tuple
 
 import datasets
 import nltk
 from nltk.tokenize import sent_tokenize
 
-from cot.utils import parse_kojima_log, schemas
+from cot.utils import (map_example_to_kojima_cot, map_example_to_wei_cot,
+                       parse_kojima_log, parse_wei_log, schemas)
 from cot.utils.configs import ThoughtSourceConfig
 
 nltk.download("punkt")
@@ -80,6 +82,7 @@ _URLS = {
     },
     "ecqa": "https://github.com/dair-iitd/ECQA-Dataset/raw/main/ecqa.jsonl",
     "kojimalogs": "https://github.com/kojima-takeshi188/zero_shot_cot/raw/main/log/commonsensqa_zero_shot_cot.log",
+    "weilogs": "https://github.com/jasonwei20/chain-of-thought-prompting/raw/main/chain-of-thought-zip.zip",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -158,19 +161,24 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
-                gen_kwargs={"filepath": data_dir["commonsense"]["train"], "ecqa": ecqa, "kojimalogs": None},
+                gen_kwargs={"filepath": data_dir["commonsense"]["train"], "ecqa": ecqa, "kojimalogs": None, "weilogs": None},
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
-                gen_kwargs={"filepath": data_dir["commonsense"]["test"], "ecqa": ecqa, "kojimalogs": None},
+                gen_kwargs={"filepath": data_dir["commonsense"]["test"], "ecqa": ecqa, "kojimalogs": None, "weilogs": None},
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
-                gen_kwargs={"filepath": data_dir["commonsense"]["dev"], "ecqa": ecqa, "kojimalogs": data_dir["kojimalogs"]},
+                gen_kwargs={
+                    "filepath": data_dir["commonsense"]["dev"],
+                    "ecqa": ecqa,
+                    "kojimalogs": data_dir["kojimalogs"],
+                    "weilogs": data_dir["weilogs"],
+                },
             ),
         ]
 
-    def _generate_examples(self, filepath, ecqa, kojimalogs) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, ecqa, kojimalogs, weilogs) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         with open(filepath, "r") as json_file:
@@ -188,39 +196,26 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
             kojima_cots = []
             if kojimalogs is not None:
                 kojima_cots = parse_kojima_log(kojimalogs, "commonsenseqa")
+            wei_cots = []
+            if weilogs is not None:
+                wei_cots = parse_wei_log(
+                    os.path.join(weilogs, "chain-of-thought-zip", "gpt-3-text-davinci-002", "commonsenseqa_stream"), "commonsenseqa"
+                )
 
-            yes = 0
-            no = 0
+            kojima_cot_mapped = 0
+            wei_cot_mapped = 0
 
             for key, example in enumerate(data):
 
                 generated_cot = []
-                for generated_kojima_cot in kojima_cots:
-                    if example["question"]["stem"] in generated_kojima_cot["question"]:
-                        yes += 1
-                        generated_cot.append(
-                            {
-                                "templates_version": "0.01",
-                                "instruction": None,
-                                "cot-trigger": "kojima-01",
-                                "answers": [
-                                    {
-                                        "answer-extraction": "kojima-A-E",
-                                        "answer": generated_kojima_cot["prediction"],
-                                        "correct_answer": None,
-                                    }
-                                ],
-                                "cot": generated_kojima_cot["cot"],
-                                "author": "kojima",
-                                "date": None,
-                                "model": "gpt-3",
-                                "comment": "",
-                                "annotation": [],
-                            }
-                        )
-                        break
-                else:
-                    no += 1
+                kojima_cot = map_example_to_kojima_cot(example["question"]["stem"], kojima_cots)
+                if kojima_cot is not None:
+                    generated_cot.append(kojima_cot)
+                    kojima_cot_mapped += 1
+                wei_cot = map_example_to_wei_cot(example["question"]["stem"], wei_cots)
+                if wei_cot is not None:
+                    generated_cot.append(wei_cot)
+                    wei_cot_mapped += 1
 
                 choices = {x["label"]: x["text"] for x in example["question"]["choices"]}
                 example_ = {
@@ -240,8 +235,8 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
 
                 yield key, example_
 
-            print(f"{yes} kojima cots mapped.")
-            print(f"{no} kojima cots not mapped.")
+            print(f"{kojima_cot_mapped} kojima cots mapped.")
+            print(f"{wei_cot_mapped} wei cots mapped.")
 
 
 # This template is based on the following template from the datasets package:
