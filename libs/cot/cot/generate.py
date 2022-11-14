@@ -184,6 +184,7 @@ def _generate_and_extract(
                 "answers": [],
                 "author": author,
                 "date": "",
+                "api_service": api_service,
                 "model": {
                     "name": engine,
                     "temperature": temperature,
@@ -208,6 +209,7 @@ def _generate_and_extract(
                 print(generate_cot_prompt)
             cot = query_model(
                 generate_cot_prompt,
+                api_service,
                 engine,
                 temperature,
                 max_tokens,
@@ -221,15 +223,15 @@ def _generate_and_extract(
             generated_cot["cot"] = cot
             generated_cot["date"] = print_now(1)
 
-            cot = query_model(
-                generate_cot_prompt,
-                api_service,
-                engine,
-                temperature,
-                max_tokens,
-                api_time_interval,
-                debug,
-            )
+            # cot = query_model(
+            #     generate_cot_prompt,
+            #     api_service,
+            #     engine,
+            #     temperature,
+            #     max_tokens,
+            #     api_time_interval,
+            #     debug,
+            # )
             if verbose:
                 print("\n------------------GENERATED COT-------------------")
                 print(cot)
