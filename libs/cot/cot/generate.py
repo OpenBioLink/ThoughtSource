@@ -206,7 +206,7 @@ def _generate_and_extract(
                 print("\n-------------------COT TRIGGER-------------------")
             if verbose:
                 print(generate_cot_prompt)
-            cot = query_gpt3(
+            cot = query_model(
                 generate_cot_prompt,
                 engine,
                 temperature,
@@ -294,7 +294,7 @@ def query_model(
         oai.api_key = os.getenv("OPENAI_API_KEY")
         # GPT-3 API allows each users execute the API within 60 times in a minute ...
         time.sleep(api_time_interval)
-        response = openai.Completion.create(
+        response = oai.Completion.create(
             engine=engine,
             prompt=input,
             max_tokens=max_tokens,
