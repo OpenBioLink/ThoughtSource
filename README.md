@@ -20,11 +20,11 @@ ThoughtSource is a central, open resource and community around data and tools re
 
 ## Roadmap
 
-1. Create a repository of chain-of-thought (CoT) datasets converted to a unified format. ✅
-2. Create a conceptual model of different CoT reasoning styles and errors.
-3. Create tools for diagnosing, annotating and evaluating CoT reasoning.
-4. Provide models fine-tuned on high-quality CoT data.
-4. Apply CoT reasoning to high-impact use-cases such as biomedical research or clinical decision making.
+1. Create a __repository of chain-of-thought (CoT) datasets__ converted to a unified format. 
+2. Create tools for __generating, diagnosing, annotating and evaluating__ CoT reasoning with a wide variety of large language models. 
+3. Create a __conceptual model__ of different CoT reasoning styles and errors.
+4. Provide models __fine-tuned on high-quality CoT data__.
+5. Apply CoT reasoning to __high-impact use-cases__ such as biomedical research or clinical decision making.
 
 ## Current datasets
 __Datasets can be [browsed online through the Dataset Viewer 🔎](http://thought.samwald.info/)__. 
@@ -48,6 +48,7 @@ __Datasets can be [browsed online through the Dataset Viewer 🔎](http://though
 * __[worldtree](http://cognitiveai.org/explanationbank/):__ Scientific question-answering data from the WorldTree v2 dataset ([Xie 2020](https://aclanthology.org/2020.lrec-1.671/)). __Human-generated__ reasoning chains derived from the original dataset. _License:_ Unknown.
 * __[entailment_bank](https://allenai.org/data/entailmentbank):__ Science exam questions with expert-authored explanations from the EntailmentBank dataset ([Dalvi 2022](https://arxiv.org/pdf/2104.08661.pdf)). __Human-generated__ reasoning chains derived from the original dataset. _License:_ CC BY 4.0. (Note: significant overlap with worldtree v2)
 * __[open_book_qa](https://allenai.org/data/open-book-qa):__ Scientific question-answering modeled after open book exams for assessing human understanding from the OpenBookQA dataset ([Mihaylov 2018](https://aclanthology.org/D18-1260.pdf)). __Human-generated__ reasoning chains derived from the original dataset. _License:_ Unknown.
+* _Planned_: __Medical question answering__ datasets (USMLE, MedMCQA) from [Liévin 2022](https://arxiv.org/abs/2207.08143).
 
 ### Math word problems
 * __[aqua](https://github.com/deepmind/AQuA):__ Math word problems from the AQUA-RAT (Algebra Question Answering with Rationales) dataset ([Ling 2017](https://arxiv.org/pdf/1705.04146.pdf)). Reasoning chains derived from the original dataset. _License:_ Apache 2.0.
@@ -57,7 +58,9 @@ __Datasets can be [browsed online through the Dataset Viewer 🔎](http://though
 * __[svamp](https://github.com/arkilpatel/SVAMP):__ Math word problems. Source: SVAMP ([Patel 2021](https://aclanthology.org/2021.naacl-main.168/)). Reasoning chains derived from the original dataset. _License:_ MIT.
 
 
-We are working on collecting and generating additional datasets, and on further improving the quality of existing datasets (see [dataset issues](https://github.com/OpenBioLink/ThoughtSource/issues?q=is%3Aissue+label%3Adataset)). We welcome suggestions for the inclusion of other datasets!
+We are working on collecting and generating additional datasets, and on further improving the quality of existing datasets (see [dataset issues](https://github.com/OpenBioLink/ThoughtSource/issues?q=is%3Aissue+label%3Adataset)). We welcome suggestions for the inclusion of other datasets.
+
+__We welcome dataset contributions! 👉 Have a look at our [contribution guide](CONTRIBUTING.md)!__
 
 ## Code
 ### Libraries
