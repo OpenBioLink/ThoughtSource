@@ -123,6 +123,7 @@ def _generate_and_extract(
     idx,
     idx_range=None,
     author="",
+    question_type="chain_of_thought",
     api_service="openai",
     engine="text-davinci-002",
     temperature=0,
@@ -132,6 +133,7 @@ def _generate_and_extract(
     cot_trigger_keys=None,
     answer_extraction_keys=None,
     debug=True,
+    warn=True,
     verbose=False,
 ):
     """
