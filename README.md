@@ -12,6 +12,8 @@ ThoughtSource is a central, open resource and community around data and tools re
   <img alt="ThoughtSource overview 1" src="./resources/images/thoughtsource-overview-1.svg">
 </p>
 
+(the example shown here was generated with the _text-davinci-002_ model)
+
 ## Annotate, evaluate and improve
 <p align="center">
   <img alt="ThoughtSource overview 2" src="./resources/images/thoughtsource-overview-2.svg">
@@ -20,11 +22,29 @@ ThoughtSource is a central, open resource and community around data and tools re
 
 ## Roadmap
 
-1. Create a __repository of chain-of-thought (CoT) datasets__ converted to a unified format. 
-2. Create tools for __generating, diagnosing, annotating and evaluating__ CoT reasoning with a wide variety of large language models. 
-3. Create a __conceptual model__ of different CoT reasoning styles and errors.
-4. Provide models __fine-tuned on high-quality CoT data__.
-5. Apply CoT reasoning to __high-impact use-cases__ such as biomedical research or clinical decision making.
+1. Create a __repository of chain-of-thought (CoT) datasets__ converted to a unified format. ✅
+2. Create a library for __generating__ reasoning chains with a wide variety of large language models. ✅
+3. Create tools for __diagnosing, annotating and evaluating__ CoT data and fostering empirical understanding. 
+4. Create a __conceptual model__ of different CoT reasoning styles and errors.
+5. Provide models __fine-tuned on high-quality CoT data__.
+6. Apply CoT reasoning to __high-impact use-cases__ such as biomedical research or clinical decision making.
+
+## Code
+### Libraries
+
+* __[dataloader](./libs/dataloader/):__ Creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
+* __generate__: Generating reasoning chains with a wide variety of language models (currently OpenAI and models on Hugging Face hub)
+
+### Applications
+
+* __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
+* __annotator:__ Web-based tool for annotating chain-of-thought data (soon to be released)
+
+<p align="center">
+  <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
+
+  The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
+</p>
 
 ## Current datasets
 __Datasets can be [browsed online through the Dataset Viewer 🔎](http://thought.samwald.info/)__. 
@@ -62,19 +82,4 @@ We are working on collecting and generating additional datasets, and on further 
 
 __We welcome dataset contributions! 👉 Have a look at our [contribution guide](CONTRIBUTING.md)!__
 
-## Code
-### Libraries
-
-* __[dataloader](./libs/dataloader/):__ Library for creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
-
-### Applications
-
-* __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
-* __annotator:__ Web-based tool for annotating chain-of-thought data (soon to be released)
-
-<p align="center">
-  <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
-
-  The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
-</p>
 
