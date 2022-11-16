@@ -287,8 +287,8 @@ def query_model(
         time.sleep(api_time_interval)
         # This script produces prompts as strings, but the langchain package requires
         # Prompt objects, so here is a fake object created with the foo variable "empty"
-        template = "{empty}" + input
-        prompt = Prompt(template=template, input_variables=["empty"])
+        template = "{prompt}"
+        prompt = Prompt(template=template, input_variables=["prompt"])
 
         if api_service == "openai":
             from langchain import OpenAI
@@ -312,5 +312,5 @@ def query_model(
                     model_kwargs={"temperature": temperature, "max_length": max_tokens},
                 ),
             )
-        response = llm_chain.predict(empty="", stop=None)
+        response = llm_chain.predict(prompt=input, stop=None)
         return response
