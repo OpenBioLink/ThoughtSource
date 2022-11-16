@@ -12,6 +12,7 @@ ds.disable_caching()
 
 TEMPLATES = json.loads(pkgutil.get_data(__name__, "templates.json"))
 
+
 def print_now(return_flag=0):
     """
     It takes a flag as an argument and prints the current time in a specific format
@@ -58,14 +59,11 @@ def generate_and_extract(data, config):
 
     ds.disable_caching()
 
-    # TODO Why not move this down into _generate_and_extract
-    # then all config variables are defined
-
     # Creating cofigurations for the options 'all' or 'None':
     keys = ["instruction_keys", "cot_trigger_keys", "answer_extraction_keys"]
     names_in_template = ["instructions", "cot-triggers", "answer-extractions"]
     for key, name in zip(keys, names_in_template):
-        if key not in config or config[key] == "all": 
+        if key not in config or config[key] == "all":
             config[key] = [None] + list(TEMPLATES[name].keys())
         elif not config[key]:
             config[key] = [None]
@@ -94,7 +92,8 @@ def generate_and_extract(data, config):
     n_answer_extraction_keys = len(config["answer_extraction_keys"])
 
     n_total = (
-        n_samples * n_instruction_keys * n_cot_trigger_keys + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
+        n_samples * n_instruction_keys * n_cot_trigger_keys
+        + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
     )
     print(
         f"n_samples: {n_samples}, n_instruction_keys: {n_instruction_keys}, n_cot_trigger_keys: {n_cot_trigger_keys}, n_answer_extraction_keys: {n_answer_extraction_keys}"
@@ -103,10 +102,17 @@ def generate_and_extract(data, config):
     warn = True if "warn" not in config else config["warn"]
     if warn:
         warning = "You are about to call the openai API which produces costs.\n"
-        warning += f"Due to your settings you are about to call the openai API in total {n_total} times." + "\n"
-        warning += "Number API calls for CoT generation: n_samples * n_instruction_keys * n_cot_trigger_keys" + "\n"
         warning += (
-            "Number API calls for answer extraction: n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys" + "\n"
+            f"Due to your settings you are about to call the openai API in total {n_total} times."
+            + "\n"
+        )
+        warning += (
+            "Number API calls for CoT generation: n_samples * n_instruction_keys * n_cot_trigger_keys"
+            + "\n"
+        )
+        warning += (
+            "Number API calls for answer extraction: n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys"
+            + "\n"
         )
         warning += "Do you want to continue? y/n\n"
         print(warning)
@@ -121,17 +127,16 @@ def generate_and_extract(data, config):
 def _generate_and_extract(
     item,
     idx,
-    idx_range=None,
+    idx_range="all",
     author="",
-    question_type="chain_of_thought",
     api_service="openai",
     engine="text-davinci-002",
     temperature=0,
     max_tokens=128,
     api_time_interval=1.0,
-    instruction_keys=None,
-    cot_trigger_keys=None,
-    answer_extraction_keys=None,
+    instruction_keys="all",
+    cot_trigger_keys="all",
+    answer_extraction_keys="all",
     debug=True,
     warn=True,
     verbose=False,
@@ -207,8 +212,8 @@ def _generate_and_extract(
 
             if verbose:
                 print("\n-------------------COT TRIGGER-------------------")
-            if verbose:
                 print(generate_cot_prompt)
+
             cot = query_model(
                 generate_cot_prompt,
                 api_service,
@@ -218,22 +223,6 @@ def _generate_and_extract(
                 api_time_interval,
                 debug,
             )
-            if verbose:
-                print("\n------------------GENERATED COT-------------------")
-            if verbose:
-                print(cot)
-            generated_cot["cot"] = cot
-            generated_cot["date"] = print_now(1)
-
-            # cot = query_model(
-            #     generate_cot_prompt,
-            #     api_service,
-            #     engine,
-            #     temperature,
-            #     max_tokens,
-            #     api_time_interval,
-            #     debug,
-            # )
             if verbose:
                 print("\n------------------GENERATED COT-------------------")
                 print(cot)
@@ -290,22 +279,6 @@ def query_model(
 ):
     if debug:
         return "test"
-
-    # this is the first version, kept for comparison testing:
-    elif api_service == "first_version_openai":
-        import openai as oai
-
-        oai.api_key = os.getenv("OPENAI_API_KEY")
-        # GPT-3 API allows each users execute the API within 60 times in a minute ...
-        time.sleep(api_time_interval)
-        response = oai.Completion.create(
-            engine=engine,
-            prompt=input,
-            max_tokens=max_tokens,
-            temperature=temperature,
-            stop=None,
-        )
-        return response["choices"][0]["text"]
 
     # lanchain package implementation
     else:
