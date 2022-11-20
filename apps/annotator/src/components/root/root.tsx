@@ -21,10 +21,11 @@ const Root: FC<RootProps> = () => {
   const [selectedSimilarityType, setSelectedSimilarityType] = useState<string>("")
   const [tresholdValue, setTresholdValue] = useState(0.25)
   const [lastBackupTime, setLastBackupTime] = useState(0)
+  const [errorMessage, setErrorMessage] = useState("")
 
   // Setup backup function when window closes
   useEffect(() => {
-    const onBeforeUnload = () => backupCurrentData(username, filename, allData)
+    const onBeforeUnload = () => performBackup()
 
     window.addEventListener("beforeunload", onBeforeUnload)
 
@@ -84,7 +85,12 @@ const Root: FC<RootProps> = () => {
   }
 
   function onLogin() {
+    performBackup()
     setLoggedIn(true)
+  }
+
+  function performBackup() {
+    backupCurrentData(username, filename, allData, () => setErrorMessage("File too large for browser's local storage - please export file regularly"))
   }
 
   function updateExportFile() {
@@ -93,30 +99,36 @@ const Root: FC<RootProps> = () => {
 
     const currentTimeMillis = Date.now()
     if (currentTimeMillis - lastBackupTime > 15_000) {
-      backupCurrentData(username, filename, allData)
+      performBackup()
       setLastBackupTime(currentTimeMillis)
     }
   }
 
-  function backupFileToSession() {
-    if (!username || username.length <= 0) {
-      return
-    }
-
-    const postData = {
-      username: username,
-      filename: filename,
-      filecontent: allData
-    }
-
-    post('backup', postData, (data) => {
-      console.log("Backup success")
-    })
-  }
-
   function logout() {
+    performBackup()
+    setErrorMessage("")
     setLoggedIn(false)
   }
+
+  const errorElement = errorMessage.length > 0 ? <div className={styles.ErrorMessage}>{errorMessage}</div> : null
+
+  const mainElement = loggedIn ?
+    <Annotator
+      username={username as string}
+      visualisationTreshold={tresholdValue}
+      cotData={cotData as CotData[]}
+      similarityDicts={similarityDicts}
+      selectedSimilarityType={selectedSimilarityType}
+      anyUpdatePerformed={updateExportFile} />
+    :
+    <Login
+      onUsername={setUsername}
+      onFileRead={onFileRead}
+      onLogin={onLogin}
+      onError={(message) => setErrorMessage(message)}
+      username={username}
+      hasCotDataLoaded={cotData != null && cotData.length > 0} />
+
 
   return <div className={styles.Root}>
     <Header
@@ -132,22 +144,8 @@ const Root: FC<RootProps> = () => {
       isLoggedIn={loggedIn}
     />
     <div className={styles.Main}>
-      {loggedIn ?
-        <Annotator
-          username={username as string}
-          visualisationTreshold={tresholdValue}
-          cotData={cotData as CotData[]}
-          similarityDicts={similarityDicts}
-          selectedSimilarityType={selectedSimilarityType}
-          anyUpdatePerformed={updateExportFile} />
-        :
-        <Login
-          onUsername={setUsername}
-          onFileRead={onFileRead}
-          onLogin={onLogin}
-          username={username}
-          hasCotDataLoaded={cotData != null && cotData.length > 0} />
-      }
+      {errorElement}
+      {mainElement}
     </div>
   </div>
 }

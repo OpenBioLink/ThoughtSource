@@ -6,11 +6,19 @@
 
     .Main {
         display: flex;
-        //height: 100vh;
-        justify-content: center;
-        //align-items: center;
+        flex-direction: column;
+        align-items: center;
     }
 
+
+    .ErrorMessage {
+        margin: 20px;
+        padding: 10px;
+        max-width: 1000px;
+
+        border-radius: 3px;
+        background-color: #ecc92c;
+    }
 }
 
 body {
