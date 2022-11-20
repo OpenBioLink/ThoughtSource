@@ -1,6 +1,8 @@
 # dumped files (collections saved to jsons via dump function)
 dump/
-notebooks/example/testing/
+
+#miscellaneous
+misc/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -163,4 +165,11 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+# VS Code
+.vscode
+
+# Miscellaneous
+/misc
+
+# Testing file
 test.py
