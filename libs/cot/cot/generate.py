@@ -121,7 +121,7 @@ def generate_and_extract(data, config):
             pass
         else:
             return
-    return data.map(_generate_and_extract, with_indices=True, fn_kwargs=config)
+    return data.map(_generate_and_extract, with_indices=True, fn_kwargs=config, features=data["train"].info.features)
 
 
 def _generate_and_extract(
@@ -192,11 +192,11 @@ def _generate_and_extract(
                 "author": author,
                 "date": "",
                 "api_service": api_service,
-                "model": {
+                "model": str({
                     "name": engine,
                     "temperature": temperature,
                     "max_tokens": max_tokens,
-                },
+                }),
                 "comment": "",
                 "annotation": [],
             }
