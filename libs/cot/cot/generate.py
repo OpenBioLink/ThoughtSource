@@ -189,6 +189,7 @@ def _generate_and_extract(
                 "templates_version": TEMPLATES["version"],
                 "instruction": instruction_key,
                 "cot-trigger": cot_trigger_key,
+                "prompt_text": "",
                 "cot": "",
                 "answers": [],
                 "author": author,
@@ -230,6 +231,7 @@ def _generate_and_extract(
                 print(cot)
 
             generated_cot["cot"] = cot
+            generated_cot["prompt_text"] = generate_cot_prompt
             generated_cot["date"] = print_now(1)
 
             for answer_extraction_key in answer_extraction_keys:
@@ -239,6 +241,7 @@ def _generate_and_extract(
                 else:
                     answer = {
                         "answer-extraction": answer_extraction_key,
+                        "answer_extraction_text": "",
                         "answer": "",
                         "correct_answer": None,
                     }
@@ -270,6 +273,7 @@ def _generate_and_extract(
                         print(predicted_answer)
 
                     answer["answer"] = predicted_answer
+                    answer["answer_extraction_text"] = answer_extraction_prompt
                     generated_cot["answers"].append(answer)
             item["generated_cot"].append(generated_cot)
 
