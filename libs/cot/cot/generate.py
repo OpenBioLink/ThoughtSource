@@ -75,11 +75,13 @@ def generate_and_extract(data, config):
     #         config[key].insert(0, None)
 
     if isinstance(data, ds.arrow_dataset.Dataset):
+        features = data.info.features
         if "idx_range" in config and config["idx_range"] is not None:
             n_samples = config["idx_range"][1] - config["idx_range"][0]
         else:
             n_samples = len(data)
     elif isinstance(data, ds.dataset_dict.DatasetDict):
+        features = data["train"].info.features
         if "idx_range" in config and config["idx_range"] is not None:
             n_samples = (config["idx_range"][1] - config["idx_range"][0]) * len(data)
         else:
@@ -121,7 +123,7 @@ def generate_and_extract(data, config):
             pass
         else:
             return
-    return data.map(_generate_and_extract, with_indices=True, fn_kwargs=config)
+    return data.map(_generate_and_extract, with_indices=True, fn_kwargs=config, features=features)
 
 
 def _generate_and_extract(
@@ -192,11 +194,11 @@ def _generate_and_extract(
                 "author": author,
                 "date": "",
                 "api_service": api_service,
-                "model": {
+                "model": str({
                     "name": engine,
                     "temperature": temperature,
                     "max_tokens": max_tokens,
-                },
+                }),
                 "comment": "",
                 "annotation": [],
             }

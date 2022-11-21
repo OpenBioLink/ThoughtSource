@@ -61,7 +61,7 @@ def evaluate(dataset, config=None):
     # TODO support datasets contining different example types (mulichoice, number, ...), if needed?
     type_ = dataset[0]["type"]
 
-    dataset = dataset.map(evaluate_sample, fn_kwargs={"type_": type_})
+    dataset = dataset.map(evaluate_sample, fn_kwargs={"type_": type_}, features=dataset.info.features)
 
     keys = set()
     predictions = defaultdict(int)
