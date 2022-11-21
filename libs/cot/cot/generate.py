@@ -240,7 +240,7 @@ def _generate_and_extract(
                     answer = {
                         "answer-extraction": answer_extraction_key,
                         "answer": "",
-                        "correct_answer": False,
+                        "correct_answer": None,
                     }
 
                     answer_extraction_prompt = (
