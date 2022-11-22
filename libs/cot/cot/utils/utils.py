@@ -223,7 +223,7 @@ def map_example_to_wei_cot(question, cots):
         return None
 
 
-def map_example_to_lievin_cot(item):
+def map_example_to_lievin_cot(item, dataset):
     """
     Given an CoT item from the collection of Lievin, returns a populated CoT item.
     
@@ -231,7 +231,15 @@ def map_example_to_lievin_cot(item):
     :return: The populated ThoughtSource CoT item
     """
     assert (__import__("cot").generate.TEMPLATES["version"] == "0.01"), "New version"
-    assert (item["extractive_prompt"] == "\n\nTherefore, among A through D, the answer is"), f"Different extractive prompt than expected {item['extractive_prompt']}"
+    if dataset == "med_qa":
+        assert (item["extractive_prompt"] == "\n\nTherefore, among A through D, the answer is"), f"Different extractive prompt than expected {item['extractive_prompt']}"
+        answer_extraction = "kojima-A-D"
+    elif dataset == "pubmed_qa":
+        assert (item["extractive_prompt"] == "\n\nTherefore, among A through C, the answer is"), f"Different extractive prompt than expected {item['extractive_prompt']}"
+        answer_extraction = "kojima-A-C"
+    else:
+        raise ValueError
+
     assert (item["cot"].startswith(item["strategy"])), f"Different CoT than expected {item['cot']}"
 
     # TODO 
@@ -253,7 +261,7 @@ def map_example_to_lievin_cot(item):
         "cot-trigger": cot_triggers[item["strategy"]],
         "answers": [
             {
-                "answer-extraction": "kojima-A-D",
+                "answer-extraction": answer_extraction,
                 "answer": item["answer"],
                 "correct_answer": (item["prediction_symbol"] == "correct"),
             }
