@@ -231,7 +231,7 @@ def map_example_to_lievin_cot(item, dataset):
     :return: The populated ThoughtSource CoT item
     """
     assert (__import__("cot").generate.TEMPLATES["version"] == "0.01"), "New version"
-    if dataset == "med_qa":
+    if dataset in ["med_qa", "medmc_qa"]:
         assert (item["extractive_prompt"] == "\n\nTherefore, among A through D, the answer is"), f"Different extractive prompt than expected {item['extractive_prompt']}"
         answer_extraction = "kojima-A-D"
     elif dataset == "pubmed_qa":
