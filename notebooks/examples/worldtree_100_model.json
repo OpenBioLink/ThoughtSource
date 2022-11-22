@@ -26,19 +26,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) being a good cook.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " A parent and child share characteristics because they have the same genes. So, being tall, having curly hair, and having freckles are all characteristics that are passed down from the parent to the child. However, being a good cook is a learned behavior and is not passed down from the parent to the child.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:16:11",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Being a good cook is a learned behavior. The parent and the child share several characteristics. So, the answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:38:03",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -78,19 +79,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFor the first example, when you sharpen a pencil, you are physically changing the shape of the pencil. However, the material of the pencil (wood and graphite) does not change. \n\nFor the second example, when you tear paper, you are physically changing the shape of the paper. However, the material of the paper (pulp) does not change. \n\nSo the answer must be B) There is a change in the appearance of the objects.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:16:19",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B) There is a change in the appearance of the objects. C) There is a change in the materials from which the objects are made. D) There is a change in both the appearance of the objects and the materials from which they are made. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:38:20",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -128,19 +130,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe rocket is launched into space. \n\nThe rocket escapes the gravitational pull of Earth. \n\nThe mass and weight of the rocket will be affected.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:16:24",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "The mass and weight of the rocket will stay the same. Gravity is the pull of the Earth on the rocket. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:38:33",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -173,19 +176,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nAnimals may fight, make threatening sounds, and act aggressively toward members of the same species.\n\nThese behaviors usually occur as the result of competition.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:16:29",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Aggressive behaviors are often the result of competition. Competition is the result of animals fighting, making threatening sounds, and acting aggressively toward members of the same species. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:38:53",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -216,19 +220,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B) Sugar cubes.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nA) Sand grains - no, they do not dissolve in water.\nB) Sugar cubes - yes, they do dissolve in water.\nC) Plastic straws - no, they do not dissolve in water.\nD) Wooden spoons - no, they do not dissolve in water.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:16:35",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Sand grains are solid particles of sand. Sand grains dissolve in water. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:39:04",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -261,19 +266,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " They want to know how the temperature of the air affects the temperature of lake water. In order to do that, they need to measure the temperatures. What type of tool do we use to measure temperature? A thermometer! The answer is D.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:16:40",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "D is the temperature of the air. The temperature of the lake water is different from the air temperature. D is the tool to measure the temperature. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:39:16",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -307,19 +313,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " Steven picked a tomato from a broken branch on the plant. The tomato had a rotten spot with a worm inside of it. He planted the seeds and grew new tomato plants.\n\nThe characteristic of the tomato plant that is inherited and could change over several generations is the number of broken branches.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:16:46",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Tomato plants are a member of the family Cucurbitaceae. Cucurbitaceae are plants that produce tomatoes. Tomato plants are inherited. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:39:31",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -352,19 +359,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " (B).",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nWe know that both sperm and egg cells are involved in sexual reproduction, so we can eliminate (D). \n\nWe also know that both sperm and egg cells contain genetic information, so we can eliminate (C). \n\nThat leaves us with (A) and (B). \n\nWe know that sperm cells have a tail, but egg cells do not, so (B) is the correct answer.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:16:53",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Sperm cells have a tail. Egg cells do not have a tail. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:39:42",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -399,19 +407,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe scale is a measuring device, so it is measuring something. \nThat something is either a force, pressure, mass, or volume. \nThe scale is reading 85 pounds, so it is measuring either the force of gravity acting on the student, the air pressure surrounding the student, the mass of the student, or the volume of the student. \nThe scale is a force measuring device, so it is measuring the force of gravity acting on the student.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:17:01",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C is the mass of the student. The student is on a scale, and the scale reads 85 pounds. So, the answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:39:55",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -443,19 +452,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) recycles nutrients.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nA decomposer is an organism that breaks down dead matter and recycles it into the environment. \n\nThat means that a decomposer is an organism that: \n-breaks down dead matter \n-recycles it into the environment \n\nThat means that a decomposer could be either a plant or an animal.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:17:06",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C) recycles nutrients. Decomposers are organisms that break down dead organisms. Decomposers recycle nutrients. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:40:08",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -470,10 +480,10 @@
                 "type": "multiplechoice",
                 "cot_type": "list",
                 "choices": [
-                    "1 liter of ice at a temperature of -50\u00c2\u00b0C",
-                    "10 liters of ice at a temperature of -75\u00c2\u00b0C",
-                    "1 liter of water at a temperature of 75\u00c2\u00b0C",
-                    "10 liters of water at a temperature of 50\u00c2\u00b0C"
+                    "1 liter of ice at a temperature of -50\u00b0C",
+                    "10 liters of ice at a temperature of -75\u00b0C",
+                    "1 liter of water at a temperature of 75\u00b0C",
+                    "10 liters of water at a temperature of 50\u00b0C"
                 ],
                 "context": "",
                 "cot": [
@@ -487,24 +497,25 @@
                     "Increase means more."
                 ],
                 "answer": [
-                    "1 liter of water at a temperature of 75\u00c2\u00b0C"
+                    "1 liter of water at a temperature of 75\u00b0C"
                 ],
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) 1 liter of water at a temperature of 75\u00c2\u00b0C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The average kinetic energy of a molecule is given by the equation:\n\nEk = 1/2mv^2\n\nwhere m is the mass of the molecule and v is its velocity.\n\nNow, we know that the velocity of a molecule is given by the equation:\n\nv = sqrt(3RT/m)\n\nwhere R is the gas constant and T is the temperature in Kelvin.\n\nNow, we can plug in the values for R and m (the mass of a water molecule is 18 amu). We get:\n\nv = sqrt(3*8.314*T/18)\n\nNow, we can plug in the values for the different water samples. For sample A, we get:\n\nv = sqrt(3*8.314*(-50+273)/18) = sqrt(3*8.314*223/18) = sqrt(3*8.314*12.38889) = sqrt(371.72222) = 19.29 m/s\n\nFor sample B, we get:\n\nv = sqrt(3*8.314*(-75+273)/18) = sqrt(3*8.314*198/18) = sqrt(3*8.314*11) = sqrt(331.66666) = 18.14 m/s\n\nFor sample C, we get:\n\nv = sqrt(3*8.314*(75+273)/18) = sqrt(3*8.314*348/18) = sqrt(3*8.314*19.3333) = sqrt(637.77778) = 25.17 m/s\n\nFor sample D, we get:\n\nv = sqrt(3*8.314*(50+273)/18) = sqrt(3*8.314*323/18) = sqrt(3*8.314*17.83333) = sqrt(592.22222) = 24.29 m/s\n\nNow, we can plug in the values for v and m into the equation for Ek. For sample A, we get:\n\nEk = 1/2*18*(19.29)^2 = 1/2*18*372.8441 = 13.3153 kJ/mol\n\nFor sample B,",
-                        "author": "simon",
-                        "date": "2022/10/27 13:17:24",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C) 1 liter of water at a temperature of 75\u00b0C. The average kinetic energy per molecule of C) 1 liter of water at a temperature of 75\u00b0C is .75 kJ m-2. So, the answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:40:24",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -545,19 +556,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we need to think about what it means for an object to be a good conductor of electricity. \n\nA good conductor of electricity is an object that easily lets electricity flow through it. \n\nNow, let's look at our options. \n\nA metal fork is made of metal, which is a good conductor of electricity. \n\nA rubber boot is made of rubber, which is not a good conductor of electricity. \n\nA plastic spoon is made of plastic, which is not a good conductor of electricity. \n\nA wooden bat is made of wood, which is not a good conductor of electricity. \n\nTherefore, the best conductor of electricity is the metal fork.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:17:33",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Metal is a good conductor of electricity. Metal fork is a good conductor of electricity. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:40:37",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -594,19 +606,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B) The atmosphere is less dense at higher elevations so there is less oxygen available.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, why do we need oxygen? We need oxygen to breathe because it is essential for our cells to create energy. \n\nNext, why is it harder to breathe at high elevations? There are two reasons. First, the air is thinner at high elevations, so there is less oxygen available. Second, the air pressure is lower at high elevations, so the oxygen that is available is less concentrated. \n\nLastly, why do mountain climbers use oxygen tanks? Oxygen tanks help mountain climbers breathe because they provide a concentrated source of oxygen. This is especially important at high elevations, where the air is thinner and the oxygen is less concentrated.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:17:41",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B. At higher elevations the atmosphere is less dense so there is less oxygen available. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:40:49",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -644,19 +657,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " A sudden drop in temperature would be an external stimulus, so the animal would respond with a reflex. What is the reflex when you get cold? That's right, shivering!",
-                        "author": "simon",
-                        "date": "2022/10/27 13:17:47",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Brisk shivering is the body's way of adjusting to low temperatures. Animals usually respond to a sudden drop in temperature by shivering. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:41:02",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -686,19 +700,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D) extensive volcanic calderas of similar age.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The first thing that comes to mind when we think about oxygen is probably the ozone layer, which protects us from the sun's harmful UV rays. However, the ozone layer is a relatively recent phenomenon, so it can't be the oldest evidence for oxygen accumulation. The earliest fossils of animals are also a relatively recent phenomenon, so they can't be the oldest evidence either. Impact craters of oxidized-iron asteroids are also a relatively recent phenomenon. That leaves us with extensive volcanic calderas of similar age.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:17:55",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B) the earliest sediments of oxidized rock. Oxygen accumulates in the atmosphere. B) the earliest sediments of oxidized rock provides the oldest evidence for oxygen accumulation in Earth's atmosphere. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:41:18",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -728,19 +743,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) petroleum.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " First, we need to know what plastics are made of. Plastics are made of polymers, which are long chains of molecules. These molecules are made of smaller molecules called monomers. So, the main source of raw material for the production of plastics is monomers, which can come from petroleum, plants, or other sources.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:01",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Plastics are made from petroleum. Petroleum is the main source of raw material for the production of plastics. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:41:31",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -775,19 +791,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) kingdoms.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe most basic characteristics of an organism would be things like its cell type, how it gets energy, and how it reproduces. \n\nFrom there, we can separate organisms into broad groups, like plants and animals. \n\nFrom there, we can separate animals into groups like mammals and reptiles. \n\nAnd from there, we can separate reptiles into groups like snakes and lizards. \n\nSo the answer is A) kingdoms.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:10",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Organisms can be separated into groups based on their phylogenetic classification. Phylogenetic classification is a way of grouping organisms into broad groups based on their phylogenetic classification. Organisms can be separated into broad groups based on their phylogenetic classification. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:41:50",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -824,19 +841,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B) Wear safety goggles.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " First, you need to gather your materials. Once you have your materials, you need to make sure you are in a well-ventilated area. Next, you need to put on safety goggles. Finally, you can begin your experiment.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:16",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B) Wear safety goggles. To safely conduct an experiment using chemicals, students should always wear safety goggles. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:42:04",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -875,19 +893,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B) The nutrients are being utilized by the plant life.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The first thing that we need to do is to identify what a nutrient is. A nutrient is a substance that provides nourishment essential for the growth and maintenance of life. Now that we know what a nutrient is, we can try to answer the question. \n\nThe soil of the forest floor is relatively nutrient poor. This could be because the nutrients are being utilized by the plant life. The plants need nutrients to grow, and they might be taking more than what is being replaced.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:22",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B. The nutrients are being utilized by the plant life. Rain forests contain more species of trees than any other biome. However, scientists have found that the soil of the forest floor is relatively nutrient poor. What could most likely account for this? B. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:42:22",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -918,19 +937,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) cells.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe most basic unit of living things is cells.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:26",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Cells are the basic unit of living things. Cells are the smallest unit of living things. Cells are the most basic unit of living things. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:42:36",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -966,19 +986,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) solar.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe southern United States has a lot of coastline, so tidal energy could be a good option. \n\nHowever, solar energy is more widely available and has a lot more potential. Coal is a non-renewable resource, so it can't be used to meet future needs. \n\nThat leaves water energy, which could be harnessed through hydroelectric dams. \n\nOverall, solar energy has the greatest potential for providing renewable energy to meet the future needs of the southern United States.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:32",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Tidal energy is renewable energy that is generated by the movement of water. The southern United States is a region that experiences a lot of tidal energy. Tidal energy possesses the greatest potential for providing renewable energy to meet the future needs of the southern United States. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:42:55",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1015,19 +1036,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " First, granite is weathered, which means it's broken into small particles. Next, it's buried deep underground. Finally, it's compacted. So what happens to granite after it's weathered, broken into small particles, buried deep underground, and compacted? It forms a new rock type!",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:37",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "A new rock type is formed when igneous rocks are weathered, broken into small particles, buried deep underground, and compacted. A new rock type is formed when granite is weathered, broken into small particles, buried deep underground, and compacted. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:43:15",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1063,19 +1085,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D) needle.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " A tree needs sunlight to make food for itself. It also needs water and minerals from the soil. The tree's roots absorb these things from the ground. The tree's leaves use sunlight to turn these things into food for the tree. This food is called glucose.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:42",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Plants make food from seeds. Pine trees have needles. Pine trees make food from needles. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:43:27",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1116,19 +1139,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The metal lid is hard to open, so it is held under warm, running water. The water increases the pressure under the lid, which causes the jar to open easily.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:47",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C. The water acted as a lubricant between the glass and the metal. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:43:39",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1159,19 +1183,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) wind.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we need to identify what an energy resource is. \n\nAn energy resource is a source of energy that can be used to produce electricity or power. \n\nNow that we know what an energy resource is, we can identify which energy resource is renewable. \n\nA renewable energy resource is an energy resource that can be replenished or replaced in a relatively short period of time. \n\nBased on the information given, we can eliminate choices A and D. This leaves us with choices B and C. \n\nTo determine which of these choices is the correct answer, we need to think about what a renewable resource is. \n\nA renewable resource is a resource that can be replenished or replaced in a relatively short period of time. \n\nBased on this information, we can eliminate choice B, because natural gas is a nonrenewable resource. This leaves us with choice C, wind, as the correct answer.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:18:57",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Wind is a renewable resource. Wind is a source of energy. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:43:51",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1202,19 +1227,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " We are looking for a large buildup of moving ice and snow. This could be a glacier.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:02",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Glaciers are large buildups of moving ice and snow. Glaciers are called glaciers. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:44:04",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1249,19 +1275,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " A fire needs three things to continue burning: heat, oxygen, and fuel. Take any one of those away, and the fire will go out. \n\nA heavy blanket will lower the temperature, making it harder for the fire to continue burning. The blanket will also make the flames smaller by smothering them. And finally, the blanket will absorb the burning substance, depriving the fire of fuel.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:08",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "D) This keeps oxygen from reaching the fire. A heavy blanket is a good insulator. D) This keeps oxygen from reaching the fire. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:44:17",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1292,19 +1319,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " A plant needs to be able to do several things to be considered \"alive.\" It needs to be able to take in nutrients, convert those nutrients into energy, expel waste, and reproduce. \n\nThe smallest unit of a plant that can do all of those things is a cell.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:14",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Cells are the smallest unit of a plant that can perform all of the processes of life. Cells are the smallest unit of a plant that can perform all of the processes of life. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:44:31",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1354,19 +1382,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The student heated a pan of soup on a stove. While stirring the soup with a metal spoon, the student noticed the spoon became very warm. The spoon became warm because heat from the soup was transferred to the spoon.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:20",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C) Heat from the soup was transferred to the spoon. The student's hand transferred heat to the spoon. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:44:43",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1402,19 +1431,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) graduated cylinder and balance.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " In order to predict whether the liquid will float or sink, we need to know its density. To find the density, we need to know the mass and volume of the liquid. The graduated cylinder and balance will help us find the volume, while the balance will help us find the mass.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:25",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C graduated cylinder and balance is used to weigh liquids. Liquids that do not mix with water will float on water. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:44:56",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1453,19 +1483,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " Two chemicals are mixed together and they react. This is an exothermic reaction because it produces heat. The heat melts the ice in the water bath. So the answer is D.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:30",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Exothermic reactions are those in which energy is absorbed. The ice in the water melts as the chemicals react for one minute. Exothermic reactions are those in which energy is released. So, the answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:45:11",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1500,19 +1531,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) reading.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The light bulb was invented in 1879. It has helped with many activities since then, but which one has it helped the most? \n\nThe light bulb has helped people to read at night. It has also helped people to talk at night. However, it has not helped people to walk at night or to swim at night. Therefore, the answer is C) reading.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:35",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C is the activity that has the most to do with reading. The invention of the light bulb has helped the most in reading. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:45:23",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1555,19 +1587,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we need to identify the change in the environment. In this case, it is a change in temperature. \n\nNext, we need to identify which animal is adapting to the change. In this case, it is a bird. \n\nLastly, we need to identify the behavior that is an example of the adaptation. In this case, it is migrating south.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:41",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "D) a bird migrating south is an example of an animal adapting to a change in the environment. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:45:36",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1607,19 +1640,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " A researcher found shark fossils on top of a mountain. This evidence suggests that at one point, the mountain was covered by an ocean.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:46",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C) It was once covered by an ocean. Fossils of sharks are found in the ocean. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:45:48",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1650,19 +1684,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The length of a day is the time it takes for one rotation of Earth. The length of a year is the time it takes for one revolution of Earth around the Sun. So the length of a year must be longer than the length of a day. The answer is C.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:51",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "A year is equal to one revolution of Earth around the Sun. One revolution of Earth around the Sun is equal to one year. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:46:01",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1694,19 +1729,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) natural gas.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The first thing we need to do is identify what nonrenewable natural resources are in Maryland. These would be things like coal and oil. Then, we need to think about which of these resources could be used to heat homes. The answer is coal.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:19:56",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Coal is a nonrenewable natural resource. Coal heats homes. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:46:12",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1742,19 +1778,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) parents.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The color of a young eagle's eyes is affected by many things. The first thing that comes to mind is the parents. The parents' genes will have the greatest effect on the color of the young eagle's eyes. The next thing that comes to mind is the nest. The nest might be in a shady area, which would affect the color of the young eagle's eyes. The last thing that comes to mind is diet. Diet might affect the color of the young eagle's eyes, but it is not as likely as the other two factors.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:20:04",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "The color of a young eagle's eyes is inherited from its parents. The color of a young eagle's eyes is inherited from its parents. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:46:33",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1791,19 +1828,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The Sun rises and sets every day, so that's probably our answer. Earth tilts on its axis every day, but that's not one of the choices. Earth revolves around the Sun every year, not every day. The Moon revolves around Earth every day. So the answer is D.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:20:11",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "The Sun rises and sets on a daily cycle. Earth revolves around the Sun. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:46:44",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1838,19 +1876,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) table salt and D) salt water.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " A compound is a substance made of two or more different elements that are chemically bonded together. \n\nSodium is an element, so it cannot be a compound. \n\nChlorine is an element, so it cannot be a compound. \n\nTable salt is a compound because it is made of the elements sodium and chlorine. \n\nSalt water is a compound because it is made of the elements sodium and chlorine.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:20:17",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Table salt is a compound consisting of sodium and chlorine. Table salt is a compound. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:46:55",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1884,19 +1923,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " Photosynthesis occurs in the chloroplasts of plant cells. Chloroplasts are organelles that are unique to plant cells and they are filled with a green pigment called chlorophyll. This pigment is what makes plants appear green. The chloroplasts are located in the plant's leaves.\n\nWhen light hits the leaves, the chlorophyll absorbs the light energy. This energy is used to split water molecules into hydrogen and oxygen. The hydrogen is used to create ATP (adenosine triphosphate), which is the energy that the plant cells use to create glucose from carbon dioxide. The oxygen is released into the air as a waste product.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:20:25",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "D) Plants change light energy into food energy. Photosynthesis is the process by which plants convert light energy into food energy. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:47:07",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1930,19 +1970,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " A screwdriver is a tool that we use to turn screws. In order to increase the force with which we turn the screw, we use a mechanical advantage. The principles of the wheel and axle can be used to create a mechanical advantage. The wheel and axle work together to create a force that is greater than the force that we apply to the screw. This allows us to turn the screw with less effort.\n\nThe principles of the pulley can also be used to create a mechanical advantage. The pulley allows us to change the direction of the force that we apply to the screw. This allows us to apply a greater force to the screw than we could if we were just using our hands.\n\nThe principles of the lever can also be used to create a mechanical advantage. The lever allows us to apply a force to the screw that is greater than the force that we could apply with our hands.\n\nThe principles of the wedge can also be used to create a mechanical advantage. The wedge allows us to apply a force to the screw that is greater than the force that we could apply with our hands.\n\nThe principles of the screw can also be used to create a mechanical advantage. The screw allows us to apply a force to the screw that is greater than the force that we could apply with our hands.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:20:37",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B) Lever. Pliers use the principle demonstrated in the B) lever. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:47:20",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -1978,19 +2019,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we have two nuclei. \n\nSecond, we combine them into one nucleus. \n\nThird, there is a slight change in mass. \n\nFourth, we release a large amount of energy. \n\nThis process is called fusion.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:20:42",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Fusion is the joining of two nuclei into one nucleus. Fusion releases large amount of energy. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:47:32",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2023,19 +2065,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) the shale layer is older than the limestone layer.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe first step is to look at the question and identify what information we are given and what we are being asked. In this question, we are given information about two different types of rock - shale and limestone - and we are being asked to determine which one is older. \n\nThe second step is to think about what we know about the two types of rock. Shale is a sedimentary rock, which means it is made of smaller rocks that have been combined together. Limestone is also a sedimentary rock, but it is made of calcium carbonate. \n\nThe third step is to think about how we can use what we know to answer the question. We know that sedimentary rocks are formed from smaller rocks that have been combined together. Therefore, the shale must be older than the limestone, because the limestone is made of smaller rocks that have been combined together to form the shale.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:20:51",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C) the environment changed between the times of deposition. A) the shale layer is older than the limestone layer. B) a fault occurred during the deposition of the layers. C) volcanic activity occurred when these layers were deposited. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:47:50",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2066,19 +2109,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) mechanical energy.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C).",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nA hurricane is a heat engine, which means it converts heat energy into another form of energy. \n\nThe most likely answer is C) mechanical energy, because hurricanes generate high winds that can do a lot of damage.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:20:59",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C) Mechanical energy. Hurricanes convert most of the heat energy into C). So, the final answer is C).",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:48:02",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2120,19 +2164,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The book is dropped, so it has kinetic energy. This energy is transferred to the molecules in the wood, and they begin to vibrate. The molecules bump into each other and transfer some of their energy to their neighbors. This process continues until the energy from the book is dissipated throughout the wood.\n\nThe answer is C) sound waves. The vibrations of the molecules in the wood create sound waves.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:21:05",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Sound waves are produced by vibrations of matter. Vibrations of wood produce sound waves. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:48:13",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2164,19 +2209,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) gravity.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " What makes something move? A force. What are some examples of forces? A push, a pull, gravity, friction, and wind. In this case, it's gravity that's causing the rocks to roll downhill.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:21:10",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Gravity is the pull of the Earth on the rocks. Gravity causes rocks to roll downhill. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:48:24",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2212,19 +2258,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D) Tropic of Cancer.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " We are looking for a place on Earth where water is found naturally in only two states. That means that water can be either a liquid or a gas, but not a solid. \n\nThe first place that comes to mind is the ocean. However, the ocean contains water in all three states. So, the ocean is not the answer. \n\nThe next place that comes to mind is the atmosphere. The atmosphere also contains water in all three states. So, the atmosphere is not the answer. \n\nThe next place that comes to mind is a desert. A desert is a place where there is very little water. In a desert, water is usually found in the form of a gas (water vapor) or a solid (ice). So, a desert is not the answer. \n\nThe next place that comes to mind is the polar regions. The polar regions are very cold and have very little water. In the polar regions, water is usually found in the form of a solid (ice). So, the polar regions are not the answer. \n\nThe only place that is left is the Tropic of Cancer. The Tropic of Cancer is a region around the Earth's equator. In the Tropic of Cancer, water is usually found in the form of a liquid or a gas. So, the Tropic of Cancer is the answer.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:21:21",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Near Earth's equator, water generally exists naturally in the liquid and gas states. Water is found naturally in only two states at the South Pole. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:48:37",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2255,19 +2302,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) KBr.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \nAn element is a substance that cannot be decomposed into any other substance. \nA) KBr is an element because it is a substance that cannot be decomposed into any other substance. \nB) O_{2} is not an element because it can be decomposed into two atoms of oxygen. \nC) 2KCl is not an element because it can be decomposed into two atoms of potassium and one atom of chlorine. \nD) FeO_{2} is not an element because it can be decomposed into one atom of iron and two atoms of oxygen.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:21:29",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "O_2 is the oxidation state of oxygen. OH is the oxidation number of oxygen. O_2 is an element. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:48:51",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2304,19 +2352,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) by adding particle pollution.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nBurning fossil fuels releases particles into the air. These particles can be harmful to human health.\n\nBurning fossil fuels also releases greenhouse gases, like carbon dioxide, into the atmosphere. These gases trap heat from the sun, causing the Earth's temperature to rise.\n\nHigher temperatures can lead to more smog and ozone, which can also be harmful to human health.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:21:36",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Burning fossil fuels has caused a decline in the quality of air that people breathe. Particulate pollution is the air pollution that causes the most health problems. Burning fossil fuels has caused a decline in the quality of air that people breathe by adding particle pollution. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:49:09",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2353,19 +2402,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) new rock is formed.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, buried sediments are subjected to pressure. \n\nSecond, the mineral grains are squeezed together. \n\nThird, the result of this action is that new rock is formed.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:21:40",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Culturing minerals together forms new rock. New rock is formed when minerals are squeezed together. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:49:22",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2399,19 +2449,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " Cellular respiration is the process of breaking down glucose to make energy for the cell. The by-product of this process is carbon dioxide and water. So the result of cellular respiration is that energy is released for cell processes, and carbon dioxide and water are produced.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:21:47",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Cellular respiration is the process by which cells release energy for cell processes. Cellular respiration is the result of cellular respiration. A) Energy for cell processes is released. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:49:36",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2444,19 +2495,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B) Soft.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " What does a feather look like? It's usually a light color, has a quill, and is pretty thin. What does it feel like? It's soft because it has a lot of tiny barbs.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:21:51",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B is the softest of the choices. Feathers are soft and feathers are soft. B is the softest of the choices. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:49:49",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2488,19 +2540,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " Stacey is measuring the weight of the apples, so the answer is B.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:21:55",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Weight is the property of objects. Stacey is measuring the weight of the apples. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:50:00",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2536,19 +2589,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The water company wants to make sure the water is safe to drink before it sends it through pipes to people's homes. To do this, the company uses lab tests. These lab tests help people by checking the water to make sure it is safe to drink.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:22:01",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B) by checking the water to make sure it is safe to drink. A water company uses lab tests on the water supply before sending the water through pipes to people's homes. B) by checking the water to make sure it is safe to drink. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:50:16",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2579,19 +2633,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) brain.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The nervous system is responsible for sending and receiving signals throughout the body. The brain is the control center for the nervous system. The brain is responsible for processing information and sending signals to the body. The brain is a major organ of the nervous system.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:22:06",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Brain is the central nervous system. Nervous system is a system of organs. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:50:28",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2621,19 +2676,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) digestive system.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe first step in the process of breaking down food is mastication, or chewing. This occurs in the mouth. \n\nThe second step is digestion. Digestion is the process of breaking down food into smaller pieces so that the body can absorb the nutrients. This occurs in the stomach and intestines. \n\nThe third step is absorption. Absorption is the process of taking the nutrients from the food and putting them into the bloodstream. This occurs in the small intestine. \n\nThe fourth step is elimination. Elimination is the process of getting rid of the waste products from the food. This occurs in the large intestine.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:22:15",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "In the human body, the breaking down of food into simple substances occurs in the digestive system. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:50:39",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2667,19 +2723,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) an increase in the algae population.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " Fertilizer is added to the lawn to help the grass grow. This means that there is an increase in the amount of vegetation. More vegetation can lead to an increase in the mosquito population because mosquitoes lay their eggs in standing water. Additionally, more vegetation can also lead to an increase in the algae population because algae need sunlight and nutrients to grow.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:22:20",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "An increase in the algae population in a lake is bad for the fish population. Lori uses lots of fertilizer to keep her lawn green. An increase in the algae population in a lake is bad for the fish population. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:50:56",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2714,19 +2771,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B and C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, what does photosynthesis require? \n\nIt requires light energy, which it uses to convert carbon dioxide and water into sugar and oxygen. \n\nSo what does photosynthesis produce? \n\nIt produces sugar and oxygen.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:22:25",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Plants produce glucose, or sugar, during photosynthesis. Glucose is used for energy by the plant. Plants produce glucose, or sugar, during photosynthesis. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:51:13",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2760,19 +2818,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we need to identify what mechanical energy is. \n\nMechanical energy is the sum of an object's kinetic energy and its potential energy. \n\nNow that we know that, we can look at each option and see if it meets the definition. \n\nA) Wood burning - no, this is not an example of mechanical energy. \nB) Light shining - no, this is not an example of mechanical energy. \nC) A song playing on a radio - no, this is not an example of mechanical energy. \nD) A wagon rolling down a hill - yes, this is an example of mechanical energy. \n\nThe correct answer is D.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:22:34",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "D) a wagon rolling down a hill. Mechanical energy is the energy of motion. D) a wagon rolling down a hill. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:51:29",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2803,19 +2862,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) Photosynthesis stores energy and respiration releases energy.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, what is the difference between photosynthesis and respiration? \n\nPhotosynthesis is the process that produces organic molecules from simple inorganic molecules from the sun's energy. \n\nRespiration is the process of breaking down organic molecules to release energy. \n\nSo based on the definitions alone, we can eliminate answers C and D. \n\nNow let's think about what each process does with energy. \n\nIn photosynthesis, plants use the sun's energy to convert simple inorganic molecules into organic molecules. \n\nIn respiration, animals and plants break down organic molecules to release the energy that was used to make them. \n\nSo based on what each process does with energy, answer A is correct.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:22:44",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "A) Photosynthesis stores energy and respiration releases energy. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:51:39",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2847,19 +2907,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nSulfur is a substance. \n\nA substance is either an element or a compound. \n\nSulfur cannot be decomposed into two or more different substances by simple chemical methods. \n\nTherefore, sulfur is an element.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:22:52",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Sulfur is a chemical element. Chemical elements are not decomposable by simple chemical methods. A chemical element is a substance that cannot be decomposed into two or more different substances. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:51:58",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2893,19 +2954,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe burning of fossil fuels has added pollutants that contain sulfur atoms to the air. \n\nThese pollutants have contributed to acid rain.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:22:57",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Acid rain is rain with a pH of less than 7.0. Pollutants that contain sulfur atoms have contributed to acid rain. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:52:12",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2938,19 +3000,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nA learned behavior is something that is not innate or natural, but something that is learned through experience. \n\nA) Driving a car is a learned behavior. \nB) Having blue eyes is an innate trait and not something that is learned. \nC) Shivering in the cold is an innate reflex and not something that is learned. \nD) Breathing air is an innate reflex and not something that is learned.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:23:02",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Driving a car is a learned behavior. Driving a car is an example of a learned behavior. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:52:25",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -2983,19 +3046,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) spaghetti noodles and B) hamburger patties.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we need to know what amino acids are. \n\nAmino acids are the building blocks of proteins. \n\nSo, we need to find food items that are mostly made up of proteins. \n\nHamburger patties and spaghetti noodles are both made mostly of proteins, so they can be broken down mostly into amino acids. \n\nApple slices and cucumber slices are not made mostly of proteins, so they cannot be broken down mostly into amino acids.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:23:09",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Amino acids are the building blocks of proteins. Meat is made of amino acids. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:52:35",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3027,19 +3091,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " In order for something to fly, it needs to be lighter than the air around it. That's the first step. The second step is that the object needs to have a shape that will allow it to generate lift. The third step is that the object needs to be moving through the air. \n\nSo the answer is A) lift.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:23:15",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Gliders are designed to move with the wind. Wind is a form of lift. Gliders move with the wind. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:52:48",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3073,19 +3138,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe digestive system breaks down food into nutrients. \n\nThe circulatory system transports those nutrients throughout the body. \n\nSo the correct answer is B) The digestive system absorbs nutrients which are transported by the circulatory system.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:23:20",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B The digestive system absorbs nutrients which are transported by the circulatory system. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:53:00",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3118,19 +3184,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe human body produces motion by changing chemical energy into mechanical energy. \n\nSo first, the human body has some chemical energy. \n\nThen, it changes that chemical energy into mechanical energy. \n\nSo the total amount of energy (chemical + mechanical) is constant.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:23:26",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "The energy is destroyed through motion. The energy is destroyed through motion. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:53:10",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3166,19 +3233,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe doorbell button is pushed, which completes the circuit and allows current to flow. \n\nThis current flows through the transformer, which steps up the voltage. \n\nThe current then flows to the chime, which vibrates to create sound. \n\nSo the primary function of the doorbell circuit is to convert electrical energy into sound.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:23:32",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "A doorbell circuit converts electrical energy into sound. A doorbell is a device that makes a sound. A) Final answer: A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:53:22",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3217,19 +3285,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " hand dryer.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " We know that an alarm clock uses electrical energy to create the sound of an alarm, and a fan uses electrical energy to create movement in the air. A hand dryer uses electrical energy to create heat, which dries your hands. Therefore, the answer is hand dryer.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:23:38",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Hand dryer is designed to change electrical energy into heat energy. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:53:33",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3259,19 +3328,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) the Sun.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " First, what orbits the Sun? The planets. Second, what orbits the planets? The moons. So the answer is that planets orbit the Sun.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:23:43",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "In the solar system, planets orbit the Sun. In the solar system, moons orbit planets. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:53:44",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3309,19 +3379,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) Migration.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "migration",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we need to identify what is happening in the text. The text says that \"some birds fly south before winter each year.\" This means that the birds are moving from one location to another location. \n\nThe next step is to identify what word best describes this action. The word that best describes this action is \"migration.\"",
-                        "author": "simon",
-                        "date": "2022/10/27 13:23:50",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Migration is the movement of animals or plants from one place to another. Some birds fly south before winter each year. This is an example of A). So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:53:59",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3354,19 +3425,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) balance.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " In order to determine the mass of an object, we need to be able to measure it. The first tool that comes to mind is a ruler. However, a ruler can only measure the length of an object, not its mass. The second tool that comes to mind is a beaker. A beaker can hold a liquid, but it cannot measure the mass of an object. The third tool that comes to mind is a balance. A balance can compare the mass of an object to the mass of another object. The fourth and final tool that comes to mind is a thermometer. A thermometer can measure the temperature of an object, but it cannot measure its mass. The correct answer is C) balance.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:00",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Balance is used to determine the mass of an object. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:54:10",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3396,19 +3468,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A, B, C, and D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A).",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " First, what are the two common minerals? Quartz and feldspar. Second, when are they found mixed together? In nature, they are found mixed together in rocks, magma, soil deposits, and organic material. Third, what do they form when mixed together? They form rocks, magma, soil deposits, and organic material.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:07",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Rocks are formed when minerals are mixed together. Quartz and feldspar are two common minerals. When they are found mixed together in nature they form A). So, the final answer is A).",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:54:24",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3442,19 +3515,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) burning fossil fuels.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe process of photosynthesis directly adds carbon into the atmosphere. \n\nA) increasing plant populations will increase the rate of photosynthesis and thus the amount of carbon dioxide in the atmosphere\nB) decreasing animal populations will decrease the amount of methane in the atmosphere\nC) burning fossil fuels will release carbon dioxide and methane into the atmosphere\nD) forming sedimentary rock will sequester carbon in the ground",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:14",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Carbon dioxide is a greenhouse gas. Plants absorb carbon dioxide from the air. Burning fossil fuels directly adds carbon dioxide into the atmosphere. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:54:37",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3484,19 +3558,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The core of Earth is divided into two layers. The outer core is made of molten iron and nickel.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:20",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "The outer core is made of iron and nickel. The inner core is made of iron and nickel. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:54:51",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3537,19 +3612,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) warming by solar energy re-radiated from the ground.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " An air mass is a large body of air with similar properties (temperature, humidity, etc.). A valley is a low area between mountains. So the air mass in the valley is between the mountains. The air mass is moved by the sun's energy. The sun warms the air and the air rises. The air moves up the mountainside because the air is warmer than the air on the mountain.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:28",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Warm air rises. Cool air sinks. Warm air rises. Warm air sinks. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:55:03",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3581,19 +3657,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The Sun is a medium-sized star and is expected to continue to perform nuclear fusion for five billion years. What is most likely to be the final stage of the Sun?\n\nA) supernova\n\nB) supergiant\n\nC) neutron star\n\nD) white dwarf\n\nThe most likely final stage of the Sun is a white dwarf.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:33",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "The Sun is expected to continue to perform nuclear fusion for five billion years. The Sun is most likely to be a white dwarf. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:55:17",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3628,19 +3705,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " First, rocks are broken up. Then, they are moved and deposited in layers. Finally, they are compressed by moving plates.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:38",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C) Broken up and deposited in layers. Sedimentary rocks are formed when rocks are broken up and deposited in layers. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:55:29",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3670,19 +3748,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D) gene.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " We know that hereditary information is passed down from parents to offspring, so we can eliminate options A and B. We also know that this information is stored in DNA, so we can eliminate option C. That means that our answer must be D!",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:43",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Gene is a unit of hereditary information. Gene is a single unit of hereditary information. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:55:41",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3716,19 +3795,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " An airplane is a vehicle designed to fly through the air. What are some benefits of flying? \n\nSome benefits of flying are that it is very quick, and it can take you to places that are far away.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:47",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C) Airplanes can travel very quickly. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:55:51",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3771,19 +3851,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " that the larger rose will more easily attract bees than the smaller rose.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " Two flowers are both roses. One rose is larger and has more fragrance than the other rose. What advantage will one of the roses most likely gain because of this difference?\n\nThe answer is B.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:52",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B) The larger rose will more easily attract bees than the smaller rose. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:56:02",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3820,19 +3901,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) airplane.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nA car can take you places, but it's not the quickest way to travel long distances. A boat can take you places, but it's not the quickest way to travel long distances. An airplane can take you places quickly, and it's the best invention to help people travel to far away places quickly.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:24:57",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Airplane is an invention that helps people travel quickly to far away places. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:56:13",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3881,19 +3963,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe car skids along the road. This means that the tires are not gripping the road as they should. \n\nThe smoke is coming from under the tires. This means that the heat is coming from the contact between the tires and the road. \n\nThe heat that produces the smoke is caused by friction.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:25:03",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "D is the correct answer because friction is the cause of smoke. A car skidding along the road produces heat. Heat is caused by friction. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:56:26",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3926,19 +4009,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) time it took for lamps to use oil.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we need to know what we mean by \"chemical energy.\" According to Google, it's \"the energy released or absorbed by a chemical reaction.\" So we need to find a way to measure the amount of energy released or absorbed by the two oils. \n\nThe most direct way to do this would be to measure the heat given off by the burning oils. However, we don't have any information about the temperature of the lamps, so we can't use this method. \n\nAnother way to measure the chemical energy of the oils would be to measure the amount of light given off by the lamps. However, we don't have any information about the intensity of the light, so we can't use this method either. \n\nThe only other option is to measure the time it took for the lamps to use up all the oil. This will give us a good indication of the amount of energy released by the two oils.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:25:10",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Chemical energy of oil is the total energy of the chemical reaction. The two identical lamps contain the same amount of oil. They are allowed to burn until all the oil has been burned. The total difference in chemical energy between the two oils is the difference in chemical energy of the reaction. Final answer: C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:56:42",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -3976,19 +4060,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " We know that sodium bicarbonate is a white solid that can dissolve in water. We also know that under the proper conditions, sodium bicarbonate can release carbon dioxide (CO2) gas. So we can eliminate answers A, B, and C. That leaves us with D.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:25:16",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "D) It releases carbon dioxide. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:56:52",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4029,19 +4114,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) conserving water.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " In order to survive in the desert, you need to have access to water. This means that you need to be able to find water, and you need to be able to conserve water. Hiding from predators and producing many offspring are not specific characteristics necessary for survival in the desert. Hibernating for long periods may help some animals survive in the desert, but it is not a necessary characteristic.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:25:21",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "A desert environment is dry and hot. Desert animals need to conserve water. A desert animal needs to conserve water. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:57:04",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4072,19 +4158,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B) similar electron configurations.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe first thing we notice is that these elements are all in the same column on the periodic table. This means that they have similar electron configurations. \n\nThe second thing we notice is that these elements are all radioactive. This means that they have unstable nuclei, which decay over time. \n\nThe third thing we notice is that these elements have few or no stable isotopes. This means that they are constantly undergoing radioactive decay. \n\nSo, the answer is B) similar electron configurations.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:25:28",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "B) similar electron configurations. Strontium, barium, and radium are grouped together on the Periodic Table of the Elements because they all have B) similar electron configurations. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:57:18",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4119,19 +4206,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A, B, and D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " A mixture is two or more substances that are combined but not chemically combined. So, we can eliminate water vapor because it's just one substance. That leaves us with salt water, sugar, and salt. All of these are mixtures because they are two or more substances combined.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:25:34",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Salt water is a mixture of salt and water. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:57:30",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4164,19 +4252,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "D.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we need to identify the difference between plants and animals. \n\nPlants are living organisms that produce their own food through photosynthesis. Animals are living organisms that cannot produce their own food and must consume other organisms for sustenance.\n\nNow that we know the difference between plants and animals, we can answer the question. \n\nOne way plants and animals are different is that plants produce their own food, and animals do not.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:25:41",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Plants need sunlight to grow and produce food. Animals need sunlight to grow and produce food. So, the final answer is D.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:57:41",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4211,19 +4300,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D) mountains with gneiss.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " First, we need to know what rocks are made of. Rocks are made of minerals, which are made of atoms. So, in order for sediments to be changed into rock, the sediments must be changed into minerals. This can happen through a process called metamorphism. Metamorphism is when rocks are changed by heat and pressure. So, the best answer is D) mountains with gneiss.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:25:47",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Sedimentary rocks are formed by the action of water. Water changes sediments into rock. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:57:54",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4257,19 +4347,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B) Nucleus.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The cell wall is the outermost layer of the plant cell, and it protects the cell. The chloroplast is responsible for photosynthesis, which produces food for the cell. The vacuole stores water and other materials. That leaves the nucleus, which is responsible for controlling the activities of the other parts of the cell.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:25:54",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Nucleus is the central part of the cell. Nucleus is responsible for controlling the activities of other parts of the cell. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:58:07",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4302,19 +4393,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A).",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nThe light is powered by electricity, which is a form of energy. \n\nWhen you turn off the light, you are no longer using that energy. \n\nSo turning off the light when leaving a room is an example of conserving energy.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:26:01",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "A) Conserving energy. Turning off the light when leaving a room is an example of A). So, the final answer is A).",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:58:19",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4348,19 +4440,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " What does Sally need to do in order to make candy? \n1) She needs to melt sugar. \n2) She needs to add flavorings, like vanilla extract. \n3) She needs to cool the candy and then shape it. \n\nThe key word here is \"cool.\" In order to cool the candy, Sally needs to know the temperature of the candy. She's measuring the temperature of the candy! The answer is C.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:26:08",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "C is the temperature of the liquid. Sally is making candy on the stove. She places a thermometer in the candy. She is measuring C. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:58:32",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4393,19 +4486,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B) by producing oxygen.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, what are some things that air quality can be affected by? \n\n-The presence of pollutants such as chemicals, dust, or smoke\n-The temperature\n-The humidity\n-The amount of sunlight\n\nSo based on this, we can eliminate answers A and D. \n\nNow, let's think about what plants do. \n\nPlants produce oxygen through a process called photosynthesis. They also help to regulate the temperature and humidity in an area, and they can absorb pollutants from the air. \n\nSo the most likely answer is B!",
-                        "author": "simon",
-                        "date": "2022/10/27 13:26:16",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Plants can produce oxygen. Oxygen is a component of air. Plants can produce oxygen. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:58:46",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4439,19 +4533,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) chemical.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, we have gasoline. Gasoline is a liquid, and it contains chemical energy. \n\nNext, we have a motorcycle engine. The engine takes the gasoline and transforms it into mechanical energy, which is the energy of motion. \n\nSo the answer is A) chemical.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:26:22",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Chemical energy is the energy of chemical bonds. Chemical energy in gasoline is transformed into mechanical energy in a motorcycle engine. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:58:59",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4483,19 +4578,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) Wheel and axle.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "B.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The student wants to look under a heavy rock. They need to lift the rock first. Which simple machine would be BEST to use to lift the rock? A wheel and axle, a lever, an inclined plane, or a screw?\n\nThe wheel and axle would be the best choice here because it would allow the student to lift the rock with the least amount of effort.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:26:29",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Lever is a simple machine that uses force to lift objects. A student wants to look under a heavy rock. Lever would be BEST to use to lift the rock. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:59:15",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4527,19 +4623,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " A) one day.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " The moon orbits around Earth. As it orbits, it also rotates on its axis. So it completes one orbit and one rotation in the same amount of time. \n\nHow long does it take the moon to orbit Earth? One orbit is equal to one trip around Earth, which is equal to 360 degrees. The moon's orbit is about 27.3 days, or 27 days and 7 hours. \n\nHow long does it take the moon to rotate on its axis? One rotation is equal to 360 degrees. Since it takes the moon 27.3 days to orbit Earth, it also takes 27.3 days to rotate on its axis.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:26:35",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "It takes one day for the Moon to rotate on its axis. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:59:27",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4573,19 +4670,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " D.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " In order to get food from small places, a bird would need to be able to fit in those small places and have a way to catch the food. Webbed feet would not help a bird fit in small places or catch food. Large body would not help a bird fit in small places, but could help catch food. Soft feathers might help a bird fit in small places, but would not help catch food. A skinny beak would help a bird fit in small places and catch food. The answer is D.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:26:42",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Webbed feet are used for moving water. Water is found in small places. Birds have webbed feet. So, the final answer is A.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:59:39",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4615,19 +4713,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " B) global warming.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "A.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " \n\nFirst, what is a \"worldwide increase in temperature\"? This is an increase in the Earth's average surface temperature. \n\nSecond, what is the cause of this increase? The most likely cause is the greenhouse effect. \n\nThe greenhouse effect is when greenhouse gases trap heat in the atmosphere. This trapped heat makes the Earth's average surface temperature warm. \n\nSo, the answer is B) global warming.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:26:46",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Global warming is a worldwide increase in temperature. Global warming is caused by greenhouse effect. So, the final answer is B.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 16:59:51",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
@@ -4662,19 +4761,20 @@
                 "generated_cot": [
                     {
                         "templates_version": "0.01",
-                        "instruction": null,
+                        "instruction": "qa-01",
                         "cot-trigger": "kojima-01",
                         "answers": [
                             {
-                                "answer-extraction": "kojima-01",
-                                "answer": " C) sound.",
+                                "answer-extraction": "kojima-A-D",
+                                "answer": "C.",
                                 "correct_answer": null
                             }
                         ],
-                        "cot": " What happens when you snap a rubber band? The band contracts and then quickly returns to its original shape. This happens because the band is made of elastic material, which can store energy in the form of elastic potential energy. When the band is stretched or compressed, the elastic potential energy is converted to kinetic energy, and then back to elastic potential energy when the band returns to its original shape.\n\nSo in answer to your question, snapping a rubber band produces kinetic energy, which is then converted back to elastic potential energy.",
-                        "author": "simon",
-                        "date": "2022/10/27 13:26:55",
-                        "model": "{'max_tokens': 512, 'name': 'text-davinci-002', 'temperature': 0}",
+                        "cot": "Sound is the vibration of matter. Snapping a rubber band most likely produces sound. So, the final answer is C.",
+                        "author": "konstantin",
+                        "date": "2022/11/21 17:00:01",
+                        "api_service": "huggingface_hub",
+                        "model": "{'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
                         "annotation": []
                     }
