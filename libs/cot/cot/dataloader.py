@@ -169,10 +169,10 @@ class Collection:
     @staticmethod
     def from_json(path_or_json, download_mode="reuse_dataset_if_exists"):
 
-        if isinstance(path_or_json, "str"):
+        if isinstance(path_or_json, str):
             with open(path_or_json, "r") as infile:
                 content = json.load(infile)
-        elif isinstance(path_or_json, "dict"):
+        elif isinstance(path_or_json, dict):
             content = path_or_json
 
         scripts = {x[0]: x[1] for x in Collection._find_datasets(names=list(content.keys()))}
