@@ -168,35 +168,35 @@ class Collection:
     # pretty dirty loading function which presevers metadata (load and replace data :/ )
     # metadata needed?
     @staticmethod
-    def from_json(path_to_json, single_file=True, download_mode="reuse_dataset_if_exists"):
-        if single_file:
-            with open(path_to_json, "r") as infile:
+    def from_json(path_or_json, download_mode="reuse_dataset_if_exists"):
+
+        if isinstance(path_or_json, "str"):
+            with open(path_or_json, "r") as infile:
                 content = json.load(infile)
+        elif isinstance(path_or_json, "dict"):
+            content = path_or_json
 
-            scripts = {x[0]: x[1] for x in Collection._find_datasets(names=list(content.keys()))}
+        scripts = {x[0]: x[1] for x in Collection._find_datasets(names=list(content.keys()))}
 
-            collection = Collection()
-            for dataset_name in content.keys():
-                info = ds.load_dataset_builder(str(scripts[dataset_name]), download_mode=download_mode).info
-                dataset_dict = dict()
-                for split_name in content[dataset_name].keys():
+        collection = Collection()
+        for dataset_name in content.keys():
+            info = ds.load_dataset_builder(str(scripts[dataset_name]), download_mode=download_mode).info
+            dataset_dict = dict()
+            for split_name in content[dataset_name].keys():
 
-                    split = None
-                    if split_name == "train":
-                        split = ds.Split.TRAIN
-                    elif split_name == "validation":
-                        split = ds.Split.VALIDATION
-                    elif split_name == "test":
-                        split = ds.Split.TEST
+                split = None
+                if split_name == "train":
+                    split = ds.Split.TRAIN
+                elif split_name == "validation":
+                    split = ds.Split.VALIDATION
+                elif split_name == "test":
+                    split = ds.Split.TEST
 
-                    dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict("series")
-                    dic = {k: list(v) for (k, v) in dic.items()}
-                    dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
-                collection[dataset_name] = ds.DatasetDict(dataset_dict)
-            return collection
-        else:
-            # TODO add ability to load directory dump (single_file=False)??
-            raise NotImplementedError
+                dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict("series")
+                dic = {k: list(v) for (k, v) in dic.items()}
+                dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
+            collection[dataset_name] = ds.DatasetDict(dataset_dict)
+        return collection
 
     def generate(self, name=None, split=None, config={}):
         if name is None:
