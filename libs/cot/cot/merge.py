@@ -14,14 +14,14 @@ def merge(base, head):
                                 "properties": {
                                     "generated_cot": {
                                         "mergeStrategy": "arrayMergeById",
-                                        "mergeOptions": {"idRef": "id"},
+                                        "mergeOptions": {"idRef": ["date", "cot"]},
                                         "type": "array",
                                         "items": {
                                             "type": "object",
                                             "properties": {
                                                 "answers": {
                                                     "mergeStrategy": "arrayMergeById",
-                                                    "mergeOptions": {"idRef": "id"},
+                                                    "mergeOptions": {"idRef": ["date", "answer"]},
                                                     "type": "array",
                                                     "items": {
                                                         "type": "object",
@@ -29,7 +29,7 @@ def merge(base, head):
                                                 },
                                                 "annotation": {
                                                     "mergeStrategy": "arrayMergeById",
-                                                    "mergeOptions": {"idRef": "id"},
+                                                    "mergeOptions": {"idRef": "key"},
                                                     "type": "array",
                                                     "items": {
                                                         "type": "object",
