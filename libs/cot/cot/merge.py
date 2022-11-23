@@ -1,4 +1,3 @@
-from cot import Collection
 from jsonmerge import Merger
 
 def merge(base_collection, head_collection):
@@ -48,4 +47,5 @@ def merge(base_collection, head_collection):
     }
     merger = Merger(schema)
     merged_json = merger.merge(base_collection.to_json(), head_collection.to_json())
-    return Collection.from_json(merged_json)
+    # cannot call Collection.from_json because of circular dependency otherwise
+    return base_collection.__class__.from_json(merged_json)

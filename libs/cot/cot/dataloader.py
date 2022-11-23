@@ -160,9 +160,9 @@ class Collection:
         return d_dict
 
 
-    def _dataset_to_json(self, name, split):
+    def _dataset_to_json(self, data):
         data_stream = io.BytesIO()
-        self._cache[name][split].to_json(data_stream)
+        data.to_json(data_stream)
         data_stream.seek(0)
         return [json.loads(x.decode()) for x in data_stream.readlines()]
 
