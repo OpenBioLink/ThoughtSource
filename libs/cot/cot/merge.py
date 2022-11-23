@@ -1,6 +1,7 @@
+from cot import Collection
 from jsonmerge import Merger
 
-def merge(base, head):
+def merge(base_collection, head_collection):
     schema = {
             "patternProperties": {
                 ".*": {
@@ -46,4 +47,5 @@ def merge(base, head):
             }
     }
     merger = Merger(schema)
-    return merger.merge(base, head)
+    merged_json = merger.merge(base_collection.to_json(), head_collection.to_json())
+    return Collection.from_json(merged_json)
