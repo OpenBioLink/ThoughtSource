@@ -166,8 +166,6 @@ class Collection:
         data_stream.seek(0)
         return [json.loads(x.decode()) for x in data_stream.readlines()]
 
-    # pretty dirty loading function which presevers metadata (load and replace data :/ )
-    # metadata needed?
     @staticmethod
     def from_json(path_or_json, download_mode="reuse_dataset_if_exists"):
 
