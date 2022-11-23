@@ -144,29 +144,26 @@ class Collection:
     def clear(self):
         self.unload_datasets()
 
-    def dump(self, path_to_file_or_directory="./dump", single_file=True):
-        if single_file:
-            d_dict = defaultdict(dict)
-            for name, dataset_dict in self._cache.items():
-                for split, data in dataset_dict.items():
-                    data_stream = io.BytesIO()
-                    data.to_json(data_stream)
-                    data_stream.seek(0)
-                    d_dict[name][split] = [json.loads(x.decode()) for x in data_stream.readlines()]
+    def dump(self, path_to_file_or_directory="./dump.json"):
+        if not path_to_file_or_directory.endswith(".json"):
+            path_to_file_or_directory = path_to_file_or_directory + ".json"
+        with open(path_to_file_or_directory, "w") as outfile:
+            # use json library to prettify output
+            json.dump(self.to_json(), outfile, indent=4)
 
-            if not path_to_file_or_directory.endswith(".json"):
-                path_to_file_or_directory = path_to_file_or_directory + ".json"
+    def to_json(self):
+        d_dict = defaultdict(dict)
+        for name in self._cache:
+            for split in self._cache[name]:
+                d_dict[name][split] = self._dataset_to_json(self._cache[name][split])
+        return d_dict
 
-            with open(path_to_file_or_directory, "w") as outfile:
-                # use json library to prettify output
-                json.dump(d_dict, outfile, indent=4)
-        else:
-            for name, dataset_dict in self._cache.items():
-                for split, data in dataset_dict.items():
-                    data.to_json(pathlib.Path(path_to_file_or_directory) / name / f"{split}.json")
 
-    def _replace(batch, data):
-        return data
+    def _dataset_to_json(self, name, split):
+        data_stream = io.BytesIO()
+        self._cache[name][split].to_json(data_stream)
+        data_stream.seek(0)
+        return [json.loads(x.decode()) for x in data_stream.readlines()]
 
     # pretty dirty loading function which presevers metadata (load and replace data :/ )
     # metadata needed?
@@ -201,11 +198,6 @@ class Collection:
             # TODO add ability to load directory dump (single_file=False)??
             raise NotImplementedError
 
-    # Deprecated
-    def save_to_disk(self, path_to_directory="datasets"):
-        for name, dataset_dict in self._cache.items():
-            dataset_dict.save_to_disk(f"{path_to_directory}/{name}")
-
     def generate(self, name=None, split=None, config={}):
         if name is None:
             for name in self._cache:
@@ -227,11 +219,6 @@ class Collection:
                     self[name][split] = evaluate(self[name][split])
             else:
                 self[name][split] = evaluate(self[name][split])
-
-    # Deprecated
-    def load_from_disk(self, path_to_directory="datasets"):
-        for name in next(os.walk(path_to_directory))[1]:
-            self._cache[name] = ds.load_from_disk(os.path.join(path_to_directory, name))
 
     @property
     def all_train(self):
