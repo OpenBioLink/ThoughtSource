@@ -221,7 +221,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
                     "cot_type": "list",
                     "choices": choices,
                     "context": "",
-                    "cot": example["exp"] if example["exp"] is not None else "",
+                    "cot": [example["exp"]] if example["exp"] is not None else "",
                     "answer": [answer],
                     "feedback": [],
                     "generated_cot": generated_cots,
