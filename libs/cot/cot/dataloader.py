@@ -42,6 +42,8 @@ class Collection:
         self.download_mode = download_mode
         if not verbose:
             ds.disable_progress_bar()
+        else:
+            ds.enable_progress_bar()
         self._cache = {}
         if names == "all":
             self.load_datasets()
