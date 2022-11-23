@@ -262,7 +262,7 @@ def map_example_to_lievin_cot(item, dataset):
         "answers": [
             {
                 "answer-extraction": answer_extraction,
-                "answer": item["answer"],
+                "answer": item["options"][item["prediction_idx"]],
                 "correct_answer": (item["prediction_symbol"] == "correct"),
             }
         ],
