@@ -110,7 +110,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
                             }
                         ],
                     },
-                    "fact": datasets.Value("string"),
+                    "fact1": datasets.Value("string"),
                     "humanScore": datasets.Value("float"),
                     "clarity": datasets.Value("float"),
                     "turkIdAnonymized": datasets.Value("string"),
