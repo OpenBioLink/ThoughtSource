@@ -9,5 +9,6 @@ quality_all:
 	black --line-length 140 .
 	isort .
 	flake8 . --max-line-length=140 --ignore=E203,W503
+	
 tests:
 	pytest tests
