@@ -12,6 +12,7 @@ import pandas as pd
 
 from .evaluate import evaluate
 from .generate import generate_and_extract
+from .merge import merge
 
 
 @contextmanager
@@ -219,6 +220,9 @@ class Collection:
                     self[name][split] = evaluate(self[name][split])
             else:
                 self[name][split] = evaluate(self[name][split])
+
+    def merge(self, collection_other):
+        return merge(self, collection_other)
 
     @property
     def all_train(self):
