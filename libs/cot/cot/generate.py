@@ -97,26 +97,18 @@ def generate_and_extract(data, config):
         n_samples * n_instruction_keys * n_cot_trigger_keys
         + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
     )
-    print(
-        f"n_samples: {n_samples}, n_instruction_keys: {n_instruction_keys}, n_cot_trigger_keys: {n_cot_trigger_keys}, n_answer_extraction_keys: {n_answer_extraction_keys}"
-    )
 
     warn = True if "warn" not in config else config["warn"]
+    debug = True if "debug" not in config else config["debug"]
     if warn:
-        warning = "You are about to call the openai API which produces costs.\n"
-        warning += (
-            f"Due to your settings you are about to call the openai API in total {n_total} times."
-            + "\n"
-        )
-        warning += (
-            "Number API calls for CoT generation: n_samples * n_instruction_keys * n_cot_trigger_keys"
-            + "\n"
-        )
-        warning += (
-            "Number API calls for answer extraction: n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys"
-            + "\n"
-        )
-        warning += "Do you want to continue? y/n\n"
+        warning = f"""
+            You are about to \033[1m call an external API \033[0m in total {n_total} times, which \033[1m may produce costs \033[0m.
+            Number API calls for CoT generation: n_samples {n_samples} * n_instruction_keys {n_instruction_keys} * n_cot_trigger_keys {n_cot_trigger_keys}
+            Number API calls for answer extraction: n_samples {n_samples} * n_instruction_keys {n_instruction_keys} * n_cot_trigger_keys {n_cot_trigger_keys} * n_answer_extraction_keys {n_answer_extraction_keys}
+            Do you want to continue? y/n
+            """
+        if debug:
+            warning += "\033[1m Note: You are in debug mode. When entering 'y', a test run without API calls is made. \033[0m"
         print(warning)
         ans = input()
         if ans.lower() == "y":
