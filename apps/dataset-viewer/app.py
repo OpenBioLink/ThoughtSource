@@ -3,10 +3,18 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import glob
+import os
 import importlib
 import datasets
 from datasets import load_dataset
 from cot import Collection
+import yaml
+
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.yml'), 'r') as file:
+    config = yaml.safe_load(file)
+
+if config["from_local"]:
+    COLLECTION = Collection.from_json(config["local_path"])
 
 def render_features(features):
     """Recursively render the dataset schema (i.e. the fields)."""
@@ -24,12 +32,19 @@ def render_features(features):
 
 def list_datasets():
     """Get all the datasets to work with."""
-    dataset_list = Collection()._find_datasets()
-    dataset_list.sort(key=lambda x: x[0].lower())
+    if config["from_local"]:
+        dataset_list = [(x, None) for x in COLLECTION.loaded]
+        dataset_list.sort()
+    else:
+        dataset_list = Collection()._find_datasets()
+        dataset_list.sort(key=lambda x: x[0].lower())
     return dataset_list
 
 def get_dataset(dataset_path: str, subset_name=None):
     return datasets.load_dataset(str(dataset_path), subset_name)
+
+def get_local_dataset(dataset_name: str):
+    return COLLECTION[dataset_name]
 
 def get_dataset_confs(dataset_path: str):
     "Get the list of confs for a dataset."
@@ -44,7 +59,6 @@ def get_dataset_confs(dataset_path: str):
 
 
 get_dataset = st.cache(get_dataset)
-list_datasets = st.cache(list_datasets)
 get_dataset_confs = st.cache(get_dataset_confs)
 
 def load_ds(dataset):
@@ -62,6 +76,19 @@ def load_ds(dataset):
     subset_name = str(conf_option.name) if conf_option else None
 
     dataset = get_dataset(dataset_path, subset_name)
+    return dataset, conf_option
+
+def load_local_ds(dataset: str):
+    dataset_name, dataset_path = dataset
+    dataset = get_local_dataset(dataset_name)
+    return dataset, None
+
+def display_dataset(dataset):
+    dataset_name, dataset_path = dataset
+    if config["from_local"]:
+        dataset, conf_option = load_local_ds(dataset)
+    else:
+        dataset, conf_option = load_ds(dataset)
 
     splits = list(dataset.keys())
     index = 0
@@ -130,7 +157,7 @@ def run_app():
         format_func=lambda x: x[0]
     )
 
-    load_ds(dataset)
+    display_dataset(dataset)
 
 if __name__ == "__main__":
     run_app()

@@ -104,7 +104,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
             features = datasets.Features(
                 {
                     "question": datasets.Value("string"),
-                    "numbers": [datasets.Value("int32")],
+                    "numbers": [datasets.Value("float")],
                     "equation": datasets.Value("string"),
                     "answer": datasets.Value("float"),
                     "group_nums": [datasets.Value("int32")],
