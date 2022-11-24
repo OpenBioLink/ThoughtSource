@@ -61,7 +61,7 @@ def generate_and_extract(data, config):
 
     # Creating cofigurations for the options 'all' or 'None':
     keys = ["instruction_keys", "cot_trigger_keys", "answer_extraction_keys"]
-    names_in_template = ["instructions", "cot-triggers", "answer-extractions"]
+    names_in_template = ["instructions", "cot_triggers", "answer_extractions"]
     for key, name in zip(keys, names_in_template):
         if key not in config or config[key] == "all":
             config[key] = [None] + list(TEMPLATES[name].keys())
@@ -180,7 +180,7 @@ def _generate_and_extract(
             generated_cot = {
                 "templates_version": TEMPLATES["version"],
                 "instruction": instruction_key,
-                "cot-trigger": cot_trigger_key,
+                "cot_trigger": cot_trigger_key,
                 "prompt_text": "",
                 "cot": "",
                 "answers": [],
@@ -199,7 +199,7 @@ def _generate_and_extract(
             if cot_trigger_key is not None:
                 generate_cot_prompt = (
                     instruction_promt
-                    + TEMPLATES["cot-triggers"][cot_trigger_key]
+                    + TEMPLATES["cot_triggers"][cot_trigger_key]
                     + "\n"
                 )
             else:
@@ -232,7 +232,7 @@ def _generate_and_extract(
 
                 else:
                     answer = {
-                        "answer-extraction": answer_extraction_key,
+                        "answer_extraction": answer_extraction_key,
                         "answer_extraction_text": "",
                         "answer": "",
                         "correct_answer": None,
@@ -242,7 +242,7 @@ def _generate_and_extract(
                         generate_cot_prompt
                         + cot
                         + "\n"
-                        + TEMPLATES["answer-extractions"][answer_extraction_key]
+                        + TEMPLATES["answer_extractions"][answer_extraction_key]
                         + "\n"
                     )
                     if verbose:
