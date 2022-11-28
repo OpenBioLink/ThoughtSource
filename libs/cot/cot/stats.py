@@ -194,6 +194,19 @@ def _print_table(table):
 
 def display_stats_tables(collection):
     counters = _generate_counter_data(collection)
+
+    data = [
+            (
+                name,
+                data_dict["train"].num_rows if "train" in data_dict else "-",
+                data_dict["validation"].num_rows if "validation" in data_dict else "-",
+                data_dict["test"].num_rows if "test" in data_dict else "-",
+            )
+            for name, data_dict in collection
+        ]
+    table = pd.DataFrame.from_records(data, columns=["Name", "Train", "Valid", "Test"])
+    _print_table(table)
+
     data = []
     for key, counter in counters["na"].items():
         data.append([key] + [counter[ckey] for ckey in ["question", "choices", "cot", "answer"]])
@@ -218,8 +231,6 @@ def plot_dataset_overlap(collection, N=3):
     n_grams_merge = {}
     for name, n_grams in n_gram_counters.items():
         n_grams_merge[name] = set([item for counters in n_grams.values() for item in counters.keys()])
-
-    n_grams_merge
 
     data = []
     for name_x in sorted(n_grams_merge.keys(), reverse=True):
