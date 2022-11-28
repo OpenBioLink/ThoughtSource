@@ -2,26 +2,22 @@ export const USERNAME_KEY = 'username'
 export const FILE_NAME_KEY = 'filename'
 export const FILE_CONTENT_KEY = 'filecontent'
 
-export function backupCurrentData(username?: string, filename?: string, allData?: any) {
+export function backupCurrentData(username: any, filename: string, allData: any, onError: () => void) {
     if (!username || username.length <= 0
         || !filename || filename.length <= 0
         || allData == null) {
         return
     }
 
-    localStorage.setItem("localJson", JSON.stringify(allData))
-    localStorage.setItem("username", username)
-    localStorage.setItem("filename", filename)
-
-    //const postData = {
-    //  username: username,
-    //  filename: filename,
-    //  filecontent: allData
-    //}
-
-    //post('backup', postData, (data) => {
-    //  console.log("Backup success")
-    //})
+    try {
+        localStorage.setItem("localJson", JSON.stringify(allData))
+        localStorage.setItem("username", username)
+        localStorage.setItem("filename", filename)
+    } catch (e) {
+        onError()
+        console.log("Error writing to local storage")
+        console.log(e)
+    }
 }
 
 export function restoreBackup() {
@@ -30,7 +26,6 @@ export function restoreBackup() {
         return
     }
 
-    const allData = JSON.parse(localJson)
     const username = localStorage.getItem("username")
     const filename = localStorage.getItem("filename")
 
@@ -41,6 +36,6 @@ export function restoreBackup() {
     return {
         [USERNAME_KEY]: username,
         [FILE_NAME_KEY]: filename,
-        [FILE_CONTENT_KEY]: allData
+        [FILE_CONTENT_KEY]: localJson
     }
 }

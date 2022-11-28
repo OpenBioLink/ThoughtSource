@@ -1,6 +1,9 @@
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+# This threshold determines the minimum similarity value a sentence must have,
+# in order to be included in visualisation
+THRESHOLD = 0.1
 
 def calculate_with_jaccard(sentences, lengths):
   sentence_count = len(sentences)
@@ -95,7 +98,7 @@ def _determine_top_similarities(sentence_elements, texts_count):
     # get all sentence indices relevant to top candidate
     indices = [top_candidate['index']]
     for similarity_elements in top_candidate['block_similarities']:
-      if len(similarity_elements) is 0:
+      if len(similarity_elements) is 0 or similarity_elements[0]['similarity'] < THRESHOLD:
         continue
       indices.append(similarity_elements[0]['other_index'])
 
@@ -143,7 +146,7 @@ def _sort_similarities_for_all(sentence_elements):
 def _sum_block_similarities(sentence_element):
   similarity_sum = 0
   for similarity_elements in sentence_element['block_similarities']:
-    if len(similarity_elements) is 0:
+    if len(similarity_elements) is 0 or similarity_elements[0]['similarity'] < THRESHOLD:
       continue
     similarity_sum += similarity_elements[0]['similarity']
   return similarity_sum

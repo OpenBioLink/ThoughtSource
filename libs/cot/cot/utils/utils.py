@@ -154,6 +154,15 @@ def parse_wei_log(path_to_directory, dataset):
 
 
 def map_example_to_kojima_cot(question, cots):
+    """
+    Given a question from a dataset and list of Cots from the collection of Kojima (see function parse_kojima_log)
+    it returns a populated CoT item for the given question if found in the list of Cots.
+    If the question cannot be found in the cots it returns None.
+    
+    :param question: Original question from dataset
+    :param cots: the question
+    :return: The populated ThoughtSource CoT item
+    """
     for id, cot in enumerate(cots):
         if question in cot["question"]:
             generated_cot = {
@@ -182,6 +191,15 @@ def map_example_to_kojima_cot(question, cots):
 
 
 def map_example_to_wei_cot(question, cots):
+    """
+    Given a question from a dataset and list of Cots from the collection of Wei (see function parse_wei_log)
+    it returns a populated CoT item for the given question if found in the list of Cots.
+    If the question cannot be found in the cots it returns None.
+    
+    :param question: Original question from dataset
+    :param cots: the question
+    :return: The populated ThoughtSource CoT item
+    """
     for id, cot in enumerate(cots):
         if question in cot["question"]:
             generated_cot = {
@@ -207,3 +225,55 @@ def map_example_to_wei_cot(question, cots):
             return generated_cot
     else:
         return None
+
+
+def map_example_to_lievin_cot(item, dataset):
+    """
+    Given an CoT item from the collection of Lievin, returns a populated CoT item.
+    
+    :param item: the CoT item loaded from Lievin
+    :return: The populated ThoughtSource CoT item
+    """
+    assert (__import__("cot").generate.TEMPLATES["version"] == "0.01"), "New version"
+    if dataset in ["med_qa", "medmc_qa"]:
+        assert (item["extractive_prompt"] == "\n\nTherefore, among A through D, the answer is"), f"Different extractive prompt than expected {item['extractive_prompt']}"
+        answer_extraction = "kojima-A-D"
+    elif dataset == "pubmed_qa":
+        assert (item["extractive_prompt"] == "\n\nTherefore, among A through C, the answer is"), f"Different extractive prompt than expected {item['extractive_prompt']}"
+        answer_extraction = "kojima-A-C"
+    else:
+        raise ValueError
+
+    assert (item["cot"].startswith(item["strategy"])), f"Different CoT than expected {item['cot']}"
+
+    # TODO 
+    # Investigate lievin cot prefix (They start differently and connot be easily removed)
+    # medqa_us_test-0_incorrect_B_A.json: Let's think step by step about what the resident should do. \n\nThe first step
+    # medqa_us_test-1_correct_D_D.json: Let's think step by step. This patient has a ring
+
+    cot_triggers = {
+        "Let's think step by step": "kojima-01",
+        "Let's think step by step like a medical expert": "lievin-10",
+        "Let's derive the differential diagnosis step by step": "lievin-01",
+        "Let's use step by step inductive reasoning, given the medical nature of the question": "lievin-02",
+        "Let's differentiate using step by step reasoning like a medical expert": "lievin-03",
+    }
+
+    return {
+        "templates_version": "0.01",
+        "instruction": None,
+        "cot-trigger": cot_triggers[item["strategy"]],
+        "answers": [
+            {
+                "answer-extraction": answer_extraction,
+                "answer": item["options"][item["prediction_idx"]],
+                "correct_answer": (item["prediction_symbol"] == "correct"),
+            }
+        ],
+        "cot": item["cot"],
+        "author": "lievin",
+        "date": None,
+        "model": "davinci-002",
+        "comment": "",
+        "annotation": [],
+    }

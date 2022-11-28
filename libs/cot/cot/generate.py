@@ -76,11 +76,13 @@ def generate_and_extract(data, config):
     #         config[key].insert(0, None)
 
     if isinstance(data, ds.arrow_dataset.Dataset):
+        features = data.info.features
         if "idx_range" in config and config["idx_range"] is not None:
             n_samples = config["idx_range"][1] - config["idx_range"][0]
         else:
             n_samples = len(data)
     elif isinstance(data, ds.dataset_dict.DatasetDict):
+        features = data["train"].info.features
         if "idx_range" in config and config["idx_range"] is not None:
             n_samples = (config["idx_range"][1] - config["idx_range"][0]) * len(data)
         else:
@@ -96,33 +98,25 @@ def generate_and_extract(data, config):
         n_samples * n_instruction_keys * n_cot_trigger_keys
         + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
     )
-    print(
-        f"n_samples: {n_samples}, n_instruction_keys: {n_instruction_keys}, n_cot_trigger_keys: {n_cot_trigger_keys}, n_answer_extraction_keys: {n_answer_extraction_keys}"
-    )
 
     warn = True if "warn" not in config else config["warn"]
+    debug = True if "debug" not in config else config["debug"]
     if warn:
-        warning = "You are about to call the openai API which produces costs.\n"
-        warning += (
-            f"Due to your settings you are about to call the openai API in total {n_total} times."
-            + "\n"
-        )
-        warning += (
-            "Number API calls for CoT generation: n_samples * n_instruction_keys * n_cot_trigger_keys"
-            + "\n"
-        )
-        warning += (
-            "Number API calls for answer extraction: n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys"
-            + "\n"
-        )
-        warning += "Do you want to continue? y/n\n"
+        warning = f"""
+            You are about to \033[1m call an external API \033[0m in total {n_total} times, which \033[1m may produce costs \033[0m.
+            Number API calls for CoT generation: n_samples {n_samples} * n_instruction_keys {n_instruction_keys} * n_cot_trigger_keys {n_cot_trigger_keys}
+            Number API calls for answer extraction: n_samples {n_samples} * n_instruction_keys {n_instruction_keys} * n_cot_trigger_keys {n_cot_trigger_keys} * n_answer_extraction_keys {n_answer_extraction_keys}
+            Do you want to continue? y/n
+            """
+        if debug:
+            warning += "\033[1m Note: You are in debug mode. When entering 'y', a test run without API calls is made. \033[0m"
         print(warning)
         ans = input()
         if ans.lower() == "y":
             pass
         else:
             return
-    return data.map(_generate_and_extract, with_indices=True, fn_kwargs=config)
+    return data.map(_generate_and_extract, with_indices=True, fn_kwargs=config, features=features)
 
 
 def _generate_and_extract(
@@ -189,16 +183,17 @@ def _generate_and_extract(
                 "templates_version": TEMPLATES["version"],
                 "instruction": instruction_key,
                 "cot-trigger": cot_trigger_key,
+                "prompt_text": "",
                 "cot": "",
                 "answers": [],
                 "author": author,
                 "date": "",
                 "api_service": api_service,
-                "model": {
+                "model": str({
                     "name": engine,
                     "temperature": temperature,
                     "max_tokens": max_tokens,
-                },
+                }),
                 "comment": "",
                 "annotation": [],
             }
@@ -230,6 +225,7 @@ def _generate_and_extract(
                 print(cot)
 
             generated_cot["cot"] = cot
+            generated_cot["prompt_text"] = generate_cot_prompt
             generated_cot["date"] = print_now(1)
 
             for answer_extraction_key in answer_extraction_keys:
@@ -240,6 +236,7 @@ def _generate_and_extract(
                     answer = {
                         "id": uuid.uuid4(),
                         "answer-extraction": answer_extraction_key,
+                        "answer_extraction_text": "",
                         "answer": "",
                         "correct_answer": None,
                     }
@@ -271,6 +268,7 @@ def _generate_and_extract(
                         print(predicted_answer)
 
                     answer["answer"] = predicted_answer
+                    answer["answer_extraction_text"] = answer_extraction_prompt
                     generated_cot["answers"].append(answer)
             item["generated_cot"].append(generated_cot)
 

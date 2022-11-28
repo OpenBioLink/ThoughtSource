@@ -21,10 +21,12 @@ features = datasets.Features(
                 "templates_version": datasets.Value("string"),
                 "instruction": datasets.Value("string"),
                 "cot-trigger": datasets.Value("string"),
+                "prompt_text": datasets.Value("string"),
                 "answers": [
                     {
                         "id": datasets.Value("string"),
                         "answer-extraction": datasets.Value("string"),
+                        "answer_extraction_text": datasets.Value("string"),
                         "answer": datasets.Value("string"),
                         "correct_answer": datasets.Value("bool"),
                     }
@@ -32,6 +34,7 @@ features = datasets.Features(
                 "cot": datasets.Value("string"),
                 "author": datasets.Value("string"),
                 "date": datasets.Value("string"),
+	            "api_service": datasets.Value("string"),
                 "model": datasets.Value("string"),
                 "comment": datasets.Value("string"),
                 "annotation": [

@@ -222,6 +222,51 @@ class Collection:
     def merge(self, collection_other):
         return merge(self, collection_other)
 
+    def select(self, split = "train" , number_samples = None, random_samples = True, seed=0):
+        """
+        The function takes in a collection and gives back a split (train,test,validation) of the colletion. It can also give back a part of the split, random or first number of entries.
+        :param collection: the collection (of datasets) to be processed
+        :param split: the split (train,test,validation) to be selected. Defaults: "train".
+        :param number_samples: how many samples to select from the split. Default: "None" (all samples of the split)
+        :param random: if the number_samples are selected randomly or as the first entries of the dataset. Default: "True" (random selection)
+        :param seed: when random selection is used, wheter to use it with seed to make it reproducible. If None no seed. If integer: seed.
+            Defaut: "0" (same random collection over multiple runs)
+        """
+        import random
+        import copy
+
+        sampled_collection = copy.deepcopy(self)
+        for dataset in sampled_collection:
+            _ , dataset_dict = dataset
+            subset = copy.deepcopy(dataset_dict[split])
+            # # select the whole split, without specified number of samples
+            # if not number_samples:
+            #     pass
+            # select a certain number of samples
+            if number_samples:
+                #get number of samples in subset
+                samples_count = subset.num_rows
+                # random sample
+                if random_samples:
+                    # set seed for reproducibility
+                    if isinstance(seed, int):
+                        random.seed(seed)
+                    random_ids = random.sample(range(samples_count), number_samples)
+                    # random sample from subset
+                    subset = subset.select(random_ids)
+                # first rows of dataset, not random
+                else:
+                    subset = subset.select(range(0,number_samples))
+            # clear original dictionary
+            dataset_dict.clear()
+            # reinsert selected samples
+            dataset_dict[split] = subset
+        return sampled_collection
+
+    @property
+    def loaded(self):
+        return list(self._cache.keys())
+
     @property
     def all_train(self):
         """
