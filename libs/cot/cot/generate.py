@@ -3,6 +3,7 @@ import json
 import os
 import pkgutil
 import time
+import uuid
 
 import datasets as ds
 
@@ -184,6 +185,7 @@ def _generate_and_extract(
 
         for cot_trigger_key in cot_trigger_keys:
             generated_cot = {
+                "id": uuid.uuid4(),
                 "templates_version": TEMPLATES["version"],
                 "instruction": instruction_key,
                 "cot-trigger": cot_trigger_key,
@@ -236,6 +238,7 @@ def _generate_and_extract(
 
                 else:
                     answer = {
+                        "id": uuid.uuid4(),
                         "answer-extraction": answer_extraction_key,
                         "answer": "",
                         "correct_answer": None,

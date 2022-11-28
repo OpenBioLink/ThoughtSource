@@ -154,14 +154,16 @@ def parse_wei_log(path_to_directory, dataset):
 
 
 def map_example_to_kojima_cot(question, cots):
-    for cot in cots:
+    for id, cot in enumerate(cots):
         if question in cot["question"]:
             generated_cot = {
+                "id": id,
                 "templates_version": "0.01",
                 "instruction": None,
                 "cot-trigger": "kojima-01",
                 "answers": [
                     {
+                        "id": 0,
                         "answer-extraction": "kojima-A-E",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
@@ -180,14 +182,16 @@ def map_example_to_kojima_cot(question, cots):
 
 
 def map_example_to_wei_cot(question, cots):
-    for cot in cots:
+    for id, cot in enumerate(cots):
         if question in cot["question"]:
             generated_cot = {
+                "id": id,
                 "templates_version": "0.01",
                 "instruction": None,
                 "cot-trigger": None,
                 "answers": [
                     {
+                        "id": 0,
                         "answer-extraction": None,
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
