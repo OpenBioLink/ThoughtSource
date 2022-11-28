@@ -227,7 +227,7 @@ def map_example_to_wei_cot(question, cots):
         return None
 
 
-def map_example_to_lievin_cot(item, dataset):
+def map_example_to_lievin_cot(id, item, dataset):
     """
     Given an CoT item from the collection of Lievin, returns a populated CoT item.
     
@@ -260,11 +260,13 @@ def map_example_to_lievin_cot(item, dataset):
     }
 
     return {
+        "id": id,
         "templates_version": "0.01",
         "instruction": None,
         "cot-trigger": cot_triggers[item["strategy"]],
         "answers": [
             {
+                "id": 0,
                 "answer-extraction": answer_extraction,
                 "answer": item["options"][item["prediction_idx"]],
                 "correct_answer": (item["prediction_symbol"] == "correct"),
