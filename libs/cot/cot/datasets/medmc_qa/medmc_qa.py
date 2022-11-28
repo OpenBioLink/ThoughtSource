@@ -41,6 +41,7 @@ import glob
 
 from cot.utils import schemas, map_example_to_lievin_cot
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 from collections import defaultdict
 
 
@@ -75,7 +76,7 @@ from the option set.
 
 _HOMEPAGE = "https://medmcqa.github.io/"
 
-_LICENSE = "Apache-2.0"
+_LICENSE = Licenses.APACHE_2p0
 
 _URLS = {
     "medmcqa": "https://drive.google.com/uc?export=download&id=15VkJdq5eyWIkfb_aoD3oS8i4tScbHYky",

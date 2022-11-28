@@ -20,6 +20,7 @@ import datasets
 import json
 from cot.utils import schemas, map_example_to_lievin_cot
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 from collections import defaultdict
 from tqdm import tqdm
 import glob
@@ -59,7 +60,7 @@ This dataset only supports PQA-L.
 
 _HOMEPAGE = "https://github.com/pubmedqa/pubmedqa"
 
-_LICENSE = "MIT"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     "pubmed": "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/ori_pqal.json",
@@ -74,7 +75,7 @@ _SOURCE_VERSION = "1.0.0"
 _BIGBIO_VERSION = "1.0.0"
 
 class PubmedQADataset(datasets.GeneratorBasedBuilder):
-    """TODO: Short description of my dataset."""
+    """PubMedQA is a novel biomedical question answering (QA) dataset collected from PubMed abstracts."""
 
     SOURCE_VERSION = datasets.Version(_SOURCE_VERSION)
     BIGBIO_VERSION = datasets.Version(_BIGBIO_VERSION)

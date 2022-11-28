@@ -21,6 +21,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -70,7 +71,7 @@ has robust reasoning ability or is invariant to structural alterations respectiv
 
 _HOMEPAGE = "https://github.com/arkilpatel/SVAMP"
 
-_LICENSE = "MIT"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     _DATASETNAME: "https://github.com/arkilpatel/SVAMP/raw/main/SVAMP.json",

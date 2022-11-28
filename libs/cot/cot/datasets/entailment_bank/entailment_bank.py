@@ -22,6 +22,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -51,7 +52,7 @@ a corpus. We provide baseline results for this task, and analyze the problems in
 
 _HOMEPAGE = "https://allenai.org/data/entailmentbank"
 
-_LICENSE = "CC BY 4.0"
+_LICENSE = Licenses.CC_BY_SA_4p0
 
 _URLS = {
     _DATASETNAME: "https://drive.google.com/uc?export=download&id=1kVr-YsUVFisceiIklvpWEe0kHNSIFtNh",

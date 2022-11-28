@@ -22,6 +22,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -46,7 +47,7 @@ models fail to achieve high test performance, despite the conceptual simplicity 
 
 _HOMEPAGE = "https://github.com/openai/grade-school-math"
 
-_LICENSE = "MIT"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     "gsm8k": {

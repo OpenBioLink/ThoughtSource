@@ -22,6 +22,7 @@ import json
 from collections import defaultdict
 from cot.utils import (schemas, map_example_to_lievin_cot)
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 from tqdm import tqdm
 
 import pandas as pd
@@ -54,7 +55,7 @@ comprehension models can obtain necessary knowledge for answering the questions.
 
 _HOMEPAGE = "https://github.com/jind11/MedQA"
 
-_LICENSE = "Unknown"
+_LICENSE = Licenses.UNKNOWN
 
 _URLS = {
     _DATASETNAME: "https://drive.google.com/u/0/uc?export=download&confirm=t&id=1ImYUSLk9JbgHXOemfvyiDiirluZHPeQw",

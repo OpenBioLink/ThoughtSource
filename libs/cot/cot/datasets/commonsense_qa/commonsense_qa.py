@@ -24,6 +24,7 @@ from nltk.tokenize import sent_tokenize
 from cot.utils import (map_example_to_kojima_cot, map_example_to_wei_cot,
                        parse_kojima_log, parse_wei_log, schemas)
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 nltk.download("punkt")
 
@@ -66,13 +67,15 @@ predict the correct answers . It contains 12,102 questions with one correct answ
 provided in two major training/validation/testing set splits: "Random split" which is the main evaluation split, and "Question
 token split", see paper for details.
 
+Info regarding License: https://github.com/jonathanherzig/commonsenseqa/issues/5
+
 CommonsenseQA does not come with explanations per default. We use explanations from Aggarwal et al, 2021, which can be found at
-https://github.com/dair-iitd/ECQA-Dataset.
+https://github.com/dair-iitd/ECQA-Dataset. License of explanations: Community Data License Agreement - Sharing - Version 1.0.
 """
 
 _HOMEPAGE = "https://www.tau-nlp.sites.tau.ac.il/commonsenseqa"
 
-_LICENSE = "Unknown"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     "commonsense": {
