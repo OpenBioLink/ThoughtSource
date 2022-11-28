@@ -14,14 +14,14 @@ def merge(base_collection, head_collection):
                                 "properties": {
                                     "generated_cot": {
                                         "mergeStrategy": "arrayMergeById",
-                                        "mergeOptions": {"idRef": ["date", "cot"]},
+                                        "mergeOptions": {"idRef": "id"},
                                         "type": "array",
                                         "items": {
                                             "type": "object",
                                             "properties": {
                                                 "answers": {
                                                     "mergeStrategy": "arrayMergeById",
-                                                    "mergeOptions": {"idRef": ["date", "answer"]},
+                                                    "mergeOptions": {"idRef": "id"},
                                                     "type": "array",
                                                     "items": {
                                                         "type": "object",
