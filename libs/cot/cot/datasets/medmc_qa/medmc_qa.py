@@ -206,9 +206,9 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
                 key = example["id"]
 
                 generated_cots = []
-                for item in cots[key]:
+                for item_idx, item in enumerate(cots[key]):
                     assert (example["question"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
-                    cot_item = map_example_to_lievin_cot(item, "medmc_qa")
+                    cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "medmc_qa")
                     generated_cots.append(cot_item)
 
                 choices = [example["opa"], example["opb"], example["opc"], example["opd"]]

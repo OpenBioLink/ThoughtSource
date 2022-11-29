@@ -187,9 +187,9 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
             for key, example in data.iterrows():
 
                 generated_cots = []
-                for item in cots[key]:
+                for item_idx, item in enumerate(cots[key]):
                     assert (example["question"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
-                    cot_item = map_example_to_lievin_cot(item, "med_qa")
+                    cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "med_qa")
                     generated_cots.append(cot_item)
 
 

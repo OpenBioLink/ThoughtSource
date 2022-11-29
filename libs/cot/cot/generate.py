@@ -3,6 +3,7 @@ import json
 import os
 import pkgutil
 import time
+import uuid
 
 import datasets as ds
 
@@ -76,13 +77,13 @@ def generate_and_extract(data, config):
 
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
-        if "idx_range" in config and config["idx_range"] is not None:
+        if "idx_range" in config and config["idx_range"] != "all":
             n_samples = config["idx_range"][1] - config["idx_range"][0]
         else:
             n_samples = len(data)
     elif isinstance(data, ds.dataset_dict.DatasetDict):
         features = data["train"].info.features
-        if "idx_range" in config and config["idx_range"] is not None:
+        if "idx_range" in config and config["idx_range"] != "all":
             n_samples = (config["idx_range"][1] - config["idx_range"][0]) * len(data)
         else:
             n_samples = sum([len(data[x]) for x in data])
@@ -178,6 +179,7 @@ def _generate_and_extract(
 
         for cot_trigger_key in cot_trigger_keys:
             generated_cot = {
+                "id": str(uuid.uuid4()),
                 "templates_version": TEMPLATES["version"],
                 "instruction": instruction_key,
                 "cot-trigger": cot_trigger_key,
@@ -232,6 +234,7 @@ def _generate_and_extract(
 
                 else:
                     answer = {
+                        "id": str(uuid.uuid4()),
                         "answer-extraction": answer_extraction_key,
                         "answer_extraction_text": "",
                         "answer": "",

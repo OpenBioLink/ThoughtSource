@@ -245,7 +245,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                             cot_.append(self._untokenize(stmt).capitalize() + ".")
 
                 example_ = {
-                    "id": example["id"],
+                    "id": key,
                     "question_id": example["id"],
                     "document_id": example["id"],
                     "question": example["question"],
