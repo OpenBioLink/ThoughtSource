@@ -36,7 +36,7 @@ jobs:
       with:
         path: venv
         key: ${{ runner.os }}-pip-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('setup.cfg') }}
-    - if: steps.python_cache.outputs.cache-hit != 'true' and runner.os != 'Windows'
+    - if: steps.python_cache.outputs.cache-hit != 'true' && runner.os != 'Windows'
       name: Install dependencies if Ubuntu
       run: |        
         # Create the venv
@@ -45,7 +45,7 @@ jobs:
         venv/bin/python3 -m pip install --upgrade pip
         venv/bin/python3 -m pip install flake8 pytest
         venv/bin/python3 -m pip install -e .
-    - if: steps.python_cache.outputs.cache-hit != 'true' and runner.os == 'Windows'
+    - if: steps.python_cache.outputs.cache-hit != 'true' && runner.os == 'Windows'
       name: Install dependencies if Windows
       run: |        
         # Create the venv
