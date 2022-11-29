@@ -11,4 +11,4 @@ quality_all:
 	flake8 . --max-line-length=140 --ignore=E203,W503
 	
 tests:
-	pytest tests
+	pytest tests/unit_tests -v
