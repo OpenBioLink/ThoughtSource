@@ -52,12 +52,12 @@ jobs:
         venv/bin/python3 -m pip install flake8 pytest
         venv/bin/python3 -m pip install -e .
 
-      - name: Activate venv on Windows
-        if: runner.os == 'Windows'
-        run: .\venv\Scripts\activate
-      - name: condition 2
-        if: runner.os != 'Windows'
-        run: source venv/bin/activate
+    - name: Activate venv on Windows
+      if: runner.os == 'Windows'
+      run: .\venv\Scripts\activate
+    - name: condition 2
+      if: runner.os != 'Windows'
+      run: source venv/bin/activate
     - name: Test with pytest
       run: |
         make tests
