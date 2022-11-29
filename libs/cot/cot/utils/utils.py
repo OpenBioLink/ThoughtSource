@@ -170,10 +170,12 @@ def map_example_to_kojima_cot(question, cots):
                 "templates_version": "0.01",
                 "instruction": None,
                 "cot-trigger": "kojima-01",
+                "prompt_text": "",
                 "answers": [
                     {
                         "id": 0,
                         "answer-extraction": "kojima-A-E",
+                        "answer_extraction_text": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
                     }
@@ -181,6 +183,7 @@ def map_example_to_kojima_cot(question, cots):
                 "cot": cot["cot"],
                 "author": "kojima",
                 "date": None,
+                "api_service": "",
                 "model": "gpt-3",
                 "comment": "",
                 "annotation": [],
@@ -207,10 +210,12 @@ def map_example_to_wei_cot(question, cots):
                 "templates_version": "0.01",
                 "instruction": None,
                 "cot-trigger": None,
+                "prompt_text": "",
                 "answers": [
                     {
                         "id": 0,
                         "answer-extraction": None,
+                        "answer_extraction_text": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
                     }
@@ -218,6 +223,7 @@ def map_example_to_wei_cot(question, cots):
                 "cot": cot["cot"],
                 "author": "wei",
                 "date": None,
+                "api_service": "",
                 "model": "gpt-3",
                 "comment": "",
                 "annotation": [],
@@ -264,10 +270,12 @@ def map_example_to_lievin_cot(id, item, dataset):
         "templates_version": "0.01",
         "instruction": None,
         "cot-trigger": cot_triggers[item["strategy"]],
+        "prompt_text": "",
         "answers": [
             {
                 "id": 0,
                 "answer-extraction": answer_extraction,
+                "answer_extraction_text": "",
                 "answer": item["options"][item["prediction_idx"]],
                 "correct_answer": (item["prediction_symbol"] == "correct"),
             }
@@ -275,6 +283,7 @@ def map_example_to_lievin_cot(id, item, dataset):
         "cot": item["cot"],
         "author": "lievin",
         "date": None,
+        "api_service": "",
         "model": "davinci-002",
         "comment": "",
         "annotation": [],
