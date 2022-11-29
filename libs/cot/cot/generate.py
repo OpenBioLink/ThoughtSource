@@ -77,13 +77,13 @@ def generate_and_extract(data, config):
 
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
-        if "idx_range" in config and config["idx_range"] is not None:
+        if "idx_range" in config and config["idx_range"] != "all":
             n_samples = config["idx_range"][1] - config["idx_range"][0]
         else:
             n_samples = len(data)
     elif isinstance(data, ds.dataset_dict.DatasetDict):
         features = data["train"].info.features
-        if "idx_range" in config and config["idx_range"] is not None:
+        if "idx_range" in config and config["idx_range"] != "all":
             n_samples = (config["idx_range"][1] - config["idx_range"][0]) * len(data)
         else:
             n_samples = sum([len(data[x]) for x in data])
