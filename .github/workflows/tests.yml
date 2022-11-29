@@ -32,4 +32,4 @@ jobs:
         python -m pip install libs/cot
     - name: Test with pytest
       run: |
-        pytest libs/cot/tests
+        pytest libs/cot/tests -v
