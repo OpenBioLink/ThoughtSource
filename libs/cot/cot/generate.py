@@ -4,12 +4,6 @@ import os
 import pkgutil
 import time
 import uuid
-import pydantic
-from langchain.prompts import BasePromptTemplate
-from pydantic import BaseModel
-
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
 
 import datasets as ds
 
@@ -36,18 +30,6 @@ def print_now(return_flag=0):
     else:
         pass
 
-
-# class CoTMultipleChoiceTemplate(BasePromptTemplate, BaseModel):
-#     template: str
-
-#     def format(self, **kwargs) -> str:
-#         capitalized_kwargs = "\n".join(
-#         [f"{chr(65+i)}) {example}" for i, example in enumerate(item["choices"])]
-#         )
-#         # {k: v.upper() for k, v in kwargs.items()}
-#         return self.template.format(**capitalized_kwargs)
-
-
 def generate_and_extract(data, config):
     """
     It takes a dataset and a config and generates cots for each example and extract answers.
@@ -62,26 +44,8 @@ def generate_and_extract(data, config):
             Default: "all" (All used)
         "cot_trigger_keys": list(str) - Determines which cot triggers are used from templates.json,
             Default: None (All are used)
-        "template_output_generation": f-string - is the model input in the text generation step
-            Default: "
-                {instruction = TEMPLATES["instructions"][instruction_key]}
-                {question = item["question"]}
-                {answers = item["choices"]}
-                {prompt = TEMPLATES["cot_triggers"][cot_trigger_key]}
-                "
-
         "answer_extraction_keys": list(str) - Determines which answer extraction prompts are used from templates.json,
             Default: None (All are used)
-        "template_answer_extraction": f-string - is the model input in the answer extraction step
-            Default: "
-                {TEMPLATES["instructions"][instruction_key]}
-                {item["question"]}
-                {answer_choices_letters}
-                {TEMPLATES["cot_triggers"][cot_trigger_key]}
-                {cot}
-                {TEMPLATES["answer_extractions"][answer_extraction_key]}
-                "
-        
         "author" : str - Name of the person responsible for generation, Default: ""
         "api_service" str - Name of the used api service, Default: "huggingface_hub"
         "engine": str -  Name of the engine used, Default: "google/flan-t5-xl"
@@ -201,20 +165,15 @@ def _generate_and_extract(
         [f"{chr(65+i)}) {example}" for i, example in enumerate(item["choices"])]
     )
 
-    prompt = f"""
-        {item["question"]}
-        {answer_choices_letters}
-
-        """
+    prompt = item["question"] + "\n" + answer_choices_letters + "\n\n"
 
     for instruction_key in instruction_keys:
 
         if instruction_key is not None:
-            instruction_prompt = f"""
-                {TEMPLATES["instructions"][instruction_key]}
+            instruction_promt = (
+                TEMPLATES["instructions"][instruction_key] + "\n\n" + prompt
+            )
 
-                {prompt}
-                """
         else:
             instruction_prompt = prompt
 
@@ -240,10 +199,11 @@ def _generate_and_extract(
             }
 
             if cot_trigger_key is not None:
-                generate_cot_prompt = f"""
-                    {instruction_prompt}
-                    {TEMPLATES["cot_triggers"][cot_trigger_key]}
-                """
+                generate_cot_prompt = (
+                    instruction_promt
+                    + TEMPLATES["cot_triggers"][cot_trigger_key]
+                    + "\n"
+                )
             else:
                 generate_cot_prompt = instruction_prompt
 
