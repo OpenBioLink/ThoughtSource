@@ -166,13 +166,13 @@ def _generate_and_extract(
         [f"{chr(65+i)}) {example}" for i, example in enumerate(item["choices"])]
     )
 
-    prompt = item["question"] + "\n" + answer_choices_letters + "\n"
+    prompt = item["question"] + "\n" + answer_choices_letters + "\n\n"
 
     for instruction_key in instruction_keys:
 
         if instruction_key is not None:
             instruction_promt = (
-                TEMPLATES["instructions"][instruction_key] + "\n" + prompt
+                TEMPLATES["instructions"][instruction_key] + "\n\n" + prompt
             )
         else:
             instruction_promt = prompt
