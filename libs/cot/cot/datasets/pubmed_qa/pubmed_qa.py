@@ -166,9 +166,9 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
             for key, example in data.items():
 
                 generated_cots = []
-                for item in cots[int(key)]:
+                for item_idx, item in enumerate(cots[int(key)]):
                     assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['QUESTION']} {item['question']}"
-                    cot_item = map_example_to_lievin_cot(item, "pubmed_qa")
+                    cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "pubmed_qa")
                     generated_cots.append(cot_item)
 
 
