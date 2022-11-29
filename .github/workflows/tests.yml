@@ -38,15 +38,9 @@ jobs:
         key: ${{ runner.os }}-pip-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('setup.cfg') }}
     - if: steps.python_cache.outputs.cache-hit != 'true'
       name: Install dependencies
-      run: |
-        # Check if venv exists (restored from secondary keys if any, and delete)
-        # You might not need this line if you only have one primary key for the venv caching
-        # I kept it in my code as a fail-safe
-        if [ -d "venv" ]; then rm -rf venv; fi
-        
-        # Re-create the venv
+      run: |        
+        # Create the venv
         python3 -m venv venv
-
         # Install dependencies
         venv/bin/python3 -m pip install --upgrade pip
         venv/bin/python3 -m pip install flake8 pytest
@@ -55,7 +49,7 @@ jobs:
     - name: Activate venv on Windows
       if: runner.os == 'Windows'
       run: .\venv\Scripts\activate
-    - name: condition 2
+    - name: Activate venv on Ubuntu
       if: runner.os != 'Windows'
       run: source venv/bin/activate
     - name: Test with pytest
