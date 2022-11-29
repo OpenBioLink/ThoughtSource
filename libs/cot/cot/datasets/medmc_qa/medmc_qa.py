@@ -76,7 +76,7 @@ from the option set.
 
 _HOMEPAGE = "https://medmcqa.github.io/"
 
-_LICENSE = Licenses.APACHE_2p0
+_LICENSE = Licenses.MIT
 
 _URLS = {
     "medmcqa": "https://drive.google.com/uc?export=download&id=15VkJdq5eyWIkfb_aoD3oS8i4tScbHYky",
