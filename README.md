@@ -1,6 +1,8 @@
 # ThoughtSource⚡
 __A framework for the science of machine thinking__
 
+[![Tests](https://github.com/OpenBioLink/ThoughtSource/actions/workflows/tests.yml/badge.svg)](https://github.com/OpenBioLink/ThoughtSource/actions/workflows/tests.yml)
+
 ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
 
 <p align="center">
@@ -34,6 +36,12 @@ ThoughtSource is a central, open resource and community around data and tools re
 
 * __[dataloader](./libs/dataloader/):__ Creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
 * __generate__: Generating reasoning chains with a wide variety of language models (currently OpenAI and models on Hugging Face hub)
+* __[explanatory notebooks](./notebooks/)__: [Overview](./notebooks/0_overview.ipynb), [Datasets](./notebooks/1_dataset.ipynb), [Model](./notebooks/2_generate.ipynb), [Performance](./notebooks/3_evaluate.ipynb)
+
+<p align="center">
+  <img alt="Overview Notebook" src="./resources/images/0_Overview_Notebook.png" width="60%" ">
+</p>
+
 
 ### Applications
 

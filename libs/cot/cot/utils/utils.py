@@ -163,15 +163,19 @@ def map_example_to_kojima_cot(question, cots):
     :param cots: the question
     :return: The populated ThoughtSource CoT item
     """
-    for cot in cots:
+    for id, cot in enumerate(cots):
         if question in cot["question"]:
             generated_cot = {
+                "id": id,
                 "templates_version": "0.01",
                 "instruction": None,
                 "cot_trigger": "kojima-01",
+                "prompt_text": "",
                 "answers": [
                     {
+                        "id": 0,
                         "answer_extraction": "kojima-A-E",
+                        "answer_extraction_text": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
                     }
@@ -179,6 +183,7 @@ def map_example_to_kojima_cot(question, cots):
                 "cot": cot["cot"],
                 "author": "kojima",
                 "date": None,
+                "api_service": "",
                 "model": "gpt-3",
                 "comment": "",
                 "annotation": [],
@@ -198,15 +203,19 @@ def map_example_to_wei_cot(question, cots):
     :param cots: the question
     :return: The populated ThoughtSource CoT item
     """
-    for cot in cots:
+    for id, cot in enumerate(cots):
         if question in cot["question"]:
             generated_cot = {
+                "id": id,
                 "templates_version": "0.01",
                 "instruction": None,
                 "cot_trigger": None,
+                "prompt_text": "",
                 "answers": [
                     {
+                        "id": 0,
                         "answer_extraction": None,
+                        "answer_extraction_text": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
                     }
@@ -214,6 +223,7 @@ def map_example_to_wei_cot(question, cots):
                 "cot": cot["cot"],
                 "author": "wei",
                 "date": None,
+                "api_service": "",
                 "model": "gpt-3",
                 "comment": "",
                 "annotation": [],
@@ -223,7 +233,7 @@ def map_example_to_wei_cot(question, cots):
         return None
 
 
-def map_example_to_lievin_cot(item, dataset):
+def map_example_to_lievin_cot(id, item, dataset):
     """
     Given an CoT item from the collection of Lievin, returns a populated CoT item.
     
@@ -256,12 +266,16 @@ def map_example_to_lievin_cot(item, dataset):
     }
 
     return {
+        "id": id,
         "templates_version": "0.01",
         "instruction": None,
         "cot_trigger": cot_triggers[item["strategy"]],
+        "prompt_text": "",
         "answers": [
             {
+                "id": 0,
                 "answer_extraction": answer_extraction,
+                "answer_extraction_text": "",
                 "answer": item["options"][item["prediction_idx"]],
                 "correct_answer": (item["prediction_symbol"] == "correct"),
             }
@@ -269,6 +283,7 @@ def map_example_to_lievin_cot(item, dataset):
         "cot": item["cot"],
         "author": "lievin",
         "date": None,
+        "api_service": "",
         "model": "davinci-002",
         "comment": "",
         "annotation": [],
