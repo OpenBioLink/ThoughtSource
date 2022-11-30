@@ -169,12 +169,12 @@ def map_example_to_kojima_cot(question, cots):
                 "id": id,
                 "templates_version": "0.01",
                 "instruction": None,
-                "cot-trigger": "kojima-01",
+                "cot_trigger": "kojima-01",
                 "prompt_text": "",
                 "answers": [
                     {
                         "id": 0,
-                        "answer-extraction": "kojima-A-E",
+                        "answer_extraction": "kojima-A-E",
                         "answer_extraction_text": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
@@ -209,12 +209,12 @@ def map_example_to_wei_cot(question, cots):
                 "id": id,
                 "templates_version": "0.01",
                 "instruction": None,
-                "cot-trigger": None,
+                "cot_trigger": None,
                 "prompt_text": "",
                 "answers": [
                     {
                         "id": 0,
-                        "answer-extraction": None,
+                        "answer_extraction": None,
                         "answer_extraction_text": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
@@ -269,12 +269,12 @@ def map_example_to_lievin_cot(id, item, dataset):
         "id": id,
         "templates_version": "0.01",
         "instruction": None,
-        "cot-trigger": cot_triggers[item["strategy"]],
+        "cot_trigger": cot_triggers[item["strategy"]],
         "prompt_text": "",
         "answers": [
             {
                 "id": 0,
-                "answer-extraction": answer_extraction,
+                "answer_extraction": answer_extraction,
                 "answer_extraction_text": "",
                 "answer": item["options"][item["prediction_idx"]],
                 "correct_answer": (item["prediction_symbol"] == "correct"),

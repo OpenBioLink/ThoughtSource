@@ -226,12 +226,12 @@ class Collection:
 
     def select(self, split = "train" , number_samples = None, random_samples = True, seed=0):
         """
-        The function takes in a collection and gives back a split (train,test,validation) of the colletion. It can also give back a part of the split, random or first number of entries.
+        The function takes in a collection and gives back a split (train,test,validation) of the collection. It can also give back a part of the split, random or first number of entries.
         :param collection: the collection (of datasets) to be processed
         :param split: the split (train,test,validation) to be selected. Defaults: "train".
         :param number_samples: how many samples to select from the split. Default: "None" (all samples of the split)
         :param random: if the number_samples are selected randomly or as the first entries of the dataset. Default: "True" (random selection)
-        :param seed: when random selection is used, wheter to use it with seed to make it reproducible. If None no seed. If integer: seed.
+        :param seed: when random selection is used, whether to use it with seed to make it reproducible. If None no seed. If integer: seed.
             Defaut: "0" (same random collection over multiple runs)
         """
         import random
