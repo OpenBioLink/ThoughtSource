@@ -21,7 +21,7 @@ def chdir(path):
 
 def test_load_data_type():
     """Test that the data type is correct."""
-    with chdir("libs/cot/tests/unit_tests/data"):
+    with chdir("tests/unit_tests/data"):
         collection = Collection.from_json("worldtree_100_dataset.json")
         assert isinstance(collection._cache["worldtree"], datasets.dataset_dict.DatasetDict)
 
@@ -35,7 +35,7 @@ def test_load_data_type():
 
 def test_load_data_length():
     """Test that the data length is correct."""
-    with chdir("libs/cot/tests/unit_tests/data"):
+    with chdir("tests/unit_tests/data"):
         collection = Collection.from_json("worldtree_100_dataset.json")
         assert len(collection._cache["worldtree"]["train"]) == 100
 
