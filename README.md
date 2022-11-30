@@ -34,6 +34,12 @@ ThoughtSource is a central, open resource and community around data and tools re
 
 * __[dataloader](./libs/dataloader/):__ Creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
 * __generate__: Generating reasoning chains with a wide variety of language models (currently OpenAI and models on Hugging Face hub)
+* __[explanatory notebooks](./notebooks/)__: [Overview](./notebooks/0_overview.ipynb), [Datasets](./notebooks/1_dataset.ipynb), [Model](./notebooks/2_generate.ipynb), [Performance](./notebooks/3_evaluate.ipynb)
+
+<p align="center">
+  <img alt="Overview Notebook" src="./resources/images/0_Overview_Notebook.png" width="60%" ">
+</p>
+
 
 ### Applications
 

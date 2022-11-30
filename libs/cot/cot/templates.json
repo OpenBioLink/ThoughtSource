@@ -6,7 +6,7 @@
         "qa-03": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\".",
         "qa-04": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. Generate sub-questions that are required to answer the original question, answer them until you can answer the original question. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\"."
     },
-    "cot-triggers": {
+    "cot_triggers": {
         "kojima-01": "Answer: Let's think step by step.",
         "kojima-02": "Answer: We should think about this step by step.",
         "kojima-03": "Answer: First,",
@@ -50,7 +50,7 @@
         "lievin-27": "Answer: Let's reflect on each option from the least likely to the most likely.",
         "lievin-28": "Answer: Let's use step by step Bayesian reasoning, given the medical nature of the question."
     },
-    "answer-extractions":{
+    "answer_extractions":{
         "kojima-01": "Therefore, the answer is",
         "kojima-02": "Therefore,",
         "kojima-03": "The answer is",

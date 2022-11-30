@@ -12,6 +12,7 @@ import pandas as pd
 
 from .evaluate import evaluate
 from .generate import generate_and_extract
+from .merge import merge
 
 
 @contextmanager
@@ -42,6 +43,8 @@ class Collection:
         self.download_mode = download_mode
         if not verbose:
             ds.disable_progress_bar()
+        else:
+            ds.enable_progress_bar()
         self._cache = {}
         if names == "all":
             self.load_datasets()
@@ -144,67 +147,57 @@ class Collection:
     def clear(self):
         self.unload_datasets()
 
-    def dump(self, path_to_file_or_directory="./dump", single_file=True):
-        if single_file:
-            d_dict = defaultdict(dict)
-            for name, dataset_dict in self._cache.items():
-                for split, data in dataset_dict.items():
-                    data_stream = io.BytesIO()
-                    data.to_json(data_stream)
-                    data_stream.seek(0)
-                    d_dict[name][split] = [json.loads(x.decode()) for x in data_stream.readlines()]
+    def dump(self, path_to_file_or_directory="./dump.json"):
+        if not path_to_file_or_directory.endswith(".json"):
+            path_to_file_or_directory = path_to_file_or_directory + ".json"
+        with open(path_to_file_or_directory, "w") as outfile:
+            # use json library to prettify output
+            json.dump(self.to_json(), outfile, indent=4)
 
-            if not path_to_file_or_directory.endswith(".json"):
-                path_to_file_or_directory = path_to_file_or_directory + ".json"
+    def to_json(self):
+        d_dict = defaultdict(dict)
+        for name in self._cache:
+            for split in self._cache[name]:
+                d_dict[name][split] = self._dataset_to_json(self._cache[name][split])
+        return d_dict
 
-            with open(path_to_file_or_directory, "w") as outfile:
-                # use json library to prettify output
-                json.dump(d_dict, outfile, indent=4)
-        else:
-            for name, dataset_dict in self._cache.items():
-                for split, data in dataset_dict.items():
-                    data.to_json(pathlib.Path(path_to_file_or_directory) / name / f"{split}.json")
 
-    def _replace(batch, data):
-        return data
+    def _dataset_to_json(self, data):
+        data_stream = io.BytesIO()
+        data.to_json(data_stream)
+        data_stream.seek(0)
+        return [json.loads(x.decode()) for x in data_stream.readlines()]
 
-    # pretty dirty loading function which presevers metadata (load and replace data :/ )
-    # metadata needed?
     @staticmethod
-    def from_json(path_to_json, single_file=True, download_mode="reuse_dataset_if_exists"):
-        if single_file:
-            with open(path_to_json, "r") as infile:
+    def from_json(path_or_json, download_mode="reuse_dataset_if_exists"):
+
+        if isinstance(path_or_json, str):
+            with open(path_or_json, "r") as infile:
                 content = json.load(infile)
+        elif isinstance(path_or_json, dict):
+            content = path_or_json
 
-            scripts = {x[0]: x[1] for x in Collection._find_datasets(names=list(content.keys()))}
+        scripts = {x[0]: x[1] for x in Collection._find_datasets(names=list(content.keys()))}
 
-            collection = Collection()
-            for dataset_name in content.keys():
-                info = ds.load_dataset_builder(str(scripts[dataset_name]), download_mode=download_mode).info
-                dataset_dict = dict()
-                for split_name in content[dataset_name].keys():
+        collection = Collection()
+        for dataset_name in content.keys():
+            info = ds.load_dataset_builder(str(scripts[dataset_name]), download_mode=download_mode).info
+            dataset_dict = dict()
+            for split_name in content[dataset_name].keys():
 
-                    split = None
-                    if split_name == "train":
-                        split = ds.Split.TRAIN
-                    elif split_name == "validation":
-                        split = ds.Split.VALIDATION
-                    elif split_name == "test":
-                        split = ds.Split.TEST
+                split = None
+                if split_name == "train":
+                    split = ds.Split.TRAIN
+                elif split_name == "validation":
+                    split = ds.Split.VALIDATION
+                elif split_name == "test":
+                    split = ds.Split.TEST
 
-                    dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict("series")
-                    dic = {k: list(v) for (k, v) in dic.items()}
-                    dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
-                collection[dataset_name] = ds.DatasetDict(dataset_dict)
-            return collection
-        else:
-            # TODO add ability to load directory dump (single_file=False)??
-            raise NotImplementedError
-
-    # Deprecated
-    def save_to_disk(self, path_to_directory="datasets"):
-        for name, dataset_dict in self._cache.items():
-            dataset_dict.save_to_disk(f"{path_to_directory}/{name}")
+                dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict("series")
+                dic = {k: list(v) for (k, v) in dic.items()}
+                dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
+            collection[dataset_name] = ds.DatasetDict(dataset_dict)
+        return collection
 
     def generate(self, name=None, split=None, config={}):
         if name is None:
@@ -228,19 +221,17 @@ class Collection:
             else:
                 self[name][split] = evaluate(self[name][split])
 
-    # Deprecated
-    def load_from_disk(self, path_to_directory="datasets"):
-        for name in next(os.walk(path_to_directory))[1]:
-            self._cache[name] = ds.load_from_disk(os.path.join(path_to_directory, name))
+    def merge(self, collection_other):
+        return merge(self, collection_other)
 
     def select(self, split = "train" , number_samples = None, random_samples = True, seed=0):
         """
-        The function takes in a collection and gives back a split (train,test,validation) of the colletion. It can also give back a part of the split, random or first number of entries.
+        The function takes in a collection and gives back a split (train,test,validation) of the collection. It can also give back a part of the split, random or first number of entries.
         :param collection: the collection (of datasets) to be processed
         :param split: the split (train,test,validation) to be selected. Defaults: "train".
         :param number_samples: how many samples to select from the split. Default: "None" (all samples of the split)
         :param random: if the number_samples are selected randomly or as the first entries of the dataset. Default: "True" (random selection)
-        :param seed: when random selection is used, wheter to use it with seed to make it reproducible. If None no seed. If integer: seed.
+        :param seed: when random selection is used, whether to use it with seed to make it reproducible. If None no seed. If integer: seed.
             Defaut: "0" (same random collection over multiple runs)
         """
         import random

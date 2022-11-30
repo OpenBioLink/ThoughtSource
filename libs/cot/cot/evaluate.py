@@ -68,7 +68,7 @@ def evaluate(dataset, config=None):
     for example in dataset:
         for cot in example["generated_cot"]:
             for answer in cot["answers"]:
-                key = f"{cot['instruction']}_{cot['cot-trigger']}_{answer['answer-extraction']}"
+                key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
                 keys.add(key)
                 if answer["correct_answer"]:
                     predictions[key] += 1
