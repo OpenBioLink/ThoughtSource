@@ -1,8 +1,6 @@
 # ThoughtSource⚡
 __A framework for the science of machine thinking__
 
-[![Tests](https://github.com/OpenBioLink/ThoughtSource/actions/workflows/tests.yml/badge.svg)](https://github.com/OpenBioLink/ThoughtSource/actions/workflows/tests.yml)
-
 ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
 
 <p align="center">
