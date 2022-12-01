@@ -251,8 +251,11 @@ class Collection:
                 # random sample
                 if random_samples:
                     # set seed for reproducibility
-                    if isinstance(seed, int):
+                    if type(seed) is int:
                         random.seed(seed)
+                    elif seed is True:
+                        # setting the same seed as the default
+                        random.seed(0)
                     random_ids = random.sample(range(samples_count), number_samples)
                     # random sample from subset
                     subset = subset.select(random_ids)
