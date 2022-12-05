@@ -261,8 +261,8 @@ def plot_dataset_overlap(collection, N=3):
     fig.show()
 
 
-def plot_token_length_distribution(collection):
+def plot_token_length_distribution(collection, splits=False):
     token_len = _generate_token_length_data(collection)
     for key in ["context", "question", "cot"]:
-        fig = px.box(token_len, x=key, y="dataset", color="split")
+        fig = px.box(token_len, x=key, y="dataset", color="split" if splits else None)
         fig.show()
