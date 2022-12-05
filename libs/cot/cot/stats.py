@@ -204,20 +204,22 @@ def display_stats_tables(collection):
             )
             for name, data_dict in collection
         ]
-    table = pd.DataFrame.from_records(data, columns=["Name", "Train", "Valid", "Test"])
-    _print_table(table)
+    table_num_examples = pd.DataFrame.from_records(data, columns=["Name", "Train", "Valid", "Test"])
+    _print_table(table_num_examples)
 
     data = []
     for key, counter in counters["na"].items():
         data.append([key] + [counter[ckey] for ckey in ["question", "choices", "cot", "answer"]])
-    table = pd.DataFrame.from_records(data, columns=["dataset", "question", "choices", "cot", "answer"])
-    _print_table(table)
+    table_nan = pd.DataFrame.from_records(data, columns=["dataset", "question", "choices", "cot", "answer"])
+    _print_table(table_nan)
 
     data = []
     for key, count in counters["types"].items():
         data.append([key, count, counters["types_datasets"][key]])
-    table = pd.DataFrame.from_records(data, columns=["type", "number samples", "datasets"])
-    _print_table(table)
+    table_types = pd.DataFrame.from_records(data, columns=["type", "number samples", "datasets"])
+    _print_table(table_types)
+
+    return (table_num_examples, table_nan, table_types)
 
 
 def plot_dataset_overlap(collection, N=3):
@@ -259,10 +261,37 @@ def plot_dataset_overlap(collection, N=3):
         height=700,
     )
     fig.show()
+    return fig
 
 
 def plot_token_length_distribution(collection, splits=False):
     token_len = _generate_token_length_data(collection)
+    
+    table = token_len[["dataset", "context", "question", "cot"]].groupby("dataset").agg(["max", "mean"])
+    table.columns = table.columns.map('_'.join).reset_index()
+    _print_table(table)
+
     for key in ["context", "question", "cot"]:
         fig = px.box(token_len, x=key, y="dataset", color="split" if splits else None)
         fig.show()
+    return (table, fig)
+
+def get_n_outlier(dataset, field="cot", n=5):
+    outlier = []
+    for example in dataset:
+        if field == "cot":
+            txt = " ".join(example["cot"]).lower()
+        else:
+            txt = example[field].lower()
+
+        sents = split_sentences(txt)
+        toks = [tok for sent in sents for tok in sent]
+        # outlier.append((toks, len(toks), example["id"]))
+        outlier.append((example, len(toks)))
+    outlier = sorted(outlier, key=lambda x: x[1], reverse=True)
+    return (outlier[:n], outlier[-n:])
+
+
+
+
+
