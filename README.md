@@ -32,8 +32,10 @@ ThoughtSource is a central, open resource and community around data and tools re
 ## Code
 ### Libraries
 
-* __[dataloader](./libs/dataloader/):__ Creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
-* __generate__: Generating reasoning chains with a wide variety of language models (currently OpenAI and models on Hugging Face hub)
+* __[cot](./libs/cot/):__ 
+  *  __dataloader__: Creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
+  * __generate__: Generating reasoning chains with a wide variety of language models (currently OpenAI and models on Hugging Face hub)
+  * __evaluate__: Evaluate the performance of predictions extracted using generated reasoning chains
 * __[explanatory notebooks](./notebooks/)__: [Overview](./notebooks/0_overview.ipynb), [Datasets](./notebooks/1_dataset.ipynb), [Model](./notebooks/2_generate.ipynb), [Performance](./notebooks/3_evaluate.ipynb)
 
 <p align="center">
@@ -44,7 +46,7 @@ ThoughtSource is a central, open resource and community around data and tools re
 ### Applications
 
 * __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
-* __annotator:__ Web-based tool for annotating chain-of-thought data (soon to be released)
+* __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data (soon to be released)
 
 <p align="center">
   <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
