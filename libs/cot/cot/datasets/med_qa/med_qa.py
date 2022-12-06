@@ -194,8 +194,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": key,
-                    "question_id": key,
-                    "document_id": key,
+                    "ref_id": "",
                     "question": example["question"],
                     "type": "multiplechoice",
                     "cot_type": "list",

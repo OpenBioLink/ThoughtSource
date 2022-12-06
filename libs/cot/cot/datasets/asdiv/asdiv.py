@@ -201,8 +201,7 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": example.attrib["ID"],
-                    "question_id": example.attrib["ID"],
-                    "document_id": example.attrib["ID"],
+                    "ref_id": "",
                     "question": " ".join([example.find("Body").text, example.find("Question").text]),
                     "type": "number",
                     "cot_type": "list",

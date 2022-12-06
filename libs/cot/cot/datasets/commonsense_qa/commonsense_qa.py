@@ -220,8 +220,7 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                 choices = {x["label"]: x["text"] for x in example["question"]["choices"]}
                 example_ = {
                     "id": example["id"],
-                    "question_id": example["id"],
-                    "document_id": example["id"],
+                    "ref_id": "",
                     "question": example["question"]["stem"],
                     "type": "multiplechoice",
                     "cot_type": "list",

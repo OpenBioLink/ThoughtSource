@@ -222,8 +222,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
 
                     example_ = {
                         "id": example["qid"],
-                        "question_id": example["qid"],
-                        "document_id": example["qid"],
+                        "ref_id": "",
                         "question": example["question"],
                         "type": "bool",
                         "cot_type": "set",
@@ -258,8 +257,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                 for key, example in enumerate(data):
                     example_ = {
                         "id": example["qid"],
-                        "question_id": example["qid"],
-                        "document_id": example["qid"],
+                        "ref_id": "",
                         "question": example["question"],
                         "type": "bool",
                         "cot_type": None,

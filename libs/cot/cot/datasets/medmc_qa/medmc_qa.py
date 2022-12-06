@@ -214,8 +214,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
                 answer = choices[example["cop"]-1] if example["cop"] is not None else ""
                 example_ = {
                     "id": key,
-                    "question_id": key,
-                    "document_id": key,
+                    "ref_id": "",
                     "question": example["question"],
                     "type": "multiplechoice",
                     "cot_type": "list",

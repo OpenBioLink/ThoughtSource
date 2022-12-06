@@ -206,8 +206,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": key,
-                    "question_id": key,
-                    "document_id": key,
+                    "ref_id": "",
                     "question": example["Question"],
                     "type": "number",
                     "cot_type": "list",

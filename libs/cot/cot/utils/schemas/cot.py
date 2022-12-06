@@ -6,8 +6,7 @@ import datasets
 features = datasets.Features(
     {
         "id": datasets.Value("string"),
-        "question_id": datasets.Value("string"),
-        "document_id": datasets.Value("string"),
+        "ref_id": datasets.Value("string"),
         "question": datasets.Value("string"),
         "type": datasets.Value("string"),
         "cot_type": datasets.Value("string"),

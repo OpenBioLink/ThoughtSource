@@ -221,8 +221,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
 
         example_ = {
             "id": example["question_id"],
-            "question_id": example["question_id"],
-            "document_id": example["question_id"],
+            "ref_id": "",
             "question": example["question"],
             "type": "multiplechoice",
             "cot_type": "list",
