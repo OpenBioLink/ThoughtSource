@@ -3,8 +3,7 @@
         "train": [
             {
                 "id": "1577",
-                "question_id": "1577",
-                "document_id": "1577",
+                "ref_id": "",
                 "question": "A parent and a child share several characteristics. Both individuals are tall, have curly hair, are good cooks, and have freckles. Which of these characteristics is a learned behavior?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -28,8 +27,7 @@
             },
             {
                 "id": "1722",
-                "question_id": "1722",
-                "document_id": "1722",
+                "ref_id": "",
                 "question": "Sharpening a pencil and tearing paper are examples of physical changes. Which statement describes why these are physical changes?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -61,8 +59,7 @@
             },
             {
                 "id": "165",
-                "question_id": "165",
-                "document_id": "165",
+                "ref_id": "",
                 "question": "Scientists launch a rocket into space for a mission. Once the rocket escapes the gravitational pull of Earth, how will the mass and weight of the rocket be affected?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -92,8 +89,7 @@
             },
             {
                 "id": "1060",
-                "question_id": "1060",
-                "document_id": "1060",
+                "ref_id": "",
                 "question": "Animals may fight, make threatening sounds, and act aggressively toward members of the same species. These behaviors usually occur as the result of",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -118,8 +114,7 @@
             },
             {
                 "id": "2094",
-                "question_id": "2094",
-                "document_id": "2094",
+                "ref_id": "",
                 "question": "Which of these dissolve in water?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -142,8 +137,7 @@
             },
             {
                 "id": "1990",
-                "question_id": "1990",
-                "document_id": "1990",
+                "ref_id": "",
                 "question": "Anthony and Zach want to know how the temperature of the air affects the temperature of lake water. Which type of tool should they use to measure the temperatures?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -168,8 +162,7 @@
             },
             {
                 "id": "1658",
-                "question_id": "1658",
-                "document_id": "1658",
+                "ref_id": "",
                 "question": "Steven went to a farm and picked a bright red tomato from a broken branch on the plant. The tomato had a rotten spot with a worm inside of it. Instead of eating the tomato, Steven decided to plant the seeds and grow new tomato plants. Which characteristic of the tomato plant is inherited and could change over several generations?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -195,8 +188,7 @@
             },
             {
                 "id": "1242",
-                "question_id": "1242",
-                "document_id": "1242",
+                "ref_id": "",
                 "question": "Which is a characteristic of a sperm cell but not of an egg cell?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -221,8 +213,7 @@
             },
             {
                 "id": "1952",
-                "question_id": "1952",
-                "document_id": "1952",
+                "ref_id": "",
                 "question": "A student stands on a scale, and the scale reads 85 pounds. What is being measured by the scale?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -249,8 +240,7 @@
             },
             {
                 "id": "1466",
-                "question_id": "1466",
-                "document_id": "1466",
+                "ref_id": "",
                 "question": "A decomposer is an organism that",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -274,16 +264,15 @@
             },
             {
                 "id": "894",
-                "question_id": "894",
-                "document_id": "894",
+                "ref_id": "",
                 "question": "Which of the water samples described below has the greatest average kinetic energy per molecule?",
                 "type": "multiplechoice",
                 "cot_type": "list",
                 "choices": [
-                    "1 liter of ice at a temperature of -50\u00b0C",
-                    "10 liters of ice at a temperature of -75\u00b0C",
-                    "1 liter of water at a temperature of 75\u00b0C",
-                    "10 liters of water at a temperature of 50\u00b0C"
+                    "1 liter of ice at a temperature of -50\u00c2\u00b0C",
+                    "10 liters of ice at a temperature of -75\u00c2\u00b0C",
+                    "1 liter of water at a temperature of 75\u00c2\u00b0C",
+                    "10 liters of water at a temperature of 50\u00c2\u00b0C"
                 ],
                 "context": "",
                 "cot": [
@@ -297,15 +286,14 @@
                     "Increase means more."
                 ],
                 "answer": [
-                    "1 liter of water at a temperature of 75\u00b0C"
+                    "1 liter of water at a temperature of 75\u00c2\u00b0C"
                 ],
                 "generated_cot": [],
                 "feedback": []
             },
             {
                 "id": "2067",
-                "question_id": "2067",
-                "document_id": "2067",
+                "ref_id": "",
                 "question": "Which object is the best conductor of electricity?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -338,8 +326,7 @@
             },
             {
                 "id": "570",
-                "question_id": "570",
-                "document_id": "570",
+                "ref_id": "",
                 "question": "Why do mountain climbers at high elevations use oxygen tanks to help them breathe?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -368,8 +355,7 @@
             },
             {
                 "id": "1154",
-                "question_id": "1154",
-                "document_id": "1154",
+                "ref_id": "",
                 "question": "One way animals usually respond to a sudden drop in temperature is by",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -399,8 +385,7 @@
             },
             {
                 "id": "572",
-                "question_id": "572",
-                "document_id": "572",
+                "ref_id": "",
                 "question": "Which provides the oldest evidence for oxygen accumulation in Earth's atmosphere?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -422,8 +407,7 @@
             },
             {
                 "id": "388",
-                "question_id": "388",
-                "document_id": "388",
+                "ref_id": "",
                 "question": "What is the main source of raw material for the production of plastics?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -445,8 +429,7 @@
             },
             {
                 "id": "1026",
-                "question_id": "1026",
-                "document_id": "1026",
+                "ref_id": "",
                 "question": "Organisms can be separated by their most basic characteristics into the broadest groups known as",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -473,8 +456,7 @@
             },
             {
                 "id": "2181",
-                "question_id": "2181",
-                "document_id": "2181",
+                "ref_id": "",
                 "question": "To safely conduct an experiment using chemicals, what should students always do?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -503,8 +485,7 @@
             },
             {
                 "id": "601",
-                "question_id": "601",
-                "document_id": "601",
+                "ref_id": "",
                 "question": "Rain forests contain more species of trees than any other biome. However, scientists have found that the soil of the forest floor is relatively nutrient poor. What could most likely account for this?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -535,8 +516,7 @@
             },
             {
                 "id": "1270",
-                "question_id": "1270",
-                "document_id": "1270",
+                "ref_id": "",
                 "question": "Which is the most basic unit of living things?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -559,8 +539,7 @@
             },
             {
                 "id": "404",
-                "question_id": "404",
-                "document_id": "404",
+                "ref_id": "",
                 "question": "Which renewable energy resource possesses the greatest potential for providing renewable energy to meet the future needs of the southern United States?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -588,8 +567,7 @@
             },
             {
                 "id": "302",
-                "question_id": "302",
-                "document_id": "302",
+                "ref_id": "",
                 "question": "Granite is an igneous rock. Which of these describes what usually happens to granite after it is weathered, broken into small particles, buried deep underground, and compacted?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -618,8 +596,7 @@
             },
             {
                 "id": "1352",
-                "question_id": "1352",
-                "document_id": "1352",
+                "ref_id": "",
                 "question": "Which part of a pine tree makes food?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -647,8 +624,7 @@
             },
             {
                 "id": "1933",
-                "question_id": "1933",
-                "document_id": "1933",
+                "ref_id": "",
                 "question": "The metal lid on a glass jar is hard to open, so it is held under warm, running water. What causes the jar to open easily after it was held under the water?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -681,8 +657,7 @@
             },
             {
                 "id": "412",
-                "question_id": "412",
-                "document_id": "412",
+                "ref_id": "",
                 "question": "Which energy resource is renewable?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -705,8 +680,7 @@
             },
             {
                 "id": "1449",
-                "question_id": "1449",
-                "document_id": "1449",
+                "ref_id": "",
                 "question": "What is a large buildup of moving ice and snow called?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -729,8 +703,7 @@
             },
             {
                 "id": "1778",
-                "question_id": "1778",
-                "document_id": "1778",
+                "ref_id": "",
                 "question": "Why can a small fire be put out by placing a heavy blanket over it?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -757,8 +730,7 @@
             },
             {
                 "id": "1295",
-                "question_id": "1295",
-                "document_id": "1295",
+                "ref_id": "",
                 "question": "The smallest unit of a plant that can perform all of the processes of life is the",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -781,8 +753,7 @@
             },
             {
                 "id": "837",
-                "question_id": "837",
-                "document_id": "837",
+                "ref_id": "",
                 "question": "A student heated a pan of soup on a stove. While stirring the soup with a metal spoon, the student noticed the spoon became very warm. What is the most likely reason the spoon became warm?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -824,8 +795,7 @@
             },
             {
                 "id": "1953",
-                "question_id": "1953",
-                "document_id": "1953",
+                "ref_id": "",
                 "question": "A student has a liquid that does not mix with water. To predict whether the liquid will float on water or sink beneath it, which tools should be used to examine the liquid?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -853,8 +823,7 @@
             },
             {
                 "id": "1813",
-                "question_id": "1813",
-                "document_id": "1813",
+                "ref_id": "",
                 "question": "Two chemicals are mixed together in a beaker that is sitting in an ice water bath. The ice in the water melts as the chemicals react for one minute. What type of reaction is taking place?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -885,8 +854,7 @@
             },
             {
                 "id": "2135",
-                "question_id": "2135",
-                "document_id": "2135",
+                "ref_id": "",
                 "question": "Which activity has the invention of the light bulb helped the most?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -913,8 +881,7 @@
             },
             {
                 "id": "1066",
-                "question_id": "1066",
-                "document_id": "1066",
+                "ref_id": "",
                 "question": "Which behavior is an example of an animal adapting to a change in the environment?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -949,8 +916,7 @@
             },
             {
                 "id": "255",
-                "question_id": "255",
-                "document_id": "255",
+                "ref_id": "",
                 "question": "A researcher found shark fossils on top of a mountain. This evidence suggests which of the following about this region?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -982,8 +948,7 @@
             },
             {
                 "id": "57",
-                "question_id": "57",
-                "document_id": "57",
+                "ref_id": "",
                 "question": "The length of a year is equivalent to the time it takes for one",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1006,8 +971,7 @@
             },
             {
                 "id": "382",
-                "question_id": "382",
-                "document_id": "382",
+                "ref_id": "",
                 "question": "Students are learning about the natural resources in Maryland. One group of students researches information about renewable natural resources in the state. The other group researches information about nonrenewable natural resources in the state. The resources the students investigate include plants, animals, soil, minerals, water, coal, and oil. Which nonrenewable natural resource heats homes?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1031,8 +995,7 @@
             },
             {
                 "id": "1633",
-                "question_id": "1633",
-                "document_id": "1633",
+                "ref_id": "",
                 "question": "Which has the greatest effect on the color of a young eagle's eyes?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1060,8 +1023,7 @@
             },
             {
                 "id": "4",
-                "question_id": "4",
-                "document_id": "4",
+                "ref_id": "",
                 "question": "Which event occurs on a daily cycle?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1090,8 +1052,7 @@
             },
             {
                 "id": "2021",
-                "question_id": "2021",
-                "document_id": "2021",
+                "ref_id": "",
                 "question": "Which substance is a compound?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1118,8 +1079,7 @@
             },
             {
                 "id": "1364",
-                "question_id": "1364",
-                "document_id": "1364",
+                "ref_id": "",
                 "question": "What happens during photosynthesis?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1145,8 +1105,7 @@
             },
             {
                 "id": "999",
-                "question_id": "999",
-                "document_id": "999",
+                "ref_id": "",
                 "question": "Many common hand tools create a mechanical advantage by using the basic principles found in simple machines. For example, a screwdriver uses the principles of the wheel and axle. In order to increase gripping force, pliers use the principle demonstrated in the",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1172,8 +1131,7 @@
             },
             {
                 "id": "1332",
-                "question_id": "1332",
-                "document_id": "1332",
+                "ref_id": "",
                 "question": "When two nuclei are combined into one nucleus, there is a slight change in mass and the release of a large amount of energy. What is this process called?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1201,8 +1159,7 @@
             },
             {
                 "id": "257",
-                "question_id": "257",
-                "document_id": "257",
+                "ref_id": "",
                 "question": "A road cut shows a layer of shale on top of a layer of limestone. This indicates",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1227,8 +1184,7 @@
             },
             {
                 "id": "782",
-                "question_id": "782",
-                "document_id": "782",
+                "ref_id": "",
                 "question": "A hurricane is a heat engine which converts one kind of energy into another. Hurricanes convert most of the heat energy into",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1251,8 +1207,7 @@
             },
             {
                 "id": "908",
-                "question_id": "908",
-                "document_id": "908",
+                "ref_id": "",
                 "question": "When a book is dropped onto a wooden desk, the molecules in the wood begin to vibrate from the force of the book. Which of these is produced by the vibrations?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1286,8 +1241,7 @@
             },
             {
                 "id": "977",
-                "question_id": "977",
-                "document_id": "977",
+                "ref_id": "",
                 "question": "Which force causes rocks to roll downhill?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1311,8 +1265,7 @@
             },
             {
                 "id": "583",
-                "question_id": "583",
-                "document_id": "583",
+                "ref_id": "",
                 "question": "Near Earth's equator, water generally exists naturally in the liquid and gas states. In which other part of Earth is water usually found naturally in only two states?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1340,8 +1293,7 @@
             },
             {
                 "id": "1834",
-                "question_id": "1834",
-                "document_id": "1834",
+                "ref_id": "",
                 "question": "Which of these is an element?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1364,8 +1316,7 @@
             },
             {
                 "id": "373",
-                "question_id": "373",
-                "document_id": "373",
+                "ref_id": "",
                 "question": "How has burning fossil fuels most caused a decline to the quality of air that people breathe?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1394,8 +1345,7 @@
             },
             {
                 "id": "329",
-                "question_id": "329",
-                "document_id": "329",
+                "ref_id": "",
                 "question": "When buried sediments are subjected to pressure, the mineral grains are squeezed together. What is the result of this action?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1424,8 +1374,7 @@
             },
             {
                 "id": "1310",
-                "question_id": "1310",
-                "document_id": "1310",
+                "ref_id": "",
                 "question": "What is the result of cellular respiration?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1451,8 +1400,7 @@
             },
             {
                 "id": "2080",
-                "question_id": "2080",
-                "document_id": "2080",
+                "ref_id": "",
                 "question": "Which of these BEST describes the way a feather feels?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1477,8 +1425,7 @@
             },
             {
                 "id": "2004",
-                "question_id": "2004",
-                "document_id": "2004",
+                "ref_id": "",
                 "question": "Stacey picks apples and puts them in a basket. When she puts her basket on a scale, the scale reads two kilograms (kg). What property is Stacey measuring?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1502,8 +1449,7 @@
             },
             {
                 "id": "446",
-                "question_id": "446",
-                "document_id": "446",
+                "ref_id": "",
                 "question": "A water company uses lab tests on the water supply before sending the water through pipes to people's homes. How do these lab tests help people?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1531,8 +1477,7 @@
             },
             {
                 "id": "1234",
-                "question_id": "1234",
-                "document_id": "1234",
+                "ref_id": "",
                 "question": "Which is a major organ of the nervous system?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1555,8 +1500,7 @@
             },
             {
                 "id": "1192",
-                "question_id": "1192",
-                "document_id": "1192",
+                "ref_id": "",
                 "question": "In the human body, the breaking down of food into simple substances occurs in the",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1578,8 +1522,7 @@
             },
             {
                 "id": "511",
-                "question_id": "511",
-                "document_id": "511",
+                "ref_id": "",
                 "question": "Lori owns a house next to the lake. She uses lots of fertilizer to keep her lawn green. Which impact could fertilizing her lawn have on the lake?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1605,8 +1548,7 @@
             },
             {
                 "id": "1362",
-                "question_id": "1362",
-                "document_id": "1362",
+                "ref_id": "",
                 "question": "In addition to oxygen, what do plants produce during photosynthesis?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1633,8 +1575,7 @@
             },
             {
                 "id": "832",
-                "question_id": "832",
-                "document_id": "832",
+                "ref_id": "",
                 "question": "Which event is the best example of mechanical energy?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1660,8 +1601,7 @@
             },
             {
                 "id": "1178",
-                "question_id": "1178",
-                "document_id": "1178",
+                "ref_id": "",
                 "question": "Which statement about photosynthesis and respiration is true?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1684,8 +1624,7 @@
             },
             {
                 "id": "1822",
-                "question_id": "1822",
-                "document_id": "1822",
+                "ref_id": "",
                 "question": "Because sulfur cannot be decomposed by simple chemical methods into two or more different substances, it is classified as",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1709,8 +1648,7 @@
             },
             {
                 "id": "375",
-                "question_id": "375",
-                "document_id": "375",
+                "ref_id": "",
                 "question": "The burning of fossil fuels has added pollutants that contain sulfur atoms to the air. These pollutants have contributed to which of the following?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1736,8 +1674,7 @@
             },
             {
                 "id": "1576",
-                "question_id": "1576",
-                "document_id": "1576",
+                "ref_id": "",
                 "question": "An example of a learned behavior is",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1762,8 +1699,7 @@
             },
             {
                 "id": "1298",
-                "question_id": "1298",
-                "document_id": "1298",
+                "ref_id": "",
                 "question": "Which food items can be broken down mostly into amino acids?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1788,8 +1724,7 @@
             },
             {
                 "id": "991",
-                "question_id": "991",
-                "document_id": "991",
+                "ref_id": "",
                 "question": "In order for a glider to fly, its weight must be opposed by",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1813,8 +1748,7 @@
             },
             {
                 "id": "1189",
-                "question_id": "1189",
-                "document_id": "1189",
+                "ref_id": "",
                 "question": "Which statement correctly describes a relationship between two human body systems?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1840,8 +1774,7 @@
             },
             {
                 "id": "753",
-                "question_id": "753",
-                "document_id": "753",
+                "ref_id": "",
                 "question": "The human body produces motion by changing chemical energy into mechanical energy. Which of these best describes what happens to the energy?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1866,8 +1799,7 @@
             },
             {
                 "id": "775",
-                "question_id": "775",
-                "document_id": "775",
+                "ref_id": "",
                 "question": "The primary function of a doorbell circuit is to convert electrical energy into",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1895,8 +1827,7 @@
             },
             {
                 "id": "764",
-                "question_id": "764",
-                "document_id": "764",
+                "ref_id": "",
                 "question": "Which item is designed to change electrical energy into heat energy?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1927,8 +1858,7 @@
             },
             {
                 "id": "135",
-                "question_id": "135",
-                "document_id": "135",
+                "ref_id": "",
                 "question": "In the solar system, moons orbit planets. Which of these do planets orbit?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1950,8 +1880,7 @@
             },
             {
                 "id": "1065",
-                "question_id": "1065",
-                "document_id": "1065",
+                "ref_id": "",
                 "question": "Some birds fly south before winter each year. This is an example of",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -1981,8 +1910,7 @@
             },
             {
                 "id": "1951",
-                "question_id": "1951",
-                "document_id": "1951",
+                "ref_id": "",
                 "question": "Which tool is used to determine the mass of an object?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2007,8 +1935,7 @@
             },
             {
                 "id": "282",
-                "question_id": "282",
-                "document_id": "282",
+                "ref_id": "",
                 "question": "Quartz and feldspar are two common minerals. When they are found mixed together in nature they form",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2030,8 +1957,7 @@
             },
             {
                 "id": "367",
-                "question_id": "367",
-                "document_id": "367",
+                "ref_id": "",
                 "question": "Which process directly adds carbon into the atmosphere?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2057,8 +1983,7 @@
             },
             {
                 "id": "533",
-                "question_id": "533",
-                "document_id": "533",
+                "ref_id": "",
                 "question": "The core of Earth is divided into two layers. The outer core is made of",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2080,8 +2005,7 @@
             },
             {
                 "id": "612",
-                "question_id": "612",
-                "document_id": "612",
+                "ref_id": "",
                 "question": "An air mass in a valley travels up a mountainside. What causes the movement of this air?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2114,8 +2038,7 @@
             },
             {
                 "id": "158",
-                "question_id": "158",
-                "document_id": "158",
+                "ref_id": "",
                 "question": "The Sun is a medium-sized star and is expected to continue to perform nuclear fusion for five billion years. What is most likely to be the final stage of the Sun?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2139,8 +2062,7 @@
             },
             {
                 "id": "328",
-                "question_id": "328",
-                "document_id": "328",
+                "ref_id": "",
                 "question": "One process in the formation of sedimentary rocks is when rocks are",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2167,8 +2089,7 @@
             },
             {
                 "id": "1602",
-                "question_id": "1602",
-                "document_id": "1602",
+                "ref_id": "",
                 "question": "Which term identifies a single unit of hereditary information?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2190,8 +2111,7 @@
             },
             {
                 "id": "2148",
-                "question_id": "2148",
-                "document_id": "2148",
+                "ref_id": "",
                 "question": "Which fact is a benefit of airplanes?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2217,8 +2137,7 @@
             },
             {
                 "id": "1128",
-                "question_id": "1128",
-                "document_id": "1128",
+                "ref_id": "",
                 "question": "Two flowers are both roses. One rose is larger and has more fragrance than the other rose. What advantage will one of the roses most likely gain because of this difference?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2253,8 +2172,7 @@
             },
             {
                 "id": "2137",
-                "question_id": "2137",
-                "document_id": "2137",
+                "ref_id": "",
                 "question": "Which invention will best help people travel quickly to far away places?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2283,8 +2201,7 @@
             },
             {
                 "id": "964",
-                "question_id": "964",
-                "document_id": "964",
+                "ref_id": "",
                 "question": "A car skids along the road and smoke appears to be coming from under the tires. The heat that produces the smoke is caused by",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2325,8 +2242,7 @@
             },
             {
                 "id": "881",
-                "question_id": "881",
-                "document_id": "881",
+                "ref_id": "",
                 "question": "Two identical lamps contain the same amount of different types of oil. They are allowed to burn until all the oil has been burned. Which measurement will best provide the total difference in chemical energy between the two oils?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2351,8 +2267,7 @@
             },
             {
                 "id": "1717",
-                "question_id": "1717",
-                "document_id": "1717",
+                "ref_id": "",
                 "question": "Sodium bicarbonate (NaHCO_{3}) is commonly known as baking soda. Sodium bicarbonate is a white solid that can dissolve in water. Under the proper conditions, sodium bicarbonate can release carbon dioxide (CO_{2}) gas. Which of the following is not a physical property of sodium bicarbonate?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2382,8 +2297,7 @@
             },
             {
                 "id": "1127",
-                "question_id": "1127",
-                "document_id": "1127",
+                "ref_id": "",
                 "question": "Which describes a specific characteristic necessary for survival in the desert?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2416,8 +2330,7 @@
             },
             {
                 "id": "1845",
-                "question_id": "1845",
-                "document_id": "1845",
+                "ref_id": "",
                 "question": "Strontium, barium, and radium are grouped together on the Periodic Table of the Elements because they all have",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2440,8 +2353,7 @@
             },
             {
                 "id": "2017",
-                "question_id": "2017",
-                "document_id": "2017",
+                "ref_id": "",
                 "question": "Which of these is a mixture?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2468,8 +2380,7 @@
             },
             {
                 "id": "1463",
-                "question_id": "1463",
-                "document_id": "1463",
+                "ref_id": "",
                 "question": "What is one way plants and animals are different?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2494,8 +2405,7 @@
             },
             {
                 "id": "337",
-                "question_id": "337",
-                "document_id": "337",
+                "ref_id": "",
                 "question": "Which of these best indicates that sediments can be changed into rock?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2522,8 +2432,7 @@
             },
             {
                 "id": "1328",
-                "question_id": "1328",
-                "document_id": "1328",
+                "ref_id": "",
                 "question": "Which part of a plant cell is responsible for controlling the activities of the other parts of the cell?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2549,8 +2458,7 @@
             },
             {
                 "id": "472",
-                "question_id": "472",
-                "document_id": "472",
+                "ref_id": "",
                 "question": "Turning off the light when leaving a room is an example of",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2575,8 +2483,7 @@
             },
             {
                 "id": "1992",
-                "question_id": "1992",
-                "document_id": "1992",
+                "ref_id": "",
                 "question": "Sally is making candy on the stove. She places a thermometer in the candy. What is she measuring?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2602,8 +2509,7 @@
             },
             {
                 "id": "1373",
-                "question_id": "1373",
-                "document_id": "1373",
+                "ref_id": "",
                 "question": "How can plants most likely improve air quality?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2628,8 +2534,7 @@
             },
             {
                 "id": "779",
-                "question_id": "779",
-                "document_id": "779",
+                "ref_id": "",
                 "question": "Which type of energy in gasoline is transformed into mechanical energy in a motorcycle engine?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2655,8 +2560,7 @@
             },
             {
                 "id": "995",
-                "question_id": "995",
-                "document_id": "995",
+                "ref_id": "",
                 "question": "A student wants to look under a heavy rock. Which simple machine would be BEST to use to lift the rock?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2680,8 +2584,7 @@
             },
             {
                 "id": "66",
-                "question_id": "66",
-                "document_id": "66",
+                "ref_id": "",
                 "question": "How long does it take for the Moon to rotate on its axis?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2705,8 +2608,7 @@
             },
             {
                 "id": "1110",
-                "question_id": "1110",
-                "document_id": "1110",
+                "ref_id": "",
                 "question": "Which characteristic of a bird most likely aids in obtaining food found in small places?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2732,8 +2634,7 @@
             },
             {
                 "id": "479",
-                "question_id": "479",
-                "document_id": "479",
+                "ref_id": "",
                 "question": "What is a worldwide increase in temperature called?",
                 "type": "multiplechoice",
                 "cot_type": "list",
@@ -2755,8 +2656,7 @@
             },
             {
                 "id": "903",
-                "question_id": "903",
-                "document_id": "903",
+                "ref_id": "",
                 "question": "Snapping a rubber band most likely produces which type of energy?",
                 "type": "multiplechoice",
                 "cot_type": "list",
