@@ -6,6 +6,8 @@ import pathlib
 from collections import defaultdict
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from os import devnull
+import shutil
+import glob
 
 import datasets as ds
 import pandas as pd
@@ -25,7 +27,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(self, names=None, verbose=True, recache=False, load_source=False):
+    def __init__(self, names=None, verbose=True, generate_mode=None, source=False):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -36,19 +38,25 @@ class Collection:
         datasets
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
-        :param recache: If true, deletes all caches, redownloads all sources and regenerates all datasets
-        from bottom up. Try this if datasets give unexplainable KeyErrors, ...
-        :param source: If true, loads all source views of datasets
+        :param generate_mode: 
+        - if "redownload": deletes download and dataset caches, redownloads all sources and regenerates all datasets. 
+        Try this if datasets give unexplainable KeyErrors, ...
+        - if "recache": deletes dataset caches and regenerates all datasets
+        - if None: reuse cached dataset
+        :param source: If true, loads all datasets in source view
         """
         self.verbose = verbose
         self.download_mode = None
-        self.load_source = load_source
-        if recache:
+        self.load_source = source
+        if generate_mode in ["redownload", "recache"]:
             # delete datasets cache
-            import shutil
-            shutil.rmtree(ds.config.HF_DATASETS_CACHE)
+            for dataset_folder in glob.glob(os.path.join(ds.config.HF_DATASETS_CACHE, "*_dataset")):
+                shutil.rmtree(dataset_folder)
             # see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
-            self.download_mode = "force_redownload"
+            self.download_mode = "reuse_cache_if_exists"
+            if generate_mode == "redownload":
+                shutil.rmtree(os.path.join(ds.config.HF_DATASETS_CACHE, "downloads"))
+                self.download_mode = "force_redownload"
         if not verbose:
             ds.disable_progress_bar()
         else:
