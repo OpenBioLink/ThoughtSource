@@ -81,14 +81,14 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="mawps_source",
+            name="source",
             version=SOURCE_VERSION,
             description="MAWPS source schema",
             schema="source",
             subset_id="mawps",
         ),
         ThoughtSourceConfig(
-            name="mawps_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="MAWPS thoughtsource schema",
             schema="thoughtsource",
@@ -96,7 +96,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "mawps_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

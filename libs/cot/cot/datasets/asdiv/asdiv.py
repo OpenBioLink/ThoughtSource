@@ -72,14 +72,14 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="asdiv_source",
+            name="source",
             version=SOURCE_VERSION,
             description="ASDiv source schema",
             schema="source",
             subset_id="asdiv",
         ),
         ThoughtSourceConfig(
-            name="asdiv_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="ASDiv thoughtsource schema",
             schema="thoughtsource",
@@ -87,7 +87,7 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "asdiv_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

@@ -68,14 +68,14 @@ class QedDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="qed_source",
+            name="source",
             version=SOURCE_VERSION,
             description="QED source schema",
             schema="source",
             subset_id="qed",
         ),
         ThoughtSourceConfig(
-            name="qed_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="QED thoughtsource schema",
             schema="thoughtsource",
@@ -83,7 +83,7 @@ class QedDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "qed_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

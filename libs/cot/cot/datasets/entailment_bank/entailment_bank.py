@@ -73,14 +73,14 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="entailment_bank_source",
+            name="source",
             version=SOURCE_VERSION,
             description="EntailmentBank source schema",
             schema="source",
             subset_id="entailment_bank",
         ),
         ThoughtSourceConfig(
-            name="entailment_bank_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="EntailmentBank thoughtsource schema",
             schema="thoughtsource",
@@ -88,7 +88,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "entailment_bank_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

@@ -80,14 +80,14 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="worldtree_source",
+            name="source",
             version=SOURCE_VERSION,
             description="Worldtree source schema",
             schema="source",
             subset_id="worldtree",
         ),
         ThoughtSourceConfig(
-            name="worldtree_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="Worldtree thoughtsource schema",
             schema="thoughtsource",
@@ -95,7 +95,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "worldtree_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
         if self.config.schema == "source":
