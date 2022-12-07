@@ -57,7 +57,7 @@ print(collection.all_train)
 ```
 ```text
 Dataset({
-    features: ['id', 'ref_id', 'question', 'type', 'cot_type', 'choices', 'context', 'answer', 'cot', 'feedback', 'cot_after_feedback', 'answer_after_feedback'],
+    features: ['id', 'ref_id', 'question', 'type', 'choices', 'context', 'answer', 'cot', 'feedback', 'cot_after_feedback', 'answer_after_feedback'],
     num_rows: 12430
 })
 ```

@@ -209,7 +209,6 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
                     "ref_id": "",
                     "question": question,
                     "type": "number",
-                    "cot_type": "list",
                     "choices": [],
                     "context": "",
                     "cot": chain_of_thought,

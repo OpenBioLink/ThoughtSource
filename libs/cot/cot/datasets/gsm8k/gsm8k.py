@@ -169,7 +169,6 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
                     "ref_id": "",
                     "question": example["question"],
                     "type": "number",
-                    "cot_type": "list",
                     "choices": [],
                     "context": "",
                     "cot": chain_of_thought,

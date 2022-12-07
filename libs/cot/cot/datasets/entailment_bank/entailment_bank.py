@@ -248,7 +248,6 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                     "ref_id": example["id"],
                     "question": example["question"],
                     "type": "text",
-                    "cot_type": "list",
                     "choices": [],
                     "context": "",
                     "cot": cot_,

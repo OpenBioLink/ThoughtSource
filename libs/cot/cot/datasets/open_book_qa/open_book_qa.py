@@ -197,7 +197,6 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
                     "ref_id": "",
                     "question": example["question"]["stem"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": choices,
                     "context": "",
                     "cot": [example["fact1"]],

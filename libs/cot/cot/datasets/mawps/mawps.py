@@ -209,7 +209,6 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                     "ref_id": "",
                     "question": example["Question"],
                     "type": "number",
-                    "cot_type": "list",
                     "choices": [],
                     "context": "",
                     "cot": chain_of_thought,

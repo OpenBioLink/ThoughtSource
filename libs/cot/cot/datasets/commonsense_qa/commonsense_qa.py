@@ -223,7 +223,6 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                     "ref_id": "",
                     "question": example["question"]["stem"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": choices.values(),
                     "context": "",
                     "cot": [x.capitalize() for x in sent_tokenize(ecqa[example["id"]])] if example["id"] in ecqa else [],

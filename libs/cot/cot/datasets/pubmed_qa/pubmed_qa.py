@@ -177,7 +177,6 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
                     "ref_id": key,
                     "question": example["QUESTION"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": ["yes", "no", "maybe"],
                     "context": "\n".join(example["CONTEXTS"]),
                     "cot": "",

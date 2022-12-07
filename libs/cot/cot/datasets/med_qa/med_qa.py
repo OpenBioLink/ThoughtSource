@@ -197,7 +197,6 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
                     "ref_id": "",
                     "question": example["question"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": example["options"].values(),
                     "context": "",
                     "cot": "",

@@ -204,7 +204,6 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                     "ref_id": "",
                     "question": " ".join([example.find("Body").text, example.find("Question").text]),
                     "type": "number",
-                    "cot_type": "list",
                     "choices": [],
                     "context": "",
                     "cot": chain_of_thought,

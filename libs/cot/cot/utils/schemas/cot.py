@@ -9,7 +9,6 @@ features = datasets.Features(
         "ref_id": datasets.Value("string"),
         "question": datasets.Value("string"),
         "type": datasets.Value("string"),
-        "cot_type": datasets.Value("string"),
         "choices": [datasets.Value("string")],
         "context": datasets.Value("string"),
         "cot": [datasets.Value("string")],
