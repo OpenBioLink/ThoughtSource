@@ -76,28 +76,28 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="gsm8k_source",
+            name="source",
             version=SOURCE_VERSION,
             description="GSM8K source schema",
             schema="source",
             subset_id="gsm8k",
         ),
         ThoughtSourceConfig(
-            name="gsm8k_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="GSM8K thoughtsource schema",
             schema="thoughtsource",
             subset_id="gsm8k",
         ),
         ThoughtSourceConfig(
-            name="gsm8k_socratic_source",
+            name="socratic_source",
             version=SOURCE_VERSION,
             description="GSM8K Socratic source schema",
             schema="source",
             subset_id="gsm8k_socratic",
         ),
         ThoughtSourceConfig(
-            name="gsm8k_socratic_thoughtsource",
+            name="socratic_thoughtsource",
             version=BIGBIO_VERSION,
             description="GSM8K Socratic thoughtsource schema",
             schema="thoughtsource",
@@ -105,7 +105,7 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "gsm8k_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

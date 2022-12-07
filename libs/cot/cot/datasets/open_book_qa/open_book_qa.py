@@ -79,14 +79,14 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="open_book_qa_source",
+            name="source",
             version=SOURCE_VERSION,
             description="OpenBookQA source schema",
             schema="source",
             subset_id="open_book_qa",
         ),
         ThoughtSourceConfig(
-            name="open_book_qa_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="OpenBookQA BigBio schema",
             schema="thoughtsource",
@@ -94,7 +94,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "open_book_qa_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

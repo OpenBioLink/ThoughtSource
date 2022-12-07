@@ -98,14 +98,14 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="medmc_qa_source",
+            name="source",
             version=SOURCE_VERSION,
             description="MedMCQA source schema",
             schema="source",
             subset_id="medmc_qa",
         ),
         ThoughtSourceConfig(
-            name="medmc_qa_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="MedMCQA thoughtsource schema",
             schema="thoughtsource",
@@ -113,7 +113,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "medmc_qa_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

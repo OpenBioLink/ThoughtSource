@@ -70,14 +70,14 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="strategy_qa_source",
+            name="source",
             version=SOURCE_VERSION,
             description="StrategyQA source schema",
             schema="source",
             subset_id="strategy_qa",
         ),
         ThoughtSourceConfig(
-            name="strategy_qa_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="StrategyQA thoughtsource schema",
             schema="thoughtsource",
@@ -85,7 +85,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "strategy_qa_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

@@ -104,14 +104,14 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="commonsense_qa_source",
+            name="source",
             version=SOURCE_VERSION,
             description="CommonsenseQA source schema",
             schema="source",
             subset_id="commonsense_qa",
         ),
         ThoughtSourceConfig(
-            name="commonsense_qa_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="CommonsenseQA thoughtsource schema",
             schema="thoughtsource",
@@ -119,7 +119,7 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "commonsense_qa_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
         if self.config.schema == "source":

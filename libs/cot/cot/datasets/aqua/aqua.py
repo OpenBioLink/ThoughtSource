@@ -94,14 +94,14 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="aqua_source",
+            name="source",
             version=SOURCE_VERSION,
             description="AQuA source schema",
             schema="source",
             subset_id="aqua",
         ),
         ThoughtSourceConfig(
-            name="aqua_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="AQuA thoughtsource schema",
             schema="thoughtsource",
@@ -109,7 +109,7 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "aqua_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

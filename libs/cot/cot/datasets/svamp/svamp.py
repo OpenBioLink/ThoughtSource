@@ -93,14 +93,14 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="svamp_source",
+            name="source",
             version=SOURCE_VERSION,
             description="SVAMP source schema",
             schema="source",
             subset_id="svamp",
         ),
         ThoughtSourceConfig(
-            name="svamp_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="SVAMP thoughtsource schema",
             schema="thoughtsource",
@@ -108,7 +108,7 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "svamp_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
