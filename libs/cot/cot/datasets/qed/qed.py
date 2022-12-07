@@ -251,11 +251,9 @@ class QedDataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": example["example_id"],
-                    "question_id": example["example_id"],
-                    "document_id": example["example_id"],
+                    "ref_id": "",
                     "question": example["question_text"],
                     "type": "collection",
-                    "cot_type": "list",
                     "choices": [],
                     "context": f"Title: {example['title_text']} Text: {example['paragraph_text']}",
                     "cot": cot,

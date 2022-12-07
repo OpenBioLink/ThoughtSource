@@ -175,11 +175,9 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": key,
-                    "question_id": key,
-                    "document_id": key,
+                    "ref_id": key,
                     "question": example["QUESTION"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": ["yes", "no", "maybe"],
                     "context": "\n".join(example["CONTEXTS"]),
                     "cot": "",
