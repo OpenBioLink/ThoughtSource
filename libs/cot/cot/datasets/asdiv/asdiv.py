@@ -46,7 +46,7 @@ Evaluating and Developing English Math Word Problem Solvers".
 
 _HOMEPAGE = "https://github.com/chaochun/nlu-asdiv-dataset"
 
-_LICENSE = Licenses.UNKNOWN
+_LICENSE = Licenses.CC_BY_NC_4p0
 
 _URLS = {
     "corpus": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/ASDiv.xml",
