@@ -19,6 +19,22 @@ def chdir(path):
     finally:
         os.chdir(base_dir)
 
+def test_correct_example_load():
+    """Test that the correct data is loaded."""
+    with chdir("tests/unit_tests/data"):
+        collection = Collection.from_json("worldtree_100_dataset.json")
+        assert collection._cache["worldtree"]["train"][0]["question"] == "A parent and a child share several characteristics. Both individuals are tall, have curly hair, are good cooks, and have freckles. Which of these characteristics is a learned behavior?"
+
+def test_similarity_loading_methods():
+    """Test that the json file is up to date and loaded correctly."""
+    with chdir("tests/unit_tests/data"):
+        collection_json = Collection.from_json("worldtree_100_dataset.json")
+        collection_loaded = Collection(["worldtree"], verbose=False)
+        collection_loaded = collection_loaded.select(split="train", number_samples=100)
+        assert collection_json == collection_loaded
+
+
+
 def test_load_data_type():
     """Test that the data type is correct."""
     with chdir("tests/unit_tests/data"):
@@ -46,6 +62,24 @@ def test_thougthsource() -> None:
         for split in dataset:
             pd_ = dataset[split].to_pandas()
             assert (len(pd_["id"]) == pd_["id"].nunique()), f"IDs are not unique in {name} {split}"
+
+def test_basic_load_generate_evalute() -> None:
+    # 1) Dataset load and selecting random sample
+    collection = Collection.from_json("worldtree_100_dataset.json")
+    collection = collection.select(split="train", number_samples=5)
+    # 2) Language Model generates chains of thought and then extracts answers
+    config={
+        "debug": True,
+        "multiple_choice_answer_format": "Letters",
+        "instruction_keys": ['qa-01'],
+        "cot_trigger_keys": ['kojima-01'],
+        "answer_extraction_keys": ['kojima-A-D'],
+        "warn": False,
+        "verbose": False,
+    }
+    collection.generate(config=config)
+    # 3) Performance evaluation
+    collection.evaluate()
 
 def test_source() -> None:
     collection = Collection("all", generate_mode="recache", source=True)
