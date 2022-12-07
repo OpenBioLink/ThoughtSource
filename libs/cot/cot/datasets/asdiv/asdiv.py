@@ -21,6 +21,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -45,7 +46,7 @@ Evaluating and Developing English Math Word Problem Solvers".
 
 _HOMEPAGE = "https://github.com/chaochun/nlu-asdiv-dataset"
 
-_LICENSE = "MIT"
+_LICENSE = Licenses.CC_BY_NC_4p0
 
 _URLS = {
     "corpus": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/ASDiv.xml",

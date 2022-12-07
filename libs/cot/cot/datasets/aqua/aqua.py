@@ -20,6 +20,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -69,7 +70,7 @@ consisting of four parts:
 
 _HOMEPAGE = "https://github.com/deepmind/AQuA"
 
-_LICENSE = "Apache License, Version 2.0"
+_LICENSE = Licenses.APACHE_2p0
 
 _URLS = {
     "train": "https://github.com/deepmind/AQuA/raw/master/train.json",

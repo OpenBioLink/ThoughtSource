@@ -23,6 +23,7 @@ import datasets
 from cot.utils import (map_example_to_kojima_cot, map_example_to_wei_cot,
                        parse_kojima_log, parse_wei_log, schemas)
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -45,7 +46,7 @@ its decomposition, and evidence paragraphs.
 
 _HOMEPAGE = "https://allenai.org/data/strategyqa"
 
-_LICENSE = "MIT"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     _DATASETNAME: "https://storage.googleapis.com/ai2i/strategyqa/data/strategyqa_dataset.zip",

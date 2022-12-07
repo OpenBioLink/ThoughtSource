@@ -21,6 +21,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -45,7 +46,7 @@ and a passage, QED represents an explanation of the answer as a combination of d
 
 _HOMEPAGE = "https://github.com/google-research-datasets/QED"
 
-_LICENSE = "Unknown"
+_LICENSE = Licenses.CC_BY_SA_3p0
 
 _URLS = {
     "train": "https://github.com/google-research-datasets/QED/raw/master/qed-train.jsonlines",

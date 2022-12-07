@@ -21,6 +21,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -58,7 +59,7 @@ provided.
 
 _HOMEPAGE = "http://cognitiveai.org/explanationbank/"
 
-_LICENSE = "EULA AI2 Mercury Dataset"
+_LICENSE = Licenses.AI2_MERCURY
 
 _URLS = {
     _DATASETNAME: "http://www.cognitiveai.org/dist/WorldtreeExplanationCorpusV2.1_Feb2020.zip",

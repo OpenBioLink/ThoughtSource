@@ -21,6 +21,7 @@ import pandas as pd
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -58,7 +59,7 @@ in several prominent works.
 
 _HOMEPAGE = "https://github.com/sroy9/mawps"
 
-_LICENSE = "MIT"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     "train": "https://github.com/arkilpatel/SVAMP/raw/main/data/cv_mawps/fold0/train.csv",
