@@ -25,7 +25,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(self, names=None, verbose=True, download_mode="reuse_dataset_if_exists"):
+    def __init__(self, names=None, verbose=True, recache=False):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -36,11 +36,16 @@ class Collection:
         datasets
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
-        :param download_mode: "reuse_dataset_if_exists" (default), "reuse_cache_if_exists", "force_redownload"
-        see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
+        :param recache: If true, deletes all caches, redownloads all sources and regenerates all datasets from bottom up. Try this if datasets give unexplainable KeyErrors, ...
         """
         self.verbose = verbose
-        self.download_mode = download_mode
+        self.download_mode = None
+        if recache:
+            # delete datasets cache
+            import shutil
+            shutil.rmtree(ds.config.HF_DATASETS_CACHE)
+            # see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
+            self.download_mode = "force_redownload"
         if not verbose:
             ds.disable_progress_bar()
         else:
