@@ -49,11 +49,17 @@ class Collection:
         self.download_mode = None
         self.load_source = source
         if generate_mode in ["redownload", "recache"]:
-            # delete datasets cache
-            for dataset_folder in glob.glob(os.path.join(ds.config.HF_DATASETS_CACHE, "*_dataset")):
-                shutil.rmtree(dataset_folder)
             # see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
             self.download_mode = "reuse_cache_if_exists"
+            if names == "all":
+                # delete datasets cache
+                for dataset_folder in glob.glob(os.path.join(ds.config.HF_DATASETS_CACHE, "*_dataset", "source" if self.load_source else "thoughtsource")):
+                    shutil.rmtree(dataset_folder)
+            else:
+                for name in names:
+                    path = os.path.join(ds.config.HF_DATASETS_CACHE, f"{name}_dataset", "source" if self.load_source else "thoughtsource")
+                    if os.path.exists(path):
+                        shutil.rmtree(path)
             if generate_mode == "redownload":
                 shutil.rmtree(os.path.join(ds.config.HF_DATASETS_CACHE, "downloads"))
                 self.download_mode = "force_redownload"
