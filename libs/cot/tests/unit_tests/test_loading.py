@@ -40,7 +40,7 @@ def test_load_data_length():
         assert len(collection._cache["worldtree"]["train"]) == 100
 
 def test_thougthsource() -> None:
-    collection = Collection("all", recahce=True)
+    collection = Collection("all", recache=True)
     """Test that id is unique within a dataset"""
     for name, dataset in collection:
         for split in dataset:
@@ -48,7 +48,7 @@ def test_thougthsource() -> None:
             assert (len(pd_["id"]) == pd_["id"].nunique()), f"IDs are not unique in {name} {split}"
 
 def test_source() -> None:
-    collection = Collection("all", recahce=True, load_source=True)
+    collection = Collection("all", recache=True, load_source=True)
     """Test that id is unique within a dataset"""
     for name, dataset in collection:
         for split in dataset:
