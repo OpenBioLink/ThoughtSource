@@ -25,7 +25,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(self, names=None, verbose=True, recache=False):
+    def __init__(self, names=None, verbose=True, recache=False, load_source=False):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -36,10 +36,13 @@ class Collection:
         datasets
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
-        :param recache: If true, deletes all caches, redownloads all sources and regenerates all datasets from bottom up. Try this if datasets give unexplainable KeyErrors, ...
+        :param recache: If true, deletes all caches, redownloads all sources and regenerates all datasets
+        from bottom up. Try this if datasets give unexplainable KeyErrors, ...
+        :param source: If true, loads all source views of datasets
         """
         self.verbose = verbose
         self.download_mode = None
+        self.load_source = load_source
         if recache:
             # delete datasets cache
             import shutil
@@ -131,10 +134,10 @@ class Collection:
         for name, script in datasets:
             print(f"Loading {name}...")
             if self.verbose:
-                self._cache[name] = ds.load_dataset(str(script), download_mode=self.download_mode)
+                self._cache[name] = ds.load_dataset(str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode)
             else:
                 with suppress_stdout_stderr():
-                    self._cache[name] = ds.load_dataset(str(script), download_mode=self.download_mode)
+                    self._cache[name] = ds.load_dataset(str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode)
 
     def unload_datasets(self, names=None):
         """
@@ -174,7 +177,7 @@ class Collection:
         return [json.loads(x.decode()) for x in data_stream.readlines()]
 
     @staticmethod
-    def from_json(path_or_json, download_mode="reuse_dataset_if_exists"):
+    def from_json(path_or_json, download_mode="reuse_dataset_if_exists", source=False):
 
         if isinstance(path_or_json, str):
             with open(path_or_json, "r") as infile:
@@ -186,7 +189,7 @@ class Collection:
 
         collection = Collection()
         for dataset_name in content.keys():
-            info = ds.load_dataset_builder(str(scripts[dataset_name]), download_mode=download_mode).info
+            info = ds.load_dataset_builder(str(scripts[dataset_name]), name="source" if source else "thoughtsource", download_mode=download_mode).info
             dataset_dict = dict()
             for split_name in content[dataset_name].keys():
 
