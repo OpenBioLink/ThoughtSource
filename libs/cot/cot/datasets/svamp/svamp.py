@@ -119,7 +119,7 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
                     "Body": [datasets.Value("string")],
                     "Question": datasets.Value("string"),
                     "Equation": datasets.Value("string"),
-                    "Answer": [datasets.Value("float")],
+                    "Answer": datasets.Value("float"),
                     "Type": datasets.Value("string"),
                 }
             )
