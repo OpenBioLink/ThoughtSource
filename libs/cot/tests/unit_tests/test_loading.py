@@ -31,9 +31,16 @@ def test_similarity_loading_methods():
         collection_json = Collection.from_json("worldtree_100_dataset.json")
         collection_loaded = Collection(["worldtree"], verbose=False)
         collection_loaded = collection_loaded.select(split="train", number_samples=100)
-        assert collection_json == collection_loaded
+        assert collection_loaded["worldtree"]["train"][:] == collection_json["worldtree"]["train"][:]
 
-
+def test_find_all_datasets() -> None:
+    """Test if all datasets listed in data/dataset_names.txt are found"""
+    with chdir("tests/unit_tests/data"):
+        with open("dataset_names.txt", "r") as dataset_names:
+            dataset_names = dataset_names.read().splitlines()
+    dataset_list = Collection._find_datasets()
+    dataset_list = [i[0] for i in dataset_list]
+    assert dataset_list == dataset_names
 
 def test_load_data_type():
     """Test that the data type is correct."""
@@ -65,7 +72,8 @@ def test_thougthsource() -> None:
 
 def test_basic_load_generate_evalute() -> None:
     # 1) Dataset load and selecting random sample
-    collection = Collection.from_json("worldtree_100_dataset.json")
+    with chdir("tests/unit_tests/data"):
+        collection = Collection.from_json("worldtree_100_dataset.json")
     collection = collection.select(split="train", number_samples=5)
     # 2) Language Model generates chains of thought and then extracts answers
     config={
