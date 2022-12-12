@@ -170,7 +170,7 @@ def _generate_and_extract(
     for instruction_key in instruction_keys:
 
         if instruction_key is not None:
-            instruction_promt = (
+            instruction_prompt = (
                 FRAGMENTS["instructions"][instruction_key] + "\n\n" + prompt
             )
 
@@ -200,7 +200,7 @@ def _generate_and_extract(
 
             if cot_trigger_key is not None:
                 generate_cot_prompt = (
-                    instruction_promt
+                    instruction_prompt
                     + FRAGMENTS["cot_triggers"][cot_trigger_key]
                     + "\n"
                 )
