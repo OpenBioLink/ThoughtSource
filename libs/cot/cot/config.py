@@ -94,7 +94,7 @@ class Config:
 
         if self.answer_extraction_keys == "all":
             self.answer_extraction_keys = [None] + list(
-                FRAGMENTS["answer_extraction"].keys()
+                FRAGMENTS["answer_extractions"].keys()
             )
         elif not self.answer_extraction_keys:
             self.answer_extraction_keys = [None]
