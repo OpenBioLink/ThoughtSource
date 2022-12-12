@@ -2,7 +2,7 @@ from dataclasses import dataclass
 import json
 import pkgutil
 
-TEMPLATES = json.loads(pkgutil.get_data(__name__, "templates.json"))
+FRAGMENTS = json.loads(pkgutil.get_data(__name__, "fragments.json"))
 
 
 @dataclass
@@ -16,12 +16,12 @@ class Config:
     "multiple_choice_answer_format": str - How the list of multiple choice answer is formatted and indexed
         Default: "Letters" (A,B,C,...)
         # TODO: change name to multiple_choice_formatting, add None option
-    "instruction_keys": list(str) - Determines which instruction_keys are used from templates.json,
-        the corresponding string will be inserted under "instruction" in the templates. Default: "all" (All used)
-    "cot_trigger_keys": list(str) - Determines which cot triggers are used from templates.json,
-        the corresponding string will be inserted under "cot_trigger" in the templates. Default: None (All are used)
-    "answer_extraction_keys": list(str) - Determines which answer extraction prompts are used from templates.json,
-        the corresponding string will be inserted under "answer" in the templates. Default: None (All are used)
+    "instruction_keys": list(str) - Determines which instruction_keys are used from fragments.json,
+        the corresponding string will be inserted under "instruction" in the fragments. Default: "all" (All used)
+    "cot_trigger_keys": list(str) - Determines which cot triggers are used from fragments.json,
+        the corresponding string will be inserted under "cot_trigger" in the fragments. Default: None (All are used)
+    "answer_extraction_keys": list(str) - Determines which answer extraction prompts are used from fragments.json,
+        the corresponding string will be inserted under "answer" in the fragments. Default: None (All are used)
     "template_cot_generation": string - is the model input in the text generation step, variables in brackets.
         Only variables of this list are allowed: "instruction", 'question", "answer_choices", "cot_trigger"
         Default: '''
@@ -81,20 +81,20 @@ class Config:
     # TODO: add an option to add None as a key. At the moment this is done automatically.
 
     def __post_init__(self):
-        # replace all keys (or non given keys) in templates with the corresponding values
+        # replace all keys (or non given keys) in config with the corresponding values
         if self.instruction_keys == "all":
-            self.instruction_keys = [None] + list(TEMPLATES["instructions"].keys())
+            self.instruction_keys = [None] + list(FRAGMENTS["instructions"].keys())
         elif not self.instruction_keys:
             self.instruction_keys = [None]
 
         if self.cot_trigger_keys == "all":
-            self.cot_trigger_keys = [None] + list(TEMPLATES["cot_triggers"].keys())
+            self.cot_trigger_keys = [None] + list(FRAGMENTS["cot_triggers"].keys())
         elif not self.cot_trigger_keys:
             self.cot_trigger_keys = [None]
 
         if self.answer_extraction_keys == "all":
             self.answer_extraction_keys = [None] + list(
-                TEMPLATES["answer_extraction"].keys()
+                FRAGMENTS["answer_extraction"].keys()
             )
         elif not self.answer_extraction_keys:
             self.answer_extraction_keys = [None]
