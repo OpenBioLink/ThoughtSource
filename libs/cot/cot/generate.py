@@ -11,7 +11,7 @@ import datasets as ds
 # https://huggingface.co/docs/datasets/v2.6.1/en/package_reference/main_classes#datasets.disable_caching
 ds.disable_caching()
 
-TEMPLATES = json.loads(pkgutil.get_data(__name__, "templates.json"))
+FRAGMENTS = json.loads(pkgutil.get_data(__name__, "fragments.json"))
 
 
 def print_now(return_flag=0):
@@ -40,11 +40,11 @@ def generate_and_extract(data, config):
             Default: "all" (All items are used)
         "debug": bool - Determines whether the api is called or a mock is returned, used for debugging,
             Default: True (api is not used)
-        "instruction_keys": list(str) - Determines which instruction_keys are used from templates.json,
+        "instruction_keys": list(str) - Determines which instruction_keys are used from fragments.json,
             Default: "all" (All used)
-        "cot_trigger_keys": list(str) - Determines which cot triggers are used from templates.json,
+        "cot_trigger_keys": list(str) - Determines which cot triggers are used from fragments.json,
             Default: None (All are used)
-        "answer_extraction_keys": list(str) - Determines which answer extraction prompts are used from templates.json,
+        "answer_extraction_keys": list(str) - Determines which answer extraction prompts are used from fragments.json,
             Default: None (All are used)
         "author" : str - Name of the person responsible for generation, Default: ""
         "api_service" str - Name of the used api service, Default: "huggingface_hub"
@@ -64,7 +64,7 @@ def generate_and_extract(data, config):
     names_in_template = ["instructions", "cot_triggers", "answer_extractions"]
     for key, name in zip(keys, names_in_template):
         if key not in config or config[key] == "all":
-            config[key] = [None] + list(TEMPLATES[name].keys())
+            config[key] = [None] + list(FRAGMENTS[name].keys())
         elif not config[key]:
             config[key] = [None]
 
@@ -171,7 +171,7 @@ def _generate_and_extract(
 
         if instruction_key is not None:
             instruction_promt = (
-                TEMPLATES["instructions"][instruction_key] + "\n\n" + prompt
+                FRAGMENTS["instructions"][instruction_key] + "\n\n" + prompt
             )
 
         else:
@@ -180,7 +180,7 @@ def _generate_and_extract(
         for cot_trigger_key in cot_trigger_keys:
             generated_cot = {
                 "id": str(uuid.uuid4()),
-                "templates_version": TEMPLATES["version"],
+                "fragments_version": FRAGMENTS["version"],
                 "instruction": instruction_key,
                 "cot_trigger": cot_trigger_key,
                 "prompt_text": "",
@@ -201,7 +201,7 @@ def _generate_and_extract(
             if cot_trigger_key is not None:
                 generate_cot_prompt = (
                     instruction_promt
-                    + TEMPLATES["cot_triggers"][cot_trigger_key]
+                    + FRAGMENTS["cot_triggers"][cot_trigger_key]
                     + "\n"
                 )
             else:
@@ -245,7 +245,7 @@ def _generate_and_extract(
                         generate_cot_prompt
                         + cot
                         + "\n"
-                        + TEMPLATES["answer_extractions"][answer_extraction_key]
+                        + FRAGMENTS["answer_extractions"][answer_extraction_key]
                         + "\n"
                     )
                     if verbose:

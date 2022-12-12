@@ -16,7 +16,7 @@ features = datasets.Features(
         "generated_cot": [
             {
                 "id": datasets.Value("string"),
-                "templates_version": datasets.Value("string"),
+                "fragments_version": datasets.Value("string"),
                 "instruction": datasets.Value("string"),
                 "cot_trigger": datasets.Value("string"),
                 "prompt_text": datasets.Value("string"),
