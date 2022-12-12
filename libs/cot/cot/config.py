@@ -164,7 +164,7 @@ class Config:
                 self.instruction_keys, list
             ), "instruction_keys must be a list"
             assert all(
-                isinstance(key, str) for key in self.instruction_keys
+                isinstance(key, (str, type(None))) for key in self.instruction_keys
             ), "instruction_keys must be a list of strings"
 
         if self.cot_trigger_keys != "all":
@@ -172,7 +172,7 @@ class Config:
                 self.cot_trigger_keys, list
             ), "cot_trigger_keys must be a list"
             assert all(
-                isinstance(key, str) for key in self.cot_trigger_keys
+                isinstance(key, (str, type(None))) for key in self.cot_trigger_keys
             ), "cot_trigger_keys must be a list of strings"
 
         if self.answer_extraction_keys != "all":
@@ -180,7 +180,7 @@ class Config:
                 self.answer_extraction_keys, list
             ), "answer_extraction_keys must be a list"
             assert all(
-                isinstance(key, str) for key in self.answer_extraction_keys
+                isinstance(key, (str, type(None))) for key in self.answer_extraction_keys
             ), "answer_extraction_keys must be a list of strings"
 
         assert isinstance(
@@ -197,7 +197,7 @@ class Config:
         assert isinstance(self.max_tokens, int), "max_tokens must be an int"
         assert isinstance(
             self.api_time_interval, (int, float)
-        ), "api_time_interval must be a float"
+        ), "api_time_interval must be a int or float"
         assert isinstance(self.debug, bool), "debug must be a bool"
         assert isinstance(self.verbose, bool), "verbose must be a bool"
         assert isinstance(self.warn, bool), "warn must be a bool"

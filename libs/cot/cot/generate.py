@@ -68,6 +68,8 @@ def generate_and_extract(data, config):
     if config["warn"]:
         print_warning(config, n_samples)
 
+    # The config is transformed into a dataclass object, where all testing is done
+    # But it will be transformed back to a dictionary for the function 'map'
     config = Config(**config)
 
     return data.map(
