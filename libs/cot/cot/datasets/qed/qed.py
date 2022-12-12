@@ -21,6 +21,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -45,7 +46,7 @@ and a passage, QED represents an explanation of the answer as a combination of d
 
 _HOMEPAGE = "https://github.com/google-research-datasets/QED"
 
-_LICENSE = "Unknown"
+_LICENSE = Licenses.CC_BY_SA_3p0
 
 _URLS = {
     "train": "https://github.com/google-research-datasets/QED/raw/master/qed-train.jsonlines",
@@ -68,14 +69,14 @@ class QedDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="qed_source",
+            name="source",
             version=SOURCE_VERSION,
             description="QED source schema",
             schema="source",
             subset_id="qed",
         ),
         ThoughtSourceConfig(
-            name="qed_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="QED thoughtsource schema",
             schema="thoughtsource",
@@ -83,7 +84,7 @@ class QedDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "qed_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
@@ -250,11 +251,9 @@ class QedDataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": example["example_id"],
-                    "question_id": example["example_id"],
-                    "document_id": example["example_id"],
+                    "ref_id": "",
                     "question": example["question_text"],
                     "type": "collection",
-                    "cot_type": "list",
                     "choices": [],
                     "context": f"Title: {example['title_text']} Text: {example['paragraph_text']}",
                     "cot": cot,

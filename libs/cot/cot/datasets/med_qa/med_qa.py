@@ -22,6 +22,7 @@ import json
 from collections import defaultdict
 from cot.utils import (schemas, map_example_to_lievin_cot)
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 from tqdm import tqdm
 
 import pandas as pd
@@ -54,7 +55,7 @@ comprehension models can obtain necessary knowledge for answering the questions.
 
 _HOMEPAGE = "https://github.com/jind11/MedQA"
 
-_LICENSE = "Unknown"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     _DATASETNAME: "https://drive.google.com/u/0/uc?export=download&confirm=t&id=1ImYUSLk9JbgHXOemfvyiDiirluZHPeQw",
@@ -76,14 +77,14 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="med_qa_source",
+            name="source",
             version=SOURCE_VERSION,
             description="MedQA source schema",
             schema="source",
             subset_id="med_qa",
         ),
         ThoughtSourceConfig(
-            name="med_qa_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="MedQA thoughtsource schema",
             schema="thoughtsource",
@@ -91,7 +92,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "med_qa_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
@@ -194,11 +195,9 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": key,
-                    "question_id": key,
-                    "document_id": key,
+                    "ref_id": "",
                     "question": example["question"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": example["options"].values(),
                     "context": "",
                     "cot": "",

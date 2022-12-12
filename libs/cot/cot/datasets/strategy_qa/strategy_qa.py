@@ -23,6 +23,7 @@ import datasets
 from cot.utils import (map_example_to_kojima_cot, map_example_to_wei_cot,
                        parse_kojima_log, parse_wei_log, schemas)
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -45,7 +46,7 @@ its decomposition, and evidence paragraphs.
 
 _HOMEPAGE = "https://allenai.org/data/strategyqa"
 
-_LICENSE = "MIT"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     _DATASETNAME: "https://storage.googleapis.com/ai2i/strategyqa/data/strategyqa_dataset.zip",
@@ -69,14 +70,14 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="strategy_qa_source",
+            name="source",
             version=SOURCE_VERSION,
             description="StrategyQA source schema",
             schema="source",
             subset_id="strategy_qa",
         ),
         ThoughtSourceConfig(
-            name="strategy_qa_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="StrategyQA thoughtsource schema",
             schema="thoughtsource",
@@ -84,7 +85,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "strategy_qa_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
@@ -222,11 +223,9 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
 
                     example_ = {
                         "id": example["qid"],
-                        "question_id": example["qid"],
-                        "document_id": example["qid"],
+                        "ref_id": "",
                         "question": example["question"],
                         "type": "bool",
-                        "cot_type": "set",
                         "choices": [],
                         "context": "",
                         "cot": example["facts"],
@@ -258,11 +257,9 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                 for key, example in enumerate(data):
                     example_ = {
                         "id": example["qid"],
-                        "question_id": example["qid"],
-                        "document_id": example["qid"],
+                        "ref_id": "",
                         "question": example["question"],
                         "type": "bool",
-                        "cot_type": None,
                         "choices": [],
                         "context": "",
                         "cot": [],

@@ -21,6 +21,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -45,7 +46,7 @@ Evaluating and Developing English Math Word Problem Solvers".
 
 _HOMEPAGE = "https://github.com/chaochun/nlu-asdiv-dataset"
 
-_LICENSE = "MIT"
+_LICENSE = Licenses.CC_BY_NC_4p0
 
 _URLS = {
     "corpus": "https://github.com/chaochun/nlu-asdiv-dataset/raw/master/dataset/ASDiv.xml",
@@ -72,14 +73,14 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="asdiv_source",
+            name="source",
             version=SOURCE_VERSION,
             description="ASDiv source schema",
             schema="source",
             subset_id="asdiv",
         ),
         ThoughtSourceConfig(
-            name="asdiv_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="ASDiv thoughtsource schema",
             schema="thoughtsource",
@@ -87,7 +88,7 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "asdiv_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
@@ -201,11 +202,9 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": example.attrib["ID"],
-                    "question_id": example.attrib["ID"],
-                    "document_id": example.attrib["ID"],
+                    "ref_id": "",
                     "question": " ".join([example.find("Body").text, example.find("Question").text]),
                     "type": "number",
-                    "cot_type": "list",
                     "choices": [],
                     "context": "",
                     "cot": chain_of_thought,

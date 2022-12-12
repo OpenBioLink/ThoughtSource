@@ -24,6 +24,7 @@ from nltk.tokenize import sent_tokenize
 from cot.utils import (map_example_to_kojima_cot, map_example_to_wei_cot,
                        parse_kojima_log, parse_wei_log, schemas)
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 nltk.download("punkt")
 
@@ -66,13 +67,15 @@ predict the correct answers . It contains 12,102 questions with one correct answ
 provided in two major training/validation/testing set splits: "Random split" which is the main evaluation split, and "Question
 token split", see paper for details.
 
+Info regarding License: https://github.com/jonathanherzig/commonsenseqa/issues/5
+
 CommonsenseQA does not come with explanations per default. We use explanations from Aggarwal et al, 2021, which can be found at
-https://github.com/dair-iitd/ECQA-Dataset.
+https://github.com/dair-iitd/ECQA-Dataset. License of explanations: Community Data License Agreement - Sharing - Version 1.0.
 """
 
 _HOMEPAGE = "https://www.tau-nlp.sites.tau.ac.il/commonsenseqa"
 
-_LICENSE = "Unknown"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     "commonsense": {
@@ -101,14 +104,14 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="commonsense_qa_source",
+            name="source",
             version=SOURCE_VERSION,
             description="CommonsenseQA source schema",
             schema="source",
             subset_id="commonsense_qa",
         ),
         ThoughtSourceConfig(
-            name="commonsense_qa_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="CommonsenseQA thoughtsource schema",
             schema="thoughtsource",
@@ -116,7 +119,7 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "commonsense_qa_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
         if self.config.schema == "source":
@@ -220,11 +223,9 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                 choices = {x["label"]: x["text"] for x in example["question"]["choices"]}
                 example_ = {
                     "id": example["id"],
-                    "question_id": example["id"],
-                    "document_id": example["id"],
+                    "ref_id": "",
                     "question": example["question"]["stem"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": choices.values(),
                     "context": "",
                     "cot": [x.capitalize() for x in sent_tokenize(ecqa[example["id"]])] if example["id"] in ecqa else [],

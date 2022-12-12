@@ -21,6 +21,7 @@ import pandas as pd
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -58,7 +59,7 @@ in several prominent works.
 
 _HOMEPAGE = "https://github.com/sroy9/mawps"
 
-_LICENSE = "MIT"
+_LICENSE = Licenses.MIT
 
 _URLS = {
     "train": "https://github.com/arkilpatel/SVAMP/raw/main/data/cv_mawps/fold0/train.csv",
@@ -81,14 +82,14 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="mawps_source",
+            name="source",
             version=SOURCE_VERSION,
             description="MAWPS source schema",
             schema="source",
             subset_id="mawps",
         ),
         ThoughtSourceConfig(
-            name="mawps_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="MAWPS thoughtsource schema",
             schema="thoughtsource",
@@ -96,7 +97,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "mawps_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
@@ -206,11 +207,9 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": key,
-                    "question_id": key,
-                    "document_id": key,
+                    "ref_id": "",
                     "question": example["Question"],
                     "type": "number",
-                    "cot_type": "list",
                     "choices": [],
                     "context": "",
                     "cot": chain_of_thought,

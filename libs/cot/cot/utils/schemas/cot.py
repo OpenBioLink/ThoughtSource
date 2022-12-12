@@ -6,11 +6,9 @@ import datasets
 features = datasets.Features(
     {
         "id": datasets.Value("string"),
-        "question_id": datasets.Value("string"),
-        "document_id": datasets.Value("string"),
+        "ref_id": datasets.Value("string"),
         "question": datasets.Value("string"),
         "type": datasets.Value("string"),
-        "cot_type": datasets.Value("string"),
         "choices": [datasets.Value("string")],
         "context": datasets.Value("string"),
         "cot": [datasets.Value("string")],
@@ -18,7 +16,7 @@ features = datasets.Features(
         "generated_cot": [
             {
                 "id": datasets.Value("string"),
-                "templates_version": datasets.Value("string"),
+                "fragments_version": datasets.Value("string"),
                 "instruction": datasets.Value("string"),
                 "cot_trigger": datasets.Value("string"),
                 "prompt_text": datasets.Value("string"),

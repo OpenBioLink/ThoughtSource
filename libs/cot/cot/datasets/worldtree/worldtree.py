@@ -21,6 +21,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -58,7 +59,7 @@ provided.
 
 _HOMEPAGE = "http://cognitiveai.org/explanationbank/"
 
-_LICENSE = "EULA AI2 Mercury Dataset"
+_LICENSE = Licenses.AI2_MERCURY
 
 _URLS = {
     _DATASETNAME: "http://www.cognitiveai.org/dist/WorldtreeExplanationCorpusV2.1_Feb2020.zip",
@@ -80,14 +81,14 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="worldtree_source",
+            name="source",
             version=SOURCE_VERSION,
             description="Worldtree source schema",
             schema="source",
             subset_id="worldtree",
         ),
         ThoughtSourceConfig(
-            name="worldtree_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="Worldtree thoughtsource schema",
             schema="thoughtsource",
@@ -95,7 +96,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "worldtree_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
         if self.config.schema == "source":
@@ -221,11 +222,9 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
 
         example_ = {
             "id": example["question_id"],
-            "question_id": example["question_id"],
-            "document_id": example["question_id"],
+            "ref_id": "",
             "question": example["question"],
             "type": "multiplechoice",
-            "cot_type": "list",
             "choices": example["choices"],
             "context": "",
             "cot": cot,
