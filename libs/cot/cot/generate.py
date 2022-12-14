@@ -35,21 +35,6 @@ def generate_and_extract(data, config):
 
     ds.disable_caching()
 
-    # # Creating configurations for the options 'all' or 'None':
-    # keys = ["instruction_keys", "cot_trigger_keys", "answer_extraction_keys"]
-    # names_in_template = ["instructions", "cot_triggers", "answer_extractions"]
-    # for key, name in zip(keys, names_in_template):
-    #     if key not in config or config[key] == "all":
-    #         config[key] = [None] + list(FRAGMENTS[name].keys())
-    #     elif not config[key]:
-    #         config[key] = [None]
-
-    # Inserts None at index 0 of instruction_keys to query without an explicit instruction
-    # TODO rethink this, maybe add option to disable this
-    # for key in ["instruction_keys","cot_trigger_keys"]:
-    #     if None not in config[key]:
-    #         config[key].insert(0, None)
-
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
         if "idx_range" in config and config["idx_range"] != "all":
@@ -70,53 +55,44 @@ def generate_and_extract(data, config):
 
     # The config is transformed into a dataclass object, where all testing is done
     # But it will be transformed back to a dictionary for the function 'map'
-    config = Config(**config)
+    config_as_dataclass = Config(**config)
 
     return data.map(
-        _generate_and_extract, with_indices=True, fn_kwargs=asdict(config), features=features
+        _generate_and_extract, with_indices=True, fn_kwargs=asdict(config_as_dataclass), features=features
     )
 
 
 def _generate_and_extract(
     item,
     idx,
-    # CONTINUE HERE
-    # **fn_kwargs,
-    
-    idx_range="all",
-    author="",
-    api_service="huggingface_hub",
-    engine="google/flan-t5-xl",
-    temperature=0,
-    max_tokens=128,
-    api_time_interval=1.0,
-    multiple_choice_answer_format="Letters",
-    instruction_keys="all",
-    cot_trigger_keys="all",
-    template_cot_generation="\n{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}\n",
-    answer_extraction_keys="all",
-    template_answer_extraction="\n{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}\n{cot}\n{answer_extraction}\n",
-    debug=True,
-    warn=True,
-    verbose=False,
+
+    # did not find a way to pass the config as a dataclass object, therefor setting all parameters to None here
+    # will be overwritten by the config_as_dataclass object
+    idx_range=None,
+    author=None,
+    api_service=None,
+    engine=None,
+    temperature=None,
+    max_tokens=None,
+    api_time_interval=None,
+    multiple_choice_answer_format=None,
+    instruction_keys=None,
+    cot_trigger_keys=None,
+    template_cot_generation=None,
+    answer_extraction_keys=None,
+    template_answer_extraction=None,
+    debug=None,
+    warn=None,
+    verbose=None,
 ):
     """
     The function takes in a JSON object (item) and generates a CoT (Chain-of-Thought) for each combination of
-    of instructions and CoT triggers. For each generated CoT and for each of the given answer extractions it extracts an answer
+    of instructions and CoT triggers. For each generated CoT and for each of the given answer extractions it extracts an answer.
 
     :param item: the item (example) of a dataset to be processed
     :param idx: the index of the item in the dataset
-    :param idx_range: the range of indices to generate and extract for, if idx not within idx_range do nothing and return item
-    :param author: the name of the person who generated the CoT
-    :param engine: the GPT-3 engine to use, defaults to text-davinci-002 (optional)
-    :param temperature: 0.0 means the model will output the most likely answer, 1.0 means the model will
-        output the most random answer, defaults to 0 (optional)
-    :param max_tokens: The maximum number of tokens to generate, defaults to 128 (optional)
-    :param api_time_interval: The time interval between API calls
-    :param instruction_keys: the instructions to generate the CoT
-    :param cot_trigger_keys: the trigger to generate the CoT
-    :param answer_extraction_keys: the trigger to extract answers given a generated CoT
-    :param debug: If True, will print out the prompts and generated text, defaults to True (optional)
+    other parameters are handed over from config and are described in config.py
+ 
     :return: item populated with various fields
     """
 
@@ -125,7 +101,7 @@ def _generate_and_extract(
     else:
         return item
 
-    # predefine values in template dictionary that stay same over all runs
+    # predefine values in template dictionary that stay same over all runs of the current item
     template_dict = {
         "instruction": None,
         "question": item["question"],
@@ -137,12 +113,7 @@ def _generate_and_extract(
         "answer_extraction": None,
     }
 
-    # CONTINUE HERE
-    # Not clear how to access the variables. Cannot access config here, but I think if I use
-    # instruction_keys from here it will just always be "all"
-    # check_templates(config, template_dict, template_cot_generation, template_answer_extraction)
-
-    # generate CoT and extract answers
+    # generate chain of thoughts and extract answers
     for instruction_key in instruction_keys:
         template_dict["instruction"] = FRAGMENTS["instructions"][instruction_key]
 
@@ -195,6 +166,7 @@ def _generate_and_extract(
             generated_cot["prompt_text"] = generate_cot_prompt
             generated_cot["date"] = print_now(1)
 
+            # extract answers from generated chain of thoughts
             for answer_extraction_key in answer_extraction_keys:
                 
                 if answer_extraction_key is None:
@@ -288,30 +260,10 @@ def multiple_choice_answer_formatting(format, answer_choices):
             ]  # 65 is the ASCII code for A
         )
 
-# MOVED to config.py
-# def check_templates(config, template_dict, template_cot_generation, template_answer_extraction):
-#     ''' checks if the templates contain only allowed keys and if template matches the given config '''
-#     import re
-#     input_variables = re.findall(
-#         "{(.*?)}", template_cot_generation + template_answer_extraction
-#     )
-#     assert all(elem in template_dict.keys() for elem in input_variables), (
-#         f"Not all input variables {input_variables} are part of the specified {template_dict.keys()}"
-#     )
-
-#     # assert "instruction" in input_variables == (config["cot_trigger_keys"] != ["None"])
-
-#     for (config_var, template_var) in zip(
-#         [config["instruction_keys"], config["cot_trigger_keys"], config["answer_extraction_keys"]],
-#         ["instruction", "cot_trigger", "answer_extraction"]
-#     ):
-#         assert (config_var != ["None"]) == template_var in input_variables, (
-#             '''There seems to be a mismatch between the template and the provided keys in the config,
-#             if {template_var} is in the template, {config_var} has to be specified and cannot be [None]'''
-#             )
-
 def format_prompt(template, dictionary):
     output = template.format_map(Correct_output(dictionary))
+    #TODO: this is not deleting newlines at first position
+    # I think because the the curly brackets are already removed be the function before
     output = delete_empty_curly_brackets(output)
     return output
 
@@ -345,7 +297,8 @@ def query_model(
     input, api_service, engine, temperature, max_tokens, api_time_interval, debug
 ):
     if debug:
-        return "test"
+        return "test mock chain of thought"
+        # return ("This is a " + 20 * "long " + "Mock CoT.\n")*20
 
     # langchain package implementation
     else:
@@ -361,9 +314,12 @@ def query_model(
             llm_chain = LLMChain(
                 prompt=prompt,
                 llm=OpenAI(
+                    # parameter options: https://beta.openai.com/docs/api-reference/completions/create-completion
                     model_name=engine,
                     max_tokens=max_tokens,
                     temperature=temperature,
+                    # type: ignore (suppress pylance error)
+                
                 ),
             )
         if api_service == "huggingface_hub":
@@ -372,9 +328,10 @@ def query_model(
             llm_chain = LLMChain(
                 prompt=prompt,
                 llm=HuggingFaceHub(
-                    repo_id=engine,
                     # parameter options: https://huggingface.co/docs/api-inference/detailed_parameters
+                    repo_id=engine,
                     model_kwargs={"temperature": temperature, "max_length": max_tokens},
+                    # type: ignore (suppress pylance error)
                 ),
             )
         response = llm_chain.predict(prompt=input, stop=None)

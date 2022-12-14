@@ -1,11 +1,12 @@
 import pytest
 import datasets
-# from contextlib import contextmanager
 from typing import Iterator
 from cot import Collection
 # import os
 # from pathlib import Path
 from cot.generate import Correct_output
+
+from .utils import chdir, simple_config, get_test_collection
 
 def test_correct_output()-> None:
     """Test the Correct_output class"""
@@ -30,6 +31,37 @@ def test_correct_output()-> None:
     correct_normal_b = 'None'
     normal_b = simple_sentence_b.format_map(simple_dict)
     assert normal_b == correct_normal_b
+
+def test_template_input_only_string():
+    collection = get_test_collection("test_1_dataset")
+    config = simple_config()
+    text1 = "abc"
+    text2 = "123"
+    config["template_cot_generation"] = text1
+    config["template_answer_extraction"] = text2
+    collection.generate(config=config)
+
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] == text1
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0]["answer_extraction_text"] == text2
+
+def test_template_cot_wrong_variables():
+    """Test if error is raised when wrong variables are used in templates"""
+    collection = get_test_collection("test_1_dataset")
+    config = simple_config()
+    text1 = "abc {wrong_variable}"
+    config["template_cot_generation"] = text1
+    with pytest.raises(ValueError) as error:
+        collection.generate(config=config)
+
+def test_template_answer_extraction_wrong_variables():
+    """Test if error is raised when wrong variables are used in templates"""
+    collection = get_test_collection("test_1_dataset")
+    config = simple_config()
+    text1 = "abc {wrong_variable}"
+    config["template_answer_extraction"] = text1
+    with pytest.raises(ValueError) as error:
+        collection.generate(config=config)
+
 
 # def test_multiple_choice_formatting() -> None:
 
