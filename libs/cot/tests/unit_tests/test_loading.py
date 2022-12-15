@@ -125,29 +125,28 @@ Answer: Let's think step by step. Test mock chain of thought.
 Therefore, the answer is""")
 
 # TODO: this test should not fail but it does
-# def test_template_instruction_is_none() -> None:
-#     collection = get_test_collection("test_1_dataset")
-#     config = simple_config()
-#     config["instruction_keys"] = [None]
-#     collection.generate(config=config)
-#     assert (collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] ==
-# """Question
-# A) choice A
-# B) choice B
-# C) choice C
-# D) choice D
+def test_template_instruction_is_none() -> None:
+    collection = get_test_collection("test_1_dataset")
+    config = simple_config()
+    config["instruction_keys"] = [None]
+    collection.generate(config=config)
+    assert (collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] ==
+"""Question
+A) choice A
+B) choice B
+C) choice C
+D) choice D
 
-# Answer: Let's think step by step.
-# """)
-#     assert (collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0]["answer_extraction_text"] ==
-# """Question
-# A) choice A
-# B) choice B
-# C) choice C
-# D) choice D
+Answer: Let's think step by step.""")
+    assert (collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0]["answer_extraction_text"] ==
+"""Question
+A) choice A
+B) choice B
+C) choice C
+D) choice D
 
-# Answer: Let's think step by step. Test mock chain of thought.
-# Therefore, the answer is""")
+Answer: Let's think step by step. Test mock chain of thought.
+Therefore, the answer is""")
 
 
 

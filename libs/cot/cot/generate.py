@@ -115,7 +115,7 @@ def _generate_and_extract(
 
     # generate chain of thoughts and extract answers
     for instruction_key in instruction_keys:
-        template_dict["instruction"] = FRAGMENTS["instructions"][instruction_key]
+        template_dict["instruction"] = get_fragments_value("instructions", instruction_key)
 
         for cot_trigger_key in cot_trigger_keys:
             generated_cot = {
@@ -140,7 +140,7 @@ def _generate_and_extract(
                 "annotation": [],
             }
 
-            template_dict["cot_trigger"] = FRAGMENTS["cot_triggers"][cot_trigger_key]
+            template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)               
             generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
 
             if verbose:
@@ -181,7 +181,7 @@ def _generate_and_extract(
                         "correct_answer": None,
                     }
 
-                    template_dict["answer_extraction"] = FRAGMENTS["answer_extractions"][answer_extraction_key]
+                    template_dict["answer_extraction"] = get_fragments_value("answer_extractions", answer_extraction_key)
                     answer_extraction_prompt = format_prompt(template_answer_extraction,template_dict)
 
                     if verbose:
@@ -250,21 +250,35 @@ def print_warning(config, n_samples):
         return
 
 def multiple_choice_answer_formatting(format, answer_choices):
-    if format == None:
-        return answer_choices
-    elif format == "Letters":
+    if format == "Letters":
         # Adding Letters (A,B,C,...) for the given multiple choice answers.
         return "\n".join(
             [
                 f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)
             ]  # 65 is the ASCII code for A
         )
+    elif format == "Numbers":
+        # Adding Numbers (1,2,3,...) for the given multiple choice answers.
+        return "\n".join(
+            [
+                f"{i+1}) {example}" for i, example in enumerate(answer_choices)
+            ] 
+        )
+    elif format == None:
+        # without index
+        return "\n".join(answer_choices)
+
+def get_fragments_value(str, key):
+    if key is None:
+        return None
+    else:
+        return FRAGMENTS[str][key]
 
 def format_prompt(template, dictionary):
     output = template.format_map(Correct_output(dictionary))
     #TODO: this is not deleting newlines at first position
     # I think because the the curly brackets are already removed be the function before
-    output = delete_empty_curly_brackets(output)
+    output = output.lstrip()
     return output
 
 class Correct_output(dict):
@@ -279,11 +293,11 @@ class Correct_output(dict):
     # def get(self, key):
     #     return dict.get(self, key) or ""
 
-def delete_empty_curly_brackets(string):
-    string.replace("{None}\n", "")
-    # string.replace("\n{None}", "") # TODO: do I need this?
-    string.replace("{None}", "")
-    return string
+# def delete_empty_curly_brackets(string):
+#     string.replace("{None}\n", "")
+#     # string.replace("\n{None}", "") # TODO: do I need this?
+#     string.replace("{None}", "")
+#     return string
 
 # # replace in dict None with empty string
 # def dict_replace_none_with_empty_string(d):
