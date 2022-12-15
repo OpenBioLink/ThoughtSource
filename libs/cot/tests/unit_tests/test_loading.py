@@ -111,8 +111,7 @@ B) choice B
 C) choice C
 D) choice D
 
-Answer: Let's think step by step.
-""")
+Answer: Let's think step by step.""")
     assert (collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0]["answer_extraction_text"] ==
 """Answer the following question through step-by-step reasoning.
 
@@ -122,8 +121,7 @@ B) choice B
 C) choice C
 D) choice D
 
-Answer: Let's think step by step.
-test mock chain of thought
+Answer: Let's think step by step. Test mock chain of thought.
 Therefore, the answer is""")
 
 # TODO: this test should not fail but it does
@@ -148,8 +146,7 @@ Therefore, the answer is""")
 # C) choice C
 # D) choice D
 
-# Answer: Let's think step by step.
-# test mock chain of thought
+# Answer: Let's think step by step. Test mock chain of thought.
 # Therefore, the answer is""")
 
 

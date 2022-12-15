@@ -67,7 +67,7 @@ def _generate_and_extract(
     idx,
 
     # did not find a way to pass the config as a dataclass object, therefor setting all parameters to None here
-    # will be overwritten by the config_as_dataclass object
+    # all these variables will be defined by the config_as_dataclass object
     idx_range=None,
     author=None,
     api_service=None,
@@ -297,7 +297,7 @@ def query_model(
     input, api_service, engine, temperature, max_tokens, api_time_interval, debug
 ):
     if debug:
-        return "test mock chain of thought"
+        return " Test mock chain of thought."
         # return ("This is a " + 20 * "long " + "Mock CoT.\n")*20
 
     # langchain package implementation

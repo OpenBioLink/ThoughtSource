@@ -29,8 +29,7 @@ class Config:
             {question}
             {answer_choices}
 
-            {cot_trigger}
-            '''
+            {cot_trigger}'''
     "template_answer_extraction": string - is the model input in the answer extraction step, variables in brackets.
         Only variables of this list are allowed: "instruction", 'question", "answer_choices", "cot_trigger",
         "cot", "answer"
@@ -40,8 +39,7 @@ class Config:
             {question}
             {answer_choices}
 
-            {cot_trigger}
-            {cot}
+            {cot_trigger}{cot}
             {answer_extraction}'''
     "author" : str - Name of the person responsible for generation, Default: ""
     "api_service" str - Name of the used api service: "openai" or "huggingface_hub",
@@ -65,9 +63,9 @@ class Config:
     cot_trigger_keys: list or "all" = "all"
     answer_extraction_keys: list or "all" = "all"
     template_cot_generation: str = (
-        "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}\n"
+        "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}"
     )
-    template_answer_extraction: str = "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}\n{cot}\n{answer_extraction}"
+    template_answer_extraction: str = "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}"
     author: str = ""
     api_service: str = "huggingface_hub"
     engine: str = "google/flan-t5-xl"
