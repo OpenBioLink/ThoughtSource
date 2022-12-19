@@ -46,13 +46,17 @@ ThoughtSource is a central, open resource and community around data and tools re
 ### Applications
 
 * __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
-* __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data (soon to be released)
+* __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data. 
 
 <p align="center">
   <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
 
   The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
 </p>
+
+ __[Use the web-based annotator 📝](http://thought.samwald.info:3000/)__.  
+
+
 
 ## Current datasets
 __Datasets can be [browsed online through the Dataset Viewer 🔎](http://thought.samwald.info/)__. 
@@ -79,9 +83,9 @@ __Datasets can be [browsed online through the Dataset Viewer 🔎](http://though
 * __[med_qa](https://github.com/jind11/MedQA):__ Free-form multiple-choice OpenQA dataset containing questions from medical board exams in US (USMLE), Mainland China and Taiwan. ([Jin 2020](https://arxiv.org/abs/2009.13081v1)). _License:_ MIT. 
   * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. Only US questions. _License:_ Unknown.
 * __[medmc_qa](https://medmcqa.github.io/):__ Multiple-Choice Question Answering dataset containing real-world medical entrance exam questions from the All India Institute of Medical Sciences (AIIMS PG) and National Eligibility cum Entrance Test (NEET PG). ([Pal 2022](https://arxiv.org/abs/2203.14371)). _License:_ MIT.
-  * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. _License:_ Unknown.
+  * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. _License:_ CC-BY.
 * __[pubmed_qa](https://github.com/pubmedqa/pubmedqa):__ QA dataset containing biomedical questions extracted from PubMed abstracts that can be answered with yes/no/maybe. ([Jin 2019](https://arxiv.org/abs/1909.06146)). _License:_ MIT. 
-  * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. _License:_ Unknown.
+  * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. _License:_ CC-BY.
 
 ### Math word problems
 * __[aqua](https://github.com/deepmind/AQuA):__ Math word problems from the AQUA-RAT (Algebra Question Answering with Rationales) dataset ([Ling 2017](https://arxiv.org/pdf/1705.04146.pdf)). Reasoning chains derived from the original dataset. _License:_ Apache 2.0.
