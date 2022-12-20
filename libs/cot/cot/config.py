@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import List
 import json
 import pkgutil
 
@@ -59,9 +60,11 @@ class Config:
 
     idx_range: tuple or "all" = "all"
     multiple_choice_answer_format: str = "Letters"
-    instruction_keys: list or "all" = "all"
-    cot_trigger_keys: list or "all" = "all"
-    answer_extraction_keys: list or "all" = "all"
+    instruction_keys: list or "all" = None
+    # Passing a default list as an argument to dataclasses needs to be done with a lambda function
+    # https://stackoverflow.com/questions/52063759/passing-default-list-argument-to-dataclasses
+    cot_trigger_keys: List = field(default_factory=lambda: ['kojima-01'])
+    answer_extraction_keys: List = field(default_factory=lambda: ['kojima-01'])
     template_cot_generation: str = (
         "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}"
     )

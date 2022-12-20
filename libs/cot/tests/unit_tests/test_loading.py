@@ -69,6 +69,9 @@ def test_keys_all_plus_None() -> None:
         "debug": True,
         "warn": False,
         "verbose": False,
+        "instruction_keys": "all",
+        "cot_trigger_keys": "all",
+        "answer_extraction_keys": "all",
     }
     config = Config(**config)
     instruction_keys = ['qa-01', 'qa-02', 'qa-03', 'qa-04']
