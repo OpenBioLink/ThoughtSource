@@ -4,11 +4,10 @@ import os
 import pkgutil
 import time
 import uuid
+from dataclasses import asdict
 
 import datasets as ds
-
 from cot.config import Config
-from dataclasses import asdict
 
 # import pydantic
 # from langchain.prompts import BasePromptTemplate
@@ -23,6 +22,7 @@ from dataclasses import asdict
 ds.disable_caching()
 
 FRAGMENTS = json.loads(pkgutil.get_data(__name__, "fragments.json"))
+
 
 def generate_and_extract(data, config):
     """
@@ -49,7 +49,7 @@ def generate_and_extract(data, config):
             n_samples = sum([len(data[x]) for x in data])
     else:
         raise ValueError("Not recognized data")
-    
+
     if config["warn"]:
         print_warning(config, n_samples)
 
@@ -58,14 +58,16 @@ def generate_and_extract(data, config):
     config_as_dataclass = Config(**config)
 
     return data.map(
-        _generate_and_extract, with_indices=True, fn_kwargs=asdict(config_as_dataclass), features=features
+        _generate_and_extract,
+        with_indices=True,
+        fn_kwargs=asdict(config_as_dataclass),
+        features=features,
     )
 
 
 def _generate_and_extract(
     item,
     idx,
-
     # did not find a way to pass the config as a dataclass object, therefor setting all parameters to None here
     # all these variables will be defined by the config_as_dataclass object
     idx_range=None,
@@ -92,7 +94,7 @@ def _generate_and_extract(
     :param item: the item (example) of a dataset to be processed
     :param idx: the index of the item in the dataset
     other parameters are handed over from config and are described in config.py
- 
+
     :return: item populated with various fields
     """
 
@@ -115,7 +117,9 @@ def _generate_and_extract(
 
     # generate chain of thoughts and extract answers
     for instruction_key in instruction_keys:
-        template_dict["instruction"] = get_fragments_value("instructions", instruction_key)
+        template_dict["instruction"] = get_fragments_value(
+            "instructions", instruction_key
+        )
 
         for cot_trigger_key in cot_trigger_keys:
             generated_cot = {
@@ -140,7 +144,9 @@ def _generate_and_extract(
                 "annotation": [],
             }
 
-            template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)               
+            template_dict["cot_trigger"] = get_fragments_value(
+                "cot_triggers", cot_trigger_key
+            )
             generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
 
             if verbose:
@@ -168,7 +174,7 @@ def _generate_and_extract(
 
             # extract answers from generated chain of thoughts
             for answer_extraction_key in answer_extraction_keys:
-                
+
                 if answer_extraction_key is None:
                     pass
 
@@ -181,8 +187,12 @@ def _generate_and_extract(
                         "correct_answer": None,
                     }
 
-                    template_dict["answer_extraction"] = get_fragments_value("answer_extractions", answer_extraction_key)
-                    answer_extraction_prompt = format_prompt(template_answer_extraction,template_dict)
+                    template_dict["answer_extraction"] = get_fragments_value(
+                        "answer_extractions", answer_extraction_key
+                    )
+                    answer_extraction_prompt = format_prompt(
+                        template_answer_extraction, template_dict
+                    )
 
                     if verbose:
                         print("\n------------------ANSWER EXTRACTION------------------")
@@ -209,6 +219,7 @@ def _generate_and_extract(
 
     return item
 
+
 def print_now(return_flag=0):
     """
     It takes a flag as an argument and prints the current time in a specific format
@@ -224,6 +235,7 @@ def print_now(return_flag=0):
         return now
     else:
         pass
+
 
 def print_warning(config, n_samples):
     n_instruction_keys = len(config["instruction_keys"])
@@ -249,6 +261,7 @@ def print_warning(config, n_samples):
     else:
         return
 
+
 def multiple_choice_answer_formatting(format, answer_choices):
     if format == "Letters":
         # Adding Letters (A,B,C,...) for the given multiple choice answers.
@@ -260,13 +273,12 @@ def multiple_choice_answer_formatting(format, answer_choices):
     elif format == "Numbers":
         # Adding Numbers (1,2,3,...) for the given multiple choice answers.
         return "\n".join(
-            [
-                f"{i+1}) {example}" for i, example in enumerate(answer_choices)
-            ] 
+            [f"{i+1}) {example}" for i, example in enumerate(answer_choices)]
         )
     elif format == None:
         # without index
         return "\n".join(answer_choices)
+
 
 def get_fragments_value(str, key):
     if key is None:
@@ -274,12 +286,14 @@ def get_fragments_value(str, key):
     else:
         return FRAGMENTS[str][key]
 
+
 def format_prompt(template, dictionary):
     output = template.format_map(Correct_output(dictionary))
-    #TODO: this is not deleting newlines at first position
+    # TODO: this is not deleting newlines at first position
     # I think because the the curly brackets are already removed be the function before
     output = output.lstrip()
     return output
+
 
 class Correct_output(dict):
     # TODO: do I ever need this? I think there will never be missing keys
@@ -292,6 +306,7 @@ class Correct_output(dict):
 
     # def get(self, key):
     #     return dict.get(self, key) or ""
+
 
 # def delete_empty_curly_brackets(string):
 #     string.replace("{None}\n", "")
@@ -333,7 +348,6 @@ def query_model(
                     max_tokens=max_tokens,
                     temperature=temperature,
                     # type: ignore (suppress pylance error)
-                
                 ),
             )
         if api_service == "huggingface_hub":

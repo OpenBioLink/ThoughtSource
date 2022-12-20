@@ -1,9 +1,11 @@
-from contextlib import contextmanager
-from pathlib import Path
 import os
+from contextlib import contextmanager
+from dataclasses import asdict
+from pathlib import Path
+
 from cot import Collection
 from cot.config import Config
-from dataclasses import asdict
+
 
 @contextmanager
 def chdir(path):
@@ -14,6 +16,7 @@ def chdir(path):
         yield
     finally:
         os.chdir(base_dir)
+
 
 def simple_config():
     """Simple config for testing"""
@@ -29,6 +32,7 @@ def simple_config():
     config = Config(**config)
     config = asdict(config)
     return config
+
 
 def get_test_collection(name: str) -> Collection:
     """Load a test collection from the data folder"""
