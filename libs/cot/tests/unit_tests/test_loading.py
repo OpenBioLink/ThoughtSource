@@ -1,16 +1,10 @@
-import os
-from pathlib import Path
 from typing import Iterator
 
 import datasets
-import pytest
 from cot import Collection
 from cot.config import Config
 
 from .utils import chdir, get_test_collection, simple_config
-
-# this file contains code from the following source:
-# https://github.com/hwchase17/langchain/blob/780ef84cf0ca95aa752ae79b6749e2b39b5b7343/tests/unit_tests/prompts/test_loading.py#L14
 
 
 def test_correct_example_load() -> None:
@@ -209,26 +203,6 @@ D) choice D
 Answer: Let's think step by step. Test mock chain of thought.
 Therefore, the answer is"""
     )
-
-
-# these tests take a very long time
-# either change them or do not run them every time
-
-
-def test_thougthsource() -> None:
-    collection = Collection("all", generate_mode="recache")
-    """Test that id is unique within a dataset"""
-    for name, dataset in collection:
-        for split in dataset:
-            pd_ = dataset[split].to_pandas()
-            assert (
-                len(pd_["id"]) == pd_["id"].nunique()
-            ), f"IDs are not unique in {name} {split}"
-
-
-def test_source() -> None:
-    collection = Collection("all", generate_mode="recache", source=True)
-    assert collection
 
 
 """
