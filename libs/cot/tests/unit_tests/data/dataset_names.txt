@@ -1,0 +1,14 @@
+aqua
+asdiv
+commonsense_qa
+entailment_bank
+gsm8k
+mawps
+med_qa
+medmc_qa
+open_book_qa
+pubmed_qa
+qed
+strategy_qa
+svamp
+worldtree
