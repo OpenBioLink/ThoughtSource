@@ -3,6 +3,7 @@ from cot import Collection
 # these tests take a very long time
 # they were moved to integration tests
 
+
 def test_thoughtsource() -> None:
     collection = Collection("all", generate_mode="recache")
     """Test that id is unique within a dataset"""
