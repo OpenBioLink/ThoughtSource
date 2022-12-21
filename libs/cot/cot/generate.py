@@ -9,14 +9,6 @@ from dataclasses import asdict
 import datasets as ds
 from cot.config import Config
 
-# import pydantic
-# from langchain.prompts import BasePromptTemplate
-# from pydantic import BaseModel
-
-# from langchain.chains import LLMChain
-# from langchain.prompts import PromptTemplate
-
-
 # disable transformation (e.g. map) caching
 # https://huggingface.co/docs/datasets/v2.6.1/en/package_reference/main_classes#datasets.disable_caching
 ds.disable_caching()
@@ -149,7 +141,7 @@ def _generate_and_extract(
             generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
 
             if verbose:
-                print("\n-------------------COT TRIGGER-------------------")
+                print("\n-----------------COT TRIGGER TEXT-----------------")
                 print(generate_cot_prompt)
 
             cot = query_model(
@@ -193,7 +185,9 @@ def _generate_and_extract(
                     )
 
                     if verbose:
-                        print("\n------------------ANSWER EXTRACTION------------------")
+                        print(
+                            "\n----------------ANSWER EXTRACTION TEXT----------------"
+                        )
                         print(answer_extraction_prompt)
 
                     predicted_answer = query_model(
@@ -311,17 +305,8 @@ class Correct_output(dict):
 #     string.replace("{None}", "")
 #     return string
 
-# # replace in dict None with empty string
-# def dict_replace_none_with_empty_string(d):
-#     for k, v in d.items():
-#         if v is None:
-#             d[k] = ""
-#     return d
 
-
-def query_model(
-    input, api_service, engine, temperature, max_tokens, api_time_interval
-):
+def query_model(input, api_service, engine, temperature, max_tokens, api_time_interval):
     if api_service == "mock_api":
         return " Test mock chain of thought."
         # return ("This is a " + 20 * "long " + "Mock CoT.\n")*20
