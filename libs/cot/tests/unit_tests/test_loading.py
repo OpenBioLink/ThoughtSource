@@ -147,19 +147,6 @@ def test_keys_all_plus_None() -> None:
     assert config.cot_trigger_keys == [None] + cot_trigger_keys
     assert config.answer_extraction_keys == [None] + answer_extraction_keys
 
-    # test for selecting "all" in keys, which should be the same
-    config = {
-        "instruction_keys": "all",
-        "cot_trigger_keys": "all",
-        "answer_extraction_keys": "all",
-        "warn": False,
-        "verbose": False,
-    }
-    config = Config(**config)
-    assert config.instruction_keys == [None] + instruction_keys
-    assert config.cot_trigger_keys == [None] + cot_trigger_keys
-    assert config.answer_extraction_keys == [None] + answer_extraction_keys
-
 
 def test_template_default_f_strings() -> None:
     collection = get_test_collection("test_1_dataset")
