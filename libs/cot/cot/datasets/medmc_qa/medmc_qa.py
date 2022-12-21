@@ -79,8 +79,8 @@ _HOMEPAGE = "https://medmcqa.github.io/"
 _LICENSE = Licenses.MIT
 
 _URLS = {
-    "medmcqa": "https://drive.google.com/uc?export=download&id=15VkJdq5eyWIkfb_aoD3oS8i4tScbHYky",
-    "cots": "https://drive.google.com/u/0/uc?export=download&confirm=t&id=1l0y35SO0mRhc81Asrvo5WU7Mhi1mm2a0"
+    "medmcqa": "https://samwald.info/res/thoughtsource/data/medmc_qa.zip",
+    "cots": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip"
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
