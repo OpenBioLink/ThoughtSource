@@ -54,14 +54,24 @@ ThoughtSource is a central, open resource and community around data and tools re
   The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
 </p>
 
- __[Use the web-based annotator 📝](http://thought.samwald.info:3000/)__.  
+---
+<p align="center">
+ <a href="http://thought.samwald.info:3000/"><b>Use the web-based annotator 📝</b></a> 
+</p>
 
-
+---
 
 ## Current datasets
 __Datasets can be [browsed online through the Dataset Viewer 🔎](http://thought.samwald.info/)__. 
  
  We created [dataloaders](./libs/dataloader/) that allow you to access the following datasets in a standardized chain-of-thought format. The dataloaders create objects in the [Hugginface 🤗 Datasets format](https://huggingface.co/docs/datasets/index). We (sometimes extensively) post-processed the source datasets in different ways to create coherent reasoning chains.
+
+ ---
+<p align="center">
+ Datasets can be <a href="http://thought.samwald.info/"><b>browsed online through the Dataset Viewer 🔎</b></a> 
+</p>
+
+---
 
 
 ### General question answering
