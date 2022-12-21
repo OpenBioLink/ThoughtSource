@@ -176,7 +176,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
 
             cots = defaultdict(list)
             if cotspath is not None:
-                for file in tqdm(glob.glob(os.path.join(cotspath, "[0-4]-medqa*", "*.json")), desc="Preparing Lievin CoTs"):
+                for file in tqdm(glob.glob(cotspath + r"\[0-4]-medqa*\*.json"), desc="Preparing Lievin CoTs"):
                     filename = os.path.basename(file)[:-len(".json")]
                     id = int(filename.split("_")[2].split("-")[1])
                     assert (0 <= id < 1273), f"Oh no {id}"

@@ -258,10 +258,10 @@
                 "question": "Which of the water samples described below has the greatest average kinetic energy per molecule?",
                 "type": "multiplechoice",
                 "choices": [
-                    "1 liter of ice at a temperature of -50\u00b0C",
-                    "10 liters of ice at a temperature of -75\u00b0C",
-                    "1 liter of water at a temperature of 75\u00b0C",
-                    "10 liters of water at a temperature of 50\u00b0C"
+                    "1 liter of ice at a temperature of -50\u00c2\u00b0C",
+                    "10 liters of ice at a temperature of -75\u00c2\u00b0C",
+                    "1 liter of water at a temperature of 75\u00c2\u00b0C",
+                    "10 liters of water at a temperature of 50\u00c2\u00b0C"
                 ],
                 "context": "",
                 "cot": [
@@ -275,7 +275,7 @@
                     "Increase means more."
                 ],
                 "answer": [
-                    "1 liter of water at a temperature of 75\u00b0C"
+                    "1 liter of water at a temperature of 75\u00c2\u00b0C"
                 ],
                 "generated_cot": [],
                 "feedback": []

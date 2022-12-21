@@ -7,8 +7,6 @@ import datasets as ds
 # ver 0.2
 def clean(type_, pred):
     if type_ == "multiplechoice":
-        # TODO: BIG change necessary. Important to correct, add free text answers
-        # Will make big mistakes, the code is I think from another paper
         pred = re.findall(r"A|B|C|D", pred)
         if len(pred):
             pred = pred[0]

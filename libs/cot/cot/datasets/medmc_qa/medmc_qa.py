@@ -193,7 +193,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
 
             cots = defaultdict(list)
             if cotspath is not None:
-                for file in tqdm(glob.glob(os.path.join(cotspath, "[0-4]-medmcqa*", "*.json")), desc="Preparing Lievin CoTs"):
+                for file in tqdm(glob.glob(cotspath + r"\[0-4]-medmcqa*\*.json"), desc="Preparing Lievin CoTs"):
                     filename = os.path.basename(file)[:-len(".json")]
                     id = filename.split("_")[1].split("-")[1]
                     with open(file, "r") as infile:
