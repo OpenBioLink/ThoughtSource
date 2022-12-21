@@ -64,6 +64,7 @@ def test_basic_load_generate_evalute() -> None:
     collection = collection.select(split="train", number_samples=5)
     # 2) Language Model generates chains of thought and then extracts answers
     config = {
+        "api_service": "mock_api",
         "multiple_choice_answer_format": "Letters",
         "instruction_keys": ["qa-01"],
         "cot_trigger_keys": ["kojima-01"],
