@@ -157,7 +157,7 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
 
             cots = defaultdict(list)
             if cotspath is not None:
-                for file in tqdm(glob.glob(cotspath + r"\[0-4]-pubmedqa*\*.json"), desc="Preparing Lievin CoTs"):
+                for file in tqdm(glob.glob(os.path.join(cotspath, "[0-4]-pubmedqa*", "*.json")), desc="Preparing Lievin CoTs"):
                     filename = os.path.basename(file)[:-len(".json")]
                     id = int(filename.split("_")[1].split("-")[1])
                     with open(file, "r") as infile:
