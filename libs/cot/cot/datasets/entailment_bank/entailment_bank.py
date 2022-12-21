@@ -55,7 +55,7 @@ _HOMEPAGE = "https://allenai.org/data/entailmentbank"
 _LICENSE = Licenses.CC_BY_SA_4p0
 
 _URLS = {
-    _DATASETNAME: "https://drive.google.com/uc?export=download&id=1kVr-YsUVFisceiIklvpWEe0kHNSIFtNh",
+    _DATASETNAME: "https://samwald.info/res/thoughtsource/data/entailment_trees_emnlp2021_data_v3.zip",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks

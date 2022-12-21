@@ -58,8 +58,8 @@ _HOMEPAGE = "https://github.com/jind11/MedQA"
 _LICENSE = Licenses.MIT
 
 _URLS = {
-    _DATASETNAME: "https://drive.google.com/u/0/uc?export=download&confirm=t&id=1ImYUSLk9JbgHXOemfvyiDiirluZHPeQw",
-    "lievin_cot": "https://drive.google.com/u/0/uc?export=download&confirm=t&id=1l0y35SO0mRhc81Asrvo5WU7Mhi1mm2a0"
+    _DATASETNAME: "https://samwald.info/res/thoughtsource/data/med_qa.zip",
+    "lievin_cot": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip"
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks

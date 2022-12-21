@@ -64,7 +64,7 @@ _LICENSE = Licenses.MIT
 
 _URLS = {
     "pubmed": "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/ori_pqal.json",
-    "cots": "https://drive.google.com/u/0/uc?export=download&confirm=t&id=1l0y35SO0mRhc81Asrvo5WU7Mhi1mm2a0"
+    "cots": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip"
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
