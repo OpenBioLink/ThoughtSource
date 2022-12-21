@@ -64,7 +64,6 @@ def test_basic_load_generate_evalute() -> None:
     collection = collection.select(split="train", number_samples=5)
     # 2) Language Model generates chains of thought and then extracts answers
     config = {
-        "debug": True,
         "multiple_choice_answer_format": "Letters",
         "instruction_keys": ["qa-01"],
         "cot_trigger_keys": ["kojima-01"],
@@ -80,12 +79,11 @@ def test_basic_load_generate_evalute() -> None:
 def test_keys_all_plus_None() -> None:
     # test for automatic loading of keys
     config = {
-        "debug": True,
-        "warn": False,
-        "verbose": False,
         "instruction_keys": "all",
         "cot_trigger_keys": "all",
         "answer_extraction_keys": "all",
+        "warn": False,
+        "verbose": False,
     }
     config = Config(**config)
     instruction_keys = ["qa-01", "qa-02", "qa-03", "qa-04"]
@@ -150,7 +148,6 @@ def test_keys_all_plus_None() -> None:
 
     # test for selecting "all" in keys, which should be the same
     config = {
-        "debug": True,
         "instruction_keys": "all",
         "cot_trigger_keys": "all",
         "answer_extraction_keys": "all",
@@ -196,7 +193,6 @@ Therefore, the answer is"""
     )
 
 
-# TODO: this test should not fail but it does
 def test_template_instruction_is_none() -> None:
     collection = get_test_collection("test_1_dataset")
     config = simple_config()

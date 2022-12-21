@@ -11,9 +11,6 @@ class Config:
     """Class for keeping track of the config variables:
     "idx_range": tuple(int,int) - Determines which indices the generate_and_extract routine is applied to,
         if idx not within idx_range do nothing and return item. Default: "all" (All items are used)
-    "debug": bool - Determines whether the api is called or a mock is returned, used for debugging,
-        Default: True (api is not used)
-        # TODO: include in api_service, as option "mock_api"
     "multiple_choice_answer_format": str - How the list of multiple choice answer is formatted and indexed
         "Letters" (A,B,C,...), "Numbers" (1,2,3,...), "None" (no index), Default: "Letters" (A,B,C,...)
         # TODO: change name to multiple_choice_formatting, add None option
@@ -45,7 +42,7 @@ class Config:
             {answer_extraction}'''
     "author" : str - Name of the person responsible for generation, Default: ""
     "api_service" str - Name of the used api service: "openai" or "huggingface_hub",
-        Default: "huggingface_hub"
+        or a mock api service "mock_api" for debugging, Default: "huggingface_hub"
     "engine": str -  Name of the engine used, look at website of api which models are
         available, e.g. for "openai": "text-davinci-002", Default: "google/flan-t5-xl"
     "temperature": float - Describes how much randomness is in the generated output,
@@ -76,7 +73,6 @@ class Config:
     temperature: int or float = 0.0
     max_tokens: int = 128
     api_time_interval: int or float = 1.0
-    debug: bool = True
     verbose: bool = True
     warn: bool = True
     # TODO: add a way to set the api key?
@@ -204,7 +200,6 @@ class Config:
         assert isinstance(
             self.api_time_interval, (int, float)
         ), "api_time_interval must be a int or float"
-        assert isinstance(self.debug, bool), "debug must be a bool"
         assert isinstance(self.verbose, bool), "verbose must be a bool"
         assert isinstance(self.warn, bool), "warn must be a bool"
 

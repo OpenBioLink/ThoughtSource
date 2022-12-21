@@ -83,7 +83,6 @@ def _generate_and_extract(
     template_cot_generation=None,
     answer_extraction_keys=None,
     template_answer_extraction=None,
-    debug=None,
     warn=None,
     verbose=None,
 ):
@@ -160,7 +159,6 @@ def _generate_and_extract(
                 temperature,
                 max_tokens,
                 api_time_interval,
-                debug,
             )
             if verbose:
                 print("\n------------------GENERATED COT-------------------")
@@ -205,7 +203,6 @@ def _generate_and_extract(
                         temperature,
                         max_tokens,
                         api_time_interval,
-                        debug,
                     )
                     if verbose:
                         print("\n------------------EXTRACTED ANSWER-------------------")
@@ -252,8 +249,8 @@ def print_warning(config, n_samples):
         Number API calls for answer extraction: n_samples {n_samples} * n_instruction_keys {n_instruction_keys} * n_cot_trigger_keys {n_cot_trigger_keys} * n_answer_extraction_keys {n_answer_extraction_keys}
         Do you want to continue? y/n
         """
-    if config["debug"]:
-        warning += "\033[1m Note: You are in debug mode. When entering 'y', a test run without API calls is made. \033[0m"
+    if config["api_service"] == "mock_api":
+        warning += "\033[1m Note: You are using a mock api. When entering 'y', a test run without API calls is made. \033[0m"
     print(warning)
     ans = input()
     if ans.lower() == "y":
@@ -323,9 +320,9 @@ class Correct_output(dict):
 
 
 def query_model(
-    input, api_service, engine, temperature, max_tokens, api_time_interval, debug
+    input, api_service, engine, temperature, max_tokens, api_time_interval
 ):
-    if debug:
+    if api_service == "mock_api":
         return " Test mock chain of thought."
         # return ("This is a " + 20 * "long " + "Mock CoT.\n")*20
 
