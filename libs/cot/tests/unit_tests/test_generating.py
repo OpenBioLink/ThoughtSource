@@ -139,6 +139,33 @@ Therefore, the answer is"""
     )
 
 
+# TODO: this test should not fail:
+# def test_generate_change_config() -> None:
+#     # 1) Dataset loading and selecting a random sample
+#     collection = Collection(["worldtree"], verbose=False)
+#     collection = collection.select(split="train", number_samples=1)
+
+#     config = simple_config()
+#     config["instruction_keys"] = ["qa-01"]
+
+#     collection.generate(config=config)
+
+#     # 1) Dataset loading and selecting a random sample
+#     collection = Collection(["worldtree"], verbose=False)
+#     collection = collection.select(split="train", number_samples=1)
+
+#     # 2) Language Model generates chains of thought and then extracts answers
+#     config = simple_config()
+#     config["instruction_keys"] = ["qa-02"]
+
+#     collection.generate(config=config)
+
+#     assert collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"] == "qa-02"
+
+
+
+
+
 # def test_multiple_choice_formatting() -> None:
 
 # def test_check_templates() -> None:
