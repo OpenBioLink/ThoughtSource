@@ -12,7 +12,7 @@ def test_correct_example_load() -> None:
     collection = get_test_collection("worldtree_100_dataset")
     assert (
         collection._cache["worldtree"]["train"][0]["question"]
-        == "A parent and a child share several characteristics. Both individuals are tall, have curly hair, are good cooks, and have freckles. Which of these characteristics is a learned behavior?"
+        == 'Which event occurs on a daily cycle?'
     )
 
 

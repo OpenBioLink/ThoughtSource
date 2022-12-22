@@ -279,6 +279,8 @@ class Collection:
                         # setting the same seed as the default
                         random.seed(0)
                     random_ids = random.sample(range(samples_count), number_samples)
+                    # sort ids
+                    random_ids = sorted(random_ids)
                     # random sample from subset
                     subset = subset.select(random_ids)
                 # first rows of dataset, not random
