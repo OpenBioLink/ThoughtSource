@@ -1,7 +1,7 @@
 import json
 import pkgutil
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Union
 
 FRAGMENTS = json.loads(pkgutil.get_data(__name__, "fragments.json"))
 
@@ -56,11 +56,11 @@ class Config:
     quantity_on_hand: int = 0
     """
 
-    idx_range: tuple or "all" = "all"
-    multiple_choice_answer_format: str = "Letters"
-    instruction_keys: list or "all" = None
+    idx_range: Union[tuple, str, None] = "all"
+    multiple_choice_answer_format: Union[str, None] = "Letters"
     # Passing a default list as an argument to dataclasses needs to be done with a lambda function
     # https://stackoverflow.com/questions/52063759/passing-default-list-argument-to-dataclasses
+    instruction_keys: List = field(default_factory=lambda: [None])
     cot_trigger_keys: List = field(default_factory=lambda: ["kojima-01"])
     answer_extraction_keys: List = field(default_factory=lambda: ["kojima-01"])
     template_cot_generation: str = (
@@ -70,13 +70,12 @@ class Config:
     author: str = ""
     api_service: str = "huggingface_hub"
     engine: str = "google/flan-t5-xl"
-    temperature: int or float = 0.0
+    temperature: Union[int, float] = 0.0
     max_tokens: int = 128
-    api_time_interval: int or float = 1.0
+    api_time_interval: Union[int, float] = 1.0
     verbose: bool = True
     warn: bool = True
     # TODO: add a way to set the api key?
-    # TODO: add an option to add None as a key. At the moment this is done automatically.
 
     def __post_init__(self):
         # replace all keys (or non given keys) in config with the corresponding values
@@ -119,23 +118,6 @@ class Config:
                 raise ValueError(
                     f"Given variable '{variable}' is not allowed in templates. Allowed variables are: {allowed_variables}"
                 )
-
-        # check if template matches the given config
-        # TODO: adapt to new template structure, no more template dict.
-        # assert (self.instruction_keys == [None]) == ("instruction" not in input_variables), (
-        #     '''There seems to be a mismatch between the template and the provided keys in the config.
-        #         If {template_var} is in the template, {config_var} has to be specified and cannot be [None].
-        #         if {template_var} is not in the template, {config_var} has to be [None] or not specified.
-        #         '''
-        #     )
-
-        # if self.instruction_keys != ["None"]:
-
-        # for (config_var, template_var) in zip(
-        #     [self.instruction_keys, self.cot_trigger_keys, self.answer_extraction_keys],
-        #     ["instruction", "cot_trigger", "answer_extraction"]
-        # ):
-        #     assert (config_var != ["None"]) == (template_var in input_variables), (
 
         # simple checks
         if self.idx_range != "all":
@@ -195,7 +177,9 @@ class Config:
         assert isinstance(self.author, str), "author must be a string"
         assert isinstance(self.api_service, str), "api_service must be a string"
         assert isinstance(self.engine, str), "engine must be a string"
-        assert isinstance(self.temperature, (int, float)), "temperature must be a float"
+        assert isinstance(
+            self.temperature, (int, float)
+        ), "temperature must be a int or float"
         assert isinstance(self.max_tokens, int), "max_tokens must be an int"
         assert isinstance(
             self.api_time_interval, (int, float)
