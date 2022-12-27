@@ -246,6 +246,7 @@ def print_warning(config, n_samples):
     if config["api_service"] == "mock_api":
         warning += "\033[1m Note: You are using a mock api. When entering 'y', a test run without API calls is made. \033[0m"
     print(warning)
+    time.sleep(1)
     ans = input()
     if ans.lower() == "y":
         pass
