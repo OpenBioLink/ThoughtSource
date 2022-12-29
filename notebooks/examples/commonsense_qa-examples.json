@@ -1,0 +1,2177 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "7b95825a19d6930d6aed35c7c57a2d82",
+                "ref_id": "",
+                "question": "James couldn't get comfortable.  There was too much dirt.  He needed to clean out what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "ground",
+                    "subway",
+                    "bank",
+                    "bed",
+                    "street"
+                ],
+                "context": "",
+                "cot": [
+                    "Bed is a piece of furniture for sleep or rest, typically a framework with a mattress.",
+                    "James couldn't get comfortable.",
+                    "There was too much dirt.",
+                    "He needed to clean out bed.",
+                    "James could have found the ground with too much dirt but it\u2019s not possible to clean the whole ground.",
+                    "Subways were under several feet of dirt, james always found it claustrophobic and he hated using it so, it was not what he needed to clean out.",
+                    "Bank is not a private property that could be needed for james to clean up.",
+                    "Cleaning of streets is a responsibility of the administrative body of a city or a town and not for james to worry about."
+                ],
+                "answer": [
+                    "bed"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "887",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is D.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": " James couldn't get comfortable.  This means he was not able to relax.  There was too much dirt.  This means there was a lot of dirt, and it was making James uncomfortable.  He needed to clean out what?  This means he needed to remove the dirt.  The answer must be something that James can clean out.  The answer cannot be (A) ground, (B) subway, (C) bank, or (E) street.  These are all places where there might be dirt, but James cannot remove the dirt from these places.  The answer must be (D) bed.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "788",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (d).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be something that James could clean out that would make him more comfortable. Of the above choices, the only thing that James could realistically clean out is his bed.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "e56c56c3cfe50ba0c787c2bd67255be8",
+                "ref_id": "",
+                "question": "She asked her little boy why, he replied that he didn't know and it was just what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "case",
+                    "reason",
+                    "how",
+                    "because",
+                    "answer"
+                ],
+                "context": "",
+                "cot": [
+                    "Reply of 'why' should be 'because of'.",
+                    "She asked her little boy why, he replied that he didn't know and it was just because.",
+                    "Case cant be a reply to why.",
+                    "Reason shouldnt be given for why.",
+                    "How is not a reply of why.",
+                    "Answer is not a correct option."
+                ],
+                "answer": [
+                    "because"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "228",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is D.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "\nFirst, we need to identify the subject of the sentence. The subject is \"he.\"\n\nNext, we need to identify the verb. The verb is \"replied.\"\n\nNow, we need to think about what \"he\" did. He replied to a question.\n\nThe question was, \"Why?\" So, the answer must be (D) because.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "861",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (d).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be the reason the little boy gave for why he did something. Of the above choices, the closest reason is because.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "9aff72f0c480c2b4edde45bd2e7e4870",
+                "ref_id": "",
+                "question": "What is the main purpose of farmers?",
+                "type": "multiplechoice",
+                "choices": [
+                    "raise cattle",
+                    "grow corn",
+                    "farm land",
+                    "drive tractors",
+                    "supply food"
+                ],
+                "context": "",
+                "cot": [
+                    "The purpose of all farmers is producing food and food is produced by farmers to supply to people.not all the farmers raise cattle or grow corn.",
+                    "Farm land cannot be the purpose of farming but its basic requirement of farmer.not all the farmers requires to drive tractors"
+                ],
+                "answer": [
+                    "supply food"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "642",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is E.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "\nThe main purpose of farmers is to supply food.\n\nThey do this by growing crops and raising livestock.\n\nThey may also farm land, drive tractors, and so on, but these activities are all in service of supplying food.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "82",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (e).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be the main purpose of farmers. Of the above choices, the closest purpose is to supply food.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "0854478d174c9127064f0d4b58df7e62",
+                "ref_id": "",
+                "question": "Where is a good place to put a hamburger?",
+                "type": "multiplechoice",
+                "choices": [
+                    "resturant",
+                    "fast food restaurant",
+                    "mouth",
+                    "kitchen",
+                    "pizza"
+                ],
+                "context": "",
+                "cot": [
+                    "Hamburger is a burger made from killing innocent pigs or cows and burgers are eaten by people using mouth.",
+                    "One should not exploit, kill or eat animals at all, as they are sentient beings who feel pain.",
+                    "A burger without animal substances like their flesh can be put in the good place mouth.",
+                    "All the options are not good places to put a hamburger in."
+                ],
+                "answer": [
+                    "mouth"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "241",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is (A) or (B).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "Where do you usually buy hamburgers? At a restaurant or a fast food restaurant. You could also make them at home in your kitchen. But you would never put a hamburger in your mouth! The answer must be either (A) or (B).",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "530",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (b).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be a place where hamburgers are typically found. Of the above choices, fast food restaurants are the most common place to find hamburgers.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "790b3f583e9bc9424c771691ecc70c20",
+                "ref_id": "",
+                "question": "Where can you buy a two wheel transportation machine?",
+                "type": "multiplechoice",
+                "choices": [
+                    "boat",
+                    "michigan",
+                    "train station",
+                    "bicycle shop",
+                    "trunk of car"
+                ],
+                "context": "",
+                "cot": [
+                    "Bicycle is a two wheel transportation mode of vehicle.",
+                    "At bicycle shop, you can buy a two wheel transportation machine.",
+                    "Trunk of car isnt any place.",
+                    "Boat is not a two wheel transportation machine.",
+                    "Two wheel transportation machine might not be at michigan.",
+                    "Train station is not a place where you can buy a two wheel transportation machine."
+                ],
+                "answer": [
+                    "bicycle shop"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "517",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is D.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "\nFirst, we need to identify what a \"two wheel transportation machine\" is. This could be referring to a number of things, but based on the other options given, it is likely referring to a bicycle.\n\nIf we need to buy a bicycle, the best place to go would be a bicycle shop. Therefore, the answer is (D).",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "1047",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (d).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be a place where you can buy a bicycle. Of the above choices, the only place where you can buy a bicycle is at a bicycle shop.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "d33a81660058e570a18fb2eafa284a78",
+                "ref_id": "",
+                "question": "John and Tim like playing. It makes them what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "feeling happy",
+                    "learning",
+                    "injury",
+                    "burn",
+                    "get hungry"
+                ],
+                "context": "",
+                "cot": [
+                    "Felling happy is related to one doing what they like.",
+                    "When one likes playing, they feel happy in it.",
+                    "All the other options are not related to what doing what they likes makes them hence are incorrect."
+                ],
+                "answer": [
+                    "feeling happy"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "831",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is A.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "cot": "\nJohn and Tim like playing. This is the first part of the sentence, and it's telling us about their feelings.\n\nIt makes them what? This is the second part of the sentence, and it's asking us about the result of their feelings.\n\nThe answer choices are (A) feeling happy, (B) learning, (C) injury, (D) burn, and (E) get hungry.\n\nSince the sentence is talking about John and Tim's feelings, we can eliminate (B) learning, (C) injury, (D) burn, and (E) get hungry.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "995",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (a).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be a feeling that playing gives John and Tim. Of the above choices, the closest feeling is feeling happy.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "37d88a9bb24913c1973cc26d4ce3394f",
+                "ref_id": "",
+                "question": "The performer was ready to put on a show and stepped onto the launch platform, what was his job?",
+                "type": "multiplechoice",
+                "choices": [
+                    "cape canaveral florida",
+                    "nasa",
+                    "battleship",
+                    "ocean",
+                    "trapeze"
+                ],
+                "context": "",
+                "cot": [
+                    "Trapeze is a horizontal bar hanging by two ropes and free to swing, used by acrobats in a circus.",
+                    "The performer was ready to put on a show and stepped onto the launch platform, trapeze was his job.",
+                    "At cape canaveral, nasa, and battleship are related to space programme or a warship whereas here the term launch platform is not related to space programs but to the circus stage platform.",
+                    "Ocean don\u2019t have launch platforms and has nothing to do with circus stage launch platform."
+                ],
+                "answer": [
+                    "trapeze"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "826",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is E.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The performer was ready to put on a show. This suggests that he was a performer of some kind, likely a circus performer. He stepped onto the launch platform. This suggests that the launch platform was some kind of stage or platform used for performances. Based on these clues, the answer is likely (E) trapeze.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "829",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (e).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer must be a performer's job. Of the above choices, only trapeze is a performer's job.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "9382bc51ba092f55a494eff8615899de",
+                "ref_id": "",
+                "question": "I picked from an apple tree outside of Fort Wayne, where am I?",
+                "type": "multiplechoice",
+                "choices": [
+                    "woods",
+                    "illinois",
+                    "indiana",
+                    "washington state",
+                    "tampa"
+                ],
+                "context": "",
+                "cot": [
+                    "Fort wayne is a city in northeastern indiana so if you\u2019re outside fort wayne, you are in indiana.",
+                    "Fort wayne is not in the places from all the other options."
+                ],
+                "answer": [
+                    "indiana"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "792",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is C.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "If you picked an apple from a tree, you must be outside. If you are outside and in Fort Wayne, you must be in Indiana. The answer is (C).",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "621",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (c).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be the location of the apple tree. Of the above choices, only Indiana has an apple tree outside of Fort Wayne.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "2b9b625c788584b8d41f1a74d740e126",
+                "ref_id": "",
+                "question": "Who is the guard here for?",
+                "type": "multiplechoice",
+                "choices": [
+                    "man post",
+                    "attack",
+                    "intimidation",
+                    "prisoner",
+                    "unprotected"
+                ],
+                "context": "",
+                "cot": [
+                    "Guard is person who watches over in order to protect or control and a prisoner is a person legally committed to a prison as punishment.",
+                    "Prisoners need to be controlled so that they don't try to escape prison so the guard is here for the prisoner.",
+                    "A guard does not attack or intimidate and might not always be there for station or unprotected."
+                ],
+                "answer": [
+                    "prisoner"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "280",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is D.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The first thing we need to do is identify the subject of the sentence, which is \"the guard.\" The guard is here for the prisoner.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "976",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (d).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer must be someone or something that needs guarding. Of the above choices, only prisoners need guarding.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "32d5b7fcae24f0d4871cfb219c5a4b47",
+                "ref_id": "",
+                "question": "Metal is used to make what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "junkyard",
+                    "ore",
+                    "instruments",
+                    "metal fabrication shop",
+                    "bowls"
+                ],
+                "context": "",
+                "cot": [
+                    "Intruments are genrally made of metal as it makes them stiff.",
+                    "All the other options are not things nescessarily made of metal."
+                ],
+                "answer": [
+                    "instruments"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "233",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is D.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "Metal is found in the ground as an ore. The ore is then taken to a metal fabrication shop, where it is melted down and formed into different objects, like instruments or bowls.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "733",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (c) or (e).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be something that is made of metal. Of the above choices, only instruments and bowls are made of metal.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "1ddd239a2a6438a891cb411b82e7f450",
+                "ref_id": "",
+                "question": "Sally was bored because she didn't like the junk that was on what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "drawer",
+                    "garage",
+                    "caddy",
+                    "bed",
+                    "television"
+                ],
+                "context": "",
+                "cot": [
+                    "Television is a device with a screen for receiving television signals.",
+                    "Sally was bored because she didn't like the junk that was on television.",
+                    "Drawer is a box shaped storage compartment without a lid, made to slide horizontally in and out of a desk, chest or other piece of furniture, caddy is a small storage container, typically one with divisions, and bed is a piece of furniture for sleep or rest, typically a framework with a mattress.",
+                    "Junk on all of them are not what makes sally bored for her dislikes.",
+                    "Garage is a building for housing a motor vehicle or vehicles.",
+                    "Garage is not for keeping junks and sally hasn\u2019t dislike for the junk here."
+                ],
+                "answer": [
+                    "television"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "143",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is (E).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "\nFirst, we need to identify the subject of the sentence, which is Sally. Sally was bored.\n\nNext, we need to identify the reason why Sally was bored. Sally was bored because she didn't like the junk that was on the television.\n\nThe answer is (E).",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "1194",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (e).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be the place where there was junk that Sally didn't like. Of the above choices, the closest place is the television.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "f13efb91090dd28fd2b3c1f4dde680fd",
+                "ref_id": "",
+                "question": "Sage loved communicating  He liked doing what with his peers?",
+                "type": "multiplechoice",
+                "choices": [
+                    "exchanging ideas",
+                    "confusion",
+                    "peer pressure",
+                    "response",
+                    "learning"
+                ],
+                "context": "",
+                "cot": [
+                    "Sage loved communicating by exchanging ideas.",
+                    "To communicate means to share or exchange one\u2019s ideas, information or feelings.",
+                    "There was no confusion when he communicated himself to his peers.",
+                    "Sage can\u2019t put peer pressure on his peers as peer pressure is the pressure put on an individual by few peers.",
+                    "He communicated by more than just giving a basic response.",
+                    "Sage can be bad at learning even if he loves communicating."
+                ],
+                "answer": [
+                    "exchanging ideas"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "855",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is A.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "cot": "\nSage loved communicating. This means that he enjoyed exchanging ideas with others.\n\nSo the answer must be (A) exchanging ideas.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "447",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (a).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be something that Sage liked doing with his peers. Of the above choices, exchanging ideas is the closest to what Sage liked doing.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "916bbd27545446ca5d83d07c10d013ea",
+                "ref_id": "",
+                "question": "John was traveling to a new city and took time to check out a business.  He noticed that its carpet was stained with sauces and ketchup. What type of business might that be?",
+                "type": "multiplechoice",
+                "choices": [
+                    "bedroom",
+                    "chair",
+                    "bowling alley",
+                    "at hotel",
+                    "restaurant"
+                ],
+                "context": "",
+                "cot": [
+                    "A restaurant uses sauces and ketchup while a hotel does not.",
+                    "Restaurants have carpets while a chair and bowling alley do not.",
+                    "Restaurant can be a business unlike a bedroom."
+                ],
+                "answer": [
+                    "restaurant"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "29",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is E.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "\nFirst, we know that John is traveling to a new city. This narrows down our options to (D) at hotel or (E) restaurant.\n\nNext, we know that John took the time to check out a business. This means that it's likely that he's interested in this business, which makes (E) restaurant more likely than (D) at hotel.\n\nFinally, we know that the business has stained carpet with sauces and ketchup. This is most likely to happen in a restaurant, so (E) restaurant is the correct answer.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "1033",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (e).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be a type of business that would have a carpet stained with sauces and ketchup. Of the above choices, the only type of business that would have a carpet like that is a restaurant.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "93b52e7ea1acf10db891e9355e234123",
+                "ref_id": "",
+                "question": "While knitting you can do what using a radio?",
+                "type": "multiplechoice",
+                "choices": [
+                    "listen to music",
+                    "watch television",
+                    "making blankets",
+                    "eat",
+                    "watching tv"
+                ],
+                "context": "",
+                "cot": [
+                    "Listen to music is to pay attention to sound listen to music.",
+                    "While knitting you can listen to music using a radio.",
+                    "Watch television may divert your attention which may lead to prick by knitting needle and result in pain and bleeding.",
+                    "Making blankets is a result of knitting and you cannot use radio to make blankets while knitting.",
+                    "Eat and knit simultaneously is not possible as when you are knitting your both hands are engaged.",
+                    "Now if you try to eat using a radio you can\u2019t eat cause nobody can eat using radio.",
+                    "Watching tv may divert your attention which may lead to prick by knitting needle and result in pain and bleeding."
+                ],
+                "answer": [
+                    "listen to music"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "87",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is A.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "cot": "\nYou can't watch television while knitting because you need your hands to knit.\n\nYou can listen to music while knitting because you don't need your hands to listen to music.\n\nYou can't make blankets while knitting because you need your hands to knit.\n\nYou can't eat while knitting because you need your hands to knit.\n\nSo the answer must be (A) listen to music.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "285",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (a).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be something you can do while knitting that uses a radio. Of the above choices, only listen to music uses a radio.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "7044d82a456d0fa6f0210abb03cbf2c4",
+                "ref_id": "",
+                "question": "If I'm playing ball, I'm mostly trying to do what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "losing",
+                    "competition",
+                    "having fun",
+                    "win",
+                    "injury"
+                ],
+                "context": "",
+                "cot": [
+                    "Playing ball is playing a game.",
+                    "A person plays game when he wants to have fun.",
+                    "All the other options are not why a person will play game of ball hence are not fesiable."
+                ],
+                "answer": [
+                    "having fun"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "745",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is C.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "If you're playing ball, the first thing you're trying to do is have fun. If you're not having fun, then you're not playing ball. The second thing you're trying to do is win. If you're not trying to win, then you're not playing ball. The third thing you're trying to do is competition. If you're not trying to compete, then you're not playing ball. The fourth thing you're trying to do is injury. If you're not trying to injure yourself, then you're not playing ball.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "577",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (d).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer must be the goal of playing ball. Of the above choices, only win makes sense as a goal for playing ball.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "dbdad44029098d4b1d202d6d857d6092",
+                "ref_id": "",
+                "question": "Where are you likely to set papers while working on them?",
+                "type": "multiplechoice",
+                "choices": [
+                    "table",
+                    "meeting",
+                    "drawer",
+                    "toilet",
+                    "garage"
+                ],
+                "context": "",
+                "cot": [
+                    "A table is a place where people work on papers.",
+                    "They can while working set them as the table provides flat surface for right adjustment.",
+                    "All the other options are incorrect as they are either not a place where people work or do not have space for setting papers."
+                ],
+                "answer": [
+                    "table"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "668",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is A or B.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "cot": "You are likely to set papers while working on them.\n\nFirst, you will need a flat surface on which to set the papers. This rules out options (D) and (E).\n\nNext, you will need to be able to reach the papers easily so you can work on them. This rules out option (C).\n\nThat leaves options (A) and (B). You might set papers on a table while working on them, or you might set them on a meeting table if you are working on them with other people.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "286",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (a).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be a place where papers are commonly set while working on them. Of the above choices, the table is the most likely place.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "f20d40bc4af588223e880e0bb58b27b8",
+                "ref_id": "",
+                "question": "What is the primary purpose of cars?",
+                "type": "multiplechoice",
+                "choices": [
+                    "cost money",
+                    "slow down",
+                    "move people",
+                    "turn right",
+                    "get girls"
+                ],
+                "context": "",
+                "cot": [
+                    "Cars help in moving people while turning right and getting girls do not.",
+                    "Moving people connects them from one place to another unlike costing money or slowing down."
+                ],
+                "answer": [
+                    "move people"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "321",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is C.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The primary purpose of a car is to move people from one place to another. That's option C.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "194",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (c).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be the primary purpose of cars. Of the above choices, the only one that makes sense is to move people.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "a1303b5177df0a5b653c9abd7d5f5e08",
+                "ref_id": "",
+                "question": "Where would a person live if they wanted no neighbors?",
+                "type": "multiplechoice",
+                "choices": [
+                    "housing estate",
+                    "neighborhood",
+                    "mars",
+                    "woods",
+                    "suburbs"
+                ],
+                "context": "",
+                "cot": [
+                    "People can live in the woods.",
+                    "Houses in the woods cannot have neighbors unlike houses in the neighborhood or in the suburbs.",
+                    "Woods are covered with trees while housing estate and mars are not covered with trees."
+                ],
+                "answer": [
+                    "woods"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "884",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is D) woods, or E) suburbs.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "\nFirst, we need to identify what a \"neighbor\" is. A neighbor is someone who lives near you, someone whose house is close to yours.\n\nSo, if we want to live with no neighbors, that means we want to live far away from other people's houses. That could mean living in the woods, or on Mars. It could also mean living in the suburbs, where houses are spaced out more and there are fewer people living nearby.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "513",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (d).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be a place with no neighbors. Of the above choices, woods is the only place that would have no neighbors.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "163898952cb6baf3a6440696e1352e86",
+                "ref_id": "",
+                "question": "If for some reason you were to start killing people, what would you be likely to receive?",
+                "type": "multiplechoice",
+                "choices": [
+                    "feelings of guilt",
+                    "prison sentence",
+                    "terrible",
+                    "encouragement",
+                    "die"
+                ],
+                "context": "",
+                "cot": [
+                    "Prison sentence is a confinement in prison as a punishment imposed on a person who has been found guilty of a crime.",
+                    "If for some reason you were to start killing people, you be likely to receive a prison sentence.",
+                    "Feelings of guilt is not what would you be likely to receive, as if there is a reason for killing there could not be a feeling of guilt.",
+                    "Terrible is used to define the killer and not what he is likely to receive for reasoned killing of people.",
+                    "Encouragement is totally weird as no society or mass encourages the killing.",
+                    "Dies is not what would you be likely to receive, as the person is killing and the victim dies."
+                ],
+                "answer": [
+                    "prison sentence"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1012",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is B.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "If you kill someone, the police will investigate and you will be arrested. You will go to trial and, if convicted, will go to prison. So the most likely outcome if you start killing people is a prison sentence.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "1090",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (b).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be the consequence of killing people. Of the above choices, the closest consequence is a prison sentence.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "8fd82cdc253835814153fe7222e9967c",
+                "ref_id": "",
+                "question": "When you travel you should what in case of unexpected costs?",
+                "type": "multiplechoice",
+                "choices": [
+                    "go somewhere",
+                    "energy",
+                    "spend frivilously",
+                    "fly in airplane",
+                    "have money"
+                ],
+                "context": "",
+                "cot": [
+                    "When you travel you should have money in case of unexpected costs.",
+                    "To go somewhere is not related to unexpected costs.",
+                    "Energy is not related to unexpected costs.",
+                    "Unexpected costs cant be spend frivilously.",
+                    "Travelling dont always means to fly in airplane."
+                ],
+                "answer": [
+                    "have money"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "38",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is E.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "\nIf you are traveling, you should have money in case of unexpected costs. This way, if something comes up that you didn't plan for, you will be able to cover the cost without having to worry about going into debt or not being able to pay for your travel expenses.\n\nSome examples of unexpected costs while traveling could include:\n\n-Your flight getting delayed and having to stay in a hotel overnight\n-Losing your luggage and having to buy new clothes\n-Getting sick and having to see a doctor or pay for medication\n-Having to change your plans unexpectedly and needing to book new transportation or",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "300",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (e).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be something you should do in case of unexpected costs when traveling. Of the above choices, the only thing that makes sense is to have money.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "6c4b2c93a4bdafb6cbf2b2ef2439b06f",
+                "ref_id": "",
+                "question": "Running errands with screaming kids will likely cause what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "efficiency",
+                    "insanity",
+                    "aggravation",
+                    "tiredness",
+                    "stress"
+                ],
+                "context": "",
+                "cot": [
+                    "Kids scream leads to aggravation.",
+                    "One feels aggravated when kids scream during running errands.",
+                    "Efficiency or tiredness or stress cant occur when kids scream.",
+                    "Insanity is not caused by running errands."
+                ],
+                "answer": [
+                    "aggravation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "960",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is B.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "If you have screaming kids,\n\nyou will likely have to deal with (C) aggravation.\n\nThis can lead to (E) stress, which can sometimes lead to (B) insanity.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "635",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (b).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be the feeling of someone running errands with screaming kids. Of the above choices, the closest feeling is insanity.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "e61891746aa94ab57aaa754614034aef",
+                "ref_id": "",
+                "question": "What happens if someone kisses too long?",
+                "type": "multiplechoice",
+                "choices": [
+                    "strong feelings",
+                    "herpes",
+                    "shortness of breath",
+                    "excitement",
+                    "arousal"
+                ],
+                "context": "",
+                "cot": [
+                    "Shortness of breath happens due to the build-up of carbon dioxide in the body.",
+                    "As carbon dioxide levels accumulate in the body from exercise, it triggers us to breathe more rapidly.",
+                    "Shortness of breath happens if someone kisses too long.",
+                    "Strong emotions may happen but sometimes when you stretch for too long you have breathing problems.",
+                    "Herpes is a contagious disease but spreads skin to skin means any one of the partners should be infected by herpesvirus otherwise there is no fear of getting herpes.",
+                    "Excitement can be killed by too long kisses resulting in breathing problems and arousal is a state of excitement created by kissing and it is not what happens due to too long kisses."
+                ],
+                "answer": [
+                    "shortness of breath"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "302",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is D, excitement.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "If someone is kissing too long, what might happen next?\n\nThe most likely outcome is that the other person will become uncomfortable and want to stop. However, if the kiss continues despite the other person's discomfort, then it could turn into something more aggressive, like forced kissing or sexual assault.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "202",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (c).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be something that happens when someone kisses too long. Of the above choices, the closest thing that happens is shortness of breath.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "0e80f2afe5c4f652e8720b52d7c06c87",
+                "ref_id": "",
+                "question": "What might someone believe in if they are cleaning clothes?",
+                "type": "multiplechoice",
+                "choices": [
+                    "feminism",
+                    "sanitation",
+                    "ruined",
+                    "wrinkles",
+                    "buttons to fall off"
+                ],
+                "context": "",
+                "cot": [
+                    "Cleaning clothes is a part of sanitation and not a part of being ruined.",
+                    "Sanitation helps in being healthy unlike feminism and buttons to fall off.",
+                    "Sanitatino is a practice while wrinkles are not."
+                ],
+                "answer": [
+                    "sanitation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "218",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is B.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "If someone is cleaning clothes, they might believe in sanitation, or the importance of cleanliness.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "151",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (b).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be something that someone might believe in if they are cleaning clothes. Of the above choices, the closest belief is sanitation.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "335b51bd3a8ada014bbe6754dcbd425f",
+                "ref_id": "",
+                "question": "Where are there likely to be a variety of flats to choose from?",
+                "type": "multiplechoice",
+                "choices": [
+                    "london",
+                    "apartment building",
+                    "city",
+                    "falling down",
+                    "town"
+                ],
+                "context": "",
+                "cot": [
+                    "Generally most of the city have variety of flats and person who wants to live in city can choose one from the variety of flats.",
+                    "All the person cannot choose flats in london as everone cannot live in london.",
+                    "Apartment building doesn't have variety of flats in the same building.",
+                    "Falling down is not place where variety of flats can be.",
+                    "Town can have varity of flats but city is more appropriate here as generally city is larger than town."
+                ],
+                "answer": [
+                    "city"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "988",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is C, city.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "We need a place with a variety of flats to choose from. The first thing that comes to mind is a city, because cities have a lot of different types of housing. However, we could also consider a town or an apartment building.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "676",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (b).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be a place where there are a lot of flats. Of the above choices, apartment building makes the most sense.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "3f3ba1d9a3bfe63df11247a968eaddce",
+                "ref_id": "",
+                "question": "If i were to spit a lot without noticing i may have extra what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "phlegm",
+                    "saliva nd mouth",
+                    "disease",
+                    "germs",
+                    "spittle"
+                ],
+                "context": "",
+                "cot": [
+                    "A person has to spit saliva in mouth.",
+                    "If i were to spit a lot without noticing i may have extra saliva in mouth.",
+                    "A person might not spit a lot in phlegm.",
+                    "Disease is not a correct option.",
+                    "Spittle dont fits here.",
+                    "If a person has extra germs, he might not spit a lot."
+                ],
+                "answer": [
+                    "saliva nd mouth"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "842",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is B.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "If you were to spit a lot, you would have an excess of saliva. If you were not paying attention, you might not notice that you are producing more saliva than usual.\n\nThe answer is B.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "966",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (a) or (b).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer must be something related to saliva or spitting. Of the above choices, phlegm and saliva are related to spitting.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "0197ade3bb26d163ab2e284c960c626f",
+                "ref_id": "",
+                "question": "From where does a snowflake form?",
+                "type": "multiplechoice",
+                "choices": [
+                    "cloud",
+                    "snow storm",
+                    "billow",
+                    "air",
+                    "snowstorm"
+                ],
+                "context": "",
+                "cot": [
+                    "A snowflake is formed from the cloud.",
+                    "Snowflakes are not formed from snow storm.",
+                    "A snowflake is not formed at the billow or air."
+                ],
+                "answer": [
+                    "cloud"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "15",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is A, cloud.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "cot": "A snowflake begins to form when a tiny dust or pollen particle (called an \"ice nucleus\") in the atmosphere sticks to a water droplet. This droplet is so cold that it is actually a tiny piece of ice. The water droplet freezes and becomes part of the ice nucleus.\n\nAs the ice nucleus falls through the atmosphere, it picks up more water droplets. These droplets freeze onto the ice nucleus, and the snowflake grows. The shape of the snowflake is determined by the temperature and humidity of the atmosphere as it falls.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "1146",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (a).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer must be a place where snowflakes form. Of the above choices, only clouds are a place where snowflakes form.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "056b33c7050c167b0d4348d40d169358",
+                "ref_id": "",
+                "question": "Where would stones not be arranged in a path?",
+                "type": "multiplechoice",
+                "choices": [
+                    "quarries",
+                    "field",
+                    "park",
+                    "bridge",
+                    "made from rocks"
+                ],
+                "context": "",
+                "cot": [
+                    "In field, stones are not arranged.",
+                    "There is no fixed path in a field to walk by.",
+                    "In quarries, many stones are there.",
+                    "In park, stones are arranged.",
+                    "Bridge contains a path.",
+                    "Made from rocks is not a place."
+                ],
+                "answer": [
+                    "field"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "508",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is B.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "In a quarry, stones would be arranged in a path if they were being used to create a path. In a field, stones might not be arranged in a path if they were part of a fence or if they were randomly placed. In a park, stones might not be arranged in a path if they were part of a sculpture. On a bridge, stones would be arranged in a path if they were part of the bridge. If rocks were made into a path, the rocks would be arranged in a path.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "206",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (b).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be a place where stones are not found. Of the above choices, the only place where stones are not found is in a field.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "7bff23f6c12e9136f0961514bebb8cd3",
+                "ref_id": "",
+                "question": "If you aren't well rested and it's a rainy day what might you do?",
+                "type": "multiplechoice",
+                "choices": [
+                    "sleep",
+                    "write",
+                    "make bread",
+                    "stay in bed",
+                    "enjoy film"
+                ],
+                "context": "",
+                "cot": [
+                    "On a rainy day you can rest well by staying in bed.",
+                    "You cant write if you are not well.",
+                    "Rest is not related with sleep.",
+                    "If you aren't well then you cant make bread or enjoy film on a rainy day."
+                ],
+                "answer": [
+                    "stay in bed"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "115",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is D.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "\nFirst, if you aren't well rested, you might want to sleep.\n\nHowever, if it's a rainy day, you might not be able to sleep because it's too noisy outside.\n\nIn that case, you might want to stay in bed and enjoy a film.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "724",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (d).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be an activity that can be done on a rainy day when someone is not well rested. Of the above choices, the closest activity is staying in bed.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "eebddf5f35d85e9fe2ecbd9b56c1db60",
+                "ref_id": "",
+                "question": "The teacher played on the upright piano, she was explaining the song to all the students in the what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "music room",
+                    "bathroom",
+                    "house",
+                    "living room",
+                    "music store"
+                ],
+                "context": "",
+                "cot": [
+                    "The teacher played the upright piano in the music room as she was explaining the song to all the students.",
+                    "Bathroom is not a place where a teacher can explain song to the students.",
+                    "A teacher dont explain song at house to her students.",
+                    "At living room, teacher dont play the upright piano.",
+                    "At music store, teacher dont teach music"
+                ],
+                "answer": [
+                    "music room"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "450",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is A.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "cot": "The teacher played on the upright piano. This means that the piano was most likely in the music room. The teacher was explaining the song to all the students. This means that the students were most likely in the music room as well. Therefore, the answer is (A) music room.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "889",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (a).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be the place where the teacher was playing the piano and explaining the song to the students. Of the above choices, the music room is the most likely place.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "1fcc547e4e6813afc1a66717248d6c62",
+                "ref_id": "",
+                "question": "The man acted ridiculous at the funeral, what attitude should he have taken?",
+                "type": "multiplechoice",
+                "choices": [
+                    "straightforward",
+                    "serious",
+                    "solemn",
+                    "somber",
+                    "funny"
+                ],
+                "context": "",
+                "cot": [
+                    "Funerals are solemn.",
+                    "Straightforwardness is not to be shown at a funeral.",
+                    "Seriousness is not the correct word to be used at attending funerals.",
+                    "You may not display somber at funeral, that is fine.",
+                    "You cannot show funny attitude at a funeral, that is not acceptable at all."
+                ],
+                "answer": [
+                    "solemn"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "200",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_text": "",
+                                "answer": "Therefore, among A through E, the answer is C.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The funeral is a solemn event, so the man's attitude should be solemn as well.",
+                        "author": "kojima",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    },
+                    {
+                        "id": "647",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "prompt_text": "",
+                        "answers": [
+                            {
+                                "id": "0",
+                                "answer_extraction": null,
+                                "answer_extraction_text": "",
+                                "answer": "So the answer is (c).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "cot": "The answer should be the attitude that is appropriate for a funeral. Of the above choices, the most appropriate attitude is solemn.",
+                        "author": "wei",
+                        "date": null,
+                        "api_service": "",
+                        "model": "gpt-3",
+                        "comment": "",
+                        "annotation": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}
