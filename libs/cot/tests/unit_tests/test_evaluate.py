@@ -14,12 +14,43 @@ from .utils import chdir, get_test_collection, simple_config
 
 def test_clean():
     type_ = "multiplechoice"
-    sent1 = "Therefore, among A through E, the answer is D."
-    answ1 = "D"
-    sent2 = "Therefore, among A through E, the answer is E."
-    answ2 = "E"
-    sent3 = "So the answer is (b)."
-    answ3 = "B"
-    assert clean(type_, sent1) == answ1
-    assert clean(type_, sent2) == answ2
-    assert clean(type_, sent3) == answ3
+
+    assert clean(type_, "E", 7) == "E"
+    assert clean(type_, "e", 7) == "E"
+    assert clean(type_, "E.", 7) == "E"
+    assert clean(type_, "E ", 7) == "E"
+    assert clean(type_, "(E)", 7) == "E"
+    assert clean(type_, "[E]", 7) == "E"
+    assert clean(type_, r"{e}", 7) == "E"
+
+    assert clean(type_, "So the answer is (b)", 7) == "B"
+    assert clean(type_, "So the answer is B", 7) == "B"
+    assert clean(type_, "So the answer is B.", 7) == "B"
+    assert clean(type_, "So the answer is b", 7) == "B"
+    assert clean(type_, "So the answer isB", 7) == "B"
+    assert clean(type_, "So the answer isb", 7) == "B"
+    assert clean(type_, "Therefore, the answer is B", 7) == "B"
+    assert clean(type_, "The answer is B", 7) == "B"
+    assert clean(type_, "Answer is B", 7) == "B"
+    assert clean(type_, "Answer B", 7) == "B"
+    assert clean(type_, "The correct answer is B", 7) == "B"
+    assert clean(type_, "The correct answer B", 7) == "B"
+    assert clean(type_, "Correct answer is B", 7) == "B"
+    assert clean(type_, "Correct answer B", 7) == "B"
+    assert clean(type_, "Among A through F, the answer is B", 7) == "B"
+    assert clean(type_, "Among A through F, the correct answer is B", 7) == "B"
+    assert clean(type_, "Therefore, among A through F, the answer is B", 7) == "B"
+
+    assert clean(type_, "B is the answer.", 7) == "B"
+    assert clean(type_, "b is the answer", 7) == "B"
+    assert clean(type_, "(b) is the answer", 7) == "B"
+    assert clean(type_, "B is the answer", 7) == "B"
+    assert clean(type_, "B is the correct answer", 7) == "B"
+    assert clean(type_, "B is the correct answer.", 7) == "B"
+    assert clean(type_, "B is the right answer", 7) == "B"
+    assert clean(type_, "B is the right answer.", 7) == "B"
+
+    assert clean(type_, "B is correct", 7) == "B"
+    assert clean(type_, "B is correct.", 7) == "B"
+    assert clean(type_, "B is right", 7) == "B"
+    assert clean(type_, "B is right.", 7) == "B"
