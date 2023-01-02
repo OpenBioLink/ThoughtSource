@@ -6,6 +6,8 @@ import pathlib
 from collections import defaultdict
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from os import devnull
+import shutil
+import glob
 
 import datasets as ds
 import pandas as pd
@@ -25,7 +27,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(self, names=None, verbose=True, download_mode="reuse_dataset_if_exists"):
+    def __init__(self, names=None, verbose=True, generate_mode=None, source=False):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -36,11 +38,31 @@ class Collection:
         datasets
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
-        :param download_mode: "reuse_dataset_if_exists" (default), "reuse_cache_if_exists", "force_redownload"
-        see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
+        :param generate_mode: 
+        - if "redownload": deletes download and dataset caches, redownloads all sources and regenerates all datasets. 
+        Try this if datasets give unexplainable KeyErrors, ...
+        - if "recache": deletes dataset caches and regenerates all datasets
+        - if None: reuse cached dataset
+        :param source: If true, loads all datasets in source view
         """
         self.verbose = verbose
-        self.download_mode = download_mode
+        self.download_mode = None
+        self.load_source = source
+        if generate_mode in ["redownload", "recache"]:
+            # see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
+            self.download_mode = "reuse_cache_if_exists"
+            if names == "all":
+                # delete datasets cache
+                for dataset_folder in glob.glob(os.path.join(ds.config.HF_DATASETS_CACHE, "*_dataset", "source" if self.load_source else "thoughtsource")):
+                    shutil.rmtree(dataset_folder)
+            else:
+                for name in names:
+                    path = os.path.join(ds.config.HF_DATASETS_CACHE, f"{name}_dataset", "source" if self.load_source else "thoughtsource")
+                    if os.path.exists(path):
+                        shutil.rmtree(path)
+            if generate_mode == "redownload":
+                shutil.rmtree(os.path.join(ds.config.HF_DATASETS_CACHE, "downloads"))
+                self.download_mode = "force_redownload"
         if not verbose:
             ds.disable_progress_bar()
         else:
@@ -126,10 +148,10 @@ class Collection:
         for name, script in datasets:
             print(f"Loading {name}...")
             if self.verbose:
-                self._cache[name] = ds.load_dataset(str(script), download_mode=self.download_mode)
+                self._cache[name] = ds.load_dataset(str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode)
             else:
                 with suppress_stdout_stderr():
-                    self._cache[name] = ds.load_dataset(str(script), download_mode=self.download_mode)
+                    self._cache[name] = ds.load_dataset(str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode)
 
     def unload_datasets(self, names=None):
         """
@@ -169,7 +191,7 @@ class Collection:
         return [json.loads(x.decode()) for x in data_stream.readlines()]
 
     @staticmethod
-    def from_json(path_or_json, download_mode="reuse_dataset_if_exists"):
+    def from_json(path_or_json, download_mode="reuse_dataset_if_exists", source=False):
 
         if isinstance(path_or_json, str):
             with open(path_or_json, "r") as infile:
@@ -181,7 +203,7 @@ class Collection:
 
         collection = Collection()
         for dataset_name in content.keys():
-            info = ds.load_dataset_builder(str(scripts[dataset_name]), download_mode=download_mode).info
+            info = ds.load_dataset_builder(str(scripts[dataset_name]), name="source" if source else "thoughtsource", download_mode=download_mode).info
             dataset_dict = dict()
             for split_name in content[dataset_name].keys():
 
@@ -251,8 +273,11 @@ class Collection:
                 # random sample
                 if random_samples:
                     # set seed for reproducibility
-                    if isinstance(seed, int):
+                    if type(seed) is int:
                         random.seed(seed)
+                    elif seed is True:
+                        # setting the same seed as the default
+                        random.seed(0)
                     random_ids = random.sample(range(samples_count), number_samples)
                     # random sample from subset
                     subset = subset.select(random_ids)

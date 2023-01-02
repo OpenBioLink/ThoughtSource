@@ -167,7 +167,7 @@ def map_example_to_kojima_cot(question, cots):
         if question in cot["question"]:
             generated_cot = {
                 "id": id,
-                "templates_version": "0.01",
+                "fragments_version": "0.01",
                 "instruction": None,
                 "cot_trigger": "kojima-01",
                 "prompt_text": "",
@@ -207,7 +207,7 @@ def map_example_to_wei_cot(question, cots):
         if question in cot["question"]:
             generated_cot = {
                 "id": id,
-                "templates_version": "0.01",
+                "fragments_version": "0.01",
                 "instruction": None,
                 "cot_trigger": None,
                 "prompt_text": "",
@@ -240,7 +240,7 @@ def map_example_to_lievin_cot(id, item, dataset):
     :param item: the CoT item loaded from Lievin
     :return: The populated ThoughtSource CoT item
     """
-    assert (__import__("cot").generate.TEMPLATES["version"] == "0.01"), "New version"
+    assert (__import__("cot").generate.FRAGMENTS["version"] == "0.01"), "New version"
     if dataset in ["med_qa", "medmc_qa"]:
         assert (item["extractive_prompt"] == "\n\nTherefore, among A through D, the answer is"), f"Different extractive prompt than expected {item['extractive_prompt']}"
         answer_extraction = "kojima-A-D"
@@ -267,7 +267,7 @@ def map_example_to_lievin_cot(id, item, dataset):
 
     return {
         "id": id,
-        "templates_version": "0.01",
+        "fragments_version": "0.01",
         "instruction": None,
         "cot_trigger": cot_triggers[item["strategy"]],
         "prompt_text": "",

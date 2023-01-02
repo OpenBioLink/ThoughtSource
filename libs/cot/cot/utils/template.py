@@ -126,14 +126,14 @@ class NewDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="[dataset_name]_source",
+            name="source",
             version=SOURCE_VERSION,
             description="[dataset_name] source schema",
             schema="source",
             subset_id="[dataset_name]",
         ),
         ThoughtSourceConfig(
-            name="[dataset_name]_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="[dataset_name] thoughtsource schema",
             schema="thoughtsource",
@@ -141,7 +141,7 @@ class NewDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "[dataset_name]_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 

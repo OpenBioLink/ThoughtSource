@@ -22,6 +22,7 @@ import json
 from collections import defaultdict
 from cot.utils import (schemas, map_example_to_lievin_cot)
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 from tqdm import tqdm
 
 import pandas as pd
@@ -54,11 +55,11 @@ comprehension models can obtain necessary knowledge for answering the questions.
 
 _HOMEPAGE = "https://github.com/jind11/MedQA"
 
-_LICENSE = "Unknown"
+_LICENSE = Licenses.MIT
 
 _URLS = {
-    _DATASETNAME: "https://drive.google.com/u/0/uc?export=download&confirm=t&id=1ImYUSLk9JbgHXOemfvyiDiirluZHPeQw",
-    "lievin_cot": "https://drive.google.com/u/0/uc?export=download&confirm=t&id=1l0y35SO0mRhc81Asrvo5WU7Mhi1mm2a0"
+    _DATASETNAME: "https://samwald.info/res/thoughtsource/data/med_qa.zip",
+    "lievin_cot": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip"
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -76,14 +77,14 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="med_qa_source",
+            name="source",
             version=SOURCE_VERSION,
             description="MedQA source schema",
             schema="source",
             subset_id="med_qa",
         ),
         ThoughtSourceConfig(
-            name="med_qa_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="MedQA thoughtsource schema",
             schema="thoughtsource",
@@ -91,7 +92,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "med_qa_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
@@ -175,7 +176,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
 
             cots = defaultdict(list)
             if cotspath is not None:
-                for file in tqdm(glob.glob(cotspath + r"\[0-4]-medqa*\*.json"), desc="Preparing Lievin CoTs"):
+                for file in tqdm(glob.glob(os.path.join(cotspath, "[0-4]-medqa*", "*.json")), desc="Preparing Lievin CoTs"):
                     filename = os.path.basename(file)[:-len(".json")]
                     id = int(filename.split("_")[2].split("-")[1])
                     assert (0 <= id < 1273), f"Oh no {id}"
@@ -194,11 +195,9 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": key,
-                    "question_id": key,
-                    "document_id": key,
+                    "ref_id": "",
                     "question": example["question"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": example["options"].values(),
                     "context": "",
                     "cot": "",

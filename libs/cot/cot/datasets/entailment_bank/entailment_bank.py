@@ -22,6 +22,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -51,10 +52,10 @@ a corpus. We provide baseline results for this task, and analyze the problems in
 
 _HOMEPAGE = "https://allenai.org/data/entailmentbank"
 
-_LICENSE = "CC BY 4.0"
+_LICENSE = Licenses.CC_BY_SA_4p0
 
 _URLS = {
-    _DATASETNAME: "https://drive.google.com/uc?export=download&id=1kVr-YsUVFisceiIklvpWEe0kHNSIFtNh",
+    _DATASETNAME: "https://samwald.info/res/thoughtsource/data/entailment_trees_emnlp2021_data_v3.zip",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -73,14 +74,14 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="entailment_bank_source",
+            name="source",
             version=SOURCE_VERSION,
             description="EntailmentBank source schema",
             schema="source",
             subset_id="entailment_bank",
         ),
         ThoughtSourceConfig(
-            name="entailment_bank_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="EntailmentBank thoughtsource schema",
             schema="thoughtsource",
@@ -88,7 +89,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "entailment_bank_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
@@ -245,11 +246,9 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": key,
-                    "question_id": example["id"],
-                    "document_id": example["id"],
+                    "ref_id": example["id"],
                     "question": example["question"],
                     "type": "text",
-                    "cot_type": "list",
                     "choices": [],
                     "context": "",
                     "cot": cot_,

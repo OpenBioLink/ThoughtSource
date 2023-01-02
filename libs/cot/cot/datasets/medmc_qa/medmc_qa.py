@@ -41,6 +41,7 @@ import glob
 
 from cot.utils import schemas, map_example_to_lievin_cot
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 from collections import defaultdict
 
 
@@ -75,11 +76,11 @@ from the option set.
 
 _HOMEPAGE = "https://medmcqa.github.io/"
 
-_LICENSE = "Apache-2.0"
+_LICENSE = Licenses.MIT
 
 _URLS = {
-    "medmcqa": "https://drive.google.com/uc?export=download&id=15VkJdq5eyWIkfb_aoD3oS8i4tScbHYky",
-    "cots": "https://drive.google.com/u/0/uc?export=download&confirm=t&id=1l0y35SO0mRhc81Asrvo5WU7Mhi1mm2a0"
+    "medmcqa": "https://samwald.info/res/thoughtsource/data/medmc_qa.zip",
+    "cots": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip"
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -97,14 +98,14 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="medmc_qa_source",
+            name="source",
             version=SOURCE_VERSION,
             description="MedMCQA source schema",
             schema="source",
             subset_id="medmc_qa",
         ),
         ThoughtSourceConfig(
-            name="medmc_qa_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="MedMCQA thoughtsource schema",
             schema="thoughtsource",
@@ -112,7 +113,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "medmc_qa_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
@@ -192,7 +193,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
 
             cots = defaultdict(list)
             if cotspath is not None:
-                for file in tqdm(glob.glob(cotspath + r"\[0-4]-medmcqa*\*.json"), desc="Preparing Lievin CoTs"):
+                for file in tqdm(glob.glob(os.path.join(cotspath, "[0-4]-medmcqa*", "*.json")), desc="Preparing Lievin CoTs"):
                     filename = os.path.basename(file)[:-len(".json")]
                     id = filename.split("_")[1].split("-")[1]
                     with open(file, "r") as infile:
@@ -214,11 +215,9 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
                 answer = choices[example["cop"]-1] if example["cop"] is not None else ""
                 example_ = {
                     "id": key,
-                    "question_id": key,
-                    "document_id": key,
+                    "ref_id": "",
                     "question": example["question"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": choices,
                     "context": "",
                     "cot": [example["exp"]] if example["exp"] is not None else "",

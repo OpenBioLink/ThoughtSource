@@ -20,6 +20,7 @@ import datasets
 
 from cot.utils import schemas
 from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -69,7 +70,7 @@ consisting of four parts:
 
 _HOMEPAGE = "https://github.com/deepmind/AQuA"
 
-_LICENSE = "Apache License, Version 2.0"
+_LICENSE = Licenses.APACHE_2p0
 
 _URLS = {
     "train": "https://github.com/deepmind/AQuA/raw/master/train.json",
@@ -93,14 +94,14 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
 
     BUILDER_CONFIGS = [
         ThoughtSourceConfig(
-            name="aqua_source",
+            name="source",
             version=SOURCE_VERSION,
             description="AQuA source schema",
             schema="source",
             subset_id="aqua",
         ),
         ThoughtSourceConfig(
-            name="aqua_thoughtsource",
+            name="thoughtsource",
             version=BIGBIO_VERSION,
             description="AQuA thoughtsource schema",
             schema="thoughtsource",
@@ -108,7 +109,7 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
         ),
     ]
 
-    DEFAULT_CONFIG_NAME = "aqua_thoughtsource"
+    DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
 
@@ -183,11 +184,9 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
 
                 example_ = {
                     "id": key,
-                    "question_id": key,
-                    "document_id": key,
+                    "ref_id": "",
                     "question": example["question"],
                     "type": "multiplechoice",
-                    "cot_type": "list",
                     "choices": choices.values(),
                     "context": "",
                     "cot": example["rationale"].split("\n"),
