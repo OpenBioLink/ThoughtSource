@@ -262,14 +262,19 @@ def multiple_choice_answer_formatting(format, answer_choices):
                 f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)
             ]  # 65 is the ASCII code for A
         )
-    elif format == "Numbers":
-        # Adding Numbers (1,2,3,...) for the given multiple choice answers.
-        return "\n".join(
-            [f"{i+1}) {example}" for i, example in enumerate(answer_choices)]
-        )
-    elif format == None:
-        # without index
-        return "\n".join(answer_choices)
+
+    else:
+        raise ValueError("Error: only format 'Letters' is supported at the moment.")
+
+    # TODO (not urgent): add other formats, need to change evaluate function for that.l
+    # elif format == "Numbers":
+    #     # Adding Numbers (1,2,3,...) for the given multiple choice answers.
+    #     return "\n".join(
+    #         [f"{i+1}) {example}" for i, example in enumerate(answer_choices)]
+    #     )
+    # elif format == None:
+    #     # without index
+    #     return "\n".join(answer_choices)
 
 
 def get_fragments_value(str, key):

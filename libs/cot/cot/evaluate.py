@@ -1,96 +1,99 @@
 import re
 from collections import defaultdict
 
-
 import datasets as ds
+
+
+def search_regex(s: str, patterns: list) -> str:
+    for pattern in patterns:
+        # Compile the regular expression
+        regex = re.compile(pattern, re.MULTILINE | re.IGNORECASE)
+        # Search the string for the regex pattern
+        match = regex.search(s)
+        if match:
+            # If more than one group is defined in the regex, print a warning return the last group
+            if len(match.groups()) > 1:
+                import warnings
+
+                warnings.warn(
+                    f"""Found more than one possible answer to compute the evaluation score. By default returning the first found answer.
+                                 In the answer sentence '{s}' these possible answers were found: '{match.groups()}'
+                                 If you want to return a specific answer, please define a regex pattern with only one group.
+                """
+                )
+
+            # If the regex pattern is found, return the group you defined in the regex
+            return match.group(1)
+    # If none of the regex patterns are found, return an empty string
+    return ""
 
 
 # ver 0.2
 def clean(type_, pred, num_choices):
+    """Cleans the prediction string to be able to compare it to the gold answer."""
+    # TODO: Add boolean type answers
+    # "Therefore, the answer (Yes or No) is NO."
+
     if type_ == "multiplechoice":
-        # TODO: Add boolean answers
+        # "Therefore, among A through E, the answer is (c)"
+
+        # TODO: If models report multiple possible answers, this is not covered yet.
+        # e.g. from gpt-3: "Therefore, among A through E, the answer is (A) or (B)."
+        # here the code will just select A without a warning.
 
         # define choices A,B,C,...
         choices = [chr(65 + i) for i in range(num_choices)]
 
-        # multiple choice examples
-        # "Therefore, among A through E, the answer is (C)"
-        # "So the answer is (a)"
-        # "Therefore, among A through E, the answer is A."
+        # options of expected answers, e.g. A,B,C, or a,b,c or Yes,No ...
+        expected_answer = r"|".join(
+            choices
+        )  # join([c.upper() for c in choices]) + r'|'.join([c.lower() for c in choices])
 
-        # boolean examples
-        # "Therefore, the answer (Yes or No) is No."
-        # "So the answer is yes."
-        # "Therefore, the answer (Yes or No) is NO."
+        # match pattern.
+        # Matches A or A. or (A). or {A}. or [A]. to  just "A".
+        expected_answer_location = (
+            r"\s?[\(\{\[]?(" + expected_answer + r")[\)\}\]]?\.?\s?"
+        )
 
+        # match only single answer without sentence
+        only_answer_sequence = r"^" + expected_answer_location + r"$"
 
-        
-        expected_answer = r'|'.join([c.upper() for c in choices]) + r'|'.join([c.lower() for c in choices])
-
-        # match pattern. matches A or (A) or {A} or [A] to A.
-        # also matches A. or (A). or {A}. or [A]. to A. To correct if the dot at the end is not given
+        # If the answer is at the end of the sentence. e.g. "The answer is A."
         # also matches "isA" or "answerA" to A. To correct if the whitespace is not given
-        expected_answer_location = r"\s?[\(\{\[]?(" + expected_answer + r")[\)\}\]]?\.?"
+        starting_sequence = r"answer:?\s(?:is)?\s?" + expected_answer_location
 
-        starting_sequence = r"[Aa]nswer:?\s(?:is)?\s?" + expected_answer_location
-        ending_sequence = expected_answer_location + r"\s?(?:is)?\s?(?:the)?\s?(?:correct|right|true)?\s?(?:[Aa]nswer)?\.?"
+        # If the answer is at the beginning of the sentence. e.g. "A is the answer"
+        ending_sequence = (
+            expected_answer_location
+            + r"\s?(?:is)?\s?(?:the)?\s?(?:correct|right|true)?\s?(?:answer)?\.?"
+        )
 
-        # personalized sequences
+        # TODO: personalized sequences
         # please add your sequences here, if it is not covered with the regex above
-        possible_answers_sequences = [
-            #e.g.
-            "So the answer is " + expected_answer_location,
-            ]
+        # possible_answers_sequences = [
+        #     #e.g.
+        #     "So the answer is " + expected_answer_location,
+        #     ]
 
-        if len(pred) < 6:
-            match = re.search(expected_answer_location, pred, re.MULTILINE)
-            pred_match = match.group(0)
+        pred_match = search_regex(
+            pred, [only_answer_sequence, starting_sequence, ending_sequence]
+        )  # + possible_answers_sequences)
 
-        elif re.search(starting_sequence, pred, re.MULTILINE):
-            match = re.search(starting_sequence, pred, re.MULTILINE)
-            pred_match = match.group(1)
+        # if pred_match == "":
+        #     import warnings
+        #     warnings.warn(
+        #         """Your answer could not be extracted, please add your sequence to the list of personalized answers sequences.
+        #         In the file: libs/cot/cot/evaluate.py under the function clean()""")
 
-        elif re.search(ending_sequence, pred, re.MULTILINE):
-            match = re.search(ending_sequence, pred, re.MULTILINE)
-            pred_match = match.group(1)
-
-        # elif True:
-        #     for seq in possible_answers_sequences:
-        #         if pred.find(seq):
-        #             match = pred.find(seq)
-        #             pred = match.group(0)
-
-        else:
-            import warnings
-            warnings.warn(
-                """Your answer could not be extracted, please add your sequence to the list of possible answers sequences.
-                In the file: libs/cot/cot/evaluate.py under the function clean()""")
-        
-        # for seq in possible_answers_sequences:
-        #     pred = re.sub(seq, "", pred)
-
-        pred_match = pred_match.upper()
-
-        pred_found = re.findall(r'|'.join(choices), pred_match)
-        if len(pred_found) == 1:
-            pred_selected = pred_found[0]
-        elif len(pred_found) > 1:
-            # if multiple choices are found, take the last one
-            pred_selected = pred_found[-1]
-            # return warning if multiple choices are found
-            import warnings
-            warnings.warn(f"Multiple choices found in prediction '{pred}' :\n Found: {pred_found} \n Selected by default is the last one.")
-        else:
-            pred_selected = ""
     else:
         raise ValueError("type is not supported ...")
 
-    return pred_selected
+    return pred_match
 
 
 def is_correct(type_, pred, gold):
     if type_ == "multiplechoice":
-        return pred == gold
+        return pred.lower() == gold.lower()
 
 
 def answer_to_multiplechoice(answer, choices):
@@ -102,13 +105,17 @@ def answer_to_multiplechoice(answer, choices):
 
 
 def evaluate_sample(example, type_):
-    assert type_ == example["type"], "Datasets contains examples with multiple different types"
+    assert (
+        type_ == example["type"]
+    ), "Datasets contains examples with multiple different types"
 
     # take full text answer if not multiple choice
     gold_answer = example["answer"][0]
 
     if type_ == "multiplechoice":
-        num_choices, gold_answer = answer_to_multiplechoice(gold_answer, example["choices"])
+        num_choices, gold_answer = answer_to_multiplechoice(
+            gold_answer, example["choices"]
+        )
 
     for cot in example["generated_cot"]:
         for answer in cot["answers"]:
@@ -133,7 +140,9 @@ def evaluate(dataset, config=None):
     # TODO support datasets contining different example types (mulichoice, number, ...), if needed?
     type_ = dataset[0]["type"]
 
-    dataset = dataset.map(evaluate_sample, fn_kwargs={"type_": type_}, features=dataset.info.features)
+    dataset = dataset.map(
+        evaluate_sample, fn_kwargs={"type_": type_}, features=dataset.info.features
+    )
 
     keys = set()
     predictions = defaultdict(int)
