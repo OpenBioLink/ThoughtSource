@@ -60,7 +60,9 @@ def clean(type_, pred, num_choices):
 
         # If the answer is at the end of the sentence. e.g. "The answer is A."
         # also matches "isA" or "answerA" to A. To correct if the whitespace is not given
-        starting_sequence = r"answer:?\s(?:is)?(?:\smost\slikely)?\s?" + expected_answer_location
+        starting_sequence = (
+            r"answer:?\s(?:is)?(?:\smost\slikely)?\s?" + expected_answer_location
+        )
 
         # If the answer is at the beginning of the sentence. e.g. "A is the answer"
         ending_sequence = (
@@ -81,10 +83,12 @@ def clean(type_, pred, num_choices):
 
         if pred_match == "":
             import warnings
+
             warnings.warn(
                 """Your answer could not be extracted, please add your sequence to the list of personalized answers sequences.
                 sequence: {pred}
-                In the file: libs/cot/cot/evaluate.py under the function clean()""")
+                In the file: libs/cot/cot/evaluate.py under the function clean()"""
+            )
 
     else:
         raise ValueError("type is not supported ...")
