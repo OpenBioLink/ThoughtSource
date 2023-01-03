@@ -85,7 +85,7 @@ def clean(type_, pred, num_choices):
             import warnings
 
             warnings.warn(
-                """Your answer could not be extracted, please add your sequence to the list of personalized answers sequences.
+                f"""Your answer could not be extracted, please add your sequence to the list of personalized answers sequences.
                 sequence: {pred}
                 In the file: libs/cot/cot/evaluate.py under the function clean()"""
             )
