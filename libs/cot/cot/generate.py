@@ -9,14 +9,6 @@ from dataclasses import asdict
 import datasets as ds
 from cot.config import Config
 
-# import pydantic
-# from langchain.prompts import BasePromptTemplate
-# from pydantic import BaseModel
-
-# from langchain.chains import LLMChain
-# from langchain.prompts import PromptTemplate
-
-
 # disable transformation (e.g. map) caching
 # https://huggingface.co/docs/datasets/v2.6.1/en/package_reference/main_classes#datasets.disable_caching
 ds.disable_caching()
@@ -83,7 +75,6 @@ def _generate_and_extract(
     template_cot_generation=None,
     answer_extraction_keys=None,
     template_answer_extraction=None,
-    debug=None,
     warn=None,
     verbose=None,
 ):
@@ -150,7 +141,7 @@ def _generate_and_extract(
             generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
 
             if verbose:
-                print("\n-------------------COT TRIGGER-------------------")
+                print("\n-----------------COT TRIGGER TEXT-----------------")
                 print(generate_cot_prompt)
 
             cot = query_model(
@@ -160,7 +151,6 @@ def _generate_and_extract(
                 temperature,
                 max_tokens,
                 api_time_interval,
-                debug,
             )
             if verbose:
                 print("\n------------------GENERATED COT-------------------")
@@ -195,7 +185,9 @@ def _generate_and_extract(
                     )
 
                     if verbose:
-                        print("\n------------------ANSWER EXTRACTION------------------")
+                        print(
+                            "\n----------------ANSWER EXTRACTION TEXT----------------"
+                        )
                         print(answer_extraction_prompt)
 
                     predicted_answer = query_model(
@@ -205,7 +197,6 @@ def _generate_and_extract(
                         temperature,
                         max_tokens,
                         api_time_interval,
-                        debug,
                     )
                     if verbose:
                         print("\n------------------EXTRACTED ANSWER-------------------")
@@ -252,9 +243,10 @@ def print_warning(config, n_samples):
         Number API calls for answer extraction: n_samples {n_samples} * n_instruction_keys {n_instruction_keys} * n_cot_trigger_keys {n_cot_trigger_keys} * n_answer_extraction_keys {n_answer_extraction_keys}
         Do you want to continue? y/n
         """
-    if config["debug"]:
-        warning += "\033[1m Note: You are in debug mode. When entering 'y', a test run without API calls is made. \033[0m"
+    if config["api_service"] == "mock_api":
+        warning += "\033[1m Note: You are using a mock api. When entering 'y', a test run without API calls is made. \033[0m"
     print(warning)
+    time.sleep(1)
     ans = input()
     if ans.lower() == "y":
         pass
@@ -314,18 +306,9 @@ class Correct_output(dict):
 #     string.replace("{None}", "")
 #     return string
 
-# # replace in dict None with empty string
-# def dict_replace_none_with_empty_string(d):
-#     for k, v in d.items():
-#         if v is None:
-#             d[k] = ""
-#     return d
 
-
-def query_model(
-    input, api_service, engine, temperature, max_tokens, api_time_interval, debug
-):
-    if debug:
+def query_model(input, api_service, engine, temperature, max_tokens, api_time_interval):
+    if api_service == "mock_api":
         return " Test mock chain of thought."
         # return ("This is a " + 20 * "long " + "Mock CoT.\n")*20
 

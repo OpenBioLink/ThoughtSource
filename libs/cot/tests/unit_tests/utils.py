@@ -21,7 +21,7 @@ def chdir(path):
 def simple_config():
     """Simple config for testing"""
     config = {
-        "debug": True,
+        "api_service": "mock_api",
         "multiple_choice_answer_format": "Letters",
         "instruction_keys": ["qa-01"],
         "cot_trigger_keys": ["kojima-01"],
