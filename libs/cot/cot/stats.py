@@ -72,20 +72,16 @@ def get_token_length_per_examples(example):
     return result
 
 
-def get_n_grams_counter(example, counter, N):
-    result = {}
-    for key in ["context", "question", "cot"]:
-        if key == "cot":
-            text = " ".join(example[key])
-        else:
-            text = example[key]
-        if text is None:
-            result[key] = 0
-        else:
-            sentences = split_sentences(text.lower())
-            ngrams = get_n_grams(sentences, N)
-            tups = ["_".join(tup) for tup in ngrams]
-            counter.update(tups)
+def get_n_grams_counter(example, counter, key, N):
+    if key == "cot":
+        text = " ".join(example[key])
+    else:
+        text = example[key]
+    if text is not None:
+        sentences = split_sentences(text.lower())
+        ngrams = get_n_grams(sentences, N)
+        tups = ["_".join(tup) for tup in ngrams]
+        counter.update(tups)
 
 
 def isna(val):
@@ -131,7 +127,7 @@ def _generate_counter_data(collection):
     return counters
 
 
-def _generate_ngrams_data(collection, N):
+def _generate_ngrams_data(collection, key, N):
     n_grams_counters = defaultdict(dict)
 
     with Progress() as progress:
@@ -145,7 +141,7 @@ def _generate_ngrams_data(collection, N):
                 progress.reset(task2, total=len(data))
                 n_gram_counter = Counter()
                 for entry in data:
-                    get_n_grams_counter(entry, n_gram_counter, N)
+                    get_n_grams_counter(entry, n_gram_counter, key, N)
                     progress.update(task2, advance=1.0)
                 n_grams_counters[name][split] = n_gram_counter
                 progress.update(task1, advance=1.0)
@@ -222,14 +218,14 @@ def display_stats_tables(collection):
     return (table_num_examples, table_nan, table_types)
 
 
-def plot_dataset_overlap(collection, N=3):
+def plot_dataset_overlap(collection, key="question", N=3):
     """
     It takes the n-grams from each dataset and calculates the Jaccard similarity between each pair of
     datasets
 
     :param data: the data dictionary returned by the function generate_data
     """
-    n_gram_counters = _generate_ngrams_data(collection, N)
+    n_gram_counters = _generate_ngrams_data(collection, key, N)
     n_grams_merge = {}
     for name, n_grams in n_gram_counters.items():
         n_grams_merge[name] = set([item for counters in n_grams.values() for item in counters.keys()])
@@ -238,12 +234,12 @@ def plot_dataset_overlap(collection, N=3):
     for name_x in sorted(n_grams_merge.keys(), reverse=True):
         vals = []
         for name_y in sorted(n_grams_merge.keys()):
-            if name_x != name_y:
+            if name_x != name_y and len(n_grams_merge[name_x]) > 0 and len(n_grams_merge[name_y]) > 0:
                 inters = len(n_grams_merge[name_x].intersection(n_grams_merge[name_y]))
                 uni = len(n_grams_merge[name_x].union(n_grams_merge[name_y]))
-                jacc = inters / uni
+                jacc = inters / min(len(n_grams_merge[name_x]), len(n_grams_merge[name_y]))
             else:
-                jacc = None
+                jacc = 0.0
             vals.append(jacc)
         data.append(vals)
 
@@ -261,7 +257,6 @@ def plot_dataset_overlap(collection, N=3):
         height=700,
     )
     fig.show()
-    return fig
 
 
 def plot_token_length_distribution(collection, splits=False):
@@ -290,8 +285,3 @@ def get_n_outlier(dataset, field="cot", n=5):
         outlier.append((example, len(toks)))
     outlier = sorted(outlier, key=lambda x: x[1], reverse=True)
     return (outlier[:n], outlier[-n:])
-
-
-
-
-
