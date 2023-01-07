@@ -70,7 +70,9 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
       {annotationString}</label>
   </li>)
 
-  const answerEntry = props.cotOutput.answers?.find(a => a['answer-extraction'] == "kojima-01")
+  // TODO handling for multiple answer extractions needed? if so, implement toggle similar to similarity measure at root level and pass it's value down to CotOutputElement.
+  //const answerEntry = props.cotOutput.answers?.find(a => a['answer-extraction'] == "kojima-01")
+  const answerEntry = props.cotOutput.answers?.at(0)
   const answer = answerEntry?.answer
   const isCorrect = answerEntry?.correct_answer == true
   const correctnessIcon = isCorrect ?
