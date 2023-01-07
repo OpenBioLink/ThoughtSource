@@ -217,46 +217,70 @@ def display_stats_tables(collection):
 
     return (table_num_examples, table_nan, table_types)
 
-
-def plot_dataset_overlap(collection, key="question", N=3):
-    """
-    It takes the n-grams from each dataset and calculates the Jaccard similarity between each pair of
-    datasets
-
-    :param data: the data dictionary returned by the function generate_data
-    """
+def prepare_overlap_matrix(collection, key, N):
     n_gram_counters = _generate_ngrams_data(collection, key, N)
     n_grams_merge = {}
     for name, n_grams in n_gram_counters.items():
         n_grams_merge[name] = set([item for counters in n_grams.values() for item in counters.keys()])
 
     data = []
-    for name_x in sorted(n_grams_merge.keys(), reverse=True):
+    datasets = sorted(n_grams_merge.keys())
+
+    for idx_x, name_x in enumerate(datasets):
         vals = []
-        for name_y in sorted(n_grams_merge.keys()):
-            if name_x != name_y and len(n_grams_merge[name_x]) > 0 and len(n_grams_merge[name_y]) > 0:
-                inters = len(n_grams_merge[name_x].intersection(n_grams_merge[name_y]))
-                uni = len(n_grams_merge[name_x].union(n_grams_merge[name_y]))
-                jacc = inters / min(len(n_grams_merge[name_x]), len(n_grams_merge[name_y]))
+        for idx_y, name_y in enumerate(datasets):
+            if idx_x == idx_y:
+                jacc = 1.0
+            elif idx_x > idx_y:
+                if len(n_grams_merge[name_x]) > 0 and len(n_grams_merge[name_y]) > 0:
+                    inters = len(n_grams_merge[name_x].intersection(n_grams_merge[name_y]))
+                    uni = len(n_grams_merge[name_x].union(n_grams_merge[name_y]))
+                    jacc = inters / min(len(n_grams_merge[name_x]), len(n_grams_merge[name_y]))
+                else:
+                    jacc = 0.0
             else:
-                jacc = 0.0
+                jacc = None
             vals.append(jacc)
         data.append(vals)
+    return n_grams_merge, data
 
-    fig = go.Figure(
-        data=go.Heatmap(
+def plot_dataset_overlap(collection, N=3):
+    """
+    It takes the n-grams from each dataset and calculates the Jaccard similarity between each pair of
+    datasets
+
+    :param data: the data dictionary returned by the function generate_data
+    """
+
+    from plotly.subplots import make_subplots
+    subpl = make_subplots(rows=1, cols=2, subplot_titles=("Question", "CoT"), print_grid=False)
+
+    for index, key in enumerate(["question", "cot"]):
+
+        n_grams_merge, data = prepare_overlap_matrix(collection, key, N)
+
+        # because of inversed y axis
+        data.reverse()
+
+        fig = go.Heatmap(
             z=data,
             x=list(sorted(n_grams_merge.keys())),
             y=list(sorted(n_grams_merge.keys(), reverse=True)),
             hoverongaps=False,
+            coloraxis='coloraxis',
+            text = [["" if (element is None or element < 0.01) else f"{element:.2f}" for element in row] for row in data],
+            texttemplate="%{text}",
         )
+        subpl.add_trace(fig, row=1, col=index+1)
+
+    subpl.update_layout(height=700, width=1400)
+    subpl.update_layout(
+        coloraxis=dict(colorscale='tempo', cmin=0.0, cmax=1.0), 
+        showlegend=False
     )
-    fig.update_layout(
-        autosize=False,
-        width=700,
-        height=700,
-    )
-    fig.show()
+    subpl.for_each_xaxis(lambda x: x.update(showgrid=False, zeroline=False))
+    subpl.for_each_yaxis(lambda x: x.update(showgrid=False, zeroline=False))
+    subpl.show()
 
 
 def plot_token_length_distribution(collection, splits=False):
