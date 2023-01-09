@@ -302,6 +302,16 @@ class Collection:
             dataset_dict[split] = subset
         return sampled_collection
 
+    # def full_text_prompts(cot=True, answer_extraction = True):
+    #     """ This function inserts the full text chain of thought and answer extraction
+    #     prompts into the collection"""
+    #     for dataset in self:
+    #         _ , dataset_dict = dataset
+    #         for split in dataset_dict:
+    #             for item in dataset_dict[split]:
+    #                 item["generated_cot"]["prompt_text"] = 
+
+
     @property
     def loaded(self):
         return list(self._cache.keys())

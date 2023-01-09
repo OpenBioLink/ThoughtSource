@@ -119,6 +119,8 @@ def _generate_and_extract(
                 "fragments_version": FRAGMENTS["version"],
                 "instruction": instruction_key,
                 "cot_trigger": cot_trigger_key,
+                "cot_prompt_template": template_cot_generation,
+                #TODO: rename to cot_prompt_text
                 "prompt_text": "",
                 "cot": "",
                 "answers": [],
@@ -160,7 +162,7 @@ def _generate_and_extract(
             template_dict["cot"] = cot
 
             generated_cot["cot"] = cot
-            generated_cot["prompt_text"] = generate_cot_prompt
+            # generated_cot["prompt_text"] = generate_cot_prompt
             generated_cot["date"] = print_now(1)
 
             # extract answers from generated chain of thoughts
@@ -173,6 +175,7 @@ def _generate_and_extract(
                     answer = {
                         "id": str(uuid.uuid4()),
                         "answer_extraction": answer_extraction_key,
+                        "answer_extraction_template": template_answer_extraction,
                         "answer_extraction_text": "",
                         "answer": "",
                         "correct_answer": None,
@@ -204,12 +207,17 @@ def _generate_and_extract(
                         print(predicted_answer)
 
                     answer["answer"] = predicted_answer
-                    answer["answer_extraction_text"] = answer_extraction_prompt
+                    # answer["answer_extraction_text"] = answer_extraction_prompt
                     generated_cot["answers"].append(answer)
 
             item["generated_cot"].append(generated_cot)
 
     return item
+
+# def full_text_prompts(cot=True, answer_extraction = True):
+#     """ This function inserts the full text chain of thought and answer extraction
+#     prompts into the collection"""
+
 
 
 def print_now(return_flag=0):
