@@ -13,8 +13,7 @@ on:
 
 defaults:
       run:
-        working-directory: ./
-        # /libs/cot/
+        working-directory: ./libs/cot/
 jobs:
   build:
     strategy:
