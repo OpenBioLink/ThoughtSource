@@ -12,7 +12,8 @@ def chdir(path):
     """Switch working directory to path and back to base directory"""
     base_dir = Path().absolute()
     try:
-        os.chdir(path)
+        os.chdir(os.path.join(base_dir, "libs/cot/tests", path))
+        # os.chdir(path)
         yield
     finally:
         os.chdir(base_dir)
@@ -36,6 +37,6 @@ def simple_config():
 
 def get_test_collection(name: str) -> Collection:
     """Load a test collection from the data folder"""
-    with chdir("tests/unit_tests/data"):
+    with chdir("unit_tests/data"):
         collection = Collection.from_json(f"{name}.json")
     return collection

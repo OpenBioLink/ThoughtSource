@@ -29,7 +29,7 @@ def test_similarity_loading_methods():
 
 def test_find_all_datasets() -> None:
     """Test if all datasets listed in data/dataset_names.txt are found"""
-    with chdir("tests/unit_tests/data"):
+    with chdir("unit_tests/data"):
         with open("dataset_names.txt", "r") as dataset_names:
             dataset_names = dataset_names.read().splitlines()
     dataset_list = Collection._find_datasets()
@@ -53,7 +53,7 @@ def test_basic_load_generate_evalute() -> None:
     # using same code as in 0_overview.ipynb
 
     # 1) Dataset load and selecting random sample
-    with chdir("tests/unit_tests/data"):
+    with chdir("unit_tests/data"):
         collection = Collection.from_json("worldtree_100_dataset.json")
     collection = collection.select(split="train", number_samples=5)
     # 2) Language Model generates chains of thought and then extracts answers
