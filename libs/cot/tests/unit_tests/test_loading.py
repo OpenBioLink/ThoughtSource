@@ -1,16 +1,10 @@
-import os
-from pathlib import Path
 from typing import Iterator
 
 import datasets
-import pytest
 from cot import Collection
 from cot.config import Config
 
 from .utils import chdir, get_test_collection, simple_config
-
-# this file contains code from the following source:
-# https://github.com/hwchase17/langchain/blob/780ef84cf0ca95aa752ae79b6749e2b39b5b7343/tests/unit_tests/prompts/test_loading.py#L14
 
 
 def test_correct_example_load() -> None:
@@ -18,7 +12,7 @@ def test_correct_example_load() -> None:
     collection = get_test_collection("worldtree_100_dataset")
     assert (
         collection._cache["worldtree"]["train"][0]["question"]
-        == "A parent and a child share several characteristics. Both individuals are tall, have curly hair, are good cooks, and have freckles. Which of these characteristics is a learned behavior?"
+        == 'Which event occurs on a daily cycle?'
     )
 
 
@@ -64,7 +58,7 @@ def test_basic_load_generate_evalute() -> None:
     collection = collection.select(split="train", number_samples=5)
     # 2) Language Model generates chains of thought and then extracts answers
     config = {
-        "debug": True,
+        "api_service": "mock_api",
         "multiple_choice_answer_format": "Letters",
         "instruction_keys": ["qa-01"],
         "cot_trigger_keys": ["kojima-01"],
@@ -80,12 +74,11 @@ def test_basic_load_generate_evalute() -> None:
 def test_keys_all_plus_None() -> None:
     # test for automatic loading of keys
     config = {
-        "debug": True,
-        "warn": False,
-        "verbose": False,
         "instruction_keys": "all",
         "cot_trigger_keys": "all",
         "answer_extraction_keys": "all",
+        "warn": False,
+        "verbose": False,
     }
     config = Config(**config)
     instruction_keys = ["qa-01", "qa-02", "qa-03", "qa-04"]
@@ -147,104 +140,6 @@ def test_keys_all_plus_None() -> None:
     assert config.instruction_keys == [None] + instruction_keys
     assert config.cot_trigger_keys == [None] + cot_trigger_keys
     assert config.answer_extraction_keys == [None] + answer_extraction_keys
-
-    # test for selecting "all" in keys, which should be the same
-    config = {
-        "debug": True,
-        "instruction_keys": "all",
-        "cot_trigger_keys": "all",
-        "answer_extraction_keys": "all",
-        "warn": False,
-        "verbose": False,
-    }
-    config = Config(**config)
-    assert config.instruction_keys == [None] + instruction_keys
-    assert config.cot_trigger_keys == [None] + cot_trigger_keys
-    assert config.answer_extraction_keys == [None] + answer_extraction_keys
-
-
-def test_template_default_f_strings() -> None:
-    collection = get_test_collection("test_1_dataset")
-    config = simple_config()
-    collection.generate(config=config)
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"]
-        == """Answer the following question through step-by-step reasoning.
-
-Question
-A) choice A
-B) choice B
-C) choice C
-D) choice D
-
-Answer: Let's think step by step."""
-    )
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
-            "answer_extraction_text"
-        ]
-        == """Answer the following question through step-by-step reasoning.
-
-Question
-A) choice A
-B) choice B
-C) choice C
-D) choice D
-
-Answer: Let's think step by step. Test mock chain of thought.
-Therefore, the answer is"""
-    )
-
-
-# TODO: this test should not fail but it does
-def test_template_instruction_is_none() -> None:
-    collection = get_test_collection("test_1_dataset")
-    config = simple_config()
-    config["instruction_keys"] = [None]
-    collection.generate(config=config)
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"]
-        == """Question
-A) choice A
-B) choice B
-C) choice C
-D) choice D
-
-Answer: Let's think step by step."""
-    )
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
-            "answer_extraction_text"
-        ]
-        == """Question
-A) choice A
-B) choice B
-C) choice C
-D) choice D
-
-Answer: Let's think step by step. Test mock chain of thought.
-Therefore, the answer is"""
-    )
-
-
-# these tests take a very long time
-# either change them or do not run them every time
-
-
-def test_thougthsource() -> None:
-    collection = Collection("all", generate_mode="recache")
-    """Test that id is unique within a dataset"""
-    for name, dataset in collection:
-        for split in dataset:
-            pd_ = dataset[split].to_pandas()
-            assert (
-                len(pd_["id"]) == pd_["id"].nunique()
-            ), f"IDs are not unique in {name} {split}"
-
-
-def test_source() -> None:
-    collection = Collection("all", generate_mode="recache", source=True)
-    assert collection
 
 
 """

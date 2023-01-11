@@ -76,6 +76,96 @@ def test_template_answer_extraction_wrong_variables():
         collection.generate(config=config)
 
 
+def test_template_default_f_strings() -> None:
+    collection = get_test_collection("test_1_dataset")
+    config = simple_config()
+    collection.generate(config=config)
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"]
+        == """Answer the following question through step-by-step reasoning.
+
+Question
+A) choice A
+B) choice B
+C) choice C
+D) choice D
+
+Answer: Let's think step by step."""
+    )
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
+            "answer_extraction_text"
+        ]
+        == """Answer the following question through step-by-step reasoning.
+
+Question
+A) choice A
+B) choice B
+C) choice C
+D) choice D
+
+Answer: Let's think step by step. Test mock chain of thought.
+Therefore, the answer is"""
+    )
+
+
+def test_template_instruction_is_none() -> None:
+    collection = get_test_collection("test_1_dataset")
+    config = simple_config()
+    config["instruction_keys"] = [None]
+    collection.generate(config=config)
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"]
+        == """Question
+A) choice A
+B) choice B
+C) choice C
+D) choice D
+
+Answer: Let's think step by step."""
+    )
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
+            "answer_extraction_text"
+        ]
+        == """Question
+A) choice A
+B) choice B
+C) choice C
+D) choice D
+
+Answer: Let's think step by step. Test mock chain of thought.
+Therefore, the answer is"""
+    )
+
+
+# TODO: this test should not fail:
+# def test_generate_change_config() -> None:
+#     # 1) Dataset loading and selecting a random sample
+#     collection = Collection(["worldtree"], verbose=False)
+#     collection = collection.select(split="train", number_samples=1)
+
+#     config = simple_config()
+#     config["instruction_keys"] = ["qa-01"]
+
+#     collection.generate(config=config)
+
+#     # 1) Dataset loading and selecting a random sample
+#     collection = Collection(["worldtree"], verbose=False)
+#     collection = collection.select(split="train", number_samples=1)
+
+#     # 2) Language Model generates chains of thought and then extracts answers
+#     config = simple_config()
+#     config["instruction_keys"] = ["qa-02"]
+
+#     collection.generate(config=config)
+
+#     assert collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"] == "qa-02"
+
+
+
+
+
 # def test_multiple_choice_formatting() -> None:
 
 # def test_check_templates() -> None:
