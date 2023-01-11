@@ -308,19 +308,21 @@ def map_json_to_lievin_cots_2(id, json, dataset):
         prefix = " Let's think step by step. "
     
     postfix = re.compile(r" The answer is \([A-D]\).\n\n")
+    wikipedia = re.compile(r"We refer to Wikipedia articles on [a-z]+ for help\. ")
 
     generated_cots = []
     for key, cot in enumerate(json["cots"]):
         cot_ = cot["content"].replace(prefix, "")
 
         if dataset == "med_qa":
+            cot_ = wikipedia.sub("", cot_)
             cot_ = postfix.sub("", cot_)
 
         if cot_ == "":
             continue
 
         generated_cots.append({
-            "id": f"{id}_{key}",
+            "id": f"code_{id}_{key}",
             "fragments_version": "0.01",
             "instruction": None,
             "cot_trigger": cot_trigger,
