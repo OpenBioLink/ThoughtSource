@@ -33,7 +33,7 @@ ThoughtSource is a central, open resource and community around data and tools re
 
 ### Installation with virtual environment
 execute in terminal line by line:
-```
+```bash
 git clone git@github.com:OpenBioLink/ThoughtSource.git
 cd ThoughtSource
 # install pip and virtualenv
@@ -54,9 +54,30 @@ pip install -e ./libs/cot[api]
   * __evaluate__: Evaluate the performance of predictions extracted using generated reasoning chains
 * __[explanatory notebooks](./notebooks/)__: [Overview](./notebooks/0_overview.ipynb), [Datasets](./notebooks/1_dataset.ipynb), [Model](./notebooks/2_generate.ipynb), [Performance](./notebooks/3_evaluate.ipynb)
 
-<p align="center">
-  <img alt="Overview Notebook" src="./resources/images/0_Overview_Notebook.png" width="60%" ">
-</p>
+
+```python
+# 1) Dataset loading and selecting a random sample
+collection = Collection(["worldtree"], verbose=False)
+collection = collection.select(split="train", number_samples=10)
+
+# 2) Language Model generates chains of thought and then extracts answers
+config={
+    "instruction_keys": ['qa-01'], # "Answer the following question through step-by-step reasoning."
+    "cot_trigger_keys": ['kojima-01'], # "Answer: Let's think step by step."
+    "answer_extraction_keys": ['kojima-A-D'], # "Therefore, among A through D, the answer is"
+    "api_service": "huggingface_hub",
+    "engine": "google/flan-t5-xl",
+    "warn": False,
+    "verbose": False,
+}
+collection.generate(config=config)
+
+# 3) Performance evaluation
+collection.evaluate()
+```
+```
+{'accuracy': {'qa-01_kojima-01_kojima-A-D': 0.6}}
+```
 
 
 ### Applications
