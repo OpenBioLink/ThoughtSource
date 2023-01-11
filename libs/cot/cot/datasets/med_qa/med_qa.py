@@ -20,7 +20,7 @@ import datasets
 import glob
 import json
 from collections import defaultdict
-from cot.utils import (schemas, map_example_to_lievin_cot)
+from cot.utils import (schemas, map_example_to_lievin_cot, map_json_to_lievin_cots_2)
 from cot.utils.configs import ThoughtSourceConfig
 from cot.utils.constants import Licenses
 from tqdm import tqdm
@@ -59,7 +59,8 @@ _LICENSE = Licenses.MIT
 
 _URLS = {
     _DATASETNAME: "https://samwald.info/res/thoughtsource/data/med_qa.zip",
-    "lievin_cot": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip"
+    "lievin_cot": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip",
+    "lievin_cot_2": "https://samwald.info/res/thoughtsource/data/lievin-cots-codex.zip"
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -127,6 +128,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
         
         data_dir = dl_manager.download_and_extract(_URLS)
         cots_path = os.path.join(data_dir["lievin_cot"], "thought-source-med")
+        cots_path_2 = os.path.join(data_dir["lievin_cot_2"], "thought-source-codex-5shot-cot")
 
         base_dir = os.path.join(data_dir[_DATASETNAME], "data_clean", "questions", "US")
         paths = {
@@ -140,26 +142,29 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 gen_kwargs={
                     "filepath": paths["train"],
-                    "cotspath": None
+                    "cotspath": None,
+                    "cotspath_2": None,
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
                     "filepath": paths["test"],
-                    "cotspath": cots_path
+                    "cotspath": cots_path,
+                    "cotspath_2": cots_path_2,
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
                     "filepath": paths["valid"],
-                    "cotspath": None
+                    "cotspath": None,
+                    "cotspath_2": None,
                 },
             ),
         ]
 
-    def _generate_examples(self, filepath, cotspath) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, cotspath, cotspath_2) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
         data = pd.read_json(filepath, lines=True)
 
@@ -184,14 +189,32 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
                         example = json.load(infile)
                     cots[id].append(example)
 
+            
+            cots_2 = dict()
+            if cotspath_2 is not None:
+                for file in tqdm(glob.glob(os.path.join(cotspath_2, "usmle_test", "*.json")), desc="Preparing Lievin CoTs v1"):
+                    filename = os.path.basename(file)[:-len(".json")]
+                    id = int(filename.split("_")[2].split("-")[1])
+                    assert (0 <= id < 1273), f"Oh no {id}"
+                    with open(file, "r") as infile:
+                        example = json.load(infile)
+                    assert id not in cots_2
+                    cots_2[id] = example
+
             for key, example in data.iterrows():
 
                 generated_cots = []
-                for item_idx, item in enumerate(cots[key]):
-                    assert (example["question"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
-                    cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "med_qa")
-                    generated_cots.append(cot_item)
+                if cotspath is not None:
+                    for item_idx, item in enumerate(cots[key]):
+                        assert (example["question"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
+                        cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "med_qa")
+                        generated_cots.append(cot_item)
 
+                if cotspath_2 is not None:
+                    item = cots_2[key]
+                    assert (example["question"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
+                    cot_items_2 = map_json_to_lievin_cots_2(key, item, "med_qa")
+                    generated_cots.extend(cot_items_2)
 
                 example_ = {
                     "id": key,

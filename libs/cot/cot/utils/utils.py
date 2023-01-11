@@ -1,4 +1,5 @@
 import os
+import re
 
 
 def _read_file(path):
@@ -288,3 +289,58 @@ def map_example_to_lievin_cot(id, item, dataset):
         "comment": "",
         "annotation": [],
     }
+
+
+def map_json_to_lievin_cots_2(id, json, dataset):
+    """
+    Given a CoT json from the collection of Lievin v2, returns populated CoT items.
+    
+    :param item: the CoT json loaded from Lievin v2
+    :return: List of the populated ThoughtSource CoT items
+    """
+    assert (__import__("cot").generate.FRAGMENTS["version"] == "0.01"), "New version"
+
+    answer_extraction = "kojima-03"
+    cot_trigger = "kojima-01"
+
+    prefix = "Let's think step by step\n"
+    if dataset == "med_qa":
+        prefix = " Let's think step by step. "
+    
+    postfix = re.compile(r" The answer is \([A-D]\).\n\n")
+
+    generated_cots = []
+    for key, cot in enumerate(json["cots"]):
+        cot_ = cot["content"].replace(prefix, "")
+
+        if dataset == "med_qa":
+            cot_ = postfix.sub("", cot_)
+
+        if cot_ == "":
+            continue
+
+        generated_cots.append({
+            "id": f"{id}_{key}",
+            "fragments_version": "0.01",
+            "instruction": None,
+            "cot_trigger": cot_trigger,
+            "prompt_text": "",
+            "answers": [
+                {
+                    "id": 0,
+                    "answer_extraction": answer_extraction,
+                    "answer_extraction_text": "",
+                    "answer": json["options"][cot["pred_idx"]],
+                    "correct_answer": cot["is_correct"],
+                }
+            ],
+            "cot": cot_,
+            "author": "lievin",
+            "date": None,
+            "api_service": "",
+            "model": "codex-3p5",
+            "comment": "",
+            "annotation": [],
+        })
+
+    return generated_cots
