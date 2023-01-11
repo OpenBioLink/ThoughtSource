@@ -1,5 +1,7 @@
 # From https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
+# This file is only executed on github, not locally
+
 name: Tests
 
 on:
