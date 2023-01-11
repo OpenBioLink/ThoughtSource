@@ -12,8 +12,7 @@ def chdir(path):
     """Switch working directory to path and back to base directory"""
     base_dir = Path().absolute()
     try:
-        os.chdir(os.path.join(base_dir, "libs/cot/tests", path))
-        # os.chdir(path)
+        os.chdir(os.path.join(base_dir, "tests", path))
         yield
     finally:
         os.chdir(base_dir)
