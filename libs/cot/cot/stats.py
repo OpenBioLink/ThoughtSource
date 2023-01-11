@@ -292,6 +292,8 @@ def plot_dataset_overlap(collection, N=3):
     )
     subpl.for_each_xaxis(lambda x: x.update(showgrid=False, zeroline=False))
     subpl.for_each_yaxis(lambda x: x.update(showgrid=False, zeroline=False))
+    subpl.write_image(f"dataset_overlap.svg")
+    subpl.write_image(f"dataset_overlap.png")
     subpl.show()
 
 
@@ -304,7 +306,21 @@ def plot_token_length_distribution(collection, splits=False):
 
     for key in ["context", "question", "cot"]:
         token_len_ = token_len[token_len[key] > 0]
-        fig = px.box(token_len_, x=key, y="dataset", color="split" if splits else None)
+        fig = px.box(
+            token_len_, 
+            x=key, y="dataset", 
+            color="split" if splits else None, 
+            labels={
+                "dataset": "Dataset", 
+                "cot": "Number of tokens in CoT", 
+                "question": "Number of tokens in question", 
+                "context": "Number of tokens in context"
+            },
+            width=1100,
+            points=False
+        )
+        fig.write_image(f"token_length_distribution_{key}.svg")
+        fig.write_image(f"token_length_distribution_{key}.png")
         fig.show()
     return (table, fig)
 
