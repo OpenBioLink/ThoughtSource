@@ -18,7 +18,7 @@ from typing import Dict, List, Tuple
 
 import datasets
 import json
-from cot.utils import schemas, map_example_to_lievin_cot
+from cot.utils import schemas, map_example_to_lievin_cot, map_json_to_lievin_cots_2
 from cot.utils.configs import ThoughtSourceConfig
 from cot.utils.constants import Licenses
 from collections import defaultdict
@@ -64,7 +64,8 @@ _LICENSE = Licenses.MIT
 
 _URLS = {
     "pubmed": "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/ori_pqal.json",
-    "cots": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip"
+    "cots": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip",
+    "lievin_cot_2": "https://samwald.info/res/thoughtsource/data/lievin-cots-codex.zip"
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -131,6 +132,7 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
         """Returns SplitGenerators."""
         data_dir = dl_manager.download_and_extract(_URLS)
         cotspath = os.path.join(data_dir["cots"], "thought-source-med")
+        cots_path_2 = os.path.join(data_dir["lievin_cot_2"], "thought-source-codex-5shot-cot")
 
         return [
             datasets.SplitGenerator(
@@ -139,11 +141,12 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
                 gen_kwargs={
                     "filepath": data_dir["pubmed"],
                     "cotspath": cotspath,
+                    "cotspath_2": cots_path_2,
                 },
             )
         ]
 
-    def _generate_examples(self, filepath, cotspath) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, cotspath, cotspath_2) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         with open(filepath, "r") as infile:
@@ -164,14 +167,31 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
                         example = json.load(infile)
                     cots[id].append(example)
 
+            cots_2 = dict()
+            if cotspath_2 is not None:
+                for file in tqdm(glob.glob(os.path.join(cotspath_2, "pubmedqa_test", "*.json")), desc="Preparing Lievin CoTs v1"):
+                    filename = os.path.basename(file)[:-len(".json")]
+                    id = int(filename.split("_")[1].split("-")[1])
+                    with open(file, "r") as infile:
+                        example = json.load(infile)
+                    assert id not in cots_2
+                    cots_2[id] = example
+
+
             for key, example in data.items():
 
                 generated_cots = []
-                for item_idx, item in enumerate(cots[int(key)]):
-                    assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['QUESTION']} {item['question']}"
-                    cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "pubmed_qa")
-                    generated_cots.append(cot_item)
+                if cotspath is not None:
+                    for item_idx, item in enumerate(cots[int(key)]):
+                        assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['QUESTION']} {item['question']}"
+                        cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "pubmed_qa")
+                        generated_cots.append(cot_item)
 
+                if cotspath_2 is not None and key in cots_2:
+                    item = cots_2[key]
+                    assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
+                    cot_items_2 = map_json_to_lievin_cots_2(key, item, "med_qa")
+                    generated_cots.extend(cot_items_2)
 
                 example_ = {
                     "id": key,
