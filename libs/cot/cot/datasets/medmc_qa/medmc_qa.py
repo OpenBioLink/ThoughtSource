@@ -243,7 +243,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
                     "type": "multiplechoice",
                     "choices": choices,
                     "context": "",
-                    "cot": [example["exp"]] if example["exp"] is not None else "",
+                    "cot": "" if ((example["exp"] is None) or (len(example["exp"]) > 3000)) else [example["exp"]],
                     "answer": [answer],
                     "feedback": [],
                     "generated_cot": generated_cots,
