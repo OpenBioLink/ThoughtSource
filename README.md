@@ -30,6 +30,22 @@ ThoughtSource is a central, open resource and community around data and tools re
 6. Apply CoT reasoning to __high-impact use-cases__ such as biomedical research or clinical decision making.
 
 ## Code
+
+### Installation with virtual environment
+execute in terminal line by line:
+```
+git clone git@github.com:OpenBioLink/ThoughtSource.git
+cd ThoughtSource
+# install pip and virtualenv
+sudo apt install python3-pip
+sudo apt install python3-venv
+# create and activate virtual environment
+python3 -m venv venv
+source ./venv/bin/activate
+# install requirements and API packages
+pip install -e ./libs/cot[api]
+```
+
 ### Libraries
 
 * __[cot](./libs/cot/):__ 
