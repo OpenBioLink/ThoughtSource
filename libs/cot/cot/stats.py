@@ -69,6 +69,19 @@ def get_token_length_per_examples(example):
             sentences = split_sentences(text.lower())
             toks = [tok for sent in sentences for tok in sent]
             result[key] = len(toks)
+
+        if key == "cot":
+            lens = []
+            if result[key] > 0:
+                lens.append(result[key])
+            for generated_cot in example["generated_cot"]:
+                sentences = split_sentences(generated_cot["cot"].lower())
+                toks = [tok for sent in sentences for tok in sent]
+                if len(toks) > 0:
+                    lens.append(len(toks))
+            if len(lens) > 0:
+                result[key] = sum(lens) / len(lens)
+
     return result
 
 
@@ -166,7 +179,6 @@ def _generate_token_length_data(collection):
                 progress.reset(task2, total=len(data))
                 for entry in data:
                     result = get_token_length_per_examples(entry)
-                    result["total_token_length"] = sum([v for k, v in result.items()])
                     result["split"] = split
                     result["dataset"] = name
                     hist_data.append(result)
@@ -287,11 +299,12 @@ def plot_token_length_distribution(collection, splits=False):
     token_len = _generate_token_length_data(collection)
     
     table = token_len[["dataset", "context", "question", "cot"]].groupby("dataset").agg(["max", "mean"])
-    table.columns = table.columns.map('_'.join).reset_index()
+    # table.columns = table.columns.map('_'.join).reset_index()
     _print_table(table)
 
     for key in ["context", "question", "cot"]:
-        fig = px.box(token_len, x=key, y="dataset", color="split" if splits else None)
+        token_len_ = token_len[token_len[key] > 0]
+        fig = px.box(token_len_, x=key, y="dataset", color="split" if splits else None)
         fig.show()
     return (table, fig)
 
