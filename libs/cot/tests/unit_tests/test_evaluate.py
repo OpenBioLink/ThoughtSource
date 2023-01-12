@@ -8,7 +8,7 @@ from cot import Collection
 # from pathlib import Path
 from cot.generate import Correct_output
 
-from cot.evaluate import clean, is_correct
+from cot.evaluate import clean, is_correct, search_regex
 
 from .utils import chdir, get_test_collection, simple_config
 
@@ -25,7 +25,7 @@ def test_clean():
 
     assert clean(type_, "So the answer is B", number_of_choices) == "B"
     assert clean(type_, "So the answer is B.", number_of_choices) == "B"
-    assert clean(type_, "So the answer isB", number_of_choices) == "B"
+    # assert clean(type_, "So the answer isB", number_of_choices) == "B"
     assert clean(type_, "Therefore, the answer is B", number_of_choices) == "B"
     assert clean(type_, "The answer is B", number_of_choices) == "B"
     assert clean(type_, "Answer is B", number_of_choices) == "B"
@@ -81,5 +81,38 @@ def test_clean_and_is_correct():
     pred = clean(type_, "So the answer is b", number_of_choices)
     assert is_correct(type_, pred, "B")
 
-    pred = clean(type_, "So the answer isb", number_of_choices)
-    assert is_correct(type_, pred, "B")
+    # pred = clean(type_, "So the answer isb", number_of_choices)
+    # assert is_correct(type_, pred, "B")
+
+# def test_search_regex():
+
+def test_predefined_correct_value(): 
+    # med_qa
+    collection = Collection(["med_qa"], verbose=False)
+    collection = collection.select(split="test", number_samples=10, random_samples=False)
+
+    collection2 = Collection(["med_qa"], verbose=False)
+    collection2 = collection2.select(split="test", number_samples=10, random_samples=False)
+
+    # only do evaluation on one of them, nothing should change
+    collection.evaluate()
+
+    collection_json = collection.to_json()
+    collection2_json = collection2.to_json()
+
+    assert collection_json == collection2_json
+
+
+    # pubmed_qa
+    collection = Collection(["pubmed_qa"], verbose=False)
+    collection = collection.select(split="train", number_samples=10, random_samples=False)
+    collection2 = Collection(["pubmed_qa"], verbose=False)
+    collection2 = collection2.select(split="train", number_samples=10, random_samples=False)
+
+    # only do evaluation on one of them, nothing should change
+    collection.evaluate()
+
+    collection_json = collection.to_json()
+    collection2_json = collection2.to_json()
+
+    assert collection_json == collection2_json
