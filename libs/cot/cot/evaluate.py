@@ -52,9 +52,7 @@ def clean(type_: str, pred: str, num_choices: int) -> str:
 
         # match pattern.
         # Matches A or A. or (A). or {A}. or [A]. to  just "A".
-        expected_answer_location = (
-            r"\s?[\(\{\[]?(" + expected_answer + r")[\)\}\]]?\s?"
-        )
+        expected_answer_location = r"\s?[\(\{\[]?(" + expected_answer + r")[\)\}\]]?\s?"
 
         # match only single answer without sentence
         only_answer_sequence = r"^" + expected_answer_location + r"$"
@@ -110,7 +108,7 @@ def answer_to_multiplechoice(answer, choices):
     raise ValueError("Thats weird, gold-answer not found in choices")
 
 
-def evaluate_sample(example, type_):
+def evaluate_sample(example, type_, overwrite):
     assert (
         type_ == example["type"]
     ), "Datasets contains examples with multiple different types"
@@ -125,7 +123,7 @@ def evaluate_sample(example, type_):
 
     for cot in example["generated_cot"]:
         for answer in cot["answers"]:
-            if answer["correct_answer"] is not None:
+            if answer["correct_answer"] is not None and not overwrite:
                 continue
             answer_str = answer["answer"]
             answer_str_cleaned = clean(type_, answer_str, num_choices)
@@ -136,7 +134,7 @@ def evaluate_sample(example, type_):
     return example
 
 
-def evaluate(dataset, config=None):
+def evaluate(dataset, overwrite=False, config=None):
 
     # implemented for single dataset right now collection["worldtree"]["train"]
     # TODO implement for ds.dataset_dict.DatasetDict collection["worldtree"]
@@ -149,12 +147,13 @@ def evaluate(dataset, config=None):
     type_ = dataset[0]["type"]
 
     dataset = dataset.map(
-        evaluate_sample, fn_kwargs={"type_": type_}, features=dataset.info.features
+        evaluate_sample, fn_kwargs={"type_": type_, "overwrite": overwrite}, features=dataset.info.features
     )
 
     keys = set()
     predictions = defaultdict(int)
     counter = defaultdict(int)
+
     for example in dataset:
         for cot in example["generated_cot"]:
             for answer in cot["answers"]:
@@ -172,13 +171,12 @@ def evaluate(dataset, config=None):
             import warnings
 
             warnings.warn(
-                f"""It seems that not all examples of the dataset were evaluated.
+                f"""It seems that not all examples of the dataset include an answer to be evaluated.
             Counter of examples:
             {counter.items()}
             Length of dataset:
             {len(dataset)}
-            The evaluation score was only calculated for the examples that were evaluated.
-            """
+            The evaluation score was only calculated based on the examples that include an answer."""
             )
 
     for key in keys:
