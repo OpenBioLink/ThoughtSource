@@ -177,7 +177,8 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):
                     {counter.items()}
                     Length of dataset:
                     {len(dataset)}
-                    The evaluation score was only calculated based on the examples that include an answer."""
+                    The evaluation score was only calculated based on the examples that include an answer.
+                    To turn this warning off, set warn=False in the evaluate function."""
                     )
 
     for key in keys:
