@@ -1,5 +1,6 @@
 import re
 from collections import defaultdict
+from pprint import pprint
 
 import datasets as ds
 
@@ -29,7 +30,7 @@ def search_regex(s: str, patterns: list) -> str:
 
 
 # ver 0.2
-def clean(type_, pred, num_choices):
+def clean(type_: str, pred: str, num_choices: int) -> str:
     """Cleans the prediction string to be able to compare it to the gold answer."""
     # TODO: Add boolean type answers
     # "Therefore, the answer (Yes or No) is NO."
@@ -52,22 +53,22 @@ def clean(type_, pred, num_choices):
         # match pattern.
         # Matches A or A. or (A). or {A}. or [A]. to  just "A".
         expected_answer_location = (
-            r"\s?[\(\{\[]?(" + expected_answer + r")[\)\}\]]?\.?\s?"
+            r"\s?[\(\{\[]?(" + expected_answer + r")[\)\}\]]?\s?"
         )
 
         # match only single answer without sentence
         only_answer_sequence = r"^" + expected_answer_location + r"$"
 
         # If the answer is at the end of the sentence. e.g. "The answer is A."
-        # also matches "isA" or "answerA" to A. To correct if the whitespace is not given
+        # At the moment does NOT match "isA" or "answerA" to A. As this leads to false positives...
         starting_sequence = (
-            r"answer:?\s(?:is)?(?:\smost\slikely)?\s?" + expected_answer_location
+            r"answer:?(?: is)?(?: most likely)?\s" + expected_answer_location
         )
 
         # If the answer is at the beginning of the sentence. e.g. "A is the answer"
         ending_sequence = (
             expected_answer_location
-            + r"\s?(?:is)?\s?(?:the)?\s?(?:correct|right|true)?\s?(?:answer)?\.?"
+            + r"\s?(?: is)?(?: the)?(?: correct| right| true)?(?: answer)?\.?"
         )
 
         # TODO: personalized sequences
@@ -124,6 +125,8 @@ def evaluate_sample(example, type_):
 
     for cot in example["generated_cot"]:
         for answer in cot["answers"]:
+            if answer["correct_answer"] is not None:
+                continue
             answer_str = answer["answer"]
             answer_str_cleaned = clean(type_, answer_str, num_choices)
             if is_correct(type_, answer_str_cleaned, gold_answer):
@@ -151,17 +154,36 @@ def evaluate(dataset, config=None):
 
     keys = set()
     predictions = defaultdict(int)
+    counter = defaultdict(int)
     for example in dataset:
         for cot in example["generated_cot"]:
             for answer in cot["answers"]:
+                # make a key for each combination of triggers, e.g. "None_lievin-02_kojima-A-C"
                 key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
                 keys.add(key)
+                counter[key] += 1
                 if answer["correct_answer"]:
                     predictions[key] += 1
 
     evaluations = defaultdict(dict)
+
+    for count in counter.values():
+        if count != len(dataset):
+            import warnings
+
+            warnings.warn(
+                f"""It seems that not all examples of the dataset were evaluated.
+            Counter of examples:
+            {counter.items()}
+            Length of dataset:
+            {len(dataset)}
+            The evaluation score was only calculated for the examples that were evaluated.
+            """
+            )
+
     for key in keys:
         for metric in ["accuracy"]:
-            evaluations[metric][key] = predictions[key] / len(dataset)
-    print(dict(evaluations))
+            evaluations[metric][key] = predictions[key] / counter[key]
+
+    pprint(dict(evaluations))
     return dataset
