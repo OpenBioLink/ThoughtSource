@@ -231,17 +231,17 @@ class Collection:
             else:
                 self[name][split] = generate_and_extract(self[name][split], config=config)
 
-    def evaluate(self, name=None, split=None, overwrite=False):
+    def evaluate(self, name=None, split=None, overwrite=False, warn=True):
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
-                    self[name][split] = evaluate(self[name][split], overwrite=overwrite)
+                    self[name][split] = evaluate(self[name][split], overwrite=overwrite, warn=warn)
         else:
             if split is None:
                 for split in self._cache[name]:
-                    self[name][split] = evaluate(self[name][split], overwrite=overwrite)
+                    self[name][split] = evaluate(self[name][split], overwrite=overwrite, warn=warn)
             else:
-                self[name][split] = evaluate(self[name][split], overwrite=overwrite)
+                self[name][split] = evaluate(self[name][split], overwrite=overwrite, warn=warn)
 
     def merge(self, collection_other):
         return merge(self, collection_other)

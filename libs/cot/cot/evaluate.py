@@ -134,7 +134,7 @@ def evaluate_sample(example, type_, overwrite):
     return example
 
 
-def evaluate(dataset, overwrite=False, config=None):
+def evaluate(dataset, overwrite=False, warn=True, config=None):
 
     # implemented for single dataset right now collection["worldtree"]["train"]
     # TODO implement for ds.dataset_dict.DatasetDict collection["worldtree"]
@@ -166,18 +166,19 @@ def evaluate(dataset, overwrite=False, config=None):
 
     evaluations = defaultdict(dict)
 
-    for count in counter.values():
-        if count != len(dataset):
-            import warnings
+    if warn:
+        for count in counter.values():
+            if count != len(dataset):
+                    import warnings
 
-            warnings.warn(
-                f"""It seems that not all examples of the dataset include an answer to be evaluated.
-            Counter of examples:
-            {counter.items()}
-            Length of dataset:
-            {len(dataset)}
-            The evaluation score was only calculated based on the examples that include an answer."""
-            )
+                    warnings.warn(
+                        f"""It seems that not all examples of the dataset include an answer to be evaluated.
+                    Counter of examples:
+                    {counter.items()}
+                    Length of dataset:
+                    {len(dataset)}
+                    The evaluation score was only calculated based on the examples that include an answer."""
+                    )
 
     for key in keys:
         for metric in ["accuracy"]:
