@@ -235,7 +235,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
                     generated_cots.extend(cot_items_2)
 
                 choices = [example["opa"], example["opb"], example["opc"], example["opd"]]
-                answer = choices[example["cop"]-1] if example["cop"] is not None else ""
+                answer = choices[example["cop"]-1] if example["cop"] is not None else None
                 example_ = {
                     "id": key,
                     "ref_id": "",
