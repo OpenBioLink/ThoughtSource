@@ -106,9 +106,26 @@ def answer_to_multiplechoice(answer, choices, warn):
     # assert type(choices[0]) == str, "choices must be a list of strings"
     num_choices = len(choices)
     for ix, choice in enumerate(choices):
+
+        # if answer is not given raise warning
+        if answer == None and warn:
+            import warnings
+            warnings.warn(
+                f"""The right answer is not given in the given example.
+                This can be intentionally, but running an evaluation is not possible.
+                To turn off warnings, set warn=False in the evaluate() function.
+                """
+            )
+
+        # if answer is not given return None, if warning is turned off
+        if answer == None and not warn:  
+            return (num_choices, None)
+
+        # normal comparison     
         if choice.lower() == answer.lower():
             return (num_choices, chr(65 + ix))
-        # for which are numbers to correct for float/int differences
+
+        # not necessary at the moment: for which are numbers to correct for float/int differences
         # choice_float = None
         # choice_answer = None
         # try: choice_float = float(choice)
@@ -118,16 +135,8 @@ def answer_to_multiplechoice(answer, choices, warn):
         # if choice_float and choice_answer and choice_float == choice_answer:
         #     return (num_choices, chr(65 + ix))
 
-        if answer == None and warn:
-            import warnings
-            warnings.warn(
-                f"""The right answer is not given in the given example.
-                This can be intentionally, but running an evaluation is not possible.
-                To turn off warnings, set warn=False in the evaluate() function.
-                """
-            )
-        if answer == None and not warn:
-            return (num_choices, None)
+
+
     if answer != None:
         raise ValueError(
             f"""f"Thats weird, gold-answer '{answer}' not found in choices '{choices}'"
