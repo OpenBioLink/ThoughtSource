@@ -120,10 +120,7 @@ def test_predefined_correct_value():
 
 def test_answer_to_multiplechoice():
     assert answer_to_multiplechoice(answer="x", choices=["x", "y", "z"], warn=True) == (3, "A")
-
-    assert answer_to_multiplechoice(answer="1.00", choices=["1.0", "2", "3"], warn=True) == (3, "A")
     assert answer_to_multiplechoice(answer="c", choices=["a", "b", "c", "d", "e"], warn=True) == (5, "C")
-
     assert answer_to_multiplechoice(answer="C", choices=["a", "b", "c", "d", "e"], warn=True) == (5, "C")
     assert answer_to_multiplechoice(answer="c", choices=["A", "B", "C", "D", "E"], warn=True) == (5, "C")
     assert answer_to_multiplechoice(answer="ax", choices=["Ax", "Bx", "Cx", "Dx", "Ex"], warn=True) == (5, "A")
@@ -131,3 +128,4 @@ def test_answer_to_multiplechoice():
     # assert answer_to_multiplechoice(answer=1, choices=["1", "2", "3"], warn=True) == (3, "A")
     # assert answer_to_multiplechoice(answer="1", choices=[1, 2, 3], warn=True) == (3, "A")
     # assert answer_to_multiplechoice(answer=1, choices=[1, 2, 3], warn=True) == (3, "A")
+    # assert answer_to_multiplechoice(answer="1.00", choices=["1.0", "2", "3"], warn=True) == (3, "A")
