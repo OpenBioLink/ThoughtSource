@@ -263,7 +263,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                         "choices": [],
                         "context": "",
                         "cot": [],
-                        "answer": "",
+                        "answer": [None],
                         "feedback": None,
                         "generated_cot": [],
                     }
