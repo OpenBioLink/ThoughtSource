@@ -234,15 +234,16 @@ class Collection:
     def evaluate(self, name=None, split=None, overwrite=False, warn=True):
         if name is None:
             for name in self._cache:
-                print(f"Evaluating {name}...")
                 for split in self._cache[name]:
+                    print(f"Evaluating {name} {split}...")
                     self[name][split] = evaluate(self[name][split], overwrite=overwrite, warn=warn)
         else:
-            print(f"Evaluating {name}...")
             if split is None:
                 for split in self._cache[name]:
+                    print(f"Evaluating {name} {split}...")
                     self[name][split] = evaluate(self[name][split], overwrite=overwrite, warn=warn)
             else:
+                print(f"Evaluating {name} {split}...")
                 self[name][split] = evaluate(self[name][split], overwrite=overwrite, warn=warn)
 
     def merge(self, collection_other):
