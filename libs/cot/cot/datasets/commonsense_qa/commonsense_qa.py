@@ -229,7 +229,7 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
                     "choices": choices.values(),
                     "context": "",
                     "cot": [x.capitalize() for x in sent_tokenize(ecqa[example["id"]])] if example["id"] in ecqa else [],
-                    "answer": [choices[example["answerKey"]]] if "answerKey" in example else [],
+                    "answer": [choices[example["answerKey"]]] if "answerKey" in example else None,
                     "feedback": [],
                     "generated_cot": generated_cot,
                 }
