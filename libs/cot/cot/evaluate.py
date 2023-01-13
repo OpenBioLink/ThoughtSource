@@ -100,15 +100,43 @@ def is_correct(type_, pred, gold):
         return pred.lower() == gold.lower()
 
 
-def answer_to_multiplechoice(answer, choices):
+def answer_to_multiplechoice(answer, choices, warn):
+    # assert type(answer) == str, "answer must be a string"
+    # assert type(choices) == list, "choices must be a list"
+    # assert type(choices[0]) == str, "choices must be a list of strings"
     num_choices = len(choices)
     for ix, choice in enumerate(choices):
-        if choice == answer:
+        if choice.lower() == answer.lower():
             return (num_choices, chr(65 + ix))
-    raise ValueError("Thats weird, gold-answer not found in choices")
+        # for which are numbers to correct for float/int differences
+        # choice_float = None
+        # choice_answer = None
+        # try: choice_float = float(choice)
+        # except: pass
+        # try: choice_answer = float(answer)
+        # except: pass
+        # if choice_float and choice_answer and choice_float == choice_answer:
+        #     return (num_choices, chr(65 + ix))
+
+        if answer == None and warn:
+            import warnings
+            warnings.warn(
+                f"""The right answer is not given in the given example.
+                This can be intentionally, but running an evaluation is not possible.
+                To turn off warnings, set warn=False in the evaluate() function.
+                """
+            )
+        if answer == None and not warn:
+            return (num_choices, None)
+    if answer != None:
+        raise ValueError(
+            f"""f"Thats weird, gold-answer '{answer}' not found in choices '{choices}'"
+            Evaluation is not possible.
+            """
+        )
 
 
-def evaluate_sample(example, type_, overwrite):
+def evaluate_sample(example, type_, overwrite, warn):
     assert (
         type_ == example["type"]
     ), "Datasets contains examples with multiple different types"
@@ -118,8 +146,10 @@ def evaluate_sample(example, type_, overwrite):
 
     if type_ == "multiplechoice":
         num_choices, gold_answer = answer_to_multiplechoice(
-            gold_answer, example["choices"]
+            gold_answer, example["choices"], warn
         )
+        if gold_answer == None:
+            return example
 
     for cot in example["generated_cot"]:
         for answer in cot["answers"]:
@@ -147,7 +177,7 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):
     type_ = dataset[0]["type"]
 
     dataset = dataset.map(
-        evaluate_sample, fn_kwargs={"type_": type_, "overwrite": overwrite}, features=dataset.info.features
+        evaluate_sample, fn_kwargs={"type_": type_, "overwrite": overwrite, "warn": warn}, features=dataset.info.features
     )
 
     keys = set()
