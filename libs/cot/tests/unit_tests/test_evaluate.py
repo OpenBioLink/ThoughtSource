@@ -8,7 +8,7 @@ from cot import Collection
 # from pathlib import Path
 from cot.generate import Correct_output
 
-from cot.evaluate import clean, is_correct, search_regex
+from cot.evaluate import clean, is_correct, search_regex, answer_to_multiplechoice
 
 from .utils import chdir, get_test_collection, simple_config
 
@@ -95,7 +95,7 @@ def test_predefined_correct_value():
     collection2 = collection2.select(split="test", number_samples=10, random_samples=False)
 
     # only do evaluation on one of them, nothing should change
-    collection.evaluate()
+    collection.evaluate(warn=False)
 
     collection_json = collection.to_json()
     collection2_json = collection2.to_json()
@@ -116,3 +116,18 @@ def test_predefined_correct_value():
     collection2_json = collection2.to_json()
 
     assert collection_json == collection2_json
+
+
+def test_answer_to_multiplechoice():
+    assert answer_to_multiplechoice(answer="x", choices=["x", "y", "z"], warn=True) == (3, "A")
+
+    assert answer_to_multiplechoice(answer="1.00", choices=["1.0", "2", "3"], warn=True) == (3, "A")
+    assert answer_to_multiplechoice(answer="c", choices=["a", "b", "c", "d", "e"], warn=True) == (5, "C")
+
+    assert answer_to_multiplechoice(answer="C", choices=["a", "b", "c", "d", "e"], warn=True) == (5, "C")
+    assert answer_to_multiplechoice(answer="c", choices=["A", "B", "C", "D", "E"], warn=True) == (5, "C")
+    assert answer_to_multiplechoice(answer="ax", choices=["Ax", "Bx", "Cx", "Dx", "Ex"], warn=True) == (5, "A")
+
+    # assert answer_to_multiplechoice(answer=1, choices=["1", "2", "3"], warn=True) == (3, "A")
+    # assert answer_to_multiplechoice(answer="1", choices=[1, 2, 3], warn=True) == (3, "A")
+    # assert answer_to_multiplechoice(answer=1, choices=[1, 2, 3], warn=True) == (3, "A")
