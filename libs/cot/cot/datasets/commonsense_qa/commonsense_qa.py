@@ -211,7 +211,7 @@ class CommonsenseQADataset(datasets.GeneratorBasedBuilder):
             for key, example in enumerate(data):
 
                 generated_cot = []
-                kojima_cot = map_example_to_kojima_cot(example["question"]["stem"], kojima_cots)
+                kojima_cot = map_example_to_kojima_cot(example["question"]["stem"], kojima_cots, "kojima-A-E")
                 if kojima_cot is not None:
                     generated_cot.append(kojima_cot)
                     kojima_cot_mapped += 1
