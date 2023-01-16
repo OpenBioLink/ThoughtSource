@@ -195,6 +195,9 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):
 
     for example in dataset:
         for cot in example["generated_cot"]:
+            # if no gold answer is given, skip this example
+            if example["answer"][0] == None:
+                continue
             for answer in cot["answers"]:
                 # make a key for each combination of triggers, e.g. "None_lievin-02_kojima-A-C"
                 key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
