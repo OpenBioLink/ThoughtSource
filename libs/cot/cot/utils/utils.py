@@ -154,7 +154,7 @@ def parse_wei_log(path_to_directory, dataset):
     return elements
 
 
-def map_example_to_kojima_cot(question, cots):
+def map_example_to_kojima_cot(question, cots, answer_extraction):
     """
     Given a question from a dataset and list of Cots from the collection of Kojima (see function parse_kojima_log)
     it returns a populated CoT item for the given question if found in the list of Cots.
@@ -175,7 +175,7 @@ def map_example_to_kojima_cot(question, cots):
                 "answers": [
                     {
                         "id": 0,
-                        "answer_extraction": "kojima-A-E",
+                        "answer_extraction": answer_extraction,
                         "answer_extraction_text": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
