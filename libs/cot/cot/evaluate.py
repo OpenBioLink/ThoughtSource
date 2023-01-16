@@ -28,7 +28,6 @@ def search_regex(s: str, patterns: list) -> str:
     return ""
 
 
-# ver 0.2
 def clean(type_: str, pred: str, num_choices: int) -> str:
     """Cleans the prediction string to be able to compare it to the gold answer."""
     # TODO: Add boolean type answers
@@ -109,7 +108,7 @@ def answer_to_multiplechoice(answer, choices, warn):
             warnings.warn(
                 f"""The right answer is not given in the given example.
                 This can be intentionally, but running an evaluation is not possible.
-                To turn off warnings, set warn=False in the evaluate() function.
+                To turn off warnings, set warn to False: collection.evaluate(warn=False).
                 """
             )
 
@@ -146,7 +145,7 @@ def evaluate_sample(example, type_, overwrite, warn):
         type_ == example["type"]
     ), "Datasets contains examples with multiple different types"
 
-    # only evaluate if answer is given
+    # only run evaluation if answer is given
     if example["answer"][0] == None:
         if warn:
             warnings.warn("""
@@ -161,8 +160,22 @@ def evaluate_sample(example, type_, overwrite, warn):
         num_choices, gold_answer = answer_to_multiplechoice(
             gold_answer, example["choices"], warn
         )
-        # if gold_answer == None:
-        #     return example
+    
+    if type_ == "bool":
+        print("not implemented yet")
+        return example
+
+    if type_ == "text":
+        print("not implemented yet")
+        return example
+
+    if type_ == "number":
+        print("not implemented yet")
+        return example
+
+    if type_ == "collection":
+        print("not implemented yet")
+        return example
 
     for cot in example["generated_cot"]:
         for answer in cot["answers"]:
@@ -178,17 +191,14 @@ def evaluate_sample(example, type_, overwrite, warn):
 
 
 def evaluate(dataset, overwrite=False, warn=True, config=None):
-
-    # implemented for single dataset right now collection["worldtree"]["train"]
-    # TODO implement for ds.dataset_dict.DatasetDict collection["worldtree"]
     assert isinstance(
         dataset, ds.arrow_dataset.Dataset
-    ), "Only implemented for single datasets right now e.g. collection['worldtree']['train']"
+    ), "dataset must be an arrow dataset"
 
-    # support only one type per dataset
-    # TODO support datasets contining different example types (mulichoice, number, ...), if needed?
+    # get dataset type, e.g. multiplechoice
     type_ = dataset[0]["type"]
 
+    # evaluate each sample
     dataset = dataset.map(
         evaluate_sample, fn_kwargs={"type_": type_, "overwrite": overwrite, "warn": warn}, features=dataset.info.features
     )
