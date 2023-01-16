@@ -212,7 +212,7 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                 for key, example in enumerate(data):
 
                     generated_cot = []
-                    kojima_cot = map_example_to_kojima_cot(example["question"], kojima_cots)
+                    kojima_cot = map_example_to_kojima_cot(example["question"], kojima_cots, "kojima-yes-no")
                     if kojima_cot is not None:
                         generated_cot.append(kojima_cot)
                         kojima_cot_mapped += 1
