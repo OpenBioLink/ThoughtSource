@@ -64,6 +64,7 @@ _LICENSE = Licenses.MIT
 
 _URLS = {
     "pubmed": "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/ori_pqal.json",
+    "test_indices": "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/test_ground_truth.json",
     "cots": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip",
     "lievin_cot_2": "https://samwald.info/res/thoughtsource/data/lievin-cots-codex.zip"
 }
@@ -139,23 +140,40 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
                 gen_kwargs={
+                    "split": "train",
                     "filepath": data_dir["pubmed"],
+                    "test_indices": data_dir["test_indices"],
+                    "cotspath": cotspath,
+                    "cotspath_2": cots_path_2,
+                },
+            ),
+            datasets.SplitGenerator(
+                name=datasets.Split.TEST,
+                # Whatever you put in gen_kwargs will be passed to _generate_examples
+                gen_kwargs={
+                    "split": "test",
+                    "filepath": data_dir["pubmed"],
+                    "test_indices": data_dir["test_indices"],
                     "cotspath": cotspath,
                     "cotspath_2": cots_path_2,
                 },
             )
         ]
 
-    def _generate_examples(self, filepath, cotspath, cotspath_2) -> Tuple[int, Dict]:
+    def _generate_examples(self, split, filepath, test_indices, cotspath, cotspath_2) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         with open(filepath, "r") as infile:
             data = json.load(infile)
 
+        with open(test_indices, "r") as infile:
+            test_indices = set(json.load(infile).keys())
+
         if self.config.schema == "source":
             for key, example in data.items():
-                example["PUBMED_ID"] = key
-                yield key, example
+                if (split == "train" and key not in test_indices) or (split == "test" and key in test_indices):
+                    example["PUBMED_ID"] = key
+                    yield key, example
         elif self.config.schema == "thoughtsource":
 
             cots = defaultdict(list)
@@ -177,36 +195,35 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
                     assert id not in cots_2
                     cots_2[id] = example
 
-
             for key, example in data.items():
+                if (split == "train" and key not in test_indices) or (split == "test" and key in test_indices):
+                    generated_cots = []
+                    if cotspath is not None:
+                        for item_idx, item in enumerate(cots[int(key)]):
+                            assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['QUESTION']} {item['question']}"
+                            cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "pubmed_qa")
+                            generated_cots.append(cot_item)
 
-                generated_cots = []
-                if cotspath is not None:
-                    for item_idx, item in enumerate(cots[int(key)]):
-                        assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['QUESTION']} {item['question']}"
-                        cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "pubmed_qa")
-                        generated_cots.append(cot_item)
+                    if cotspath_2 is not None and key in cots_2:
+                        item = cots_2[key]
+                        assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
+                        cot_items_2 = map_json_to_lievin_cots_2(key, item, "med_qa")
+                        generated_cots.extend(cot_items_2)
 
-                if cotspath_2 is not None and key in cots_2:
-                    item = cots_2[key]
-                    assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
-                    cot_items_2 = map_json_to_lievin_cots_2(key, item, "med_qa")
-                    generated_cots.extend(cot_items_2)
+                    example_ = {
+                        "id": key,
+                        "ref_id": key,
+                        "question": example["QUESTION"],
+                        "type": "multiplechoice",
+                        "choices": ["yes", "no", "maybe"],
+                        "context": "\n".join(example["CONTEXTS"]),
+                        "cot": "",
+                        "answer": [example["final_decision"]],
+                        "feedback": [],
+                        "generated_cot": generated_cots,
+                    }
 
-                example_ = {
-                    "id": key,
-                    "ref_id": key,
-                    "question": example["QUESTION"],
-                    "type": "multiplechoice",
-                    "choices": ["yes", "no", "maybe"],
-                    "context": "\n".join(example["CONTEXTS"]),
-                    "cot": "",
-                    "answer": [example["final_decision"]],
-                    "feedback": [],
-                    "generated_cot": generated_cots,
-                }
-
-                yield key, example_
+                    yield key, example_
 
 
 # This template is based on the following template from the datasets package:
