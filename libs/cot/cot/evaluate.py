@@ -1,4 +1,5 @@
 import re
+import warnings
 from collections import defaultdict
 from pprint import pprint
 
@@ -14,8 +15,6 @@ def search_regex(s: str, patterns: list) -> str:
         if match:
             # If more than one group is defined in the regex, print a warning return the last group
             if len(match.groups()) > 1:
-                import warnings
-
                 warnings.warn(
                     f"""Found more than one possible answer to compute the evaluation score. By default returning the first found answer.
                                  In the answer sentence '{s}' these possible answers were found: '{match.groups()}'
@@ -81,8 +80,6 @@ def clean(type_: str, pred: str, num_choices: int) -> str:
         )  # + possible_answers_sequences)
 
         if pred_match == "":
-            import warnings
-
             warnings.warn(
                 f"""Your answer could not be extracted, please add your sequence to the list of personalized answers sequences.
                 sequence: {pred}
@@ -109,7 +106,6 @@ def answer_to_multiplechoice(answer, choices, warn):
 
         # if answer is not given raise warning
         if answer == None and warn:
-            import warnings
             warnings.warn(
                 f"""The right answer is not given in the given example.
                 This can be intentionally, but running an evaluation is not possible.
@@ -150,6 +146,14 @@ def evaluate_sample(example, type_, overwrite, warn):
         type_ == example["type"]
     ), "Datasets contains examples with multiple different types"
 
+    # only evaluate if answer is given
+    if example["answer"][0] == None:
+        if warn:
+            warnings.warn("""
+                The right answer is not given in the given example.
+                No evaluation is possible for this example.""")
+        return example
+
     # take full text answer if not multiple choice
     gold_answer = example["answer"][0]
 
@@ -157,8 +161,8 @@ def evaluate_sample(example, type_, overwrite, warn):
         num_choices, gold_answer = answer_to_multiplechoice(
             gold_answer, example["choices"], warn
         )
-        if gold_answer == None:
-            return example
+        # if gold_answer == None:
+        #     return example
 
     for cot in example["generated_cot"]:
         for answer in cot["answers"]:
@@ -211,8 +215,6 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):
     if warn:
         for count in counter.values():
             if count != len(dataset):
-                    import warnings
-
                     warnings.warn(
                         f"""It seems that not all examples of the dataset include an answer to be evaluated.
                     Counter of examples:
