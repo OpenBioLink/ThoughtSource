@@ -2,6 +2,7 @@ import re
 import warnings
 from collections import defaultdict
 from pprint import pprint
+from .generate import multiple_choice_answer_formatting
 
 import datasets as ds
 
@@ -90,7 +91,9 @@ def is_correct(type_: str, pred: str, gold: str, num_choices=None) -> str:
     else:
         raise ValueError("type is not supported ...")
 
-    return pred_match.lower() == gold.lower()
+    is_correct = pred_match.lower() == gold.lower()
+
+    return is_correct
 
 
 # def is_correct(type_, pred, gold):
@@ -152,11 +155,15 @@ def evaluate_sample(example, type_, overwrite, warn):
         if warn:
             warnings.warn("""
                 The right answer is not given in the given example.
-                No evaluation is possible for this example.""")
+                No evaluation is possible for this example.
+                {example}""")
         return example
 
     # take full text answer if not multiple choice
     gold_answer = example["answer"][0]
+
+    # if not overwrite:
+    #     return example
 
     if type_ == "multiplechoice":
         num_choices, gold_answer = answer_to_multiplechoice(
@@ -237,9 +244,13 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):
                     To turn this warning off, set warn=False in the evaluate function."""
                     )
 
+    # sort keys
+    keys = sorted(keys)
     for key in keys:
         for metric in ["accuracy"]:
-            evaluations[metric][key] = predictions[key] / counter[key]
+            # TODO: include different models evaluations[model][metric][key]
+            value = predictions[key] / counter[key]
+            evaluations[metric][key] = round(value, 6)
 
-    pprint(dict(evaluations))
-    return dataset
+    # pprint(dict(evaluations))
+    return dataset, dict(evaluations)

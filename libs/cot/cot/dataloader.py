@@ -232,19 +232,26 @@ class Collection:
                 self[name][split] = generate_and_extract(self[name][split], config=config)
 
     def evaluate(self, name=None, split=None, overwrite=False, warn=True):
+        evaluations_dict = defaultdict(dict)
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     print(f"Evaluating {name} {split}...")
-                    self[name][split] = evaluate(self[name][split], overwrite=overwrite, warn=warn)
+                    self[name][split], evaluation = evaluate(self[name][split], overwrite=overwrite, warn=warn)
+                    evaluations_dict[name][split] = evaluation
         else:
             if split is None:
                 for split in self._cache[name]:
                     print(f"Evaluating {name} {split}...")
-                    self[name][split] = evaluate(self[name][split], overwrite=overwrite, warn=warn)
+                    self[name][split], evaluations = evaluate(self[name][split], overwrite=overwrite, warn=warn)
+                    evaluations_dict[name][split] = evaluations
+
             else:
                 print(f"Evaluating {name} {split}...")
-                self[name][split] = evaluate(self[name][split], overwrite=overwrite, warn=warn)
+                self[name][split], evaluations = evaluate(self[name][split], overwrite=overwrite, warn=warn)
+                evaluations_dict[name][split] = evaluations
+
+        return dict(evaluations_dict)
 
     def merge(self, collection_other):
         return merge(self, collection_other)
