@@ -27,8 +27,10 @@ def search_regex(s: str, patterns: list) -> str:
     # If none of the regex patterns are found, return an empty string
     return ""
 
+# CONTINUE HERE #######################################################################################################################################
+# with pubmed_qa yes/no/maybe answers 
 
-def clean(type_: str, pred: str, num_choices: int) -> str:
+def is_correct(type_: str, pred: str, gold: str, num_choices=None) -> str:
     """Cleans the prediction string to be able to compare it to the gold answer."""
     # TODO: Add boolean type answers
     # "Therefore, the answer (Yes or No) is NO."
@@ -88,12 +90,12 @@ def clean(type_: str, pred: str, num_choices: int) -> str:
     else:
         raise ValueError("type is not supported ...")
 
-    return pred_match
+    return pred_match.lower() == gold.lower()
 
 
-def is_correct(type_, pred, gold):
-    if type_ == "multiplechoice":
-        return pred.lower() == gold.lower()
+# def is_correct(type_, pred, gold):
+#     if type_ == "multiplechoice":
+#         return pred.lower() == gold.lower()
 
 
 def answer_to_multiplechoice(answer, choices, warn):
@@ -182,8 +184,8 @@ def evaluate_sample(example, type_, overwrite, warn):
             if answer["correct_answer"] is not None and not overwrite:
                 continue
             answer_str = answer["answer"]
-            answer_str_cleaned = clean(type_, answer_str, num_choices)
-            if is_correct(type_, answer_str_cleaned, gold_answer):
+            # answer_str_cleaned = clean(type_, answer_str, num_choices)
+            if is_correct(type_, answer_str, gold_answer, num_choices):
                 answer["correct_answer"] = True
             else:
                 answer["correct_answer"] = False
