@@ -264,6 +264,8 @@ def multiple_choice_answer_formatting(format, answer_choices):
             ]  # 65 is the ASCII code for A
         )
 
+    # If other formats are added, also change the evaluate function.
+
     else:
         raise ValueError("Error: only format 'Letters' is supported at the moment.")
 
