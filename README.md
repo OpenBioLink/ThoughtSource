@@ -8,7 +8,7 @@ ThoughtSource is a central, open resource and community around data and tools re
 </p>
 
 ## Quickstart
-A tutorial notebook can be accessed [here]("https://colab.research.google.com/drive/1r-mrk2FFXk10qP9UbNJ-Jn6QeMD8SwTo?usp=sharing")
+A tutorial notebook can be accessed here <a href="https://colab.research.google.com/drive/1r-mrk2FFXk10qP9UbNJ-Jn6QeMD8SwTo?usp=sharing" target="_blank">here</a>
 
 ## Generate interpretable reasoning chains
 <p align="center">
