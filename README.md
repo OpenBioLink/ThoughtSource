@@ -12,7 +12,7 @@ A <a href="https://colab.research.google.com/drive/1r-mrk2FFXk10qP9UbNJ-Jn6QeMD8
 
 Access the web-hosted <a href="http://thought.samwald.info/" target="_blank">Dataset viewer</a>
 
-Access the web-hosted <a href="http://thought.samwald.info:3000/" target="_blank">Annotator</a> and <a href="[annotator/example_input.json](https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json)" target="_blank">Example input</a>
+Access the web-hosted <a href="http://thought.samwald.info:3000/" target="_blank">Annotator</a> Access the web-based <a href="http://thought.samwald.info:3000/" target="_blank">Annotator</a> and [annotator/example_input.json](https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json)
 
 
 ## Generate interpretable reasoning chains
