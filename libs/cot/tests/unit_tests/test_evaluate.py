@@ -1,25 +1,19 @@
-from typing import Iterator
-
-import datasets
-import pytest
 from cot import Collection
-
-# import os
-# from pathlib import Path
-from cot.generate import Correct_output
-
-from cot.evaluate import is_correct, search_regex, answer_to_multiplechoice
-
-from .utils import chdir, get_test_collection, simple_config
+from cot.evaluate import is_correct
 
 
-def test_is_correct():
+def test_is_correct_multiplechoice():
     type_ = "multiplechoice"
-    number_of_choices = 7
+    choices = ["1", "2", "3", "4", "5", "6", "7"]
+    # choices = ["A","B","C","D","E","F","G"]
 
     gold = "E"
-    for pred in ["E", "E.", "E ", "(E)", "[E]", r"{E}", "E)"]:
-        assert is_correct(type_, pred, gold, number_of_choices)
+    for pred in ["E", "E.", "(E)", "[E]", r"{E}", "E)"]:
+        assert is_correct(type_, pred, gold, choices)
+
+    gold = "5"
+    for pred in ["E", "E.", "(E)", "[E]", r"{E}", "E)"]:
+        assert is_correct(type_, pred, gold, choices)
 
     gold = "B"
     for pred in [
@@ -39,8 +33,7 @@ def test_is_correct():
         "Therefore, among A through F, the answer is B",
         "Therefore, among A through F, the correct answer is B",
     ]:
-        assert is_correct(type_, pred, gold, number_of_choices)
-    
+        assert is_correct(type_, pred, gold, choices)
 
     gold = "B"
     for pred in [
@@ -55,8 +48,7 @@ def test_is_correct():
         "B is right",
         "B is right.",
     ]:
-        assert is_correct(type_, pred, gold, number_of_choices)
-
+        assert is_correct(type_, pred, gold, choices)
 
     gold = "B"
     for pred in [
@@ -64,19 +56,104 @@ def test_is_correct():
         "b is the answer",
         "(b) is the answer",
         "So the answer is b",
-        # "So the answer isb",
     ]:
-        assert is_correct(type_, pred, gold, number_of_choices)
+        assert is_correct(type_, pred, gold, choices)
 
-# def test_search_regex():
+    choices = ["sadness", "anxiety", "inspiration", "discomfort", "insights"]
+    pred = "Therefore, among A through E, the answer is most likely C, inspiration."
+    gold = "C"
+    assert is_correct(type_, pred, gold, choices)
 
-def test_predefined_correct_value(): 
+    choices = ["sadness", "anxiety", "inspiration", "discomfort", "insights"]
+    pred = "Therefore, among A through E, the answer is most likely (C), inspiration."
+    gold = "C"
+    assert is_correct(type_, pred, gold, choices)
+
+    choices = ["facade", "front door", "doorway", "entrance porch", "hallway"]
+    pred = "Therefore, among A through E, the answer is (B) front door."
+    gold = "B"
+    assert is_correct(type_, pred, gold, choices)
+
+    choices = ["midwest", "countryside", "estate", "farming areas", "illinois"]
+    pred = "Therefore, among A through E, the answer is A, the midwest."
+    gold = "A"
+    assert is_correct(type_, pred, gold, choices)
+
+
+def test_is_correct_bool():
+    type_ = "bool"
+
+    pred = "Therefore, the answer (Yes or No) is: No"
+    gold = "False"
+    assert is_correct(type_, pred, gold)
+
+    pred = "Therefore, the answer (Yes or No) is No."
+    gold = "No"
+    assert is_correct(type_, pred, gold)
+
+    pred = "Therefore, the answer (Yes or No) is No."
+    gold = "False"
+    assert is_correct(type_, pred, gold)
+
+    pred = "Therefore, the answer (Yes or No) is Yes."
+    gold = "Yes"
+    assert is_correct(type_, pred, gold)
+
+    pred = "Therefore, the answer (Yes or No) is Yes."
+    gold = "True"
+    assert is_correct(type_, pred, gold)
+
+    pred = "Therefore, the answer (Yes or No) is uncertain."
+    gold = "True"
+    assert not is_correct(type_, pred, gold)
+
+
+def test_is_correct_multiple_answers():
+    type_ = "multiplechoice"
+    # if multiple answers are given take the first one (can be changed of course)
+
+    choices = ["1", "2", "3", "4", "5", "6", "7"]
+
+    pred = "So the answer is (a), (b), or (e)."
+    gold = "A"
+    assert is_correct(type_, pred, gold, choices)
+
+    pred = "Therefore, among A through E, the answer is A, B, C, or D."
+    gold = "A"
+    assert is_correct(type_, pred, gold, choices)
+
+    pred = "Therefore, among A through E, the answer is most likely B, D, or E."
+    gold = "B"
+    assert is_correct(type_, pred, gold, choices)
+
+    pred = "Therefore, among A through E, the answer is probably A or C."
+    gold = "A"
+    assert is_correct(type_, pred, gold, choices)
+
+    pred = "Therefore, among A through E, the answer is most likely C, airport, but it could also be A, car."
+    gold = "C"
+    assert is_correct(type_, pred, gold, choices)
+
+    pred = "Therefore, among A through E, the answer is A (tension), B (perform better), C (releases heat), and E (sweat)."
+    gold = "A"
+    assert is_correct(type_, pred, gold, choices)
+
+    pred = "Therefore, among A through E, the answer is probably (A), (B), (C), or (D)."
+    gold = "A"
+    assert is_correct(type_, pred, gold, choices)
+
+
+def test_predefined_correct_value():
     # med_qa
     collection = Collection(["med_qa"], verbose=False)
-    collection = collection.select(split="test", number_samples=10, random_samples=False)
+    collection = collection.select(
+        split="test", number_samples=10, random_samples=False
+    )
 
     collection2 = Collection(["med_qa"], verbose=False)
-    collection2 = collection2.select(split="test", number_samples=10, random_samples=False)
+    collection2 = collection2.select(
+        split="test", number_samples=10, random_samples=False
+    )
 
     # only do evaluation on one of them, nothing should change
     collection.evaluate(warn=False)
@@ -86,12 +163,15 @@ def test_predefined_correct_value():
 
     assert collection_json == collection2_json
 
-
     # pubmed_qa
     collection = Collection(["pubmed_qa"], verbose=False)
-    collection = collection.select(split="train", number_samples=10, random_samples=False)
+    collection = collection.select(
+        split="train", number_samples=10, random_samples=False
+    )
     collection2 = Collection(["pubmed_qa"], verbose=False)
-    collection2 = collection2.select(split="train", number_samples=10, random_samples=False)
+    collection2 = collection2.select(
+        split="train", number_samples=10, random_samples=False
+    )
 
     # only do evaluation on one of them, nothing should change
     collection.evaluate()
@@ -100,16 +180,3 @@ def test_predefined_correct_value():
     collection2_json = collection2.to_json()
 
     assert collection_json == collection2_json
-
-
-def test_answer_to_multiplechoice():
-    assert answer_to_multiplechoice(answer="x", choices=["x", "y", "z"], warn=True) == (3, "A")
-    assert answer_to_multiplechoice(answer="c", choices=["a", "b", "c", "d", "e"], warn=True) == (5, "C")
-    assert answer_to_multiplechoice(answer="C", choices=["a", "b", "c", "d", "e"], warn=True) == (5, "C")
-    assert answer_to_multiplechoice(answer="c", choices=["A", "B", "C", "D", "E"], warn=True) == (5, "C")
-    assert answer_to_multiplechoice(answer="ax", choices=["Ax", "Bx", "Cx", "Dx", "Ex"], warn=True) == (5, "A")
-
-    # assert answer_to_multiplechoice(answer=1, choices=["1", "2", "3"], warn=True) == (3, "A")
-    # assert answer_to_multiplechoice(answer="1", choices=[1, 2, 3], warn=True) == (3, "A")
-    # assert answer_to_multiplechoice(answer=1, choices=[1, 2, 3], warn=True) == (3, "A")
-    # assert answer_to_multiplechoice(answer="1.00", choices=["1.0", "2", "3"], warn=True) == (3, "A")
