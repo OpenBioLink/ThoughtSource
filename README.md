@@ -3,13 +3,12 @@ __A framework for the science of machine thinking__
 
 ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
 
-## Quickstart
-A tutorial notebook can be accessed <a href="https://colab.research.google.com/drive/1r-mrk2FFXk10qP9UbNJ-Jn6QeMD8SwTo?usp=sharing"></a> 
-
-
 <p align="center">
   <img alt="ThoughtSource overview 3" src="./resources/images/thoughtsource-overview-3.svg">
 </p>
+
+## Quickstart
+A tutorial notebook can be accessed [here]("https://colab.research.google.com/drive/1r-mrk2FFXk10qP9UbNJ-Jn6QeMD8SwTo?usp=sharing")
 
 ## Generate interpretable reasoning chains
 <p align="center">
