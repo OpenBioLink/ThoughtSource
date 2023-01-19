@@ -1,4 +1,8 @@
-# ThoughtSource⚡ Dataloader
+# ThoughtSource⚡ cot library
+
+Contains a dataloader (see the rest of this Readme) and functions for generating and evaluating Chain-of-Thoughts.
+
+## Dataloader
 
 Library for efficient retrieval and processing of ThoughtSource datasets. We provide code to build dataset objects in the [🤗 Datasets format](https://huggingface.co/docs/datasets/index)
 
