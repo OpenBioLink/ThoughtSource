@@ -12,7 +12,7 @@ class Config:
     "idx_range": tuple(int,int) - Determines which indices the generate_and_extract routine is applied to,
         if idx not within idx_range do nothing and return item. Default: "all" (All items are used)
     "multiple_choice_answer_format": str - How the list of multiple choice answer is formatted and indexed
-        "Letters" (A,B,C,...), "Numbers" (1,2,3,...), "None" (no index), Default: "Letters" (A,B,C,...)
+        "Letters" (A,B,C,...), "None" (no index), Default: "Letters" (A,B,C,...)
         # TODO: change name to multiple_choice_formatting, add None option
     "instruction_keys": list(str) - Determines which instruction_keys are used from fragments.json,
         the corresponding string will be inserted under "instruction" in the fragments. Default: "all" (All used)

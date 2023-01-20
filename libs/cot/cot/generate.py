@@ -119,9 +119,9 @@ def _generate_and_extract(
                 "fragments_version": FRAGMENTS["version"],
                 "instruction": instruction_key,
                 "cot_trigger": cot_trigger_key,
-                "cot_prompt_template": template_cot_generation,
-                #TODO: rename to cot_prompt_text
+                "cot_trigger_template": template_cot_generation,
                 "prompt_text": "",
+                "multiple_choice_formatting": multiple_choice_answer_format,
                 "cot": "",
                 "answers": [],
                 "author": author,
@@ -141,6 +141,8 @@ def _generate_and_extract(
             template_dict["cot_trigger"] = get_fragments_value(
                 "cot_triggers", cot_trigger_key
             )
+
+            # change template_cot_generation to generated_cot["cot_trigger_template"] to make it more logical
             generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
 
             if verbose:
@@ -162,7 +164,9 @@ def _generate_and_extract(
             template_dict["cot"] = cot
 
             generated_cot["cot"] = cot
-            # generated_cot["prompt_text"] = generate_cot_prompt
+            # TODO replace this next line again:
+            generated_cot["prompt_text"] = generate_cot_prompt
+
             generated_cot["date"] = print_now(1)
 
             # extract answers from generated chain of thoughts
@@ -207,16 +211,150 @@ def _generate_and_extract(
                         print(predicted_answer)
 
                     answer["answer"] = predicted_answer
-                    # answer["answer_extraction_text"] = answer_extraction_prompt
+
+                    # TODO replace this next line again:
+                    answer["answer_extraction_text"] = answer_extraction_prompt
+
                     generated_cot["answers"].append(answer)
 
             item["generated_cot"].append(generated_cot)
 
     return item
 
-# def full_text_prompts(cot=True, answer_extraction = True):
+def full_text_prompts(dataset, prompt_text=True, answer_extraction_text = True):
+
+    assert isinstance(
+        dataset, ds.arrow_dataset.Dataset
+    ), "dataset must be an arrow dataset"
+    
+    dataset = dataset.map(
+    _full_text_prompts,
+    fn_kwargs={"prompt_text": prompt_text, "answer_extraction_text": answer_extraction_text},
+    features=dataset.info.features,
+    )
+
+    return dataset
+
+def _full_text_prompts(item, prompt_text, answer_extraction_text):
+    # predefine values in template dictionary that stay same over all runs of the current item
+    template_dict = {
+        "instruction": None,
+        "question": item["question"],
+        "cot_trigger": None,
+        "cot": None,
+        "answer_extraction": None,
+    }
+
+    for generated_cot in item["generated_cot"]:
+
+        template_dict["answer_choices"] = multiple_choice_answer_formatting(
+            generated_cot["multiple_choice_formatting"], item["choices"]
+        ),
+
+        # generate chain of thoughts and extract answers
+        # for instruction_key in instruction_keys:
+        template_dict["instruction"] = get_fragments_value(
+            "instructions", generated_cot["instruction"]
+        )
+
+        template_dict["cot_trigger"] = get_fragments_value(
+            "cot_triggers", generated_cot["cot_trigger"]
+        )
+        
+        generate_cot_prompt = format_prompt(generated_cot["cot_trigger_template"], template_dict)
+
+        template_dict["cot"] = generated_cot["cot"]
+        # Everything above could also be relevant for the answer extraction
+        
+        # now generating the full text for the chain of thoughts
+        if prompt_text:
+            generated_cot["prompt_text"] = generate_cot_prompt
+
+        # if answer_extraction: ...
+        if answer_extraction_text:
+            # extract answers from generated chain of thoughts
+            for answer in generated_cot["answers"]:
+
+                if answer["answer_extraction"] is None:
+                    # if no answer extraction key is given, return item, since cot_prompt text is already generated
+                    return item
+
+                else:
+
+                    template_dict["answer_extraction"] = get_fragments_value(
+                        "answer_extractions", answer["answer_extraction"]
+                    )
+                    answer_extraction_prompt = format_prompt(
+                        answer["answer_extraction_template"], template_dict
+                    )
+
+                    answer["answer_extraction_text"] = answer_extraction_prompt
+
+    return item
+
+
+# def generate_full_text_prompts(item, prompt_text=True, answer_extraction_text = True):
+#     """ This function generates the full text chain of thought and answer extraction
+#     prompts for a given item """
+
+#     template_dict = {
+#         "question": item["question"],
+#         "answer_choices": multiple_choice_answer_formatting(
+#             multiple_choice_answer_format, item["choices"]
+#         ),
+#     }
+
+#     template_dict["cot_trigger"] = get_fragments_value(
+#     "cot_triggers", cot_trigger_key
+#     )
+
+
+
+#     generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
+
+#     for generated_cot in item["generated_cot"]:
+#         # these variables can be used in both, cot and answer extraction
+#         template_dict["instruction"] = generated_cot["instruction"]
+#         template_dict["cot_trigger"] = generated_cot["cot_trigger"]
+#         template_dict["cot"] = generated_cot["cot"]
+
+#         if prompt_text:
+#                 ,
+#                     "cot_trigger": item["generated_cot"]['cot_trigger'],
+#                     "cot": None,
+#                     "answer_extraction": None,
+#                 }
+#             cot["prompt_text"] = generate_cot_prompt(item)
+#         if answer_extraction_text:
+#             for answer in item["generated_cot"]["answers"]:
+#                     template_dict = {
+
+#                     }
+#                 answer_choices =  multiple_choice_answer_formatting(multiple_choice_answer_format, item["choices"])
+
+#                 answer["answer_extraction_text"] = generate_answer_extraction_prompt(item)
+
+#     return example
+
+
+# def full_text_prompts(dataset, cot=True, answer_extraction = True):
 #     """ This function inserts the full text chain of thought and answer extraction
 #     prompts into the collection"""
+#     assert isinstance(
+#         dataset, ds.arrow_dataset.Dataset
+#     ), "dataset must be an arrow dataset"
+
+#     dataset = dataset.map(
+#         evaluate_sample,
+#         fn_kwargs={"type_": type_, "overwrite": overwrite, "warn": warn},
+#         features=dataset.info.features,
+#     )
+
+#     for dataset in self:
+#         _ , dataset_dict = dataset
+#         for split in dataset_dict:
+#             for item in dataset_dict[split]:
+#                 item["generated_cot"]["prompt_text"] = 
 
 
 
@@ -297,8 +435,7 @@ def get_fragments_value(str, key):
 
 def format_prompt(template, dictionary):
     output = template.format_map(Correct_output(dictionary))
-    # TODO: this is not deleting newlines at first position
-    # I think because the the curly brackets are already removed be the function before
+    # remove leading whitespaces
     output = output.lstrip()
     return output
 

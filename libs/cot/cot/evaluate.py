@@ -216,7 +216,7 @@ def evaluate_sample(example, type_, overwrite, warn):
     return example
 
 
-def evaluate(dataset, overwrite=False, warn=True, config=None):
+def evaluate(dataset, overwrite=False, warn=True, config=None): # config can be deleted
     assert isinstance(
         dataset, ds.arrow_dataset.Dataset
     ), "dataset must be an arrow dataset"
