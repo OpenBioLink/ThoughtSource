@@ -65,6 +65,8 @@ ThoughtSource is a central, open resource and community around data and tools re
 <p align="center">
   <img alt="Screenshot of the Data Viewer tool" src="/resources/images/dataset-viewer.PNG" width="80%">
 
+  The Dataset Viewer provides an overview of original source datasets and the unified ThoughtSource scheme.
+</p>
  ---
 <p align="center">
  Datasets can be <a href="http://thought.samwald.info/"><b>browsed online through the Dataset Viewer 🔎</b></a> 
