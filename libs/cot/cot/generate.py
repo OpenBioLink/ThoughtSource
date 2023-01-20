@@ -62,22 +62,23 @@ def _generate_and_extract(
     idx,
     # did not find a way to pass the config as a dataclass object, therefor setting all parameters to None here
     # all these variables will be defined by the config_as_dataclass object
-    idx_range=None,
-    author=None,
-    api_service=None,
-    engine=None,
-    temperature=None,
-    max_tokens=None,
-    api_time_interval=None,
-    multiple_choice_answer_format=None,
-    instruction_keys=None,
-    cot_trigger_keys=None,
-    template_cot_generation=None,
-    answer_extraction_keys=None,
-    template_answer_extraction=None,
-    warn=None,
-    verbose=None,
+    idx_range,
+    author,
+    api_service,
+    engine,
+    temperature,
+    max_tokens,
+    api_time_interval,
+    multiple_choice_answer_format,
+    instruction_keys,
+    cot_trigger_keys,
+    template_cot_generation,
+    answer_extraction_keys,
+    template_answer_extraction,
+    warn,
+    verbose,
 ):
+
     """
     The function takes in a JSON object (item) and generates a CoT (Chain-of-Thought) for each combination of
     of instructions and CoT triggers. For each generated CoT and for each of the given answer extractions it extracts an answer.
@@ -262,14 +263,21 @@ def multiple_choice_answer_formatting(format, answer_choices):
                 f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)
             ]  # 65 is the ASCII code for A
         )
-    elif format == "Numbers":
-        # Adding Numbers (1,2,3,...) for the given multiple choice answers.
-        return "\n".join(
-            [f"{i+1}) {example}" for i, example in enumerate(answer_choices)]
-        )
-    elif format == None:
-        # without index
-        return "\n".join(answer_choices)
+
+    # If other formats are added, also change the evaluate function.
+
+    else:
+        raise ValueError("Error: only format 'Letters' is supported at the moment.")
+
+    # TODO (not urgent): add other formats, need to change evaluate function for that.l
+    # elif format == "Numbers":
+    #     # Adding Numbers (1,2,3,...) for the given multiple choice answers.
+    #     return "\n".join(
+    #         [f"{i+1}) {example}" for i, example in enumerate(answer_choices)]
+    #     )
+    # elif format == None:
+    #     # without index
+    #     return "\n".join(answer_choices)
 
 
 def get_fragments_value(str, key):

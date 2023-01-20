@@ -1,83 +1,273 @@
 import re
+import string
+import warnings
 from collections import defaultdict
+from pprint import pprint
 
 import datasets as ds
 
 
-# ver 0.2
-def clean(type_, pred):
-    if type_ == "multiplechoice":
-        # TODO: BIG change necessary. Important to correct, add free text answers
-        # Will make big mistakes, the code is I think from another paper
-        pred = re.findall(r"A|B|C|D", pred)
-        if len(pred):
-            pred = pred[0]
-        else:
-            pred = ""
-    else:
-        raise ValueError("type is not supported ...")
+def search_regex(s: str, patterns: list) -> str:
+    for pattern in patterns:
+        # Compile the regular expression
+        regex = re.compile(pattern, re.MULTILINE | re.IGNORECASE)
+        # Search the string for the regex pattern
+        match = regex.search(s)
+        if match:
+            # If more than one group is defined in the regex, print a warning return the last group
+            if len(match.groups()) > 1:
+                warnings.warn(
+                    f"""Found more than one possible answer to compute the evaluation score. By default returning the first found answer.
+                                 In the answer sentence '{s}' these possible answers were found: '{match.groups()}'
+                                 If you want to return a specific answer, please define a regex pattern with only one group.
+                """
+                )
 
-    return pred
-
-
-def is_correct(type_, pred, gold):
-    if type_ == "multiplechoice":
-        return pred == gold
-
-
-def answer_to_multiplechoice(answer, choices):
-    for ix, choice in enumerate(choices):
-        if choice == answer:
-            return chr(65 + ix)
-    raise ValueError("Thats weird, gold-answer not found in choices")
+            # If the regex pattern is found, return the group you defined in the regex
+            return match.group(1)
+    # If none of the regex patterns are found, return an empty string
+    return ""
 
 
-def evaluate_sample(example, type_):
-    assert type_ == example["type"], "Datasets contains examples with multiple different types"
+def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bool:
+    """Compares prediction with gold answer."""
 
-    gold_answer = example["answer"][0]
+    if type_ not in ["bool", "multiplechoice"]:
+        warnings.warn(f"Type {type_} not supported yet.")
 
     if type_ == "multiplechoice":
-        gold_answer = answer_to_multiplechoice(gold_answer, example["choices"])
+        # E.g.: "Therefore, among A through E, the answer is (c)"
+
+        # make dict of choices with uppercase letters A,B,C,...
+        choices_dict = dict(zip(string.ascii_uppercase, choices))
+        choices_keys = list(choices_dict.keys())
+        choices_values_raw = list(choices_dict.values())
+
+        # if values have special characters, we need to escape them
+        choices_values = [re.escape(item) for item in choices_values_raw]
+
+        # false positive in rare cases: choices_dict is {'A': 'B', 'B': 'D' ...} and gold is 'B'
+        # Check if there are any common elements between the keys and values:
+        keys_lower = [i.lower() for i in choices_dict.keys()]
+        values_lower = [j.lower() for j in choices_dict.values()]
+        common_elements = set(keys_lower).intersection(values_lower)
+
+        # warning if common elements, except if the keys and values are the same, e.g. {'A': 'A', 'B': 'B', 'C': 'C', ...}
+        if common_elements and not keys_lower == values_lower:
+            if warn:
+                warnings.warn(
+                    f"Choices: {choices_dict} contain common elements: {common_elements}. This might lead to false positives."
+                )
+
+    if type_ == "bool":
+        # E.g.: "Therefore, the answer (Yes or No) is NO."
+        choices_dict = {"Yes": "True", "No": "False"}
+        choices_keys = list(choices_dict.keys())
+        choices_values = list(choices_dict.values())
+        keys_lower = [i.lower() for i in choices_dict.keys()]
+        values_lower = [j.lower() for j in choices_dict.values()]
+
+    # quick check if pred is in choices_dict
+    if (
+        pred in choices_values
+        or pred in choices_keys
+        or pred in keys_lower
+        or pred in values_lower
+    ):
+        is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+
+        return is_correct
+
+    # if pred is not in choices_dict, we need to use regex
+
+    # uppercase and lowercase is not important, as we will match the pattern case insensitive.
+    expected_answer = r"|".join(choices_values + choices_keys)
+
+    # Matches A or A. or (A). or {A}. or [A]. to  just "A".
+    # Matches word or word. or (word). or {word}. or [word]. to  just "word".
+    expected_answer_location = r"[\(\{\[\'\"]?(" + expected_answer + r")[\)\}\]\'\"]?"
+
+    # match only answer directly or the index of the answer in the choices_dict without sentence
+    only_answer_sequence = r"^\s?" + expected_answer_location + r"\.?\s?$"
+
+    # If the answer is at the end of the sentence. e.g. "The answer is A."
+    # At the moment does NOT match "isA" or "answerA" to A. As this leads to false positives...
+    starting_sequence = (
+        # e.g. '..., the answer is A, apple.' # answer A is apple
+        # answer
+        r"answer:?"
+        +
+        # is or most likely or probably
+        r"(?: \(Yes or No\))?(?: is)?:?(?: most likely)?(?: probably)?\s?"
+        +
+        # capturing group "answer" or "answer as string" # possibly inside brackets, etc
+        expected_answer_location
+        +
+        # , the
+        r"(?:,)?(?: the)?\s?(?:"
+        +
+        # non-capturing group "answer_as_string" # optional
+        expected_answer
+        + r")?"
+        +
+        # . end of sentence
+        r"\.?\s?$"
+    )
+
+    # If the answer is at the beginning of the sentence. e.g. "A is the answer"
+    ending_sequence = (
+        r"^\s?"
+        + expected_answer_location
+        + r"(?: is)?(?: the)?(?: correct| right| true)?(?: answer)?\.?"
+        + r"\.?\s?$"
+    )
+
+    pred_match = search_regex(
+        pred, [only_answer_sequence, starting_sequence, ending_sequence]
+    )
+
+    # if not one specific value is found, search if multiple are found and return the first one
+    if pred_match == "":
+        # select the string after the last word "answer"
+        if "answer" in pred:
+            str_after_word = pred.rsplit("answer", 1)[1]
+            if str_after_word:
+                if type_ == "bool":
+                    # remove "(Yes or No)" from the string
+                    str_after_word = str_after_word.replace("(Yes or No)", "")
+                    multiple_findings = (
+                        r"[\s|\,|\.|\:]" + expected_answer_location + r"[\s|\,|\.]"
+                    )
+
+                if type_ == "multiplechoice":
+                    multiple_findings = " " + expected_answer_location + r"[\s|\,|\.]"
+
+                pred_match = search_regex(str_after_word, [multiple_findings])
+
+    if pred_match == "" and warn:
+        warnings.warn(
+            f"""Your answer could not be extracted from this sequence.
+            sequence: {pred}
+            possible answers: {choices_dict}"""
+        )
+
+    # match for: "Answer is A" and for "Answer is 'word'", using keys and values of choices_dict
+    is_correct = compare_pred_with_gold(pred_match, gold, choices_dict)
+
+    return is_correct
+
+
+def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
+    """Compares the predicted answer with all the gold answer. It matches with the key (e.g: 'A')
+     and the value, which is a word (e.g. "apple") of the dictionary of multiple choice answers.
+    Returns True if prediction is equal to gold, False otherwise."""
+    for key, value in choices_dict.items():
+        if gold.lower() == key.lower() or gold.lower() == value.lower():
+            gold_key = key
+            gold_value = value
+
+    if not gold_key or not gold_value:
+        raise ValueError(
+            f"""f"Thats weird, gold-answer '{gold}' not found in choices '{choices_dict}'"
+            Evaluation is not possible.
+            """
+        )
+
+    comparison = pred.lower() == gold_key.lower() or pred.lower() == gold_value.lower()
+
+    return comparison
+
+
+def evaluate_sample(example, type_, overwrite, warn):
+    assert (
+        type_ == example["type"]
+    ), "Datasets contains examples with multiple different types"
+
+    # only run evaluation if answer is given
+    if example["answer"][0] == None:
+        if warn:
+            warnings.warn(
+                f"""
+                The right answer is not given in the given example.
+                No evaluation is possible for this example.
+                {example}"""
+            )
+        return example
+
+    # take full text answer if not multiple choice
+    dataset_correct_answer = example["answer"][0]
+    dataset_choices = example["choices"]
+
+    # if no choices are given, set to None
+    if dataset_choices == []:
+        dataset_choices = None
 
     for cot in example["generated_cot"]:
         for answer in cot["answers"]:
-            answer_str = answer["answer"]
-            answer_str = clean(type_, answer_str)
-            if is_correct(type_, answer_str, gold_answer):
+            if answer["correct_answer"] is not None and not overwrite:
+                continue
+            prediction = answer["answer"]
+            if is_correct(
+                type_, prediction, dataset_correct_answer, dataset_choices, warn
+            ):
                 answer["correct_answer"] = True
             else:
                 answer["correct_answer"] = False
     return example
 
 
-def evaluate(dataset, config=None):
-
-    # implemented for single dataset right now collection["worldtree"]["train"]
-    # TODO implement for ds.dataset_dict.DatasetDict collection["worldtree"]
+def evaluate(dataset, overwrite=False, warn=True, config=None):
     assert isinstance(
         dataset, ds.arrow_dataset.Dataset
-    ), "Only implemented for single datasets right now e.g. collection['worldtree']['train']"
+    ), "dataset must be an arrow dataset"
 
-    # support only one type per dataset
-    # TODO support datasets contining different example types (mulichoice, number, ...), if needed?
+    # get dataset type, e.g. multiplechoice
     type_ = dataset[0]["type"]
 
-    dataset = dataset.map(evaluate_sample, fn_kwargs={"type_": type_}, features=dataset.info.features)
+    # evaluate each sample
+    dataset = dataset.map(
+        evaluate_sample,
+        fn_kwargs={"type_": type_, "overwrite": overwrite, "warn": warn},
+        features=dataset.info.features,
+    )
 
     keys = set()
     predictions = defaultdict(int)
+    counter = defaultdict(int)
+    evaluations = defaultdict(dict)
+
     for example in dataset:
         for cot in example["generated_cot"]:
+            # if no gold answer is given, skip this example
+            if example["answer"][0] == None:
+                continue
             for answer in cot["answers"]:
+                # make a key for each combination of triggers, e.g. "None_lievin-02_kojima-A-C"
                 key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
                 keys.add(key)
+                counter[key] += 1
                 if answer["correct_answer"]:
                     predictions[key] += 1
 
-    evaluations = defaultdict(dict)
+    if warn:
+        for count in counter.values():
+            if count != len(dataset):
+                warnings.warn(
+                    f"""It seems that not all examples of the dataset include an answer to be evaluated.
+                    Counter of examples:
+                    {counter.items()}
+                    Length of dataset:
+                    {len(dataset)}
+                    The evaluation score was only calculated based on the examples that include an answer.
+                    To turn this warning off, set warn=False in the evaluate function."""
+                )
+
+    keys = sorted(keys)
     for key in keys:
         for metric in ["accuracy"]:
-            evaluations[metric][key] = predictions[key] / len(dataset)
-    print(dict(evaluations))
-    return dataset
+            # TODO: include different models evaluations[model][metric][key]
+            value = predictions[key] / counter[key]
+            evaluations[metric][key] = round(value, 6)
+
+    # pprint(dict(evaluations))
+    return dataset, dict(evaluations)
