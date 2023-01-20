@@ -1,83 +1,36 @@
 # ThoughtSource⚡
 __A framework for the science of machine thinking__
+
+_[Datasets](available-datasets) • [Tutorial notebook](./notebooks/tutorial.ipynb) • [Installation guide](installation) • [Dataset Annotator](annotator)_
+
 ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
+
 
 <p align="center">
   <img alt="ThoughtSource overview 3" src="./resources/images/thoughtsource-overview-3.svg">
 </p>
 
-# Overview
-- Quickstart
-- Workflow
-- Tools:
-  - Dataset viewer
-  - Annotator
-- Datasets
-- Code explanation
-
-## Quickstart
-A <a href="https://colab.research.google.com/drive/1r-mrk2FFXk10qP9UbNJ-Jn6QeMD8SwTo?usp=sharing" target="_blank">tutorial notebook</a> can be accessed.
-
-Access the web-hosted <a href="http://thought.samwald.info/" target="_blank">Dataset viewer</a>
-
-Access the web-hosted <a href="http://thought.samwald.info:3000/" target="_blank">Annotator</a> and <a href="https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json" target="_blank">Example input</a>
-
-<br/><br/>
-
-# Workflow
 
 
-## Generate interpretable reasoning chains
-<p align="center">
-  <img alt="ThoughtSource overview 1" src="./resources/images/thoughtsource-overview-1.svg">
-</p>
 
-(the example shown here was generated with the _text-davinci-002_ model)
-
-## Annotate, evaluate and improve
-<p align="center">
-  <img alt="ThoughtSource overview 2" src="./resources/images/thoughtsource-overview-2.svg">
-</p>
-
-<br/><br/>
-
-# Applications
-
-## Annotator
+## Workflow
 
 <p align="center">
-  <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
-
-  The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
+  <img alt="ThoughtSource overview 1" src="./resources/images/thoughtsource-overview-1.svg"> <img alt="ThoughtSource overview 2" src="./resources/images/thoughtsource-overview-2.svg">
 </p>
 
 
-<p align="center">
- <a href="https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json" target="_blank">Example input</a> for
- <a href="http://thought.samwald.info:3000/"><b> Using the web-based annotator 📝</b></a> 
-</p>
+## Available datasets
 
----
+ 
+ Our [dataloaders](./libs/cot/) allow you to access the following datasets in a standardized chain-of-thought format. The dataloaders create objects in the [Hugging Face 🤗 Datasets format](https://huggingface.co/docs/datasets/index). We (sometimes extensively) post-processed the source datasets in different ways to create more coherent reasoning chains.
 
-## Dataset viewer
-<p align="center">
-  The Dataset Viewer provides an overview of original source datasets and the unified ThoughtSource scheme.
-</p>
-
-
+ ---
 <p align="center">
  Datasets can be <a href="http://thought.samwald.info/"><b>browsed online through the Dataset Viewer 🔎</b></a> 
 </p>
 
 ---
-<br/><br/>
-
-# Available datasets
-
- 
- Our [dataloaders](./libs/cot/) allow you to access the following datasets in a standardized chain-of-thought format. The dataloaders create objects in the [Hugging Face 🤗 Datasets format](https://huggingface.co/docs/datasets/index). We (sometimes extensively) post-processed the source datasets in different ways to create more coherent reasoning chains.
-
-
 
 
 ### General question answering
@@ -115,10 +68,28 @@ We are working on collecting and generating additional datasets, and on further 
 
 __We welcome dataset contributions! 👉 Have a look at our [contribution guide](CONTRIBUTING.md)!__
 
+## Annotator
 
-# Code
+<p align="center">
+  <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
 
-### Installation with virtual environment
+  The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
+</p>
+
+---
+<p align="center">
+ <a href="http://thought.samwald.info:3000/"><b> Use the web-based annotator 📝</b></a><br/>
+ To try out the annotator, simply type in your name and load this<a href="https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json" target="_blank"> example file</a>
+</p>
+
+---
+
+<br/>
+
+
+## Installation and code structure
+
+### Installation
 execute in terminal line by line:
 ```bash
 git clone git@github.com:OpenBioLink/ThoughtSource.git
@@ -145,7 +116,6 @@ pip install -e ./libs/cot[api]
   *  __dataloader__: Creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
   * __generate__: Generating reasoning chains with a wide variety of language models (currently OpenAI and models on Hugging Face hub)
   * __evaluate__: Evaluate the performance of predictions extracted using generated reasoning chains
-* __[explanatory notebooks](./notebooks/)__: [Overview](./notebooks/0_overview.ipynb), [Datasets](./notebooks/1_dataset.ipynb), [Model](./notebooks/2_generate.ipynb), [Performance](./notebooks/3_evaluate.ipynb)
 
 
 ```python
@@ -172,14 +142,11 @@ collection.evaluate()
 {'accuracy': {'qa-01_kojima-01_kojima-A-D': 0.6}}
 ```
 
+---
 
-## Roadmap
+👉 See the __[Tutorial notebook](./notebooks/tutorial.ipynb)__ for more code examples.
 
-1. Create a __repository of chain-of-thought (CoT) datasets__ converted to a unified format. ✅
-2. Create a library for __generating__ reasoning chains with a wide variety of large language models. ✅
-3. Create tools for __diagnosing, annotating and evaluating__ CoT data and fostering empirical understanding. 
-4. Create a __conceptual model__ of different CoT reasoning styles and errors.
-5. Provide models __fine-tuned on high-quality CoT data__.
-6. Apply CoT reasoning to __high-impact use-cases__ such as biomedical research or clinical decision making.
+
+---
 
 
