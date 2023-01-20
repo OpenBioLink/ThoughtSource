@@ -54,6 +54,7 @@ ThoughtSource is a central, open resource and community around data and tools re
 <p align="center">
  <a href="http://thought.samwald.info:3000/"><b>Use the web-based annotator 📝</b></a> 
 </p>
+
 ---
 
 * __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data. 
@@ -68,6 +69,7 @@ ThoughtSource is a central, open resource and community around data and tools re
 <p align="center">
  Datasets can be <a href="http://thought.samwald.info/"><b>browsed online through the Dataset Viewer 🔎</b></a> 
 </p>
+
 ---
 
 * __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
