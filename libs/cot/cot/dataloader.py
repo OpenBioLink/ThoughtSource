@@ -231,7 +231,7 @@ class Collection:
             else:
                 self[name][split] = generate_and_extract(self[name][split], config=config)
 
-    def evaluate(self, name=None, split=None, overwrite=False, warn=True):
+    def evaluate(self, name=None, split=None, overwrite=False, warn=False):
         evaluations_dict = defaultdict(dict)
         if name is None:
             for name in self._cache:
