@@ -41,7 +41,9 @@ Access the web-hosted <a href="http://thought.samwald.info:3000/" target="_blank
 
 <br/><br/>
 
-# Annotator
+# Applications
+
+## Annotator
 
 <p align="center">
   <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
@@ -56,13 +58,9 @@ Access the web-hosted <a href="http://thought.samwald.info:3000/" target="_blank
 </p>
 
 ---
-<br/><br/>
 
-# Dataset viewer
-
+## Dataset viewer
 <p align="center">
-  <img alt="Screenshot of the Data Viewer tool" src="./resources/images/dataset-viewer.PNG" width="80%">
-
   The Dataset Viewer provides an overview of original source datasets and the unified ThoughtSource scheme.
 </p>
 
