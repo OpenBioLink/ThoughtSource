@@ -3,7 +3,7 @@ __A framework for the science of machine thinking__
 
 _[Datasets](#available-datasets) • [Tutorial notebook](./notebooks/tutorial.ipynb) • [Installation guide](#installation) • [Dataset Annotator](#annotator)_
 
-ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
+ThoughtSource is a central, open resource and community centered on data and tools for chain-of-thought reasoning in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and medical practice.
 
 
 <p align="center">
