@@ -57,7 +57,7 @@ ThoughtSource is a central, open resource and community around data and tools re
 
 ---
 
-* __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data. 
+
 
 ## Dataset viewer
 
@@ -71,8 +71,6 @@ ThoughtSource is a central, open resource and community around data and tools re
 </p>
 
 ---
-
-* __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
 
 ### Current datasets
 
@@ -135,6 +133,12 @@ source ./venv/bin/activate
 # install requirements and API packages
 pip install -e ./libs/cot[api]
 ```
+
+### Applications
+
+* __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data. 
+
+* __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
 
 ### Libraries
 
