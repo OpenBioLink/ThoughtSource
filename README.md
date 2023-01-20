@@ -1,9 +1,14 @@
 # ThoughtSource⚡
 __A framework for the science of machine thinking__
+ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
 
-## Overview
+<p align="center">
+  <img alt="ThoughtSource overview 3" src="./resources/images/thoughtsource-overview-3.svg">
+</p>
+
+# Overview
 - Quickstart
-- Scientific introduction
+- Workflow
 - Tools:
   - Dataset viewer
   - Annotator
@@ -17,13 +22,10 @@ Access the web-hosted <a href="http://thought.samwald.info/" target="_blank">Dat
 
 Access the web-hosted <a href="http://thought.samwald.info:3000/" target="_blank">Annotator</a> and <a href="https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json" target="_blank">Example input</a>
 
-# Scientific introduction
+<br/><br/>
 
-ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
+# Workflow
 
-<p align="center">
-  <img alt="ThoughtSource overview 3" src="./resources/images/thoughtsource-overview-3.svg">
-</p>
 
 ## Generate interpretable reasoning chains
 <p align="center">
