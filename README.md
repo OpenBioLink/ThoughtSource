@@ -64,6 +64,7 @@ ThoughtSource is a central, open resource and community around data and tools re
 </p>
 
 ---
+![Dataset viewer example](/resources/images/dataset-viewer.PNG)
 
 * __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
 
