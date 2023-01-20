@@ -41,13 +41,8 @@ ThoughtSource is a central, open resource and community around data and tools re
 # Applications
 
 ## Annotator
----
-<p align="center">
- <a href="http://thought.samwald.info:3000/"><b>Use the web-based annotator 📝</b></a> 
-</p>
 
----
-* __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data. 
+
 
 <p align="center">
   <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
@@ -55,19 +50,25 @@ ThoughtSource is a central, open resource and community around data and tools re
   The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
 </p>
 
+---
+<p align="center">
+ <a href="http://thought.samwald.info:3000/"><b>Use the web-based annotator 📝</b></a> 
+</p>
+---
 
+* __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data. 
 
 ## Dataset viewer
- ---
-<p align="center">
- Datasets can be <a href="http://thought.samwald.info/"><b>browsed online through the Dataset Viewer 🔎</b></a> 
-</p>
 
----
 
 <p align="center">
   <img alt="Screenshot of the Data Viewer tool" src="/resources/images/dataset-viewer.PNG" width="80%">
 
+ ---
+<p align="center">
+ Datasets can be <a href="http://thought.samwald.info/"><b>browsed online through the Dataset Viewer 🔎</b></a> 
+</p>
+---
 
 * __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
 
