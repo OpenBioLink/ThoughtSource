@@ -37,10 +37,9 @@ ThoughtSource is a central, open resource and community around data and tools re
   <img alt="ThoughtSource overview 2" src="./resources/images/thoughtsource-overview-2.svg">
 </p>
 
+<br/><br/>
 
 # Annotator
-
-
 
 <p align="center">
   <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
@@ -48,16 +47,16 @@ ThoughtSource is a central, open resource and community around data and tools re
   The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
 </p>
 
----
+
 <p align="center">
  <a href="https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json" target="_blank">Example input</a> for
  <a href="http://thought.samwald.info:3000/"><b> Using the web-based annotator 📝</b></a> 
 </p>
 
 ---
+<br/><br/>
 
 # Dataset viewer
-
 
 <p align="center">
   <img alt="Screenshot of the Data Viewer tool" src="./resources/images/dataset-viewer.PNG" width="80%">
@@ -65,12 +64,13 @@ ThoughtSource is a central, open resource and community around data and tools re
   The Dataset Viewer provides an overview of original source datasets and the unified ThoughtSource scheme.
 </p>
 
- ---
+
 <p align="center">
  Datasets can be <a href="http://thought.samwald.info/"><b>browsed online through the Dataset Viewer 🔎</b></a> 
 </p>
 
 ---
+<br/><br/>
 
 # Available datasets
 
