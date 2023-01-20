@@ -7,8 +7,8 @@ __A framework for the science of machine thinking__
 - Tools:
   - Dataset viewer
   - Annotator
+- Datasets
 - Code explanation
-- ? Roadmap
 
 ## Quickstart
 A <a href="https://colab.research.google.com/drive/1r-mrk2FFXk10qP9UbNJ-Jn6QeMD8SwTo?usp=sharing" target="_blank">tutorial notebook</a> can be accessed.
@@ -38,9 +38,7 @@ ThoughtSource is a central, open resource and community around data and tools re
 </p>
 
 
-# Applications
-
-## Annotator
+# Annotator
 
 
 
@@ -52,14 +50,13 @@ ThoughtSource is a central, open resource and community around data and tools re
 
 ---
 <p align="center">
- <a href="http://thought.samwald.info:3000/"><b>Use the web-based annotator 📝</b></a> 
+ <a href="https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json" target="_blank">Example input</a> for
+ <a href="http://thought.samwald.info:3000/"><b> Using the web-based annotator 📝</b></a> 
 </p>
 
 ---
 
-
-
-## Dataset viewer
+# Dataset viewer
 
 
 <p align="center">
@@ -75,9 +72,8 @@ ThoughtSource is a central, open resource and community around data and tools re
 
 ---
 
-### Available datasets
+# Available datasets
 
-__Datasets can be [browsed online through the Dataset Viewer 🔎](http://thought.samwald.info/)__. 
  
  Our [dataloaders](./libs/cot/) allow you to access the following datasets in a standardized chain-of-thought format. The dataloaders create objects in the [Hugging Face 🤗 Datasets format](https://huggingface.co/docs/datasets/index). We (sometimes extensively) post-processed the source datasets in different ways to create more coherent reasoning chains.
 
