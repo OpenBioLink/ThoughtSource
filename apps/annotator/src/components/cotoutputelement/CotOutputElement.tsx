@@ -74,10 +74,16 @@ const CotOutputElement: FC<CotOutputElementProps> = (props) => {
   //const answerEntry = props.cotOutput.answers?.find(a => a['answer-extraction'] == "kojima-01")
   const answerEntry = props.cotOutput.answers?.at(0)
   const answer = answerEntry?.answer
-  const isCorrect = answerEntry?.correct_answer == true
-  const correctnessIcon = isCorrect ?
-    <i className="fa-regular fa-circle-check" style={{ color: "green" }}></i>
-    : <i className="fa-regular fa-circle-xmark" style={{ color: "#ce1c1c" }}></i>
+  let correctnessIcon
+  if (answerEntry?.correct_answer == null) {
+    correctnessIcon = <i className="fa-regular fa-question-circle" style={{ color: "#777777" }}></i>
+  } else {
+    const isCorrect = answerEntry?.correct_answer == true
+    correctnessIcon = isCorrect ?
+      <i className="fa-regular fa-circle-check" style={{ color: "green" }}></i>
+      : <i className="fa-regular fa-circle-xmark" style={{ color: "#ce1c1c" }}></i>
+  }
+
 
   const favIcon = props.bestCot ? "fa-solid fa-star" : "fa-regular fa-star"
 
