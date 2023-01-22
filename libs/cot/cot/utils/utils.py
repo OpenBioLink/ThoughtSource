@@ -1,4 +1,5 @@
 import os
+import re
 
 
 def _read_file(path):
@@ -153,7 +154,7 @@ def parse_wei_log(path_to_directory, dataset):
     return elements
 
 
-def map_example_to_kojima_cot(question, cots):
+def map_example_to_kojima_cot(question, cots, answer_extraction):
     """
     Given a question from a dataset and list of Cots from the collection of Kojima (see function parse_kojima_log)
     it returns a populated CoT item for the given question if found in the list of Cots.
@@ -174,7 +175,7 @@ def map_example_to_kojima_cot(question, cots):
                 "answers": [
                     {
                         "id": 0,
-                        "answer_extraction": "kojima-A-E",
+                        "answer_extraction": answer_extraction,
                         "answer_extraction_text": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
@@ -184,7 +185,7 @@ def map_example_to_kojima_cot(question, cots):
                 "author": "kojima",
                 "date": None,
                 "api_service": "",
-                "model": "gpt-3",
+                "model": "text-davinci-002",
                 "comment": "",
                 "annotation": [],
             }
@@ -224,7 +225,7 @@ def map_example_to_wei_cot(question, cots):
                 "author": "wei",
                 "date": None,
                 "api_service": "",
-                "model": "gpt-3",
+                "model": "text-davinci-002",
                 "comment": "",
                 "annotation": [],
             }
@@ -284,7 +285,64 @@ def map_example_to_lievin_cot(id, item, dataset):
         "author": "lievin",
         "date": None,
         "api_service": "",
-        "model": "davinci-002",
+        "model": "text-davinci-002",
         "comment": "",
         "annotation": [],
     }
+
+
+def map_json_to_lievin_cots_2(id, json, dataset):
+    """
+    Given a CoT json from the collection of Lievin v2, returns populated CoT items.
+    
+    :param item: the CoT json loaded from Lievin v2
+    :return: List of the populated ThoughtSource CoT items
+    """
+    assert (__import__("cot").generate.FRAGMENTS["version"] == "0.01"), "New version"
+
+    answer_extraction = "kojima-03"
+    cot_trigger = "kojima-01"
+
+    prefix = "Let's think step by step\n"
+    if dataset == "med_qa":
+        prefix = " Let's think step by step. "
+    
+    postfix = re.compile(r" The answer is \([A-D]\).\n\n")
+    wikipedia = re.compile(r"We refer to Wikipedia articles on [a-z]+ for help\. ")
+
+    generated_cots = []
+    for key, cot in enumerate(json["cots"]):
+        cot_ = cot["content"].replace(prefix, "")
+
+        if dataset == "med_qa":
+            cot_ = wikipedia.sub("", cot_)
+            cot_ = postfix.sub("", cot_)
+
+        if cot_ == "":
+            continue
+
+        generated_cots.append({
+            "id": f"code_{id}_{key}",
+            "fragments_version": "0.01",
+            "instruction": None,
+            "cot_trigger": cot_trigger,
+            "prompt_text": "",
+            "answers": [
+                {
+                    "id": 0,
+                    "answer_extraction": answer_extraction,
+                    "answer_extraction_text": "",
+                    "answer": json["options"][cot["pred_idx"]],
+                    "correct_answer": cot["is_correct"],
+                }
+            ],
+            "cot": cot_,
+            "author": "lievin",
+            "date": None,
+            "api_service": "",
+            "model": "code-davinci-002",
+            "comment": "",
+            "annotation": [],
+        })
+
+    return generated_cots
