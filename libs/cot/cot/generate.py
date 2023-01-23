@@ -164,8 +164,9 @@ def _generate_and_extract(
             template_dict["cot"] = cot
 
             generated_cot["cot"] = cot
-            # TODO replace this next line again:
-            generated_cot["prompt_text"] = generate_cot_prompt
+
+            # deactivated automatic prompt text generation: (code line stays here for testing purposes)
+            # generated_cot["prompt_text"] = generate_cot_prompt
 
             generated_cot["date"] = print_now(1)
 
@@ -212,8 +213,8 @@ def _generate_and_extract(
 
                     answer["answer"] = predicted_answer
 
-                    # TODO replace this next line again:
-                    answer["answer_extraction_text"] = answer_extraction_prompt
+                    # deactivated automatic prompt text generation: (code line stays here for testing purposes)
+                    # answer["answer_extraction_text"] = answer_extraction_prompt
 
                     generated_cot["answers"].append(answer)
 
@@ -245,11 +246,17 @@ def _full_text_prompts(item, prompt_text, answer_extraction_text):
         "answer_extraction": None,
     }
 
-    for generated_cot in item["generated_cot"]:
-
-        template_dict["answer_choices"] = multiple_choice_answer_formatting(
+    for generated_cot in item["generated_cot"]:              
+        string1 = multiple_choice_answer_formatting(
             generated_cot["multiple_choice_formatting"], item["choices"]
         ),
+
+        # function returns a tuple instead of a string
+        # did not find out why it behaves differently here than in the _generate_and_extract function
+        if type(string1) == tuple:
+            string1 = string1[0]
+
+        template_dict["answer_choices"]
 
         # generate chain of thoughts and extract answers
         # for instruction_key in instruction_keys:
@@ -291,71 +298,6 @@ def _full_text_prompts(item, prompt_text, answer_extraction_text):
                     answer["answer_extraction_text"] = answer_extraction_prompt
 
     return item
-
-
-# def generate_full_text_prompts(item, prompt_text=True, answer_extraction_text = True):
-#     """ This function generates the full text chain of thought and answer extraction
-#     prompts for a given item """
-
-#     template_dict = {
-#         "question": item["question"],
-#         "answer_choices": multiple_choice_answer_formatting(
-#             multiple_choice_answer_format, item["choices"]
-#         ),
-#     }
-
-#     template_dict["cot_trigger"] = get_fragments_value(
-#     "cot_triggers", cot_trigger_key
-#     )
-
-
-
-#     generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
-
-#     for generated_cot in item["generated_cot"]:
-#         # these variables can be used in both, cot and answer extraction
-#         template_dict["instruction"] = generated_cot["instruction"]
-#         template_dict["cot_trigger"] = generated_cot["cot_trigger"]
-#         template_dict["cot"] = generated_cot["cot"]
-
-#         if prompt_text:
-#                 ,
-#                     "cot_trigger": item["generated_cot"]['cot_trigger'],
-#                     "cot": None,
-#                     "answer_extraction": None,
-#                 }
-#             cot["prompt_text"] = generate_cot_prompt(item)
-#         if answer_extraction_text:
-#             for answer in item["generated_cot"]["answers"]:
-#                     template_dict = {
-
-#                     }
-#                 answer_choices =  multiple_choice_answer_formatting(multiple_choice_answer_format, item["choices"])
-
-#                 answer["answer_extraction_text"] = generate_answer_extraction_prompt(item)
-
-#     return example
-
-
-# def full_text_prompts(dataset, cot=True, answer_extraction = True):
-#     """ This function inserts the full text chain of thought and answer extraction
-#     prompts into the collection"""
-#     assert isinstance(
-#         dataset, ds.arrow_dataset.Dataset
-#     ), "dataset must be an arrow dataset"
-
-#     dataset = dataset.map(
-#         evaluate_sample,
-#         fn_kwargs={"type_": type_, "overwrite": overwrite, "warn": warn},
-#         features=dataset.info.features,
-#     )
-
-#     for dataset in self:
-#         _ , dataset_dict = dataset
-#         for split in dataset_dict:
-#             for item in dataset_dict[split]:
-#                 item["generated_cot"]["prompt_text"] = 
-
 
 
 def print_now(return_flag=0):
