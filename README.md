@@ -1,68 +1,27 @@
 # ThoughtSource⚡
 __A framework for the science of machine thinking__
 
-ThoughtSource is a central, open resource and community around data and tools related to _chain-of-thought reasoning_ in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and development.
+_[Datasets](#available-datasets) • [Tutorial notebook](./notebooks/tutorial.ipynb) • [Installation guide](#installation) • [Dataset Annotator](#annotator)_
+
+ThoughtSource is a central, open resource and community centered on data and tools for chain-of-thought reasoning in large language models ([Wei 2022](https://arxiv.org/abs/2201.11903)). Our long-term goal is to enable trustworthy and robust reasoning in advanced AI systems for driving scientific research and medical practice.
+
 
 <p align="center">
   <img alt="ThoughtSource overview 3" src="./resources/images/thoughtsource-overview-3.svg">
 </p>
 
-## Generate interpretable reasoning chains
-<p align="center">
-  <img alt="ThoughtSource overview 1" src="./resources/images/thoughtsource-overview-1.svg">
-</p>
 
-(the example shown here was generated with the _text-davinci-002_ model)
 
-## Annotate, evaluate and improve
+
+## Workflow
+
 <p align="center">
-  <img alt="ThoughtSource overview 2" src="./resources/images/thoughtsource-overview-2.svg">
+  <img alt="ThoughtSource overview 1" src="./resources/images/thoughtsource-overview-1.svg"> <img alt="ThoughtSource overview 2" src="./resources/images/thoughtsource-overview-2.svg">
 </p>
 
 
-## Roadmap
+## Available datasets
 
-1. Create a __repository of chain-of-thought (CoT) datasets__ converted to a unified format. ✅
-2. Create a library for __generating__ reasoning chains with a wide variety of large language models. ✅
-3. Create tools for __diagnosing, annotating and evaluating__ CoT data and fostering empirical understanding. 
-4. Create a __conceptual model__ of different CoT reasoning styles and errors.
-5. Provide models __fine-tuned on high-quality CoT data__.
-6. Apply CoT reasoning to __high-impact use-cases__ such as biomedical research or clinical decision making.
-
-## Code
-### Libraries
-
-* __[cot](./libs/cot/):__ 
-  *  __dataloader__: Creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
-  * __generate__: Generating reasoning chains with a wide variety of language models (currently OpenAI and models on Hugging Face hub)
-  * __evaluate__: Evaluate the performance of predictions extracted using generated reasoning chains
-* __[explanatory notebooks](./notebooks/)__: [Overview](./notebooks/0_overview.ipynb), [Datasets](./notebooks/1_dataset.ipynb), [Model](./notebooks/2_generate.ipynb), [Performance](./notebooks/3_evaluate.ipynb)
-
-<p align="center">
-  <img alt="Overview Notebook" src="./resources/images/0_Overview_Notebook.png" width="60%" ">
-</p>
-
-
-### Applications
-
-* __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
-* __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data. 
-
-<p align="center">
-  <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
-
-  The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
-</p>
-
----
-<p align="center">
- <a href="http://thought.samwald.info:3000/"><b>Use the web-based annotator 📝</b></a> 
-</p>
-
----
-
-## Current datasets
-__Datasets can be [browsed online through the Dataset Viewer 🔎](http://thought.samwald.info/)__. 
  
  Our [dataloaders](./libs/cot/) allow you to access the following datasets in a standardized chain-of-thought format. The dataloaders create objects in the [Hugging Face 🤗 Datasets format](https://huggingface.co/docs/datasets/index). We (sometimes extensively) post-processed the source datasets in different ways to create more coherent reasoning chains.
 
@@ -108,5 +67,86 @@ __Datasets can be [browsed online through the Dataset Viewer 🔎](http://though
 We are working on collecting and generating additional datasets, and on further improving the quality of existing datasets (see [dataset issues](https://github.com/OpenBioLink/ThoughtSource/issues?q=is%3Aissue+label%3Adataset)). We welcome suggestions for the inclusion of other datasets.
 
 __We welcome dataset contributions! 👉 Have a look at our [contribution guide](CONTRIBUTING.md)!__
+
+## Annotator
+
+<p align="center">
+  <img alt="Demonstration of the annotator tool" src="./resources/images/annotator-demo.webp" width="80%">
+
+  The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
+</p>
+
+---
+<p align="center">
+ <a href="http://thought.samwald.info:3000/"><b> Use the web-based annotator 📝</b></a><br/>
+ To try out the annotator, simply type in your name and load this<a href="https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json" target="_blank"> example file</a>
+</p>
+
+---
+
+<br/>
+
+
+## Installation and code structure
+
+### Installation
+execute in terminal line by line:
+```bash
+git clone git@github.com:OpenBioLink/ThoughtSource.git
+cd ThoughtSource
+# install pip and virtualenv
+sudo apt install python3-pip
+sudo apt install python3-venv
+# create and activate virtual environment
+python3 -m venv venv
+source ./venv/bin/activate
+# install requirements and API packages
+pip install -e ./libs/cot[api]
+```
+
+### Applications
+
+* __[annotator](./apps/annotator):__ Web-based tool for annotating chain-of-thought data. 
+
+* __[dataset-viewer](./apps/dataset-viewer/):__ Streamlit application for browsing ThoughtSource datasets
+
+### Libraries
+
+* __[cot](./libs/cot/):__ 
+  *  __dataloader__: Creating and processing of ThoughtSource datasets (based on the Hugging Face 🤗 Datasets library).
+  * __generate__: Generating reasoning chains with a wide variety of language models (currently OpenAI and models on Hugging Face hub)
+  * __evaluate__: Evaluate the performance of predictions extracted using generated reasoning chains
+
+
+```python
+# 1) Dataset loading and selecting a random sample
+collection = Collection(["worldtree"], verbose=False)
+collection = collection.select(split="train", number_samples=10)
+
+# 2) Language Model generates chains of thought and then extracts answers
+config={
+    "instruction_keys": ['qa-01'], # "Answer the following question through step-by-step reasoning."
+    "cot_trigger_keys": ['kojima-01'], # "Answer: Let's think step by step."
+    "answer_extraction_keys": ['kojima-A-D'], # "Therefore, among A through D, the answer is"
+    "api_service": "huggingface_hub",
+    "engine": "google/flan-t5-xl",
+    "warn": False,
+    "verbose": False,
+}
+collection.generate(config=config)
+
+# 3) Performance evaluation
+collection.evaluate()
+```
+```
+{'accuracy': {'qa-01_kojima-01_kojima-A-D': 0.6}}
+```
+
+---
+
+👉 See the __[Tutorial notebook](./notebooks/tutorial.ipynb)__ for more code examples.
+
+
+---
 
 
