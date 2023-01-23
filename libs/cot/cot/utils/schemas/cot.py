@@ -18,7 +18,6 @@ features = datasets.Features(
                 "id": datasets.Value("string"),
                 "fragments_version": datasets.Value("string"),
                 "instruction": datasets.Value("string"),
-                "multiple_choice_formatting": datasets.Value("string"),
                 "cot_trigger": datasets.Value("string"),
                 "cot_trigger_template": datasets.Value("string"),
                 "prompt_text": datasets.Value("string"),

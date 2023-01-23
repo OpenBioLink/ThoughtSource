@@ -57,7 +57,6 @@ class Config:
     """
 
     idx_range: Union[tuple, str, None] = "all"
-    multiple_choice_answer_format: Union[str, None] = "Letters"
     # Passing a default list as an argument to dataclasses needs to be done with a lambda function
     # https://stackoverflow.com/questions/52063759/passing-default-list-argument-to-dataclasses
     instruction_keys: List = field(default_factory=lambda: [None])
@@ -131,16 +130,6 @@ class Config:
             assert (
                 self.idx_range[0] < self.idx_range[1]
             ), "idx_range must be a tuple of ints with idx_range[0] < idx_range[1]"
-
-        if self.multiple_choice_answer_format != "Letters":
-            assert isinstance(
-                self.multiple_choice_answer_format, (str, type(None))
-            ), "multiple_choice_answer_format must be str or None"
-            assert self.multiple_choice_answer_format in [
-                "Letters",
-                "Numbers",
-                None,
-            ], "multiple_choice_answer_format must be 'Letters', 'Numbers' or None"
 
         if self.instruction_keys != "all":
             assert isinstance(

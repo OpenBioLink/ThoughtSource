@@ -59,7 +59,6 @@ def test_basic_load_generate_evalute() -> None:
     # 2) Language Model generates chains of thought and then extracts answers
     config = {
         "api_service": "mock_api",
-        "multiple_choice_answer_format": "Letters",
         "instruction_keys": ["qa-01"],
         "cot_trigger_keys": ["kojima-01"],
         "answer_extraction_keys": ["kojima-A-D"],

@@ -33,7 +33,8 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
     """Compares prediction with gold answer."""
 
     if type_ not in ["bool", "multiplechoice"]:
-        warnings.warn(f"Type {type_} not supported yet.")
+        warnings.warn(f"Answer type {type_} not supported yet.")
+        return None
 
     if type_ == "multiplechoice":
         # E.g.: "Therefore, among A through E, the answer is (c)"
