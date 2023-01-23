@@ -11,6 +11,8 @@
 
     max-width: 400px;
 
+
+    flex: 1 1 0px;
 }
 
 .BestCot {
@@ -21,9 +23,10 @@
 .Annotations {
     user-select: none;
 
-    @media screen and (min-width: 1200px) {
-        padding-left: 100px;
-    }
+    // simply left align annotation options.
+    //@media screen and (min-width: 1200px) {
+    //    padding-left: 100px;
+    //}
 
     li {
         padding-top: 5px;

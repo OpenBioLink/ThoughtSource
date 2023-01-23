@@ -39,3 +39,16 @@ def get_test_collection(name: str) -> Collection:
     with chdir("unit_tests/data"):
         collection = Collection.from_json(f"{name}.json")
     return collection
+
+def compare_nested_dict_float_values(dict1, dict2, precision):
+    if set(dict1.keys()) != set(dict2.keys()):
+        return False
+    for key in dict1:
+        if isinstance(dict1[key], dict) and isinstance(dict2[key], dict):
+            if not compare_nested_dict_float_values(dict1[key], dict2[key], precision):
+                return False
+        elif not isinstance(dict1[key], float) or not isinstance(dict2[key], float):
+            return False
+        elif abs(dict1[key] - dict2[key]) > precision:
+            return False
+    return True

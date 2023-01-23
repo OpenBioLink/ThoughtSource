@@ -69,23 +69,32 @@ def get_token_length_per_examples(example):
             sentences = split_sentences(text.lower())
             toks = [tok for sent in sentences for tok in sent]
             result[key] = len(toks)
+
+        if key == "cot":
+            lens = []
+            if result[key] > 0:
+                lens.append(result[key])
+            for generated_cot in example["generated_cot"]:
+                sentences = split_sentences(generated_cot["cot"].lower())
+                toks = [tok for sent in sentences for tok in sent]
+                if len(toks) > 0:
+                    lens.append(len(toks))
+            if len(lens) > 0:
+                result[key] = sum(lens) / len(lens)
+
     return result
 
 
-def get_n_grams_counter(example, counter, N):
-    result = {}
-    for key in ["context", "question", "cot"]:
-        if key == "cot":
-            text = " ".join(example[key])
-        else:
-            text = example[key]
-        if text is None:
-            result[key] = 0
-        else:
-            sentences = split_sentences(text.lower())
-            ngrams = get_n_grams(sentences, N)
-            tups = ["_".join(tup) for tup in ngrams]
-            counter.update(tups)
+def get_n_grams_counter(example, counter, key, N):
+    if key == "cot":
+        text = " ".join(example[key])
+    else:
+        text = example[key]
+    if text is not None:
+        sentences = split_sentences(text.lower())
+        ngrams = get_n_grams(sentences, N)
+        tups = ["_".join(tup) for tup in ngrams]
+        counter.update(tups)
 
 
 def isna(val):
@@ -131,7 +140,7 @@ def _generate_counter_data(collection):
     return counters
 
 
-def _generate_ngrams_data(collection, N):
+def _generate_ngrams_data(collection, key, N):
     n_grams_counters = defaultdict(dict)
 
     with Progress() as progress:
@@ -145,7 +154,7 @@ def _generate_ngrams_data(collection, N):
                 progress.reset(task2, total=len(data))
                 n_gram_counter = Counter()
                 for entry in data:
-                    get_n_grams_counter(entry, n_gram_counter, N)
+                    get_n_grams_counter(entry, n_gram_counter, key, N)
                     progress.update(task2, advance=1.0)
                 n_grams_counters[name][split] = n_gram_counter
                 progress.update(task1, advance=1.0)
@@ -170,7 +179,6 @@ def _generate_token_length_data(collection):
                 progress.reset(task2, total=len(data))
                 for entry in data:
                     result = get_token_length_per_examples(entry)
-                    result["total_token_length"] = sum([v for k, v in result.items()])
                     result["split"] = split
                     result["dataset"] = name
                     hist_data.append(result)
@@ -194,18 +202,59 @@ def _print_table(table):
 
 def display_stats_tables(collection):
     counters = _generate_counter_data(collection)
+
+    data = [
+            (
+                name,
+                data_dict["train"].num_rows if "train" in data_dict else "-",
+                data_dict["validation"].num_rows if "validation" in data_dict else "-",
+                data_dict["test"].num_rows if "test" in data_dict else "-",
+            )
+            for name, data_dict in collection
+        ]
+    table_num_examples = pd.DataFrame.from_records(data, columns=["Name", "Train", "Valid", "Test"])
+    _print_table(table_num_examples)
+
     data = []
     for key, counter in counters["na"].items():
         data.append([key] + [counter[ckey] for ckey in ["question", "choices", "cot", "answer"]])
-    table = pd.DataFrame.from_records(data, columns=["dataset", "question", "choices", "cot", "answer"])
-    _print_table(table)
+    table_nan = pd.DataFrame.from_records(data, columns=["dataset", "question", "choices", "cot", "answer"])
+    _print_table(table_nan)
 
     data = []
     for key, count in counters["types"].items():
         data.append([key, count, counters["types_datasets"][key]])
-    table = pd.DataFrame.from_records(data, columns=["type", "number samples", "datasets"])
-    _print_table(table)
+    table_types = pd.DataFrame.from_records(data, columns=["type", "number samples", "datasets"])
+    _print_table(table_types)
 
+    return (table_num_examples, table_nan, table_types)
+
+def prepare_overlap_matrix(collection, key, N):
+    n_gram_counters = _generate_ngrams_data(collection, key, N)
+    n_grams_merge = {}
+    for name, n_grams in n_gram_counters.items():
+        n_grams_merge[name] = set([item for counters in n_grams.values() for item in counters.keys()])
+
+    data = []
+    datasets = sorted(n_grams_merge.keys())
+
+    for idx_x, name_x in enumerate(datasets):
+        vals = []
+        for idx_y, name_y in enumerate(datasets):
+            if idx_x == idx_y:
+                jacc = 1.0
+            elif idx_x > idx_y:
+                if len(n_grams_merge[name_x]) > 0 and len(n_grams_merge[name_y]) > 0:
+                    inters = len(n_grams_merge[name_x].intersection(n_grams_merge[name_y]))
+                    uni = len(n_grams_merge[name_x].union(n_grams_merge[name_y]))
+                    jacc = inters / min(len(n_grams_merge[name_x]), len(n_grams_merge[name_y]))
+                else:
+                    jacc = 0.0
+            else:
+                jacc = None
+            vals.append(jacc)
+        data.append(vals)
+    return n_grams_merge, data
 
 def plot_dataset_overlap(collection, N=3):
     """
@@ -214,44 +263,78 @@ def plot_dataset_overlap(collection, N=3):
 
     :param data: the data dictionary returned by the function generate_data
     """
-    n_gram_counters = _generate_ngrams_data(collection, N)
-    n_grams_merge = {}
-    for name, n_grams in n_gram_counters.items():
-        n_grams_merge[name] = set([item for counters in n_grams.values() for item in counters.keys()])
 
-    n_grams_merge
+    from plotly.subplots import make_subplots
+    subpl = make_subplots(rows=1, cols=2, subplot_titles=("Question", "CoT"), print_grid=False)
 
-    data = []
-    for name_x in sorted(n_grams_merge.keys(), reverse=True):
-        vals = []
-        for name_y in sorted(n_grams_merge.keys()):
-            if name_x != name_y:
-                inters = len(n_grams_merge[name_x].intersection(n_grams_merge[name_y]))
-                uni = len(n_grams_merge[name_x].union(n_grams_merge[name_y]))
-                jacc = inters / uni
-            else:
-                jacc = None
-            vals.append(jacc)
-        data.append(vals)
+    for index, key in enumerate(["question", "cot"]):
 
-    fig = go.Figure(
-        data=go.Heatmap(
+        n_grams_merge, data = prepare_overlap_matrix(collection, key, N)
+
+        # because of inversed y axis
+        data.reverse()
+
+        fig = go.Heatmap(
             z=data,
             x=list(sorted(n_grams_merge.keys())),
             y=list(sorted(n_grams_merge.keys(), reverse=True)),
             hoverongaps=False,
+            coloraxis='coloraxis',
+            text = [["" if (element is None or element < 0.01) else f"{element:.2f}" for element in row] for row in data],
+            texttemplate="%{text}",
         )
+        subpl.add_trace(fig, row=1, col=index+1)
+
+    subpl.update_layout(height=700, width=1400)
+    subpl.update_layout(
+        coloraxis=dict(colorscale='tempo', cmin=0.0, cmax=1.0), 
+        showlegend=False
     )
-    fig.update_layout(
-        autosize=False,
-        width=700,
-        height=700,
-    )
-    fig.show()
+    subpl.for_each_xaxis(lambda x: x.update(showgrid=False, zeroline=False))
+    subpl.for_each_yaxis(lambda x: x.update(showgrid=False, zeroline=False))
+    subpl.write_image(f"dataset_overlap.svg")
+    subpl.write_image(f"dataset_overlap.png")
+    subpl.show()
 
 
-def plot_token_length_distribution(collection):
+def plot_token_length_distribution(collection, splits=False):
     token_len = _generate_token_length_data(collection)
+    
+    table = token_len[["dataset", "context", "question", "cot"]].groupby("dataset").agg(["max", "mean"])
+    # table.columns = table.columns.map('_'.join).reset_index()
+    _print_table(table)
+
     for key in ["context", "question", "cot"]:
-        fig = px.box(token_len, x=key, y="dataset", color="split")
+        token_len_ = token_len[token_len[key] > 0]
+        fig = px.box(
+            token_len_, 
+            x=key, y="dataset", 
+            color="split" if splits else None, 
+            labels={
+                "dataset": "Dataset", 
+                "cot": "Number of tokens in CoT", 
+                "question": "Number of tokens in question", 
+                "context": "Number of tokens in context"
+            },
+            width=1100,
+            points=False
+        )
+        fig.write_image(f"token_length_distribution_{key}.svg")
+        fig.write_image(f"token_length_distribution_{key}.png")
         fig.show()
+    return (table, fig)
+
+def get_n_outlier(dataset, field="cot", n=5):
+    outlier = []
+    for example in dataset:
+        if field == "cot":
+            txt = " ".join(example["cot"]).lower()
+        else:
+            txt = example[field].lower()
+
+        sents = split_sentences(txt)
+        toks = [tok for sent in sents for tok in sent]
+        # outlier.append((toks, len(toks), example["id"]))
+        outlier.append((example, len(toks)))
+    outlier = sorted(outlier, key=lambda x: x[1], reverse=True)
+    return (outlier[:n], outlier[-n:])
