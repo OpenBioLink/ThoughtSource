@@ -11,8 +11,10 @@ def test_evaluation_included_datasets():
         "commonsense_qa": {
             "validation": {
                 "accuracy": {
-                    "None_None_None": 0.734426,
-                    "None_kojima-01_kojima-A-E": 0.647494,
+                    "text-davinci-002": {
+                        "None_None_None": 0.734426,
+                        "None_kojima-01_kojima-A-E": 0.647494,
+                    }
                 }
             }
         }
@@ -31,12 +33,14 @@ def test_evaluation_included_datasets():
         "med_qa": {
             "test": {
                 "accuracy": {
-                    "None_kojima-01_kojima-03": 0.506838,
-                    "None_kojima-01_kojima-A-D": 0.471328,
-                    "None_lievin-01_kojima-A-D": 0.450903,
-                    "None_lievin-02_kojima-A-D": 0.459544,
-                    "None_lievin-03_kojima-A-D": 0.456402,
-                    "None_lievin-10_kojima-A-D": 0.468185,
+                    "text-davinci-002": {
+                        "None_kojima-01_kojima-A-D": 0.471328,
+                        "None_lievin-01_kojima-A-D": 0.450903,
+                        "None_lievin-02_kojima-A-D": 0.459544,
+                        "None_lievin-03_kojima-A-D": 0.456402,
+                        "None_lievin-10_kojima-A-D": 0.468185,
+                    },
+                    "code-davinci-002": {"None_kojima-01_kojima-03": 0.506838},
                 }
             }
         }
@@ -55,12 +59,14 @@ def test_evaluation_included_datasets():
         "medmc_qa": {
             "validation": {
                 "accuracy": {
-                    "None_kojima-01_kojima-03": 0.494724,
-                    "None_kojima-01_kojima-A-D": 0.408,
-                    "None_lievin-01_kojima-A-D": 0.421,
-                    "None_lievin-02_kojima-A-D": 0.388,
-                    "None_lievin-03_kojima-A-D": 0.371,
-                    "None_lievin-10_kojima-A-D": 0.433,
+                    "text-davinci-002": {
+                        "None_kojima-01_kojima-A-D": 0.408,
+                        "None_lievin-01_kojima-A-D": 0.421,
+                        "None_lievin-02_kojima-A-D": 0.388,
+                        "None_lievin-03_kojima-A-D": 0.371,
+                        "None_lievin-10_kojima-A-D": 0.433,
+                    },
+                    "code-davinci-002": {"None_kojima-01_kojima-03": 0.494724},
                 }
             }
         }
@@ -79,11 +85,13 @@ def test_evaluation_included_datasets():
         "pubmed_qa": {
             "test": {
                 "accuracy": {
-                    "None_kojima-01_kojima-A-C": 0.6,
-                    "None_lievin-01_kojima-A-C": 0.556,
-                    "None_lievin-02_kojima-A-C": 0.662,
-                    "None_lievin-03_kojima-A-C": 0.58,
-                    "None_lievin-10_kojima-A-C": 0.598,
+                    "text-davinci-002": {
+                        "None_kojima-01_kojima-A-C": 0.6,
+                        "None_lievin-01_kojima-A-C": 0.556,
+                        "None_lievin-02_kojima-A-C": 0.662,
+                        "None_lievin-03_kojima-A-C": 0.58,
+                        "None_lievin-10_kojima-A-C": 0.598,
+                    }
                 }
             }
         }
@@ -102,8 +110,10 @@ def test_evaluation_included_datasets():
         "strategy_qa": {
             "train": {
                 "accuracy": {
-                    "None_None_None": 0.625439,
-                    "None_kojima-01_kojima-yes-no": 0.549734,
+                    "text-davinci-002": {
+                        "None_None_None": 0.625439,
+                        "None_kojima-01_kojima-yes-no": 0.549734,
+                    }
                 }
             }
         }
