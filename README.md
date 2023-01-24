@@ -144,8 +144,9 @@ collection.evaluate()
 
 ---
 
-👉 See the __[Tutorial notebook](./notebooks/tutorial.ipynb)__ for more code examples.
-
+<p align="center">
+ 👉 See the <a href="https://github.com/OpenBioLink/ThoughtSource/blob/main/notebooks/tutorial.ipynb/"><b>tutorial notebook</b></a> for more code examples.
+</p>
 
 ---
 
