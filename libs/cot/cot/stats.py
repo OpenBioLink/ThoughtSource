@@ -130,7 +130,8 @@ def _generate_counter_data(collection):
                     for key, val in entry.items():
                         if not isna(val):
                             if key == "generated_cot":
-                                counters["na"][name][key] += len(val)
+                                counters["na"][name]["generated_cot"] += len(val)
+                                counters["na"][name]["question_with_generated_cot"] += 1
                             else:
                                 counters["na"][name][key] += 1
                         if key == "type":
@@ -220,8 +221,8 @@ def display_stats_tables(collection):
 
     data = []
     for key, counter in counters["na"].items():
-        data.append([key] + [counter[ckey] for ckey in ["question", "choices", "cot", "generated_cot", "answer"]])
-    table_nan = pd.DataFrame.from_records(data, columns=["dataset", "question", "choices", "cot", "generated_cot", "answer"])
+        data.append([key] + [counter[ckey] for ckey in ["question", "choices", "cot", "generated_cot", "question_with_generated_cot", "answer"]])
+    table_nan = pd.DataFrame.from_records(data, columns=["dataset", "question", "choices", "cot", "generated_cot", "question_with_generated_cot", "answer"])
     _print_table(table_nan)
 
     data = []
