@@ -1,6 +1,8 @@
+import json
 import re
 import string
 import warnings
+from ast import literal_eval
 from collections import defaultdict
 from pprint import pprint
 
@@ -233,9 +235,10 @@ def evaluate(dataset, overwrite=False, warn=True, config=None): # config can be 
     )
 
     keys = set()
-    predictions = defaultdict(int)
-    counter = defaultdict(int)
-    evaluations = defaultdict(dict)
+    model_names = set()
+    predictions = defaultdict(lambda: defaultdict(int))
+    counter = defaultdict(lambda: defaultdict(int))
+    evaluations = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
 
     for example in dataset:
         for cot in example["generated_cot"]:
@@ -243,12 +246,20 @@ def evaluate(dataset, overwrite=False, warn=True, config=None): # config can be 
             if example["answer"][0] == None:
                 continue
             for answer in cot["answers"]:
+                # when model is a dict, e.g. {'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}               
+                if "{" in cot["model"]:
+                    model = literal_eval(cot["model"])
+                    model_name = model["name"]
+                else:
+                # when model is a string, e.g. "text_davinci_002", happens at preloaded generated cots (e.g. from lievin)
+                    model_name = cot["model"]
+                model_names.add(model_name)
                 # make a key for each combination of triggers, e.g. "None_lievin-02_kojima-A-C"
-                key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
+                key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}" # {model_name}_
                 keys.add(key)
-                counter[key] += 1
+                counter[model_name][key] += 1
                 if answer["correct_answer"]:
-                    predictions[key] += 1
+                        predictions[model_name][key] += 1
 
     if warn:
         for count in counter.values():
@@ -264,11 +275,12 @@ def evaluate(dataset, overwrite=False, warn=True, config=None): # config can be 
                 )
 
     keys = sorted(keys)
-    for key in keys:
-        for metric in ["accuracy"]:
-            # TODO: include different models evaluations[model][metric][key]
-            value = predictions[key] / counter[key]
-            evaluations[metric][key] = round(value, 6)
+    for model_name in model_names:
+        for key in keys:
+            for metric in ["accuracy"]:
+                if counter[model_name][key] != 0:
+                    value = predictions[model_name][key] / counter[model_name][key]
+                    evaluations[metric][model_name][key] = round(value, 6)
 
     # pprint(dict(evaluations))
-    return dataset, dict(evaluations)
+    return dataset, json.loads(json.dumps(evaluations))
