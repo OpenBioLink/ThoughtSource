@@ -22,7 +22,6 @@ def simple_config():
     """Simple config for testing"""
     config = {
         "api_service": "mock_api",
-        "multiple_choice_answer_format": "Letters",
         "instruction_keys": ["qa-01"],
         "cot_trigger_keys": ["kojima-01"],
         "answer_extraction_keys": ["kojima-01"],

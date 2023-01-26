@@ -60,8 +60,7 @@ def generate_and_extract(data, config):
 def _generate_and_extract(
     item,
     idx,
-    # did not find a way to pass the config as a dataclass object, therefor setting all parameters to None here
-    # all these variables will be defined by the config_as_dataclass object
+    # all of the following variables will be defined by the config_as_dataclass object
     idx_range,
     author,
     api_service,
@@ -69,7 +68,6 @@ def _generate_and_extract(
     temperature,
     max_tokens,
     api_time_interval,
-    multiple_choice_answer_format,
     instruction_keys,
     cot_trigger_keys,
     template_cot_generation,
@@ -99,9 +97,7 @@ def _generate_and_extract(
     template_dict = {
         "instruction": None,
         "question": item["question"],
-        "answer_choices": multiple_choice_answer_formatting(
-            multiple_choice_answer_format, item["choices"]
-        ),
+        "answer_choices": multiple_choice_answer_formatting(item["choices"]),
         "cot_trigger": None,
         "cot": None,
         "answer_extraction": None,
@@ -119,6 +115,7 @@ def _generate_and_extract(
                 "fragments_version": FRAGMENTS["version"],
                 "instruction": instruction_key,
                 "cot_trigger": cot_trigger_key,
+                "cot_trigger_template": template_cot_generation,
                 "prompt_text": "",
                 "cot": "",
                 "answers": [],
@@ -139,6 +136,8 @@ def _generate_and_extract(
             template_dict["cot_trigger"] = get_fragments_value(
                 "cot_triggers", cot_trigger_key
             )
+
+            # change template_cot_generation to generated_cot["cot_trigger_template"] to make it more logical
             generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
 
             if verbose:
@@ -160,7 +159,10 @@ def _generate_and_extract(
             template_dict["cot"] = cot
 
             generated_cot["cot"] = cot
-            generated_cot["prompt_text"] = generate_cot_prompt
+
+            # deactivated automatic prompt text generation: (code line stays here for testing purposes)
+            # generated_cot["prompt_text"] = generate_cot_prompt
+
             generated_cot["date"] = print_now(1)
 
             # extract answers from generated chain of thoughts
@@ -173,6 +175,7 @@ def _generate_and_extract(
                     answer = {
                         "id": str(uuid.uuid4()),
                         "answer_extraction": answer_extraction_key,
+                        "answer_extraction_template": template_answer_extraction,
                         "answer_extraction_text": "",
                         "answer": "",
                         "correct_answer": None,
@@ -204,10 +207,88 @@ def _generate_and_extract(
                         print(predicted_answer)
 
                     answer["answer"] = predicted_answer
-                    answer["answer_extraction_text"] = answer_extraction_prompt
+
+                    # deactivated automatic prompt text generation: (code line stays here for testing purposes)
+                    # answer["answer_extraction_text"] = answer_extraction_prompt
+
                     generated_cot["answers"].append(answer)
 
             item["generated_cot"].append(generated_cot)
+
+    return item
+
+def full_text_prompts(dataset, prompt_text=True, answer_extraction_text = True):
+
+    assert isinstance(
+        dataset, ds.arrow_dataset.Dataset
+    ), "dataset must be an arrow dataset"
+    
+    dataset = dataset.map(
+    _full_text_prompts,
+    fn_kwargs={"prompt_text": prompt_text, "answer_extraction_text": answer_extraction_text},
+    features=dataset.info.features,
+    )
+
+    return dataset
+
+def _full_text_prompts(item, prompt_text, answer_extraction_text):
+    # predefine values in template dictionary that stay same over all runs of the current item
+    template_dict = {
+        "instruction": None,
+        "question": item["question"],
+        "cot_trigger": None,
+        "cot": None,
+        "answer_extraction": None,
+    }
+
+    for generated_cot in item["generated_cot"]:              
+        answer_choices = multiple_choice_answer_formatting(item["choices"]),
+        
+        # function returns a tuple instead of a string
+        # did not find out why it behaves differently here than in the _generate_and_extract function
+        if type(answer_choices) == tuple:
+            answer_choices = answer_choices[0]
+
+        template_dict["answer_choices"] = answer_choices
+
+        # generate chain of thoughts and extract answers
+        # for instruction_key in instruction_keys:
+        template_dict["instruction"] = get_fragments_value(
+            "instructions", generated_cot["instruction"]
+        )
+
+        template_dict["cot_trigger"] = get_fragments_value(
+            "cot_triggers", generated_cot["cot_trigger"]
+        )
+        
+        generate_cot_prompt = format_prompt(generated_cot["cot_trigger_template"], template_dict)
+
+        template_dict["cot"] = generated_cot["cot"]
+        # Everything above could also be relevant for the answer extraction
+        
+        # now generating the full text for the chain of thoughts
+        if prompt_text:
+            generated_cot["prompt_text"] = generate_cot_prompt
+
+        # if answer_extraction: ...
+        if answer_extraction_text:
+            # extract answers from generated chain of thoughts
+            for answer in generated_cot["answers"]:
+
+                if answer["answer_extraction"] is None:
+                    # if no answer extraction key is given, return item, since cot_prompt text is already generated
+                    return item
+
+                else:
+
+                    template_dict["answer_extraction"] = get_fragments_value(
+                        "answer_extractions", answer["answer_extraction"]
+                    )
+                    answer_extraction_prompt = format_prompt(
+                        answer["answer_extraction_template"], template_dict
+                    )
+
+                    answer["answer_extraction_text"] = answer_extraction_prompt
 
     return item
 
@@ -255,29 +336,16 @@ def print_warning(config, n_samples):
         return
 
 
-def multiple_choice_answer_formatting(format, answer_choices):
-    if format == "Letters":
-        # Adding Letters (A,B,C,...) for the given multiple choice answers.
-        return "\n".join(
-            [
-                f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)
-            ]  # 65 is the ASCII code for A
-        )
+def multiple_choice_answer_formatting(answer_choices):
+    '''Transforms a list of answer choices into a string with letters (A,B,C,...) for each answer choice.'''
+    # only supports uppercase letters at the moment, as this is current standard 
 
-    # If other formats are added, also change the evaluate function.
-
-    else:
-        raise ValueError("Error: only format 'Letters' is supported at the moment.")
-
-    # TODO (not urgent): add other formats, need to change evaluate function for that.l
-    # elif format == "Numbers":
-    #     # Adding Numbers (1,2,3,...) for the given multiple choice answers.
-    #     return "\n".join(
-    #         [f"{i+1}) {example}" for i, example in enumerate(answer_choices)]
-    #     )
-    # elif format == None:
-    #     # without index
-    #     return "\n".join(answer_choices)
+    # Adding Letters (A,B,C,...) for the given multiple choice answers.
+    return "\n".join(
+        [
+            f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)
+        ]  # 65 is the ASCII code for A
+    )
 
 
 def get_fragments_value(str, key):
@@ -289,8 +357,7 @@ def get_fragments_value(str, key):
 
 def format_prompt(template, dictionary):
     output = template.format_map(Correct_output(dictionary))
-    # TODO: this is not deleting newlines at first position
-    # I think because the the curly brackets are already removed be the function before
+    # remove leading whitespaces
     output = output.lstrip()
     return output
 

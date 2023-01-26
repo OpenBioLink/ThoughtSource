@@ -171,12 +171,14 @@ def map_example_to_kojima_cot(question, cots, answer_extraction):
                 "fragments_version": "0.01",
                 "instruction": None,
                 "cot_trigger": "kojima-01",
+                "cot_trigger_template": "",
                 "prompt_text": "",
                 "answers": [
                     {
                         "id": 0,
                         "answer_extraction": answer_extraction,
                         "answer_extraction_text": "",
+                        "answer_extraction_template": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
                     }
@@ -211,11 +213,13 @@ def map_example_to_wei_cot(question, cots):
                 "fragments_version": "0.01",
                 "instruction": None,
                 "cot_trigger": None,
+                "cot_trigger_template": "",
                 "prompt_text": "",
                 "answers": [
                     {
                         "id": 0,
                         "answer_extraction": None,
+                        "answer_extraction_template": "",
                         "answer_extraction_text": "",
                         "answer": cot["prediction"],
                         "correct_answer": cot["correct_answer"],
@@ -271,11 +275,13 @@ def map_example_to_lievin_cot(id, item, dataset):
         "fragments_version": "0.01",
         "instruction": None,
         "cot_trigger": cot_triggers[item["strategy"]],
+        "cot_trigger_template": "",
         "prompt_text": "",
         "answers": [
             {
                 "id": 0,
                 "answer_extraction": answer_extraction,
+                "answer_extraction_template": "",
                 "answer_extraction_text": "",
                 "answer": item["options"][item["prediction_idx"]],
                 "correct_answer": (item["prediction_symbol"] == "correct"),
@@ -326,11 +332,13 @@ def map_json_to_lievin_cots_2(id, json, dataset):
             "fragments_version": "0.01",
             "instruction": None,
             "cot_trigger": cot_trigger,
+            "cot_trigger_template": "",
             "prompt_text": "",
             "answers": [
                 {
                     "id": 0,
                     "answer_extraction": answer_extraction,
+                    "answer_extraction_template": "",
                     "answer_extraction_text": "",
                     "answer": json["options"][cot["pred_idx"]],
                     "correct_answer": cot["is_correct"],

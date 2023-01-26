@@ -46,6 +46,28 @@ def test_template_input_only_string():
     collection.generate(config=config)
 
     assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["cot_trigger_template"] == text1
+    )
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
+            "answer_extraction_template"
+        ]
+        == text2
+    )
+
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] == ""
+    )
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
+            "answer_extraction_text"
+        ]
+        == ""
+    )
+
+    collection.full_text_prompts()
+
+    assert (
         collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] == text1
     )
     assert (
@@ -80,6 +102,7 @@ def test_template_default_f_strings() -> None:
     collection = get_test_collection("test_1_dataset")
     config = simple_config()
     collection.generate(config=config)
+    collection.full_text_prompts()
     assert (
         collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"]
         == """Answer the following question through step-by-step reasoning.
@@ -114,6 +137,7 @@ def test_template_instruction_is_none() -> None:
     config = simple_config()
     config["instruction_keys"] = [None]
     collection.generate(config=config)
+    collection.full_text_prompts()
     assert (
         collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"]
         == """Question

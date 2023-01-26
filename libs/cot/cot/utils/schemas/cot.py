@@ -19,11 +19,13 @@ features = datasets.Features(
                 "fragments_version": datasets.Value("string"),
                 "instruction": datasets.Value("string"),
                 "cot_trigger": datasets.Value("string"),
+                "cot_trigger_template": datasets.Value("string"),
                 "prompt_text": datasets.Value("string"),
                 "answers": [
                     {
                         "id": datasets.Value("string"),
                         "answer_extraction": datasets.Value("string"),
+                        "answer_extraction_template": datasets.Value("string"),
                         "answer_extraction_text": datasets.Value("string"),
                         "answer": datasets.Value("string"),
                         "correct_answer": datasets.Value("bool"),

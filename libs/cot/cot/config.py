@@ -12,7 +12,7 @@ class Config:
     "idx_range": tuple(int,int) - Determines which indices the generate_and_extract routine is applied to,
         if idx not within idx_range do nothing and return item. Default: "all" (All items are used)
     "multiple_choice_answer_format": str - How the list of multiple choice answer is formatted and indexed
-        "Letters" (A,B,C,...), "Numbers" (1,2,3,...), "None" (no index), Default: "Letters" (A,B,C,...)
+        "Letters" (A,B,C,...), "None" (no index), Default: "Letters" (A,B,C,...)
         # TODO: change name to multiple_choice_formatting, add None option
     "instruction_keys": list(str) - Determines which instruction_keys are used from fragments.json,
         the corresponding string will be inserted under "instruction" in the fragments. Default: "all" (All used)
@@ -57,7 +57,6 @@ class Config:
     """
 
     idx_range: Union[tuple, str, None] = "all"
-    multiple_choice_answer_format: Union[str, None] = "Letters"
     # Passing a default list as an argument to dataclasses needs to be done with a lambda function
     # https://stackoverflow.com/questions/52063759/passing-default-list-argument-to-dataclasses
     instruction_keys: List = field(default_factory=lambda: [None])
@@ -131,16 +130,6 @@ class Config:
             assert (
                 self.idx_range[0] < self.idx_range[1]
             ), "idx_range must be a tuple of ints with idx_range[0] < idx_range[1]"
-
-        if self.multiple_choice_answer_format != "Letters":
-            assert isinstance(
-                self.multiple_choice_answer_format, (str, type(None))
-            ), "multiple_choice_answer_format must be str or None"
-            assert self.multiple_choice_answer_format in [
-                "Letters",
-                "Numbers",
-                None,
-            ], "multiple_choice_answer_format must be 'Letters', 'Numbers' or None"
 
         if self.instruction_keys != "all":
             assert isinstance(

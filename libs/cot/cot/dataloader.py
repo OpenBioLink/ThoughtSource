@@ -13,7 +13,7 @@ import datasets as ds
 import pandas as pd
 
 from .evaluate import evaluate
-from .generate import generate_and_extract
+from .generate import generate_and_extract, full_text_prompts
 from .merge import merge
 
 
@@ -251,7 +251,20 @@ class Collection:
                 self[name][split], evaluations = evaluate(self[name][split], overwrite=overwrite, warn=warn)
                 evaluations_dict[name][split] = evaluations
 
+        # return evaluation outcome
         return dict(evaluations_dict)
+    
+    def full_text_prompts(self, name=None, split=None, prompt_text=True, answer_extraction_text = True):
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    self[name][split] = full_text_prompts(self[name][split], prompt_text=prompt_text, answer_extraction_text=answer_extraction_text)
+        else:
+            if split is None:
+                for split in self._cache[name]:
+                    self[name][split] = full_text_prompts(self[name][split], prompt_text=prompt_text, answer_extraction_text=answer_extraction_text)
+            else:
+                self[name][split] = full_text_prompts(self[name][split], prompt_text=prompt_text, answer_extraction_text=answer_extraction_text)
 
     def merge(self, collection_other):
         return merge(self, collection_other)
