@@ -28,7 +28,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(self, names=None, verbose=True, generate_mode=None, source=False):
+    def __init__(self, names=None, verbose=True, generate_mode=None, source=False, single_generated_cots=True, multi_generated_cots=True):"):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -45,6 +45,9 @@ class Collection:
         - if "recache": deletes dataset caches and regenerates all datasets
         - if None: reuse cached dataset
         :param source: If true, loads all datasets in source view
+        :param single_generated_cots: loads all datasets with examples that generated one CoT per config.
+        :param multi_generated_cots: loads datasets where multiple CoTs were created with the same config for one data sample 
+         (often high numbers, e.g. 100 examples created with higher temperature setting while training).
         """
         self.verbose = verbose
         self.download_mode = None
