@@ -60,8 +60,7 @@ def generate_and_extract(data, config):
 def _generate_and_extract(
     item,
     idx,
-    # did not find a way to pass the config as a dataclass object, therefor setting all parameters to None here
-    # all these variables will be defined by the config_as_dataclass object
+    # all of the following variables will be defined by the config_as_dataclass object
     idx_range,
     author,
     api_service,
@@ -69,7 +68,6 @@ def _generate_and_extract(
     temperature,
     max_tokens,
     api_time_interval,
-    # multiple_choice_answer_format,
     instruction_keys,
     cot_trigger_keys,
     template_cot_generation,
