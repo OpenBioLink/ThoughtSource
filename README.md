@@ -12,6 +12,10 @@ ThoughtSource is a central, open resource and community centered on data and too
 
 
 
+📄 Ott _et al._ [__"ThoughtSource: A central hub for large language
+model reasoning data"__](https://samwald.info/res/ThoughtSource-A-central-hub-for-large-language-model-reasoning-data-v1.pdf), 2023 (arXiv pre-print available soon)
+
+
 
 ## Workflow
 
