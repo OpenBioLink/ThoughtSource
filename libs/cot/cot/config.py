@@ -17,11 +17,11 @@ class Config:
         the corresponding string will be inserted under "answer" in the fragments. Default: ["kojima-01"]
     "template_cot_generation": string - is the model input in the text generation step, variables in brackets.
         Only variables of this list are allowed: "instruction", 'question", "answer_choices", "cot_trigger"
-        Default: {instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}
+        Default: {instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}
     "template_answer_extraction": string - is the model input in the answer extraction step, variables in brackets.
         Only variables of this list are allowed: "instruction", 'question", "answer_choices", "cot_trigger",
         "cot", "answer"
-        Default: {instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}
+        Default: {instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}
     "author" : str - Name of the person responsible for generation, Default: ""
     "api_service" str - Name of the used api service: "openai" or "huggingface_hub",
         or a mock api service "mock_api" for debugging, Default: "huggingface_hub"
@@ -58,9 +58,7 @@ class Config:
     instruction_keys: List = field(default_factory=lambda: [None])
     cot_trigger_keys: List = field(default_factory=lambda: ["kojima-01"])
     answer_extraction_keys: List = field(default_factory=lambda: ["kojima-01"])
-    template_cot_generation: str = (
-        "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}"
-    )
+    template_cot_generation: str = ("{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}")
     template_answer_extraction: str = "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}"
     author: str = ""
     api_service: str = "huggingface_hub"

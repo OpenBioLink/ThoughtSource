@@ -34,13 +34,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nScientists launch a rocket into space for a mission. Once the rocket escapes the gravitational pull of Earth, how will the mass and weight of the rocket be affected?\nA) The mass and weight will change.\nB) The mass and weight will stay the same.\nC) The mass will stay the same, but the weight will change.\nD) The mass will change, but the weight will stay the same.\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "c445ec76-32ce-45f8-b0f1-3b01d56065d8",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nScientists launch a rocket into space for a mission. Once the rocket escapes the gravitational pull of Earth, how will the mass and weight of the rocket be affected?\nA) The mass and weight will change.\nB) The mass and weight will stay the same.\nC) The mass will stay the same, but the weight will change.\nD) The mass will change, but the weight will stay the same.\n\nAnswer: Let's think step by step.The mass and weight of the rocket will stay the same. Gravity is the pull of the Earth on the rocket. So, the final answer is B.\nTherefore, among A through D, the answer is",
                                 "answer": "B.",
                                 "correct_answer": false
                             }
@@ -84,13 +84,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nAnimals may fight, make threatening sounds, and act aggressively toward members of the same species. These behaviors usually occur as the result of\nA) competition\nB) conservation\nC) decomposition\nD) pollution\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "f030fce8-46a0-4d34-afad-7776a1fd8c0e",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nAnimals may fight, make threatening sounds, and act aggressively toward members of the same species. These behaviors usually occur as the result of\nA) competition\nB) conservation\nC) decomposition\nD) pollution\n\nAnswer: Let's think step by step.Aggressive behaviors are often the result of competition. Competition is the result of animals fighting, making threatening sounds, and acting aggressively toward members of the same species. So, the final answer is A.\nTherefore, among A through D, the answer is",
                                 "answer": "A.",
                                 "correct_answer": true
                             }
@@ -134,13 +134,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nWhich is a characteristic of a sperm cell but not of an egg cell?\nA) round shape\nB) presence of a tail\nC) contains genetic information\nD) involved in sexual reproduction\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "6a831012-73e1-4752-a220-90849a22c041",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nWhich is a characteristic of a sperm cell but not of an egg cell?\nA) round shape\nB) presence of a tail\nC) contains genetic information\nD) involved in sexual reproduction\n\nAnswer: Let's think step by step.Sperm cells have a tail. Egg cells do not have a tail. So, the final answer is B.\nTherefore, among A through D, the answer is",
                                 "answer": "B.",
                                 "correct_answer": true
                             }
@@ -183,13 +183,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nA decomposer is an organism that\nA) preys on other animals\nB) eats only plants\nC) recycles nutrients\nD) uses sunlight to make food\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "0b544373-5fa8-4006-8613-f11760af2ab6",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nA decomposer is an organism that\nA) preys on other animals\nB) eats only plants\nC) recycles nutrients\nD) uses sunlight to make food\n\nAnswer: Let's think step by step.C) recycles nutrients. Decomposers are organisms that break down dead organisms. Decomposers recycle nutrients. So, the final answer is C.\nTherefore, among A through D, the answer is",
                                 "answer": "C.",
                                 "correct_answer": true
                             }
@@ -232,13 +232,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nA parent and a child share several characteristics. Both individuals are tall, have curly hair, are good cooks, and have freckles. Which of these characteristics is a learned behavior?\nA) being tall\nB) having curly hair\nC) being a good cook\nD) having freckles\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "b09d0a36-468c-4259-a463-2a2b041bf8a8",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nA parent and a child share several characteristics. Both individuals are tall, have curly hair, are good cooks, and have freckles. Which of these characteristics is a learned behavior?\nA) being tall\nB) having curly hair\nC) being a good cook\nD) having freckles\n\nAnswer: Let's think step by step.Being a good cook is a learned behavior. The parent and the child share several characteristics. So, the answer is C.\nTherefore, among A through D, the answer is",
                                 "answer": "C.",
                                 "correct_answer": true
                             }
@@ -283,13 +283,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nSteven went to a farm and picked a bright red tomato from a broken branch on the plant. The tomato had a rotten spot with a worm inside of it. Instead of eating the tomato, Steven decided to plant the seeds and grow new tomato plants. Which characteristic of the tomato plant is inherited and could change over several generations?\nA) color of the skin\nB) size of rotten spots\nC) length of worms inside\nD) number of broken branches\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "efd31a44-90d1-4d93-aee3-809a44d16158",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nSteven went to a farm and picked a bright red tomato from a broken branch on the plant. The tomato had a rotten spot with a worm inside of it. Instead of eating the tomato, Steven decided to plant the seeds and grow new tomato plants. Which characteristic of the tomato plant is inherited and could change over several generations?\nA) color of the skin\nB) size of rotten spots\nC) length of worms inside\nD) number of broken branches\n\nAnswer: Let's think step by step.Tomato plants are a member of the nightshade family. Nightshade plants are inherited and could change over several generations. Tomato plants are a member of the nightshade family. So, the answer is A.\nTherefore, among A through D, the answer is",
                                 "answer": "A.",
                                 "correct_answer": true
                             }
@@ -340,13 +340,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nSharpening a pencil and tearing paper are examples of physical changes. Which statement describes why these are physical changes?\nA) There is a change in how the objects are used.\nB) There is a change in the appearance of the objects.\nC) There is a change in the materials from which the objects are made.\nD) There is a change in both the appearance of the objects and the materials from which they are made.\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "89b498da-d9e5-41b8-a6c6-1e28f873cfe3",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nSharpening a pencil and tearing paper are examples of physical changes. Which statement describes why these are physical changes?\nA) There is a change in how the objects are used.\nB) There is a change in the appearance of the objects.\nC) There is a change in the materials from which the objects are made.\nD) There is a change in both the appearance of the objects and the materials from which they are made.\n\nAnswer: Let's think step by step.A change in the appearance of the objects. B) There is a change in the appearance of the objects. C) There is a change in the materials from which the objects are made. D) There is a change in both the appearance of the objects and the materials from which they are made. So, the final answer is D.\nTherefore, among A through D, the answer is",
                                 "answer": "D.",
                                 "correct_answer": false
                             }
@@ -392,13 +392,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nA student stands on a scale, and the scale reads 85 pounds. What is being measured by the scale?\nA) the force of gravity acting on the student\nB) the air pressure surrounding the student\nC) the mass of the student\nD) the volume of the student\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "90dd9c5b-8cfb-4d81-9c95-e59a3e8405d3",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nA student stands on a scale, and the scale reads 85 pounds. What is being measured by the scale?\nA) the force of gravity acting on the student\nB) the air pressure surrounding the student\nC) the mass of the student\nD) the volume of the student\n\nAnswer: Let's think step by step.C is the mass of the student. The student is on a scale, and the scale reads 85 pounds. So, the answer is C.\nTherefore, among A through D, the answer is",
                                 "answer": "C.",
                                 "correct_answer": false
                             }
@@ -442,13 +442,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nAnthony and Zach want to know how the temperature of the air affects the temperature of lake water. Which type of tool should they use to measure the temperatures?\nA) balance\nB) ruler\nC) scale\nD) thermometer\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "ef7ea323-e033-4219-a011-a5871e395958",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nAnthony and Zach want to know how the temperature of the air affects the temperature of lake water. Which type of tool should they use to measure the temperatures?\nA) balance\nB) ruler\nC) scale\nD) thermometer\n\nAnswer: Let's think step by step.D is the temperature of the lake water. The temperature of the air is different from the temperature of the lake water. D is the tool to measure the temperature. So, the final answer is D.\nTherefore, among A through D, the answer is",
                                 "answer": "D.",
                                 "correct_answer": true
                             }
@@ -490,13 +490,13 @@
                         "instruction": "qa-01",
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
-                        "prompt_text": "",
+                        "prompt_text": "Answer the following question through step-by-step reasoning.\n\nWhich of these dissolve in water?\nA) Sand grains\nB) Sugar cubes\nC) Plastic straws\nD) Wooden spoons\n\nAnswer: Let's think step by step.",
                         "answers": [
                             {
                                 "id": "c8bda2cb-3546-473e-9b6a-9fb1a3216898",
                                 "answer_extraction": "kojima-A-D",
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
-                                "answer_extraction_text": "",
+                                "answer_extraction_text": "Answer the following question through step-by-step reasoning.\n\nWhich of these dissolve in water?\nA) Sand grains\nB) Sugar cubes\nC) Plastic straws\nD) Wooden spoons\n\nAnswer: Let's think step by step.Sand grains are solid particles of sand. Sand grains dissolve in water. So, the final answer is A.\nTherefore, among A through D, the answer is",
                                 "answer": "A.",
                                 "correct_answer": false
                             }
