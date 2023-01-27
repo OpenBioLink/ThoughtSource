@@ -333,8 +333,8 @@ def print_warning(config, n_samples):
     if ans.lower() == "y":
         pass
     else:
-        return
-
+        # break the execution of the code if the user does not want to continue
+        raise ValueError("Generation aborted by user.")
 
 def multiple_choice_answer_formatting(answer_choices):
     '''Transforms a list of answer choices into a string with letters (A,B,C,...) for each answer choice.'''
