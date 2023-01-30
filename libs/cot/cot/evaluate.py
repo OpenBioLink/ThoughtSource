@@ -32,6 +32,7 @@ def search_regex(s: str, patterns: list, warn: bool) -> str:
     # If none of the regex patterns are found, return an empty string
     return ""
 
+
 def escape_special_characters(string):
     result = r""
     # everything but | because it is used in the regex
@@ -139,8 +140,10 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
 
     # individual sequences at the moment only for multiplechoice
     if type_ == "multiplechoice":
-    # the following part of the individual sequences needs some simplification....
-        expected_answer_raw_as_group = r"(" + r"|".join(choices_values_raw + choices_keys) + r")"
+        # the following part of the individual sequences needs some simplification....
+        expected_answer_raw_as_group = (
+            r"(" + r"|".join(choices_values_raw + choices_keys) + r")"
+        )
 
         individual_sequences = [
             # insert your individual answer sequences here
@@ -149,9 +152,10 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             # e.g. for "The answer is: A) answer_as_text."
             # rewrite as: r"The answer is: " + expected_answer_raw + r") " + expected_answer_raw + r"."
             # expected_answer_raw + re.escape(r") ") + expected_answer_raw + re.escape(r".")
-
-            expected_answer_raw_as_group + escape_special_characters(") ") + expected_answer_raw_as_group + escape_special_characters(".")
-
+            expected_answer_raw_as_group
+            + escape_special_characters(") ")
+            + expected_answer_raw_as_group
+            + escape_special_characters(".")
         ]
         # idea to generalize the individual sequences:
         # make file in codebase where people can add their individual sequences
@@ -162,18 +166,25 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         # then join the sentences again with the placeholder in between
 
         # make individual sequences have start and end of sentence
-        individual_sequences = [r"^" + sequence + r"$" for sequence in individual_sequences]
-
+        individual_sequences = [
+            r"^" + sequence + r"$" for sequence in individual_sequences
+        ]
 
     if type_ == "multiplechoice":
-        sequences_for_search = [only_answer_sequence] + individual_sequences + [starting_sequence, ending_sequence]
-    else: 
-        sequences_for_search = [only_answer_sequence, starting_sequence, ending_sequence]
+        sequences_for_search = (
+            [only_answer_sequence]
+            + individual_sequences
+            + [starting_sequence, ending_sequence]
+        )
+    else:
+        sequences_for_search = [
+            only_answer_sequence,
+            starting_sequence,
+            ending_sequence,
+        ]
 
     # search for the sequences in the prediction
-    pred_match = search_regex(
-        pred, sequences_for_search, warn=warn
-    )
+    pred_match = search_regex(pred, sequences_for_search, warn=warn)
 
     # if not one specific value is found, search if multiple are found and return the first one
     if pred_match == "":
@@ -191,7 +202,9 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                 if type_ == "multiplechoice":
                     multiple_findings = " " + expected_answer_location + r"[\s|\,|\.]"
 
-                pred_match = search_regex(str_after_word, [multiple_findings], warn=warn)
+                pred_match = search_regex(
+                    str_after_word, [multiple_findings], warn=warn
+                )
 
     if pred_match == "" and warn:
         warnings.warn(
@@ -265,7 +278,7 @@ def evaluate_sample(example, type_, overwrite, warn):
     return example
 
 
-def evaluate(dataset, overwrite=False, warn=True, config=None): # config can be deleted
+def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
     assert isinstance(
         dataset, ds.arrow_dataset.Dataset
     ), "dataset must be an arrow dataset"
@@ -292,21 +305,21 @@ def evaluate(dataset, overwrite=False, warn=True, config=None): # config can be 
             if example["answer"][0] == None:
                 continue
             for answer in cot["answers"]:
-                # when model is a dict, e.g. {'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}               
+                # when model is a dict, e.g. {'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}
                 if "{" in cot["model"]:
                     # extract model name from dict (which has to be read from a string)
                     model = literal_eval(cot["model"])
                     model_name = model["name"]
                 else:
-                # when model is a string, e.g. "text_davinci_002", happens at preloaded generated cots (e.g. from lievin)
+                    # when model is a string, e.g. "text_davinci_002", happens at preloaded generated cots (e.g. from lievin)
                     model_name = cot["model"]
                 model_names.add(model_name)
                 # make a key for each combination of triggers, e.g. "None_lievin-02_kojima-A-C"
-                key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}" # {model_name}_
+                key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
                 keys.add(key)
                 counter[model_name][key] += 1
                 if answer["correct_answer"]:
-                        predictions[model_name][key] += 1
+                    predictions[model_name][key] += 1
 
     if warn:
         for count in counter.values():
