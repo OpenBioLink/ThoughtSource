@@ -35,6 +35,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Mass is a measure of the amount of matter in an object, and it does not change. Weight, on the other hand, is a measure of the force of gravity on an object, and it does change. So, the answer is C: The mass will stay the same, but the weight will change.",
                         "answers": [
                             {
                                 "id": "68a16ad9-1885-432b-a8af-a841b2ecef04",
@@ -45,7 +46,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " Mass is a measure of the amount of matter in an object, and it does not change. Weight, on the other hand, is a measure of the force of gravity on an object, and it does change. So, the answer is C: The mass will stay the same, but the weight will change.",
                         "author": "your_name",
                         "date": "2023/01/27 18:20:31",
                         "api_service": "openai",
@@ -60,6 +60,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Mass is a measure of the amount of matter in an object, and it does not change. Weight, on the other hand, is a measure of the force of gravity on an object, and it does change. So, the answer is C: The mass will stay the same, but the weight will change.",
                         "answers": [
                             {
                                 "id": "c6f6de09-5dc6-4159-96c3-77ce853a477f",
@@ -70,7 +71,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " Mass is a measure of the amount of matter in an object, and it does not change. Weight, on the other hand, is a measure of the force of gravity on an object, and it does change. So, the answer is C: The mass will stay the same, but the weight will change.",
                         "author": "your_name",
                         "date": "2023/01/27 18:20:43",
                         "api_service": "openai",
@@ -85,6 +85,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " it is important to note that mass and weight are not the same thing. Mass is a measure of the amount of matter in an object, while weight is a measure of the force of gravity on an object.\n\nThe mass of the rocket will stay the same, but the weight will change. Once the rocket escapes the gravitational pull of Earth, the force of gravity on the rocket will decrease, so the weight of the rocket will decrease.\n\nAnswer: D) The mass will change, but the weight will stay the same.",
                         "answers": [
                             {
                                 "id": "c337aeae-abbc-47c9-a7b4-0f2db5f1ddf0",
@@ -95,7 +96,6 @@
                                 "correct_answer": false
                             }
                         ],
-                        "cot": " it is important to note that mass and weight are not the same thing. Mass is a measure of the amount of matter in an object, while weight is a measure of the force of gravity on an object.\n\nThe mass of the rocket will stay the same, but the weight will change. Once the rocket escapes the gravitational pull of Earth, the force of gravity on the rocket will decrease, so the weight of the rocket will decrease.\n\nAnswer: D) The mass will change, but the weight will stay the same.",
                         "author": "your_name",
                         "date": "2023/01/27 18:20:54",
                         "api_service": "openai",
@@ -135,6 +135,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": "\n\nAnimals may fight, make threatening sounds, and act aggressively toward members of the same species.\n\nThese behaviors usually occur as the result of:\n\nA) Competition",
                         "answers": [
                             {
                                 "id": "83611843-3b38-4167-82d5-f1b8c13ada73",
@@ -145,7 +146,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": "\n\nAnimals may fight, make threatening sounds, and act aggressively toward members of the same species.\n\nThese behaviors usually occur as the result of:\n\nA) Competition",
                         "author": "your_name",
                         "date": "2023/01/27 18:20:59",
                         "api_service": "openai",
@@ -160,6 +160,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Animals may fight, make threatening sounds, and act aggressively. These behaviors usually occur as the result of something. The answer choices are competition, conservation, decomposition, and pollution. None of these choices seem to fit the behavior of animals fighting and making threatening sounds. The correct answer is A) competition.",
                         "answers": [
                             {
                                 "id": "d9c70e26-7a21-4ec5-81f8-f1be56552e47",
@@ -170,7 +171,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " Animals may fight, make threatening sounds, and act aggressively. These behaviors usually occur as the result of something. The answer choices are competition, conservation, decomposition, and pollution. None of these choices seem to fit the behavior of animals fighting and making threatening sounds. The correct answer is A) competition.",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:04",
                         "api_service": "openai",
@@ -185,6 +185,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " A) competition",
                         "answers": [
                             {
                                 "id": "7d4ecc9d-4934-4119-a6da-5983e83f0079",
@@ -195,7 +196,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " A) competition",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:07",
                         "api_service": "openai",
@@ -235,6 +235,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " An egg cell and a sperm cell are both involved in sexual reproduction, so that answer is not correct. Both cells contain genetic information, so that answer is not correct either. An egg cell is typically oval or round in shape, while a sperm cell is typically more elongated and has a tail, so the correct answer is B) presence of a tail.",
                         "answers": [
                             {
                                 "id": "1e3ebe46-b132-42da-8ccf-7a5f41a81e69",
@@ -245,7 +246,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " An egg cell and a sperm cell are both involved in sexual reproduction, so that answer is not correct. Both cells contain genetic information, so that answer is not correct either. An egg cell is typically oval or round in shape, while a sperm cell is typically more elongated and has a tail, so the correct answer is B) presence of a tail.",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:13",
                         "api_service": "openai",
@@ -260,6 +260,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " An egg cell and a sperm cell are both involved in sexual reproduction, so that is not the correct answer. Both cells contain genetic information, so that is not the correct answer either. An egg cell is typically oval or round in shape, while a sperm cell is typically round with a tail, so the correct answer is B) presence of a tail.",
                         "answers": [
                             {
                                 "id": "3a49ae94-42b1-4545-8db2-4d98bcd58c74",
@@ -270,7 +271,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " An egg cell and a sperm cell are both involved in sexual reproduction, so that is not the correct answer. Both cells contain genetic information, so that is not the correct answer either. An egg cell is typically oval or round in shape, while a sperm cell is typically round with a tail, so the correct answer is B) presence of a tail.",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:23",
                         "api_service": "openai",
@@ -285,6 +285,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " it is important to note that sperm cells and egg cells are both involved in sexual reproduction. \n\nB) presence of a tail",
                         "answers": [
                             {
                                 "id": "9730457d-2c83-49ad-a447-bc030306c5da",
@@ -295,7 +296,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " it is important to note that sperm cells and egg cells are both involved in sexual reproduction. \n\nB) presence of a tail",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:31",
                         "api_service": "openai",
@@ -334,6 +334,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": "\n\nA) Preys on other animals - No, this is not the correct answer.\nB) Eats only plants - No, this is not the correct answer.\nC) Recycles nutrients - Yes, this is the correct answer. Decomposers break down dead organisms and recycle their nutrients back into the environment.\nD) Uses sunlight to make food - No, this is not the correct answer.",
                         "answers": [
                             {
                                 "id": "9fc5d07d-b795-43d0-85d8-14bd08e5a0c6",
@@ -344,7 +345,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": "\n\nA) Preys on other animals - No, this is not the correct answer.\nB) Eats only plants - No, this is not the correct answer.\nC) Recycles nutrients - Yes, this is the correct answer. Decomposers break down dead organisms and recycle their nutrients back into the environment.\nD) Uses sunlight to make food - No, this is not the correct answer.",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:37",
                         "api_service": "openai",
@@ -359,6 +359,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Preying on other animals is not a characteristic of a decomposer, so A is incorrect. Eating only plants is not a characteristic of a decomposer, so B is incorrect. Recycling nutrients is a characteristic of a decomposer, so C is correct. Using sunlight to make food is not a characteristic of a decomposer, so D is incorrect. The correct answer is C.",
                         "answers": [
                             {
                                 "id": "566b886b-66cb-46c4-bb8e-bbb05a9e9931",
@@ -369,7 +370,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " Preying on other animals is not a characteristic of a decomposer, so A is incorrect. Eating only plants is not a characteristic of a decomposer, so B is incorrect. Recycling nutrients is a characteristic of a decomposer, so C is correct. Using sunlight to make food is not a characteristic of a decomposer, so D is incorrect. The correct answer is C.",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:45",
                         "api_service": "openai",
@@ -384,6 +384,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " C) recycles nutrients.",
                         "answers": [
                             {
                                 "id": "75d34546-18e6-4efb-b21d-304ab86416ad",
@@ -394,7 +395,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " C) recycles nutrients.",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:49",
                         "api_service": "openai",
@@ -433,6 +433,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Being tall and having curly hair are physical characteristics that are inherited, not learned. Having freckles is also a physical characteristic that is inherited. Therefore, the correct answer is C) being a good cook, which is a learned behavior.",
                         "answers": [
                             {
                                 "id": "d8d7b6c5-e4ce-4266-8547-9b76bfc2f27d",
@@ -443,7 +444,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " Being tall and having curly hair are physical characteristics that are inherited, not learned. Having freckles is also a physical characteristic that is inherited. Therefore, the correct answer is C) being a good cook, which is a learned behavior.",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:53",
                         "api_service": "openai",
@@ -458,6 +458,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Being tall and having curly hair are both physical characteristics that are inherited, so they are not learned behaviors. Being a good cook is a learned behavior, so the correct answer is C) being a good cook.",
                         "answers": [
                             {
                                 "id": "49b93669-a3a2-4923-b40f-484d26bd778c",
@@ -468,7 +469,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " Being tall and having curly hair are both physical characteristics that are inherited, so they are not learned behaviors. Being a good cook is a learned behavior, so the correct answer is C) being a good cook.",
                         "author": "your_name",
                         "date": "2023/01/27 18:21:58",
                         "api_service": "openai",
@@ -483,6 +483,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " being tall and having freckles are physical characteristics that are not learned behaviors. Having curly hair is also a physical characteristic, but it can be affected by styling and other treatments. Therefore, the correct answer is C) being a good cook.",
                         "answers": [
                             {
                                 "id": "30af2adc-4729-4940-b3d4-65ce317b8728",
@@ -493,7 +494,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " being tall and having freckles are physical characteristics that are not learned behaviors. Having curly hair is also a physical characteristic, but it can be affected by styling and other treatments. Therefore, the correct answer is C) being a good cook.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:03",
                         "api_service": "openai",
@@ -534,6 +534,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " The color of the skin, size of rotten spots, and length of worms inside are all characteristics of the tomato that Steven picked. These characteristics are not inherited and cannot change over several generations. The number of broken branches is a characteristic of the plant, not the tomato, and it is inherited and could change over several generations. Therefore, the correct answer is D) number of broken branches.",
                         "answers": [
                             {
                                 "id": "ff6c92be-9d05-4b9c-bf1e-92b7c34e051a",
@@ -544,7 +545,6 @@
                                 "correct_answer": false
                             }
                         ],
-                        "cot": " The color of the skin, size of rotten spots, and length of worms inside are all characteristics of the tomato that Steven picked. These characteristics are not inherited and cannot change over several generations. The number of broken branches is a characteristic of the plant, not the tomato, and it is inherited and could change over several generations. Therefore, the correct answer is D) number of broken branches.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:09",
                         "api_service": "openai",
@@ -559,6 +559,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " The color of the skin, size of rotten spots, and length of worms inside are all characteristics of the tomato that Steven picked. None of these characteristics can be inherited and changed over several generations. The only characteristic that can be inherited and changed over several generations is the number of broken branches. Therefore, the correct answer is D) number of broken branches.",
                         "answers": [
                             {
                                 "id": "6265eb6f-f191-419a-8814-b67c8005418a",
@@ -569,7 +570,6 @@
                                 "correct_answer": false
                             }
                         ],
-                        "cot": " The color of the skin, size of rotten spots, and length of worms inside are all characteristics of the tomato that Steven picked. None of these characteristics can be inherited and changed over several generations. The only characteristic that can be inherited and changed over several generations is the number of broken branches. Therefore, the correct answer is D) number of broken branches.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:15",
                         "api_service": "openai",
@@ -584,6 +584,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " A) color of the skin.",
                         "answers": [
                             {
                                 "id": "066c5e68-e617-4fd0-bd61-53cc2854c6cc",
@@ -594,7 +595,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " A) color of the skin.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:18",
                         "api_service": "openai",
@@ -641,6 +641,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " When you sharpen a pencil, the appearance of the pencil changes, but the materials from which it is made remain the same. When you tear paper, the appearance of the paper changes, but the materials from which it is made remain the same. Therefore, the correct answer is B) There is a change in the appearance of the objects.",
                         "answers": [
                             {
                                 "id": "1a4ad0a8-54f8-4632-8bea-55946b4f33dd",
@@ -651,7 +652,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " When you sharpen a pencil, the appearance of the pencil changes, but the materials from which it is made remain the same. When you tear paper, the appearance of the paper changes, but the materials from which it is made remain the same. Therefore, the correct answer is B) There is a change in the appearance of the objects.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:27",
                         "api_service": "openai",
@@ -666,6 +666,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Sharpening a pencil and tearing paper are physical changes because they involve a change in the appearance of the objects. Therefore, the correct answer is B) There is a change in the appearance of the objects.",
                         "answers": [
                             {
                                 "id": "e9380525-1b69-4b67-9890-62d14126b23f",
@@ -676,7 +677,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " Sharpening a pencil and tearing paper are physical changes because they involve a change in the appearance of the objects. Therefore, the correct answer is B) There is a change in the appearance of the objects.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:33",
                         "api_service": "openai",
@@ -691,6 +691,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " B) There is a change in the appearance of the objects.",
                         "answers": [
                             {
                                 "id": "3e854465-4073-4eb7-ad15-d8568c6cdc62",
@@ -701,7 +702,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " B) There is a change in the appearance of the objects.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:36",
                         "api_service": "openai",
@@ -743,6 +743,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " The scale is measuring something about the student. It is not measuring the force of gravity, the air pressure, or the volume of the student. The only option left is the mass of the student. Therefore, the answer is C) the mass of the student.",
                         "answers": [
                             {
                                 "id": "36506e4b-c1f6-4a05-9057-da1d844af961",
@@ -753,7 +754,6 @@
                                 "correct_answer": false
                             }
                         ],
-                        "cot": " The scale is measuring something about the student. It is not measuring the force of gravity, the air pressure, or the volume of the student. The only option left is the mass of the student. Therefore, the answer is C) the mass of the student.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:43",
                         "api_service": "openai",
@@ -768,6 +768,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " A scale is a device used to measure weight, so it is measuring the mass of the student. Therefore, the answer is C) the mass of the student.",
                         "answers": [
                             {
                                 "id": "c4a8f924-2a2e-470f-b809-bb9e0ca39de0",
@@ -778,7 +779,6 @@
                                 "correct_answer": false
                             }
                         ],
-                        "cot": " A scale is a device used to measure weight, so it is measuring the mass of the student. Therefore, the answer is C) the mass of the student.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:48",
                         "api_service": "openai",
@@ -793,6 +793,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " the mass of the student is being measured by the scale.",
                         "answers": [
                             {
                                 "id": "c11ca8d7-253c-483a-a1a5-5b8ca417f7a8",
@@ -803,7 +804,6 @@
                                 "correct_answer": false
                             }
                         ],
-                        "cot": " the mass of the student is being measured by the scale.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:51",
                         "api_service": "openai",
@@ -843,6 +843,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Anthony and Zach want to measure the temperature of the air and the temperature of lake water. To measure temperature, they should use a thermometer. Therefore, the correct answer is D) thermometer.",
                         "answers": [
                             {
                                 "id": "8918358b-895b-4463-89eb-f8839695cef8",
@@ -853,7 +854,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " Anthony and Zach want to measure the temperature of the air and the temperature of lake water. To measure temperature, they should use a thermometer. Therefore, the correct answer is D) thermometer.",
                         "author": "your_name",
                         "date": "2023/01/27 18:22:56",
                         "api_service": "openai",
@@ -868,6 +868,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " First, Anthony and Zach need to measure the temperature of the air. Then, they need to measure the temperature of the lake water. Therefore, the tool they should use to measure the temperatures is a thermometer.\n\nAnswer: D) thermometer",
                         "answers": [
                             {
                                 "id": "4726903a-ddf4-4de5-921f-a7ccec3bd1a6",
@@ -878,7 +879,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " First, Anthony and Zach need to measure the temperature of the air. Then, they need to measure the temperature of the lake water. Therefore, the tool they should use to measure the temperatures is a thermometer.\n\nAnswer: D) thermometer",
                         "author": "your_name",
                         "date": "2023/01/27 18:23:00",
                         "api_service": "openai",
@@ -893,6 +893,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " D) thermometer",
                         "answers": [
                             {
                                 "id": "07f8abcb-ea8b-4e60-82e6-8f14ec841df5",
@@ -903,7 +904,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " D) thermometer",
                         "author": "your_name",
                         "date": "2023/01/27 18:23:04",
                         "api_service": "openai",
@@ -941,6 +941,7 @@
                         "cot_trigger": "kojima-01",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Sand grains and wooden spoons do not dissolve in water, so the answer is B) Sugar cubes and C) Plastic straws.",
                         "answers": [
                             {
                                 "id": "9cb42282-6ceb-4fbe-9786-123f5090be5d",
@@ -951,7 +952,6 @@
                                 "correct_answer": false
                             }
                         ],
-                        "cot": " Sand grains and wooden spoons do not dissolve in water, so the answer is B) Sugar cubes and C) Plastic straws.",
                         "author": "your_name",
                         "date": "2023/01/27 18:23:07",
                         "api_service": "openai",
@@ -966,6 +966,7 @@
                         "cot_trigger": "kojima-02",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " Sand grains do not dissolve in water, so the answer is not A. Sugar cubes do dissolve in water, so the answer is B. Plastic straws do not dissolve in water, so the answer is not C. Wooden spoons do not dissolve in water, so the answer is not D. Therefore, the correct answer is B, sugar cubes.",
                         "answers": [
                             {
                                 "id": "c11e3d07-25c9-4bcf-8832-23837b94b861",
@@ -976,7 +977,6 @@
                                 "correct_answer": false
                             }
                         ],
-                        "cot": " Sand grains do not dissolve in water, so the answer is not A. Sugar cubes do dissolve in water, so the answer is B. Plastic straws do not dissolve in water, so the answer is not C. Wooden spoons do not dissolve in water, so the answer is not D. Therefore, the correct answer is B, sugar cubes.",
                         "author": "your_name",
                         "date": "2023/01/27 18:23:15",
                         "api_service": "openai",
@@ -991,6 +991,7 @@
                         "cot_trigger": "kojima-03",
                         "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
                         "prompt_text": "",
+                        "cot": " B) Sugar cubes",
                         "answers": [
                             {
                                 "id": "8ae04910-de75-47d3-9fe4-37cc54cb5a6d",
@@ -1001,7 +1002,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": " B) Sugar cubes",
                         "author": "your_name",
                         "date": "2023/01/27 18:23:18",
                         "api_service": "openai",
