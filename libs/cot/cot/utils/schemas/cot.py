@@ -21,6 +21,7 @@ features = datasets.Features(
                 "cot_trigger": datasets.Value("string"),
                 "cot_trigger_template": datasets.Value("string"),
                 "prompt_text": datasets.Value("string"),
+                "cot": datasets.Value("string"),
                 "answers": [
                     {
                         "id": datasets.Value("string"),
@@ -31,7 +32,6 @@ features = datasets.Features(
                         "correct_answer": datasets.Value("bool"),
                     }
                 ],
-                "cot": datasets.Value("string"),
                 "author": datasets.Value("string"),
                 "date": datasets.Value("string"),
 	            "api_service": datasets.Value("string"),
