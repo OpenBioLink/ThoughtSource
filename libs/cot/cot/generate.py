@@ -408,6 +408,7 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
                     # type: ignore (suppress pylance error)
                 ),
             )
+            
         if api_service == "huggingface_hub":
             from langchain import HuggingFaceHub
 
@@ -420,5 +421,19 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
                     # type: ignore (suppress pylance error)
                 ),
             )
+
+        if api_service == "cohere":
+            from langchain import Cohere
+
+            llm_chain = LLMChain(
+                prompt=prompt,
+                llm=Cohere(
+                    model=engine,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    # type: ignore (suppress pylance error)
+                ),
+            )
+
         response = llm_chain.predict(prompt=input, stop=None)
         return response
