@@ -42,7 +42,7 @@ def generate_and_extract(data, config):
     else:
         raise ValueError("Not recognized data")
 
-    if config["warn"]:
+    if ("warn" not in config or config["warn"]) and not config["api_service"]=="mock_api":
         print_warning(config, n_samples)
 
     # The config is transformed into a dataclass object, where all testing is done
