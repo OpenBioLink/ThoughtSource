@@ -9,7 +9,9 @@ from pprint import pprint
 import datasets as ds
 
 
-def search_regex(s: str, patterns: list) -> str:
+def search_regex(s: str, patterns: list, warn: bool) -> str:
+    # strip the string from whitespaces
+    s = s.strip()
     for pattern in patterns:
         # Compile the regular expression
         regex = re.compile(pattern, re.MULTILINE | re.IGNORECASE)
@@ -17,7 +19,7 @@ def search_regex(s: str, patterns: list) -> str:
         match = regex.search(s)
         if match:
             # If more than one group is defined in the regex, print a warning return the last group
-            if len(match.groups()) > 1:
+            if len(match.groups()) > 1 and warn:
                 warnings.warn(
                     f"""Found more than one possible answer to compute the evaluation score. By default returning the first found answer.
                                  In the answer sentence '{s}' these possible answers were found: '{match.groups()}'
@@ -29,6 +31,16 @@ def search_regex(s: str, patterns: list) -> str:
             return match.group(1)
     # If none of the regex patterns are found, return an empty string
     return ""
+
+def escape_special_characters(string):
+    result = r""
+    # everything but | because it is used in the regex
+    special_characters = r"\^$.?*+()["
+    for c in string:
+        if c in special_characters:
+            result += "\\"
+        result += c
+    return result
 
 
 def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bool:
@@ -125,8 +137,42 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         + r"\.?\s?$"
     )
 
+    # individual sequences at the moment only for multiplechoice
+    if type_ == "multiplechoice":
+    # the following part of the individual sequences needs some simplification....
+        expected_answer_raw_as_group = r"(" + r"|".join(choices_values_raw + choices_keys) + r")"
+
+        individual_sequences = [
+            # insert your individual answer sequences here
+            # replace both places of the answer (A,B,C,...) and the full text answer with the expected_answer_raw
+            # the rest part of the sequence put with raw strings in between.
+            # e.g. for "The answer is: A) answer_as_text."
+            # rewrite as: r"The answer is: " + expected_answer_raw + r") " + expected_answer_raw + r"."
+            # expected_answer_raw + re.escape(r") ") + expected_answer_raw + re.escape(r".")
+
+            expected_answer_raw_as_group + escape_special_characters(") ") + expected_answer_raw_as_group + escape_special_characters(".")
+
+        ]
+        # idea to generalize the individual sequences:
+        # make file in codebase where people can add their individual sequences
+        # let people replace the answer with the placeholder "expected_answer_location"
+        # then read the file
+        # split the sentences by the placeholder
+        # for every split that is not the placeholder, apply the escape_special_characters function
+        # then join the sentences again with the placeholder in between
+
+        # make individual sequences have start and end of sentence
+        individual_sequences = [r"^" + sequence + r"$" for sequence in individual_sequences]
+
+
+    if type_ == "multiplechoice":
+        sequences_for_search = [only_answer_sequence] + individual_sequences + [starting_sequence, ending_sequence]
+    else: 
+        sequences_for_search = [only_answer_sequence, starting_sequence, ending_sequence]
+
+    # search for the sequences in the prediction
     pred_match = search_regex(
-        pred, [only_answer_sequence, starting_sequence, ending_sequence]
+        pred, sequences_for_search, warn=warn
     )
 
     # if not one specific value is found, search if multiple are found and return the first one
@@ -145,7 +191,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                 if type_ == "multiplechoice":
                     multiple_findings = " " + expected_answer_location + r"[\s|\,|\.]"
 
-                pred_match = search_regex(str_after_word, [multiple_findings])
+                pred_match = search_regex(str_after_word, [multiple_findings], warn=warn)
 
     if pred_match == "" and warn:
         warnings.warn(
@@ -248,6 +294,7 @@ def evaluate(dataset, overwrite=False, warn=True, config=None): # config can be 
             for answer in cot["answers"]:
                 # when model is a dict, e.g. {'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}               
                 if "{" in cot["model"]:
+                    # extract model name from dict (which has to be read from a string)
                     model = literal_eval(cot["model"])
                     model_name = model["name"]
                 else:
