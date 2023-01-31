@@ -12,8 +12,8 @@ ThoughtSource is a central, open resource and community centered on data and too
 
 
 
-📄 Ott _et al._ [__"ThoughtSource: A central hub for large language
-model reasoning data"__](https://samwald.info/res/ThoughtSource-A-central-hub-for-large-language-model-reasoning-data-v1.pdf), 2023 (arXiv pre-print available soon)
+📄 Pre-print: Ott _et al._ [__"ThoughtSource: A central hub for large language
+model reasoning data"__](https://samwald.info/res/ThoughtSource-A-central-hub-for-large-language-model-reasoning-data-v1.pdf), arXiv, 2023
 
 
 
@@ -155,3 +155,17 @@ collection.evaluate()
 ---
 
 
+## Citation
+
+```bibtex
+@misc{https://doi.org/10.48550/arxiv.2301.11596,
+  doi = {10.48550/ARXIV.2301.11596},
+  url = {https://arxiv.org/abs/2301.11596},
+  author = {Ott, Simon and Hebenstreit, Konstantin and Liévin, Valentin and Hother, Christoffer Egeberg and Moradi, Milad and Mayrhauser, Maximilian and Praas, Robert and Winther, Ole and Samwald, Matthias},
+  keywords = {Computation and Language (cs.CL), Artificial Intelligence (cs.AI), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {ThoughtSource: A central hub for large language model reasoning data},
+  publisher = {arXiv},
+  year = {2023}, 
+  copyright = {Creative Commons Attribution 4.0 International}
+}
+```
