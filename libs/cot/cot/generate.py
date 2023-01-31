@@ -42,7 +42,7 @@ def generate_and_extract(data, config):
     else:
         raise ValueError("Not recognized data")
 
-    if config["warn"]:
+    if ("warn" not in config or config["warn"]) and not config["api_service"]=="mock_api":
         print_warning(config, n_samples)
 
     # The config is transformed into a dataclass object, where all testing is done
@@ -311,9 +311,9 @@ def print_now(return_flag=0):
 
 
 def print_warning(config, n_samples):
-    n_instruction_keys = len(config["instruction_keys"])
-    n_cot_trigger_keys = len(config["cot_trigger_keys"])
-    n_answer_extraction_keys = len(config["answer_extraction_keys"])
+    n_instruction_keys = len(config["instruction_keys"]) if "instruction_keys" in config else 1
+    n_cot_trigger_keys = len(config["cot_trigger_keys"]) if "cot_trigger_keys" in config else 1
+    n_answer_extraction_keys = len(config["answer_extraction_keys"]) if "answer_extraction_keys" in config else 1
 
     n_total = (
         n_samples * n_instruction_keys * n_cot_trigger_keys
@@ -321,8 +321,8 @@ def print_warning(config, n_samples):
     )
     warning = f"""
         You are about to \033[1m call an external API \033[0m in total {n_total} times, which \033[1m may produce costs \033[0m.
-        Number API calls for CoT generation: n_samples {n_samples} * n_instruction_keys {n_instruction_keys} * n_cot_trigger_keys {n_cot_trigger_keys}
-        Number API calls for answer extraction: n_samples {n_samples} * n_instruction_keys {n_instruction_keys} * n_cot_trigger_keys {n_cot_trigger_keys} * n_answer_extraction_keys {n_answer_extraction_keys}
+        API calls for reasoning chain generation: {n_samples} samples  * {n_instruction_keys} instructions  * {n_cot_trigger_keys} reasoning chain triggers
+        API calls for answer extraction: n_samples  {n_samples} samples  * {n_instruction_keys} instructions  * {n_cot_trigger_keys} reasoning chain triggers * {n_answer_extraction_keys} answer extraction triggers 
         Do you want to continue? y/n
         """
     if config["api_service"] == "mock_api":
