@@ -81,11 +81,13 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         choices_dict = {"Yes": "True", "No": "False"}
         choices_keys = list(choices_dict.keys())
         choices_values = list(choices_dict.values())
-        choices_values_raw = choices_values # in bool case, we need the raw values for the quick check
+        choices_values_raw = (
+            choices_values  # in bool case, we need the raw values for the quick check
+        )
         keys_lower = [i.lower() for i in choices_dict.keys()]
         values_lower = [j.lower() for j in choices_dict.values()]
 
-    #quick check if pred is in choices_dict
+    # quick check if pred is in choices_dict
     if (
         # We need to take the raw values here, as this is not regex
         pred in choices_values_raw
@@ -97,7 +99,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         is_correct = compare_pred_with_gold(pred, gold, choices_dict)
 
         return is_correct
-    
+
     # check if only one of the choices are part of the pred and report this as answer
     # therefor search choice_value in pred and return if only one hit
     hits = []
@@ -107,15 +109,16 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             # make value a group for regex
             match = search_regex(
                 # "(" +  escape_special_characters(value) + ")", [escape_special_characters(pred)], warn
-                escape_special_characters(pred), ["(" +  value + ")"], warn
-                )
+                escape_special_characters(pred),
+                ["(" + value + ")"],
+                warn,
+            )
             if match:
                 hits.append(match)
             if len(hits) == 1:
                 pred = hits[0]
                 is_correct = compare_pred_with_gold(pred, gold, choices_dict)
                 return is_correct
-        
 
     # if pred is not in choices_dict, we need to use regex
 
