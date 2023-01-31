@@ -23,7 +23,7 @@ class Config:
         "cot", "answer"
         Default: {instruction}\\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}{cot}\\n{answer_extraction}
     "author" : str - Name of the person responsible for generation, Default: ""
-    "api_service" str - Name of the used api service: "openai" or "huggingface_hub",
+    "api_service" str - Name of the used api service: "openai", "huggingface_hub" or "cohere"
         or a mock api service "mock_api" for debugging, Default: "huggingface_hub"
     "engine": str -  Name of model used, look at website of api which are
         available, e.g. for "openai": "text-davinci-002", Default: "google/flan-t5-xl"
