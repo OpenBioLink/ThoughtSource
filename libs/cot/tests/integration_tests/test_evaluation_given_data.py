@@ -23,7 +23,7 @@ def test_evaluation_included_datasets():
 
     # compare with own calculation of the evaluation
     evaluation = collection.evaluate(overwrite=True, warn=False)
-    assert compare_nested_dict_float_values(evaluation, correct, 0.025)
+    assert compare_nested_dict_float_values(evaluation, correct, 0.021)
 
     # med_qa test set
     collection = Collection(["med_qa"], verbose=False)
@@ -49,9 +49,7 @@ def test_evaluation_included_datasets():
 
     # compare with own calculation of the evaluation
     evaluation = collection.evaluate(overwrite=True, warn=False)
-    assert compare_nested_dict_float_values(evaluation, correct, 0.001)
-    # was 0.00001 before. Got worse with individual answer sequences
-
+    assert compare_nested_dict_float_values(evaluation, correct, 1e-6)
 
     # medmc_qa validation set
     collection = Collection(["medmc_qa"], verbose=False)
