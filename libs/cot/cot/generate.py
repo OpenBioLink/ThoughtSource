@@ -26,6 +26,7 @@ def generate_and_extract(data, config):
     """
 
     ds.disable_caching()
+    data.cleanup_cache_files()
 
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
