@@ -8,7 +8,7 @@
 
 1. Clone repository
 2. Install the CoT library `pip install -e ./libs/cot`, see [here](../../libs/cot/README.md)
-3. Install streamlit `pip install streamlit`
+3. Install streamlit `pip install streamlit==0.82`
 4. Run `streamlit run ./apps/dataset-viewer/app.py`
 
 ## Load a local collection json
