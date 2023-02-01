@@ -10,6 +10,7 @@ import datasets as ds
 
 
 def search_regex(s: str, patterns: list, warn: bool) -> str:
+    """Searches a string for a list of regex patterns and returns the first found match."""
     # strip the string from whitespaces
     s = s.strip()
     for pattern in patterns:
@@ -80,19 +81,44 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         choices_dict = {"Yes": "True", "No": "False"}
         choices_keys = list(choices_dict.keys())
         choices_values = list(choices_dict.values())
+        choices_values_raw = (
+            choices_values  # in bool case, we need the raw values for the quick check
+        )
         keys_lower = [i.lower() for i in choices_dict.keys()]
         values_lower = [j.lower() for j in choices_dict.values()]
 
     # quick check if pred is in choices_dict
     if (
-        pred in choices_values
+        # We need to take the raw values here, as this is not regex
+        pred in choices_values_raw
         or pred in choices_keys
         or pred in keys_lower
         or pred in values_lower
     ):
+        # raise ValueError("not in choices_dict")
         is_correct = compare_pred_with_gold(pred, gold, choices_dict)
 
         return is_correct
+
+    # check if only one of the choices are part of the pred and report this as answer
+    # therefor search choice_value in pred and return if only one hit
+    hits = []
+    for value in choices_values:
+        # only check if length of value is smaller or same than pred
+        if len(value) <= len(pred):
+            # make value a group for regex
+            match = search_regex(
+                # "(" +  escape_special_characters(value) + ")", [escape_special_characters(pred)], warn
+                escape_special_characters(pred),
+                ["(" + value + ")"],
+                warn,
+            )
+            if match:
+                hits.append(match)
+            if len(hits) == 1:
+                pred = hits[0]
+                is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+                return is_correct
 
     # if pred is not in choices_dict, we need to use regex
 

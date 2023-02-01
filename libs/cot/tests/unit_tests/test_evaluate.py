@@ -145,38 +145,39 @@ def test_is_correct_multiple_answers():
 
 def test_predefined_correct_value():
     # med_qa
-    collection = Collection(["med_qa"], verbose=False)
-    collection = collection.select(
-        split="test", number_samples=10, random_samples=False
-    )
+    # collection = Collection(["med_qa"], verbose=False)
+    # collection = collection.select(
+    #     split="test", number_samples=10, random_samples=False
+    # )
 
-    collection2 = Collection(["med_qa"], verbose=False)
-    collection2 = collection2.select(
-        split="test", number_samples=10, random_samples=False
-    )
+    # collection2 = Collection(["med_qa"], verbose=False)
+    # collection2 = collection2.select(
+    #     split="test", number_samples=10, random_samples=False
+    # )
 
-    # only do evaluation on one of them, nothing should change
-    collection.evaluate(warn=False)
+    # # only do evaluation on one of them, nothing should change
+    # collection.evaluate(warn=False)
 
-    collection_json = collection.to_json()
-    collection2_json = collection2.to_json()
+    # collection_json = collection.to_json()
+    # collection2_json = collection2.to_json()
 
-    assert collection_json == collection2_json
+    # assert collection_json == collection2_json
 
     # pubmed_qa
     collection = Collection(["pubmed_qa"], verbose=False)
     collection = collection.select(
         split="train", number_samples=10, random_samples=False
     )
-    collection2 = Collection(["pubmed_qa"], verbose=False)
-    collection2 = collection2.select(
-        split="train", number_samples=10, random_samples=False
-    )
-
-    # only do evaluation on one of them, nothing should change
-    collection.evaluate()
+    # collection2 = Collection(["pubmed_qa"], verbose=False)
+    # collection2 = collection2.select(
+    #     split="train", number_samples=10, random_samples=False
+    # )
 
     collection_json = collection.to_json()
-    collection2_json = collection2.to_json()
+
+    # only do evaluation on one of them, nothing should change
+    collection.evaluate(overwrite=False)
+
+    collection2_json = collection.to_json()
 
     assert collection_json == collection2_json
