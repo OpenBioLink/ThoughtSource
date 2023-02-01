@@ -42,9 +42,6 @@ def generate_and_extract(data, config):
     else:
         raise ValueError("Not recognized data")
 
-    if ("warn" not in config or config["warn"]) and not config["api_service"]=="mock_api":
-        print_warning(config, n_samples)
-
     # The config is transformed into a dataclass object, where all testing is done
     # But it will be transformed back to a dictionary for the function 'map'
     config_as_dataclass = Config(**config)
@@ -308,33 +305,6 @@ def print_now(return_flag=0):
         return now
     else:
         pass
-
-
-def print_warning(config, n_samples):
-    n_instruction_keys = len(config["instruction_keys"]) if "instruction_keys" in config else 1
-    n_cot_trigger_keys = len(config["cot_trigger_keys"]) if "cot_trigger_keys" in config else 1
-    n_answer_extraction_keys = len(config["answer_extraction_keys"]) if "answer_extraction_keys" in config else 1
-
-    n_total = (
-        n_samples * n_instruction_keys * n_cot_trigger_keys
-        + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
-    )
-    warning = f"""
-        You are about to \033[1m call an external API \033[0m in total {n_total} times, which \033[1m may produce costs \033[0m.
-        API calls for reasoning chain generation: {n_samples} samples  * {n_instruction_keys} instructions  * {n_cot_trigger_keys} reasoning chain triggers
-        API calls for answer extraction: n_samples  {n_samples} samples  * {n_instruction_keys} instructions  * {n_cot_trigger_keys} reasoning chain triggers * {n_answer_extraction_keys} answer extraction triggers 
-        Do you want to continue? y/n
-        """
-    if config["api_service"] == "mock_api":
-        warning += "\033[1m Note: You are using a mock api. When entering 'y', a test run without API calls is made. \033[0m"
-    print(warning)
-    time.sleep(1)
-    ans = input()
-    if ans.lower() == "y":
-        pass
-    else:
-        # break the execution of the code if the user does not want to continue
-        raise ValueError("Generation aborted by user.")
 
 def multiple_choice_answer_formatting(answer_choices):
     '''Transforms a list of answer choices into a string with letters (A,B,C,...) for each answer choice.'''

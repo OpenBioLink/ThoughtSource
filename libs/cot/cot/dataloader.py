@@ -7,6 +7,7 @@ from collections import defaultdict
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from os import devnull
 import shutil
+import time
 import glob
 
 import datasets as ds
@@ -220,8 +221,33 @@ class Collection:
                 dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
             collection[dataset_name] = ds.DatasetDict(dataset_dict)
         return collection
+    
+    def number_examples(self, name=None, split=None):
+        """
+        The function returns the number of examples in the loaded datasets.
+        :return: The number of examples in the loaded datasets.
+        """
+        count = 0
+        if name is None:
+            for name in self._cache.keys():
+                if split is None:
+                    # need to use current_split because split is a reserved word
+                    for current_split in self._cache[name].keys():
+                        count += self._cache[name][current_split].num_rows
+                else:
+                    count += self._cache[name][split].num_rows
+        else:
+            if split is None:
+                    for current_split in self._cache[name].keys():
+                        count += self._cache[name][current_split].num_rows
+            else:
+                count += self._cache[name][split].num_rows
+        return count
 
     def generate(self, name=None, split=None, config={}):
+        if ("warn" not in config or config["warn"]) and not config["api_service"]=="mock_api":
+            n_samples = self.number_examples(name, split)
+            print_warning(config, n_samples)
         if name is None:
             for name in self._cache:
                 self[name] = generate_and_extract(self[name], config=config)
@@ -342,3 +368,30 @@ class Collection:
         :return: A concatenated dataset of all the testing data.
         """
         return ds.concatenate_datasets([self._cache[name]["test"] for name in self._cache if "test" in self._cache[name]])
+
+
+def print_warning(config, n_samples):
+    n_instruction_keys = len(config["instruction_keys"]) if "instruction_keys" in config else 1
+    n_cot_trigger_keys = len(config["cot_trigger_keys"]) if "cot_trigger_keys" in config else 1
+    n_answer_extraction_keys = len(config["answer_extraction_keys"]) if "answer_extraction_keys" in config else 1
+
+    n_total = (
+        n_samples * n_instruction_keys * n_cot_trigger_keys
+        + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
+    )
+    warning = f"""
+        You are about to \033[1m call an external API \033[0m in total {n_total} times, which \033[1m may produce costs \033[0m.
+        API calls for reasoning chain generation: {n_samples} samples  * {n_instruction_keys} instructions  * {n_cot_trigger_keys} reasoning chain triggers
+        API calls for answer extraction: n_samples  {n_samples} samples  * {n_instruction_keys} instructions  * {n_cot_trigger_keys} reasoning chain triggers * {n_answer_extraction_keys} answer extraction triggers 
+        Do you want to continue? y/n
+        """
+    if config["api_service"] == "mock_api":
+        warning += "\033[1m Note: You are using a mock api. When entering 'y', a test run without API calls is made. \033[0m"
+    print(warning)
+    time.sleep(1)
+    ans = input()
+    if ans.lower() == "y":
+        pass
+    else:
+        # break the execution of the code if the user does not want to continue
+        raise ValueError("Generation aborted by user.")
