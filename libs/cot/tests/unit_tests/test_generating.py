@@ -187,7 +187,26 @@ def test_generate_change_config() -> None:
     # Check if the instruction is the one from the new config
     assert collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"] == "qa-02"
 
+def test_generate_twice() -> None:
+    # Dataset loading and selecting a random sample
+    collection = Collection(["worldtree"], verbose=False)
+    collection = collection.select(split="train", number_samples=1)
 
+    config = simple_config()
+    config["instruction_keys"] = ["qa-01"]
+
+    collection.generate(config=config)
+
+    config = simple_config()
+    # Set a new the instruction key
+    config["instruction_keys"] = ["qa-02"]
+
+    # Generate with a new config
+    collection.generate(config=config)
+
+    # Check if both generated_cot are saved and have the correct instructions
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"] == "qa-01"
+    assert collection["worldtree"]["train"][0]["generated_cot"][1]["instruction"] == "qa-02"
 
 
 
