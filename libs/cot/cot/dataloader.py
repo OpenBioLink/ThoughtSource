@@ -246,6 +246,8 @@ class Collection:
 
     def generate(self, name=None, split=None, config={}):
         if ("warn" not in config or config["warn"]) and not config["api_service"]=="mock_api":
+        # more detailed option, but not necessary:
+        # if ("warn" not in config or config["warn"]) and (("api_service" in config and not config["api_service"]=="mock_api") or "api_service" not in config):
             n_samples = self.number_examples(name, split)
             print_warning(config, n_samples)
         if name is None:

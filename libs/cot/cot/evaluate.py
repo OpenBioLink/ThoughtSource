@@ -317,6 +317,9 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be
         evaluate_sample,
         fn_kwargs={"type_": type_, "overwrite": overwrite, "warn": warn},
         features=dataset.info.features,
+        # deleting the cache is necessary in generate if you call it multiple times
+        # not clear if it is needed here, but it doesn't hurt
+        load_from_cache_file = False,
     )
 
     keys = set()
