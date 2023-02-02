@@ -163,7 +163,6 @@ Therefore, the answer is"""
     )
 
 
-# TODO: this test should not fail:
 def test_generate_change_config() -> None:
     # Dataset loading and selecting a random sample
     collection = Collection(["worldtree"], verbose=False)
