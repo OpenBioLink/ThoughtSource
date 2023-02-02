@@ -295,12 +295,10 @@ def evaluate_sample(example, type_, overwrite, warn):
             if answer["correct_answer"] is not None and not overwrite:
                 continue
             prediction = answer["answer"]
-            if is_correct(
+            answer_eval = is_correct(
                 type_, prediction, dataset_correct_answer, dataset_choices, warn
-            ):
-                answer["correct_answer"] = True
-            else:
-                answer["correct_answer"] = False
+            )
+            answer["correct_answer"] = answer_eval
     return example
 
 
