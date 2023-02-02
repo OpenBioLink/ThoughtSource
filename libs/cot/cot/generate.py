@@ -34,7 +34,8 @@ def generate_and_extract(data, config):
         else:
             n_samples = len(data)
     elif isinstance(data, ds.dataset_dict.DatasetDict):
-        features = data["train"].info.features
+        name_of_first_split = list(data.keys())[0]
+        features = data[name_of_first_split].info.features
         if "idx_range" in config and config["idx_range"] != "all":
             n_samples = (config["idx_range"][1] - config["idx_range"][0]) * len(data)
         else:
