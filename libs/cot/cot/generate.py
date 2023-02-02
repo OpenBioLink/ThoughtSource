@@ -53,6 +53,7 @@ def generate_and_extract(data, config):
         with_indices=True,
         fn_kwargs=asdict(config_as_dataclass),
         features=features,
+        load_from_cache_file = False,
     )
 
 
@@ -226,6 +227,9 @@ def full_text_prompts(dataset, prompt_text=True, answer_extraction_text = True):
     _full_text_prompts,
     fn_kwargs={"prompt_text": prompt_text, "answer_extraction_text": answer_extraction_text},
     features=dataset.info.features,
+    # deleting the cache is necessary in generate if you call it multiple times
+    # not clear if it is needed here, but it doesn't hurt
+    load_from_cache_file = False,
     )
 
     return dataset
