@@ -46,7 +46,8 @@ def test_template_input_only_string():
     collection.generate(config=config)
 
     assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["cot_trigger_template"] == text1
+        collection["worldtree"]["train"][0]["generated_cot"][0]["cot_trigger_template"]
+        == text1
     )
     assert (
         collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
@@ -55,9 +56,7 @@ def test_template_input_only_string():
         == text2
     )
 
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] == ""
-    )
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] == ""
     assert (
         collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
             "answer_extraction_text"
@@ -185,7 +184,11 @@ def test_generate_change_config() -> None:
     collection.generate(config=config)
 
     # Check if the instruction is the one from the new config
-    assert collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"] == "qa-02"
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"]
+        == "qa-02"
+    )
+
 
 def test_generate_twice() -> None:
     # Dataset loading and selecting a random sample
@@ -205,34 +208,40 @@ def test_generate_twice() -> None:
     collection.generate(config=config)
 
     # Check if both generated_cot are saved and have the correct instructions
-    assert collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"] == "qa-01"
-    assert collection["worldtree"]["train"][0]["generated_cot"][1]["instruction"] == "qa-02"
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"]
+        == "qa-01"
+    )
+    assert (
+        collection["worldtree"]["train"][0]["generated_cot"][1]["instruction"]
+        == "qa-02"
+    )
 
-def test_deleting_generated_cot() -> None:
-    ## delete nothing
+
+def test_keep_generated_cot() -> None:
+    ## keep all authors
     # load comparison file
     collection = get_test_collection("test_1_delete_cots")
     # load file with nothing deleted
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete nothing
-    collection_delete.delete_generated_cots([])
+    collection_delete.keep_generated_cots(["1", "2"])
     # check if they are the same
     assert collection.to_json() == collection_delete.to_json()
 
-    ## delete author "1"
+    ## keep only author "2"
     collection_1 = get_test_collection("test_1_delete_cots_1")
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete author "1"
-    collection_delete.delete_generated_cots(["1"])
+    collection_delete.keep_generated_cots(["2"])
     assert collection_1.to_json() == collection_delete.to_json()
 
     ## delete all authors
     collection_all = get_test_collection("test_1_delete_cots_all")
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete all
-    collection_delete.delete_generated_cots("all")
+    collection_delete.keep_generated_cots()
     assert collection_all.to_json() == collection_delete.to_json()
-    
 
 
 # def test_multiple_choice_formatting() -> None:
