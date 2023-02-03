@@ -14,7 +14,7 @@ import datasets as ds
 import pandas as pd
 
 from .evaluate import evaluate
-from .generate import generate_and_extract, full_text_prompts
+from .generate import generate_and_extract, full_text_prompts, keep_generated_cots
 from .merge import merge
 
 
@@ -28,7 +28,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(self, names=None, verbose=True, generate_mode=None, source=False, single_generated_cots=True, multi_generated_cots=True):"):
+    def __init__(self, names=None, verbose=True, generate_mode=None, source=False, load_pregenerated_cots=None):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -76,6 +76,11 @@ class Collection:
             self.load_datasets()
         elif isinstance(names, list):
             self.load_datasets(names)
+
+        # unfortunately all generated cots have to be loaded
+        # we now delete all which we did not want to load
+        if load_pregenerated_cots != "all":
+            self.keep_generated_cots(load_pregenerated_cots)
 
     def __getitem__(self, key):
         """
@@ -156,6 +161,18 @@ class Collection:
             else:
                 with suppress_stdout_stderr():
                     self._cache[name] = ds.load_dataset(str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode)
+
+    def keep_generated_cots(self, authors=None, name=None, split=None):
+        """ Decides which generated cots to keep after loading the datasets"""
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    self[name][split] = keep_generated_cots(self[name][split], authors=authors)
+        else:
+            if split is None:
+                self[name] = keep_generated_cots(self[name], authors=authors)
+            else:
+                self[name][split] = keep_generated_cots(self[name][split], authors=authors)
 
     def unload_datasets(self, names=None):
         """
@@ -308,7 +325,7 @@ class Collection:
         :param number_samples: how many samples to select from the split. Default: "None" (all samples of the split)
         :param random: if the number_samples are selected randomly or as the first entries of the dataset. Default: "True" (random selection)
         :param seed: when random selection is used, whether to use it with seed to make it reproducible. If None no seed. If integer: seed.
-            Defaut: "0" (same random collection over multiple runs)
+            Default: "0" (same random collection over multiple runs)
         """
         import random
         import copy

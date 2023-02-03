@@ -46,7 +46,6 @@ def generate_and_extract(data, config):
     else:
         raise ValueError("Not recognized data")
 
-
     # The config is transformed into a dataclass object, where all testing is done
     # But it will be transformed back to a dictionary for the function 'map'
     config_as_dataclass = Config(**config)
@@ -56,7 +55,7 @@ def generate_and_extract(data, config):
         with_indices=True,
         fn_kwargs=asdict(config_as_dataclass),
         features=features,
-        load_from_cache_file = False,
+        load_from_cache_file=False,
     )
 
 
@@ -220,22 +219,27 @@ def _generate_and_extract(
 
     return item
 
-def full_text_prompts(dataset, prompt_text=True, answer_extraction_text = True):
+
+def full_text_prompts(dataset, prompt_text=True, answer_extraction_text=True):
 
     assert isinstance(
         dataset, ds.arrow_dataset.Dataset
     ), "dataset must be an arrow dataset"
-    
+
     dataset = dataset.map(
-    _full_text_prompts,
-    fn_kwargs={"prompt_text": prompt_text, "answer_extraction_text": answer_extraction_text},
-    features=dataset.info.features,
-    # deleting the cache is necessary in generate if you call it multiple times
-    # not clear if it is needed here, but it doesn't hurt
-    load_from_cache_file = False,
+        _full_text_prompts,
+        fn_kwargs={
+            "prompt_text": prompt_text,
+            "answer_extraction_text": answer_extraction_text,
+        },
+        features=dataset.info.features,
+        # deleting the cache is necessary in generate if you call it multiple times
+        # not clear if it is needed here, but it doesn't hurt
+        load_from_cache_file=False,
     )
 
     return dataset
+
 
 def _full_text_prompts(item, prompt_text, answer_extraction_text):
     # predefine values in template dictionary that stay same over all runs of the current item
@@ -247,9 +251,9 @@ def _full_text_prompts(item, prompt_text, answer_extraction_text):
         "answer_extraction": None,
     }
 
-    for generated_cot in item["generated_cot"]:              
-        answer_choices = multiple_choice_answer_formatting(item["choices"]),
-        
+    for generated_cot in item["generated_cot"]:
+        answer_choices = (multiple_choice_answer_formatting(item["choices"]),)
+
         # function returns a tuple instead of a string
         # did not find out why it behaves differently here than in the _generate_and_extract function
         if type(answer_choices) == tuple:
@@ -266,12 +270,14 @@ def _full_text_prompts(item, prompt_text, answer_extraction_text):
         template_dict["cot_trigger"] = get_fragments_value(
             "cot_triggers", generated_cot["cot_trigger"]
         )
-        
-        generate_cot_prompt = format_prompt(generated_cot["cot_trigger_template"], template_dict)
+
+        generate_cot_prompt = format_prompt(
+            generated_cot["cot_trigger_template"], template_dict
+        )
 
         template_dict["cot"] = generated_cot["cot"]
         # Everything above could also be relevant for the answer extraction
-        
+
         # now generating the full text for the chain of thoughts
         if prompt_text:
             generated_cot["prompt_text"] = generate_cot_prompt
@@ -298,8 +304,9 @@ def _full_text_prompts(item, prompt_text, answer_extraction_text):
 
     return item
 
-def delete_generated_cots(dataset, authors=None):
-    """ This function handles which pregenerated COTS are deleted (after loading a collection). 
+
+def keep_generated_cots(dataset, authors=None):
+    """This function handles which pregenerated COTS are deleted (after loading a collection).
 
     :param authors: A list of authors of the pregenerated COTS to delete. If None, all of the pregenerated COTS are kept.
     if "all", all of the pregenerated COTS are deleted.
@@ -309,23 +316,27 @@ def delete_generated_cots(dataset, authors=None):
 
     # remove all the pregenerated COTS that are not in the list
     dataset = dataset.map(
-        _delete_generated_cots,
+        _keep_generated_cots,
         fn_kwargs={"authors": authors},
         features=dataset.info.features,
         # deleting the cache is necessary in generate if you call it multiple times
         # not clear if it is needed here, but it doesn't hurt
-        load_from_cache_file = False,
+        load_from_cache_file=False,
     )
     return dataset
 
-def _delete_generated_cots(item, authors=None):
 
-    if authors == "all":
+def _keep_generated_cots(item, authors=None):
+    if authors == None:
         item["generated_cot"] = []
     else:
-        item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["author"] not in authors]
+        item["generated_cot"] = [
+            cot for cot in item["generated_cot"] if cot["author"] in authors
+        ]
+        # for deletion we could use "... not in authors" instead of "in authors"
 
     return item
+
 
 def print_now(return_flag=0):
     """
@@ -343,9 +354,10 @@ def print_now(return_flag=0):
     else:
         pass
 
+
 def multiple_choice_answer_formatting(answer_choices):
-    '''Transforms a list of answer choices into a string with letters (A,B,C,...) for each answer choice.'''
-    # only supports uppercase letters at the moment, as this is current standard 
+    """Transforms a list of answer choices into a string with letters (A,B,C,...) for each answer choice."""
+    # only supports uppercase letters at the moment, as this is current standard
 
     # Adding Letters (A,B,C,...) for the given multiple choice answers.
     return "\n".join(
@@ -388,6 +400,7 @@ class Correct_output(dict):
 #     string.replace("{None}", "")
 #     return string
 
+
 def query_model(input, api_service, engine, temperature, max_tokens, api_time_interval):
     if api_service == "mock_api":
         return " Test mock chain of thought."
@@ -414,7 +427,7 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
                     # type: ignore (suppress pylance error)
                 ),
             )
-            
+
         if api_service == "huggingface_hub":
             from langchain import HuggingFaceHub
 
