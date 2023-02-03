@@ -24,10 +24,11 @@
                 "generated_cot": [
                     {
                         "id": "11111",
-                        "templates_version": "0.01",
+                        "fragments_version": "0.01",
                         "instruction": "instruction",
                         "cot_trigger": "cot_trigger",
                         "prompt_text": "prompt_text",
+                        "cot": "The generated cot",
                         "answers": [
                             {
                                 "id": "111222",
@@ -37,7 +38,6 @@
                                 "correct_answer": true
                             }
                         ],
-                        "cot": "The generated cot",
                         "author": "author",
                         "date": "2022/11/29 12:39:40",
                         "api_service": "api_service",
