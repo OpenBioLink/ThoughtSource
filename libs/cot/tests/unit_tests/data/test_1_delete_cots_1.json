@@ -21,24 +21,26 @@
                 "answer": [
                     "choice 3"
                 ],
-                "generated_cot": [
+                "generated_cot": [                   
                     {
                         "id": "11111",
                         "fragments_version": "0.01",
                         "instruction": "instruction",
                         "cot_trigger": "cot_trigger",
+                        "cot_trigger_template": "cot_trigger_template",
                         "prompt_text": "prompt_text",
                         "cot": "The generated cot",
                         "answers": [
                             {
                                 "id": "111222",
                                 "answer_extraction": "answer_extraction",
+                                "answer_extraction_template": "answer_extraction_template",
                                 "answer_extraction_text": "answer_extraction_text",
                                 "answer": "A",
-                                "correct_answer": true
+                                "correct_answer": null
                             }
                         ],
-                        "author": "author",
+                        "author": "2",
                         "date": "2022/11/29 12:39:40",
                         "api_service": "api_service",
                         "model": "{'name': 'name', 'temperature': 0.99, 'max_tokens': 99}",
