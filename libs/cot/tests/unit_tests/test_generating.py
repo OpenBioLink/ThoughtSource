@@ -208,6 +208,31 @@ def test_generate_twice() -> None:
     assert collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"] == "qa-01"
     assert collection["worldtree"]["train"][0]["generated_cot"][1]["instruction"] == "qa-02"
 
+def test_deleting_generated_cot() -> None:
+    ## delete nothing
+    # load comparison file
+    collection = get_test_collection("test_1_delete_cots")
+    # load file with nothing deleted
+    collection_delete = get_test_collection("test_1_delete_cots")
+    # delete nothing
+    collection_delete.delete_generated_cots([])
+    # check if they are the same
+    assert collection.to_json() == collection_delete.to_json()
+
+    ## delete author "1"
+    collection_1 = get_test_collection("test_1_delete_cots_1")
+    collection_delete = get_test_collection("test_1_delete_cots")
+    # delete author "1"
+    collection_delete.delete_generated_cots(["1"])
+    assert collection_1.to_json() == collection_delete.to_json()
+
+    ## delete all authors
+    collection_all = get_test_collection("test_1_delete_cots_all")
+    collection_delete = get_test_collection("test_1_delete_cots")
+    # delete all
+    collection_delete.delete_generated_cots("all")
+    assert collection_all.to_json() == collection_delete.to_json()
+    
 
 
 # def test_multiple_choice_formatting() -> None:
