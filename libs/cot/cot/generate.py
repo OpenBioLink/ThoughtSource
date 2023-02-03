@@ -28,6 +28,8 @@ def generate_and_extract(data, config):
     ds.disable_caching()
     data.cleanup_cache_files()
 
+    # TODO: check if the following code is necessary
+    # We moved the computing of the number of samples in the dataloader function, because we need it there
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
         if "idx_range" in config and config["idx_range"] != "all":
@@ -43,6 +45,7 @@ def generate_and_extract(data, config):
             n_samples = sum([len(data[x]) for x in data])
     else:
         raise ValueError("Not recognized data")
+
 
     # The config is transformed into a dataclass object, where all testing is done
     # But it will be transformed back to a dictionary for the function 'map'
@@ -295,6 +298,34 @@ def _full_text_prompts(item, prompt_text, answer_extraction_text):
 
     return item
 
+def delete_generated_cots(dataset, authors=None):
+    """ This function handles which pregenerated COTS are deleted (after loading a collection). 
+
+    :param authors: A list of authors of the pregenerated COTS to delete. If None, all of the pregenerated COTS are kept.
+    if "all", all of the pregenerated COTS are deleted.
+    """
+    # Unfortunately the loading function of the datasets does not let you specify which pregenerated COTS to load
+    # So we load all of them and then delete the ones we don't want
+
+    # remove all the pregenerated COTS that are not in the list
+    dataset = dataset.map(
+        _delete_generated_cots,
+        fn_kwargs={"authors": authors},
+        features=dataset.info.features,
+        # deleting the cache is necessary in generate if you call it multiple times
+        # not clear if it is needed here, but it doesn't hurt
+        load_from_cache_file = False,
+    )
+    return dataset
+
+def _delete_generated_cots(item, authors=None):
+
+    if authors == "all":
+        item["generated_cot"] = []
+    else:
+        item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["author"] not in authors]
+
+    return item
 
 def print_now(return_flag=0):
     """
@@ -356,7 +387,6 @@ class Correct_output(dict):
 #     # string.replace("\n{None}", "") # TODO: do I need this?
 #     string.replace("{None}", "")
 #     return string
-
 
 def query_model(input, api_service, engine, temperature, max_tokens, api_time_interval):
     if api_service == "mock_api":
