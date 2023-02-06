@@ -115,7 +115,7 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
             features = datasets.Features(
                 {
                     "ID": datasets.Value("string"),
-                    "Body": [datasets.Value("string")],
+                    "Body": datasets.Value("string"),
                     "Question": datasets.Value("string"),
                     "Equation": datasets.Value("string"),
                     "Answer": datasets.Value("float"),
