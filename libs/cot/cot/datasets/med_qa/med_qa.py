@@ -13,19 +13,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import glob
+import json
 import os
+from collections import defaultdict
 from typing import Dict, List, Tuple
 
 import datasets
-import glob
-import json
-from collections import defaultdict
-from cot.utils import (schemas, map_example_to_lievin_cot, map_json_to_lievin_cots_2)
-from cot.utils.configs import ThoughtSourceConfig
-from cot.utils.constants import Licenses
+import pandas as pd
 from tqdm import tqdm
 
-import pandas as pd
+from cot.utils import (map_example_to_lievin_cot, map_json_to_lievin_cots_2,
+                       schemas)
+from cot.utils.configs import ThoughtSourceConfig
+from cot.utils.constants import Licenses
 
 _LOCAL = False
 
@@ -60,7 +61,7 @@ _LICENSE = Licenses.MIT
 _URLS = {
     _DATASETNAME: "https://samwald.info/res/thoughtsource/data/med_qa.zip",
     "lievin_cot": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip",
-    "lievin_cot_2": "https://samwald.info/res/thoughtsource/data/lievin-cots-codex.zip"
+    "lievin_cot_2": "https://samwald.info/res/thoughtsource/data/lievin-cots-codex.zip",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -69,6 +70,7 @@ _SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNI
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class MedQADataset(datasets.GeneratorBasedBuilder):
     """Free-form multiple-choice OpenQA dataset covering three languages."""
@@ -96,7 +98,6 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -125,7 +126,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
 
     def _split_generators(self, dl_manager) -> List[datasets.SplitGenerator]:
         """Returns SplitGenerators."""
-        
+
         data_dir = dl_manager.download_and_extract(_URLS)
         cots_path = os.path.join(data_dir["lievin_cot"], "thought-source-med")
         cots_path_2 = os.path.join(data_dir["lievin_cot_2"], "thought-source-codex-5shot-cot")
@@ -136,7 +137,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
             "test": os.path.join(base_dir, "test.jsonl"),
             "valid": os.path.join(base_dir, "dev.jsonl"),
         }
-        
+
         return [
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
@@ -171,48 +172,42 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
         if self.config.schema == "source":
             for key, example in data.iterrows():
                 example = example.to_dict()
-                example["options"] = [
-                    {"key": key, "value": value}
-                    for key, value in example["options"].items()
-                ]
+                example["options"] = [{"key": key, "value": value} for key, value in example["options"].items()]
                 yield key, example
 
         elif self.config.schema == "thoughtsource":
-
             cots = defaultdict(list)
             if cotspath is not None:
                 for file in tqdm(glob.glob(os.path.join(cotspath, "[0-4]-medqa*", "*.json")), desc="Preparing Lievin CoTs"):
-                    filename = os.path.basename(file)[:-len(".json")]
+                    filename = os.path.basename(file)[: -len(".json")]
                     id = int(filename.split("_")[2].split("-")[1])
-                    assert (0 <= id < 1273), f"Oh no {id}"
+                    assert 0 <= id < 1273, f"Oh no {id}"
                     with open(file, "r") as infile:
                         example = json.load(infile)
                     cots[id].append(example)
 
-            
             cots_2 = dict()
             if cotspath_2 is not None:
                 for file in tqdm(glob.glob(os.path.join(cotspath_2, "usmle_test", "*.json")), desc="Preparing Lievin CoTs v1"):
-                    filename = os.path.basename(file)[:-len(".json")]
+                    filename = os.path.basename(file)[: -len(".json")]
                     id = int(filename.split("_")[2].split("-")[1])
-                    assert (0 <= id < 1273), f"Oh no {id}"
+                    assert 0 <= id < 1273, f"Oh no {id}"
                     with open(file, "r") as infile:
                         example = json.load(infile)
                     assert id not in cots_2
                     cots_2[id] = example
 
             for key, example in data.iterrows():
-
                 generated_cots = []
                 if cotspath is not None:
                     for item_idx, item in enumerate(cots[key]):
-                        assert (example["question"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
+                        assert example["question"] == item["question"], f"Question mismatch {example['question']} {item['question']}"
                         cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "med_qa")
                         generated_cots.append(cot_item)
 
                 if cotspath_2 is not None:
                     item = cots_2[key]
-                    assert (example["question"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
+                    assert example["question"] == item["question"], f"Question mismatch {example['question']} {item['question']}"
                     cot_items_2 = map_json_to_lievin_cots_2(key, item, "med_qa")
                     generated_cots.extend(cot_items_2)
 
@@ -231,7 +226,9 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
 
                 yield key, example_
 
+
 if __name__ == "__main__":
     a = datasets.load_dataset(__file__)
     from pprint import pprint
+
     pprint(a["test"][0])

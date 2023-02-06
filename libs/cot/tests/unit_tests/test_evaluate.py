@@ -165,9 +165,7 @@ def test_predefined_correct_value():
 
     # pubmed_qa
     collection = Collection(["pubmed_qa"], verbose=False)
-    collection = collection.select(
-        split="train", number_samples=10, random_samples=False
-    )
+    collection = collection.select(split="train", number_samples=10, random_samples=False)
     # collection2 = Collection(["pubmed_qa"], verbose=False)
     # collection2 = collection2.select(
     #     split="train", number_samples=10, random_samples=False

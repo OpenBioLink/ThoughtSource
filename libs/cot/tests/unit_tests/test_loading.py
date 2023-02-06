@@ -1,19 +1,15 @@
-from typing import Iterator
-
 import datasets
+
 from cot import Collection
 from cot.config import Config
 
-from .utils import chdir, get_test_collection, simple_config
+from .utils import chdir, get_test_collection
 
 
 def test_correct_example_load() -> None:
     """Test that the correct data is loaded."""
     collection = get_test_collection("worldtree_100_dataset")
-    assert (
-        collection._cache["worldtree"]["train"][0]["question"]
-        == 'Which event occurs on a daily cycle?'
-    )
+    assert collection._cache["worldtree"]["train"][0]["question"] == "Which event occurs on a daily cycle?"
 
 
 def test_similarity_loading_methods():
@@ -21,10 +17,7 @@ def test_similarity_loading_methods():
     collection_json = get_test_collection("worldtree_100_dataset")
     collection_loaded = Collection(["worldtree"], verbose=False)
     collection_loaded = collection_loaded.select(split="train", number_samples=100)
-    assert (
-        collection_loaded["worldtree"]["train"][:]
-        == collection_json["worldtree"]["train"][:]
-    )
+    assert collection_loaded["worldtree"]["train"][:] == collection_json["worldtree"]["train"][:]
 
 
 def test_find_all_datasets() -> None:

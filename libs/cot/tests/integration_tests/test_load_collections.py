@@ -10,9 +10,7 @@ def test_thoughtsource() -> None:
     for name, dataset in collection:
         for split in dataset:
             pd_ = dataset[split].to_pandas()
-            assert (
-                len(pd_["id"]) == pd_["id"].nunique()
-            ), f"IDs are not unique in {name} {split}"
+            assert len(pd_["id"]) == pd_["id"].nunique(), f"IDs are not unique in {name} {split}"
 
 
 def test_source() -> None:
@@ -28,7 +26,7 @@ def test_keep_generated_cots() -> None:
     # check if both authors are loaded
     assert len(commonsense_1["commonsense_qa"]["validation"][0]["generated_cot"]) == 2
 
-    commonsense = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=["kojima","wei"])
+    commonsense = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=["kojima", "wei"])
     commonsense_1 = commonsense.select(split="validation", number_samples=1)
     commonsense_1_both = commonsense_1.to_json()
     # check if both authors are kept

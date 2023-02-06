@@ -1,20 +1,21 @@
+import glob
 import importlib
 import io
 import json
 import os
 import pathlib
+import shutil
+import time
 from collections import defaultdict
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from os import devnull
-import shutil
-import time
-import glob
 
 import datasets as ds
 import pandas as pd
 
 from .evaluate import evaluate
-from .generate import generate_and_extract, full_text_prompts, keep_generated_cots
+from .generate import (full_text_prompts, generate_and_extract,
+                       keep_generated_cots)
 from .merge import merge
 
 
@@ -39,8 +40,8 @@ class Collection:
         datasets
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
-        :param generate_mode: 
-        - if "redownload": deletes download and dataset caches, redownloads all sources and regenerates all datasets. 
+        :param generate_mode:
+        - if "redownload": deletes download and dataset caches, redownloads all sources and regenerates all datasets.
         Try this if datasets give unexplainable KeyErrors, ...
         - if "recache": deletes dataset caches and regenerates all datasets
         - if None: reuse cached dataset
@@ -53,14 +54,19 @@ class Collection:
         self.load_source = source
 
         if load_pregenerated_cots is not None and source is True:
-            raise ValueError("load_pregenerated_cots only works if datasets are loaded in ThoughSource view. Param source needs to be False for pregenerated CoTs to be loaded.")
-        
+            raise ValueError(
+                "load_pregenerated_cots only works if datasets are loaded in ThoughSource view. \
+                Param source needs to be False for pregenerated CoTs to be loaded."
+            )
+
         if generate_mode in ["redownload", "recache"]:
             # see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
             self.download_mode = "reuse_cache_if_exists"
             if names == "all":
                 # delete datasets cache
-                for dataset_folder in glob.glob(os.path.join(ds.config.HF_DATASETS_CACHE, "*_dataset", "source" if self.load_source else "thoughtsource")):
+                for dataset_folder in glob.glob(
+                    os.path.join(ds.config.HF_DATASETS_CACHE, "*_dataset", "source" if self.load_source else "thoughtsource")
+                ):
                     shutil.rmtree(dataset_folder)
             else:
                 for name in names:
@@ -81,7 +87,7 @@ class Collection:
             self.load_datasets(names)
 
         # unfortunately all generated cots have to be loaded when loading datasets in ThoughtSource view
-        # we now delete all which we did not want to load        
+        # we now delete all which we did not want to load
         if source is False and load_pregenerated_cots != "all":
             self.keep_generated_cots(load_pregenerated_cots)
 
@@ -160,13 +166,17 @@ class Collection:
         for name, script in datasets:
             print(f"Loading {name}...")
             if self.verbose:
-                self._cache[name] = ds.load_dataset(str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode)
+                self._cache[name] = ds.load_dataset(
+                    str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode
+                )
             else:
                 with suppress_stdout_stderr():
-                    self._cache[name] = ds.load_dataset(str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode)
+                    self._cache[name] = ds.load_dataset(
+                        str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode
+                    )
 
     def keep_generated_cots(self, authors=None, name=None, split=None):
-        """ Decides which generated cots to keep after loading the datasets"""
+        """Decides which generated cots to keep after loading the datasets"""
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
@@ -207,7 +217,6 @@ class Collection:
                 d_dict[name][split] = self._dataset_to_json(self._cache[name][split])
         return d_dict
 
-
     def _dataset_to_json(self, data):
         data_stream = io.BytesIO()
         data.to_json(data_stream)
@@ -216,7 +225,6 @@ class Collection:
 
     @staticmethod
     def from_json(path_or_json, download_mode="reuse_dataset_if_exists", source=False):
-
         if isinstance(path_or_json, str):
             with open(path_or_json, "r") as infile:
                 content = json.load(infile)
@@ -227,10 +235,11 @@ class Collection:
 
         collection = Collection()
         for dataset_name in content.keys():
-            info = ds.load_dataset_builder(str(scripts[dataset_name]), name="source" if source else "thoughtsource", download_mode=download_mode).info
+            info = ds.load_dataset_builder(
+                str(scripts[dataset_name]), name="source" if source else "thoughtsource", download_mode=download_mode
+            ).info
             dataset_dict = dict()
             for split_name in content[dataset_name].keys():
-
                 split = None
                 if split_name == "train":
                     split = ds.Split.TRAIN
@@ -244,7 +253,7 @@ class Collection:
                 dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
             collection[dataset_name] = ds.DatasetDict(dataset_dict)
         return collection
-    
+
     def number_examples(self, name=None, split=None):
         """
         The function returns the number of examples in the loaded datasets.
@@ -261,16 +270,17 @@ class Collection:
                     count += self._cache[name][split].num_rows
         else:
             if split is None:
-                    for current_split in self._cache[name].keys():
-                        count += self._cache[name][current_split].num_rows
+                for current_split in self._cache[name].keys():
+                    count += self._cache[name][current_split].num_rows
             else:
                 count += self._cache[name][split].num_rows
         return count
 
     def generate(self, name=None, split=None, config={}):
-        if ("warn" not in config or config["warn"]) and not config["api_service"]=="mock_api":
-        # more detailed option, but not necessary:
-        # if ("warn" not in config or config["warn"]) and (("api_service" in config and not config["api_service"]=="mock_api") or "api_service" not in config):
+        if ("warn" not in config or config["warn"]) and not config["api_service"] == "mock_api":
+            # more detailed option, but not necessary:
+            # if ("warn" not in config or config["warn"]) and (("api_service" in config and not config["api_service"]=="mock_api") ...
+            # ... or "api_service" not in config):
             n_samples = self.number_examples(name, split)
             print_warning(config, n_samples)
         if name is None:
@@ -304,45 +314,53 @@ class Collection:
 
         # return evaluation outcome
         return dict(evaluations_dict)
-    
-    def full_text_prompts(self, name=None, split=None, prompt_text=True, answer_extraction_text = True):
+
+    def full_text_prompts(self, name=None, split=None, prompt_text=True, answer_extraction_text=True):
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
-                    self[name][split] = full_text_prompts(self[name][split], prompt_text=prompt_text, answer_extraction_text=answer_extraction_text)
+                    self[name][split] = full_text_prompts(
+                        self[name][split], prompt_text=prompt_text, answer_extraction_text=answer_extraction_text
+                    )
         else:
             if split is None:
                 for split in self._cache[name]:
-                    self[name][split] = full_text_prompts(self[name][split], prompt_text=prompt_text, answer_extraction_text=answer_extraction_text)
+                    self[name][split] = full_text_prompts(
+                        self[name][split], prompt_text=prompt_text, answer_extraction_text=answer_extraction_text
+                    )
             else:
-                self[name][split] = full_text_prompts(self[name][split], prompt_text=prompt_text, answer_extraction_text=answer_extraction_text)
+                self[name][split] = full_text_prompts(
+                    self[name][split], prompt_text=prompt_text, answer_extraction_text=answer_extraction_text
+                )
 
     def merge(self, collection_other):
         return merge(self, collection_other)
 
-    def select(self, split = "train" , number_samples = None, random_samples = True, seed=0):
+    def select(self, split="train", number_samples=None, random_samples=True, seed=0):
         """
-        The function takes in a collection and gives back a split (train,test,validation) of the collection. It can also give back a part of the split, random or first number of entries.
+        The function takes in a collection and returns a split (train,test,validation) of the collection.
+        It can also give back a part of the split, random or first number of entries.
         :param collection: the collection (of datasets) to be processed
         :param split: the split (train,test,validation) to be selected. Defaults: "train".
         :param number_samples: how many samples to select from the split. Default: "None" (all samples of the split)
-        :param random: if the number_samples are selected randomly or as the first entries of the dataset. Default: "True" (random selection)
-        :param seed: when random selection is used, whether to use it with seed to make it reproducible. If None no seed. If integer: seed.
-            Default: "0" (same random collection over multiple runs)
+        :param random: if the number_samples are selected randomly or as the first entries of the dataset.
+            Default: "True" (random selection)
+        :param seed: when random selection is used, whether to use it with seed to make it reproducible.
+            If None no seed. If integer: seed. Default: "0" (same random collection over multiple runs)
         """
-        import random
         import copy
+        import random
 
         sampled_collection = copy.deepcopy(self)
         for dataset in sampled_collection:
-            _ , dataset_dict = dataset
+            _, dataset_dict = dataset
             subset = copy.deepcopy(dataset_dict[split])
             # # select the whole split, without specified number of samples
             # if not number_samples:
             #     pass
             # select a certain number of samples
             if number_samples:
-                #get number of samples in subset
+                # get number of samples in subset
                 samples_count = subset.num_rows
                 # random sample
                 if random_samples:
@@ -359,7 +377,7 @@ class Collection:
                     subset = subset.select(random_ids)
                 # first rows of dataset, not random
                 else:
-                    subset = subset.select(range(0,number_samples))
+                    subset = subset.select(range(0, number_samples))
             # clear original dictionary
             dataset_dict.clear()
             # reinsert selected samples
@@ -401,13 +419,12 @@ def print_warning(config, n_samples):
     n_answer_extraction_keys = len(config["answer_extraction_keys"]) if "answer_extraction_keys" in config else 1
 
     n_total = (
-        n_samples * n_instruction_keys * n_cot_trigger_keys
-        + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
+        n_samples * n_instruction_keys * n_cot_trigger_keys + n_samples * n_instruction_keys * n_cot_trigger_keys * n_answer_extraction_keys
     )
     warning = f"""
         You are about to \033[1m call an external API \033[0m in total {n_total} times, which \033[1m may produce costs \033[0m.
         API calls for reasoning chain generation: {n_samples} samples  * {n_instruction_keys} instructions  * {n_cot_trigger_keys} reasoning chain triggers
-        API calls for answer extraction: n_samples  {n_samples} samples  * {n_instruction_keys} instructions  * {n_cot_trigger_keys} reasoning chain triggers * {n_answer_extraction_keys} answer extraction triggers 
+        API calls for answer extraction: n_samples  {n_samples} samples  * {n_instruction_keys} instructions  * {n_cot_trigger_keys} reasoning chain triggers * {n_answer_extraction_keys} answer extraction triggers
         Do you want to continue? y/n
         """
     if config["api_service"] == "mock_api":

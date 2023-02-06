@@ -112,7 +112,6 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -178,7 +177,6 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
 
         elif self.config.schema == "thoughtsource":
             for key, example in enumerate(data):
-
                 choices = [x.split(")") for x in example["options"]]
                 choices = {x[0]: x[1] for x in choices}
 

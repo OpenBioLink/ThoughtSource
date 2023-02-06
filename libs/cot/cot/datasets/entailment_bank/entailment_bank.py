@@ -92,7 +92,6 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -213,9 +212,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                 yield key, example
 
         elif self.config.schema == "thoughtsource":
-
             for key, example in enumerate(data):
-
                 cot = example["proof"]
 
                 pattern = r"int[0-9]: "

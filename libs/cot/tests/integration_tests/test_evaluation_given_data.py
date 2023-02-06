@@ -1,5 +1,6 @@
-from tests.unit_tests.utils import compare_nested_dict_float_values
 from cot import Collection
+from tests.unit_tests.utils import compare_nested_dict_float_values
+
 
 # test for all the datasets which include evaluations
 def test_evaluation_included_datasets():
