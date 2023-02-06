@@ -22,8 +22,7 @@ from typing import Dict, List, Tuple
 import datasets
 from tqdm import tqdm
 
-from cot.utils import (map_example_to_lievin_cot, map_json_to_lievin_cots_2,
-                       schemas)
+from cot.utils import map_example_to_lievin_cot, map_json_to_lievin_cots_2, schemas
 from cot.utils.configs import ThoughtSourceConfig
 from cot.utils.constants import Licenses
 
@@ -198,6 +197,7 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
 
             for key, example in data.items():
                 if (split == "train" and key not in test_indices) or (split == "test" and key in test_indices):
+                    cot = example["LONG_ANSWER"]
                     generated_cots = []
                     if cotspath is not None:
                         for item_idx, item in enumerate(cots[int(key)]):
@@ -218,7 +218,7 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
                         "type": "multiplechoice",
                         "choices": ["yes", "no", "maybe"],
                         "context": "\n".join(example["CONTEXTS"]),
-                        "cot": "",
+                        "cot": [cot],
                         "answer": [example["final_decision"]],
                         "feedback": [],
                         "generated_cot": generated_cots,
