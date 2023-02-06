@@ -178,7 +178,6 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
 
     def _generate_parsed_documents(self, fstream):
         for raw_document in self._generate_raw_documents(fstream):
-
             question_id = int(raw_document[0][10:])
             field1 = raw_document[1][10:].split("\t")
             question, *field1 = field1

@@ -100,7 +100,6 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -159,7 +158,6 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                 yield key, example_
 
         elif self.config.schema == "thoughtsource":
-
             operator_to_verb = {
                 "+": "add",
                 "-": "subtract",
@@ -168,7 +166,6 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
             }
 
             for key, example in data.iterrows():
-
                 example["Question"] = self._untokenize(example["Question"])
                 all_numbers = {f"number{i}": x for i, x in enumerate([float(x) for x in example["Numbers"].split(" ")])}
                 for number_id, number in all_numbers.items():

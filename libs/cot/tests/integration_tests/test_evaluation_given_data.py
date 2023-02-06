@@ -1,10 +1,11 @@
-from tests.unit_tests.utils import compare_nested_dict_float_values
 from cot import Collection
+from tests.unit_tests.utils import compare_nested_dict_float_values
+
 
 # test for all the datasets which include evaluations
 def test_evaluation_included_datasets():
     # commonsense_qa validation set
-    collection = Collection(["commonsense_qa"], verbose=False)
+    collection = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots="all")
     collection = collection.select(split="validation")
     evaluation = collection.evaluate(overwrite=False, warn=False)
     correct = {
@@ -26,7 +27,7 @@ def test_evaluation_included_datasets():
     assert compare_nested_dict_float_values(evaluation, correct, 0.021)
 
     # med_qa test set
-    collection = Collection(["med_qa"], verbose=False)
+    collection = Collection(["med_qa"], verbose=False, load_pregenerated_cots="all")
     collection = collection.select(split="test")
     evaluation = collection.evaluate(overwrite=False, warn=False)
     correct = {
@@ -52,7 +53,7 @@ def test_evaluation_included_datasets():
     assert compare_nested_dict_float_values(evaluation, correct, 1e-6)
 
     # medmc_qa validation set
-    collection = Collection(["medmc_qa"], verbose=False)
+    collection = Collection(["medmc_qa"], verbose=False, load_pregenerated_cots="all")
     collection = collection.select(split="validation")
     evaluation = collection.evaluate(overwrite=False, warn=False)
     correct = {
@@ -78,7 +79,7 @@ def test_evaluation_included_datasets():
     assert compare_nested_dict_float_values(evaluation, correct, 0.0005)
 
     # pubmed_qa test set
-    collection = Collection(["pubmed_qa"], verbose=False)
+    collection = Collection(["pubmed_qa"], verbose=False, load_pregenerated_cots="all")
     collection = collection.select(split="test")
     evaluation = collection.evaluate(overwrite=False, warn=False)
     correct = {
@@ -103,7 +104,7 @@ def test_evaluation_included_datasets():
     assert compare_nested_dict_float_values(evaluation, correct, 1e-6)
 
     # strategy_qa train set
-    collection = Collection(["strategy_qa"], verbose=False)
+    collection = Collection(["strategy_qa"], verbose=False, load_pregenerated_cots="all")
     collection = collection.select(split="train")
     evaluation = collection.evaluate(overwrite=False, warn=False)
     correct = {

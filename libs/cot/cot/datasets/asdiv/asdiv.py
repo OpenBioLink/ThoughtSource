@@ -14,8 +14,8 @@
 # limitations under the License.
 
 import re
-import xml.etree.ElementTree as et
 from typing import Dict, List, Tuple
+from xml.etree import ElementTree as et
 
 import datasets
 
@@ -91,7 +91,6 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -147,7 +146,6 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
         problems = [x for x in problems if x.attrib["ID"] in ids]
 
         if self.config.schema == "source":
-
             for key, example in enumerate(problems):
                 example_ = example.attrib
                 if "Class" not in example_:
@@ -157,7 +155,6 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                 yield key, example_
 
         elif self.config.schema == "thoughtsource":
-
             operator_to_verb = {
                 "+": "add",
                 "-": "subtract",
@@ -166,7 +163,6 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
             }
 
             for key, example in enumerate(problems):
-
                 formula = example.find("Formula").text.replace(" ", "")
                 equation, ans = formula.split("=")
                 assert "r" in ans or float(ans), f"Answer is not number {ans}"
@@ -215,7 +211,6 @@ class AsdivDataset(datasets.GeneratorBasedBuilder):
                 yield key, example_
 
     def _decompose_equation(self, equation, idx=0):
-
         equation = equation.replace(" ", "")
 
         # special case equation single number no operator

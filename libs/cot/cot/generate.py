@@ -1,12 +1,12 @@
 import datetime
 import json
-import os
 import pkgutil
 import time
 import uuid
 from dataclasses import asdict
 
 import datasets as ds
+
 from cot.config import Config
 
 # disable transformation (e.g. map) caching
@@ -28,21 +28,22 @@ def generate_and_extract(data, config):
     ds.disable_caching()
     data.cleanup_cache_files()
 
-    # TODO: check if the following code is necessary
+    # TODO: check if the following code of computing n_samples is necessary
     # We moved the computing of the number of samples in the dataloader function, because we need it there
+    # But did not consider the idx_range option there
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
-        if "idx_range" in config and config["idx_range"] != "all":
-            n_samples = config["idx_range"][1] - config["idx_range"][0]
-        else:
-            n_samples = len(data)
+        # if "idx_range" in config and config["idx_range"] != "all":
+        #     n_samples = config["idx_range"][1] - config["idx_range"][0]
+        # else:
+        #     n_samples = len(data)
     elif isinstance(data, ds.dataset_dict.DatasetDict):
         name_of_first_split = list(data.keys())[0]
         features = data[name_of_first_split].info.features
-        if "idx_range" in config and config["idx_range"] != "all":
-            n_samples = (config["idx_range"][1] - config["idx_range"][0]) * len(data)
-        else:
-            n_samples = sum([len(data[x]) for x in data])
+        # if "idx_range" in config and config["idx_range"] != "all":
+        #     n_samples = (config["idx_range"][1] - config["idx_range"][0]) * len(data)
+        # else:
+        #     n_samples = sum([len(data[x]) for x in data])
     else:
         raise ValueError("Not recognized data")
 
@@ -78,7 +79,6 @@ def _generate_and_extract(
     warn,
     verbose,
 ):
-
     """
     The function takes in a JSON object (item) and generates a CoT (Chain-of-Thought) for each combination of
     of instructions and CoT triggers. For each generated CoT and for each of the given answer extractions it extracts an answer.
@@ -107,9 +107,7 @@ def _generate_and_extract(
 
     # generate chain of thoughts and extract answers
     for instruction_key in instruction_keys:
-        template_dict["instruction"] = get_fragments_value(
-            "instructions", instruction_key
-        )
+        template_dict["instruction"] = get_fragments_value("instructions", instruction_key)
 
         for cot_trigger_key in cot_trigger_keys:
             generated_cot = {
@@ -135,9 +133,7 @@ def _generate_and_extract(
                 "annotation": [],
             }
 
-            template_dict["cot_trigger"] = get_fragments_value(
-                "cot_triggers", cot_trigger_key
-            )
+            template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)
 
             # change template_cot_generation to generated_cot["cot_trigger_template"] to make it more logical
             generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
@@ -169,7 +165,6 @@ def _generate_and_extract(
 
             # extract answers from generated chain of thoughts
             for answer_extraction_key in answer_extraction_keys:
-
                 if answer_extraction_key is None:
                     pass
 
@@ -183,17 +178,11 @@ def _generate_and_extract(
                         "correct_answer": None,
                     }
 
-                    template_dict["answer_extraction"] = get_fragments_value(
-                        "answer_extractions", answer_extraction_key
-                    )
-                    answer_extraction_prompt = format_prompt(
-                        template_answer_extraction, template_dict
-                    )
+                    template_dict["answer_extraction"] = get_fragments_value("answer_extractions", answer_extraction_key)
+                    answer_extraction_prompt = format_prompt(template_answer_extraction, template_dict)
 
                     if verbose:
-                        print(
-                            "\n----------------ANSWER EXTRACTION TEXT----------------"
-                        )
+                        print("\n----------------ANSWER EXTRACTION TEXT----------------")
                         print(answer_extraction_prompt)
 
                     predicted_answer = query_model(
@@ -221,10 +210,7 @@ def _generate_and_extract(
 
 
 def full_text_prompts(dataset, prompt_text=True, answer_extraction_text=True):
-
-    assert isinstance(
-        dataset, ds.arrow_dataset.Dataset
-    ), "dataset must be an arrow dataset"
+    assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
 
     dataset = dataset.map(
         _full_text_prompts,
@@ -263,17 +249,11 @@ def _full_text_prompts(item, prompt_text, answer_extraction_text):
 
         # generate chain of thoughts and extract answers
         # for instruction_key in instruction_keys:
-        template_dict["instruction"] = get_fragments_value(
-            "instructions", generated_cot["instruction"]
-        )
+        template_dict["instruction"] = get_fragments_value("instructions", generated_cot["instruction"])
 
-        template_dict["cot_trigger"] = get_fragments_value(
-            "cot_triggers", generated_cot["cot_trigger"]
-        )
+        template_dict["cot_trigger"] = get_fragments_value("cot_triggers", generated_cot["cot_trigger"])
 
-        generate_cot_prompt = format_prompt(
-            generated_cot["cot_trigger_template"], template_dict
-        )
+        generate_cot_prompt = format_prompt(generated_cot["cot_trigger_template"], template_dict)
 
         template_dict["cot"] = generated_cot["cot"]
         # Everything above could also be relevant for the answer extraction
@@ -286,19 +266,13 @@ def _full_text_prompts(item, prompt_text, answer_extraction_text):
         if answer_extraction_text:
             # extract answers from generated chain of thoughts
             for answer in generated_cot["answers"]:
-
                 if answer["answer_extraction"] is None:
                     # if no answer extraction key is given, return item, since cot_prompt text is already generated
                     return item
 
                 else:
-
-                    template_dict["answer_extraction"] = get_fragments_value(
-                        "answer_extractions", answer["answer_extraction"]
-                    )
-                    answer_extraction_prompt = format_prompt(
-                        answer["answer_extraction_template"], template_dict
-                    )
+                    template_dict["answer_extraction"] = get_fragments_value("answer_extractions", answer["answer_extraction"])
+                    answer_extraction_prompt = format_prompt(answer["answer_extraction_template"], template_dict)
 
                     answer["answer_extraction_text"] = answer_extraction_prompt
 
@@ -327,12 +301,10 @@ def keep_generated_cots(dataset, authors=None):
 
 
 def _keep_generated_cots(item, authors=None):
-    if authors == None:
+    if authors is None:
         item["generated_cot"] = []
     else:
-        item["generated_cot"] = [
-            cot for cot in item["generated_cot"] if cot["author"] in authors
-        ]
+        item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["author"] in authors]
         # for deletion we could use "... not in authors" instead of "in authors"
 
     return item
@@ -360,11 +332,7 @@ def multiple_choice_answer_formatting(answer_choices):
     # only supports uppercase letters at the moment, as this is current standard
 
     # Adding Letters (A,B,C,...) for the given multiple choice answers.
-    return "\n".join(
-        [
-            f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)
-        ]  # 65 is the ASCII code for A
-    )
+    return "\n".join([f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)])  # 65 is the ASCII code for A
 
 
 def get_fragments_value(str, key):

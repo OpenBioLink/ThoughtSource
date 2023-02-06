@@ -129,8 +129,7 @@ def parse_wei_log(path_to_directory, dataset):
         skip = 1467
 
     elements = []
-    for (input, target, prediction) in zip(inputs, targets, predictions):
-
+    for input, target, prediction in zip(inputs, targets, predictions):
         # skip few shot examples
         question = input[skip:].split(spl)[0].strip()
         split = prediction.split(" So the answer is ")
@@ -159,7 +158,7 @@ def map_example_to_kojima_cot(question, cots, answer_extraction):
     Given a question from a dataset and list of Cots from the collection of Kojima (see function parse_kojima_log)
     it returns a populated CoT item for the given question if found in the list of Cots.
     If the question cannot be found in the cots it returns None.
-    
+
     :param question: Original question from dataset
     :param cots: the question
     :return: The populated ThoughtSource CoT item
@@ -201,7 +200,7 @@ def map_example_to_wei_cot(question, cots):
     Given a question from a dataset and list of Cots from the collection of Wei (see function parse_wei_log)
     it returns a populated CoT item for the given question if found in the list of Cots.
     If the question cannot be found in the cots it returns None.
-    
+
     :param question: Original question from dataset
     :param cots: the question
     :return: The populated ThoughtSource CoT item
@@ -241,23 +240,27 @@ def map_example_to_wei_cot(question, cots):
 def map_example_to_lievin_cot(id, item, dataset):
     """
     Given an CoT item from the collection of Lievin, returns a populated CoT item.
-    
+
     :param item: the CoT item loaded from Lievin
     :return: The populated ThoughtSource CoT item
     """
-    assert (__import__("cot").generate.FRAGMENTS["version"] == "0.01"), "New version"
+    assert __import__("cot").generate.FRAGMENTS["version"] == "0.01", "New version"
     if dataset in ["med_qa", "medmc_qa"]:
-        assert (item["extractive_prompt"] == "\n\nTherefore, among A through D, the answer is"), f"Different extractive prompt than expected {item['extractive_prompt']}"
+        assert (
+            item["extractive_prompt"] == "\n\nTherefore, among A through D, the answer is"
+        ), f"Different extractive prompt than expected {item['extractive_prompt']}"
         answer_extraction = "kojima-A-D"
     elif dataset == "pubmed_qa":
-        assert (item["extractive_prompt"] == "\n\nTherefore, among A through C, the answer is"), f"Different extractive prompt than expected {item['extractive_prompt']}"
+        assert (
+            item["extractive_prompt"] == "\n\nTherefore, among A through C, the answer is"
+        ), f"Different extractive prompt than expected {item['extractive_prompt']}"
         answer_extraction = "kojima-A-C"
     else:
         raise ValueError
 
-    assert (item["cot"].startswith(item["strategy"])), f"Different CoT than expected {item['cot']}"
+    assert item["cot"].startswith(item["strategy"]), f"Different CoT than expected {item['cot']}"
 
-    # TODO 
+    # TODO
     # Investigate lievin cot prefix (They start differently and connot be easily removed)
     # medqa_us_test-0_incorrect_B_A.json: Let's think step by step about what the resident should do. \n\nThe first step
     # medqa_us_test-1_correct_D_D.json: Let's think step by step. This patient has a ring
@@ -300,11 +303,11 @@ def map_example_to_lievin_cot(id, item, dataset):
 def map_json_to_lievin_cots_2(id, json, dataset):
     """
     Given a CoT json from the collection of Lievin v2, returns populated CoT items.
-    
+
     :param item: the CoT json loaded from Lievin v2
     :return: List of the populated ThoughtSource CoT items
     """
-    assert (__import__("cot").generate.FRAGMENTS["version"] == "0.01"), "New version"
+    assert __import__("cot").generate.FRAGMENTS["version"] == "0.01", "New version"
 
     answer_extraction = "kojima-03"
     cot_trigger = "kojima-01"
@@ -312,7 +315,7 @@ def map_json_to_lievin_cots_2(id, json, dataset):
     prefix = "Let's think step by step\n"
     if dataset == "med_qa":
         prefix = " Let's think step by step. "
-    
+
     postfix = re.compile(r" The answer is \([A-D]\).\n\n")
     wikipedia = re.compile(r"We refer to Wikipedia articles on [a-z]+ for help\. ")
 
@@ -327,30 +330,32 @@ def map_json_to_lievin_cots_2(id, json, dataset):
         if cot_ == "":
             continue
 
-        generated_cots.append({
-            "id": f"code_{id}_{key}",
-            "fragments_version": "0.01",
-            "instruction": None,
-            "cot_trigger": cot_trigger,
-            "cot_trigger_template": "",
-            "prompt_text": "",
-            "answers": [
-                {
-                    "id": 0,
-                    "answer_extraction": answer_extraction,
-                    "answer_extraction_template": "",
-                    "answer_extraction_text": "",
-                    "answer": json["options"][cot["pred_idx"]],
-                    "correct_answer": cot["is_correct"],
-                }
-            ],
-            "cot": cot_,
-            "author": "lievin",
-            "date": None,
-            "api_service": "",
-            "model": "code-davinci-002",
-            "comment": "",
-            "annotation": [],
-        })
+        generated_cots.append(
+            {
+                "id": f"code_{id}_{key}",
+                "fragments_version": "0.01",
+                "instruction": None,
+                "cot_trigger": cot_trigger,
+                "cot_trigger_template": "",
+                "prompt_text": "",
+                "answers": [
+                    {
+                        "id": 0,
+                        "answer_extraction": answer_extraction,
+                        "answer_extraction_template": "",
+                        "answer_extraction_text": "",
+                        "answer": json["options"][cot["pred_idx"]],
+                        "correct_answer": cot["is_correct"],
+                    }
+                ],
+                "cot": cot_,
+                "author": "lievin",
+                "date": None,
+                "api_service": "",
+                "model": "code-davinci-002",
+                "comment": "",
+                "annotation": [],
+            }
+        )
 
     return generated_cots

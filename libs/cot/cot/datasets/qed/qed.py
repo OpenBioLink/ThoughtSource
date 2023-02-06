@@ -87,7 +87,6 @@ class QedDataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -203,7 +202,6 @@ class QedDataset(datasets.GeneratorBasedBuilder):
 
         elif self.config.schema == "thoughtsource":
             for key, example in enumerate(data):
-
                 annotation = example["annotation"]
 
                 # skip examples without explanation
@@ -213,7 +211,6 @@ class QedDataset(datasets.GeneratorBasedBuilder):
                 cot = []
                 cot.append(f"The answer is contained in the following sentence: {annotation['selected_sentence']['string']}")
                 for x in annotation["referential_equalities"]:
-
                     if x["sentence_reference"]["bridge"] is not False:
                         if x["sentence_reference"]["string"] != "":
                             cot.append(

@@ -97,7 +97,6 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -187,7 +186,6 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
 
         elif self.config.schema == "thoughtsource":
             for key, example in enumerate(data):
-
                 choices_ = {x["label"]: x["text"] for x in example["question"]["choices"]}
 
                 answer = choices_[example["answerKey"]]

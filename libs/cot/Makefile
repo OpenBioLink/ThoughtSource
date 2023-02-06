@@ -12,6 +12,7 @@ quality_all:
 
 # defines which tests will be run by 'make tests'
 # working directory is defined by pytest. 
-# E.g. in vscode under settings.json in "python.testing.cwd"
+# E.g. in vscode under settings.json add "python.testing.cwd": "./libs/cot"
 tests:
 	pytest tests/unit_tests -v
+	pytest tests/integration_tests -v

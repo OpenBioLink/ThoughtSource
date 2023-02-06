@@ -72,18 +72,14 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         # warning if common elements, except if the keys and values are the same, e.g. {'A': 'A', 'B': 'B', 'C': 'C', ...}
         if common_elements and not keys_lower == values_lower:
             if warn:
-                warnings.warn(
-                    f"Choices: {choices_dict} contain common elements: {common_elements}. This might lead to false positives."
-                )
+                warnings.warn(f"Choices: {choices_dict} contain common elements: {common_elements}. This might lead to false positives.")
 
     if type_ == "bool":
         # E.g.: "Therefore, the answer (Yes or No) is NO."
         choices_dict = {"Yes": "True", "No": "False"}
         choices_keys = list(choices_dict.keys())
         choices_values = list(choices_dict.values())
-        choices_values_raw = (
-            choices_values  # in bool case, we need the raw values for the quick check
-        )
+        choices_values_raw = choices_values  # in bool case, we need the raw values for the quick check
         keys_lower = [i.lower() for i in choices_dict.keys()]
         values_lower = [j.lower() for j in choices_dict.values()]
 
@@ -157,19 +153,12 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
     )
 
     # If the answer is at the beginning of the sentence. e.g. "A is the answer"
-    ending_sequence = (
-        r"^\s?"
-        + expected_answer_location
-        + r"(?: is)?(?: the)?(?: correct| right| true)?(?: answer)?\.?"
-        + r"\.?\s?$"
-    )
+    ending_sequence = r"^\s?" + expected_answer_location + r"(?: is)?(?: the)?(?: correct| right| true)?(?: answer)?\.?" + r"\.?\s?$"
 
     # individual sequences at the moment only for multiplechoice
     if type_ == "multiplechoice":
         # the following part of the individual sequences needs some simplification....
-        expected_answer_raw_as_group = (
-            r"(" + r"|".join(choices_values_raw + choices_keys) + r")"
-        )
+        expected_answer_raw_as_group = r"(" + r"|".join(choices_values_raw + choices_keys) + r")"
 
         individual_sequences = [
             # insert your individual answer sequences here
@@ -192,16 +181,10 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         # then join the sentences again with the placeholder in between
 
         # make individual sequences have start and end of sentence
-        individual_sequences = [
-            r"^" + sequence + r"$" for sequence in individual_sequences
-        ]
+        individual_sequences = [r"^" + sequence + r"$" for sequence in individual_sequences]
 
     if type_ == "multiplechoice":
-        sequences_for_search = (
-            [only_answer_sequence]
-            + individual_sequences
-            + [starting_sequence, ending_sequence]
-        )
+        sequences_for_search = [only_answer_sequence] + individual_sequences + [starting_sequence, ending_sequence]
     else:
         sequences_for_search = [
             only_answer_sequence,
@@ -221,16 +204,12 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                 if type_ == "bool":
                     # remove "(Yes or No)" from the string
                     str_after_word = str_after_word.replace("(Yes or No)", "")
-                    multiple_findings = (
-                        r"[\s|\,|\.|\:]" + expected_answer_location + r"[\s|\,|\.]"
-                    )
+                    multiple_findings = r"[\s|\,|\.|\:]" + expected_answer_location + r"[\s|\,|\.]"
 
                 if type_ == "multiplechoice":
                     multiple_findings = " " + expected_answer_location + r"[\s|\,|\.]"
 
-                pred_match = search_regex(
-                    str_after_word, [multiple_findings], warn=warn
-                )
+                pred_match = search_regex(str_after_word, [multiple_findings], warn=warn)
 
     if pred_match == "" and warn:
         warnings.warn(
@@ -267,12 +246,10 @@ def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
 
 
 def evaluate_sample(example, type_, overwrite, warn):
-    assert (
-        type_ == example["type"]
-    ), "Datasets contains examples with multiple different types"
+    assert type_ == example["type"], "Datasets contains examples with multiple different types"
 
     # only run evaluation if answer is given
-    if example["answer"][0] == None:
+    if example["answer"][0] is None:
         if warn:
             warnings.warn(
                 f"""
@@ -295,17 +272,13 @@ def evaluate_sample(example, type_, overwrite, warn):
             if answer["correct_answer"] is not None and not overwrite:
                 continue
             prediction = answer["answer"]
-            answer_eval = is_correct(
-                type_, prediction, dataset_correct_answer, dataset_choices, warn
-            )
+            answer_eval = is_correct(type_, prediction, dataset_correct_answer, dataset_choices, warn)
             answer["correct_answer"] = answer_eval
     return example
 
 
 def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
-    assert isinstance(
-        dataset, ds.arrow_dataset.Dataset
-    ), "dataset must be an arrow dataset"
+    assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
 
     # get dataset type, e.g. multiplechoice
     type_ = dataset[0]["type"]
@@ -317,7 +290,7 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be
         features=dataset.info.features,
         # deleting the cache is necessary in generate if you call it multiple times
         # not clear if it is needed here, but it doesn't hurt
-        load_from_cache_file = False,
+        load_from_cache_file=False,
     )
 
     keys = set()
@@ -329,7 +302,7 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be
     for example in dataset:
         for cot in example["generated_cot"]:
             # if no gold answer is given, skip this example
-            if example["answer"][0] == None:
+            if example["answer"][0] is None:
                 continue
             for answer in cot["answers"]:
                 # when model is a dict, e.g. {'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}

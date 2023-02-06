@@ -1,7 +1,7 @@
 import pytest
-import nbmake
 
 from .utils import chdir
+
 
 def test_jupyter_notebooks():
     """tests if the main cot library can be found and imported in a jupyter notebook"""

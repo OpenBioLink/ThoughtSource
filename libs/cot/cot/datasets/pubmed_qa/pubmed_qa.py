@@ -13,17 +13,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import glob
+import json
 import os
+from collections import defaultdict
 from typing import Dict, List, Tuple
 
 import datasets
-import json
-from cot.utils import schemas, map_example_to_lievin_cot, map_json_to_lievin_cots_2
+from tqdm import tqdm
+
+from cot.utils import (map_example_to_lievin_cot, map_json_to_lievin_cots_2,
+                       schemas)
 from cot.utils.configs import ThoughtSourceConfig
 from cot.utils.constants import Licenses
-from collections import defaultdict
-from tqdm import tqdm
-import glob
 
 _LOCAL = False
 
@@ -66,7 +68,7 @@ _URLS = {
     "pubmed": "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/ori_pqal.json",
     "test_indices": "https://raw.githubusercontent.com/pubmedqa/pubmedqa/master/data/test_ground_truth.json",
     "cots": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip",
-    "lievin_cot_2": "https://samwald.info/res/thoughtsource/data/lievin-cots-codex.zip"
+    "lievin_cot_2": "https://samwald.info/res/thoughtsource/data/lievin-cots-codex.zip",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -75,6 +77,7 @@ _SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNI
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class PubmedQADataset(datasets.GeneratorBasedBuilder):
     """PubMedQA is a novel biomedical question answering (QA) dataset collected from PubMed abstracts."""
@@ -102,7 +105,6 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -157,7 +159,7 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
                     "cotspath": cotspath,
                     "cotspath_2": cots_path_2,
                 },
-            )
+            ),
         ]
 
     def _generate_examples(self, split, filepath, test_indices, cotspath, cotspath_2) -> Tuple[int, Dict]:
@@ -175,11 +177,10 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
                     example["PUBMED_ID"] = key
                     yield key, example
         elif self.config.schema == "thoughtsource":
-
             cots = defaultdict(list)
             if cotspath is not None:
                 for file in tqdm(glob.glob(os.path.join(cotspath, "[0-4]-pubmedqa*", "*.json")), desc="Preparing Lievin CoTs"):
-                    filename = os.path.basename(file)[:-len(".json")]
+                    filename = os.path.basename(file)[: -len(".json")]
                     id = int(filename.split("_")[1].split("-")[1])
                     with open(file, "r") as infile:
                         example = json.load(infile)
@@ -188,7 +189,7 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
             cots_2 = dict()
             if cotspath_2 is not None:
                 for file in tqdm(glob.glob(os.path.join(cotspath_2, "pubmedqa_test", "*.json")), desc="Preparing Lievin CoTs v1"):
-                    filename = os.path.basename(file)[:-len(".json")]
+                    filename = os.path.basename(file)[: -len(".json")]
                     id = int(filename.split("_")[1].split("-")[1])
                     with open(file, "r") as infile:
                         example = json.load(infile)
@@ -200,13 +201,13 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
                     generated_cots = []
                     if cotspath is not None:
                         for item_idx, item in enumerate(cots[int(key)]):
-                            assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['QUESTION']} {item['question']}"
+                            assert example["QUESTION"] == item["question"], f"Question mismatch {example['QUESTION']} {item['question']}"
                             cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "pubmed_qa")
                             generated_cots.append(cot_item)
 
                     if cotspath_2 is not None and key in cots_2:
                         item = cots_2[key]
-                        assert (example["QUESTION"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
+                        assert example["QUESTION"] == item["question"], f"Question mismatch {example['question']} {item['question']}"
                         cot_items_2 = map_json_to_lievin_cots_2(key, item, "med_qa")
                         generated_cots.extend(cot_items_2)
 
@@ -235,4 +236,5 @@ class PubmedQADataset(datasets.GeneratorBasedBuilder):
 if __name__ == "__main__":
     a = datasets.load_dataset(__file__)
     from pprint import pprint
+
     pprint(a["train"][0])

@@ -108,7 +108,6 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -148,7 +147,6 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
         ]
 
     def _generate_examples(self, filepath) -> Tuple[int, Dict]:
-
         with open(filepath, "r") as json_file:
             data = [json.loads(line) for line in json_file]
 

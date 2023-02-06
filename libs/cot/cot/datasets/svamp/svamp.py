@@ -111,7 +111,6 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -160,7 +159,6 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
                 yield key, example
 
         elif self.config.schema == "thoughtsource":
-
             operator_to_verb = {
                 "+": "add",
                 "-": "subtract",
@@ -169,7 +167,6 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
             }
 
             for key, example in enumerate(data):
-
                 steps = self._decompose_equation(example["Equation"])
 
                 int_ = {}

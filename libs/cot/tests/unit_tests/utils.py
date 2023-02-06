@@ -39,6 +39,7 @@ def get_test_collection(name: str) -> Collection:
         collection = Collection.from_json(f"{name}.json")
     return collection
 
+
 def compare_nested_dict_float_values(dict1, dict2, precision):
     if set(dict1.keys()) != set(dict2.keys()):
         return False

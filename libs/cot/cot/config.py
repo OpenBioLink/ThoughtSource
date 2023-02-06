@@ -34,31 +34,32 @@ class Config:
     "api_time_interval": float - Pause between two api calls in seconds, Default: 1.0
     "warn": bool - Print warnings preventing excessive api usage, Default: True
     """
-# just saving the defaults as multiline strings for now:
-        # Default:
-            # '''{instruction}
 
-            # {question}
-            # {answer_choices}
+    # just saving the defaults as multiline strings for now:
+    # Default:
+    # '''{instruction}
 
-            # {cot_trigger}'''
+    # {question}
+    # {answer_choices}
 
-        # Default:
-        #     '''{instruction}
+    # {cot_trigger}'''
 
-        #     {question}
-        #     {answer_choices}
+    # Default:
+    #     '''{instruction}
 
-        #     {cot_trigger}{cot}
-        #     {answer_extraction}'''
+    #     {question}
+    #     {answer_choices}
 
-    idx_range: Union[tuple, str, None] = "all" # depricated
+    #     {cot_trigger}{cot}
+    #     {answer_extraction}'''
+
+    idx_range: Union[tuple, str, None] = "all"  # depricated
     # Passing a default list as an argument to dataclasses needs to be done with a lambda function
     # https://stackoverflow.com/questions/52063759/passing-default-list-argument-to-dataclasses
     instruction_keys: List = field(default_factory=lambda: [None])
     cot_trigger_keys: List = field(default_factory=lambda: ["kojima-01"])
     answer_extraction_keys: List = field(default_factory=lambda: ["kojima-01"])
-    template_cot_generation: str = ("{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}")
+    template_cot_generation: str = "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}"
     template_answer_extraction: str = "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}"
     author: str = ""
     api_service: str = "huggingface_hub"
@@ -86,18 +87,14 @@ class Config:
             self.cot_trigger_keys = [None]
 
         if self.answer_extraction_keys == "all":
-            self.answer_extraction_keys = [None] + list(
-                FRAGMENTS["answer_extractions"].keys()
-            )
+            self.answer_extraction_keys = [None] + list(FRAGMENTS["answer_extractions"].keys())
         elif not self.answer_extraction_keys:
             self.answer_extraction_keys = [None]
 
         # check if the templates contain only allowed keys
         import re
 
-        input_variables = re.findall(
-            "{(.*?)}", self.template_cot_generation + self.template_answer_extraction
-        )
+        input_variables = re.findall("{(.*?)}", self.template_cot_generation + self.template_answer_extraction)
         allowed_variables = [
             "instruction",
             "question",
@@ -108,65 +105,38 @@ class Config:
         ]
         for variable in input_variables:
             if variable not in allowed_variables:
-                raise ValueError(
-                    f"Given variable '{variable}' is not allowed in templates. Allowed variables are: {allowed_variables}"
-                )
+                raise ValueError(f"Given variable '{variable}' is not allowed in templates. Allowed variables are: {allowed_variables}")
 
         # simple checks
         if self.idx_range != "all":
             assert isinstance(self.idx_range, tuple), "idx_range must be a tuple"
-            assert isinstance(
-                self.idx_range[0], int
-            ), "idx_range must be a tuple of ints"
-            assert isinstance(
-                self.idx_range[1], int
-            ), "idx_range must be a tuple of ints"
-            assert (
-                self.idx_range[0] < self.idx_range[1]
-            ), "idx_range must be a tuple of ints with idx_range[0] < idx_range[1]"
+            assert isinstance(self.idx_range[0], int), "idx_range must be a tuple of ints"
+            assert isinstance(self.idx_range[1], int), "idx_range must be a tuple of ints"
+            assert self.idx_range[0] < self.idx_range[1], "idx_range must be a tuple of ints with idx_range[0] < idx_range[1]"
 
         if self.instruction_keys != "all":
-            assert isinstance(
-                self.instruction_keys, list
-            ), "instruction_keys must be a list"
-            assert all(
-                isinstance(key, (str, type(None))) for key in self.instruction_keys
-            ), "instruction_keys must be a list of strings"
+            assert isinstance(self.instruction_keys, list), "instruction_keys must be a list"
+            assert all(isinstance(key, (str, type(None))) for key in self.instruction_keys), "instruction_keys must be a list of strings"
 
         if self.cot_trigger_keys != "all":
-            assert isinstance(
-                self.cot_trigger_keys, list
-            ), "cot_trigger_keys must be a list"
-            assert all(
-                isinstance(key, (str, type(None))) for key in self.cot_trigger_keys
-            ), "cot_trigger_keys must be a list of strings"
+            assert isinstance(self.cot_trigger_keys, list), "cot_trigger_keys must be a list"
+            assert all(isinstance(key, (str, type(None))) for key in self.cot_trigger_keys), "cot_trigger_keys must be a list of strings"
 
         if self.answer_extraction_keys != "all":
-            assert isinstance(
-                self.answer_extraction_keys, list
-            ), "answer_extraction_keys must be a list"
+            assert isinstance(self.answer_extraction_keys, list), "answer_extraction_keys must be a list"
             assert all(
-                isinstance(key, (str, type(None)))
-                for key in self.answer_extraction_keys
+                isinstance(key, (str, type(None))) for key in self.answer_extraction_keys
             ), "answer_extraction_keys must be a list of strings"
 
-        assert isinstance(
-            self.template_cot_generation, str
-        ), "template_cot_generation must be a string"
-        assert isinstance(
-            self.template_answer_extraction, str
-        ), "template_answer_extraction must be a string"
+        assert isinstance(self.template_cot_generation, str), "template_cot_generation must be a string"
+        assert isinstance(self.template_answer_extraction, str), "template_answer_extraction must be a string"
 
         assert isinstance(self.author, str), "author must be a string"
         assert isinstance(self.api_service, str), "api_service must be a string"
         assert isinstance(self.engine, str), "engine must be a string"
-        assert isinstance(
-            self.temperature, (int, float)
-        ), "temperature must be a int or float"
+        assert isinstance(self.temperature, (int, float)), "temperature must be a int or float"
         assert isinstance(self.max_tokens, int), "max_tokens must be an int"
-        assert isinstance(
-            self.api_time_interval, (int, float)
-        ), "api_time_interval must be a int or float"
+        assert isinstance(self.api_time_interval, (int, float)), "api_time_interval must be a int or float"
         assert isinstance(self.verbose, bool), "verbose must be a bool"
         assert isinstance(self.warn, bool), "warn must be a bool"
 

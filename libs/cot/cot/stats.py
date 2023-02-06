@@ -4,10 +4,10 @@ from collections import Counter, defaultdict
 from itertools import chain
 
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
 import spacy
 from nltk.util import ngrams
+from plotly import express as px
+from plotly import graph_objects as go
 from rich.progress import Progress
 
 # download language package if not already installed
@@ -208,21 +208,25 @@ def display_stats_tables(collection):
     counters = _generate_counter_data(collection)
 
     data = [
-            (
-                name,
-                data_dict["train"].num_rows if "train" in data_dict else "-",
-                data_dict["validation"].num_rows if "validation" in data_dict else "-",
-                data_dict["test"].num_rows if "test" in data_dict else "-",
-            )
-            for name, data_dict in collection
-        ]
+        (
+            name,
+            data_dict["train"].num_rows if "train" in data_dict else "-",
+            data_dict["validation"].num_rows if "validation" in data_dict else "-",
+            data_dict["test"].num_rows if "test" in data_dict else "-",
+        )
+        for name, data_dict in collection
+    ]
     table_num_examples = pd.DataFrame.from_records(data, columns=["Name", "Train", "Valid", "Test"])
     _print_table(table_num_examples)
 
     data = []
     for key, counter in counters["na"].items():
-        data.append([key] + [counter[ckey] for ckey in ["question", "choices", "cot", "generated_cot", "question_with_generated_cot", "answer"]])
-    table_nan = pd.DataFrame.from_records(data, columns=["dataset", "question", "choices", "cot", "generated_cot", "question_with_generated_cot", "answer"])
+        data.append(
+            [key] + [counter[ckey] for ckey in ["question", "choices", "cot", "generated_cot", "question_with_generated_cot", "answer"]]
+        )
+    table_nan = pd.DataFrame.from_records(
+        data, columns=["dataset", "question", "choices", "cot", "generated_cot", "question_with_generated_cot", "answer"]
+    )
     _print_table(table_nan)
 
     data = []
@@ -232,6 +236,7 @@ def display_stats_tables(collection):
     _print_table(table_types)
 
     return (table_num_examples, table_nan, table_types)
+
 
 def prepare_overlap_matrix(collection, key, N):
     n_gram_counters = _generate_ngrams_data(collection, key, N)
@@ -260,6 +265,7 @@ def prepare_overlap_matrix(collection, key, N):
         data.append(vals)
     return n_grams_merge, data
 
+
 def plot_dataset_overlap(collection, N=3):
     """
     It takes the n-grams from each dataset and calculates the Jaccard similarity between each pair of
@@ -269,10 +275,10 @@ def plot_dataset_overlap(collection, N=3):
     """
 
     from plotly.subplots import make_subplots
+
     subpl = make_subplots(rows=1, cols=2, subplot_titles=("Question", "CoT"), print_grid=False)
 
     for index, key in enumerate(["question", "cot"]):
-
         n_grams_merge, data = prepare_overlap_matrix(collection, key, N)
 
         # because of inversed y axis
@@ -283,17 +289,14 @@ def plot_dataset_overlap(collection, N=3):
             x=list(sorted(n_grams_merge.keys())),
             y=list(sorted(n_grams_merge.keys(), reverse=True)),
             hoverongaps=False,
-            coloraxis='coloraxis',
-            text = [["" if (element is None or element < 0.01) else f"{element:.2f}" for element in row] for row in data],
+            coloraxis="coloraxis",
+            text=[["" if (element is None or element < 0.01) else f"{element:.2f}" for element in row] for row in data],
             texttemplate="%{text}",
         )
-        subpl.add_trace(fig, row=1, col=index+1)
+        subpl.add_trace(fig, row=1, col=index + 1)
 
     subpl.update_layout(height=700, width=1400)
-    subpl.update_layout(
-        coloraxis=dict(colorscale='tempo', cmin=0.0, cmax=1.0), 
-        showlegend=False
-    )
+    subpl.update_layout(coloraxis=dict(colorscale="tempo", cmin=0.0, cmax=1.0), showlegend=False)
     subpl.for_each_xaxis(lambda x: x.update(showgrid=False, zeroline=False))
     subpl.for_each_yaxis(lambda x: x.update(showgrid=False, zeroline=False))
     subpl.write_image(f"dataset_overlap.svg")
@@ -303,7 +306,7 @@ def plot_dataset_overlap(collection, N=3):
 
 def plot_token_length_distribution(collection, splits=False):
     token_len = _generate_token_length_data(collection)
-    
+
     table = token_len[["dataset", "context", "question", "cot"]].groupby("dataset").agg(["max", "mean"])
     # table.columns = table.columns.map('_'.join).reset_index()
     _print_table(table)
@@ -311,22 +314,24 @@ def plot_token_length_distribution(collection, splits=False):
     for key in ["context", "question", "cot"]:
         token_len_ = token_len[token_len[key] > 0]
         fig = px.box(
-            token_len_, 
-            x=key, y="dataset", 
-            color="split" if splits else None, 
+            token_len_,
+            x=key,
+            y="dataset",
+            color="split" if splits else None,
             labels={
-                "dataset": "Dataset", 
-                "cot": "Number of tokens in CoT", 
-                "question": "Number of tokens in question", 
-                "context": "Number of tokens in context"
+                "dataset": "Dataset",
+                "cot": "Number of tokens in CoT",
+                "question": "Number of tokens in question",
+                "context": "Number of tokens in context",
             },
             width=1100,
-            points=False
+            points=False,
         )
         fig.write_image(f"token_length_distribution_{key}.svg")
         fig.write_image(f"token_length_distribution_{key}.png")
         fig.show()
     return (table, fig)
+
 
 def get_n_outlier(dataset, field="cot", n=5):
     outlier = []

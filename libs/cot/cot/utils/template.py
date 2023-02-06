@@ -144,7 +144,6 @@ class NewDataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         # Create the source schema; this schema will keep all keys/information/labels as close to the original dataset as possible.
 
         # You can arbitrarily nest lists and dictionaries.

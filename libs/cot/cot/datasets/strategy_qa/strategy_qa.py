@@ -88,7 +88,6 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -196,7 +195,6 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                     yield key, example_
 
             elif self.config.schema == "thoughtsource":
-
                 kojima_cots = []
                 if kojimalogs is not None:
                     kojima_cots = parse_kojima_log(kojimalogs, "strategyqa")
@@ -210,7 +208,6 @@ class StrategyQADataset(datasets.GeneratorBasedBuilder):
                 wei_cot_mapped = 0
 
                 for key, example in enumerate(data):
-
                     generated_cot = []
                     kojima_cot = map_example_to_kojima_cot(example["question"], kojima_cots, "kojima-yes-no")
                     if kojima_cot is not None:

@@ -1,14 +1,11 @@
-from typing import Iterator
-
-import datasets
 import pytest
-from cot import Collection
 
+from cot import Collection
 # import os
 # from pathlib import Path
 from cot.generate import Correct_output
 
-from .utils import chdir, get_test_collection, simple_config
+from .utils import get_test_collection, simple_config
 
 
 def test_correct_output() -> None:
@@ -45,36 +42,16 @@ def test_template_input_only_string():
     config["template_answer_extraction"] = text2
     collection.generate(config=config)
 
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["cot_trigger_template"]
-        == text1
-    )
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
-            "answer_extraction_template"
-        ]
-        == text2
-    )
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["cot_trigger_template"] == text1
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0]["answer_extraction_template"] == text2
 
     assert collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] == ""
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
-            "answer_extraction_text"
-        ]
-        == ""
-    )
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0]["answer_extraction_text"] == ""
 
     collection.full_text_prompts()
 
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] == text1
-    )
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
-            "answer_extraction_text"
-        ]
-        == text2
-    )
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["prompt_text"] == text1
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0]["answer_extraction_text"] == text2
 
 
 def test_template_cot_wrong_variables():
@@ -83,7 +60,7 @@ def test_template_cot_wrong_variables():
     config = simple_config()
     text1 = "abc {wrong_variable}"
     config["template_cot_generation"] = text1
-    with pytest.raises(ValueError) as error:
+    with pytest.raises(ValueError):
         collection.generate(config=config)
 
 
@@ -93,7 +70,7 @@ def test_template_answer_extraction_wrong_variables():
     config = simple_config()
     text1 = "abc {wrong_variable}"
     config["template_answer_extraction"] = text1
-    with pytest.raises(ValueError) as error:
+    with pytest.raises(ValueError):
         collection.generate(config=config)
 
 
@@ -115,9 +92,7 @@ D) choice D
 Answer: Let's think step by step."""
     )
     assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
-            "answer_extraction_text"
-        ]
+        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0]["answer_extraction_text"]
         == """Answer the following question through step-by-step reasoning.
 
 Question
@@ -148,9 +123,7 @@ D) choice D
 Answer: Let's think step by step."""
     )
     assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0][
-            "answer_extraction_text"
-        ]
+        collection["worldtree"]["train"][0]["generated_cot"][0]["answers"][0]["answer_extraction_text"]
         == """Question
 A) choice A
 B) choice B
@@ -184,10 +157,7 @@ def test_generate_change_config() -> None:
     collection.generate(config=config)
 
     # Check if the instruction is the one from the new config
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"]
-        == "qa-02"
-    )
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"] == "qa-02"
 
 
 def test_generate_twice() -> None:
@@ -208,18 +178,12 @@ def test_generate_twice() -> None:
     collection.generate(config=config)
 
     # Check if both generated_cot are saved and have the correct instructions
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"]
-        == "qa-01"
-    )
-    assert (
-        collection["worldtree"]["train"][0]["generated_cot"][1]["instruction"]
-        == "qa-02"
-    )
+    assert collection["worldtree"]["train"][0]["generated_cot"][0]["instruction"] == "qa-01"
+    assert collection["worldtree"]["train"][0]["generated_cot"][1]["instruction"] == "qa-02"
 
 
 def test_keep_generated_cot() -> None:
-    ## keep all authors
+    # keep all authors
     # load comparison file
     collection = get_test_collection("test_1_delete_cots")
     # load file with nothing deleted
@@ -229,14 +193,14 @@ def test_keep_generated_cot() -> None:
     # check if they are the same
     assert collection.to_json() == collection_delete.to_json()
 
-    ## keep only author "2"
+    # keep only author "2"
     collection_1 = get_test_collection("test_1_delete_cots_1")
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete author "1"
     collection_delete.keep_generated_cots(["2"])
     assert collection_1.to_json() == collection_delete.to_json()
 
-    ## delete all authors
+    # delete all authors
     collection_all = get_test_collection("test_1_delete_cots_all")
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete all

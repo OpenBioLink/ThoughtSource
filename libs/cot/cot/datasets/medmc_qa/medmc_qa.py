@@ -31,19 +31,19 @@ TODO: Before submitting your script, delete this doc string and replace it with 
 [bigbio_schema_name] = (kb, pairs, qa, text, t2t, entailment)
 """
 
+import glob
+import json
 import os
+from collections import defaultdict
 from typing import Dict, List, Tuple
 
 import datasets
-import json
 from tqdm import tqdm
-import glob
 
-from cot.utils import schemas, map_example_to_lievin_cot, map_json_to_lievin_cots_2
+from cot.utils import (map_example_to_lievin_cot, map_json_to_lievin_cots_2,
+                       schemas)
 from cot.utils.configs import ThoughtSourceConfig
 from cot.utils.constants import Licenses
-from collections import defaultdict
-
 
 _LOCAL = False
 
@@ -69,8 +69,8 @@ _DATASETNAME = "medmc_qa"
 
 _DESCRIPTION = """\
 A large-scale, Multiple-Choice Question Answering (MCQA) dataset designed to address realworld medical entrance exam questions.
-The MedMCQA task can be formulated as X = {Q, O} where Q represents the questions in the text, O represents the candidate options, 
-multiple candidate answers are given for each question O = {O1, O2, ..., On}. The goal is to select the single or multiple answers 
+The MedMCQA task can be formulated as X = {Q, O} where Q represents the questions in the text, O represents the candidate options,
+multiple candidate answers are given for each question O = {O1, O2, ..., On}. The goal is to select the single or multiple answers
 from the option set.
 """
 
@@ -81,7 +81,7 @@ _LICENSE = Licenses.MIT
 _URLS = {
     "medmcqa": "https://samwald.info/res/thoughtsource/data/medmc_qa.zip",
     "cots": "https://samwald.info/res/thoughtsource/data/lievin-cots.zip",
-    "lievin_cot_2": "https://samwald.info/res/thoughtsource/data/lievin-cots-codex.zip"
+    "lievin_cot_2": "https://samwald.info/res/thoughtsource/data/lievin-cots-codex.zip",
 }
 
 # TODO: add supported task by dataset. One dataset may support multiple tasks
@@ -90,6 +90,7 @@ _SUPPORTED_TASKS = []  # example: [Tasks.TRANSLATION, Tasks.NAMED_ENTITY_RECOGNI
 _SOURCE_VERSION = "1.0.0"
 
 _BIGBIO_VERSION = "1.0.0"
+
 
 class MedMCQADataset(datasets.GeneratorBasedBuilder):
     """A Large-scale Multi-Subject Multi-Choice Dataset for Medical domain Question Answering"""
@@ -117,7 +118,6 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
     DEFAULT_CONFIG_NAME = "thoughtsource"
 
     def _info(self) -> datasets.DatasetInfo:
-
         if self.config.schema == "source":
             features = datasets.Features(
                 {
@@ -182,7 +182,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
 
     def _generate_examples(self, filepath, cotspath, cotspath_2) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
-        
+
         data = []
         with open(filepath, "r") as infile:
             for line in infile.readlines():
@@ -195,11 +195,10 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
                 yield example["id"], example
 
         elif self.config.schema == "thoughtsource":
-
             cots = defaultdict(list)
             if cotspath is not None:
                 for file in tqdm(glob.glob(os.path.join(cotspath, "[0-4]-medmcqa*", "*.json")), desc="Preparing Lievin CoTs"):
-                    filename = os.path.basename(file)[:-len(".json")]
+                    filename = os.path.basename(file)[: -len(".json")]
                     id = filename.split("_")[1].partition("-")[2]
                     with open(file, "r") as infile:
                         example = json.load(infile)
@@ -208,7 +207,7 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
             cots_2 = dict()
             if cotspath_2 is not None:
                 for file in tqdm(glob.glob(os.path.join(cotspath_2, "medmcqa_valid_1k", "*.json")), desc="Preparing Lievin CoTs v1"):
-                    filename = os.path.basename(file)[:-len(".json")]
+                    filename = os.path.basename(file)[: -len(".json")]
                     id = filename.split("_")[1].partition("-")[2]
                     with open(file, "r") as infile:
                         example = json.load(infile)
@@ -221,21 +220,21 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
                 key = example["id"]
 
                 generated_cots = []
-                
+
                 if cotspath is not None:
                     for item_idx, item in enumerate(cots[key]):
-                        assert (example["question"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
+                        assert example["question"] == item["question"], f"Question mismatch {example['question']} {item['question']}"
                         cot_item = map_example_to_lievin_cot(f"{key}_{item_idx}", item, "medmc_qa")
                         generated_cots.append(cot_item)
 
                 if cotspath_2 is not None and key in cots_2:
                     item = cots_2[key]
-                    assert (example["question"] == item["question"]), f"Question mismatch {example['question']} {item['question']}"
+                    assert example["question"] == item["question"], f"Question mismatch {example['question']} {item['question']}"
                     cot_items_2 = map_json_to_lievin_cots_2(key, item, "medmc_qa")
                     generated_cots.extend(cot_items_2)
 
                 choices = [example["opa"], example["opb"], example["opc"], example["opd"]]
-                answer = choices[example["cop"]-1] if example["cop"] is not None else None
+                answer = choices[example["cop"] - 1] if example["cop"] is not None else None
                 example_ = {
                     "id": key,
                     "ref_id": "",
@@ -261,4 +260,5 @@ class MedMCQADataset(datasets.GeneratorBasedBuilder):
 if __name__ == "__main__":
     a = datasets.load_dataset(__file__)
     from pprint import pprint
+
     pprint(a["validation"][0])
