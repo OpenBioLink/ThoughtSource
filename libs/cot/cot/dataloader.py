@@ -45,13 +45,16 @@ class Collection:
         - if "recache": deletes dataset caches and regenerates all datasets
         - if None: reuse cached dataset
         :param source: If true, loads all datasets in source view
-        :param single_generated_cots: loads all datasets with examples that generated one CoT per config.
-        :param multi_generated_cots: loads datasets where multiple CoTs were created with the same config for one data sample 
-         (often high numbers, e.g. 100 examples created with higher temperature setting while training).
+        :param load_pregenerated_cots: load already generated CoTs from other authors. If "all", load CoTs from all authors.
+        If a list of authors, load CoTs from those. ("Kojima", "Wei", "Lievin"). Defaults to None. Parameter source must be False.
         """
         self.verbose = verbose
         self.download_mode = None
         self.load_source = source
+
+        if load_pregenerated_cots is not None and source is True:
+            raise ValueError("load_pregenerated_cots only works if datasets are loaded in ThoughSource view. Param source needs to be False for pregenerated CoTs to be loaded.")
+        
         if generate_mode in ["redownload", "recache"]:
             # see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
             self.download_mode = "reuse_cache_if_exists"
@@ -77,9 +80,9 @@ class Collection:
         elif isinstance(names, list):
             self.load_datasets(names)
 
-        # unfortunately all generated cots have to be loaded
-        # we now delete all which we did not want to load
-        if load_pregenerated_cots != "all":
+        # unfortunately all generated cots have to be loaded when loading datasets in ThoughtSource view
+        # we now delete all which we did not want to load        
+        if source is False and load_pregenerated_cots != "all":
             self.keep_generated_cots(load_pregenerated_cots)
 
     def __getitem__(self, key):
