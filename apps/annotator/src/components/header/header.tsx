@@ -36,7 +36,7 @@ const Header: FC<HeaderProps> = (props) => {
           </div>
           <div className={styles.User}>
             <span>{props.username}  </span>
-            <span className={styles.Clickable} onClick={props.onLogout}>Logout</span>
+            <span className={styles.Clickable} onClick={props.onLogout}>Sign out</span>
           </div>
         </div> : null
       }
