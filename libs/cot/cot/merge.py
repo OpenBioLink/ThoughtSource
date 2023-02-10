@@ -28,7 +28,7 @@ def merge(base_collection, head_collection):
                                                     "type": "object",
                                                 },
                                             },
-                                            "annotation": {
+                                            "annotations": {
                                                 "mergeStrategy": "arrayMergeById",
                                                 "mergeOptions": {"idRef": "key"},
                                                 "type": "array",
