@@ -45,7 +45,7 @@
                         "api_service": "api_service",
                         "model": "{'name': 'name', 'temperature': 0.99, 'max_tokens': 99}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },                   
                     {
                         "id": "11111",
@@ -70,7 +70,7 @@
                         "api_service": "api_service",
                         "model": "{'name': 'name', 'temperature': 0.99, 'max_tokens': 99}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
