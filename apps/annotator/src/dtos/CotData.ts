@@ -3,7 +3,7 @@ export type Annotation = {
     date?: string
     key?: string
     value?: string
-    comment?: string
+    // comment?: string
 }
 
 export type CotOutput = {
@@ -36,7 +36,7 @@ export function annotate(cotOutput: CotOutput, key: string, value: any, author: 
         annotation = {
             key: key,
             value: value,
-            comment: comment,
+            // comment: comment,
             author: author,
             date: today
         }
@@ -47,7 +47,7 @@ export function annotate(cotOutput: CotOutput, key: string, value: any, author: 
         }
     } else {
         annotation.value = value;
-        annotation.comment = comment;
+        // annotation.comment = comment;
         annotation.author = author;
         annotation.date = today;
     }
