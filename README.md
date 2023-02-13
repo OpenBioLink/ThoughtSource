@@ -40,11 +40,11 @@ model reasoning data"__](https://arxiv.org/abs/2301.11596), arXiv, 2023
 ### General question answering
 * __[commonsense_qa](https://www.tau-nlp.sites.tau.ac.il/commonsenseqa):__ Multiple-choice commonsense knowledge question answering dataset ([Talmor 2018](https://arxiv.org/abs/1811.00937), _License:_ MIT).  Reasoning chains from three different sources are included:
 
-  * __Human-generated__ reasoning chains derived from the __[ECQA dataset](https://github.com/dair-iitd/ECQA-Dataset)__ ([Aggarwal 2021](https://aclanthology.org/2021.acl-long.238/)). Used as gold standard. _License:_ Community Data License Agreements Sharing license 1.0.
+  * __Human-generated__ reasoning chains derived from the __[ECQA dataset](https://github.com/dair-iitd/ECQA-Dataset)__ ([Aggarwal 2021](https://aclanthology.org/2021.acl-long.238/)) for train and validation split. Used as gold standard. _License:_ Community Data License Agreements Sharing license 1.0.
   * __AI-generated (few-shot prompting)__ reasoning chains from __[Wei 2022](https://arxiv.org/abs/2201.11903)__. Only available for __validation split__. _License:_ Unknown
   * __AI-generated (zero-shot prompting)__  generated reasoning chains from __[Kojima 2022](https://arxiv.org/abs/2205.11916)__. Only available for __validation split__. _License:_ Unknown
 * __[strategy_qa](https://allenai.org/data/strategyqa):__ General-domain question-answering data from the StrategyQA dataset, reasoning chains are derived from original dataset. ([Geva 2021](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00370/100680/Did-Aristotle-Use-a-Laptop-A-Question-Answering)). _License:_ MIT.
-  * __Human-generated__ reasoning chains derived from the original dataset. Used as gold standard. _License:_ MIT.
+  * __Human-generated__ reasoning chains derived from the original dataset for train split. Used as gold standard. _License:_ MIT.
   * __AI-generated (few-shot)__ reasoning chains from __[Wei 2022](https://arxiv.org/abs/2201.11903)__. Only available for __train split__. _License:_ Unknown
   * __AI-generated (zero-shot)__  generated reasoning chains from __[Kojima 2022](https://arxiv.org/abs/2205.11916)__. Only available for __train split__. _License:_ Unknown
 * __[qed](https://github.com/google-research-datasets/QED):__ General-domain question-answering data and justifications from the QED dataset ([Lamm 2020](https://arxiv.org/abs/2009.06354)). _License:_ CC BY-SA 3.0.
@@ -55,9 +55,11 @@ model reasoning data"__](https://arxiv.org/abs/2301.11596), arXiv, 2023
 * __[open_book_qa](https://allenai.org/data/open-book-qa):__ Scientific question-answering modeled after open book exams for assessing human understanding from the OpenBookQA dataset ([Mihaylov 2018](https://aclanthology.org/D18-1260.pdf)). __Human-generated__ reasoning chains derived from the original dataset. _License:_ Apache License 2.0.
 * __[med_qa](https://github.com/jind11/MedQA) (USMLE subset):__ Free-form multiple-choice OpenQA dataset containing questions from medical board exams in US (USMLE). Note: the original MedQA dataset also provides Chinese-language data, which are currently not included. ([Jin 2020](https://arxiv.org/abs/2009.13081v1)). _License:_ MIT. 
   * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. Only available for the __test split__, only US questions. _License:_ Unknown.
-* __[medmc_qa](https://medmcqa.github.io/):__ Multiple-Choice Question Answering dataset containing real-world medical entrance exam questions from the All India Institute of Medical Sciences (AIIMS PG) and National Eligibility cum Entrance Test (NEET PG). Only available for 1000 samples from the __validation split__. ([Pal 2022](https://arxiv.org/abs/2203.14371)). _License:_ MIT.
-  * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. _License:_ CC-BY.
-* __[pubmed_qa](https://github.com/pubmedqa/pubmedqa):__ QA dataset containing biomedical questions extracted from PubMed abstracts that can be answered with yes/no/maybe ([Jin 2019](https://arxiv.org/abs/1909.06146)). _License:_ MIT. 
+* __[medmc_qa](https://medmcqa.github.io/):__ Multiple-Choice Question Answering dataset containing real-world medical entrance exam questions from the All India Institute of Medical Sciences (AIIMS PG) and National Eligibility cum Entrance Test (NEET PG). ([Pal 2022](https://arxiv.org/abs/2203.14371)). _License:_ MIT.
+  * __Human-generated__ reasoning chains derived from the original dataset for ~85% of train and validation split. Used as gold standard. _License:_ MIT.
+  * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. Only available for 1000 samples from the __validation split__.  _License:_ CC-BY.
+* __[pubmed_qa](https://github.com/pubmedqa/pubmedqa):__ QA dataset containing biomedical questions extracted from PubMed abstracts that can be answered with yes/no/maybe ([Jin 2019](https://arxiv.org/abs/1909.06146)). _License:_ MIT.
+  * __Human-generated__ reasoning chains derived from the original dataset. Used as gold standard. _License:_ MIT.
   * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. Only available for the __test split__. _License:_ CC-BY.
 
 ### Math word problems
