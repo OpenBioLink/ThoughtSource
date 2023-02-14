@@ -6,6 +6,8 @@ from pathlib import Path
 from cot import Collection
 from cot.config import Config
 
+import json
+
 
 @contextmanager
 def chdir(path):
@@ -52,3 +54,63 @@ def compare_nested_dict_float_values(dict1, dict2, precision):
         elif abs(dict1[key] - dict2[key]) > precision:
             return False
     return True
+
+"""Reads every line of child json and checks whether that line exists in the parent json - sensitive lines such as "}\n" 
+- make sure last line is non-empty in both files"""
+
+# Fix for dictionary
+def json_file_contains(child_file, parent_file):
+     
+    path_or_json =f'{parent_file}.json'
+    parent_lines = []
+
+    with chdir("unit_tests/data"):
+        if isinstance(path_or_json, str):
+            with open(path_or_json, "r") as infile:
+                for line in infile:
+                    parent_lines.append(line)
+    
+    i = 0 #counter where faulty line is
+    non_lines = [] #list of lines not found in parent json
+    
+    path_or_json =f'{child_file}.json'
+    with chdir("unit_tests/data"):
+        if isinstance(path_or_json, str):
+            with open(path_or_json, "r") as infile:
+                for line in infile:
+                    #log.debug(line)
+                    i += 1
+                    if line not in parent_lines:
+                        non_lines.append(line) #may be returned if desired
+                        return False
+    return True
+     
+        # elif isinstance(path_or_json, dict):
+        #     content = path_or_json
+        
+
+"""Reads every line of child json and checks whether that line exists in the parent json - sensitive lines such as "}\n" 
+- make sure last line is non-empty in both files"""
+
+## Fix for dictionary
+# def json_file_contains(child_file, parent_file):
+
+#     parent_json = get_test_collection(parent_file)
+#     child_json = get_test_collection(child_file)
+
+#     parent_lines = []
+#     parent_json = parent_json.to_json()
+#     for line in parent_json:
+#         parent_lines.append(line)
+
+#     i = 0 #counter where faulty line is
+#     non_lines = [] #list of lines not found in parent json
+    
+#     child_json = child_json.to_json()
+#     for line in child_json:
+#         i += 1
+#         if line not in parent_lines:
+#             print(i)
+#             non_lines.append(line) #may be returned if desired
+#             return False
+#     return True
