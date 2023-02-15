@@ -47,7 +47,12 @@ class Collection:
         - if None: reuse cached dataset
         :param source: If true, loads all datasets in source view
         :param load_pregenerated_cots: load already generated CoTs from other authors. If "all", load CoTs from all authors.
-        If a list of authors, load CoTs from those. ("Kojima", "Wei", "Lievin"). Defaults to None. Parameter source must be False.
+        If a list of authors, load CoTs from those. List of which prompts where used by which authors:
+            "kojima": kojima–01 
+            "wei": few-shot (as a prompt)
+            "lievin": lievin-01, lievin-02, lievin-03, lievin-10
+            "lievin_100": 100 times kojima-01 with high temperature
+        Defaults to None. Parameter source must be False.
         """
         self.verbose = verbose
         self.download_mode = None
