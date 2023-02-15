@@ -349,7 +349,7 @@ def map_json_to_lievin_cots_2(id, json, dataset):
                     }
                 ],
                 "cot": cot_,
-                "author": "lievin",
+                "author": "lievin_100",
                 "date": None,
                 "api_service": "",
                 "model": "code-davinci-002",
