@@ -51,7 +51,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "a00d8d86-2d9e-4152-b11a-81ff9c63f812",
@@ -76,7 +76,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "21e3df9f-32df-4ddb-947f-175e60edde2e",
@@ -101,7 +101,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
@@ -151,7 +151,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "8940f407-38ae-4f64-ba96-1ef37fd738f8",
@@ -176,7 +176,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "e47df1cc-2ebc-45de-a100-a1053d6af60a",
@@ -201,7 +201,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
@@ -251,7 +251,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "fb7d9b6b-d80c-43ab-8e20-b8c011ee5f8b",
@@ -276,7 +276,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "2932d6f9-fad6-45b5-85ee-0653e3270bf1",
@@ -301,7 +301,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
@@ -350,7 +350,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "1f53eab2-c4fd-4b2e-935c-1922f0e49fea",
@@ -375,7 +375,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "21b2a6c8-cd28-42bc-9d7f-f199c6350c97",
@@ -400,7 +400,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
@@ -449,7 +449,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "df726c7e-8eb8-43cc-bc47-555de23b36cb",
@@ -474,7 +474,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "64dc1f5a-249b-4330-92d9-27888cafa0cc",
@@ -499,7 +499,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
@@ -550,7 +550,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "0d016d52-5190-40dc-aa03-d4c1bd5c1d8b",
@@ -575,7 +575,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "96b520b3-756c-4dd1-83b3-c28ac4f63517",
@@ -600,7 +600,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
@@ -657,7 +657,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "5be675fe-e1cc-4902-8887-3fcb6b9c1351",
@@ -682,7 +682,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "a8d3e8ff-4b3f-442a-8e97-b34848274649",
@@ -707,7 +707,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
@@ -759,7 +759,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "dbbda027-579a-4ec5-804b-1a4a2d1fff55",
@@ -784,7 +784,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "a3eaaad6-cc13-42a7-9b5d-d8dee6c72ce1",
@@ -809,7 +809,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
@@ -859,7 +859,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "36c9a6d9-3a96-4f7f-b290-799e8632d4ec",
@@ -884,7 +884,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "d0c42d10-f57b-43f9-a817-c85a28ec009b",
@@ -909,7 +909,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
@@ -957,7 +957,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "f42af016-159f-4917-b5ad-cb6f2ab2e97c",
@@ -982,7 +982,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     },
                     {
                         "id": "53b4df99-9818-437a-a3f0-86f8f5071326",
@@ -1007,7 +1007,7 @@
                         "api_service": "openai",
                         "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
                         "comment": "",
-                        "annotation": []
+                        "annotations": []
                     }
                 ],
                 "feedback": []
