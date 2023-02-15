@@ -37,7 +37,7 @@ features = datasets.Features(
                 "api_service": datasets.Value("string"),
                 "model": datasets.Value("string"),
                 "comment": datasets.Value("string"),
-                "annotation": [
+                "annotations": [
                     {
                         "author": datasets.Value("string"),
                         "date": datasets.Value("string"),

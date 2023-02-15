@@ -63,7 +63,7 @@ const Login: FC<LoginProps> = (props) => {
   </div> : null
 
   return <div className={styles.Login}>
-    <h5>Login</h5>
+    <h5>Enter your name</h5>
     <input placeholder='Author' onChange={(event) => props.onUsername(event.target.value)}></input>
     <input type="file" onChange={onFileChange} />
     <button onClick={props.onLogin} disabled={props.username == null || props.username.length == 0 || !props.hasCotDataLoaded}>Start annotating</button>

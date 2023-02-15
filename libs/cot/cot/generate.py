@@ -130,7 +130,7 @@ def _generate_and_extract(
                     }
                 ),
                 "comment": "",
-                "annotation": [],
+                "annotations": [],
             }
 
             template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)

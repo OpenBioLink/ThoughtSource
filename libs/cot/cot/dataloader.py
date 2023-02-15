@@ -250,6 +250,16 @@ class Collection:
 
                 dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict("series")
                 dic = {k: list(v) for (k, v) in dic.items()}
+                # important: after annotation on the annotator website, the dataset is saved with the following keys:
+                # 'lengths', 'sentences', 'subsetType', which have to be deleted before loading the dataset
+                for key in ['lengths', 'sentences', 'subsetType']:
+                    if key in dic:
+                        del dic[key]
+                # del dic['lengths']
+                # del dic['subsetType']
+                # del dic['sentences']
+                # assert info.features.keys() == dic.keys()
+                # assert info.features["generated_cot"][0].keys() == dic["generated_cot"][0][0].keys()
                 dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
             collection[dataset_name] = ds.DatasetDict(dataset_dict)
         return collection

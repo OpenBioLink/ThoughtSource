@@ -1,0 +1,55 @@
+{
+    "worldtree": {
+        "train": [
+            {
+                "id": "1577",
+                "ref_id": "",
+                "question": "A parent and a child share several characteristics. Both individuals are tall, have curly hair, are good cooks, and have freckles. Which of these characteristics is a learned behavior?",
+                "type": "multiplechoice",
+                "choices": [
+                    "being tall",
+                    "having curly hair",
+                    "being a good cook",
+                    "having freckles"
+                ],
+                "context": "",
+                "cot": [
+                    "Skills are learned characteristics.",
+                    "A behavior is a kind of characteristic.",
+                    "Cooking is a kind of skill for preparing food."
+                ],
+                "answer": [
+                    "being a good cook"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "xxl",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": " Being tall and having curly hair are physical characteristics that are inherited, not learned. Having freckles is also a physical characteristic that is inherited. Therefore, the correct answer is C) being a good cook, which is a learned behavior.",
+                        "answers": [
+                            {
+                                "id": "d8d7b6c5-e4ce-4266-8547-9b76bfc2f27d",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C) being a good cook.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "Donald",
+                        "date": "2023/01/27 18:21:53",
+                        "api_service": "openai",
+                        "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

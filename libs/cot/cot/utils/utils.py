@@ -188,7 +188,7 @@ def map_example_to_kojima_cot(question, cots, answer_extraction):
                 "api_service": "",
                 "model": "text-davinci-002",
                 "comment": "",
-                "annotation": [],
+                "annotations": [],
             }
             return generated_cot
     else:
@@ -230,7 +230,7 @@ def map_example_to_wei_cot(question, cots):
                 "api_service": "",
                 "model": "text-davinci-002",
                 "comment": "",
-                "annotation": [],
+                "annotations": [],
             }
             return generated_cot
     else:
@@ -296,7 +296,7 @@ def map_example_to_lievin_cot(id, item, dataset):
         "api_service": "",
         "model": "text-davinci-002",
         "comment": "",
-        "annotation": [],
+        "annotations": [],
     }
 
 
@@ -354,7 +354,7 @@ def map_json_to_lievin_cots_2(id, json, dataset):
                 "api_service": "",
                 "model": "code-davinci-002",
                 "comment": "",
-                "annotation": [],
+                "annotations": [],
             }
         )
 
