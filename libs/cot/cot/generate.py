@@ -105,88 +105,53 @@ def _generate_and_extract(
         "answer_extraction": None,
     }
 
-    # generate chain of thoughts and extract answers
-    for instruction_key in instruction_keys:
-        template_dict["instruction"] = get_fragments_value("instructions", instruction_key)
+    # try multiple times in case of API-Error
+    additional_api_time = 0
+    number_of_tries = 5
+    for i in range(0, number_of_tries):  
+        try:
+            # add additional time to api_time_interval if there was an error
+            api_time_interval = api_time_interval + additional_api_time
 
-        for cot_trigger_key in cot_trigger_keys:
-            generated_cot = {
-                "id": str(uuid.uuid4()),
-                "fragments_version": FRAGMENTS["version"],
-                "instruction": instruction_key,
-                "cot_trigger": cot_trigger_key,
-                "cot_trigger_template": template_cot_generation,
-                "prompt_text": "",
-                "cot": "",
-                "answers": [],
-                "author": author,
-                "date": "",
-                "api_service": api_service,
-                "model": str(
-                    {
-                        "name": engine,
-                        "temperature": temperature,
-                        "max_tokens": max_tokens,
-                    }
-                ),
-                "comment": "",
-                "annotations": [],
-            }
+            # generate chain of thoughts and extract answers
+            for instruction_key in instruction_keys:
+                template_dict["instruction"] = get_fragments_value("instructions", instruction_key)
 
-            template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)
-
-            # change template_cot_generation to generated_cot["cot_trigger_template"] to make it more logical
-            generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
-
-            if verbose:
-                print("\n-----------------COT TRIGGER TEXT-----------------")
-                print(generate_cot_prompt)
-
-            cot = query_model(
-                generate_cot_prompt,
-                api_service,
-                engine,
-                temperature,
-                max_tokens,
-                api_time_interval,
-            )
-            if verbose:
-                print("\n------------------GENERATED COT-------------------")
-                print(cot)
-
-            template_dict["cot"] = cot
-
-            generated_cot["cot"] = cot
-
-            # deactivated automatic prompt text generation: (code line stays here for testing purposes)
-            # generated_cot["prompt_text"] = generate_cot_prompt
-
-            generated_cot["date"] = print_now(1)
-
-            # extract answers from generated chain of thoughts
-            for answer_extraction_key in answer_extraction_keys:
-                if answer_extraction_key is None:
-                    pass
-
-                else:
-                    answer = {
+                for cot_trigger_key in cot_trigger_keys:
+                    generated_cot = {
                         "id": str(uuid.uuid4()),
-                        "answer_extraction": answer_extraction_key,
-                        "answer_extraction_template": template_answer_extraction,
-                        "answer_extraction_text": "",
-                        "answer": "",
-                        "correct_answer": None,
+                        "fragments_version": FRAGMENTS["version"],
+                        "instruction": instruction_key,
+                        "cot_trigger": cot_trigger_key,
+                        "cot_trigger_template": template_cot_generation,
+                        "prompt_text": "",
+                        "cot": "",
+                        "answers": [],
+                        "author": author,
+                        "date": "",
+                        "api_service": api_service,
+                        "model": str(
+                            {
+                                "name": engine,
+                                "temperature": temperature,
+                                "max_tokens": max_tokens,
+                            }
+                        ),
+                        "comment": "",
+                        "annotations": [],
                     }
 
-                    template_dict["answer_extraction"] = get_fragments_value("answer_extractions", answer_extraction_key)
-                    answer_extraction_prompt = format_prompt(template_answer_extraction, template_dict)
+                    template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)
+
+                    # change template_cot_generation to generated_cot["cot_trigger_template"] to make it more logical
+                    generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
 
                     if verbose:
-                        print("\n----------------ANSWER EXTRACTION TEXT----------------")
-                        print(answer_extraction_prompt)
+                        print("\n-----------------COT TRIGGER TEXT-----------------")
+                        print(generate_cot_prompt)
 
-                    predicted_answer = query_model(
-                        answer_extraction_prompt,
+                    cot = query_model(
+                        generate_cot_prompt,
                         api_service,
                         engine,
                         temperature,
@@ -194,18 +159,70 @@ def _generate_and_extract(
                         api_time_interval,
                     )
                     if verbose:
-                        print("\n------------------EXTRACTED ANSWER-------------------")
-                        print(predicted_answer)
+                        print("\n------------------GENERATED COT-------------------")
+                        print(cot)
 
-                    answer["answer"] = predicted_answer
+                    template_dict["cot"] = cot
+
+                    generated_cot["cot"] = cot
 
                     # deactivated automatic prompt text generation: (code line stays here for testing purposes)
-                    # answer["answer_extraction_text"] = answer_extraction_prompt
+                    # generated_cot["prompt_text"] = generate_cot_prompt
 
-                    generated_cot["answers"].append(answer)
+                    generated_cot["date"] = print_now(1)
 
-            item["generated_cot"].append(generated_cot)
+                    # extract answers from generated chain of thoughts
+                    for answer_extraction_key in answer_extraction_keys:
+                        if answer_extraction_key is None:
+                            pass
 
+                        else:
+                            answer = {
+                                "id": str(uuid.uuid4()),
+                                "answer_extraction": answer_extraction_key,
+                                "answer_extraction_template": template_answer_extraction,
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "correct_answer": None,
+                            }
+
+                            template_dict["answer_extraction"] = get_fragments_value("answer_extractions", answer_extraction_key)
+                            answer_extraction_prompt = format_prompt(template_answer_extraction, template_dict)
+
+                            if verbose:
+                                print("\n----------------ANSWER EXTRACTION TEXT----------------")
+                                print(answer_extraction_prompt)
+
+                            predicted_answer = query_model(
+                                answer_extraction_prompt,
+                                api_service,
+                                engine,
+                                temperature,
+                                max_tokens,
+                                api_time_interval,
+                            )
+                            if verbose:
+                                print("\n------------------EXTRACTED ANSWER-------------------")
+                                print(predicted_answer)
+
+                            answer["answer"] = predicted_answer
+
+                            # deactivated automatic prompt text generation: (code line stays here for testing purposes)
+                            # answer["answer_extraction_text"] = answer_extraction_prompt
+
+                            generated_cot["answers"].append(answer)
+
+                    item["generated_cot"].append(generated_cot)
+
+        except Exception as ex:
+            additional_api_time += 10
+            print("API-Error in item " + str(idx) + ": " + str(ex))
+            print("Retrying with additional time of " + str(additional_api_time) + " seconds.")
+            pass
+            
+        else:
+            break
+    
     return item
 
 
