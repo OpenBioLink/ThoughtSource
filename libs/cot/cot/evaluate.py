@@ -8,41 +8,108 @@ from pprint import pprint
 
 import datasets as ds
 
+def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
+    assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
 
-def search_regex(s: str, patterns: list, warn: bool) -> str:
-    """Searches a string for a list of regex patterns and returns the first found match."""
-    # strip the string from whitespaces
-    s = s.strip()
-    for pattern in patterns:
-        # Compile the regular expression
-        regex = re.compile(pattern, re.MULTILINE | re.IGNORECASE)
-        # Search the string for the regex pattern
-        match = regex.search(s)
-        if match:
-            # If more than one group is defined in the regex, print a warning return the last group
-            if len(match.groups()) > 1 and warn:
+    # get dataset type, e.g. multiplechoice
+    type_ = dataset[0]["type"]
+
+    # evaluate each sample
+    dataset = dataset.map(
+        _evaluate,
+        fn_kwargs={"type_": type_, "overwrite": overwrite, "warn": warn},
+        features=dataset.info.features,
+        # deleting the cache is necessary in generate if you call it multiple times
+        # not clear if it is needed here, but it doesn't hurt
+        load_from_cache_file=False,
+    )
+
+    keys = set()
+    model_names = set()
+    predictions = defaultdict(lambda: defaultdict(int))
+    counter = defaultdict(lambda: defaultdict(int))
+    evaluations = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
+
+    for example in dataset:
+        for cot in example["generated_cot"]:
+            # if no gold answer is given, skip this example
+            if example["answer"][0] is None:
+                continue
+            for answer in cot["answers"]:
+                # when model is a dict, e.g. {'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}
+                if "{" in cot["model"]:
+                    # extract model name from dict (which has to be read from a string)
+                    model = literal_eval(cot["model"])
+                    model_name = model["name"]
+                else:
+                    # when model is a string, e.g. "text_davinci_002", happens at preloaded generated cots (e.g. from lievin)
+                    model_name = cot["model"]
+                model_names.add(model_name)
+                # make a key for each combination of triggers, e.g. "None_lievin-02_kojima-A-C"
+                key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
+                keys.add(key)
+                counter[model_name][key] += 1
+                if answer["correct_answer"]:
+                    predictions[model_name][key] += 1
+
+    if warn:
+        for count in counter.values():
+            if count != len(dataset):
                 warnings.warn(
-                    f"""Found more than one possible answer to compute the evaluation score. By default returning the first found answer.
-                                 In the answer sentence '{s}' these possible answers were found: '{match.groups()}'
-                                 If you want to return a specific answer, please define a regex pattern with only one group.
-                """
+                    f"""It seems that not all examples of the dataset include an answer to be evaluated.
+                    Counter of examples:
+                    {counter.items()}
+                    Length of dataset:
+                    {len(dataset)}
+                    The evaluation score was only calculated based on the examples that include an answer.
+                    To turn this warning off, set warn=False in the evaluate function."""
                 )
 
-            # If the regex pattern is found, return the group you defined in the regex
-            return match.group(1)
-    # If none of the regex patterns are found, return an empty string
-    return ""
+    keys = sorted(keys)
+    for model_name in model_names:
+        for key in keys:
+            for metric in ["accuracy"]:
+                if counter[model_name][key] != 0:
+                    value = predictions[model_name][key] / counter[model_name][key]
+                    evaluations[metric][model_name][key] = round(value, 6)
+
+    # pprint(dict(evaluations))
+    return dataset, json.loads(json.dumps(evaluations))
 
 
-def escape_special_characters(string):
-    result = r""
-    # everything but | because it is used in the regex
-    special_characters = r"\^$.?*+()["
-    for c in string:
-        if c in special_characters:
-            result += "\\"
-        result += c
-    return result
+def _evaluate(example, type_, overwrite, warn):
+    assert type_ == example["type"], "Datasets contains examples with multiple different types"
+
+    # only run evaluation if answer is given
+    if example["answer"][0] is None:
+        if warn:
+            warnings.warn(
+                f"""
+                The right answer is not given in the given example.
+                No evaluation is possible for this example.
+                {example}"""
+            )
+        return example
+
+    # take full text answer if not multiple choice
+    dataset_correct_answer = example["answer"][0]
+    dataset_choices = example["choices"]
+
+    # if no choices are given, set to None
+    if dataset_choices == []:
+        dataset_choices = None
+
+    for cot in example["generated_cot"]:
+        for answer in cot["answers"]:
+            if answer["correct_answer"] is not None and not overwrite:
+                continue
+            prediction = answer["answer"]
+            answer_eval = is_correct(type_, prediction, dataset_correct_answer, dataset_choices, warn)
+            answer["correct_answer"] = answer_eval
+    return example
+
+
+
 
 
 def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bool:
@@ -223,6 +290,40 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
 
     return is_correct
 
+def search_regex(s: str, patterns: list, warn: bool) -> str:
+    """Searches a string for a list of regex patterns and returns the first found match."""
+    # strip the string from whitespaces
+    s = s.strip()
+    for pattern in patterns:
+        # Compile the regular expression
+        regex = re.compile(pattern, re.MULTILINE | re.IGNORECASE)
+        # Search the string for the regex pattern
+        match = regex.search(s)
+        if match:
+            # If more than one group is defined in the regex, print a warning return the last group
+            if len(match.groups()) > 1 and warn:
+                warnings.warn(
+                    f"""Found more than one possible answer to compute the evaluation score. By default returning the first found answer.
+                                 In the answer sentence '{s}' these possible answers were found: '{match.groups()}'
+                                 If you want to return a specific answer, please define a regex pattern with only one group.
+                """
+                )
+
+            # If the regex pattern is found, return the group you defined in the regex
+            return match.group(1)
+    # If none of the regex patterns are found, return an empty string
+    return ""
+
+
+def escape_special_characters(string):
+    result = r""
+    # everything but | because it is used in the regex
+    special_characters = r"\^$.?*+()["
+    for c in string:
+        if c in special_characters:
+            result += "\\"
+        result += c
+    return result
 
 def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
     """Compares the predicted answer with all the gold answer. It matches with the key (e.g: 'A')
@@ -243,104 +344,3 @@ def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
     comparison = pred.lower() == gold_key.lower() or pred.lower() == gold_value.lower()
 
     return comparison
-
-
-def evaluate_sample(example, type_, overwrite, warn):
-    assert type_ == example["type"], "Datasets contains examples with multiple different types"
-
-    # only run evaluation if answer is given
-    if example["answer"][0] is None:
-        if warn:
-            warnings.warn(
-                f"""
-                The right answer is not given in the given example.
-                No evaluation is possible for this example.
-                {example}"""
-            )
-        return example
-
-    # take full text answer if not multiple choice
-    dataset_correct_answer = example["answer"][0]
-    dataset_choices = example["choices"]
-
-    # if no choices are given, set to None
-    if dataset_choices == []:
-        dataset_choices = None
-
-    for cot in example["generated_cot"]:
-        for answer in cot["answers"]:
-            if answer["correct_answer"] is not None and not overwrite:
-                continue
-            prediction = answer["answer"]
-            answer_eval = is_correct(type_, prediction, dataset_correct_answer, dataset_choices, warn)
-            answer["correct_answer"] = answer_eval
-    return example
-
-
-def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
-    assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
-
-    # get dataset type, e.g. multiplechoice
-    type_ = dataset[0]["type"]
-
-    # evaluate each sample
-    dataset = dataset.map(
-        evaluate_sample,
-        fn_kwargs={"type_": type_, "overwrite": overwrite, "warn": warn},
-        features=dataset.info.features,
-        # deleting the cache is necessary in generate if you call it multiple times
-        # not clear if it is needed here, but it doesn't hurt
-        load_from_cache_file=False,
-    )
-
-    keys = set()
-    model_names = set()
-    predictions = defaultdict(lambda: defaultdict(int))
-    counter = defaultdict(lambda: defaultdict(int))
-    evaluations = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
-
-    for example in dataset:
-        for cot in example["generated_cot"]:
-            # if no gold answer is given, skip this example
-            if example["answer"][0] is None:
-                continue
-            for answer in cot["answers"]:
-                # when model is a dict, e.g. {'name': 'google/flan-t5-xl', 'temperature': 0, 'max_tokens': 512}
-                if "{" in cot["model"]:
-                    # extract model name from dict (which has to be read from a string)
-                    model = literal_eval(cot["model"])
-                    model_name = model["name"]
-                else:
-                    # when model is a string, e.g. "text_davinci_002", happens at preloaded generated cots (e.g. from lievin)
-                    model_name = cot["model"]
-                model_names.add(model_name)
-                # make a key for each combination of triggers, e.g. "None_lievin-02_kojima-A-C"
-                key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
-                keys.add(key)
-                counter[model_name][key] += 1
-                if answer["correct_answer"]:
-                    predictions[model_name][key] += 1
-
-    if warn:
-        for count in counter.values():
-            if count != len(dataset):
-                warnings.warn(
-                    f"""It seems that not all examples of the dataset include an answer to be evaluated.
-                    Counter of examples:
-                    {counter.items()}
-                    Length of dataset:
-                    {len(dataset)}
-                    The evaluation score was only calculated based on the examples that include an answer.
-                    To turn this warning off, set warn=False in the evaluate function."""
-                )
-
-    keys = sorted(keys)
-    for model_name in model_names:
-        for key in keys:
-            for metric in ["accuracy"]:
-                if counter[model_name][key] != 0:
-                    value = predictions[model_name][key] / counter[model_name][key]
-                    evaluations[metric][model_name][key] = round(value, 6)
-
-    # pprint(dict(evaluations))
-    return dataset, json.loads(json.dumps(evaluations))
