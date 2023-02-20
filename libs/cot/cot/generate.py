@@ -29,22 +29,13 @@ def generate_and_extract(data, config):
     ds.disable_caching()
     data.cleanup_cache_files()
 
-    # TODO: check if the following code of computing n_samples is necessary
-    # We moved the computing of the number of samples in the dataloader function, because we need it there
-    # But did not consider the idx_range option there
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
-        # if "idx_range" in config and config["idx_range"] != "all":
-        #     n_samples = config["idx_range"][1] - config["idx_range"][0]
-        # else:
-        #     n_samples = len(data)
+
     elif isinstance(data, ds.dataset_dict.DatasetDict):
         name_of_first_split = list(data.keys())[0]
         features = data[name_of_first_split].info.features
-        # if "idx_range" in config and config["idx_range"] != "all":
-        #     n_samples = (config["idx_range"][1] - config["idx_range"][0]) * len(data)
-        # else:
-        #     n_samples = sum([len(data[x]) for x in data])
+
     else:
         raise ValueError("Not recognized data")
 
