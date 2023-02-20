@@ -274,6 +274,16 @@ class Collection:
         The function returns the number of examples in the loaded datasets.
         :return: The number of examples in the loaded datasets.
         """
+        # We moved the computing of the number of samples from the generate function, because we need it here
+        # But did not consider the idx_range option there
+        # this does not yet include if specific indices are selected, not sure if that is still needed
+        # here is an example of how it could be done:
+        
+        # if "idx_range" in config and config["idx_range"] != "all":
+        #     n_samples = config["idx_range"][1] - config["idx_range"][0]
+        # else:
+        #     n_samples = len(data)
+
         count = 0
         if name is None:
             for name in self._cache.keys():
@@ -300,11 +310,14 @@ class Collection:
             print_warning(config, n_samples)
         if name is None:
             for name in self._cache:
+                print(f"Generating {name}...")
                 self[name] = generate_and_extract(self[name], config=config)
         else:
             if split is None:
+                print(f"Generating {name}...")
                 self[name] = generate_and_extract(self[name], config=config)
             else:
+                print(f"Generating {name}...")
                 self[name][split] = generate_and_extract(self[name][split], config=config)
 
     def evaluate(self, name=None, split=None, overwrite=False, warn=False):
@@ -312,18 +325,18 @@ class Collection:
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
-                    print(f"Evaluating {name} {split}...")
+                    print(f"Evaluating {name}...")
                     self[name][split], evaluation = evaluate(self[name][split], overwrite=overwrite, warn=warn)
                     evaluations_dict[name][split] = evaluation
         else:
             if split is None:
                 for split in self._cache[name]:
-                    print(f"Evaluating {name} {split}...")
+                    print(f"Evaluating {name}...")
                     self[name][split], evaluations = evaluate(self[name][split], overwrite=overwrite, warn=warn)
                     evaluations_dict[name][split] = evaluations
 
             else:
-                print(f"Evaluating {name} {split}...")
+                print(f"Evaluating {name}...")
                 self[name][split], evaluations = evaluate(self[name][split], overwrite=overwrite, warn=warn)
                 evaluations_dict[name][split] = evaluations
 
