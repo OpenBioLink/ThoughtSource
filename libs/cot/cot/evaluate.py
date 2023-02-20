@@ -7,6 +7,8 @@ from collections import defaultdict
 from pprint import pprint
 
 import datasets as ds
+from cot import Collection
+
 
 def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
     assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
@@ -344,3 +346,16 @@ def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
     comparison = pred.lower() == gold_key.lower() or pred.lower() == gold_value.lower()
 
     return comparison
+
+# evaluating all files in a directory
+def print_evaluation_of_all_files_in_dir(dir):
+    for filename in os.listdir(dir):
+        if filename.endswith(".json"):
+            collection = Collection.from_json(os.path.join(dir, filename))
+            evaluation = collection.evaluate()
+            pprint(evaluation)
+            # if you want to save the evaluation results in the file:
+            # collection.dump(os.path.join(dir, filename))
+            continue
+        else:
+            continue
