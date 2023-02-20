@@ -46,4 +46,4 @@ def model_sprint(dataset_name_splits, api_service_model, cot_trigger_keys, numbe
         
             collection.generate(config=config)
             collection.evaluate()
-            collection.dump(dataset_name + "_" + split + "_" + str(number_examples) + "_" + api_service + "_" + model + join_strings(config["cot_trigger_keys"]) + ".json")
+            collection.dump(dataset_name + "_" + split + "_" + str(number_examples) + "_" + api_service + "_" + model.replace("/", "_") + join_strings(config["cot_trigger_keys"]) + ".json")
