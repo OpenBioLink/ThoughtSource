@@ -1,6 +1,69 @@
+""" This file contains the functions to create the thoughtsource_100 collection."""
+
 import random
 
 from cot import Collection
+
+def create_thoughtsource_100(load_pregenerated_cots=None):
+    number_samples = 100
+    # start alphabetically with the commonsense_qa collection
+    collection = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
+    collection = collection.select(split="validation", number_samples=number_samples)
+    # add the med_qa collection
+    _coll = Collection(["med_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
+    _coll = _coll.select(split="test", number_samples=number_samples)
+    collection["med_qa"] = _coll["med_qa"]
+
+    # add the medmc collection, then add the other datasets
+    # it is special because we only select examples from the validation set where lievin has generated a COT
+    medmc_qa = create_special_medmc_100(load_pregenerated_cots=load_pregenerated_cots)
+    collection["medmc_qa"] = medmc_qa["medmc_qa"]
+
+    # define the other datasets
+    dataset_split = [
+        ("open_book_qa", "test"),
+        ("strategy_qa", "train"),
+        ("worldtree", "test"),
+    ]
+
+    for dataset, split in dataset_split:
+        _coll = Collection([dataset], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
+        _coll = _coll.select(split=split, number_samples=number_samples)
+        collection[dataset] = _coll[dataset]
+
+    return collection
+
+def create_thoughtsource_1(load_pregenerated_cots=None):
+    # this is not an official collection, but it is useful for debugging/testing
+    number_samples = 1
+    # start alphabetically with the commonsense_qa collection
+    collection = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
+    collection = collection.select(split="validation", number_samples=number_samples)
+    # add the med_qa collection
+    _coll = Collection(["med_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
+    _coll = _coll.select(split="test", number_samples=number_samples)
+    collection["med_qa"] = _coll["med_qa"]
+
+    # add the medmc collection, then add the other datasets
+    # it is special because we only select examples from the validation set where lievin has generated a COT
+    medmc_qa = create_special_medmc_100(load_pregenerated_cots=load_pregenerated_cots)
+    medmc_qa = medmc_qa.select(split="validation", number_samples=number_samples)
+    collection["medmc_qa"] = medmc_qa["medmc_qa"]
+
+    # define the other datasets
+    dataset_split = [
+        ("open_book_qa", "test"),
+        ("strategy_qa", "train"),
+        ("worldtree", "test"),
+    ]
+
+    for dataset, split in dataset_split:
+        _coll = Collection([dataset], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
+        _coll = _coll.select(split=split, number_samples=number_samples)
+        collection[dataset] = _coll[dataset]
+
+    return collection
+
 
 def create_special_medmc_ids():
     collection = Collection(["medmc_qa"], verbose=False, load_pregenerated_cots="all")
@@ -42,61 +105,3 @@ def create_special_medmc_100(load_pregenerated_cots=None):
     # return the filtered collection
     return collection
 
-def create_thoughtsource_100(load_pregenerated_cots=None):
-    number_samples = 100
-    # start alphabetically with the commonsense_qa collection
-    collection = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
-    collection = collection.select(split="validation", number_samples=number_samples)
-    # add the med_qa collection
-    _coll = Collection(["med_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
-    _coll = _coll.select(split="test", number_samples=number_samples)
-    collection["med_qa"] = _coll["med_qa"]
-
-    # add the medmc collection, then add the other datasets
-    # it is special because we only select examples from the validation set where lievin has generated a COT
-    medmc_qa = create_special_medmc_100(load_pregenerated_cots=load_pregenerated_cots)
-    collection["medmc_qa"] = medmc_qa["medmc_qa"]
-
-    # define the other datasets
-    dataset_split = [
-        ("open_book_qa", "test"),
-        ("strategy_qa", "train"),
-        ("worldtree", "test"),
-    ]
-
-    for dataset, split in dataset_split:
-        _coll = Collection([dataset], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
-        _coll = _coll.select(split=split, number_samples=number_samples)
-        collection[dataset] = _coll[dataset]
-
-    return collection
-
-def create_thoughtsource_1(load_pregenerated_cots=None):
-    number_samples = 1
-    # start alphabetically with the commonsense_qa collection
-    collection = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
-    collection = collection.select(split="validation", number_samples=number_samples)
-    # add the med_qa collection
-    _coll = Collection(["med_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
-    _coll = _coll.select(split="test", number_samples=number_samples)
-    collection["med_qa"] = _coll["med_qa"]
-
-    # add the medmc collection, then add the other datasets
-    # it is special because we only select examples from the validation set where lievin has generated a COT
-    medmc_qa = create_special_medmc_100(load_pregenerated_cots=load_pregenerated_cots)
-    medmc_qa = medmc_qa.select(split="validation", number_samples=number_samples)
-    collection["medmc_qa"] = medmc_qa["medmc_qa"]
-
-    # define the other datasets
-    dataset_split = [
-        ("open_book_qa", "test"),
-        ("strategy_qa", "train"),
-        ("worldtree", "test"),
-    ]
-
-    for dataset, split in dataset_split:
-        _coll = Collection([dataset], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
-        _coll = _coll.select(split=split, number_samples=number_samples)
-        collection[dataset] = _coll[dataset]
-
-    return collection
