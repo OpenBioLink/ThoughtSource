@@ -7,7 +7,6 @@ from collections import defaultdict
 from pprint import pprint
 
 import datasets as ds
-from cot import Collection
 
 
 def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
