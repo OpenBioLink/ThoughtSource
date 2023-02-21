@@ -51,7 +51,7 @@ def get_dataset(dataset_path: str, subset_name=None):
         coll = Collection([name], verbose=False, source=source)
     else:
         # load only kojima and wei pregenerated CoTs, not the 105 from lievin
-        coll = Collection([name], verbose=False, source=source, load_pregenerated_cots=["kojima", "wei"])
+        coll = Collection([name], verbose=False, source=source, load_pregenerated_cots=["kojima", "wei", "lievin"])
     dataset = coll[name]
 
     # this is the original code without the workaround, leave it here:
