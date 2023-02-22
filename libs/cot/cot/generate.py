@@ -210,7 +210,8 @@ def _generate_and_extract(
             additional_api_time += 10
             print("API-Error in item " + str(idx) + ": " + str(ex))
             print("Retrying with additional time of " + str(additional_api_time) + " seconds.")
-            raise ex
+            # if you want the error to be raised, uncomment the following line:
+            # raise ex
             pass
             
         else:
@@ -407,7 +408,7 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
             )
 
         if api_service == "huggingface_hub":
-            # from langchain import HuggingFaceHub
+            from langchain import HuggingFaceHub
 
             llm_chain = LLMChain(
                 prompt=prompt,
@@ -451,7 +452,7 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
         return response
     
 ### this is code from the langchain package
-# I needed to make a small adpation to the HuggingFaceEndpoint class to catch an Error
+# I needed to make a small adaptation to the HuggingFaceEndpoint class to catch an Error
 # will be deleted in the future
 
 """Wrapper around HuggingFace APIs."""
