@@ -67,6 +67,7 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be
                 )
 
     keys = sorted(keys)
+    model_names = sorted(model_names)
     for model_name in model_names:
         for key in keys:
             for metric in ["accuracy"]:
@@ -348,6 +349,7 @@ def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
 
 # evaluating all files in a directory
 def print_evaluation_of_all_files_in_dir(dir):
+    import os
     for filename in os.listdir(dir):
         if filename.endswith(".json"):
             collection = Collection.from_json(os.path.join(dir, filename))
