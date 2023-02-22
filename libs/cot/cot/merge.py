@@ -53,6 +53,7 @@ def merge(base_collection, head_collection):
 
 # merge all files in a directory
 def merge_all_files_in_dir(dir):
+    import os
     from cot import Collection
     filenames = os.listdir(dir)
     filenames = [filename for filename in filenames if filename.endswith(".json")]
