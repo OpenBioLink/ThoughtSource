@@ -49,7 +49,7 @@
         "lievin-26": "Answer: Let's follow a Bayesian step by step approach.",
         "lievin-27": "Answer: Let's reflect on each option from the least likely to the most likely.",
         "lievin-28": "Answer: Let's use step by step Bayesian reasoning, given the medical nature of the question.",
-        "zhou-01": "Answer: Let's work this out in a step by step way to be sure we have the right answer.",
+        "zhou-01": "Answer: Let's work this out in a step by step way to be sure we have the right answer."
     },
     "answer_extractions": {
         "kojima-01": "Therefore, the answer is",
