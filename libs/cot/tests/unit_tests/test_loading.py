@@ -27,6 +27,8 @@ def test_find_all_datasets() -> None:
             dataset_names = dataset_names.read().splitlines()
     dataset_list = Collection._find_datasets()
     dataset_list = [i[0] for i in dataset_list]
+    # check if all elements of dataset_names are in dataset_list
+    # new items can be added to datasets, but all of the old ones must be present
     assert all(elem in dataset_list for elem in dataset_names)
 
 
@@ -132,10 +134,7 @@ def test_keys_all_plus_None() -> None:
     instruction_keys = [None] + instruction_keys
     cot_trigger_keys = [None] + cot_trigger_keys
     answer_extraction_keys = [None] + answer_extraction_keys
-    # assert config.instruction_keys == [None] + instruction_keys
-    # assert config.cot_trigger_keys == [None] + cot_trigger_keys
-    # assert config.answer_extraction_keys == [None] + answer_extraction_keys
-    # check if all elements of dataset_names are in dataset_list
+    # check if all elements of instruction_keys are in config.instruction_keys
     # new items can be added to fragments, but all of the old ones must be present
     assert all(elem in config.instruction_keys for elem in instruction_keys)
     assert all(elem in config.cot_trigger_keys for elem in cot_trigger_keys)
