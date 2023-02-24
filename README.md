@@ -171,3 +171,10 @@ collection.evaluate()
   copyright = {Creative Commons Attribution 4.0 International}
 }
 ```
+
+## Versioning
+0.0.3 (2023-02-24) - Thoughtsource_100 dataset released with reasoning chains from GPT-text-davinci-003, flan-t5-xxl, and cohere's command-xl
+
+0.0.2 (2023-02-15) - Annotator tool updated for correct data schema
+
+0.0.1 (2023-02-01) - Initial release after Twitter announcement of project
