@@ -85,7 +85,7 @@ __We welcome dataset contributions! 👉 Have a look at our [contribution guide]
 ---
 <p align="center">
  <a href="http://thought.samwald.info:3000/"><b> Use the web-based annotator 📝</b></a><br/>
- To try out the annotator, simply type in your name and load this<a href="https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json" target="_blank"> example file</a>
+ To try out the annotator, simply type in your name and load this<a href="https://github.com/OpenBioLink/ThoughtSource/blob/main/notebooks/worldtree_10.json" target="_blank"> example file</a>
 </p>
 
 ---
