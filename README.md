@@ -85,7 +85,7 @@ __We welcome dataset contributions! 👉 Have a look at our [contribution guide]
 ---
 <p align="center">
  <a href="http://thought.samwald.info:3000/"><b> Use the web-based annotator 📝</b></a><br/>
- To try out the annotator, simply type in your name and load this<a href="https://github.com/OpenBioLink/ThoughtSource/blob/tutorial/apps/annotator/example_input.json" target="_blank"> example file</a>
+ To try out the annotator, simply type in your name and load this<a href="https://github.com/OpenBioLink/ThoughtSource/blob/main/notebooks/worldtree_10.json" target="_blank"> example file</a>
 </p>
 
 ---
@@ -171,3 +171,14 @@ collection.evaluate()
   copyright = {Creative Commons Attribution 4.0 International}
 }
 ```
+
+## Versioning
+All updates/changes to datasets are explicitly mentioned in bold.
+
+0.0.3 (2023-02-24) -  Thoughtsource_100 dataset released with reasoning chains from GPT-text-davinci-003, flan-t5-xxl, and cohere's command-xl
+
+0.0.2 (2023-02-15) -  Annotator tool updated for correct data schema
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Pubmed_qa**: Included "LONG_ANSWER" from origin schema as "cot" in ThoughtSource schema
+
+0.0.1 (2023-02-01) -  Initial release after Twitter announcement of project
