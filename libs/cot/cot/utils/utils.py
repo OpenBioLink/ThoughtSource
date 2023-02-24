@@ -1,6 +1,18 @@
 import os
 import re
+from contextlib import contextmanager
+from pathlib import Path
 
+
+@contextmanager
+def chdir(path):
+    """Switch working directory to path and back to base directory"""
+    base_dir = Path().absolute()
+    try:
+        os.chdir(os.path.join(base_dir, path))
+        yield
+    finally:
+        os.chdir(base_dir)
 
 def _read_file(path):
     with open(path, "r", encoding="utf8") as infile:
@@ -349,7 +361,7 @@ def map_json_to_lievin_cots_2(id, json, dataset):
                     }
                 ],
                 "cot": cot_,
-                "author": "lievin",
+                "author": "lievin_100",
                 "date": None,
                 "api_service": "",
                 "model": "code-davinci-002",

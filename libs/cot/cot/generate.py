@@ -3,6 +3,7 @@ import json
 import pkgutil
 import time
 import uuid
+import os
 from dataclasses import asdict
 
 import datasets as ds
@@ -28,22 +29,13 @@ def generate_and_extract(data, config):
     ds.disable_caching()
     data.cleanup_cache_files()
 
-    # TODO: check if the following code of computing n_samples is necessary
-    # We moved the computing of the number of samples in the dataloader function, because we need it there
-    # But did not consider the idx_range option there
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
-        # if "idx_range" in config and config["idx_range"] != "all":
-        #     n_samples = config["idx_range"][1] - config["idx_range"][0]
-        # else:
-        #     n_samples = len(data)
+
     elif isinstance(data, ds.dataset_dict.DatasetDict):
         name_of_first_split = list(data.keys())[0]
         features = data[name_of_first_split].info.features
-        # if "idx_range" in config and config["idx_range"] != "all":
-        #     n_samples = (config["idx_range"][1] - config["idx_range"][0]) * len(data)
-        # else:
-        #     n_samples = sum([len(data[x]) for x in data])
+
     else:
         raise ValueError("Not recognized data")
 
@@ -105,88 +97,53 @@ def _generate_and_extract(
         "answer_extraction": None,
     }
 
-    # generate chain of thoughts and extract answers
-    for instruction_key in instruction_keys:
-        template_dict["instruction"] = get_fragments_value("instructions", instruction_key)
+    # try multiple times in case of API-Error
+    additional_api_time = 0
+    number_of_tries = 5
+    for i in range(0, number_of_tries):  
+        try:
+            # add additional time to api_time_interval if there was an error
+            api_time_interval = api_time_interval + additional_api_time
 
-        for cot_trigger_key in cot_trigger_keys:
-            generated_cot = {
-                "id": str(uuid.uuid4()),
-                "fragments_version": FRAGMENTS["version"],
-                "instruction": instruction_key,
-                "cot_trigger": cot_trigger_key,
-                "cot_trigger_template": template_cot_generation,
-                "prompt_text": "",
-                "cot": "",
-                "answers": [],
-                "author": author,
-                "date": "",
-                "api_service": api_service,
-                "model": str(
-                    {
-                        "name": engine,
-                        "temperature": temperature,
-                        "max_tokens": max_tokens,
-                    }
-                ),
-                "comment": "",
-                "annotations": [],
-            }
+            # generate chain of thoughts and extract answers
+            for instruction_key in instruction_keys:
+                template_dict["instruction"] = get_fragments_value("instructions", instruction_key)
 
-            template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)
-
-            # change template_cot_generation to generated_cot["cot_trigger_template"] to make it more logical
-            generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
-
-            if verbose:
-                print("\n-----------------COT TRIGGER TEXT-----------------")
-                print(generate_cot_prompt)
-
-            cot = query_model(
-                generate_cot_prompt,
-                api_service,
-                engine,
-                temperature,
-                max_tokens,
-                api_time_interval,
-            )
-            if verbose:
-                print("\n------------------GENERATED COT-------------------")
-                print(cot)
-
-            template_dict["cot"] = cot
-
-            generated_cot["cot"] = cot
-
-            # deactivated automatic prompt text generation: (code line stays here for testing purposes)
-            # generated_cot["prompt_text"] = generate_cot_prompt
-
-            generated_cot["date"] = print_now(1)
-
-            # extract answers from generated chain of thoughts
-            for answer_extraction_key in answer_extraction_keys:
-                if answer_extraction_key is None:
-                    pass
-
-                else:
-                    answer = {
+                for cot_trigger_key in cot_trigger_keys:
+                    generated_cot = {
                         "id": str(uuid.uuid4()),
-                        "answer_extraction": answer_extraction_key,
-                        "answer_extraction_template": template_answer_extraction,
-                        "answer_extraction_text": "",
-                        "answer": "",
-                        "correct_answer": None,
+                        "fragments_version": FRAGMENTS["version"],
+                        "instruction": instruction_key,
+                        "cot_trigger": cot_trigger_key,
+                        "cot_trigger_template": template_cot_generation,
+                        "prompt_text": "",
+                        "cot": "",
+                        "answers": [],
+                        "author": author,
+                        "date": "",
+                        "api_service": api_service,
+                        "model": str(
+                            {
+                                "name": engine,
+                                "temperature": temperature,
+                                "max_tokens": max_tokens,
+                            }
+                        ),
+                        "comment": "",
+                        "annotations": [],
                     }
 
-                    template_dict["answer_extraction"] = get_fragments_value("answer_extractions", answer_extraction_key)
-                    answer_extraction_prompt = format_prompt(template_answer_extraction, template_dict)
+                    template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)
+
+                    # change template_cot_generation to generated_cot["cot_trigger_template"] to make it more logical
+                    generate_cot_prompt = format_prompt(template_cot_generation, template_dict)
 
                     if verbose:
-                        print("\n----------------ANSWER EXTRACTION TEXT----------------")
-                        print(answer_extraction_prompt)
+                        print("\n-----------------COT TRIGGER TEXT-----------------")
+                        print(generate_cot_prompt)
 
-                    predicted_answer = query_model(
-                        answer_extraction_prompt,
+                    cot = query_model(
+                        generate_cot_prompt,
                         api_service,
                         engine,
                         temperature,
@@ -194,18 +151,72 @@ def _generate_and_extract(
                         api_time_interval,
                     )
                     if verbose:
-                        print("\n------------------EXTRACTED ANSWER-------------------")
-                        print(predicted_answer)
+                        print("\n------------------GENERATED COT-------------------")
+                        print(cot)
 
-                    answer["answer"] = predicted_answer
+                    template_dict["cot"] = cot
+
+                    generated_cot["cot"] = cot
 
                     # deactivated automatic prompt text generation: (code line stays here for testing purposes)
-                    # answer["answer_extraction_text"] = answer_extraction_prompt
+                    # generated_cot["prompt_text"] = generate_cot_prompt
 
-                    generated_cot["answers"].append(answer)
+                    generated_cot["date"] = print_now(1)
 
-            item["generated_cot"].append(generated_cot)
+                    # extract answers from generated chain of thoughts
+                    for answer_extraction_key in answer_extraction_keys:
+                        if answer_extraction_key is None:
+                            pass
 
+                        else:
+                            answer = {
+                                "id": str(uuid.uuid4()),
+                                "answer_extraction": answer_extraction_key,
+                                "answer_extraction_template": template_answer_extraction,
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "correct_answer": None,
+                            }
+
+                            template_dict["answer_extraction"] = get_fragments_value("answer_extractions", answer_extraction_key)
+                            answer_extraction_prompt = format_prompt(template_answer_extraction, template_dict)
+
+                            if verbose:
+                                print("\n----------------ANSWER EXTRACTION TEXT----------------")
+                                print(answer_extraction_prompt)
+
+                            predicted_answer = query_model(
+                                answer_extraction_prompt,
+                                api_service,
+                                engine,
+                                temperature,
+                                max_tokens,
+                                api_time_interval,
+                            )
+                            if verbose:
+                                print("\n------------------EXTRACTED ANSWER-------------------")
+                                print(predicted_answer)
+
+                            answer["answer"] = predicted_answer
+
+                            # deactivated automatic prompt text generation: (code line stays here for testing purposes)
+                            # answer["answer_extraction_text"] = answer_extraction_prompt
+
+                            generated_cot["answers"].append(answer)
+
+                    item["generated_cot"].append(generated_cot)
+
+        except Exception as ex:
+            additional_api_time += 10
+            print("API-Error in item " + str(idx) + ": " + str(ex))
+            print("Retrying with additional time of " + str(additional_api_time) + " seconds.")
+            # if you want the error to be raised, uncomment the following line:
+            # raise ex
+            pass
+            
+        else:
+            break
+    
     return item
 
 
@@ -409,6 +420,21 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
                 ),
             )
 
+        if api_service == "huggingface_endpoint":
+            # from langchain.llms.huggingface_endpoint import HuggingFaceEndpoint
+
+            llm_chain = LLMChain(
+                prompt=prompt,
+                llm=HuggingFaceEndpoint(
+                # we just use the engine name as the endpoint url here
+                endpoint_url=engine,
+                # read API key from environment variable
+                huggingfacehub_api_token=os.environ["HUGGINGFACEHUB_API_TOKEN"],
+                model_kwargs={"temperature": temperature, "max_length": max_tokens},
+                task="text2text-generation"
+                ),
+            )
+
         if api_service == "cohere":
             from langchain import Cohere
 
@@ -424,3 +450,141 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
 
         response = llm_chain.predict(prompt=input, stop=None)
         return response
+    
+### this is code from the langchain package
+# I needed to make a small adaptation to the HuggingFaceEndpoint class to catch an Error
+# will be deleted in the future
+
+"""Wrapper around HuggingFace APIs."""
+from typing import Any, Dict, List, Mapping, Optional
+
+import requests
+from pydantic import BaseModel, Extra, root_validator
+
+from langchain.llms.base import LLM
+from langchain.llms.utils import enforce_stop_tokens
+from langchain.utils import get_from_dict_or_env
+
+VALID_TASKS = ("text2text-generation", "text-generation")
+
+
+class HuggingFaceEndpoint(LLM, BaseModel):
+    """Wrapper around HuggingFaceHub Inference Endpoints.
+    To use, you should have the ``huggingface_hub`` python package installed, and the
+    environment variable ``HUGGINGFACEHUB_API_TOKEN`` set with your API token, or pass
+    it as a named parameter to the constructor.
+    Only supports `text-generation` and `text2text-generation` for now.
+    Example:
+        .. code-block:: python
+            from langchain import HuggingFaceEndpoint
+            endpoint_url = (
+                "https://abcdefghijklmnop.us-east-1.aws.endpoints.huggingface.cloud"
+            )
+            hf = HuggingFaceEndpoint(
+                endpoint_url=endpoint_url,
+                huggingfacehub_api_token="my-api-key"
+            )
+    """
+
+    endpoint_url: str = ""
+    """Endpoint URL to use."""
+    task: Optional[str] = None
+    """Task to call the model with. Should be a task that returns `generated_text`."""
+    model_kwargs: Optional[dict] = None
+    """Key word arguments to pass to the model."""
+
+    huggingfacehub_api_token: Optional[str] = None
+
+    class Config:
+        """Configuration for this pydantic object."""
+
+        extra = Extra.forbid
+
+    @root_validator()
+    def validate_environment(cls, values: Dict) -> Dict:
+        """Validate that api key and python package exists in environment."""
+        huggingfacehub_api_token = get_from_dict_or_env(
+            values, "huggingfacehub_api_token", "HUGGINGFACEHUB_API_TOKEN"
+        )
+        try:
+            from huggingface_hub.hf_api import HfApi
+
+            try:
+                HfApi(
+                    endpoint="https://huggingface.co",  # Can be a Private Hub endpoint.
+                    token=huggingfacehub_api_token,
+                ).whoami()
+            except Exception as e:
+                raise ValueError(
+                    "Could not authenticate with huggingface_hub. "
+                    "Please check your API token."
+                ) from e
+
+        except ImportError:
+            raise ValueError(
+                "Could not import huggingface_hub python package. "
+                "Please it install it with `pip install huggingface_hub`."
+            )
+        return values
+
+    @property
+    def _identifying_params(self) -> Mapping[str, Any]:
+        """Get the identifying parameters."""
+        _model_kwargs = self.model_kwargs or {}
+        return {
+            **{"endpoint_url": self.endpoint_url, "task": self.task},
+            **{"model_kwargs": _model_kwargs},
+        }
+
+    @property
+    def _llm_type(self) -> str:
+        """Return type of llm."""
+        return "huggingface_endpoint"
+
+    def _call(self, prompt: str, stop: Optional[List[str]] = None) -> str:
+        """Call out to HuggingFace Hub's inference endpoint.
+        Args:
+            prompt: The prompt to pass into the model.
+            stop: Optional list of stop words to use when generating.
+        Returns:
+            The string generated by the model.
+        Example:
+            .. code-block:: python
+                response = hf("Tell me a joke.")
+        """
+        _model_kwargs = self.model_kwargs or {}
+
+        # payload samples
+        parameter_payload = {"inputs": prompt, "parameters": _model_kwargs}
+
+        # HTTP headers for authorization
+        headers = {
+            "Authorization": f"Bearer {self.huggingfacehub_api_token}",
+            "Content-Type": "application/json",
+        }
+
+        # send request
+        try:
+            response = requests.post(
+                self.endpoint_url, headers=headers, json=parameter_payload
+            )
+        except requests.exceptions.RequestException as e:  # This is the correct syntax
+            raise ValueError(f"Error raised by inference endpoint: {e}")
+        generated_text = response.json()
+        if "error" in generated_text:
+            raise ValueError(f"Error raised by inference API: {generated_text['error']}")
+        if self.task == "text-generation":
+            # Text generation return includes the starter text.
+            text = generated_text[0]["generated_text"][len(prompt) :]
+        elif self.task == "text2text-generation":
+            text = generated_text[0]["generated_text"]
+        else:
+            raise ValueError(
+                f"Got invalid task {self.task}, "
+                f"currently only {VALID_TASKS} are supported"
+            )
+        if stop is not None:
+            # This is a bit hacky, but I can't figure out a better way to enforce
+            # stop tokens when making calls to huggingface_hub.
+            text = enforce_stop_tokens(text, stop)
+        return text

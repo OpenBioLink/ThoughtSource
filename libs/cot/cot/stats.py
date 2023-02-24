@@ -347,3 +347,48 @@ def get_n_outlier(dataset, field="cot", n=5):
         outlier.append((example, len(toks)))
     outlier = sorted(outlier, key=lambda x: x[1], reverse=True)
     return (outlier[:n], outlier[-n:])
+
+def evaluation_as_table(eval:dict):
+    import pandas as pd
+    eval_dict = pd.json_normalize(eval).to_dict('records')[0]
+    eval_list = list(eval_dict.keys())
+    datasets = sorted(list(eval.keys()))
+
+    models = []
+    prompts = []
+    for i in eval_list:
+        dataset,split,metric,model,prompt = i.split(".")
+        if model not in models:
+            models.append(model)
+        if prompt not in prompts:
+            prompts.append(prompt)
+            
+    models = sorted(models)
+
+    if "None_None_None" in prompts: prompts.remove("None_None_None")
+
+    # no instructions implemented yet
+    # instructions = []
+    cot_triggers = []
+    for i in prompts:
+        instruction, cot_trigger, _ = i.split("_")
+        # if instruction not in instructions:
+        #     instructions.append(instruction)
+        if cot_trigger not in cot_triggers:
+            cot_triggers.append(cot_trigger)
+
+    cot_triggers = sorted(cot_triggers)
+
+    cot_trigger_header = sorted(cot_triggers*len(models))
+    model_header = models*len(cot_triggers)
+    header = [cot_trigger_header, model_header]
+    df = pd.DataFrame(columns=header, index=datasets)
+
+    for k,v in eval_dict.items():
+        dataset,split,metric,model,prompt = k.split(".")
+        instruction, cot_trigger, _ = prompt.split("_")
+        df.loc[dataset, (cot_trigger, model)] = round(v,2)
+
+    df.dropna(how='all', axis=1, inplace=True)
+
+    return df
