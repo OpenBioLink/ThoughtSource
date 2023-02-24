@@ -41,7 +41,22 @@ def list_datasets():
     return dataset_list
 
 def get_dataset(dataset_path: str, subset_name=None):
-    return datasets.load_dataset(str(dataset_path), subset_name)
+    # this is a workaround to avoid loading all the pregenerated CoTs
+    dataset_path = str(dataset_path)
+    # get the dataset name from the path
+    name = dataset_path.split("/")[-2]
+    source = True if subset_name == "source" else False
+    if source == True:
+        # no pregenerated CoTs for source dataset
+        coll = Collection([name], verbose=False, source=source)
+    else:
+        # load only kojima and wei pregenerated CoTs, not the 105 from lievin
+        coll = Collection([name], verbose=False, source=source, load_pregenerated_cots=["kojima", "wei", "lievin"])
+    dataset = coll[name]
+
+    # this is the original code without the workaround, leave it here:
+    # dataset = datasets.load_dataset(str(dataset_path), subset_name)
+    return dataset
 
 def get_local_dataset(dataset_name: str):
     return COLLECTION[dataset_name]
