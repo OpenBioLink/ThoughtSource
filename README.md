@@ -177,7 +177,7 @@ All updates/changes to datasets are explicitly mentioned in bold.
 
 0.0.3 (2023-02-24) -  Thoughtsource_100 dataset released with reasoning chains from GPT-text-davinci-003, flan-t5-xxl, and cohere's command-xl
 
-0.0.2 (2023-02-15) -  Annotator tool updated for correct data schema blue
+0.0.2 (2023-02-15) -  Annotator tool updated for correct data schema
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Pubmed_qa**: Included "LONG_ANSWER" from origin schema as "cot" in ThoughtSource schema
 
