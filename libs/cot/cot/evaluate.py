@@ -417,3 +417,14 @@ def print_evaluation_of_all_files_in_dir(dir):
             continue
         else:
             continue
+
+# check changes in evaluation function
+# compare a collection or json file to again evaluate with new evaluation function
+def compare_evaluation(collection):
+    from pprint import pprint
+    collection.dump("compare_evaluation_before.json")
+    evaluation_before = collection.evaluate()
+    pprint(evaluation_before)
+    evaluation_after = collection.evaluate(overwrite = True)
+    collection.dump("compare_evaluation_after.json")
+    pprint(evaluation_after)
