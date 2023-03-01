@@ -61,7 +61,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -138,7 +138,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -213,7 +213,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": false
                             }
                         ],
@@ -290,7 +290,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": false
                             }
                         ],
@@ -364,7 +364,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -442,7 +442,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -518,7 +518,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -596,7 +596,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": false
                             }
                         ],
@@ -671,7 +671,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -747,7 +747,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -824,7 +824,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b) or (e).",
+                                "answer": " (b) or (e).",
                                 "correct_answer": false
                             }
                         ],
@@ -899,7 +899,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -973,7 +973,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -1048,7 +1048,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": false
                             }
                         ],
@@ -1122,7 +1122,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -1200,7 +1200,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -1278,7 +1278,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -1355,7 +1355,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -1429,7 +1429,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -1507,7 +1507,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -1586,7 +1586,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -1661,7 +1661,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -1737,7 +1737,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": false
                             }
                         ],
@@ -1814,7 +1814,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -1889,7 +1889,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": false
                             }
                         ],
@@ -1965,7 +1965,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -2041,7 +2041,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -2116,7 +2116,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -2190,7 +2190,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -2264,7 +2264,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -2342,7 +2342,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -2417,7 +2417,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -2495,7 +2495,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -2570,7 +2570,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": false
                             }
                         ],
@@ -2646,7 +2646,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": false
                             }
                         ],
@@ -2721,7 +2721,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -2798,7 +2798,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -2872,7 +2872,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -2947,7 +2947,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -3023,7 +3023,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": false
                             }
                         ],
@@ -3099,7 +3099,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -3173,7 +3173,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -3248,7 +3248,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -3323,7 +3323,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -3398,7 +3398,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": false
                             }
                         ],
@@ -3474,7 +3474,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -3551,7 +3551,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is either (a) or (c).",
+                                "answer": " either (a) or (c).",
                                 "correct_answer": false
                             }
                         ],
@@ -3629,7 +3629,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -3704,7 +3704,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": false
                             }
                         ],
@@ -3778,7 +3778,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -3854,7 +3854,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": false
                             }
                         ],
@@ -3931,7 +3931,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -4009,7 +4009,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -4086,7 +4086,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": false
                             }
                         ],
@@ -4162,7 +4162,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -4239,7 +4239,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": false
                             }
                         ],
@@ -4313,7 +4313,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -4388,7 +4388,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -4464,7 +4464,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -4538,7 +4538,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c) or (e).",
+                                "answer": " (c) or (e).",
                                 "correct_answer": false
                             }
                         ],
@@ -4618,7 +4618,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -4693,7 +4693,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -4770,7 +4770,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": false
                             }
                         ],
@@ -4846,7 +4846,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -4924,7 +4924,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -5002,7 +5002,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -5079,7 +5079,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -5157,7 +5157,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -5235,7 +5235,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -5314,7 +5314,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -5389,7 +5389,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -5467,7 +5467,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a) or (b).",
+                                "answer": " (a) or (b).",
                                 "correct_answer": false
                             }
                         ],
@@ -5544,7 +5544,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -5619,7 +5619,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -5694,7 +5694,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -5770,7 +5770,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -5845,7 +5845,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -5921,7 +5921,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -5996,7 +5996,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -6070,7 +6070,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": false
                             }
                         ],
@@ -6148,7 +6148,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -6222,7 +6222,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": false
                             }
                         ],
@@ -6296,7 +6296,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -6372,7 +6372,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c).",
+                                "answer": " (c).",
                                 "correct_answer": true
                             }
                         ],
@@ -6450,7 +6450,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -6527,7 +6527,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": true
                             }
                         ],
@@ -6602,7 +6602,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -6677,7 +6677,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (c) or (d).",
+                                "answer": " (c) or (d).",
                                 "correct_answer": false
                             }
                         ],
@@ -6754,7 +6754,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -6877,7 +6877,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": false
                             }
                         ],
@@ -6955,7 +6955,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -7033,7 +7033,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": true
                             }
                         ],
@@ -7108,7 +7108,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -7183,7 +7183,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b) and (d).",
+                                "answer": " (b) and (d).",
                                 "correct_answer": false
                             }
                         ],
@@ -7260,7 +7260,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (b).",
+                                "answer": " (b).",
                                 "correct_answer": false
                             }
                         ],
@@ -7337,7 +7337,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (a).",
+                                "answer": " (a).",
                                 "correct_answer": true
                             }
                         ],
@@ -7415,7 +7415,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -7490,7 +7490,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (e).",
+                                "answer": " (e).",
                                 "correct_answer": true
                             }
                         ],
@@ -7566,7 +7566,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is (d).",
+                                "answer": " (d).",
                                 "correct_answer": false
                             }
                         ],
@@ -39026,7 +39026,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is dependent on the country you are in and what the currency can be exchanged for.",
+                                "answer": " dependent on the country you are in and what the currency can be exchanged for.",
                                 "correct_answer": false
                             }
                         ],
@@ -39051,7 +39051,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -39094,7 +39094,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -39119,7 +39119,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -39164,7 +39164,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -39189,7 +39189,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -39234,7 +39234,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -39259,7 +39259,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -39302,7 +39302,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:Yes, some home remedies can result in your skin color turning blue.",
+                                "answer": ":Yes, some home remedies can result in your skin color turning blue.",
                                 "correct_answer": true
                             }
                         ],
@@ -39327,7 +39327,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -39371,7 +39371,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -39396,7 +39396,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -39442,7 +39442,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is not as simple as it seems.",
+                                "answer": " not as simple as it seems.",
                                 "correct_answer": false
                             }
                         ],
@@ -39467,7 +39467,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -39510,7 +39510,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is most likely No.",
+                                "answer": " most likely No.",
                                 "correct_answer": false
                             }
                         ],
@@ -39535,7 +39535,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -39579,7 +39579,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is uncertain.",
+                                "answer": " uncertain.",
                                 "correct_answer": false
                             }
                         ],
@@ -39604,7 +39604,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -39649,7 +39649,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": false
                             }
                         ],
@@ -39674,7 +39674,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -39717,7 +39717,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:Yes",
+                                "answer": ":Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -39742,7 +39742,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -39786,7 +39786,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -39811,7 +39811,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -39854,7 +39854,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: No",
+                                "answer": ": No",
                                 "correct_answer": true
                             }
                         ],
@@ -39879,7 +39879,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -39922,7 +39922,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -39947,7 +39947,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -39990,7 +39990,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -40015,7 +40015,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -40059,7 +40059,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -40084,7 +40084,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -40128,7 +40128,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: No",
+                                "answer": ": No",
                                 "correct_answer": true
                             }
                         ],
@@ -40153,7 +40153,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -40196,7 +40196,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -40221,7 +40221,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -40265,7 +40265,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -40290,7 +40290,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -40334,7 +40334,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -40380,7 +40380,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -40405,7 +40405,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -40448,7 +40448,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:Yes, it is likely that Adam Sandler skips celebrating Easter because he celebrates the Jewish holiday of Passover instead.",
+                                "answer": ":Yes, it is likely that Adam Sandler skips celebrating Easter because he celebrates the Jewish holiday of Passover instead.",
                                 "correct_answer": true
                             }
                         ],
@@ -40473,7 +40473,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -40516,7 +40516,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -40541,7 +40541,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -40585,7 +40585,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -40610,7 +40610,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -40654,7 +40654,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:It is possible that the children of Greek hero Jason could hypothetically fill a polo team.",
+                                "answer": ":It is possible that the children of Greek hero Jason could hypothetically fill a polo team.",
                                 "correct_answer": false
                             }
                         ],
@@ -40679,7 +40679,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -40722,7 +40722,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -40747,7 +40747,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -40790,7 +40790,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -40815,7 +40815,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -40858,7 +40858,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -40902,7 +40902,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -40927,7 +40927,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -40971,7 +40971,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -40996,7 +40996,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -41039,7 +41039,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -41064,7 +41064,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -41109,7 +41109,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -41134,7 +41134,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -41177,7 +41177,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": false
                             }
                         ],
@@ -41202,7 +41202,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -41245,7 +41245,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -41270,7 +41270,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -41315,7 +41315,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -41340,7 +41340,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -41384,7 +41384,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:Yes, rainbows are devoid of color when made by mixing yin and yang colors.",
+                                "answer": ":Yes, rainbows are devoid of color when made by mixing yin and yang colors.",
                                 "correct_answer": true
                             }
                         ],
@@ -41409,7 +41409,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -41453,7 +41453,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is not definitive, and more information is needed to provide a definitive answer.",
+                                "answer": " not definitive, and more information is needed to provide a definitive answer.",
                                 "correct_answer": false
                             }
                         ],
@@ -41478,7 +41478,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -41521,7 +41521,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is difficult to say.",
+                                "answer": " difficult to say.",
                                 "correct_answer": false
                             }
                         ],
@@ -41546,7 +41546,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -41589,7 +41589,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -41614,7 +41614,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -41657,7 +41657,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -41682,7 +41682,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -41726,7 +41726,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -41751,7 +41751,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -41795,7 +41795,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -41820,7 +41820,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -41863,7 +41863,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -41888,7 +41888,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -41933,7 +41933,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -41958,7 +41958,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -42001,7 +42001,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": false
                             }
                         ],
@@ -42026,7 +42026,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -42072,7 +42072,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -42097,7 +42097,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -42140,7 +42140,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -42165,7 +42165,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -42208,7 +42208,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is not definitive.",
+                                "answer": " not definitive.",
                                 "correct_answer": false
                             }
                         ],
@@ -42233,7 +42233,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -42276,7 +42276,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is not known.",
+                                "answer": " not known.",
                                 "correct_answer": false
                             }
                         ],
@@ -42301,7 +42301,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -42344,7 +42344,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -42369,7 +42369,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -42414,7 +42414,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:Yes, Robert Stack would have been interested in Tower of London during the 1400s for his 14 season show.",
+                                "answer": ":Yes, Robert Stack would have been interested in Tower of London during the 1400s for his 14 season show.",
                                 "correct_answer": true
                             }
                         ],
@@ -42439,7 +42439,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -42482,7 +42482,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -42507,7 +42507,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -42551,7 +42551,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -42576,7 +42576,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -42620,7 +42620,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -42645,7 +42645,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -42689,7 +42689,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is probably No.",
+                                "answer": " probably No.",
                                 "correct_answer": true
                             }
                         ],
@@ -42714,7 +42714,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -42757,7 +42757,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -42782,7 +42782,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -42825,7 +42825,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -42850,7 +42850,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -42894,7 +42894,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -42919,7 +42919,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -42962,7 +42962,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -42987,7 +42987,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -43031,7 +43031,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -43056,7 +43056,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -43100,7 +43100,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -43125,7 +43125,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -43169,7 +43169,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -43194,7 +43194,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -43237,7 +43237,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is dependent on how you are defining the terms.",
+                                "answer": " dependent on how you are defining the terms.",
                                 "correct_answer": false
                             }
                         ],
@@ -43262,7 +43262,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -43305,7 +43305,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -43330,7 +43330,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -43373,7 +43373,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -43398,7 +43398,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -43441,7 +43441,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: we don't know for sure.",
+                                "answer": ": we don't know for sure.",
                                 "correct_answer": false
                             }
                         ],
@@ -43466,7 +43466,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -43509,7 +43509,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -43534,7 +43534,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -43578,7 +43578,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: No",
+                                "answer": ": No",
                                 "correct_answer": false
                             }
                         ],
@@ -43603,7 +43603,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -43646,7 +43646,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -43671,7 +43671,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -43715,7 +43715,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -43740,7 +43740,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -43786,7 +43786,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:Yes",
+                                "answer": ":Yes",
                                 "correct_answer": false
                             }
                         ],
@@ -43811,7 +43811,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -43855,7 +43855,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: It is possible that E.T. would love Friendly's, but we cannot say for sure.",
+                                "answer": ": It is possible that E.T. would love Friendly's, but we cannot say for sure.",
                                 "correct_answer": false
                             }
                         ],
@@ -43880,7 +43880,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -43923,7 +43923,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Unknown",
+                                "answer": ": Unknown",
                                 "correct_answer": false
                             }
                         ],
@@ -43948,7 +43948,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -43993,7 +43993,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Unknown.",
+                                "answer": " Unknown.",
                                 "correct_answer": false
                             }
                         ],
@@ -44018,7 +44018,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -44062,7 +44062,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -44087,7 +44087,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -44130,7 +44130,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -44155,7 +44155,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -44198,7 +44198,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: No",
+                                "answer": ": No",
                                 "correct_answer": false
                             }
                         ],
@@ -44223,7 +44223,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -44267,7 +44267,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -44292,7 +44292,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -44336,7 +44336,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:Yes, it is normally unnecessary to wear a coat in Hollywood in July.",
+                                "answer": ":Yes, it is normally unnecessary to wear a coat in Hollywood in July.",
                                 "correct_answer": true
                             }
                         ],
@@ -44361,7 +44361,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -44405,7 +44405,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -44430,7 +44430,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -44473,7 +44473,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: It is possible, but not certain.",
+                                "answer": ": It is possible, but not certain.",
                                 "correct_answer": false
                             }
                         ],
@@ -44498,7 +44498,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -44541,7 +44541,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -44566,7 +44566,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -44609,7 +44609,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -44634,7 +44634,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -44678,7 +44678,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": false
                             }
                         ],
@@ -44703,7 +44703,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is .",
+                                "answer": " .",
                                 "correct_answer": false
                             }
                         ],
@@ -44749,7 +44749,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -44774,7 +44774,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -44818,7 +44818,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -44843,7 +44843,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -44887,7 +44887,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No",
+                                "answer": " No",
                                 "correct_answer": true
                             }
                         ],
@@ -44912,7 +44912,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -44955,7 +44955,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:Yes, Tom Bosley enjoyed playing video games on the PlayStation 4.",
+                                "answer": ":Yes, Tom Bosley enjoyed playing video games on the PlayStation 4.",
                                 "correct_answer": false
                             }
                         ],
@@ -44980,7 +44980,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -45023,7 +45023,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -45048,7 +45048,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -45092,7 +45092,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -45117,7 +45117,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -45160,7 +45160,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is:Yes, Cape Town is south of the Equator.",
+                                "answer": ":Yes, Cape Town is south of the Equator.",
                                 "correct_answer": true
                             }
                         ],
@@ -45185,7 +45185,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -45228,7 +45228,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -45253,7 +45253,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -45298,7 +45298,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -45323,7 +45323,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -45366,7 +45366,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is Yes.",
+                                "answer": " Yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -45391,7 +45391,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -45435,7 +45435,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -45460,7 +45460,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -45503,7 +45503,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: No",
+                                "answer": ": No",
                                 "correct_answer": false
                             }
                         ],
@@ -45528,7 +45528,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": false
                             }
                         ],
@@ -45571,7 +45571,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -45596,7 +45596,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is no.",
+                                "answer": " no.",
                                 "correct_answer": true
                             }
                         ],
@@ -45639,7 +45639,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": false
                             }
                         ],
@@ -45664,7 +45664,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
@@ -45710,7 +45710,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is No.",
+                                "answer": " No.",
                                 "correct_answer": true
                             }
                         ],
@@ -45735,7 +45735,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": false
                             }
                         ],
@@ -45778,7 +45778,7 @@
                                 "answer_extraction": "kojima-yes-no",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, the answer (Yes or No) is: Yes",
+                                "answer": ": Yes",
                                 "correct_answer": true
                             }
                         ],
@@ -45803,7 +45803,7 @@
                                 "answer_extraction": null,
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "So the answer is yes.",
+                                "answer": " yes.",
                                 "correct_answer": true
                             }
                         ],
