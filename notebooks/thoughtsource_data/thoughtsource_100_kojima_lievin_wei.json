@@ -36,7 +36,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": true
                             }
                         ],
@@ -113,7 +113,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": true
                             }
                         ],
@@ -188,7 +188,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": false
                             }
                         ],
@@ -265,7 +265,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A and D.",
+                                "answer": " A and D.",
                                 "correct_answer": false
                             }
                         ],
@@ -339,7 +339,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": true
                             }
                         ],
@@ -417,7 +417,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": true
                             }
                         ],
@@ -493,7 +493,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": true
                             }
                         ],
@@ -571,7 +571,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is probably E.",
+                                "answer": " probably E.",
                                 "correct_answer": true
                             }
                         ],
@@ -646,7 +646,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": true
                             }
                         ],
@@ -722,7 +722,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -799,7 +799,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (E).",
+                                "answer": " (E).",
                                 "correct_answer": true
                             }
                         ],
@@ -874,7 +874,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (B), (D), or (E).",
+                                "answer": " (B), (D), or (E).",
                                 "correct_answer": true
                             }
                         ],
@@ -948,7 +948,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is most likely E.",
+                                "answer": " most likely E.",
                                 "correct_answer": true
                             }
                         ],
@@ -1023,7 +1023,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": false
                             }
                         ],
@@ -1097,7 +1097,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -1175,7 +1175,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D, excitement.",
+                                "answer": " D, excitement.",
                                 "correct_answer": false
                             }
                         ],
@@ -1253,7 +1253,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": true
                             }
                         ],
@@ -1330,7 +1330,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D) container.",
+                                "answer": " D) container.",
                                 "correct_answer": false
                             }
                         ],
@@ -1404,7 +1404,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": false
                             }
                         ],
@@ -1482,7 +1482,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B, \"dard.\"",
+                                "answer": " B, \"dard.\"",
                                 "correct_answer": true
                             }
                         ],
@@ -1561,7 +1561,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": true
                             }
                         ],
@@ -1636,7 +1636,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A or B.",
+                                "answer": " A or B.",
                                 "correct_answer": true
                             }
                         ],
@@ -1712,7 +1712,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": false
                             }
                         ],
@@ -1789,7 +1789,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": true
                             }
                         ],
@@ -1864,7 +1864,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": false
                             }
                         ],
@@ -1940,7 +1940,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": true
                             }
                         ],
@@ -2016,7 +2016,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -2091,7 +2091,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": false
                             }
                         ],
@@ -2165,7 +2165,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": false
                             }
                         ],
@@ -2239,7 +2239,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -2317,7 +2317,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (E).",
+                                "answer": " (E).",
                                 "correct_answer": true
                             }
                         ],
@@ -2392,7 +2392,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -2470,7 +2470,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": true
                             }
                         ],
@@ -2545,7 +2545,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -2621,7 +2621,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -2696,7 +2696,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -2773,7 +2773,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": true
                             }
                         ],
@@ -2847,7 +2847,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": true
                             }
                         ],
@@ -2922,7 +2922,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D) woods, or E) suburbs.",
+                                "answer": " D) woods, or E) suburbs.",
                                 "correct_answer": true
                             }
                         ],
@@ -2998,7 +2998,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (A) or (B).",
+                                "answer": " (A) or (B).",
                                 "correct_answer": false
                             }
                         ],
@@ -3074,7 +3074,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -3148,7 +3148,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (A).",
+                                "answer": " (A).",
                                 "correct_answer": true
                             }
                         ],
@@ -3223,7 +3223,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": true
                             }
                         ],
@@ -3298,7 +3298,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": false
                             }
                         ],
@@ -3373,7 +3373,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -3449,7 +3449,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D and E.",
+                                "answer": " D and E.",
                                 "correct_answer": true
                             }
                         ],
@@ -3526,7 +3526,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": true
                             }
                         ],
@@ -3604,7 +3604,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (E).",
+                                "answer": " (E).",
                                 "correct_answer": true
                             }
                         ],
@@ -3679,7 +3679,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": false
                             }
                         ],
@@ -3753,7 +3753,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -3829,7 +3829,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": false
                             }
                         ],
@@ -3906,7 +3906,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -3984,7 +3984,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (B).",
+                                "answer": " (B).",
                                 "correct_answer": true
                             }
                         ],
@@ -4061,7 +4061,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": false
                             }
                         ],
@@ -4137,7 +4137,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is most likely (C) library.",
+                                "answer": " most likely (C) library.",
                                 "correct_answer": false
                             }
                         ],
@@ -4214,7 +4214,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C, city.",
+                                "answer": " C, city.",
                                 "correct_answer": true
                             }
                         ],
@@ -4288,7 +4288,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": false
                             }
                         ],
@@ -4363,7 +4363,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (B) and (D).",
+                                "answer": " (B) and (D).",
                                 "correct_answer": true
                             }
                         ],
@@ -4439,7 +4439,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -4513,7 +4513,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": false
                             }
                         ],
@@ -4593,7 +4593,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -4668,7 +4668,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A, small town.",
+                                "answer": " A, small town.",
                                 "correct_answer": true
                             }
                         ],
@@ -4745,7 +4745,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": false
                             }
                         ],
@@ -4821,7 +4821,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": true
                             }
                         ],
@@ -4899,7 +4899,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": true
                             }
                         ],
@@ -4977,7 +4977,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -5054,7 +5054,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": true
                             }
                         ],
@@ -5132,7 +5132,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -5210,7 +5210,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D, table.",
+                                "answer": " D, table.",
                                 "correct_answer": true
                             }
                         ],
@@ -5289,7 +5289,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C, D, or E.",
+                                "answer": " C, D, or E.",
                                 "correct_answer": true
                             }
                         ],
@@ -5364,7 +5364,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -5442,7 +5442,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": true
                             }
                         ],
@@ -5519,7 +5519,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B, C, and D.",
+                                "answer": " B, C, and D.",
                                 "correct_answer": true
                             }
                         ],
@@ -5594,7 +5594,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -5669,7 +5669,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": true
                             }
                         ],
@@ -5745,7 +5745,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": false
                             }
                         ],
@@ -5820,7 +5820,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -5896,7 +5896,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A, bird's nest.",
+                                "answer": " A, bird's nest.",
                                 "correct_answer": true
                             }
                         ],
@@ -5971,7 +5971,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": true
                             }
                         ],
@@ -6045,7 +6045,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": false
                             }
                         ],
@@ -6123,7 +6123,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -6197,7 +6197,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B, \"Indian.\"",
+                                "answer": " B, \"Indian.\"",
                                 "correct_answer": false
                             }
                         ],
@@ -6271,7 +6271,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": true
                             }
                         ],
@@ -6347,7 +6347,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": false
                             }
                         ],
@@ -6425,7 +6425,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": true
                             }
                         ],
@@ -6502,7 +6502,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D, the mountains.",
+                                "answer": " D, the mountains.",
                                 "correct_answer": true
                             }
                         ],
@@ -6577,7 +6577,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is E.",
+                                "answer": " E.",
                                 "correct_answer": true
                             }
                         ],
@@ -6652,7 +6652,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C.",
+                                "answer": " C.",
                                 "correct_answer": true
                             }
                         ],
@@ -6729,7 +6729,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B.",
+                                "answer": " B.",
                                 "correct_answer": true
                             }
                         ],
@@ -6802,7 +6802,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": false
                             }
                         ],
@@ -6852,7 +6852,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A.",
+                                "answer": " A.",
                                 "correct_answer": false
                             }
                         ],
@@ -6930,7 +6930,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (B).",
+                                "answer": " (B).",
                                 "correct_answer": true
                             }
                         ],
@@ -7008,7 +7008,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is C or D.",
+                                "answer": " C or D.",
                                 "correct_answer": false
                             }
                         ],
@@ -7083,7 +7083,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A, cloud.",
+                                "answer": " A, cloud.",
                                 "correct_answer": true
                             }
                         ],
@@ -7158,7 +7158,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (B).",
+                                "answer": " (B).",
                                 "correct_answer": false
                             }
                         ],
@@ -7235,7 +7235,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is D.",
+                                "answer": " D.",
                                 "correct_answer": false
                             }
                         ],
@@ -7312,7 +7312,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is A, B, D, and E.",
+                                "answer": " A, B, D, and E.",
                                 "correct_answer": true
                             }
                         ],
@@ -7390,7 +7390,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (E).",
+                                "answer": " (E).",
                                 "correct_answer": true
                             }
                         ],
@@ -7465,7 +7465,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is B, D, or E.",
+                                "answer": " B, D, or E.",
                                 "correct_answer": false
                             }
                         ],
@@ -7541,7 +7541,7 @@
                                 "answer_extraction": "kojima-A-E",
                                 "answer_extraction_template": "",
                                 "answer_extraction_text": "",
-                                "answer": "Therefore, among A through E, the answer is (A) or (D).",
+                                "answer": " (A) or (D).",
                                 "correct_answer": false
                             }
                         ],
