@@ -186,14 +186,30 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             is_correct = compare_pred_with_gold(pred, gold, choices_dict)
             return is_correct
         
+    # if type_ == "bool":
+    # # same as above but take keys and values of choices_dict to have Yes/No and True/False
+    #     hits = []
+    #     choices_keys_and_values = choices_keys + choices_values
+    #     for value in choices_keys_and_values:
+    #         # only check if length of value is smaller or same than pred
+    #         if len(value) <= len(pred):
+    #             if value.lower() in pred.lower():
+    #                 hits.append(value)
+    #     if len(hits) == 1:
+    #         pred = hits[0]
+    #         is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+    #         return is_correct
+        
+
     if type_ == "bool":
-    # same as above but take keys and values of choices_dict to have Yes/No and True/False
         hits = []
         choices_keys_and_values = choices_keys + choices_values
         for value in choices_keys_and_values:
             # only check if length of value is smaller or same than pred
             if len(value) <= len(pred):
-                if value.lower() in pred.lower():
+                # modify the matching condition to check for whole words
+                pattern = r'\b{}\b'.format(re.escape(value))
+                if re.search(pattern, pred, re.IGNORECASE):
                     hits.append(value)
         if len(hits) == 1:
             pred = hits[0]
