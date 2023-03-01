@@ -2,6 +2,7 @@ import os
 import re
 from contextlib import contextmanager
 from pathlib import Path
+from cot.generate import FRAGMENTS
 
 
 @contextmanager
@@ -177,6 +178,9 @@ def map_example_to_kojima_cot(question, cots, answer_extraction):
     """
     for id, cot in enumerate(cots):
         if question in cot["question"]:
+            # prepare answer to not include the answer extraction prompt
+            answer_with_prompt = cot["prediction"]
+            answer = answer_with_prompt.replace(FRAGMENTS["answer_extractions"][answer_extraction], "")
             generated_cot = {
                 "id": id,
                 "fragments_version": "0.01",
@@ -190,7 +194,7 @@ def map_example_to_kojima_cot(question, cots, answer_extraction):
                         "answer_extraction": answer_extraction,
                         "answer_extraction_text": "",
                         "answer_extraction_template": "",
-                        "answer": cot["prediction"],
+                        "answer": answer,
                         "correct_answer": cot["correct_answer"],
                     }
                 ],
