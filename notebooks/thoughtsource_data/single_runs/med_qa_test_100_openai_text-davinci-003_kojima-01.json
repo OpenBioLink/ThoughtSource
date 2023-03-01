@@ -3208,7 +3208,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " E) Oral mifepristone + misoprostol.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",

@@ -186,7 +186,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B) The solid planets are closer to the Sun.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1044,7 +1044,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " A) CO_{2}",
-                                "correct_answer": true
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1256,7 +1256,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " A) atmosphere.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1714,7 +1714,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " A) weathering.\nWater expands when it freezes, and this can cause pressure to build up in confined spaces. This pressure can be enough to crack rocks, and when the ice melts, water can seep into the cracks. This process is known as freeze-thaw weathering, and it can cause rocks to break apart.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1763,7 +1763,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B) a lightning strike or C) a tornado.",
-                                "correct_answer": true
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4233,7 +4233,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " A) Heat from the room is absorbed by the ice cube.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4539,7 +4539,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C) solution.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",

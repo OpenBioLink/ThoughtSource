@@ -35,7 +35,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -60,7 +60,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -107,7 +107,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -132,7 +132,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -179,7 +179,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -204,7 +204,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -251,7 +251,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -276,7 +276,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -323,7 +323,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -348,7 +348,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -395,7 +395,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -420,7 +420,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -467,7 +467,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -492,7 +492,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -539,7 +539,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -564,7 +564,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -611,7 +611,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -636,7 +636,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -683,7 +683,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -708,7 +708,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -755,7 +755,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -780,7 +780,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -827,7 +827,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -852,7 +852,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -899,7 +899,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -924,7 +924,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C).",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -971,7 +971,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -996,7 +996,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1043,7 +1043,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1068,7 +1068,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1115,7 +1115,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1140,7 +1140,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1187,7 +1187,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1212,7 +1212,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1259,7 +1259,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1284,7 +1284,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1331,7 +1331,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1356,7 +1356,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1403,7 +1403,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1428,7 +1428,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A).",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1475,7 +1475,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1500,7 +1500,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1547,7 +1547,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1572,7 +1572,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1619,7 +1619,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1644,7 +1644,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1691,7 +1691,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1716,7 +1716,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1763,7 +1763,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1788,7 +1788,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1835,7 +1835,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1860,7 +1860,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1907,7 +1907,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1932,7 +1932,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -1979,7 +1979,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2004,7 +2004,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2051,7 +2051,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2076,7 +2076,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2123,7 +2123,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2148,7 +2148,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2195,7 +2195,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2220,7 +2220,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2267,7 +2267,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2292,7 +2292,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2339,7 +2339,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2364,7 +2364,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2411,7 +2411,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2436,7 +2436,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2483,7 +2483,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2508,7 +2508,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "Roth spot.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2555,7 +2555,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2580,7 +2580,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2627,7 +2627,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2652,7 +2652,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2699,7 +2699,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2724,7 +2724,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2771,7 +2771,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2796,7 +2796,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2843,7 +2843,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2868,7 +2868,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2915,7 +2915,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -2940,7 +2940,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2987,7 +2987,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3012,7 +3012,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3059,7 +3059,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3084,7 +3084,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3131,7 +3131,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3156,7 +3156,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3203,7 +3203,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3228,7 +3228,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3275,7 +3275,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3300,7 +3300,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3347,7 +3347,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3372,7 +3372,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3419,7 +3419,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3444,7 +3444,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3491,7 +3491,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3516,7 +3516,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3563,7 +3563,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3588,7 +3588,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3635,7 +3635,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3660,7 +3660,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3707,7 +3707,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3732,7 +3732,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3779,7 +3779,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3804,7 +3804,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3851,7 +3851,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3876,7 +3876,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3923,7 +3923,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3948,7 +3948,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -3995,7 +3995,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4020,7 +4020,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4067,7 +4067,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4092,7 +4092,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4139,7 +4139,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4164,7 +4164,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4211,7 +4211,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4236,7 +4236,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4283,7 +4283,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4308,7 +4308,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4355,7 +4355,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4380,7 +4380,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4427,7 +4427,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4452,7 +4452,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4499,7 +4499,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4524,7 +4524,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4571,7 +4571,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4596,7 +4596,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4643,7 +4643,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4668,7 +4668,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4715,7 +4715,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4740,7 +4740,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -4787,7 +4787,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4812,7 +4812,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4859,7 +4859,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4884,7 +4884,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4931,7 +4931,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4956,7 +4956,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5003,7 +5003,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5028,7 +5028,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5075,7 +5075,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5100,7 +5100,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D).",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5147,7 +5147,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5172,7 +5172,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5219,7 +5219,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5244,7 +5244,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5291,7 +5291,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5316,7 +5316,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5363,7 +5363,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5388,7 +5388,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5435,7 +5435,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5460,7 +5460,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5507,7 +5507,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5532,7 +5532,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5579,7 +5579,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5604,7 +5604,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5651,7 +5651,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5676,7 +5676,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5723,7 +5723,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5748,7 +5748,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5795,7 +5795,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5820,7 +5820,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5867,7 +5867,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5892,7 +5892,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -5939,7 +5939,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -5964,7 +5964,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6011,7 +6011,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6036,7 +6036,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6083,7 +6083,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6108,7 +6108,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6155,7 +6155,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6180,7 +6180,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -6227,7 +6227,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6252,7 +6252,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -6299,7 +6299,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6324,7 +6324,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6371,7 +6371,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6396,7 +6396,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6443,7 +6443,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6468,7 +6468,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6515,7 +6515,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -6540,7 +6540,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6587,7 +6587,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6612,7 +6612,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6659,7 +6659,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "B",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6684,7 +6684,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6731,7 +6731,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6756,7 +6756,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6803,7 +6803,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -6828,7 +6828,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -6875,7 +6875,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -6900,7 +6900,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6947,7 +6947,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -6972,7 +6972,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -7019,7 +7019,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "C",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -7044,7 +7044,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -7091,7 +7091,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -7116,7 +7116,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -7163,7 +7163,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "A",
-                                "correct_answer": null
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",
@@ -7188,7 +7188,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "D.",
-                                "correct_answer": null
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",

@@ -1552,7 +1552,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C) Increases levels of fetal hemoglobin (HgbF).",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4312,7 +4312,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C, Non-anion gap metabolic acidosis.",
-                                "correct_answer": true
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",

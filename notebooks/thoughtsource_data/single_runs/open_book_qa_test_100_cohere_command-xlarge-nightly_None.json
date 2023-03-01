@@ -1915,7 +1915,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " either the heart or the liver.",
-                                "correct_answer": true
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",

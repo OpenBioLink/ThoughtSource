@@ -1598,7 +1598,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " A. Anti-Sj\u00f6gren's syndrome type B (SS-B) antibody is most likely seen in this patient.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4312,7 +4312,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C. Non-anion gap metabolic acidosis is a common finding in patients with calcium oxalate crystal deposition in the kidneys, which is likely the cause of the patient's symptoms.",
-                                "correct_answer": true
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",

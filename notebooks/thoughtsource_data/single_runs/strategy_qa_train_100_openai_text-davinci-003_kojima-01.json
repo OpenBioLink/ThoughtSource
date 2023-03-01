@@ -165,7 +165,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " likely to be yes.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -646,7 +646,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " Yes, it is expected that Charla Nash would be anxious near a gorilla.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -1609,7 +1609,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " No. Blue lips are not normal.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2089,7 +2089,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " yes, it is safe to eat kidney.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2351,7 +2351,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " Yes, embalmed bodies feel different at funerals.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2656,7 +2656,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " No, lobsters cannot breathe in the desert.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
