@@ -421,10 +421,16 @@ def print_evaluation_of_all_files_in_dir(dir):
 # check changes in evaluation function
 # compare a collection or json file to again evaluate with new evaluation function
 def compare_evaluation(collection):
+    # create random number
+    import random
+    # create random four digit number
+    random_number = random.randint(1000, 9999)
+    random_number = str(random_number)
     from pprint import pprint
-    collection.dump("compare_evaluation_before.json")
+    collection.dump("compare_evaluation_" + random_number + "_before.json")
     evaluation_before = collection.evaluate()
     pprint(evaluation_before)
     evaluation_after = collection.evaluate(overwrite = True)
-    collection.dump("compare_evaluation_after.json")
+    collection.dump("compare_evaluation_" + random_number + "_after.json")
     pprint(evaluation_after)
+    # then just compare the two json files inside vscode
