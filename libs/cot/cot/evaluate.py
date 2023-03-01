@@ -117,6 +117,14 @@ def _evaluate(example, type_, overwrite, warn):
 def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bool:
     """Compares prediction with gold answer."""
 
+    # # strip whitespaces from prediction
+    # pred = pred.strip()
+    # # strip whitespaces from gold
+    # gold = gold.strip()
+    # # strip a trailing period from prediction
+    # if pred.endswith("."):
+    #     pred = pred[:-1]
+
     if type_ not in ["bool", "multiplechoice"]:
         warnings.warn(f"Answer type {type_} not supported yet.")
         return None
@@ -129,7 +137,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         choices_keys = list(choices_dict.keys())
         choices_values_raw = list(choices_dict.values())
 
-        # if values have special characters, we need to escape them
+        # if values have special characters, we need to escape them for the use in regex
         choices_values = [re.escape(item) for item in choices_values_raw]
 
         # false positive in rare cases: choices_dict is {'A': 'B', 'B': 'D' ...} and gold is 'B'
@@ -137,7 +145,6 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         keys_lower = [i.lower() for i in choices_dict.keys()]
         values_lower = [j.lower() for j in choices_dict.values()]
         common_elements = set(keys_lower).intersection(values_lower)
-
         # warning if common elements, except if the keys and values are the same, e.g. {'A': 'A', 'B': 'B', 'C': 'C', ...}
         if common_elements and not keys_lower == values_lower:
             if warn:
@@ -165,25 +172,59 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
 
         return is_correct
 
+    if type_ == "multiplechoice":        
     # check if only one of the choices are part of the pred and report this as answer
     # therefor search choice_value in pred and return if only one hit
-    hits = []
-    for value in choices_values:
-        # only check if length of value is smaller or same than pred
-        if len(value) <= len(pred):
-            # make value a group for regex
-            match = search_regex(
-                # "(" +  escape_special_characters(value) + ")", [escape_special_characters(pred)], warn
-                escape_special_characters(pred),
-                ["(" + value + ")"],
-                warn,
-            )
-            if match:
-                hits.append(match)
-            if len(hits) == 1:
-                pred = hits[0]
-                is_correct = compare_pred_with_gold(pred, gold, choices_dict)
-                return is_correct
+        hits = []
+        for value in choices_values_raw:
+            # only check if length of value is smaller or same than pred
+            if len(value) <= len(pred):
+                if value.lower() in pred.lower():
+                    hits.append(value)
+        if len(hits) == 1:
+            pred = hits[0]
+            is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+            return is_correct
+        
+    if type_ == "bool":
+    # same as above but take keys and values of choices_dict to have Yes/No and True/False
+        hits = []
+        choices_keys_and_values = choices_keys + choices_values
+        for value in choices_keys_and_values:
+            # only check if length of value is smaller or same than pred
+            if len(value) <= len(pred):
+                if value.lower() in pred.lower():
+                    hits.append(value)
+        if len(hits) == 1:
+            pred = hits[0]
+            is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+            return is_correct
+
+
+            
+    ### This is excactly the same as the code above, but with regex, and it does not work...
+    # # check if only one of the choices are part of the pred and report this as answer
+    # # therefor search choice_value in pred and return if only one hit
+    # hits = []
+    # for value in choices_values:
+    #     # only check if length of value is smaller or same than pred
+    #     if len(value) <= len(pred):
+    #         # escape special characters of pred for regex
+    #         escaped_pred = escape_special_characters(pred)
+    #         # make value a group for regex
+    #         match = search_regex(
+    #             # "(" +  escape_special_characters(value) + ")", [escape_special_characters(pred)], warn
+    #             escaped_pred,
+    #             ["(" + value + ")"],
+    #             warn,
+    #         )
+    #         if match:
+    #             hits.append(match)
+    #         if len(hits) == 1:
+    #             pred = hits[0]
+    #             is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+    #             return is_correct
+
 
     # if pred is not in choices_dict, we need to use regex
 
