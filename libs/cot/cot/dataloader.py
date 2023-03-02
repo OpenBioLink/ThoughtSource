@@ -308,14 +308,17 @@ class Collection:
             # ... or "api_service" not in config):
             n_samples = self.number_examples(name, split)
             print_warning(config, n_samples)
+        # always do it per split, so less data is lost in case of an API error causing a crash
         if name is None:
             for name in self._cache:
                 print(f"Generating {name}...")
-                self[name] = generate_and_extract(self[name], config=config)
+                for split in self._cache[name]:
+                    self[name][split] = generate_and_extract(self[name][split], config=config)
         else:
             if split is None:
                 print(f"Generating {name}...")
-                self[name] = generate_and_extract(self[name], config=config)
+                for split in self._cache[name]:
+                    self[name][split] = generate_and_extract(self[name][split], config=config)
             else:
                 print(f"Generating {name}...")
                 self[name][split] = generate_and_extract(self[name][split], config=config)
