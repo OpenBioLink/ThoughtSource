@@ -116,6 +116,11 @@ def _evaluate(example, type_, overwrite, warn):
 
 def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bool:
     """Compares prediction with gold answer."""
+    # convert to lowercase
+    pred = pred.lower()
+    gold = gold.lower()
+    if choices:
+        choices = [choice.lower() for choice in choices]
 
     # # strip whitespaces from prediction
     # pred = pred.strip()
@@ -124,6 +129,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
     # # strip a trailing period from prediction
     # if pred.endswith("."):
     #     pred = pred[:-1]
+    
 
     if type_ not in ["bool", "multiplechoice"]:
         warnings.warn(f"Answer type {type_} not supported yet.")
@@ -133,14 +139,14 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         # E.g.: "Therefore, among A through E, the answer is (c)"
 
         # make dict of choices with uppercase letters A,B,C,...
-        choices_dict = dict(zip(string.ascii_uppercase, choices))
+        choices_dict = dict(zip(string.ascii_lowercase, choices))
         choices_keys = list(choices_dict.keys())
         choices_values_raw = list(choices_dict.values())
 
         # if values have special characters, we need to escape them for the use in regex
         choices_values = [re.escape(item) for item in choices_values_raw]
 
-        # false positive in rare cases: choices_dict is {'A': 'B', 'B': 'D' ...} and gold is 'B'
+        # check for false positive in rare cases: choices_dict is {'A': 'B', 'B': 'D' ...} and gold is 'B'
         # Check if there are any common elements between the keys and values:
         keys_lower = [i.lower() for i in choices_dict.keys()]
         values_lower = [j.lower() for j in choices_dict.values()]
@@ -152,7 +158,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
 
     if type_ == "bool":
         # E.g.: "Therefore, the answer (Yes or No) is NO."
-        choices_dict = {"Yes": "True", "No": "False"}
+        choices_dict = {"yes": "true", "no": "false"}
         choices_keys = list(choices_dict.keys())
         choices_values = list(choices_dict.values())
         choices_values_raw = choices_values  # in bool case, we need the raw values for the quick check
@@ -186,6 +192,19 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             pred = hits[0]
             is_correct = compare_pred_with_gold(pred, gold, choices_dict)
             return is_correct
+        # if more than one hit return false
+        # elif len(hits) > 1:
+        #     return False
+        
+        # # it that did not work:
+        # # check if the string contains only one letter and if this letter is in choices_keys return this letter
+        # letters = re.sub(r"[^a-zA-Z]", "", pred)
+        # if len(letters) == 1:
+        #     if letters in choices_keys:
+        #         is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+        #         return is_correct
+
+        
 
     if type_ == "bool":
         hits = []
