@@ -193,8 +193,8 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             is_correct = compare_pred_with_gold(pred, gold, choices_dict)
             return is_correct
         # if more than one hit return false
-        # elif len(hits) > 1:
-        #     return False
+        elif len(hits) > 1:
+            return False
         
         # # it that did not work:
         # # check if the string contains only one letter and if this letter is in choices_keys return this letter
