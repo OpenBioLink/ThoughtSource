@@ -185,9 +185,22 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         for value in choices_values_raw:
             # only check if length of value is smaller or same than pred
             if len(value) <= len(pred):
+                # This following pattern almost perfectly, much better than with using \\bword\\b to mark the words beginning and end,
+                # since this pattern works also if special characters like brackets are in the value
+                # (only thing it does not catch if the model answers in plural and appends and "s" to the end of the word,
+                # but I do not want to change it since this could also be two seperate answer choices singular/plural, which we need to distinguish)
+                pattern = r'(?<!\w){}(?!\w)'.format(re.escape(value))
+                if re.search(pattern, pred, re.IGNORECASE):
+                    hits.append(value)
+        # Old version of the above, just stays here for reference and debugging          
+        hits_2 = []
+        for value in choices_values_raw:
+            # only check if length of value is smaller or same than pred
+            if len(value) <= len(pred):
                 # we go for the simple solution here, the one that is used in type_ == "bool" below does not work here
                 if value.lower() in pred.lower():
-                    hits.append(value)
+                    hits_2.append(value)
+        serse = 0
         # if only one hit, use that as predicted answer
         if len(hits) == 1:
             pred = hits[0]
@@ -197,13 +210,36 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         elif len(hits) > 1:
             return False
         
-        # # it that did not work:
-        # # check if the string contains only one letter and if this letter is in choices_keys return this letter
-        # letters = re.sub(r"[^a-zA-Z]", "", pred)
-        # if len(letters) == 1:
-        #     if letters in choices_keys:
-        #         is_correct = compare_pred_with_gold(pred, gold, choices_dict)
-        #         return is_correct
+        # it that did not work, check if only keys (a,b,c,d,...) are given as answers
+        # remove unnecessary words
+        unnecessary_words = ["probably", "and", "either", "or", "most", "likely", "then", "maybe", "possibly","perhaps", "presumably", "conceivably", \
+                             "potentially", "plausibly", "feasibly", "perchance", "mayhap", "imaginably", "credibly", "supposedly", "reportedly", "allegedly", \
+                             "ostensibly", "apparently", "arguably", "hypothetically", "speculatively", "tentatively", "provisionally", "conditionally", \
+                             "subjectively", "relatively", "comparatively", "certainly", "definitely", "absolutely", "positively", "undoubtedly", "surely", \
+                             "unquestionably", "inescapably", "necessarily", "inevitably"]
+        text = pred
+        unnecessary_pattern = '|'.join(unnecessary_words)
+        text = re.sub(unnecessary_pattern, "", text)
+
+        # check if the string contains only one letter and if this letter is in choices_keys, then return this letter
+        letters = re.sub(r"[^a-zA-Z]", "", text)
+        letters = list(letters)
+        if len(letters) == 1:
+            if letters[0] in choices_keys:
+                is_correct = compare_pred_with_gold(letters[0], gold, choices_dict)
+                return is_correct
+        # if found more than one compare if all are standing alone in the string
+        # if it is all stand alone strings, then they are multiple answers, so we return false as we count this as wrong
+        elif len(letters) > 1:
+            hits_letters = []
+            for key in choices_keys:
+                pattern = r'(?<!\w){}(?!\w)'.format(re.escape(key))
+                if re.search(pattern, pred, re.IGNORECASE):
+                    hits_letters.append(key)
+            if sorted(hits_letters) == sorted(letters):
+                return False
+
+
 
         
 
