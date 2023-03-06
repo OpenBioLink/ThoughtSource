@@ -188,6 +188,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                 # we go for the simple solution here, the one that is used in type_ == "bool" below does not work here
                 if value.lower() in pred.lower():
                     hits.append(value)
+        # if only one hit, use that as predicted answer
         if len(hits) == 1:
             pred = hits[0]
             is_correct = compare_pred_with_gold(pred, gold, choices_dict)
@@ -402,16 +403,24 @@ def print_evaluation_of_all_files_in_dir(dir):
 # check changes in evaluation function
 # compare a collection or json file to again evaluate with new evaluation function
 def compare_evaluation(collection):
+    #create timestamp
+    import time
+    timestamp = time.strftime("%Y%m%d-%H%M%S")
     # create random number
-    import random
-    # create random four digit number
-    random_number = random.randint(1000, 9999)
-    random_number = str(random_number)
-    from pprint import pprint
-    collection.dump("compare_evaluation_" + random_number + "_before.json")
+    # import random
+    # # create random four digit number
+    # random_number = random.randint(1000, 9999)
+    # random_number = str(random_number)
+    # from pprint import pprint
+    collection.dump("compare_evaluation_" + timestamp + "_before.json")
     evaluation_before = collection.evaluate()
-    pprint(evaluation_before)
+    collection_before = collection.to_json()
+    # pprint(evaluation_before)
     evaluation_after = collection.evaluate(overwrite = True)
-    collection.dump("compare_evaluation_" + random_number + "_after.json")
-    pprint(evaluation_after)
+    collection_after = collection.to_json()
+    if collection_before == collection_after:
+        print("no changes, no second file for comparison is created")
+    else:
+        collection.dump("compare_evaluation_" + timestamp + "_after.json")
+    # pprint(evaluation_after)
     # then just compare the two json files inside vscode
