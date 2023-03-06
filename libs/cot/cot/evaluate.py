@@ -200,7 +200,6 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                 # we go for the simple solution here, the one that is used in type_ == "bool" below does not work here
                 if value.lower() in pred.lower():
                     hits_2.append(value)
-        serse = 0
         # if only one hit, use that as predicted answer
         if len(hits) == 1:
             pred = hits[0]
@@ -212,7 +211,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         
         # it that did not work, check if only keys (a,b,c,d,...) are given as answers
         # remove unnecessary words
-        unnecessary_words = ["probably", "and", "either", "or", "most", "likely", "then", "maybe", "possibly","perhaps", "presumably", "conceivably", \
+        unnecessary_words = ["probably", "both", "and", "either", "or", "most", "likely", "then", "maybe", "possibly","perhaps", "presumably", "conceivably", \
                              "potentially", "plausibly", "feasibly", "perchance", "mayhap", "imaginably", "credibly", "supposedly", "reportedly", "allegedly", \
                              "ostensibly", "apparently", "arguably", "hypothetically", "speculatively", "tentatively", "provisionally", "conditionally", \
                              "subjectively", "relatively", "comparatively", "certainly", "definitely", "absolutely", "positively", "undoubtedly", "surely", \
@@ -239,10 +238,6 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             if sorted(hits_letters) == sorted(letters):
                 return False
 
-
-
-        
-
     if type_ == "bool":
         hits = []
         choices_keys_and_values = choices_keys + choices_values
@@ -254,10 +249,18 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                 pattern = r'\b{}\b'.format(re.escape(value))
                 if re.search(pattern, pred, re.IGNORECASE):
                     hits.append(value)
+        # if only one hit, use that as predicted answer
         if len(hits) == 1:
             pred = hits[0]
             is_correct = compare_pred_with_gold(pred, gold, choices_dict)
             return is_correct
+        # makes errors in examples like "Yes, blabla has no effect", since it counts yes and no
+        # could be corrected by:
+        # 1) checking if multiple hits
+        # 2) checking if "yes" and "no" are in the question, since we want to check if it is just
+        # a repetition of the question
+        # 3) check somehow if there is a big overlap in question and answer
+        # 4) select the yes/no that is not part of the question for checking if is_correct 
 
 
     # if pred is not in choices_dict, we need to use regex
