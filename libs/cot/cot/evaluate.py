@@ -5,6 +5,7 @@ import warnings
 from ast import literal_eval
 from collections import defaultdict
 from pprint import pprint
+from cot.generate import FRAGMENTS
 
 import datasets as ds
 
@@ -116,6 +117,25 @@ def _evaluate(example, type_, overwrite, warn):
 
 def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bool:
     """Compares prediction with gold answer."""
+    # warn if pred is empty
+    if pred == "":
+        if warn:
+            warnings.warn(f"Prediction is empty: {pred}")
+        return False
+    
+    # if the pred starts with any of the answer sequences in fragements, remove it
+    # save the original pred for debugging
+    original_pred = pred
+
+    # Sort the list of strings by length (longest to shortest) as one might include another
+    answer_extractions = list(FRAGMENTS["answer_extractions"].values())
+    answer_extractions = sorted(answer_extractions, key=len, reverse=True)
+    
+    # Loop through the list of answer_extractions and remove the longest matching prefix
+    for e in answer_extractions:
+        if pred.startswith(e):
+            pred = pred[len(e):]
+    
     # convert to lowercase
     pred = pred.lower()
     gold = gold.lower()
@@ -129,7 +149,6 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
     # # strip a trailing period from prediction
     # if pred.endswith("."):
     #     pred = pred[:-1]
-    
 
     if type_ not in ["bool", "multiplechoice"]:
         warnings.warn(f"Answer type {type_} not supported yet.")
@@ -211,14 +230,13 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         
         # it that did not work, check if only keys (a,b,c,d,...) are given as answers
         # remove unnecessary words
-        unnecessary_words = ["probably", "both", "and", "either", "or", "most", "likely", "then", "maybe", "possibly","perhaps", "presumably", "conceivably", \
-                             "potentially", "plausibly", "feasibly", "perchance", "mayhap", "imaginably", "credibly", "supposedly", "reportedly", "allegedly", \
-                             "ostensibly", "apparently", "arguably", "hypothetically", "speculatively", "tentatively", "provisionally", "conditionally", \
-                             "subjectively", "relatively", "comparatively", "certainly", "definitely", "absolutely", "positively", "undoubtedly", "surely", \
-                             "unquestionably", "inescapably", "necessarily", "inevitably"]
+        unnecessary_words = ["both", "and", "either", "or", "most", "then", "maybe", "the", "answer", "is", "correct", \
+                             "choice", "choices", "option", "options", \
+                             "probably", "likely", "arguably", "hypothetically", "tentatively", "relatively", "certainly", \
+                             "possibly","perhaps", "potentially", "plausibly", "feasibly", "credibly", "reportedly"]
         text = pred
-        unnecessary_pattern = '|'.join(unnecessary_words)
-        text = re.sub(unnecessary_pattern, "", text)
+        unnecessary_pattern = r'(?<!\w){}(?!\w)'.format('|'.join(unnecessary_words))
+        text = re.sub(unnecessary_pattern, " ", text)
 
         # check if the string contains only one letter and if this letter is in choices_keys, then return this letter
         letters = re.sub(r"[^a-zA-Z]", "", text)
@@ -246,7 +264,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             if len(value) <= len(pred):
                 # modify the matching condition to check only for whole words
                 # so that "No" does not match "Unknown"
-                pattern = r'\b{}\b'.format(re.escape(value))
+                pattern = r'(?<!\w){}(?!\w)'.format(re.escape(value))
                 if re.search(pattern, pred, re.IGNORECASE):
                     hits.append(value)
         # if only one hit, use that as predicted answer
@@ -254,7 +272,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             pred = hits[0]
             is_correct = compare_pred_with_gold(pred, gold, choices_dict)
             return is_correct
-        # makes errors in examples like "Yes, blabla has no effect", since it counts yes and no
+        # makes errors in examples like "Yes, bla bla has no effect", since it counts yes and no
         # could be corrected by:
         # 1) checking if multiple hits
         # 2) checking if "yes" and "no" are in the question, since we want to check if it is just
@@ -263,136 +281,161 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
         # 4) select the yes/no that is not part of the question for checking if is_correct 
 
 
-    # if pred is not in choices_dict, we need to use regex
+    # in the rest of the cases, just check if the first word auf the prediction is one of the words in choices_keys or choices_values
+    # if yes, then return that value for checking if is_correct
+    # this does not work if the choices_values are multiple words, but works well in other cases.
 
-    # uppercase and lowercase is not important, as we will match the pattern case insensitive.
-    expected_answer = r"|".join(choices_values + choices_keys)
-
-    # Matches A or A. or (A). or {A}. or [A]. to  just "A".
-    # Matches word or word. or (word). or {word}. or [word]. to  just "word".
-    expected_answer_location = r"[\(\{\[\'\"]?(" + expected_answer + r")[\)\}\]\'\"]?"
-
-    # match only answer directly or the index of the answer in the choices_dict without sentence
-    only_answer_sequence = r"^\s?" + expected_answer_location + r"\.?\s?$"
-
-    # If the answer is at the end of the sentence. e.g. "The answer is A."
-    # At the moment does NOT match "isA" or "answerA" to A. As this leads to false positives...
-    starting_sequence = (
-        # e.g. '..., the answer is A, apple.' # answer A is apple
-        # answer
-        r"answer:?"
-        +
-        # is or most likely or probably
-        r"(?: \(Yes or No\))?(?: is)?:?(?: most likely)?(?: probably)?\s?"
-        +
-        # capturing group "answer" or "answer as string" # possibly inside brackets, etc
-        expected_answer_location
-        +
-        # , the
-        r"(?:,)?(?: the)?\s?(?:"
-        +
-        # non-capturing group "answer_as_string" # optional
-        expected_answer
-        + r")?"
-        +
-        # . end of sentence
-        r"\.?\s?$"
-    )
-
-    # If the answer is at the beginning of the sentence. e.g. "A is the answer"
-    ending_sequence = r"^\s?" + expected_answer_location + r"(?: is)?(?: the)?(?: correct| right| true)?(?: answer)?\.?" + r"\.?\s?$"
-
-    # individual sequences at the moment only for multiplechoice
-    if type_ == "multiplechoice":
-        # the following part of the individual sequences needs some simplification....
-        expected_answer_raw_as_group = r"(" + r"|".join(choices_values_raw + choices_keys) + r")"
-
-        individual_sequences = [
-            # insert your individual answer sequences here
-            # replace both places of the answer (A,B,C,...) and the full text answer with the expected_answer_raw
-            # the rest part of the sequence put with raw strings in between.
-            # e.g. for "The answer is: A) answer_as_text."
-            # rewrite as: r"The answer is: " + expected_answer_raw + r") " + expected_answer_raw + r"."
-            # expected_answer_raw + re.escape(r") ") + expected_answer_raw + re.escape(r".")
-            expected_answer_raw_as_group
-            + escape_special_characters(") ")
-            + expected_answer_raw_as_group
-            + escape_special_characters(".")
-        ]
-        # idea to generalize the individual sequences:
-        # make file in codebase where people can add their individual sequences
-        # let people replace the answer with the placeholder "expected_answer_location"
-        # then read the file
-        # split the sentences by the placeholder
-        # for every split that is not the placeholder, apply the escape_special_characters function
-        # then join the sentences again with the placeholder in between
-
-        # make individual sequences have start and end of sentence
-        individual_sequences = [r"^" + sequence + r"$" for sequence in individual_sequences]
-
-    if type_ == "multiplechoice":
-        sequences_for_search = [only_answer_sequence] + individual_sequences + [starting_sequence, ending_sequence]
-    else:
-        sequences_for_search = [
-            only_answer_sequence,
-            starting_sequence,
-            ending_sequence,
-        ]
-
-    # search for the sequences in the prediction
-    pred_match = search_regex(pred, sequences_for_search, warn=warn)
-
-    # if not one specific value is found, search if multiple are found and return the first one
-    if pred_match == "":
-        # select the string after the last word "answer"
-        if "answer" in pred:
-            str_after_word = pred.rsplit("answer", 1)[1]
-            if str_after_word:
-                if type_ == "bool":
-                    # remove "(Yes or No)" from the string
-                    str_after_word = str_after_word.replace("(Yes or No)", "")
-                    multiple_findings = r"[\s|\,|\.|\:]" + expected_answer_location + r"[\s|\,|\.]"
-
-                if type_ == "multiplechoice":
-                    multiple_findings = " " + expected_answer_location + r"[\s|\,|\.]"
-
-                pred_match = search_regex(str_after_word, [multiple_findings], warn=warn)
-
-    if pred_match == "" and warn:
+    match = re.search(r'\w+', pred)
+    if match:
+        first_word = match.group()
+        # define all words that are in the choices_dict
+        word_list = choices_keys + choices_values_raw
+        # check if first word is in word_list
+        if first_word in word_list:
+            is_correct = compare_pred_with_gold(first_word, gold, choices_dict)
+            return is_correct
+    
+    # if nothing worked, return false
+    if warn:
         warnings.warn(
-            f"""Your answer could not be extracted from this sequence.
+            f"""Your answer could not be extracted from this sequence and is therefor set to false.
             sequence: {pred}
             possible answers: {choices_dict}"""
         )
+    return False
 
-    # match for: "Answer is A" and for "Answer is 'word'", using keys and values of choices_dict
-    is_correct = compare_pred_with_gold(pred_match, gold, choices_dict)
+    # ############# OLD CODE BELOW #############
 
-    return is_correct
+    # # if pred is not in choices_dict, we need to use regex
 
-def search_regex(s: str, patterns: list, warn: bool) -> str:
-    """Searches a string for a list of regex patterns and returns the first found match."""
-    # strip the string from whitespaces
-    s = s.strip()
-    for pattern in patterns:
-        # Compile the regular expression
-        regex = re.compile(pattern, re.MULTILINE | re.IGNORECASE)
-        # Search the string for the regex pattern
-        match = regex.search(s)
-        if match:
-            # If more than one group is defined in the regex, print a warning return the last group
-            if len(match.groups()) > 1 and warn:
-                warnings.warn(
-                    f"""Found more than one possible answer to compute the evaluation score. By default returning the first found answer.
-                                 In the answer sentence '{s}' these possible answers were found: '{match.groups()}'
-                                 If you want to return a specific answer, please define a regex pattern with only one group.
-                """
-                )
+    # # uppercase and lowercase is not important, as we will match the pattern case insensitive.
+    # expected_answer = r"|".join(choices_values + choices_keys)
 
-            # If the regex pattern is found, return the group you defined in the regex
-            return match.group(1)
-    # If none of the regex patterns are found, return an empty string
-    return ""
+    # # Matches A or A. or (A). or {A}. or [A]. to  just "A".
+    # # Matches word or word. or (word). or {word}. or [word]. to  just "word".
+    # expected_answer_location = r"[\(\{\[\'\"]?(" + expected_answer + r")[\)\}\]\'\"]?"
+
+    # # match only answer directly or the index of the answer in the choices_dict without sentence
+    # only_answer_sequence = r"^\s?" + expected_answer_location + r"\.?\s?$"
+
+    # # If the answer is at the end of the sentence. e.g. "The answer is A."
+    # # At the moment does NOT match "isA" or "answerA" to A. As this leads to false positives...
+    # starting_sequence = (
+    #     # e.g. '..., the answer is A, apple.' # answer A is apple
+    #     # answer
+    #     r"answer:?"
+    #     +
+    #     # is or most likely or probably
+    #     r"(?: \(Yes or No\))?(?: is)?:?(?: most likely)?(?: probably)?\s?"
+    #     +
+    #     # capturing group "answer" or "answer as string" # possibly inside brackets, etc
+    #     expected_answer_location
+    #     +
+    #     # , the
+    #     r"(?:,)?(?: the)?\s?(?:"
+    #     +
+    #     # non-capturing group "answer_as_string" # optional
+    #     expected_answer
+    #     + r")?"
+    #     +
+    #     # . end of sentence
+    #     r"\.?\s?$"
+    # )
+
+    # # If the answer is at the beginning of the sentence. e.g. "A is the answer"
+    # ending_sequence = r"^\s?" + expected_answer_location + r"(?: is)?(?: the)?(?: correct| right| true)?(?: answer)?\.?" + r"\.?\s?$"
+
+    # # individual sequences at the moment only for multiplechoice
+    # if type_ == "multiplechoice":
+    #     # the following part of the individual sequences needs some simplification....
+    #     expected_answer_raw_as_group = r"(" + r"|".join(choices_values_raw + choices_keys) + r")"
+
+    #     individual_sequences = [
+    #         # insert your individual answer sequences here
+    #         # replace both places of the answer (A,B,C,...) and the full text answer with the expected_answer_raw
+    #         # the rest part of the sequence put with raw strings in between.
+    #         # e.g. for "The answer is: A) answer_as_text."
+    #         # rewrite as: r"The answer is: " + expected_answer_raw + r") " + expected_answer_raw + r"."
+    #         # expected_answer_raw + re.escape(r") ") + expected_answer_raw + re.escape(r".")
+    #         expected_answer_raw_as_group
+    #         + escape_special_characters(") ")
+    #         + expected_answer_raw_as_group
+    #         + escape_special_characters(".")
+    #     ]
+    #     # idea to generalize the individual sequences:
+    #     # make file in codebase where people can add their individual sequences
+    #     # let people replace the answer with the placeholder "expected_answer_location"
+    #     # then read the file
+    #     # split the sentences by the placeholder
+    #     # for every split that is not the placeholder, apply the escape_special_characters function
+    #     # then join the sentences again with the placeholder in between
+
+    #     # make individual sequences have start and end of sentence
+    #     individual_sequences = [r"^" + sequence + r"$" for sequence in individual_sequences]
+
+    # if type_ == "multiplechoice":
+    #     sequences_for_search = [only_answer_sequence] + individual_sequences + [starting_sequence, ending_sequence]
+    # else:
+    #     sequences_for_search = [
+    #         only_answer_sequence,
+    #         starting_sequence,
+    #         ending_sequence,
+    #     ]
+
+    # # search for the sequences in the prediction
+    # pred_match = search_regex(pred, sequences_for_search, warn=warn)
+
+    # # if not one specific value is found, search if multiple are found and return the first one
+    # if pred_match == "":
+    #     # select the string after the last word "answer"
+    #     if "answer" in pred:
+    #         str_after_word = pred.rsplit("answer", 1)[1]
+    #         if str_after_word:
+    #             if type_ == "bool":
+    #                 # remove "(Yes or No)" from the string
+    #                 str_after_word = str_after_word.replace("(Yes or No)", "")
+    #                 multiple_findings = r"[\s|\,|\.|\:]" + expected_answer_location + r"[\s|\,|\.]"
+
+    #             if type_ == "multiplechoice":
+    #                 multiple_findings = " " + expected_answer_location + r"[\s|\,|\.]"
+
+    #             pred_match = search_regex(str_after_word, [multiple_findings], warn=warn)
+
+    # if pred_match == "" and warn:
+    #     warnings.warn(
+    #         f"""Your answer could not be extracted from this sequence.
+    #         sequence: {pred}
+    #         possible answers: {choices_dict}"""
+    #     )
+
+    # # match for: "Answer is A" and for "Answer is 'word'", using keys and values of choices_dict
+    # is_correct = compare_pred_with_gold(pred_match, gold, choices_dict)
+
+    # return is_correct
+
+# def search_regex(s: str, patterns: list, warn: bool) -> str:
+#     """Searches a string for a list of regex patterns and returns the first found match."""
+#     # strip the string from whitespaces
+#     s = s.strip()
+#     for pattern in patterns:
+#         # Compile the regular expression
+#         regex = re.compile(pattern, re.MULTILINE | re.IGNORECASE)
+#         # Search the string for the regex pattern
+#         match = regex.search(s)
+#         if match:
+#             # If more than one group is defined in the regex, print a warning return the last group
+#             if len(match.groups()) > 1 and warn:
+#                 warnings.warn(
+#                     f"""Found more than one possible answer to compute the evaluation score. By default returning the first found answer.
+#                                  In the answer sentence '{s}' these possible answers were found: '{match.groups()}'
+#                                  If you want to return a specific answer, please define a regex pattern with only one group.
+#                 """
+#                 )
+
+#             # If the regex pattern is found, return the group you defined in the regex
+#             return match.group(1)
+#     # If none of the regex patterns are found, return an empty string
+#     return ""
 
 
 def escape_special_characters(string):
@@ -441,25 +484,28 @@ def print_evaluation_of_all_files_in_dir(dir):
 
 # check changes in evaluation function
 # compare a collection or json file to again evaluate with new evaluation function
-def compare_evaluation(collection):
+def compare_evaluation_difference(collection):
     #create timestamp
     import time
     timestamp = time.strftime("%Y%m%d-%H%M%S")
-    # create random number
-    # import random
-    # # create random four digit number
-    # random_number = random.randint(1000, 9999)
-    # random_number = str(random_number)
+
     # from pprint import pprint
-    collection.dump("compare_evaluation_" + timestamp + "_before.json")
-    evaluation_before = collection.evaluate()
-    collection_before = collection.to_json()
-    # pprint(evaluation_before)
-    evaluation_after = collection.evaluate(overwrite = True)
-    collection_after = collection.to_json()
-    if collection_before == collection_after:
-        print("no changes, no second file for comparison is created")
+    collection_before = collection
+    collection_after = collection.copy()
+    
+    collection_before_json = collection_before.to_json()
+    # overwrite the evaluation in the collection_after
+    evaluation_after = collection_after.evaluate(overwrite = True)
+    collection_after_json = collection_after.to_json()
+
+    if collection_before_json == collection_after_json:
+        print("No difference in collection before/after evaluation overwrite. No files files for comparison are created.")
+
     else:
-        collection.dump("compare_evaluation_" + timestamp + "_after.json")
+        collection_before.dump("compare_evaluation_" + timestamp + "_before.json")
+        collection_after.dump("compare_evaluation_" + timestamp + "_after.json")
+        # then just compare the two json files inside vscode or any other editor
+    
+    # evaluation_before = collection.evaluate()
     # pprint(evaluation_after)
-    # then just compare the two json files inside vscode
+    # pprint(evaluation_before)
