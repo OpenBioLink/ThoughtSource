@@ -5,9 +5,9 @@ import warnings
 from ast import literal_eval
 from collections import defaultdict
 from pprint import pprint
-from cot.generate import FRAGMENTS
 
 import datasets as ds
+from cot.generate import FRAGMENTS
 
 
 def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
