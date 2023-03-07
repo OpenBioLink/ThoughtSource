@@ -740,7 +740,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": "\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7\n7The 3 embryonic germ layers: ectoderm, mesoderm and endoderm are derived from:\nA) Epiblast only\nB) Ectoderm from epiblast; mesoderm and endoderm from hypoblast\nC) Ectoderm and mesoderm from epiblast; endoderm from hypoblast\nD) Hypoblast only\n\nThe answer can be found in the passage.\nThe answer is B) Ectoderm from epiblast; mesoderm and endoderm from hypoblast.",
-                                "correct_answer": true
+                                "correct_answer": false
                             }
                         ],
                         "author": "thoughtsource",

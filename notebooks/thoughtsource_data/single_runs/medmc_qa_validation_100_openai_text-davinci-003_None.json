@@ -1633,7 +1633,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C. Aschoff nodules are a feature of rheumatic fever, not infective endocarditis.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2291,7 +2291,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B. The patient's serology profile indicates that they have recovered from a chronic hepatitis infection, as indicated by the non-reactive HbsAg and HbeAg, and the reactive IgG Anti-HbC. The undetectable HBV DNA indicates that the virus is no longer present in the patient's body.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",

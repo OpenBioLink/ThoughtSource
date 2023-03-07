@@ -770,7 +770,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " D. The LOD score (logarithm of the odds) is a measure of the strength of the evidence for linkage between two loci. A LOD score greater than 3 is considered strong evidence for linkage.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -2150,7 +2150,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B. Ciprofloxacin is a fluoroquinolone antibiotic that works by inhibiting the enzyme DNA gyrase. Mutations in the DNA gyrase enzyme can lead to antibiotic resistance.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -3070,7 +3070,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " E. Factitious disorder imposed on another is a mental disorder in which a person deliberately produces or feigns physical or psychological symptoms in another person, such as a child. The symptoms in this case are consistent with this diagnosis.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
@@ -4174,7 +4174,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B. This patient is likely suffering from diphtheria, which is caused by the Gram-positive bacterium Corynebacterium diphtheriae. This bacterium produces an exotoxin that acts via ADP ribosylation.",
-                                "correct_answer": false
+                                "correct_answer": true
                             }
                         ],
                         "author": "thoughtsource",
