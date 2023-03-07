@@ -36,8 +36,10 @@ class Collection:
         progress of the function. If the list of names is "all", it will load all the datasets. If the
         list of names is a list, it will load the datasets in the list.
 
-        :param names: List of dataset names to load. If None, load no dataset. If "all", load all
-        datasets
+        :param names: List of dataset names to load. (aqua, asdiv, commonsense_qa, entailment_bank, 
+        gsm8k, mawps, med_qa, medmc_qa, open_book_qa, pubmed_qa, qed, strategy_qa, svamp, worldtree).
+        If you want to load the collection thoughtsource_100, use the method Collection.load_thoughtsource_100().
+        If None, create empty Collection. If "all", load all datasets.
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
         :param generate_mode:
@@ -267,6 +269,22 @@ class Collection:
 
                 dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
             collection[dataset_name] = ds.DatasetDict(dataset_dict)
+        return collection
+
+    @staticmethod
+    def load_thoughtsource_100(names="all", load_pregenerated_cots="all") -> "Collection":
+        """load the thoughtsource_100 dataset"""
+        path_to_biodatasets = (pathlib.Path(__file__).parent.absolute() / "datasets").resolve()
+        path_to_thoughtsource_100 = path_to_biodatasets / "thoughtsource" / "thoughtsource_100.json"
+        collection = Collection.from_json(str(path_to_thoughtsource_100))
+        # drop all names that are not in the list
+        if names != "all":
+            all_names = list(collection._cache.keys())
+            names_to_remove = [name for name in all_names if name not in names]
+            collection.unload_datasets(names_to_remove)
+        # drop all generated cots that are not in the list
+        if load_pregenerated_cots != "all":
+            collection.keep_generated_cots(authors=load_pregenerated_cots)
         return collection
 
     def number_examples(self, name=None, split=None):
