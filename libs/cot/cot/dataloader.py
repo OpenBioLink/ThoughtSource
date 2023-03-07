@@ -228,6 +228,10 @@ class Collection:
         data_stream.seek(0)
         return [json.loads(x.decode()) for x in data_stream.readlines()]
 
+    def copy(self):
+        import copy
+        return copy.deepcopy(self)
+
     @staticmethod
     def from_json(path_or_json, download_mode="reuse_dataset_if_exists", source=False):
         if isinstance(path_or_json, str):
@@ -260,11 +264,7 @@ class Collection:
                 for key in ['lengths', 'sentences', 'subsetType']:
                     if key in dic:
                         del dic[key]
-                # del dic['lengths']
-                # del dic['subsetType']
-                # del dic['sentences']
-                # assert info.features.keys() == dic.keys()
-                # assert info.features["generated_cot"][0].keys() == dic["generated_cot"][0][0].keys()
+
                 dataset_dict[split_name] = ds.Dataset.from_dict(dic, info.features, info, split)
             collection[dataset_name] = ds.DatasetDict(dataset_dict)
         return collection
@@ -442,26 +442,6 @@ class Collection:
         :return: A concatenated dataset of all the testing data.
         """
         return ds.concatenate_datasets([self._cache[name]["test"] for name in self._cache if "test" in self._cache[name]])
-
-    # # This is not working... We need a better way to do this
-    # def copy(self, name=None, split=None):
-    #     import copy
-    #     # make empty collection
-    #     collection = Collection()
-    #     # copy all datasets
-    #     if name is None:
-    #         for name in self._cache:
-    #             for split in self._cache[name]:
-    #                 collection[name][split] = copy.deepcopy(self[name][split])
-    #     else:
-    #         if split is None:
-    #             for split in self._cache[name]:
-    #                 collection[name][split] = copy.deepcopy(self[name][split])  
-    #         else:
-    #             collection[name][split] = copy.deepcopy(self[name][split])
-
-    #     return collection
-
 
 def print_warning(config, n_samples):
     n_instruction_keys = len(config["instruction_keys"]) if "instruction_keys" in config else 1
