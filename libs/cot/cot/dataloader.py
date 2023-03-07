@@ -443,6 +443,25 @@ class Collection:
         """
         return ds.concatenate_datasets([self._cache[name]["test"] for name in self._cache if "test" in self._cache[name]])
 
+    # # This is not working... We need a better way to do this
+    # def copy(self, name=None, split=None):
+    #     import copy
+    #     # make empty collection
+    #     collection = Collection()
+    #     # copy all datasets
+    #     if name is None:
+    #         for name in self._cache:
+    #             for split in self._cache[name]:
+    #                 collection[name][split] = copy.deepcopy(self[name][split])
+    #     else:
+    #         if split is None:
+    #             for split in self._cache[name]:
+    #                 collection[name][split] = copy.deepcopy(self[name][split])  
+    #         else:
+    #             collection[name][split] = copy.deepcopy(self[name][split])
+
+    #     return collection
+
 
 def print_warning(config, n_samples):
     n_instruction_keys = len(config["instruction_keys"]) if "instruction_keys" in config else 1
