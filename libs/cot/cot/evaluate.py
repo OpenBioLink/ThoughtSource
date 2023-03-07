@@ -54,18 +54,20 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be
                 if answer["correct_answer"]:
                     predictions[model_name][key] += 1
 
-    if warn:
-        for count in counter.values():
-            if count != len(dataset):
-                warnings.warn(
-                    f"""It seems that not all examples of the dataset include an answer to be evaluated.
-                    Counter of examples:
-                    {counter.items()}
-                    Length of dataset:
-                    {len(dataset)}
-                    The evaluation score was only calculated based on the examples that include an answer.
-                    To turn this warning off, set warn=False in the evaluate function."""
-                )
+    # this was just important before the pubmed train/test split was done
+    # now it is not needed anymore, but it doesn't hurt to keep it
+    # if warn:
+    #     for count in counter.values():
+    #         if count != len(dataset):
+    #             warnings.warn(
+    #                 f"""It seems that not all examples of the dataset include an answer to be evaluated.
+    #                 Counter of examples:
+    #                 {counter.items()}
+    #                 Length of dataset:
+    #                 {len(dataset)}
+    #                 The evaluation score was only calculated based on the examples that include an answer.
+    #                 To turn this warning off, set warn=False in the evaluate function."""
+    #             )
 
     keys = sorted(keys)
     model_names = sorted(model_names)
@@ -298,9 +300,10 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
     # if nothing worked, return false
     if warn:
         warnings.warn(
-            f"""Your answer could not be extracted from this sequence and is therefor set to false.
-            sequence: {pred}
-            possible answers: {choices_dict}"""
+            f"""Your answer could not be extracted from the prediction and is therefor set to false.
+            prediction: {pred}
+            possible answers: {choices_dict}
+            """
         )
     return False
 
