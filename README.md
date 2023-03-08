@@ -175,9 +175,11 @@ collection.evaluate()
 ## Versioning
 All updates/changes to datasets are explicitly mentioned in bold.
 
-0.0.3 (2023-02-24) -  Thoughtsource_100 dataset released with reasoning chains from GPT-text-davinci-003, flan-t5-xxl, and cohere's command-xl
+0.0.4 (2023-03-08) -  Evaluation function improved. Function to load ThoughtSource100 collection: Collection.load_thoughtsource_100()
 
-0.0.2 (2023-02-15) -  Annotator tool updated for correct data schema
+0.0.3 (2023-02-24) -  ThoughtSource_100 collection released with reasoning chains from GPT-text-davinci-003, flan-t5-xxl, and cohere's command-xl
+
+0.0.2 (2023-02-15) -  Annotator tool updated for correct data schema (this might result in errors loading old datasets, when loading from json files).
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Pubmed_qa**: Included "LONG_ANSWER" from origin schema as "cot" in ThoughtSource schema
 
