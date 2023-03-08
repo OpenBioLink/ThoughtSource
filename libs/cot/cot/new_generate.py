@@ -16,11 +16,12 @@ Input: item, langchains, triggers
 Output: cot and answer
 input of chains can be reduced to one or a list for flexibility
 """
-def self_generate(data,chain,input_dict):
+def self_generate_extract(data,chain,input_dict):
 
     ds.disable_caching()
     data.cleanup_cache_files()
 
+    """Not sure if necessary"""
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
 
@@ -30,29 +31,17 @@ def self_generate(data,chain,input_dict):
 
     else:
         raise ValueError("Not recognized data")
+
     
-    #Create a dict of input_dict and chain
-    input_dict['chain'] = chain
-
-
     new_dataset = []
-    for example in data['train']:
+    for example in data['train']: #hardcoded
         processed_example = _self_generate(example,input_dict,chain)
         print("processed_example:")
         print(processed_example)
         new_dataset.append(processed_example)
     return new_dataset
 
-    
-    # return data.map(
-    #     _self_generate,
-    #     with_indices=True,
-    #     fn_kwargs=input_dict,
-    #     features=features,
-    #     load_from_cache_file=False,
-    # )
-
-def _self_generate(item,input_dict,chain):
+def _self_generate_extract(item,input_dict,chain):
 
     # input_dict = combi_dict['input']
     # chain = combi_dict['chain']
@@ -93,27 +82,149 @@ def _self_generate(item,input_dict,chain):
                 "comment": "",
                 "annotations": [],
             }
-    #generated_cot["cot"] = lang_chain['cot']
     generated_cot["date"] = print_now(1)
+
+    answer = {
+                        "id": str(uuid.uuid4()),
+                        "answer_extraction": input_dict['answer_extraction_key'],
+                        "answer_extraction_template": "",
+                        "answer_extraction_text": "",
+                        "answer": "",
+                        "correct_answer": None,
+                }
+    answer["answer"] = lang_chain['predicted_answer']
+    generated_cot["answers"].append(answer)
+
     item["generated_cot"].append(generated_cot)
 
-    print("item:")
-    print(item)
+    return item
+
+
+def self_generate(data,chain,input_dict):
+
+    ds.disable_caching()
+    data.cleanup_cache_files()
+
+    """Not sure if necessary"""
+    if isinstance(data, ds.arrow_dataset.Dataset):
+        features = data.info.features
+
+    elif isinstance(data, ds.dataset_dict.DatasetDict):
+        name_of_first_split = list(data.keys())[0]
+        features = data[name_of_first_split].info.features
+
+    else:
+        raise ValueError("Not recognized data")
+
+    
+    new_dataset = []
+    for example in data['train']: #hardcoded
+        processed_example = _self_generate(example,input_dict,chain)
+        print("processed_example:")
+        print(processed_example)
+        new_dataset.append(processed_example)
+    return new_dataset
+
+def _self_generate_extract(item,input_dict,chain):
+
+
+    input_dict['question'] = item["question"]
+    input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+    
+
+    # can also be input
+    # instruction = get_fragments_value("instructions", instruction_key)
+    # template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)
+    
+    #this is where the magic happens
+    lang_chain = chain(input_dict)
+    #retrieve question and answer choices from item, add to input dict
+
+    """If conditions for input keys"""
+    generated_cot = {
+                "id": str(uuid.uuid4()),
+                "fragments_version": FRAGMENTS["version"],
+                "instruction": input_dict["instruction"],
+                "cot_trigger": input_dict["cot_trigger"],
+                "cot_trigger_template": "",
+                "prompt_text": "",
+                "cot": lang_chain['cot'],
+                "answers": [],
+                "author": "",
+                "date": "",
+                "api_service": "",
+                "model": str(
+                    {
+                        "name": "",
+                        "temperature": 0,
+                        "max_tokens": 800,
+                    }
+                ),
+                "comment": "",
+                "annotations": [],
+            }
+    generated_cot["date"] = print_now(1)
+
+    item["generated_cot"].append(generated_cot)
 
     return item
+
+"""Can een item have multiple cots, if so how to choose one?"""  
+def extract(data,chain,input_dict):
+
+    ds.disable_caching()
+    data.cleanup_cache_files()
+
+    """Not sure if necessary"""
+    if isinstance(data, ds.arrow_dataset.Dataset):
+        features = data.info.features
+
+    elif isinstance(data, ds.dataset_dict.DatasetDict):
+        name_of_first_split = list(data.keys())[0]
+        features = data[name_of_first_split].info.features
+
+    else:
+        raise ValueError("Not recognized data")
     
-# def extract():
-#     answer = {
-#                         "id": str(uuid.uuid4()),
-#                         "answer_extraction": answer_extraction_key,
-#                         "answer_extraction_template": template_answer_extraction,
-#                         "answer_extraction_text": "",
-#                         "answer": "",
-#                         "correct_answer": None,
-#                 }
-#     answer["answer"] = predicted_answer
-#     generated_cot["answers"].append(answer)
-#     item["generated_cot"].append(generated_cot)
+    new_dataset = []
+    for example in data['train']:
+        processed_example = _extract(example,input_dict,chain)
+        print("processed_example:")
+        print(processed_example)
+        new_dataset.append(processed_example)
+    return new_dataset
+
+
+def _extract(item,input_dict,chain):
+
+    # input_dict = combi_dict['input']
+    # chain = combi_dict['chain']
+
+    input_dict['question'] = item["question"]
+    input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+    
+
+    # can also be input
+    # instruction = get_fragments_value("instructions", instruction_key)
+    # template_dict["cot_trigger"] = get_fragments_value("cot_triggers", cot_trigger_key)
+    
+    #this is where the magic happens
+    lang_chain = chain(input_dict)
+    #retrieve question and answer choices from item, add to input dict
+
+    """If conditions for input keys"""
+    answer = {
+                        "id": str(uuid.uuid4()),
+                        "answer_extraction": input_dict['answer_extraction'],
+                        "answer_extraction_template": "",
+                        "answer_extraction_text": "",
+                        "answer": "",
+                        "correct_answer": None,
+                }
+    answer["answer"] = lang_chain['predicted_answer']
+    item["generated_cot"]["answers"].append(answer)
+
+    return item
     
 # def generate_and_extract(
 #     item,
