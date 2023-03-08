@@ -29,7 +29,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(self, names=None, verbose=True, generate_mode=None, source=False, load_pregenerated_cots=None):
+    def __init__(self, names=None, verbose=True, generate_mode=None, source=False, load_pregenerated_cots=True):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -48,6 +48,10 @@ class Collection:
         - if "recache": deletes dataset caches and regenerates all datasets
         - if None: reuse cached dataset
         :param source: If true, loads all datasets in source view
+
+        :param load_pregenerated_cots: decides if generated CoTs are loaded. If False, load no generated CoTs. 
+        If True, load all generated CoTs. Selection will be done by keep_generated_cots().
+
         :param load_pregenerated_cots: load already generated CoTs from other authors. If "all", load CoTs from all authors.
         If a list of authors, load CoTs from those. List of which prompts where used by which authors:
             "kojima": kojima–01 
@@ -95,8 +99,11 @@ class Collection:
 
         # unfortunately all generated cots have to be loaded when loading datasets in ThoughtSource view
         # we now delete all which we did not want to load
-        if source is False and load_pregenerated_cots != "all":
-            self.keep_generated_cots(load_pregenerated_cots)
+        # I think this can be deleted since it is handled in keep_generated_cots
+        # if source is False and load_pregenerated_cots != "all":
+        #     self.keep_generated_cots(load_pregenerated_cots)
+        if not load_pregenerated_cots:
+            self.keep_generated_cots(None)
 
     def __getitem__(self, key):
         """
@@ -182,17 +189,26 @@ class Collection:
                         str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode
                     )
 
-    def keep_generated_cots(self, authors=None, name=None, split=None):
+    def keep_generated_cots(self, *args, **kwargs):
         """Decides which generated cots to keep after loading the datasets"""
-        if name is None:
-            for name in self._cache:
-                for split in self._cache[name]:
-                    self[name][split] = keep_generated_cots(self[name][split], authors=authors)
-        else:
-            if split is None:
-                self[name] = keep_generated_cots(self[name], authors=authors)
-            else:
-                self[name][split] = keep_generated_cots(self[name][split], authors=authors)
+
+        # just apply it to all of the datasets and splits
+        for name in self._cache:
+            for split in self._cache[name]:
+                self[name][split] = keep_generated_cots(self[name][split],*args, **kwargs)
+
+        # could maybe solved by setting: if "name" in args, if "split" in args
+        # for now it is good enough, no need to specify the name and split
+
+        # if name is None:
+        #     for name in self._cache:
+        #         for split in self._cache[name]:
+        #             self[name][split] = keep_generated_cots(self[name][split], authors=authors)
+        # else:
+        #     if split is None:
+        #         self[name] = keep_generated_cots(self[name], authors=authors)
+        #     else:
+        #         self[name][split] = keep_generated_cots(self[name][split], authors=authors)
 
     def unload_datasets(self, names=None):
         """
@@ -234,6 +250,8 @@ class Collection:
         import copy
         return copy.deepcopy(self)
 
+    # should raise an error if it is called on an instance
+    # make this a classmethod? (same for load_thoughtsource_100)
     @staticmethod
     def from_json(path_or_json, download_mode="reuse_dataset_if_exists", source=False):
         if isinstance(path_or_json, str):
@@ -284,7 +302,7 @@ class Collection:
             collection.unload_datasets(names_to_remove)
         # drop all generated cots that are not in the list
         if load_pregenerated_cots != "all":
-            collection.keep_generated_cots(authors=load_pregenerated_cots)
+            collection.keep_generated_cots(load_pregenerated_cots)
         return collection
 
     def number_examples(self, name=None, split=None):
