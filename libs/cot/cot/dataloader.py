@@ -17,6 +17,7 @@ from .evaluate import evaluate
 from .generate import (full_text_prompts, generate_and_extract,
                        keep_generated_cots)
 from .merge import merge
+from .new_generate import *
 
 
 @contextmanager
@@ -320,6 +321,20 @@ class Collection:
                 print(f"Generating {name}...")
                 self[name][split] = generate_and_extract(self[name][split], config=config)
 
+    def generate_flexible(self,chain, input_dict,name=None, split=None):
+        if name is None:
+            for name in self._cache:
+                print(f"Generating {name}...")
+                return self_generate(self[name], chain, input_dict)
+        else:
+            if split is None:
+                print(f"Generating {name}...")
+                return self_generate(self[name], chain, input_dict)
+            else:
+                print(f"Generating {name}...")
+                return self_generate(self[name][split], chain, input_dict)
+
+    
     def evaluate(self, name=None, split=None, overwrite=False, warn=False):
         evaluations_dict = defaultdict(dict)
         if name is None:
