@@ -29,7 +29,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(self, names=None, verbose=True, generate_mode=None, source=False, load_pregenerated_cots=True):
+    def __init__(self, names=None, verbose=True, generate_mode=None, source=False, load_pregenerated_cots=False):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -38,8 +38,8 @@ class Collection:
 
         :param names: List of dataset names to load. (aqua, asdiv, commonsense_qa, entailment_bank, 
         gsm8k, mawps, med_qa, medmc_qa, open_book_qa, pubmed_qa, qed, strategy_qa, svamp, worldtree).
-        If you want to load the collection thoughtsource_100, use the method Collection.load_thoughtsource_100().
         If None, create empty Collection. If "all", load all datasets.
+        If you want to load the collection thoughtsource_100, use the method Collection.load_thoughtsource_100().
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
         :param generate_mode:
@@ -47,16 +47,16 @@ class Collection:
         Try this if datasets give unexplainable KeyErrors, ...
         - if "recache": deletes dataset caches and regenerates all datasets
         - if None: reuse cached dataset
-        :param source: If true, loads all datasets in source view
+        :param source: If true, loads all datasets in source view (their original form)
         :param load_pregenerated_cots: decides if generated CoTs are loaded. If False, load no generated CoTs. 
         If True, load all generated CoTs. Defaults to True. Parameter source must be False.
-        Selection of specific generated CoTs can be done by select_generated_cots().
+        Selection of specific generated CoTs can be done after loading by select_generated_cots().
         """
         self.verbose = verbose
         self.download_mode = None
         self.load_source = source
 
-        if load_pregenerated_cots is not None and source is True:
+        if load_pregenerated_cots is True and source is True:
             raise ValueError(
                 "load_pregenerated_cots only works if datasets are loaded in ThoughSource view. \
                 Param source needs to be False for pregenerated CoTs to be loaded."
@@ -90,11 +90,8 @@ class Collection:
             self.load_datasets(names)
 
         # unfortunately all generated cots have to be loaded when loading datasets in ThoughtSource view
-        # we now delete all which we did not want to load
-        # I think this can be deleted since it is handled in select_generated_cots
-        # if source is False and load_pregenerated_cots != "all":
-        #     self.select_generated_cots(load_pregenerated_cots)
-        if not load_pregenerated_cots:
+        # here: all or None, or select specific generated cots with select_generated_cots
+        if not load_pregenerated_cots and not source:
             self.delete_all_generated_cots()
 
     def __getitem__(self, key):
