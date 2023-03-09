@@ -15,7 +15,7 @@ import pandas as pd
 
 from .evaluate import evaluate
 from .generate import (full_text_prompts, generate_and_extract,
-                       keep_generated_cots)
+                       select_generated_cots, delete_all_generated_cots)
 from .merge import merge
 
 
@@ -48,17 +48,9 @@ class Collection:
         - if "recache": deletes dataset caches and regenerates all datasets
         - if None: reuse cached dataset
         :param source: If true, loads all datasets in source view
-
         :param load_pregenerated_cots: decides if generated CoTs are loaded. If False, load no generated CoTs. 
-        If True, load all generated CoTs. Selection will be done by keep_generated_cots().
-
-        :param load_pregenerated_cots: load already generated CoTs from other authors. If "all", load CoTs from all authors.
-        If a list of authors, load CoTs from those. List of which prompts where used by which authors:
-            "kojima": kojima–01 
-            "wei": few-shot (as a prompt)
-            "lievin": kojima-01, lievin-01, lievin-02, lievin-03, lievin-10
-            "lievin_100": 100 times kojima-01 with high temperature
-        Defaults to None. Parameter source must be False.
+        If True, load all generated CoTs. Defaults to True. Parameter source must be False.
+        Selection of specific generated CoTs can be done by select_generated_cots().
         """
         self.verbose = verbose
         self.download_mode = None
@@ -99,11 +91,11 @@ class Collection:
 
         # unfortunately all generated cots have to be loaded when loading datasets in ThoughtSource view
         # we now delete all which we did not want to load
-        # I think this can be deleted since it is handled in keep_generated_cots
+        # I think this can be deleted since it is handled in select_generated_cots
         # if source is False and load_pregenerated_cots != "all":
-        #     self.keep_generated_cots(load_pregenerated_cots)
+        #     self.select_generated_cots(load_pregenerated_cots)
         if not load_pregenerated_cots:
-            self.keep_generated_cots(None)
+            self.delete_all_generated_cots()
 
     def __getitem__(self, key):
         """
@@ -189,26 +181,21 @@ class Collection:
                         str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode
                     )
 
-    def keep_generated_cots(self, *args, **kwargs):
+    def select_generated_cots(self, *args, **kwargs):
         """Decides which generated cots to keep after loading the datasets"""
-
-        # just apply it to all of the datasets and splits
+        # just apply it to all of the datasets and splits, no specific name or split
         for name in self._cache:
             for split in self._cache[name]:
-                self[name][split] = keep_generated_cots(self[name][split],*args, **kwargs)
+                self[name][split] = select_generated_cots(self[name][split],*args, **kwargs)
 
-        # could maybe solved by setting: if "name" in args, if "split" in args
+        # specific name or split could maybe solved by setting: if "name" and "split" in kwargs...
         # for now it is good enough, no need to specify the name and split
 
-        # if name is None:
-        #     for name in self._cache:
-        #         for split in self._cache[name]:
-        #             self[name][split] = keep_generated_cots(self[name][split], authors=authors)
-        # else:
-        #     if split is None:
-        #         self[name] = keep_generated_cots(self[name], authors=authors)
-        #     else:
-        #         self[name][split] = keep_generated_cots(self[name][split], authors=authors)
+    def delete_all_generated_cots(self):
+        """Deletes all generated cots from the datasets"""
+        for name in self._cache:
+            for split in self._cache[name]:
+                self[name][split] = delete_all_generated_cots(self[name][split])
 
     def unload_datasets(self, names=None):
         """
@@ -290,7 +277,7 @@ class Collection:
         return collection
 
     @staticmethod
-    def load_thoughtsource_100(names="all", load_pregenerated_cots="all") -> "Collection":
+    def load_thoughtsource_100(names="all", load_pregenerated_cots=True) -> "Collection":
         """load the thoughtsource_100 dataset"""
         path_to_biodatasets = (pathlib.Path(__file__).parent.absolute() / "datasets").resolve()
         path_to_thoughtsource_100 = path_to_biodatasets / "thoughtsource" / "thoughtsource_100.json"
@@ -300,9 +287,9 @@ class Collection:
             all_names = list(collection._cache.keys())
             names_to_remove = [name for name in all_names if name not in names]
             collection.unload_datasets(names_to_remove)
-        # drop all generated cots that are not in the list
-        if load_pregenerated_cots != "all":
-            collection.keep_generated_cots(load_pregenerated_cots)
+        # drop all generated cots if load_pregenerated_cots is False
+        if not load_pregenerated_cots:
+            collection.delete_all_generated_cots()
         return collection
 
     def number_examples(self, name=None, split=None):

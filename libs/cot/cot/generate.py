@@ -290,52 +290,51 @@ def _full_text_prompts(item, prompt_text, answer_extraction_text):
     return item
 
 
-def keep_generated_cots(dataset, *args, **kwargs): # authors=None):
-    """This function handles which pregenerated COTS are deleted (after loading a collection).
+def select_generated_cots(dataset, **kwargs):
+    """This function handles which pregenerated CoTs are deleted (can be used after loading a collection with "load_pregenerated_cots=True").
+    :param dataset: The dataset to delete unwanted pregenerated CoTs from.
+    :param kwargs: A dictionary of the form {"key": value}, where value has to be a string or list of strings.
+    e.g. {"author": ["author1", "author2"]} or {"author": "author1"}.
 
-    :param authors: A list of authors of the pregenerated COTS to delete. If None, all of the pregenerated COTS are kept.
-    if "all", all of the pregenerated COTS are deleted.
+    Overviews of current authors and their cot_triggers:
+        "kojima": kojima–01 
+        "wei": few-shot (as a prompt)
+        "lievin": kojima-01, lievin-01, lievin-02, lievin-03, lievin-10
+        "lievin_100": 100 times kojima-01 with high temperature
+        "thoughtsource": None, kojima-01
     """
-
-    # if "all" in args, do nothing
-    if "all" in args:
-        if kwargs:
-            raise ValueError("If 'all' is in args, **kwargs must be empty")
-        return dataset
-    # if "none" in args, delete all generated cots by setting author to None
-    if None in args:
-        if len(**kwargs) > 0:
-            raise ValueError("If 'none' is in args, **kwargs must be empty")
-        kwargs = {"author": None}
-
-    # kwargs is a dictionary of the form {"key": value}
-    # value has to be a list of strings
-    # e.g. {"author": ["author1", "author2"]}
-
+    # general info why this function is necessary:
     # Unfortunately the loading function of the datasets does not let you specify which pregenerated COTS to load
     # So we load all of them and then delete the ones we don't want
 
     # remove all the pregenerated COTS that are not in the list
     dataset = dataset.map(
-        _keep_generated_cots,
-        fn_kwargs={**kwargs}, #"authors": authors},
+        _select_generated_cots,
+        fn_kwargs={**kwargs},
         features=dataset.info.features,
-        # deleting the cache is necessary in generate if you call it multiple times
-        # not clear if it is needed here, but it doesn't hurt
         load_from_cache_file=False,
     )
     return dataset
 
-
-def _keep_generated_cots(item, **kwargs): #authors=None):
+def _select_generated_cots(item, **kwargs):
     for key, value in kwargs.items():
+        if type(value) == str:
+            value = [value]
+        # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
         item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
-    # if authors is None:
-    #     item["generated_cot"] = []
-    # else:
-    #     item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["author"] in authors]
-        # for deletion we could use "... not in authors" instead of "in authors"
+    return item
 
+def delete_all_generated_cots(dataset):
+    """This function deletes all pregenerated COTS from a dataset."""
+    dataset = dataset.map(
+        _delete_all_generated_cots,
+        features=dataset.info.features,
+        load_from_cache_file=False,
+    )
+    return dataset
+
+def _delete_all_generated_cots(item):
+    item["generated_cot"] = []
     return item
 
 
