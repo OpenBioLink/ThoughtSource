@@ -299,11 +299,11 @@ def keep_generated_cots(dataset, *args, **kwargs): # authors=None):
 
     # if "all" in args, do nothing
     if "all" in args:
-        if len(**kwargs) > 0:
+        if kwargs:
             raise ValueError("If 'all' is in args, **kwargs must be empty")
         return dataset
     # if "none" in args, delete all generated cots by setting author to None
-    if "none" in args:
+    if None in args:
         if len(**kwargs) > 0:
             raise ValueError("If 'none' is in args, **kwargs must be empty")
         kwargs = {"author": None}
