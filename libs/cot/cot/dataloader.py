@@ -360,7 +360,23 @@ class Collection:
             else:
                 print(f"Generating {name}...")
                 self[name][split] = generate_and_extract(self[name][split], config=config)
+    
+    def generate_extract_flexibly(self,chain, input_dict,name=None, split=None):
+        
+        if name is None:
+            for name in self._cache:
+                print(f"Generating {name}...")
+                self[name] = self_generate_extract(self[name], chain, input_dict)
+        else:
+            if split is None:
+                print(f"Generating {name}...")
+                self[name] = self_generate_extract(self[name], chain, input_dict)
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = self_generate_extract(self[name], chain, input_dict)
 
+    #for split in name:
+    #loop through datasets
     def generate_flexible(self,chain, input_dict,name=None, split=None):
         if name is None:
             for name in self._cache:
@@ -373,7 +389,33 @@ class Collection:
             else:
                 print(f"Generating {name}...")
                 return self_generate(self[name][split], chain, input_dict)
-
+    
+    def extract_flexible(self,chain, input_dict,name=None, split=None):
+        if name is None:
+            for name in self._cache:
+                print(f"Generating {name}...")
+                return extract(self[name], chain, input_dict)
+        else:
+            if split is None:
+                print(f"Generating {name}...")
+                return extract(self[name], chain, input_dict)
+            else:
+                print(f"Generating {name}...")
+                return extract(self[name][split], chain, input_dict)
+            
+    def metareason_flexible(self,chain, input_dict,name=None, split=None):
+        if name is None:
+            for name in self._cache:
+                print(f"Generating {name}...")
+                return self_reason(self[name], chain, input_dict)
+        else:
+            if split is None:
+                print(f"Generating {name}...")
+                return self_reason(self[name], chain, input_dict)
+            else:
+                print(f"Generating {name}...")
+                return self_reason(self[name][split], chain, input_dict)
+            
     
     def evaluate(self, name=None, split=None, overwrite=False, warn=False):
         evaluations_dict = defaultdict(dict)
