@@ -189,7 +189,17 @@ def test_keep_generated_cot() -> None:
     # load file with nothing deleted
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete nothing
-    collection_delete.keep_generated_cots(["1", "2"])
+    collection_delete.keep_generated_cots(author = ["1", "2"])
+    # check if they are the same
+    assert collection.to_json() == collection_delete.to_json()
+
+    # keep all authors
+    # load comparison file
+    collection = get_test_collection("test_1_delete_cots")
+    # load file with nothing deleted
+    collection_delete = get_test_collection("test_1_delete_cots")
+    # delete nothing
+    collection_delete.keep_generated_cots("all")
     # check if they are the same
     assert collection.to_json() == collection_delete.to_json()
 
@@ -197,14 +207,14 @@ def test_keep_generated_cot() -> None:
     collection_1 = get_test_collection("test_1_delete_cots_1")
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete author "1"
-    collection_delete.keep_generated_cots(["2"])
+    collection_delete.keep_generated_cots(author = ["2"])
     assert collection_1.to_json() == collection_delete.to_json()
 
     # delete all authors
     collection_all = get_test_collection("test_1_delete_cots_all")
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete all
-    collection_delete.keep_generated_cots()
+    collection_delete.keep_generated_cots(None)
     assert collection_all.to_json() == collection_delete.to_json()
 
 
