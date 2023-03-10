@@ -75,7 +75,6 @@ class Config:
         # replace all keys (or non given keys) in config with the corresponding values
 
         # Inserts None at index 0 of instruction_keys to query without an explicit instruction
-        # TODO rethink this, maybe add option to disable this
         if self.instruction_keys == "all":
             self.instruction_keys = [None] + list(FRAGMENTS["instructions"].keys())
         elif not self.instruction_keys:
@@ -90,6 +89,25 @@ class Config:
             self.answer_extraction_keys = [None] + list(FRAGMENTS["answer_extractions"].keys())
         elif not self.answer_extraction_keys:
             self.answer_extraction_keys = [None]
+
+        # turn strings into lists for all trigger keys
+        if isinstance(self.instruction_keys, str):
+            self.instruction_keys = [self.instruction_keys]
+        if isinstance(self.cot_trigger_keys, str):
+            self.cot_trigger_keys = [self.cot_trigger_keys]
+        if isinstance(self.answer_extraction_keys, str):
+            self.answer_extraction_keys = [self.answer_extraction_keys]
+
+        # check if all keys are valid
+        for key in self.instruction_keys:
+            if key is not None and key not in FRAGMENTS["instructions"]:
+                raise ValueError(f"Given instruction key '{key}' is not in fragments.json.")
+        for key in self.cot_trigger_keys:
+            if key is not None and key not in FRAGMENTS["cot_triggers"]:
+                raise ValueError(f"Given cot_trigger key '{key}' is not in fragments.json.")
+        for key in self.answer_extraction_keys:
+            if key is not None and key not in FRAGMENTS["answer_extractions"]:
+                raise ValueError(f"Given answer_extraction key '{key}' is not in fragments.json.")
 
         # check if the templates contain only allowed keys
         import re
@@ -115,15 +133,12 @@ class Config:
             assert self.idx_range[0] < self.idx_range[1], "idx_range must be a tuple of ints with idx_range[0] < idx_range[1]"
 
         if self.instruction_keys != "all":
-            assert isinstance(self.instruction_keys, list), "instruction_keys must be a list"
             assert all(isinstance(key, (str, type(None))) for key in self.instruction_keys), "instruction_keys must be a list of strings"
 
         if self.cot_trigger_keys != "all":
-            assert isinstance(self.cot_trigger_keys, list), "cot_trigger_keys must be a list"
             assert all(isinstance(key, (str, type(None))) for key in self.cot_trigger_keys), "cot_trigger_keys must be a list of strings"
 
         if self.answer_extraction_keys != "all":
-            assert isinstance(self.answer_extraction_keys, list), "answer_extraction_keys must be a list"
             assert all(
                 isinstance(key, (str, type(None))) for key in self.answer_extraction_keys
             ), "answer_extraction_keys must be a list of strings"

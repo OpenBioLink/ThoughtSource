@@ -61,6 +61,19 @@ class Collection:
                 "load_pregenerated_cots only works if datasets are loaded in ThoughSource view. \
                 Param source needs to be False for pregenerated CoTs to be loaded."
             )
+        
+        # if dataset name is a string, convert to list
+        if isinstance(names, str) and names != "all":
+            names = [names]
+        # test if dataset name is valid
+        if names is not None and names != "all":
+            for name in names:
+                available_datasets = Collection._all_available_datasets()
+                if name not in available_datasets:
+                    raise ValueError(
+                        f"""Dataset '{name}' not found. Please check spelling.
+                        Available datasets: {available_datasets}"""
+                        )
 
         if generate_mode in ["redownload", "recache"]:
             # see https://huggingface.co/docs/datasets/v2.1.0/en/package_reference/builder_classes#datasets.DownloadMode
@@ -90,7 +103,7 @@ class Collection:
             self.load_datasets(names)
 
         # unfortunately all generated cots have to be loaded when loading datasets in ThoughtSource view
-        # here: all or None, or select specific generated cots with select_generated_cots
+        # here: all or None, selection of specific generated cots can be done later with select_generated_cots
         if not load_pregenerated_cots and not source:
             self.delete_all_generated_cots()
 
@@ -151,6 +164,10 @@ class Collection:
         else:
             dataloader_scripts = [(name, path_to_biodatasets / name / (name + ".py")) for name in names]
         return dataloader_scripts
+    
+    @staticmethod
+    def _all_available_datasets():
+        return [name for name, _ in Collection._find_datasets()]
 
     def _get_metadata(self):
         for name, script_path in Collection._find_datasets():
