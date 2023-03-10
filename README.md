@@ -175,6 +175,8 @@ collection.evaluate()
 ## Versioning
 All updates/changes to datasets are explicitly mentioned in bold.
 
+0.0.5 (2023-03-10) -  Function to select which generated CoTs to keep after loading: collection.select_generated_cots(author="thoughtsource")
+
 0.0.4 (2023-03-08) -  Evaluation function improved. Function to load ThoughtSource100 collection: Collection.load_thoughtsource_100()
 
 0.0.3 (2023-02-24) -  ThoughtSource_100 collection released with reasoning chains from GPT-text-davinci-003, flan-t5-xxl, and cohere's command-xl
