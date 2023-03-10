@@ -366,14 +366,14 @@ class Collection:
         if name is None:
             for name in self._cache:
                 print(f"Generating {name}...")
-                self[name] = self_generate_extract(self[name], chain, input_dict)
+                return self_generate_extract(self[name], chain, input_dict)
         else:
             if split is None:
                 print(f"Generating {name}...")
-                self[name] = self_generate_extract(self[name], chain, input_dict)
+                return self_generate_extract(self[name], chain, input_dict)
             else:
                 print(f"Generating {name}...")
-                self[name][split] = self_generate_extract(self[name], chain, input_dict)
+                return self_generate_extract(self[name], chain, input_dict)
 
     #for split in name:
     #loop through datasets
