@@ -1,6 +1,6 @@
 import json
 import pkgutil
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, fields
 from typing import List, Union
 
 FRAGMENTS = json.loads(pkgutil.get_data(__name__, "fragments.json"))
@@ -143,3 +143,7 @@ class Config:
     @classmethod
     def from_dict(cls, d):
         return cls(**d)
+
+    @staticmethod
+    def _all_fields():
+        return [f.name for f in fields(Config)]
