@@ -23,8 +23,8 @@ class Config:
         "cot", "answer"
         Default: {instruction}\\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}{cot}\\n{answer_extraction}
     "author" : str - Name of the person responsible for generation, Default: ""
-    "api_service" str - Name of the used api service: "openai", "huggingface_hub" or "cohere"
-        or a mock api service "mock_api" for debugging, Default: "huggingface_hub"
+    "api_service" str - Name of the used api service: "openai", "openai_chat", "huggingface_hub", "huggingface_endpoint" or "cohere".
+        Plus a mock api service "mock_api" for debugging, Default: "huggingface_hub"
     "engine": str -  Name of model used, look at website of api which are
         available, e.g. for "openai": "text-davinci-002", Default: "google/flan-t5-xl"
     "temperature": float - Describes how much randomness is in the generated output,
@@ -72,6 +72,11 @@ class Config:
     # TODO: add a way to set the api key?
 
     def __post_init__(self):
+        # raise error if API key is not supported
+        available_endpoints = ["openai", "openai_chat", "huggingface_hub", "huggingface_endpoint", "cohere", "mock_api"]
+        if self.api_service not in available_endpoints:
+            raise ValueError(f"API service '{self.api_service}' not in available endpoints {available_endpoints}")
+        
         # replace all keys (or non given keys) in config with the corresponding values
 
         # Inserts None at index 0 of instruction_keys to query without an explicit instruction
