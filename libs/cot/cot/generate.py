@@ -9,6 +9,7 @@ from dataclasses import asdict
 import datasets as ds
 
 from cot.config import Config
+from cot.utils.schemas.cot import features as cot_features
 
 # disable transformation (e.g. map) caching
 # https://huggingface.co/docs/datasets/v2.6.1/en/package_reference/main_classes#datasets.disable_caching
@@ -317,7 +318,12 @@ def select_generated_cots(dataset, **kwargs):
     return dataset
 
 def _select_generated_cots(item, **kwargs):
+    # load all allows keys from the cot_features
+    allowed_keys = list(cot_features["generated_cot"][0].keys())
     for key, value in kwargs.items():
+        # check if key is allowed
+        if key not in allowed_keys:
+            raise ValueError(f"Key '{key}' not in allowed keys {allowed_keys}")
         # if value is None or a string, convert it to a list
         if value is None or type(value) == str:
             value = [value]
