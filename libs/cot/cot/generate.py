@@ -32,13 +32,27 @@ def generate_and_extract(data, config):
 
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
+        question_type = data[0]["type"]
+        question_number_choices = len(data[0]["choices"])
 
     elif isinstance(data, ds.dataset_dict.DatasetDict):
         name_of_first_split = list(data.keys())[0]
         features = data[name_of_first_split].info.features
+        question_type = data[name_of_first_split][0]["type"]
+        question_number_choices = len(data[name_of_first_split][0]["choices"])
 
     else:
         raise ValueError("Not recognized data")
+    
+    # automated change of answer_extraction depending on the type of the task and the number of choices
+    # if type str make list
+    if isinstance(config["answer_extraction_keys"], str):
+        config["answer_extraction_keys"] = [config["answer_extraction_keys"]]
+
+
+    if config["answer_extraction_keys"] == ["auto-kojima"]:
+        config["answer_extraction_keys"] = adaptive_answer_extraction("auto-kojima", question_type, question_number_choices)
+
 
     # The config is transformed into a dataclass object, where all testing is done
     # But it will be transformed back to a dictionary for the function 'map'
@@ -311,6 +325,9 @@ def select_generated_cots(dataset, **kwargs):
     # Unfortunately the loading function of the datasets does not let you specify which pregenerated COTS to load
     # So we load all of them and then delete the ones we don't want
 
+    # disable progress bar
+    ds.disable_progress_bar()
+
     # remove all the pregenerated COTS that are not in the list
     dataset = dataset.map(
         _select_generated_cots,
@@ -371,6 +388,18 @@ def multiple_choice_answer_formatting(answer_choices):
 
     # Adding Letters (A,B,C,...) for the given multiple choice answers.
     return "\n".join([f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)])  # 65 is the ASCII code for A
+
+def adaptive_answer_extraction(preference, type, len_choices):
+    if preference == "auto-kojima":
+        if type == "bool": 
+            return "kojima-yes-no"
+        elif type == "multiplechoice":
+            if len_choices == 3: answer_extraction_key = 'kojima-A-C'
+            elif len_choices == 4: answer_extraction_key = 'kojima-A-D'
+            elif len_choices == 5: answer_extraction_key = 'kojima-A-E'
+            elif len_choices == 6: answer_extraction_key = 'kojima-A-F'
+            return(answer_extraction_key)
+        else: raise ValueError("type must be bool or multiplechoice")
 
 
 def get_fragments_value(str, key):
