@@ -113,7 +113,10 @@
                 "ref_id": "",
                 "question": "Can you see the Statue of Freedom from the Statue of Liberty?",
                 "type": "bool",
-                "choices": [],
+                "choices": [
+                    "True",
+                    "False"
+                ],
                 "context": "",
                 "cot": [
                     "The Statue of Freedom is in Washington, D.C. on the Capitol Building",
