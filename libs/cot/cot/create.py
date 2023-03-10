@@ -1,10 +1,12 @@
-""" This file contains the functions to create the thoughtsource_100 collection."""
+""" This file contains the functions used to initially create the thoughtsource_100 collection.
+If you want to load the already created thoughtsource_100 collection, use the following code:
+collection = Collection.load_thoughtsource_100()"""
 
 import random
 
 from cot import Collection
 
-def create_thoughtsource_100(load_pregenerated_cots=None):
+def create_thoughtsource_100(load_pregenerated_cots=False):
     number_samples = 100
     # start alphabetically with the commonsense_qa collection
     collection = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
@@ -33,7 +35,7 @@ def create_thoughtsource_100(load_pregenerated_cots=None):
 
     return collection
 
-def create_thoughtsource_1(load_pregenerated_cots=None):
+def create_thoughtsource_1(load_pregenerated_cots=False):
     # this is not an official collection, but it is useful for debugging/testing
     number_samples = 1
     # start alphabetically with the commonsense_qa collection
@@ -66,7 +68,7 @@ def create_thoughtsource_1(load_pregenerated_cots=None):
 
 
 def create_special_medmc_ids():
-    collection = Collection(["medmc_qa"], verbose=False, load_pregenerated_cots="all")
+    collection = Collection(["medmc_qa"], verbose=False, load_pregenerated_cots=True)
     collection = collection.select(split="validation")
     # get indices of examples with generated_cot
     idx = []
@@ -82,7 +84,7 @@ def create_special_medmc_ids():
 
     return random_ids
 
-def create_special_medmc_100(load_pregenerated_cots=None):
+def create_special_medmc_100(load_pregenerated_cots=False):
 
     # creating the medmc collection will run two times and be also printed twice, since it is a special case
     collection = Collection(["medmc_qa"], verbose=False, load_pregenerated_cots=load_pregenerated_cots)
@@ -95,7 +97,7 @@ def create_special_medmc_100(load_pregenerated_cots=None):
     collection["medmc_qa"]["validation"] = collection["medmc_qa"]["validation"].select(random_ids)
 
     # check if every item has a generated_cot
-    if load_pregenerated_cots=="all" or load_pregenerated_cots==["lievin"]:
+    if load_pregenerated_cots==True:
         count = 0
         for i,ex in enumerate(collection["medmc_qa"]["validation"]):
             if ex["generated_cot"] != []:
