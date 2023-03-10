@@ -1,4 +1,5 @@
 from cot import Collection
+from cot.create import create_thoughtsource_100, create_thoughtsource_1, create_special_medmc_100, create_special_medmc_ids
 
 # these tests take a very long time
 # they were moved to integration tests
@@ -11,6 +12,19 @@ def test_thoughtsource() -> None:
         for split in dataset:
             pd_ = dataset[split].to_pandas()
             assert len(pd_["id"]) == pd_["id"].nunique(), f"IDs are not unique in {name} {split}"
+
+def test_thoughtsource_100() -> None:
+    """Test all thoughtsource 100 collections in create"""
+    collection = create_thoughtsource_100()
+    assert collection
+    collection = create_thoughtsource_1()
+    assert collection
+    collection = create_special_medmc_ids()
+    assert collection
+    collection = create_special_medmc_100()
+    assert collection
+
+
 
 
 def test_source() -> None:
