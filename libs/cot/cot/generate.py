@@ -297,7 +297,7 @@ def select_generated_cots(dataset, **kwargs):
     e.g. {"author": ["author1", "author2"]} or {"author": "author1"}.
 
     Overviews of current authors and their cot_triggers:
-        "kojima": kojima–01 
+        "kojima": kojima-01 
         "wei": few-shot (as a prompt)
         "lievin": kojima-01, lievin-01, lievin-02, lievin-03, lievin-10
         "lievin_100": 100 times kojima-01 with high temperature
