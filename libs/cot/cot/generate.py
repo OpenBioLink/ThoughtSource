@@ -318,7 +318,8 @@ def select_generated_cots(dataset, **kwargs):
 
 def _select_generated_cots(item, **kwargs):
     for key, value in kwargs.items():
-        if type(value) == str:
+        # if value is None or a string, convert it to a list
+        if value is None or type(value) == str:
             value = [value]
         # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
         item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
