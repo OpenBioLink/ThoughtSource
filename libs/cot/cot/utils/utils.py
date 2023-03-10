@@ -2,7 +2,7 @@ import os
 import re
 from contextlib import contextmanager
 from pathlib import Path
-from cot.generate import FRAGMENTS
+from cot.config import FRAGMENTS
 
 
 @contextmanager

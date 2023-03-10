@@ -15,7 +15,7 @@ import pandas as pd
 
 from .evaluate import evaluate
 from .generate import (full_text_prompts, generate_and_extract,
-                       keep_generated_cots)
+                       select_generated_cots, delete_all_generated_cots)
 from .merge import merge
 
 
@@ -29,7 +29,7 @@ def suppress_stdout_stderr():
 
 # Collection is a class that represents a collection of datasets.
 class Collection:
-    def __init__(self, names=None, verbose=True, generate_mode=None, source=False, load_pregenerated_cots=None):
+    def __init__(self, names=None, verbose=True, generate_mode=None, source=False, load_pregenerated_cots=False):
         """
         The function takes in a list of names and a boolean value. If the boolean value is true, it will
         print out the progress of the function. If the boolean value is false, it will not print out the
@@ -38,8 +38,8 @@ class Collection:
 
         :param names: List of dataset names to load. (aqua, asdiv, commonsense_qa, entailment_bank, 
         gsm8k, mawps, med_qa, medmc_qa, open_book_qa, pubmed_qa, qed, strategy_qa, svamp, worldtree).
-        If you want to load the collection thoughtsource_100, use the method Collection.load_thoughtsource_100().
         If None, create empty Collection. If "all", load all datasets.
+        If you want to load the collection thoughtsource_100, use the method Collection.load_thoughtsource_100().
         :param verbose: If True, prints out the name of the dataset as it is being loaded, defaults to
         True (optional)
         :param generate_mode:
@@ -47,20 +47,16 @@ class Collection:
         Try this if datasets give unexplainable KeyErrors, ...
         - if "recache": deletes dataset caches and regenerates all datasets
         - if None: reuse cached dataset
-        :param source: If true, loads all datasets in source view
-        :param load_pregenerated_cots: load already generated CoTs from other authors. If "all", load CoTs from all authors.
-        If a list of authors, load CoTs from those. List of which prompts where used by which authors:
-            "kojima": kojima–01 
-            "wei": few-shot (as a prompt)
-            "lievin": kojima-01, lievin-01, lievin-02, lievin-03, lievin-10
-            "lievin_100": 100 times kojima-01 with high temperature
-        Defaults to None. Parameter source must be False.
+        :param source: If true, loads all datasets in source view (their original form)
+        :param load_pregenerated_cots: decides if generated CoTs are loaded. If False, load no generated CoTs. 
+        If True, load all generated CoTs. Defaults to True. Parameter source must be False.
+        Selection of specific generated CoTs can be done after loading by select_generated_cots().
         """
         self.verbose = verbose
         self.download_mode = None
         self.load_source = source
 
-        if load_pregenerated_cots is not None and source is True:
+        if load_pregenerated_cots is True and source is True:
             raise ValueError(
                 "load_pregenerated_cots only works if datasets are loaded in ThoughSource view. \
                 Param source needs to be False for pregenerated CoTs to be loaded."
@@ -94,9 +90,9 @@ class Collection:
             self.load_datasets(names)
 
         # unfortunately all generated cots have to be loaded when loading datasets in ThoughtSource view
-        # we now delete all which we did not want to load
-        if source is False and load_pregenerated_cots != "all":
-            self.keep_generated_cots(load_pregenerated_cots)
+        # here: all or None, or select specific generated cots with select_generated_cots
+        if not load_pregenerated_cots and not source:
+            self.delete_all_generated_cots()
 
     def __getitem__(self, key):
         """
@@ -182,17 +178,21 @@ class Collection:
                         str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode
                     )
 
-    def keep_generated_cots(self, authors=None, name=None, split=None):
+    def select_generated_cots(self, *args, **kwargs):
         """Decides which generated cots to keep after loading the datasets"""
-        if name is None:
-            for name in self._cache:
-                for split in self._cache[name]:
-                    self[name][split] = keep_generated_cots(self[name][split], authors=authors)
-        else:
-            if split is None:
-                self[name] = keep_generated_cots(self[name], authors=authors)
-            else:
-                self[name][split] = keep_generated_cots(self[name][split], authors=authors)
+        # just apply it to all of the datasets and splits, no specific name or split
+        for name in self._cache:
+            for split in self._cache[name]:
+                self[name][split] = select_generated_cots(self[name][split],*args, **kwargs)
+
+        # specific name or split could maybe solved by setting: if "name" and "split" in kwargs...
+        # for now it is good enough, no need to specify the name and split
+
+    def delete_all_generated_cots(self):
+        """Deletes all generated cots from the datasets"""
+        for name in self._cache:
+            for split in self._cache[name]:
+                self[name][split] = delete_all_generated_cots(self[name][split])
 
     def unload_datasets(self, names=None):
         """
@@ -234,6 +234,8 @@ class Collection:
         import copy
         return copy.deepcopy(self)
 
+    # should raise an error if it is called on an instance
+    # make this a classmethod? (same for load_thoughtsource_100)
     @staticmethod
     def from_json(path_or_json, download_mode="reuse_dataset_if_exists", source=False):
         if isinstance(path_or_json, str):
@@ -272,7 +274,7 @@ class Collection:
         return collection
 
     @staticmethod
-    def load_thoughtsource_100(names="all", load_pregenerated_cots="all") -> "Collection":
+    def load_thoughtsource_100(names="all", load_pregenerated_cots=True) -> "Collection":
         """load the thoughtsource_100 dataset"""
         path_to_biodatasets = (pathlib.Path(__file__).parent.absolute() / "datasets").resolve()
         path_to_thoughtsource_100 = path_to_biodatasets / "thoughtsource" / "thoughtsource_100.json"
@@ -282,9 +284,9 @@ class Collection:
             all_names = list(collection._cache.keys())
             names_to_remove = [name for name in all_names if name not in names]
             collection.unload_datasets(names_to_remove)
-        # drop all generated cots that are not in the list
-        if load_pregenerated_cots != "all":
-            collection.keep_generated_cots(authors=load_pregenerated_cots)
+        # drop all generated cots if load_pregenerated_cots is False
+        if not load_pregenerated_cots:
+            collection.delete_all_generated_cots()
         return collection
 
     def number_examples(self, name=None, split=None):

@@ -182,14 +182,14 @@ def test_generate_twice() -> None:
     assert collection["worldtree"]["train"][0]["generated_cot"][1]["instruction"] == "qa-02"
 
 
-def test_keep_generated_cot() -> None:
-    # keep all authors
+def test_select_generated_cots() -> None:
+    # keep both authors
     # load comparison file
     collection = get_test_collection("test_1_delete_cots")
     # load file with nothing deleted
     collection_delete = get_test_collection("test_1_delete_cots")
-    # delete nothing
-    collection_delete.keep_generated_cots(["1", "2"])
+    # keep both authors, delete nothing
+    collection_delete.select_generated_cots(author = ["1", "2"])
     # check if they are the same
     assert collection.to_json() == collection_delete.to_json()
 
@@ -197,15 +197,19 @@ def test_keep_generated_cot() -> None:
     collection_1 = get_test_collection("test_1_delete_cots_1")
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete author "1"
-    collection_delete.keep_generated_cots(["2"])
+    collection_delete.select_generated_cots(author = ["2"])
     assert collection_1.to_json() == collection_delete.to_json()
 
-    # delete all authors
-    collection_all = get_test_collection("test_1_delete_cots_all")
+def test_delete_all_generated_cots() -> None:
+    # load comparison file
+    collection = get_test_collection("test_1_delete_cots_all")
+    # load file with nothing deleted
     collection_delete = get_test_collection("test_1_delete_cots")
     # delete all
-    collection_delete.keep_generated_cots()
-    assert collection_all.to_json() == collection_delete.to_json()
+    collection_delete.delete_all_generated_cots()
+    # check if they are the same
+    assert collection.to_json() == collection_delete.to_json()
+
 
 
 # def test_multiple_choice_formatting() -> None:

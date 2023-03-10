@@ -1,4 +1,5 @@
 from cot import Collection
+from cot.create import create_thoughtsource_100, create_thoughtsource_1, create_special_medmc_100, create_special_medmc_ids
 
 # these tests take a very long time
 # they were moved to integration tests
@@ -12,6 +13,19 @@ def test_thoughtsource() -> None:
             pd_ = dataset[split].to_pandas()
             assert len(pd_["id"]) == pd_["id"].nunique(), f"IDs are not unique in {name} {split}"
 
+def test_thoughtsource_100() -> None:
+    """Test all thoughtsource 100 collections in create"""
+    collection = create_thoughtsource_100()
+    assert collection
+    collection = create_thoughtsource_1()
+    assert collection
+    collection = create_special_medmc_ids()
+    assert collection
+    collection = create_special_medmc_100()
+    assert collection
+
+
+
 
 def test_source() -> None:
     collection = Collection("all", generate_mode="recache", source=True)
@@ -20,26 +34,35 @@ def test_source() -> None:
 
 def test_keep_generated_cots() -> None:
     # load collection with pregenerated cots of all authors
-    commonsense = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots="all")
+    commonsense = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=True)
     commonsense_1 = commonsense.select(split="validation", number_samples=1)
     commonsense_1_all = commonsense_1.to_json()
     # check if both authors are loaded
     assert len(commonsense_1["commonsense_qa"]["validation"][0]["generated_cot"]) == 2
 
-    commonsense = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=["kojima", "wei"])
-    commonsense_1 = commonsense.select(split="validation", number_samples=1)
+    # select authors
+    commonsense.select_generated_cots(author=["kojima", "wei"])
     commonsense_1_both = commonsense_1.to_json()
     # check if both authors are kept
     assert commonsense_1_all == commonsense_1_both
 
-    commonsense = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=["kojima"])
+    # select authors
     commonsense_1_kojima = commonsense.select(split="validation", number_samples=1)
+    commonsense_1_kojima.select_generated_cots(author="kojima")
     # check if only one author is loaded
     assert len(commonsense_1_kojima["commonsense_qa"]["validation"][0]["generated_cot"]) == 1
     assert commonsense_1_kojima["commonsense_qa"]["validation"][0]["generated_cot"][0]["author"] == "kojima"
 
-    commonsense = Collection(["commonsense_qa"], verbose=False, load_pregenerated_cots=["wei"])
+    # select authors
     commonsense_1_wei = commonsense.select(split="validation", number_samples=1)
+    commonsense_1_wei.select_generated_cots(author="wei")
     # check if only one author is loaded
     assert len(commonsense_1_wei["commonsense_qa"]["validation"][0]["generated_cot"]) == 1
     assert commonsense_1_wei["commonsense_qa"]["validation"][0]["generated_cot"][0]["author"] == "wei"
+
+    # select cot_trigger
+    commonsense_1_kojima = commonsense.select(split="validation", number_samples=1)
+    commonsense_1_kojima.select_generated_cots(cot_trigger="kojima-01")
+    # check if only one author is loaded
+    assert len(commonsense_1_kojima["commonsense_qa"]["validation"][0]["generated_cot"]) == 1
+    assert commonsense_1_kojima["commonsense_qa"]["validation"][0]["generated_cot"][0]["author"] == "kojima"
