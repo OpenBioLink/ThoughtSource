@@ -208,11 +208,14 @@ def _generate_and_extract(
                     item["generated_cot"].append(generated_cot)
 
         except Exception as ex:
+            # if last try, raise error
+            if i == number_of_tries - 1:
+                raise ex
+
+            # if not last try, add additional time to api_time_interval and try again
             additional_api_time += 10
-            print("API-Error in item " + str(idx) + ": " + str(ex))
+            print("(API-)Error in item " + str(idx) + ": " + str(ex))
             print("Retrying with additional time of " + str(additional_api_time) + " seconds.")
-            # if you want the error to be raised, uncomment the following line:
-            # raise ex
             pass
             
         else:
@@ -406,6 +409,7 @@ class Correct_output(dict):
 
 def query_model(input, api_service, engine, temperature, max_tokens, api_time_interval):
     if api_service == "mock_api":
+        # time.sleep(api_time_interval)
         return " Test mock chain of thought."
         # return ("This is a " + 20 * "long " + "Mock CoT.\n")*20
 
