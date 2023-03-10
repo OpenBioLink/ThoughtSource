@@ -85,7 +85,7 @@ def _generate_and_extract(
     template_answer_extraction,
     warn,
     verbose,
-):
+): 
     """
     The function takes in a JSON object (item) and generates a CoT (Chain-of-Thought) for each combination of
     of instructions and CoT triggers. For each generated CoT and for each of the given answer extractions it extracts an answer.
@@ -457,6 +457,19 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
                 prompt=prompt,
                 llm=OpenAI(
                     # parameter options: https://beta.openai.com/docs/api-reference/completions/create-completion
+                    model_name=engine,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    # type: ignore (suppress pylance error)
+                ),
+            )
+
+        if api_service == "openai_chat":
+            from langchain.chat_models import ChatOpenAI
+
+            llm_chain = LLMChain(
+                prompt=prompt,
+                llm=ChatOpenAI(
                     model_name=engine,
                     max_tokens=max_tokens,
                     temperature=temperature,
