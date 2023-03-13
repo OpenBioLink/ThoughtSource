@@ -155,8 +155,8 @@ def _extract(item,input_dict,chain):
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
 
     """Use this cot"""
-    print(item['generated_cot'])
-    cot = item['generated_cot']['cot'] 
+    cot = item['generated_cot'][0]['cot'] # TODO no hard-code 
+    input_dict['cot'] = cot
     
     #this is where the magic happens
     lang_chain = chain(input_dict)
@@ -196,8 +196,8 @@ def _extract(item,input_dict,chain):
                         "answer": "",
                         "correct_answer": None,
                 }
-    answer["answer"] = lang_chain['predicted_answer']
-    item["generated_cot"]["answers"].append(answer)
+    answer["answer"] = lang_chain['reflection_answer']
+    item["generated_cot"][0]["answers"].append(answer) # TODO un-hardcode
 
     return item
 
@@ -217,6 +217,8 @@ def self_reason(data,chain,input_dict):
 
 def _self_reason(item,input_dict,chain):
 
+    print(item["generated_cot"])
+
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
     
@@ -233,8 +235,10 @@ def _self_reason(item,input_dict,chain):
                         "answer": "",
                         "correct_answer": None,
                 }
-    answer["answer"] = lang_chain['predicted_answer']
-    item["generated_cot"]["answers"].append(answer)
+    item['generated_cot'][0]['context'] = lang_chain['reflection']
+    answer["answer"] = lang_chain['reflection_answer']
+    
+    item["generated_cot"][0]["answers"].append(answer) # TODO un-hardcode
 
     return item
     
