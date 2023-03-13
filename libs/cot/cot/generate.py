@@ -49,14 +49,16 @@ def generate_and_extract(data, config):
     if isinstance(config["answer_extraction_keys"], str):
         config["answer_extraction_keys"] = [config["answer_extraction_keys"]]
 
+    # make copy of config, so it is not changed permanently (but only for the current dataset), when auto-kojima is used:
+    adaptive_config = config.copy()
 
-    if config["answer_extraction_keys"] == ["auto-kojima"]:
-        config["answer_extraction_keys"] = adaptive_answer_extraction("auto-kojima", question_type, question_number_choices)
+    if adaptive_config["answer_extraction_keys"] == ["auto-kojima"]:
+        adaptive_config["answer_extraction_keys"] = adaptive_answer_extraction("auto-kojima", question_type, question_number_choices)
 
 
     # The config is transformed into a dataclass object, where all testing is done
     # But it will be transformed back to a dictionary for the function 'map'
-    config_as_dataclass = Config(**config)
+    config_as_dataclass = Config(**adaptive_config)
 
     return data.map(
         _generate_and_extract,
