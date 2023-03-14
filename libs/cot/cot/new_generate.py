@@ -196,7 +196,7 @@ def _extract(item,input_dict,chain):
                         "answer": "",
                         "correct_answer": None,
                 }
-    answer["answer"] = lang_chain['reflection_answer']
+    answer["answer"] = lang_chain['predicted_answer']
     item["generated_cot"][0]["answers"].append(answer) # TODO un-hardcode
 
     return item
