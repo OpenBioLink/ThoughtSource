@@ -202,7 +202,7 @@ def map_example_to_kojima_cot(question, cots, answer_extraction):
                 "author": "kojima",
                 "date": None,
                 "api_service": "",
-                "model": "text-davinci-002",
+                "model": "{'name': 'text-davinci-002'}",
                 "comment": "",
                 "annotations": [],
             }
@@ -248,7 +248,7 @@ def map_example_to_wei_cot(question, cots):
                 "author": "wei",
                 "date": None,
                 "api_service": "",
-                "model": "text-davinci-002",
+                "model": "{'name': 'text-davinci-002'}",
                 "comment": "",
                 "annotations": [],
             }
@@ -314,7 +314,7 @@ def map_example_to_lievin_cot(id, item, dataset):
         "author": "lievin",
         "date": None,
         "api_service": "",
-        "model": "text-davinci-002",
+        "model": "{'name': 'text-davinci-002'}",
         "comment": "",
         "annotations": [],
     }
@@ -372,7 +372,7 @@ def map_json_to_lievin_cots_2(id, json, dataset):
                 "author": "lievin_100",
                 "date": None,
                 "api_service": "",
-                "model": "code-davinci-002",
+                "model": "{'name': 'code-davinci-002'}",
                 "comment": "",
                 "annotations": [],
             }
