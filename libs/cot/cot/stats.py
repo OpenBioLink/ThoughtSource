@@ -357,7 +357,10 @@ def evaluation_as_table(eval:dict):
     models = []
     prompts = []
     for i in eval_list:
+        # fast fix for chat gpt model:
+        i = i.replace("gpt-3.5-turbo","gpt-3-5-turbo")
         dataset,split,metric,model,prompt = i.split(".")
+        model = model.replace("gpt-3-5-turbo","gpt-3.5-turbo")
         if model not in models:
             models.append(model)
         if prompt not in prompts:
@@ -385,7 +388,10 @@ def evaluation_as_table(eval:dict):
     df = pd.DataFrame(columns=header, index=datasets)
 
     for k,v in eval_dict.items():
+        # fast fix for chat gpt model:
+        k = k.replace("gpt-3.5-turbo","gpt-3-5-turbo")
         dataset,split,metric,model,prompt = k.split(".")
+        model = model.replace("gpt-3-5-turbo","gpt-3.5-turbo")
         instruction, cot_trigger, _ = prompt.split("_")
         df.loc[dataset, (cot_trigger, model)] = round(v,2)
 
