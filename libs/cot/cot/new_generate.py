@@ -210,21 +210,48 @@ def self_reason(data,chain,input_dict):
     new_dataset = []
     for example in data[name_of_first_split]:
         processed_example = _self_reason(example,input_dict,chain)
-        print("processed_example:")
-        print(processed_example)
         new_dataset.append(processed_example)
     return new_dataset
 
+
+"""In this version the reflection is added to generated_cot"""
 def _self_reason(item,input_dict,chain):
 
-    print(item["generated_cot"])
 
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+    input_dict['cot'] = item['generated_cot'][0]['cot']
+
+
+    input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer']
     
     #this is where the magic happens
     lang_chain = chain(input_dict)
     #retrieve question and answer choices from item, add to input dict
+
+    generated_cot = {
+                "id": str(uuid.uuid4()),
+                "fragments_version": FRAGMENTS["version"],
+                "instruction": "",
+                "cot_trigger": input_dict["cot_trigger"],
+                "cot_trigger_template": "",
+                "prompt_text": "",
+                "cot": lang_chain['reflection'],
+                "answers": [],
+                "author": "",
+                "date": "",
+                "api_service": "",
+                "model": str(
+                    {
+                        "name": "",
+                        "temperature": 0,
+                        "max_tokens": 800,
+                    }
+                ),
+                "comment": "self_reflection cot",
+                "annotations": [],
+            }
+    generated_cot["date"] = print_now(1)
 
     """If conditions for input keys"""
     answer = {
@@ -235,12 +262,46 @@ def _self_reason(item,input_dict,chain):
                         "answer": "",
                         "correct_answer": None,
                 }
-    item['generated_cot'][0]['context'] = lang_chain['reflection']
     answer["answer"] = lang_chain['reflection_answer']
+
+
+    generated_cot["answers"].append(answer) 
+
+    item["generated_cot"].append(generated_cot)
     
-    item["generated_cot"][0]["answers"].append(answer) # TODO un-hardcode
 
     return item
+
+# """In this version cot is saved in context"""
+# def _self_reason(item,input_dict,chain):
+
+
+#     input_dict['question'] = item["question"]
+#     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+#     input_dict['cot'] = item['generated_cot'][0]['cot']
+
+
+#     input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer']
+    
+#     #this is where the magic happens
+#     lang_chain = chain(input_dict)
+#     #retrieve question and answer choices from item, add to input dict
+
+#     """If conditions for input keys"""
+#     answer = {
+#                         "id": str(uuid.uuid4()),
+#                         "answer_extraction": input_dict['answer_extraction'],
+#                         "answer_extraction_template": "",
+#                         "answer_extraction_text": "self_reflection",
+#                         "answer": "",
+#                         "correct_answer": None,
+#                 }
+#     item['generated_cot'][0]['context'] = lang_chain['reflection']
+#     answer["answer"] = lang_chain['reflection_answer']
+    
+#     item["generated_cot"][0]["answers"].append(answer) # TODO un-hardcode
+
+#     return item
     
 # def generate_and_extract(
 #     item,
