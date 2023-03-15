@@ -17,7 +17,7 @@ from .evaluate import evaluate
 from .generate import (full_text_prompts, generate_and_extract,
                        select_generated_cots, delete_all_generated_cots)
 from .merge import merge
-from .new_generate import *
+from .generate_chain import *
 
 
 @contextmanager
@@ -394,27 +394,27 @@ class Collection:
         if name is None:
             for name in self._cache:
                 print(f"Generating {name}...")
-                return extract(self[name], chain, input_dict)
+                return self_extract(self[name], chain, input_dict)
         else:
             if split is None:
                 print(f"Generating {name}...")
-                return extract(self[name], chain, input_dict)
+                return self_extract(self[name], chain, input_dict)
             else:
                 print(f"Generating {name}...")
-                return extract(self[name][split], chain, input_dict)
+                return self_extract(self[name][split], chain, input_dict)
             
     def metareason_flexible(self,chain, input_dict,name=None, split=None):
         if name is None:
             for name in self._cache:
                 print(f"Generating {name}...")
-                return self_reason(self[name], chain, input_dict)
+                return self_reflect(self[name], chain, input_dict)
         else:
             if split is None:
                 print(f"Generating {name}...")
-                return self_reason(self[name], chain, input_dict)
+                return self_reflect(self[name], chain, input_dict)
             else:
                 print(f"Generating {name}...")
-                return self_reason(self[name][split], chain, input_dict)
+                return self_reflect(self[name][split], chain, input_dict)
             
     
     def evaluate(self, name=None, split=None, overwrite=False, warn=False):
