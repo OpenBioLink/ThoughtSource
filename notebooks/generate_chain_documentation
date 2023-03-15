@@ -1,24 +1,3 @@
-The data loader contains the following functions:
 
-generate_extract_flexibly
-generate_flexible
-extract_flexible
-metareason_flexible
-
-These functions call methods in the generate_chain.py file, namely:
-- self_generate_extract
-- self_generate
-- self_extract
-- self_reflect
-
-All of them require an input_dictionary with variables and a langchain.
-However, the different functions are there to put the right output in the right ts-variables of the schema.
-
-flexible_langchains.ipynb is a tutorial
-And experiments are performed in langchain_experiments.ipynb (internal)
-
-Issues:
-*Only works if a split is defined
-*How to choose which existing CoT to use in self_reflect for instance?
 
 
