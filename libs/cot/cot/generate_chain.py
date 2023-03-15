@@ -1,3 +1,31 @@
+"""
+Context:
+
+The data loader contains the following functions:
+
+generate_extract_flexibly
+generate_flexible
+extract_flexible
+metareason_flexible
+
+These functions call methods in the generate_chain.py file, namely:
+- self_generate_extract
+- self_generate
+- self_extract
+- self_reflect
+
+All of them require an input_dictionary with variables and a langchain.
+However, the different functions are there to put the right output in the right ts-variables of the schema.
+
+flexible_langchains.ipynb is a tutorial
+And experiments are performed in langchain_experiments.ipynb (internal)
+
+Issues:
+*Only works if a split is defined
+*How to choose which existing CoT to use in self_reflect for instance?
+"""
+
+
 import datetime
 import json
 import pkgutil
@@ -14,7 +42,7 @@ FRAGMENTS = json.loads(pkgutil.get_data(__name__, "fragments.json"))
 """ 
 Input: item, langchains, triggers
 Output: cot and answer
-input of chains can be reduced to one or a list for flexibility
+Generate a cot and extract an answer with helper function _self_generate_extract
 """
 def self_generate_extract(data,chain,input_dict):
 
@@ -79,6 +107,7 @@ def _self_generate_extract(item,input_dict,chain):
 
     return item
 
+"""Generate CoTs only"""
 def self_generate(data,chain,input_dict):
 
     input_dict['chain'] = chain
@@ -133,8 +162,8 @@ def _self_generate(item,input_dict,chain):
 
     return item
 
-"""Can een item have multiple cots, if so how to choose one?"""  
-def extract(data,chain,input_dict):
+"""Extract answers based on CoTs only"""
+def self_extract(data,chain,input_dict):
 
     """take split"""
     if isinstance(data, ds.dataset_dict.DatasetDict):
@@ -142,14 +171,14 @@ def extract(data,chain,input_dict):
 
     new_dataset = []
     for example in data[name_of_first_split]:
-        processed_example = _extract(example,input_dict,chain)
+        processed_example = _self_extract(example,input_dict,chain)
         print("processed_example:")
         print(processed_example)
         new_dataset.append(processed_example)
     return new_dataset
 
 
-def _extract(item,input_dict,chain):
+def _self_extract(item,input_dict,chain):
 
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
@@ -201,7 +230,8 @@ def _extract(item,input_dict,chain):
 
     return item
 
-def self_reason(data,chain,input_dict):
+"""Reflect on CoT (or some other part) and generate new answer"""
+def self_reflect(data,chain,input_dict):
 
     """take split"""
     if isinstance(data, ds.dataset_dict.DatasetDict):
@@ -209,13 +239,13 @@ def self_reason(data,chain,input_dict):
 
     new_dataset = []
     for example in data[name_of_first_split]:
-        processed_example = _self_reason(example,input_dict,chain)
+        processed_example = _self_reflect(example,input_dict,chain)
         new_dataset.append(processed_example)
     return new_dataset
 
 
 """In this version the reflection is added to generated_cot"""
-def _self_reason(item,input_dict,chain):
+def _self_reflect(item,input_dict,chain):
 
 
     input_dict['question'] = item["question"]
@@ -271,84 +301,6 @@ def _self_reason(item,input_dict,chain):
     
 
     return item
-
-# """In this version cot is saved in context"""
-# def _self_reason(item,input_dict,chain):
-
-
-#     input_dict['question'] = item["question"]
-#     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
-#     input_dict['cot'] = item['generated_cot'][0]['cot']
-
-
-#     input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer']
-    
-#     #this is where the magic happens
-#     lang_chain = chain(input_dict)
-#     #retrieve question and answer choices from item, add to input dict
-
-#     """If conditions for input keys"""
-#     answer = {
-#                         "id": str(uuid.uuid4()),
-#                         "answer_extraction": input_dict['answer_extraction'],
-#                         "answer_extraction_template": "",
-#                         "answer_extraction_text": "self_reflection",
-#                         "answer": "",
-#                         "correct_answer": None,
-#                 }
-#     item['generated_cot'][0]['context'] = lang_chain['reflection']
-#     answer["answer"] = lang_chain['reflection_answer']
-    
-#     item["generated_cot"][0]["answers"].append(answer) # TODO un-hardcode
-
-#     return item
-    
-# def generate_and_extract(
-#     item,
-#     idx,
-#     author,
-#     api_service,
-#     engine,
-#     temperature,
-#     max_tokens,
-#     api_time_interval,
-#     instruction_keys,
-#     cot_trigger_keys,
-#     template_cot_generation,
-#     answer_extraction_keys,
-#     template_answer_extraction,
-#     warn,
-#     verbose,
-# ):
-#     return
-
-
-# def generate_and_extract(data, config):
-#     """
-#     It takes a dataset and a config and generates cots for each example and extract answers.
-
-#     :param data: Dataset/DatasetDict - the dataset you want to generate CoTs for and extract answers
-#     :param config: Dictionary - the configurations of the input and model
-#     :return: the dataset with generated cots and extracted answers
-#     """
-
-#     return data.map(
-#         _generate_and_extract,
-#         with_indices=True,
-#         fn_kwargs=asdict(config_as_dataclass),
-#         features=features,
-#         load_from_cache_file=False,
-#     )
-    #return item
-
-
-
-
-
-"""
-"""
-"""
-"""
 
 def keep_generated_cots(dataset, authors=None):
     """This function handles which pregenerated COTS are deleted (after loading a collection).
