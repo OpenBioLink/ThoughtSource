@@ -377,8 +377,14 @@ def evaluation_as_table(eval:dict):
         instruction, cot_trigger, _ = i.split("_")
         # if instruction not in instructions:
         #     instructions.append(instruction)
+
+        # old: only cot_trigger
+        # if cot_trigger not in cot_triggers:
+        #     cot_triggers.append(cot_trigger)
+
+        # new: instruction + cot_trigger
         if cot_trigger not in cot_triggers:
-            cot_triggers.append(cot_trigger)
+            cot_triggers.append(instruction + "_" + cot_trigger)
 
     cot_triggers = sorted(cot_triggers)
 
@@ -393,11 +399,30 @@ def evaluation_as_table(eval:dict):
         dataset,split,metric,model,prompt = k.split(".")
         model = model.replace("gpt-3-5-turbo","gpt-3.5-turbo")
         instruction, cot_trigger, _ = prompt.split("_")
-        df.loc[dataset, (cot_trigger, model)] = round(v,4)
+        # old: only cot_trigger
+        # df.loc[dataset, (cot_trigger, model)] = v
+
+        # new: instruction + cot_trigger
+        df.loc[dataset, (instruction + "_" + cot_trigger, model)] = v
+
+    # delete duplicate columns
+    df = df.loc[:,~df.columns.duplicated()].copy()
 
     df.dropna(how='all', axis=1, inplace=True)
     average = df.mean().to_frame('Average')
-    average = average.round(4)
     df = pd.concat([df, average.T])
-
+    df = df.astype(float)
+    df = df.round(2)
+    # highlight max
+    # this messes up that the first heading is printed right aligned not left aligned...
+    df = df.style.apply(highlight_max, axis=1).format(precision=2)
     return df
+
+def highlight_max(row):
+    # find the index of the maximum value in the row
+    max_index = row.idxmax()
+    # create a new Series with the same values as the row, but with the maximum value bolded
+    return ['font-weight: bold' if i == max_index else '' for i in row.index]
+
+# apply the custom function to the DataFrame.style object
+# styled_df = df.style.apply(highlight_max, axis=1)
