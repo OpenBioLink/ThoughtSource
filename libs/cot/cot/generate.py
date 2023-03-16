@@ -32,17 +32,33 @@ def generate_and_extract(data, config):
 
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
+        question_type = data[0]["type"]
+        question_number_choices = len(data[0]["choices"])
 
     elif isinstance(data, ds.dataset_dict.DatasetDict):
         name_of_first_split = list(data.keys())[0]
         features = data[name_of_first_split].info.features
+        question_type = data[name_of_first_split][0]["type"]
+        question_number_choices = len(data[name_of_first_split][0]["choices"])
 
     else:
         raise ValueError("Not recognized data")
+    
+    # automated change of answer_extraction depending on the type of the task and the number of choices
+    # if type str make list
+    if isinstance(config["answer_extraction_keys"], str):
+        config["answer_extraction_keys"] = [config["answer_extraction_keys"]]
+
+    # make copy of config, so it is not changed permanently (but only for the current dataset), when auto-kojima is used:
+    adaptive_config = config.copy()
+
+    if adaptive_config["answer_extraction_keys"] == ["auto-kojima"]:
+        adaptive_config["answer_extraction_keys"] = adaptive_answer_extraction("auto-kojima", question_type, question_number_choices)
+
 
     # The config is transformed into a dataclass object, where all testing is done
     # But it will be transformed back to a dictionary for the function 'map'
-    config_as_dataclass = Config(**config)
+    config_as_dataclass = Config(**adaptive_config)
 
     return data.map(
         _generate_and_extract,
@@ -71,7 +87,7 @@ def _generate_and_extract(
     template_answer_extraction,
     warn,
     verbose,
-):
+): 
     """
     The function takes in a JSON object (item) and generates a CoT (Chain-of-Thought) for each combination of
     of instructions and CoT triggers. For each generated CoT and for each of the given answer extractions it extracts an answer.
@@ -311,6 +327,9 @@ def select_generated_cots(dataset, **kwargs):
     # Unfortunately the loading function of the datasets does not let you specify which pregenerated COTS to load
     # So we load all of them and then delete the ones we don't want
 
+    # disable progress bar
+    ds.disable_progress_bar()
+
     # remove all the pregenerated COTS that are not in the list
     dataset = dataset.map(
         _select_generated_cots,
@@ -331,7 +350,10 @@ def _select_generated_cots(item, **kwargs):
         if value is None or type(value) == str:
             value = [value]
         # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
-        item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+        if key == "model":
+            item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
+        else:
+            item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
     return item
 
 def delete_all_generated_cots(dataset):
@@ -371,6 +393,18 @@ def multiple_choice_answer_formatting(answer_choices):
 
     # Adding Letters (A,B,C,...) for the given multiple choice answers.
     return "\n".join([f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)])  # 65 is the ASCII code for A
+
+def adaptive_answer_extraction(preference, type, len_choices):
+    if preference == "auto-kojima":
+        if type == "bool": 
+            return "kojima-yes-no"
+        elif type == "multiplechoice":
+            if len_choices == 3: answer_extraction_key = 'kojima-A-C'
+            elif len_choices == 4: answer_extraction_key = 'kojima-A-D'
+            elif len_choices == 5: answer_extraction_key = 'kojima-A-E'
+            elif len_choices == 6: answer_extraction_key = 'kojima-A-F'
+            return(answer_extraction_key)
+        else: raise ValueError("type must be bool or multiplechoice")
 
 
 def get_fragments_value(str, key):
@@ -428,6 +462,19 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
                 prompt=prompt,
                 llm=OpenAI(
                     # parameter options: https://beta.openai.com/docs/api-reference/completions/create-completion
+                    model_name=engine,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    # type: ignore (suppress pylance error)
+                ),
+            )
+
+        if api_service == "openai_chat":
+            from langchain.chat_models import ChatOpenAI
+
+            llm_chain = LLMChain(
+                prompt=prompt,
+                llm=ChatOpenAI(
                     model_name=engine,
                     max_tokens=max_tokens,
                     temperature=temperature,

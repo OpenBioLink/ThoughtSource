@@ -419,37 +419,51 @@ class Collection:
         import copy
         import random
 
+        # if split is a string, convert to list
+        if type(split) is str:
+            split = [split]
+
         sampled_collection = copy.deepcopy(self)
         for dataset in sampled_collection:
             _, dataset_dict = dataset
-            subset = copy.deepcopy(dataset_dict[split])
-            # # select the whole split, without specified number of samples
-            # if not number_samples:
-            #     pass
-            # select a certain number of samples
-            if number_samples:
-                # get number of samples in subset
-                samples_count = subset.num_rows
-                # random sample
-                if random_samples:
-                    # set seed for reproducibility
-                    if type(seed) is int:
-                        random.seed(seed)
-                    elif seed is True:
-                        # setting the same seed as the default
-                        random.seed(0)
-                    random_ids = random.sample(range(samples_count), number_samples)
-                    # sort ids
-                    random_ids = sorted(random_ids)
-                    # random sample from subset
-                    subset = subset.select(random_ids)
-                # first rows of dataset, not random
-                else:
-                    subset = subset.select(range(0, number_samples))
-            # clear original dictionary
-            dataset_dict.clear()
-            # reinsert selected samples
-            dataset_dict[split] = subset
+            # if "all", select all available splits
+            if split == ["all"]:
+                split_list = list(dataset_dict.keys())
+            else:
+            # else, just select the stated ones
+                split_list = split
+            for current_split in list(dataset_dict.keys()):
+                # if the dataset does not include the current_split, no selection needed
+                if current_split not in split_list:
+                    dataset_dict.pop(current_split)
+                    continue
+                subset = copy.deepcopy(dataset_dict[current_split])
+                # # select the whole split, without specified number of samples
+                # if not number_samples:
+                #     pass
+                # select a certain number of samples
+                if number_samples:
+                    # get number of samples in subset
+                    samples_count = subset.num_rows
+                    # random sample
+                    if random_samples:
+                        # set seed for reproducibility
+                        if type(seed) is int:
+                            random.seed(seed)
+                        elif seed is True:
+                            # setting the same seed as the default
+                            random.seed(0)
+                        random_ids = random.sample(range(samples_count), number_samples)
+                        # sort ids
+                        random_ids = sorted(random_ids)
+                        # random sample from subset
+                        subset = subset.select(random_ids)
+                    # first rows of dataset, not random
+                    else:
+                        subset = subset.select(range(0, number_samples))
+                # reinsert selected samples
+                dataset_dict[current_split] = subset
+
         return sampled_collection
 
     @property
