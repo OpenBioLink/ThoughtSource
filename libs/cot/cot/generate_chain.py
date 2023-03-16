@@ -82,7 +82,7 @@ def _self_generate_extract(item,input_dict,chain):
                 "api_service": "",
                 "model": str(
                     {
-                        "name": "",
+                        "name": input_dict['model_name'],
                         "temperature": 0,
                         "max_tokens": 800,
                     }
@@ -257,6 +257,9 @@ def _self_reflect(item,input_dict,chain):
     
     #this is where the magic happens
     lang_chain = chain(input_dict)
+
+    
+
     #retrieve question and answer choices from item, add to input dict
 
     generated_cot = {
