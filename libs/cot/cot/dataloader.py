@@ -416,6 +416,19 @@ class Collection:
                 print(f"Generating {name}...")
                 return self_reflect(self[name][split], chain, input_dict)
             
+    """Creates json and collection from Thoughtsource ouptut; chain_output from chain_generation"""
+    def to_Collection(chain_output,dataset_name,split,file_name):
+
+        #Force langchain into TS structure 
+        ts_set = {dataset_name:{split:chain_output}}
+
+        #create and collect a json to make collection
+        with open(f"{file_name}.json", "w") as outfile:
+            json.dump(ts_set, outfile)
+        collect = Collection.from_json(f'{file_name}.json')
+
+        return collect
+            
     
     def evaluate(self, name=None, split=None, overwrite=False, warn=False):
         evaluations_dict = defaultdict(dict)
