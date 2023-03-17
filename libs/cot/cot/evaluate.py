@@ -15,7 +15,7 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be
 
     # get dataset type, e.g. multiplechoice
     type_ = dataset[0]["type"]
-
+     
     # evaluate each sample
     dataset = dataset.map(
         _evaluate,
@@ -84,7 +84,6 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be
 
 def _evaluate(example, type_, overwrite, warn):
     assert type_ == example["type"], "Datasets contains examples with multiple different types"
-
     # only run evaluation if answer is given
     if example["answer"][0] is None:
         if warn:
@@ -110,7 +109,15 @@ def _evaluate(example, type_, overwrite, warn):
                 continue
             prediction = answer["answer"]
             answer_eval = is_correct(type_, prediction, dataset_correct_answer, dataset_choices, warn)
+            """"""
+            # if(answer_eval==False):
+            #     print("test")
+            #     return None
+            """"""
+
             answer["correct_answer"] = answer_eval
+            # if(answer_eval==False):
+            #     answer["correct_answer"] = not answer_eval
     return example
 
 
