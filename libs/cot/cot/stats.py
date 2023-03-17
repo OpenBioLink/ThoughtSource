@@ -394,8 +394,11 @@ def evaluation_as_table(eval:dict):
         dataset,split,metric,model,prompt = k.split(".")
         model = model.replace("gpt-3-5-turbo","gpt-3.5-turbo")
         instruction, cot_trigger, _ = prompt.split("_")
-        df.loc[dataset, (cot_trigger, model)] = round(v,2)
+        df.loc[dataset, (cot_trigger, model)] = round(v,4)
 
     df.dropna(how='all', axis=1, inplace=True)
+    average = df.mean().to_frame('Average')
+    average = average.round(4)
+    df = pd.concat([df, average.T])
 
     return df

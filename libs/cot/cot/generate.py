@@ -350,7 +350,10 @@ def _select_generated_cots(item, **kwargs):
         if value is None or type(value) == str:
             value = [value]
         # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
-        item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+        if key == "model":
+            item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
+        else:
+            item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
     return item
 
 def delete_all_generated_cots(dataset):
