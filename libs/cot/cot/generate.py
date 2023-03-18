@@ -352,6 +352,8 @@ def _select_generated_cots(item, **kwargs):
         # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
         if key == "model":
             item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
+        elif key == 'answers':
+            item["generated_cot"] = [cot for cot in item["generated_cot"] if str(cot["answers"][0]["correct_answer"]) in value]
         else:
             item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
     return item
