@@ -465,6 +465,25 @@ class Collection:
                 dataset_dict[current_split] = subset
 
         return sampled_collection
+    
+    def filter(self, filter_func=None, **kwargs):
+        """
+        The function takes in a collection and returns a filtered collection.
+        :param collection: the collection (of datasets) to be processed
+        :param filter_func: a lambda function to filter the collection
+        :param kwargs: the arguments to be passed to the filter function of the dataset
+        e.g. collection.filter(lambda x: len(x["generated_cot"]) == 1)
+        """
+        filtered_collection = self.copy()
+        if filter_func is not None:
+            for name in filtered_collection._cache:
+                for split in filtered_collection._cache[name]:
+                    filtered_collection[name][split] = filtered_collection[name][split].filter(filter_func, **kwargs)
+        else:
+            for name in filtered_collection._cache:
+                for split in filtered_collection._cache[name]:
+                    filtered_collection[name][split] = filtered_collection[name][split].filter(**kwargs)
+        return filtered_collection
 
     @property
     def loaded(self):
