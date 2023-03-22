@@ -277,9 +277,15 @@ class Collection:
     # make this a classmethod? (same for load_thoughtsource_100)
     @staticmethod
     def from_json(path_or_json, download_mode="reuse_dataset_if_exists", source=False):
+        # try to load it, but if FileNotFoundError, append .json
         if isinstance(path_or_json, str):
-            with open(path_or_json, "r") as infile:
-                content = json.load(infile)
+            try:
+                with open(path_or_json, "r") as infile:
+                    content = json.load(infile)
+            except FileNotFoundError:
+                path_or_json = path_or_json + ".json"
+                with open(path_or_json, "r") as infile:
+                    content = json.load(infile)
         elif isinstance(path_or_json, dict):
             content = path_or_json
 
