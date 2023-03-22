@@ -225,9 +225,21 @@ class Collection:
                     del self._cache[name]
 
     def clear(self):
-        self.unload_datasets()
+        self.unload_datasets()    
+
+    def clear_empty_datasets(self):
+        names_to_delete = []
+        for name in self._cache:
+            lentgh_of_all_splits = 0
+            for split in self._cache[name]:
+                lentgh_of_all_splits += len(self._cache[name][split])
+            if lentgh_of_all_splits == 0:
+                names_to_delete.append(name)
+        for name in names_to_delete:
+            del self._cache[name]
 
     def dump(self, path_to_file_or_directory="./dump.json"):
+        self.clear_empty_datasets()
         if not path_to_file_or_directory.endswith(".json"):
             path_to_file_or_directory = path_to_file_or_directory + ".json"
         with open(path_to_file_or_directory, "w") as outfile:
