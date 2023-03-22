@@ -341,7 +341,7 @@ def select_generated_cots(dataset, **kwargs):
 
 def _select_generated_cots(item, **kwargs):
     # load all allows keys from the cot_features
-    allowed_keys = list(cot_features["generated_cot"][0].keys())
+    allowed_keys = list(cot_features["generated_cot"][0].keys()) + ["answer"]
     for key, value in kwargs.items():
         # check if key is allowed
         if key not in allowed_keys:
@@ -352,8 +352,8 @@ def _select_generated_cots(item, **kwargs):
         # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
         if key == "model":
             item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
-        elif key == 'answers':
-            item["generated_cot"] = [cot for cot in item["generated_cot"] if str(cot["answers"][0]["correct_answer"]) in value]
+        elif key == "answer":
+            item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] == value]
         else:
             item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
     return item
