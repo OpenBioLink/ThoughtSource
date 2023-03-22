@@ -211,6 +211,16 @@ class Collection:
             for split in self._cache[name]:
                 self[name][split] = delete_all_generated_cots(self[name][split])
 
+    def number_generated_cots(self):
+        """Prints the number of generated cots for each dataset. If items in a dataset have different numbers 
+        of generated cots, it prints multiple numbers."""
+        for name in self._cache:
+            number_generated_cots = []
+            for split in self._cache[name]:
+                for item in self._cache[name][split]:
+                    number_generated_cots.append(len(item["generated_cot"]))
+            print(name, set(number_generated_cots))
+
     def unload_datasets(self, names=None):
         """
         It takes a list of names and unloads the datasets
