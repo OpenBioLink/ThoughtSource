@@ -139,6 +139,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
                 gen_kwargs={
+                    "split": "train",
                     "filepath": os.path.join(
                         data_dir,
                         "OpenBookQA-V1-Sep2018",
@@ -151,6 +152,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
+                    "split": "test",
                     "filepath": os.path.join(
                         data_dir,
                         "OpenBookQA-V1-Sep2018",
@@ -163,6 +165,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
+                    "split": "validation",
                     "filepath": os.path.join(
                         data_dir,
                         "OpenBookQA-V1-Sep2018",
@@ -174,7 +177,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
             ),
         ]
 
-    def _generate_examples(self, filepath) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, split) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         with open(filepath, "r") as json_file:
@@ -192,7 +195,7 @@ class OpenBookQADataset(datasets.GeneratorBasedBuilder):
                 choices = choices_.values()
 
                 example_ = {
-                    "id": key,
+                    "id": "open_book_qa_" + split + "_"  + str(key),
                     "ref_id": "",
                     "question": example["question"]["stem"],
                     "type": "multiplechoice",
