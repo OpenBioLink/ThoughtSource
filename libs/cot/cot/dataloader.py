@@ -212,6 +212,16 @@ class Collection:
             for split in self._cache[name]:
                 self[name][split] = delete_all_generated_cots(self[name][split])
 
+    def number_generated_cots(self):
+        """Prints the number of generated cots for each dataset. If items in a dataset have different numbers 
+        of generated cots, it prints multiple numbers."""
+        for name in self._cache:
+            number_generated_cots = []
+            for split in self._cache[name]:
+                for item in self._cache[name][split]:
+                    number_generated_cots.append(len(item["generated_cot"]))
+            print(name, set(number_generated_cots))
+
     def unload_datasets(self, names=None):
         """
         It takes a list of names and unloads the datasets
@@ -226,9 +236,21 @@ class Collection:
                     del self._cache[name]
 
     def clear(self):
-        self.unload_datasets()
+        self.unload_datasets()    
+
+    def clear_empty_datasets(self):
+        names_to_delete = []
+        for name in self._cache:
+            lentgh_of_all_splits = 0
+            for split in self._cache[name]:
+                lentgh_of_all_splits += len(self._cache[name][split])
+            if lentgh_of_all_splits == 0:
+                names_to_delete.append(name)
+        for name in names_to_delete:
+            del self._cache[name]
 
     def dump(self, path_to_file_or_directory="./dump.json"):
+        self.clear_empty_datasets()
         if not path_to_file_or_directory.endswith(".json"):
             path_to_file_or_directory = path_to_file_or_directory + ".json"
         with open(path_to_file_or_directory, "w") as outfile:
@@ -256,9 +278,15 @@ class Collection:
     # make this a classmethod? (same for load_thoughtsource_100)
     @staticmethod
     def from_json(path_or_json, download_mode="reuse_dataset_if_exists", source=False):
+        # try to load it, but if FileNotFoundError, append .json
         if isinstance(path_or_json, str):
-            with open(path_or_json, "r") as infile:
-                content = json.load(infile)
+            try:
+                with open(path_or_json, "r") as infile:
+                    content = json.load(infile)
+            except FileNotFoundError:
+                path_or_json = path_or_json + ".json"
+                with open(path_or_json, "r") as infile:
+                    content = json.load(infile)
         elif isinstance(path_or_json, dict):
             content = path_or_json
 

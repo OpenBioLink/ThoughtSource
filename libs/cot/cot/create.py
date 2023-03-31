@@ -107,3 +107,24 @@ def create_special_medmc_100(load_pregenerated_cots=False):
     # return the filtered collection
     return collection
 
+def unique_index_correction(self):
+    for name in self._cache:
+        if name in ["med_qa", "open_book_qa", "worldtree"]:
+            for split in self._cache[name]:
+                self[name][split] = self[name][split].map(
+                    _unique_index_correction,
+                    fn_kwargs={
+                        "name": name,
+                        "split": split,
+                    },
+                    features=self[name][split].info.features,
+                    load_from_cache_file=False,
+                )
+    return self
+
+def _unique_index_correction(item, name, split):
+    if (name or split) in item["id"]:
+        print("The id '" + item["id"] + "' already contains the dataset name or split and will not be changed.")
+    else:
+        item["id"] = name + "_" + split + "_" + item["id"]
+    return item
