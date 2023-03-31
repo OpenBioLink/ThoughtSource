@@ -250,8 +250,6 @@ def full_text_prompts(dataset, prompt_text=True, answer_extraction_text=True):
             "answer_extraction_text": answer_extraction_text,
         },
         features=dataset.info.features,
-        # deleting the cache is necessary in generate if you call it multiple times
-        # not clear if it is needed here, but it doesn't hurt
         load_from_cache_file=False,
     )
 
