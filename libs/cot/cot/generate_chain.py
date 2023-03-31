@@ -47,11 +47,11 @@ Generate a cot and extract an answer with helper function _self_generate_extract
 def self_generate_extract(data,chain,input_dict):
 
     """take split"""
-    if isinstance(data, ds.dataset_dict.DatasetDict):
-        name_of_first_split = list(data.keys())[0]
+    # if isinstance(data, ds.dataset_dict.DatasetDict):
+    #     name_of_first_split = list(data.keys())[0]
 
     new_dataset = []
-    for example in data[name_of_first_split]:
+    for example in data:#[name_of_first_split]:
         processed_example = _self_generate_extract(example,input_dict,chain)
         print("processed_example:")
         print(processed_example)
@@ -145,10 +145,10 @@ def _self_generate(item,input_dict,chain):
                 "answers": [],
                 "author": "",
                 "date": "",
-                "api_service": "",
+                "api_service": input_dict["api_service"],
                 "model": str(
                     {
-                        "name": "",
+                        "name": input_dict["model"],
                         "temperature": 0,
                         "max_tokens": 800,
                     }
@@ -165,19 +165,13 @@ def _self_generate(item,input_dict,chain):
 """Extract answers based on CoTs only"""
 def self_extract(data,chain,input_dict):
 
-    """take split"""
-    if isinstance(data, ds.dataset_dict.DatasetDict):
-        name_of_first_split = list(data.keys())[0]
-
     new_dataset = []
-    for example in data[name_of_first_split]:
+    for example in data:
         processed_example = _self_extract(example,input_dict,chain)
-        print("processed_example:")
-        print(processed_example)
         new_dataset.append(processed_example)
     return new_dataset
 
-
+"""ToDo show which CoT to take"""
 def _self_extract(item,input_dict,chain):
 
     input_dict['question'] = item["question"]
@@ -186,6 +180,8 @@ def _self_extract(item,input_dict,chain):
     """Use this cot"""
     cot = item['generated_cot'][0]['cot'] # TODO no hard-code 
     input_dict['cot'] = cot
+
+    input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer'] #TODO take care of the [0]'s
     
     #this is where the magic happens
     lang_chain = chain(input_dict)
@@ -201,10 +197,10 @@ def _self_extract(item,input_dict,chain):
                 "answers": [],
                 "author": "",
                 "date": "",
-                "api_service": "",
+                "api_service": input_dict["api_service"],
                 "model": str(
                     {
-                        "name": "",
+                        "name": input_dict["model"],
                         "temperature": 0,
                         "max_tokens": 800,
                     }
@@ -214,7 +210,7 @@ def _self_extract(item,input_dict,chain):
             }
     generated_cot["date"] = print_now(1)
 
-    item["generated_cot"].append(generated_cot)
+    #item["generated_cot"].append(generated_cot) overkill
 
     """If conditions for input keys"""
     answer = {
@@ -226,19 +222,19 @@ def _self_extract(item,input_dict,chain):
                         "correct_answer": None,
                 }
     answer["answer"] = lang_chain['predicted_answer']
-    item["generated_cot"][0]["answers"].append(answer) # TODO un-hardcode
+    
+    generated_cot["answers"].append(answer) 
+    item["generated_cot"].append(generated_cot)
+
+    #item["generated_cot"][0]["answers"].append(answer) # TODO this or two lines above depending on if you want a new item
 
     return item
 
 """Reflect on CoT (or some other part) and generate new answer"""
-def self_reflect(data,chain,input_dict):
-
-    """take split"""
-    if isinstance(data, ds.dataset_dict.DatasetDict):
-        name_of_first_split = list(data.keys())[0]
+def self_reflect(data,chain,input_dict,dataset_name,dataset_split):
 
     new_dataset = []
-    for example in data[name_of_first_split]:
+    for example in data:
         processed_example = _self_reflect(example,input_dict,chain)
         new_dataset.append(processed_example)
     return new_dataset
@@ -266,17 +262,17 @@ def _self_reflect(item,input_dict,chain):
                 "id": str(uuid.uuid4()),
                 "fragments_version": FRAGMENTS["version"],
                 "instruction": "",
-                "cot_trigger": input_dict["cot_trigger"],
+                "cot_trigger": input_dict["reflection_prompt"],
                 "cot_trigger_template": "",
                 "prompt_text": "",
                 "cot": lang_chain['reflection'],
                 "answers": [],
                 "author": "",
                 "date": "",
-                "api_service": "",
+                "api_service": input_dict["api_service"],
                 "model": str(
                     {
-                        "name": "",
+                        "name": input_dict["model"],
                         "temperature": 0,
                         "max_tokens": 800,
                     }
@@ -289,7 +285,7 @@ def _self_reflect(item,input_dict,chain):
     """If conditions for input keys"""
     answer = {
                         "id": str(uuid.uuid4()),
-                        "answer_extraction": input_dict['answer_extraction'],
+                        "answer_extraction": input_dict['reflect_answer_extraction'],
                         "answer_extraction_template": "",
                         "answer_extraction_text": "self_reflection",
                         "answer": "",
