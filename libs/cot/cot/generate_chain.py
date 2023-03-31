@@ -15,13 +15,16 @@ These functions call methods in the generate_chain.py file, namely:
 - self_reflect
 
 All of them require an input_dictionary with variables and a langchain.
-However, the different functions are there to put the right output in the right ts-variables of the schema.
+The different functions are there to put the right output in the right ts-variables of the schema.
+If you want to save different variables, 
+you can iterate on one of the existing functions 
+and feed a new langchain with additions to the input dict
 
 flexible_langchains.ipynb is a tutorial
-And experiments are performed in langchain_experiments.ipynb (internal)
+And experiments are performed in langchain_experiments.ipynb and summary_experiments.ipynb (internal)
 
 Issues:
-*Only works if a split is defined
+*Use of fragments
 *How to choose which existing CoT to use in self_reflect for instance?
 """
 
@@ -46,15 +49,12 @@ Generate a cot and extract an answer with helper function _self_generate_extract
 """
 def self_generate_extract(data,chain,input_dict):
 
-    """take split"""
-    # if isinstance(data, ds.dataset_dict.DatasetDict):
-    #     name_of_first_split = list(data.keys())[0]
-
+    #temp dataset to be filled
     new_dataset = []
-    for example in data:#[name_of_first_split]:
+    
+    #For loop in dataset.map()
+    for example in data:
         processed_example = _self_generate_extract(example,input_dict,chain)
-        print("processed_example:")
-        print(processed_example)
         new_dataset.append(processed_example)
     return new_dataset
 
@@ -63,11 +63,9 @@ def _self_generate_extract(item,input_dict,chain):
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
     
-    #this is where the magic happens
-    lang_chain = chain(input_dict)
-    #retrieve question and answer choices from item, add to input dict
+    #this is where the magic happens: get cot and predicted answer
+    lang_chain = chain(input_dict) 
 
-    """If conditions for input keys"""
     generated_cot = {
                 "id": str(uuid.uuid4()),
                 "fragments_version": FRAGMENTS["version"],
@@ -112,25 +110,17 @@ def self_generate(data,chain,input_dict):
 
     input_dict['chain'] = chain
 
-    """take split"""
-    if isinstance(data, ds.dataset_dict.DatasetDict):
-        name_of_first_split = list(data.keys())[0]
-
     new_dataset = []
-    for example in data[name_of_first_split]:
+    for example in data:
         processed_example = _self_generate(example,input_dict,chain)
-        print("processed_example:")
-        print(processed_example)
         new_dataset.append(processed_example)
     return new_dataset
 
 def _self_generate(item,input_dict,chain):
 
-
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
     
-    #this is where the magic happens
     lang_chain = chain(input_dict)
 
     """If conditions for input keys"""
@@ -177,11 +167,9 @@ def _self_extract(item,input_dict,chain):
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
 
-    """Use this cot"""
-    cot = item['generated_cot'][0]['cot'] # TODO no hard-code 
+    #extract based on the first cot in the dataset
+    cot = item['generated_cot'][0]['cot'] 
     input_dict['cot'] = cot
-
-    input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer'] #TODO take care of the [0]'s
     
     #this is where the magic happens
     lang_chain = chain(input_dict)
@@ -210,8 +198,6 @@ def _self_extract(item,input_dict,chain):
             }
     generated_cot["date"] = print_now(1)
 
-    #item["generated_cot"].append(generated_cot) overkill
-
     """If conditions for input keys"""
     answer = {
                         "id": str(uuid.uuid4()),
@@ -223,15 +209,17 @@ def _self_extract(item,input_dict,chain):
                 }
     answer["answer"] = lang_chain['predicted_answer']
     
+    #we add a generated cot (with new ans) to be assessed in annotator
     generated_cot["answers"].append(answer) 
     item["generated_cot"].append(generated_cot)
 
-    #item["generated_cot"][0]["answers"].append(answer) # TODO this or two lines above depending on if you want a new item
+    #could use line below to add the answer to existing cot
+    #item["generated_cot"][0]["answers"].append(answer)
 
     return item
 
 """Reflect on CoT (or some other part) and generate new answer"""
-def self_reflect(data,chain,input_dict,dataset_name,dataset_split):
+def self_reflect(data,chain,input_dict):
 
     new_dataset = []
     for example in data:
@@ -243,21 +231,17 @@ def self_reflect(data,chain,input_dict,dataset_name,dataset_split):
 """In this version the reflection is added to generated_cot"""
 def _self_reflect(item,input_dict,chain):
 
-
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
     input_dict['cot'] = item['generated_cot'][0]['cot']
 
-
+    # here we take the first answer from the first cot
     input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer']
     
     #this is where the magic happens
     lang_chain = chain(input_dict)
 
-    
-
     #retrieve question and answer choices from item, add to input dict
-
     generated_cot = {
                 "id": str(uuid.uuid4()),
                 "fragments_version": FRAGMENTS["version"],

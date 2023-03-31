@@ -360,50 +360,47 @@ class Collection:
         
         if name is None:
             for name in self._cache:
-                print(f"Generating {name}...")
-                self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
         else:
             if split is None:
                 print(f"Generating {name}...")
-                self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
+                for split in self._cache[name]:
+                    self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
             else:
                 print(f"Generating {name}...")
-                return self_generate_extract(self[name][split], chain, input_dict)
+                self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
 
     #for split in name:
     #loop through datasets
     def generate_flexible(self,chain, input_dict,name=None, split=None):
         if name is None:
             for name in self._cache:
-                print(f"Generating {name}...")
-                return self_generate(self[name], chain, input_dict)
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_generate(self[name][split], chain, input_dict)    
         else:
             if split is None:
                 print(f"Generating {name}...")
-                return self_generate(self[name], chain, input_dict)
+                self[name][split] = self_generate(self[name][split], chain, input_dict)
             else:
                 print(f"Generating {name}...")
-                return self_generate(self[name][split], chain, input_dict)
+                self[name][split] = self_generate(self[name][split], chain, input_dict)
     
     def extract_flexible(self,chain, input_dict,name=None, split=None):
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     print(f"Generating {name}...")
-                    new_dataset = self_extract(self[name][split], chain, input_dict)
-                    new_dataset = Collection.to_Collection(new_dataset,name,split,"test_file") #TODO
-                    self[name][split] = new_dataset[name][split]      
+                    self[name][split] = self_extract(self[name][split], chain, input_dict)  
         else:
             if split is None:
                 for split in self._cache[name]:
-                    new_dataset = self_extract(self[name][split], chain, input_dict)
-                    new_dataset = Collection.to_Collection(new_dataset,name,split,"test_file") #TODO
-                    self[name][split] = new_dataset[name][split]
+                    self[name][split] = self_extract(self[name][split], chain, input_dict)  
             else:
                 print(f"Generating {name}...")
-                new_dataset = self_extract(self[name][split], chain, input_dict)
-                new_dataset = Collection.to_Collection(new_dataset,name,split,"test_file") #TODO
-                self[name][split] = new_dataset[name][split]
+                self[name][split] = self_extract(self[name][split], chain, input_dict)  
     
     # def metareason_flexible(self,chain, input_dict,name=None, split=None):
     #     if name is None:
@@ -439,21 +436,14 @@ class Collection:
             for name in self._cache:
                 for split in self._cache[name]:
                     print(f"Generating {name}...")
-                    new_dataset = self_reflect(self[name][split], chain, input_dict,name,split)
-                    new_dataset = Collection.to_Collection(new_dataset,name,split,"test_file") #TODO
-                    self[name][split] = new_dataset[name][split]
-                    
+                    self[name][split] = self_reflect(self[name][split], chain, input_dict)   
         else:
             if split is None:
                 for split in self._cache[name]:
-                    new_dataset = self_reflect(self[name][split], chain, input_dict,name,split)
-                    new_dataset = Collection.to_Collection(new_dataset,name,split,"test_file") #TODO
-                    self[name][split] = new_dataset[name][split]
+                    self[name][split] = self_reflect(self[name][split], chain, input_dict)   
             else:
                 print(f"Generating {name}...")
-                new_dataset = self_reflect(self[name][split], chain, input_dict,name,split)
-                new_dataset = Collection.to_Collection(new_dataset,name,split,"test_file") #TODO
-                self[name][split] = new_dataset[name][split]
+                self[name][split] = self_reflect(self[name][split], chain, input_dict)   
             
     """Creates json and collection from Thoughtsource ouptut; chain_output from chain_generation"""
     def to_Collection(chain_output,dataset_name,split,file_name):
