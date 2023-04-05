@@ -143,12 +143,13 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
                 gen_kwargs={
+                    "split": "train",
                     "filepath": filepath,
                 },
             ),
         ]
 
-    def _generate_examples(self, filepath) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, split) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         with open(filepath, "r") as jsonfile:
@@ -203,7 +204,7 @@ class SvampDataset(datasets.GeneratorBasedBuilder):
                 question += " " + example["Question"]
 
                 example_ = {
-                    "id": key,
+                    "id": "svamp_" + split + "_" + str(key),
                     "ref_id": "",
                     "question": question,
                     "type": "number",

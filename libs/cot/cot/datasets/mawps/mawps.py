@@ -132,12 +132,13 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
                 gen_kwargs={
+                    "split": "train",
                     "data_dir": data_dir,
                 },
             ),
         ]
 
-    def _generate_examples(self, data_dir) -> Tuple[int, Dict]:
+    def _generate_examples(self, data_dir, split) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         train = pd.read_csv(data_dir["train"])
@@ -203,7 +204,7 @@ class MawpsDataset(datasets.GeneratorBasedBuilder):
                     chain_of_thought.append(cot)
 
                 example_ = {
-                    "id": key,
+                    "id": "mawps_" + split + "_" + str(key),
                     "ref_id": "",
                     "question": example["Question"],
                     "type": "number",
