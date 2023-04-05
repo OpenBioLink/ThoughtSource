@@ -195,6 +195,19 @@ class Collection:
                         str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode
                     )
 
+    def get_ids(self, to_file=False, file_name=None):
+        """Get the ids of the items of all collections"""
+        id_list = []
+        # just apply it to all of the datasets and splits, no specific name or split
+        for name in self._cache:
+            for split in self._cache[name]:
+                id_list.extend(self[name][split]["id"])
+        if to_file:
+            with open(file_name, "w") as f:
+                f.write('\n'.join(id_list))
+        else:
+            return id_list
+
     def select_generated_cots(self, *args, **kwargs):
         """Decides which generated cots to keep after loading the datasets"""
         # just apply it to all of the datasets and splits, no specific name or split
