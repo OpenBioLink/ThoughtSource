@@ -204,11 +204,11 @@ class Collection:
             for split in self._cache[name]:
                 id_list.extend(self[name][split]["id"])
         if file_name:
+            from numpy import savetxt
             # if file name does not end with txt, add it
             if not file_name.endswith(".txt"):
                 file_name += ".txt"
-            with open(file_name, "w") as f:
-                f.write('\n'.join(id_list))
+            savetxt(file_name, id_list, fmt="%s")
         else:
             return id_list
 
