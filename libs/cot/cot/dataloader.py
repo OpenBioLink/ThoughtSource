@@ -195,14 +195,18 @@ class Collection:
                         str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode
                     )
 
-    def get_ids(self, to_file=False, file_name=None):
-        """Get the ids of the items of all collections"""
+    def get_ids(self, file_name=None):
+        """Get the ids of the items of all collections
+        returns a list of ids if file_name is None, otherwise writes the ids to a file"""
         id_list = []
         # just apply it to all of the datasets and splits, no specific name or split
         for name in self._cache:
             for split in self._cache[name]:
                 id_list.extend(self[name][split]["id"])
-        if to_file:
+        if file_name:
+            # if file name does not end with txt, add it
+            if not file_name.endswith(".txt"):
+                file_name += ".txt"
             with open(file_name, "w") as f:
                 f.write('\n'.join(id_list))
         else:
@@ -253,11 +257,18 @@ class Collection:
     def clear_empty_datasets(self):
         names_to_delete = []
         for name in self._cache:
-            lentgh_of_all_splits = 0
+            empty_splits = []
             for split in self._cache[name]:
-                lentgh_of_all_splits += len(self._cache[name][split])
-            if lentgh_of_all_splits == 0:
+                if len(self._cache[name][split]) == 0:
+                    empty_splits.append(split)
+                else:
+                    continue
+            if len(empty_splits) == len(self._cache[name]):
                 names_to_delete.append(name)
+            else:
+                for split in empty_splits:
+                    del self._cache[name][split]
+
         for name in names_to_delete:
             del self._cache[name]
 
@@ -524,6 +535,8 @@ class Collection:
             for name in filtered_collection._cache:
                 for split in filtered_collection._cache[name]:
                     filtered_collection[name][split] = filtered_collection[name][split].filter(**kwargs)
+        # drop empty datasets and splits
+        filtered_collection.clear_empty_datasets()
         return filtered_collection
 
     @property
