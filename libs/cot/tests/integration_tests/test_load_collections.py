@@ -1,5 +1,5 @@
 from cot import Collection
-from cot.create import create_thoughtsource_100, create_thoughtsource_1, create_special_medmc_100, create_special_medmc_ids
+from cot.create import create_thoughtsource_100, create_thoughtsource_1, create_special_medmc_100, create_special_medmc_ids_100
 
 # these tests take a very long time
 # they were moved to integration tests
@@ -27,7 +27,7 @@ def test_thoughtsource_100() -> None:
     assert collection
     collection = create_thoughtsource_1()
     assert collection
-    collection = create_special_medmc_ids()
+    collection = create_special_medmc_ids_100()
     assert collection
     collection = create_special_medmc_100()
     assert collection
