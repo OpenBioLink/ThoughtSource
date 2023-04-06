@@ -1,0 +1,1913 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "f21ef67b31bd36a3174b6b4c7b4bbc7b",
+                "ref_id": "",
+                "question": "What does a kindergarten teacher do before nap time?",
+                "type": "multiplechoice",
+                "choices": [
+                    "lower expectations",
+                    "encourage",
+                    "fear",
+                    "time test",
+                    "tell story"
+                ],
+                "context": "",
+                "cot": [
+                    "Kindergarten teacher tells story.",
+                    "Story is told usually before nap time.",
+                    "Teacher dont lower expectations.",
+                    "Teacher dont encourage before nap time.",
+                    "Teacher dont fear.",
+                    "Before nap time, time test is not possible."
+                ],
+                "answer": [
+                    "tell story"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "85b2c6f6-6aad-4852-a781-166cb04bcfae",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A kindergarten teacher would likely do the following before nap time:\n\nA) Lower expectations - This doesn't seem relevant to nap time, as it's more about adjusting academic or behavioral expectations.\n\nB) Encourage - A teacher might encourage students to settle down and relax before nap time, so this could be a possibility.\n\nC) Fear - This doesn't seem relevant or appropriate for a kindergarten teacher to do before nap time.\n\nD) Time test - This also doesn't seem relevant to nap time, as it's more about assessing students' abilities in a timed setting.\n\nE) Tell story - A teacher might read a story to help students calm down and prepare for nap time, so this could also be a possibility.\n\nBased on the options provided, the most likely things a kindergarten teacher would do before nap time are:\n\nB) Encourage\nE) Tell story",
+                        "answers": [
+                            {
+                                "id": "f47fda4e-e0f7-4f29-8ff3-37a9d9270d4e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Encourage and E) Tell story",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:03:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "93004039-2220-4da0-86f7-993ffcebd92b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "E) tell story",
+                        "answers": [
+                            {
+                                "id": "ea8c2a9b-f70f-4699-9d88-ebf7ed09f76e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) tell story",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:39:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "46351b3a6beb694c5f623583a3b1473d",
+                "ref_id": "",
+                "question": "What language type is someone from Iran likely to use?",
+                "type": "multiplechoice",
+                "choices": [
+                    "books",
+                    "dard",
+                    "sky",
+                    "closed room",
+                    "television"
+                ],
+                "context": "",
+                "cot": [
+                    "Dard is the group of indic languages spoken by a member of a group of peoples inhabiting eastern afghanistan, northern pakistan and kashmir including kashmiri.",
+                    "The language type someone from iran likely to use is dard.",
+                    "Books are written in different languages but you can\u2019t define them as a language type.",
+                    "Sky is space and not a language type.",
+                    "Closed room is a completely packed room with no open entry and not a language type.",
+                    "Television is a device and not a language type."
+                ],
+                "answer": [
+                    "dard"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1975553b-05c0-4041-97fe-b603e4eb4e4e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's identify the language spoken in Iran. The official language of Iran is Persian (also known as Farsi).\n\nNow, let's analyze the given options:\n\nA) books - This is not a language type, but rather a medium through which language can be used.\nB) dard - This is not a language type or a known term related to language.\nC) sky - This is not a language type or a known term related to language.\nD) closed room - This is not a language type, but rather a location where language can be used.\nE) television - This is not a language type, but rather a medium through which language can be used.\n\nNone of the given options directly relate to the language type spoken in Iran. However, if the question is asking about the medium through which someone from Iran is likely to use their language, then options A) books and E) television could be considered as possible answers, as they are both common mediums for using language.",
+                        "answers": [
+                            {
+                                "id": "0d157de4-87e1-4610-8b18-ad3fc7b3bbb3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) books and E) television.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:06:47",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "bc9913b2-0b9a-4845-aebb-0be3d70981e0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) dard",
+                        "answers": [
+                            {
+                                "id": "00976532-f106-405e-a8df-d495ee2ae90f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) dard",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:40:51",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "9024493a3edbaf555fda5b477e835bf5",
+                "ref_id": "",
+                "question": "Where is a grape likely to be being fed to someone else?",
+                "type": "multiplechoice",
+                "choices": [
+                    "field",
+                    "bathroom",
+                    "michigan",
+                    "minnesota",
+                    "painting"
+                ],
+                "context": "",
+                "cot": [
+                    "Painting is an art which allows any kind of desired scenario to be created using paint and a grape being fed to someone else is one such scenario.",
+                    "Painting may include other options."
+                ],
+                "answer": [
+                    "painting"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "dab0c0a5-cb7b-4560-81bd-aeb1852fee14",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A grape being fed to someone else is likely to occur in a more intimate or leisurely setting. \n\nA) field - This could be a possibility if people are having a picnic or enjoying a day outdoors.\nB) bathroom - This is an unlikely place for someone to be fed grapes.\nC) Michigan - This is a state, not a specific setting where grapes would be fed to someone.\nD) Minnesota - This is also a state, not a specific setting where grapes would be fed to someone.\nE) painting - This is not a physical location, but rather an artistic representation of a scene.\n\nOut of these options, the most likely answer is A) field, as it represents a setting where people might be enjoying a picnic or spending time together outdoors.",
+                        "answers": [
+                            {
+                                "id": "17a9499e-ffeb-4eab-a5dc-78fc1f756bcf",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) field.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:09:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "517909ec-dba9-4bd4-b250-471cb3643570",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "E) painting",
+                        "answers": [
+                            {
+                                "id": "591b41f8-55f9-4d76-a250-04626af15ea2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) painting",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:41:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "dd4a811d18549f1ae1954cf938b28536",
+                "ref_id": "",
+                "question": "They were searching for rocks, so they missed the birds overhead as they stared at the what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "ground",
+                    "drawer",
+                    "surface of earth",
+                    "pizza",
+                    "waterfall"
+                ],
+                "context": "",
+                "cot": [
+                    "Birds are overhead, not on ground.",
+                    "Rocks are found on ground so they stared at ground.",
+                    "Staring is done at a particular thing not whole surface of earth.",
+                    "Rocks are not found in pizza or drawer.",
+                    "There are no rocks in a waterfall."
+                ],
+                "answer": [
+                    "ground"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "22962382-189e-4692-aafa-34494e3ccf61",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The question states that they were searching for rocks, which means they would be looking at the ground or the surface of the earth. So the correct answer is:\n\nA) ground\nC) surface of earth",
+                        "answers": [
+                            {
+                                "id": "75f751f2-344f-41d1-9488-03bf1291fbea",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) ground and C) surface of earth",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:23:30",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d8fd6a61-4383-4456-b3c3-cf031f5f5fcf",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) ground",
+                        "answers": [
+                            {
+                                "id": "5e99ea7e-102b-4a2f-b719-8b752c7dd3b4",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) ground",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:42:57",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "11416df796f63d2f0dddc846b9c139d3",
+                "ref_id": "",
+                "question": "The flower grew tall to compete for sunlight, what did its neighbor do?",
+                "type": "multiplechoice",
+                "choices": [
+                    "blossom",
+                    "park",
+                    "open",
+                    "cast shadow",
+                    "vase"
+                ],
+                "context": "",
+                "cot": [
+                    "When there are two plants and a neighbour plant casts shadow, the other flower plant may try to compete as due to shadow they cannot get sunlight hence they grow tall and get sunlight.",
+                    "All the other options are incorrect as they are not a reason why flower might compete for sunlight."
+                ],
+                "answer": [
+                    "cast shadow"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "7ec5e807-f37d-41b3-a9c5-14fe2691252b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The question is asking what the neighboring flower did in response to the first flower growing tall to compete for sunlight. \n\nA) blossom - This could be a possibility, as the neighboring flower might also grow and blossom to compete for sunlight.\nB) park - This is not related to the growth of a flower.\nC) open - This could also be a possibility, as the neighboring flower might open up to receive more sunlight.\nD) cast shadow - This could be a result of the neighboring flower growing tall, but it doesn't indicate what the neighboring flower did in response to the first flower's growth.\nE) vase - This is not related to the growth of a flower.\n\nBased on the given options, the most appropriate answer would be A) blossom, as it indicates that the neighboring flower also grew and blossomed to compete for sunlight.",
+                        "answers": [
+                            {
+                                "id": "773e1325-c170-4582-a445-f1c628ffd098",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) blossom",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:51:07",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "bec5147b-6111-4530-9a7c-38f2ad4f2f4e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) cast shadow",
+                        "answers": [
+                            {
+                                "id": "c0088455-f044-4a68-86e9-5d74a389ecde",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) cast shadow",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:45:51",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "a2977fd575faba162d04a490dabd1b9b",
+                "ref_id": "",
+                "question": "What does someone stop doing when being dead?",
+                "type": "multiplechoice",
+                "choices": [
+                    "moving",
+                    "working",
+                    "breathing",
+                    "alive",
+                    "deadworks"
+                ],
+                "context": "",
+                "cot": [
+                    "Breathing is a sign of a person's life which stops when they are dead .",
+                    "Breathing stooping means one dying.",
+                    "All the other options are not the most appropriate choice of what stopping means being dead."
+                ],
+                "answer": [
+                    "breathing"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f33d0d3e-8aba-4f17-a94d-a3030cbf0749",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) moving - When someone is dead, they do stop moving.\nB) working - Dead people cannot work, so they stop working.\nC) breathing - Dead people do not breathe, so they stop breathing.\nD) alive - This is not an action, so it cannot be stopped.\nE) deadworks - This is not a real word or action.\n\nSo, the correct answer is: A) moving, B) working, and C) breathing.",
+                        "answers": [
+                            {
+                                "id": "26f879ab-846b-416d-a18e-18d362b44209",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) moving, B) working, and C) breathing.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:52:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "1574008f-050e-4ba5-b19b-e06b374ca34b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) breathing",
+                        "answers": [
+                            {
+                                "id": "96ce245e-1eea-4876-bd4b-7b0958ac7168",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) breathing",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:46:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "5ea6b94d1a911365b06cf776919413e8",
+                "ref_id": "",
+                "question": "What does \tdrinking alcohol lead to?",
+                "type": "multiplechoice",
+                "choices": [
+                    "have fun",
+                    "intoxication",
+                    "vomiting",
+                    "drinking more alcohol",
+                    "nausea"
+                ],
+                "context": "",
+                "cot": [
+                    "Drinking alcohol lead to intoxication as alcohol make you intoxicated.drinking alcohol doesn't lead to having fun,vomiting,drinking more alcohol and nausea always."
+                ],
+                "answer": [
+                    "intoxication"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a66a4277-9e3e-4eed-ada3-9e75d9654d21",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Drinking alcohol can lead to various outcomes depending on the individual and the amount consumed. Here are the possible outcomes for each option:\n\nA) have fun - Drinking alcohol can lead to having fun for some people, as it may help them relax and enjoy social situations.\n\nB) intoxication - Drinking alcohol can lead to intoxication, which is the state of being under the influence of alcohol. This can impair a person's judgment, coordination, and reaction time.\n\nC) vomiting - Drinking excessive amounts of alcohol can lead to vomiting, as the body tries to expel the toxins.\n\nD) drinking more alcohol - Drinking alcohol can sometimes lead to a desire to drink more alcohol, especially in social situations or for individuals who struggle with alcohol addiction.\n\nE) nausea - Drinking alcohol can cause nausea, especially if consumed in large quantities or on an empty stomach.\n\nSo, the correct answer is that drinking alcohol can lead to all of these outcomes (A, B, C, D, and E), depending on the individual and the amount consumed.",
+                        "answers": [
+                            {
+                                "id": "7745a792-44b3-4214-a38a-8164385b69ac",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "all of the above (A, B, C, D, and E).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:53:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c95ab158-a615-40b1-a745-e9cfd06d0e5a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) intoxication",
+                        "answers": [
+                            {
+                                "id": "83802d29-a8bd-44ff-930a-23fb60fa7994",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) intoxication",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:46:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_194",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the pediatrician because of abdominal pain and constipation for 3 weeks. His mother says he has been increasingly irritable recently. His vocabulary consists of 50 words and he does not use sentences. Physical examination shows pale conjunctivae and abdominal tenderness. He refers to himself by name but is unable to name body parts or count to three. Peripheral blood smear shows small, pale red blood cells with basophilic stippling. Which of the following processes is most likely impaired in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Conversion of ferrous iron to ferric iron",
+                    "Conversion of porphobilinogen to hydroxymethylbilane",
+                    "Conversion of aminolevulinic acid to porphobilinogen",
+                    "Conversion of homocysteine to methionine",
+                    "Conversion of uroporphyrinogen III to coproporphyrinogen III"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Conversion of aminolevulinic acid to porphobilinogen"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "de8723a9-891d-4793-a3c1-ab0c0c8d229b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient is a 3-year-old boy with abdominal pain, constipation, irritability, pale conjunctivae, and abdominal tenderness. These symptoms suggest a possible issue with the gastrointestinal system or a blood disorder.\n\n2. The peripheral blood smear shows small, pale red blood cells with basophilic stippling. This finding is indicative of a blood disorder, specifically an issue with hemoglobin synthesis or red blood cell production.\n\n3. The patient's developmental delays (limited vocabulary, not using sentences, unable to name body parts or count to three) could be related to the blood disorder, as certain blood disorders can cause neurological symptoms.\n\n4. Now let's analyze the answer choices:\n\nA) Conversion of ferrous iron to ferric iron: This process is involved in the synthesis of heme, a component of hemoglobin. Impairment of this process could lead to anemia, which could explain the patient's pale conjunctivae and small, pale red blood cells. However, it does not explain the basophilic stippling or developmental delays.\n\nB) Conversion of porphobilinogen to hydroxymethylbilane: This process is involved in the synthesis of porphyrins, which are precursors to heme. Impairment of this process could lead to porphyria, a group of disorders that can cause abdominal pain, constipation, and neurological symptoms. However, porphyria typically does not cause basophilic stippling or the specific red blood cell findings seen in this patient.\n\nC) Conversion of aminolevulinic acid to porphobilinogen: This process is also involved in the synthesis of porphyrins and heme. Impairment of this process could lead to anemia and some neurological symptoms, but it does not explain the basophilic stippling or the specific red blood cell findings seen in this patient.\n\nD) Conversion of homocysteine to methionine: This process is involved in the metabolism of amino acids and is not directly related to hemoglobin synthesis or red blood cell production. Impairment of this process could lead to homocystinuria, which can cause developmental delays and other neurological symptoms. However, it does not explain the patient's anemia or red blood cell findings.\n\nE) Conversion of uroporphyrinogen III to coproporphyrinogen III: This process is involved in the synthesis of porphyrins and heme. Impairment of this process could lead to",
+                        "answers": [
+                            {
+                                "id": "4f77b46a-8773-4853-8edd-642e50a172c1",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Conversion of ferrous iron to ferric iron.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:04:26",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e3bbf3b0-d1b4-45c7-89a3-63ae3c6a4d58",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) Conversion of aminolevulinic acid to porphobilinogen",
+                        "answers": [
+                            {
+                                "id": "47c17a48-b00f-45fb-89ee-a08d512cf86a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Conversion of aminolevulinic acid to porphobilinogen",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:49:07",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_306",
+                "ref_id": "",
+                "question": "A 61-year-old man presents to his primary care provider complaining of abdominal pain and constipation. He reports a 4-day history of steady right lower quadrant pain. He has had one small bowel movement in 4 days. Normally he has a bowel movement once a day. His medical history is notable for poorly controlled hypertension and hyperlipidemia. He takes enalapril, hydrochlorothiazide, aspirin, and atorvastatin. He has a 40 pack-year smoking history and drinks 3-4 beers per day. His diet consists primarily of fast food. His temperature is 101.8\u00b0F (38.8\u00b0C), blood pressure is 160/95 mmHg, pulse is 90/min, and respirations are 16/min. A review of the patient\u2019s medical record reveals colonoscopy results from 1 year ago. Relevant findings included multiple small, pedunculated polyps which were removed, multiple colonic mucosal outpouchings, and no other masses. This patient\u2019s condition is most strongly associated with which of the following disorders?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Alpha-1-antitrypsin deficiency",
+                    "Autosomal recessive polycystic kidney disorder",
+                    "Ehlers-Danlos syndrome",
+                    "Goodpasture syndrome",
+                    "Menetrier disease"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Ehlers-Danlos syndrome"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "948440fa-c977-4da6-b8c8-bf1e89394232",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient is presenting with abdominal pain, constipation, and fever. His medical history includes hypertension, hyperlipidemia, smoking, and alcohol consumption. The colonoscopy results show multiple colonic mucosal outpouchings, which are suggestive of diverticulosis.\n\nNow let's analyze the given options:\n\nA) Alpha-1-antitrypsin deficiency: This is a genetic disorder that affects the lungs and liver, causing emphysema and liver disease. It is not related to the patient's symptoms or colonoscopy findings.\n\nB) Autosomal recessive polycystic kidney disorder: This is a genetic disorder that affects the kidneys, causing multiple cysts to form. It is not related to the patient's symptoms or colonoscopy findings.\n\nC) Ehlers-Danlos syndrome: This is a group of genetic disorders that affect the connective tissues, causing joint hypermobility, skin hyperextensibility, and tissue fragility. It is not related to the patient's symptoms or colonoscopy findings.\n\nD) Goodpasture syndrome: This is an autoimmune disorder that affects the kidneys and lungs, causing glomerulonephritis and pulmonary hemorrhage. It is not related to the patient's symptoms or colonoscopy findings.\n\nE) Menetrier disease: This is a rare disorder that affects the stomach, causing enlarged gastric folds and protein loss. It is not related to the patient's symptoms or colonoscopy findings.\n\nNone of the given options seem to be strongly associated with the patient's condition. However, the patient's symptoms and colonoscopy findings are most consistent with diverticulitis, which is an inflammation or infection of the diverticula (outpouchings) in the colon. Diverticulitis is not listed as an option, but it is the most likely diagnosis based on the information provided.",
+                        "answers": [
+                            {
+                                "id": "989ab700-8522-4e12-83cc-e9d282992a1c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "none of the above, as none of the given options are strongly associated with the patient's condition. The most likely diagnosis is diverticulitis, which is not listed as an option.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:12:29",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7e53bd0b-442e-4142-a3b0-782d4f439550",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) Ehlers-Danlos syndrome",
+                        "answers": [
+                            {
+                                "id": "e64c2697-53d5-4a70-8f86-fc8f333f50d1",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Ehlers-Danlos syndrome",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:50:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_596",
+                "ref_id": "",
+                "question": "Six hours after birth, a newborn boy is evaluated for tachypnea. He was delivered at 41 weeks' gestation via Caesarian section and the amniotic fluid was meconium-stained. His respiratory rate is 75/min. Physical examination shows increased work of breathing. X-rays of the abdomen and chest show no abnormalities. Echocardiography shows elevated pulmonary artery pressure. He is started on an inhaled medication that increases smooth muscle cGMP, and there is immediate improvement in his tachypnea and oxygenation status. Three hours later, the newborn is tachypneic and there is blue-grey discoloration of the lips, fingers, and toes. Which of the following is the most likely cause of this infant's cyanosis?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increase in concentration of serum myoglobin",
+                    "Closure of the ductus arteriosus",
+                    "Oxidization of Fe2+ to Fe3+",
+                    "Inhibition of mitochondrial cytochrome c oxidase",
+                    "Allosteric alteration of heme groups"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Oxidization of Fe2+ to Fe3+"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "7c6541b9-cd2f-408a-a0f6-4cbb09592346",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the clinical scenario\n- A newborn boy with tachypnea, increased work of breathing, and elevated pulmonary artery pressure. He initially improved with an inhaled medication that increases smooth muscle cGMP but later developed cyanosis.\n\nStep 2: Analyze the answer choices\nA) Increase in concentration of serum myoglobin - This is not likely to cause cyanosis in this scenario.\nB) Closure of the ductus arteriosus - This is a possibility, as closure of the ductus arteriosus can lead to increased pulmonary artery pressure and cyanosis.\nC) Oxidization of Fe2+ to Fe3+ - This would cause methemoglobinemia, which can lead to cyanosis. However, it is not the most likely cause in this scenario.\nD) Inhibition of mitochondrial cytochrome c oxidase - This would cause a decrease in cellular respiration and oxygen utilization, leading to cyanosis. However, it is not the most likely cause in this scenario.\nE) Allosteric alteration of heme groups - This would affect oxygen binding to hemoglobin, potentially causing cyanosis. However, it is not the most likely cause in this scenario.\n\nStep 3: Choose the most likely cause\n- Based on the clinical scenario and analysis of the answer choices, the most likely cause of this infant's cyanosis is B) Closure of the ductus arteriosus.",
+                        "answers": [
+                            {
+                                "id": "315dbd01-c75b-4cf2-b37f-39964dd7c089",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Closure of the ductus arteriosus.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:23:20",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b00d20b9-af71-4016-9264-bcbe901df1bc",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) Oxidization of Fe2+ to Fe3+",
+                        "answers": [
+                            {
+                                "id": "4141b15d-17eb-4f73-b386-835fc5a76d82",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Oxidization of Fe2+ to Fe3+.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:52:42",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1107",
+                "ref_id": "",
+                "question": "A 76-year-old woman comes to the physician for a routine examination. She has a history of hypertension well controlled with diet and exercise. She has no history of smoking or illicit drug use. She walks one mile daily. Her pulse is 68/min, respirations are 16/min, and blood pressure is 119/76 mm Hg. Physical examination shows no abnormalities. When compared to a healthy 20-year-old woman, which of the following changes in respiratory function is most likely present in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increased lung compliance",
+                    "Increased vital capacity",
+                    "Decreased residual volume",
+                    "Increased chest wall compliance",
+                    "Decreased A-a gradient"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Increased lung compliance"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "5a8055f3-1322-414f-90b7-47bba638a6a9",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Increased lung compliance: Lung compliance decreases with age due to loss of elastic tissue in the lungs. So, this option is incorrect.\n\nB) Increased vital capacity: Vital capacity decreases with age due to decreased lung compliance and increased chest wall stiffness. So, this option is incorrect.\n\nC) Decreased residual volume: Residual volume actually increases with age due to decreased lung elastic recoil and increased airway closure. So, this option is incorrect.\n\nD) Increased chest wall compliance: Chest wall compliance decreases with age due to increased stiffness of the chest wall and decreased muscle strength. So, this option is incorrect.\n\nE) Decreased A-a gradient: The A-a gradient (alveolar-arterial oxygen gradient) tends to increase with age due to ventilation-perfusion mismatch and diffusion limitation. So, this option is incorrect.\n\nBased on the analysis, none of the given options are correct for the changes in respiratory function most likely present in this patient when compared to a healthy 20-year-old woman.",
+                        "answers": [
+                            {
+                                "id": "49450994-b780-4a25-8456-e68ff4b32473",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "none of the above.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:39:29",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "56b532a1-2ba3-4b55-8ea9-2097d3f06c59",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Increased lung compliance",
+                        "answers": [
+                            {
+                                "id": "dbe6fcea-fc1a-4971-9336-9a25767821da",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Increased lung compliance",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:56:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1162",
+                "ref_id": "",
+                "question": "A 51-year-old Asian woman presents to her primary care provider with abdominal pain. On examination, she is found to have rebound tenderness in the lower right quadrant of her abdomen. Further workup suggests ovarian cancer, which is confirmed later in the week to be stage 4 with confirmed distant metastases in the lungs and brain. Which of the following routes describes the most likely lymphatic route for this malignancy to have metastasized to the brain?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Sentinel node - left lumbar trunk - cisterna chyli - right bronchomediastinal trunk - right lymphatic duct - right subclavian vein - systemic circulation",
+                    "Sentinel node - left lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation",
+                    "Sentinel node - right lumbar trunk - cisterna chyli - right bronchomediastinal trunk - right lymphatic duct - right subclavian vein - systemic circulation",
+                    "Sentinel node - right lumbar trunk - cisterna chyli - thoracic duct - right subclavian vein - systemic circulation",
+                    "Sentinel node - right lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Sentinel node - right lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a618b653-0dfe-4538-83c4-9760eb4c5824",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. Sentinel node: This is the first lymph node that cancer cells are most likely to spread to from the primary tumor. In the case of ovarian cancer, the sentinel nodes are usually located in the pelvic region.\n\n2. Lumbar trunks: The lymph from the pelvic region drains into the lumbar trunks. Since the patient is an Asian woman, it is more likely that the cancer cells would have spread to the left lumbar trunk.\n\n3. Cisterna chyli: The left lumbar trunk drains into the cisterna chyli, which is a large sac-like structure that collects lymph from the lower half of the body.\n\n4. Thoracic duct: The cisterna chyli continues as the thoracic duct, which is the largest lymphatic vessel in the body. It carries lymph from the lower half of the body and the left side of the upper body.\n\n5. Left subclavian vein: The thoracic duct empties into the left subclavian vein, which is a large vein that carries blood from the upper left side of the body back to the heart.\n\n6. Systemic circulation: Once the cancer cells have entered the left subclavian vein, they can travel through the systemic circulation to reach other parts of the body, including the lungs and brain.\n\nSo, the most likely lymphatic route for this malignancy to have metastasized to the brain is:\n\nB) Sentinel node - left lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation",
+                        "answers": [
+                            {
+                                "id": "c948b6e9-de24-4f8a-acb6-bb6380c8ef5f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Sentinel node - left lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:42:36",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "77e9d28a-1dbc-43f5-91b6-3591277bc015",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "E) Sentinel node - right lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation",
+                        "answers": [
+                            {
+                                "id": "d5fbecd3-7fd0-472e-9023-bc05501c2da8",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Sentinel node - right lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:56:57",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1221",
+                "ref_id": "",
+                "question": "A 49-year-old female with a history of alcoholism was found lying unconscious on a bench at a local park and rushed to the emergency department. Upon arrival, the patient regained consciousness and complained of intense bilateral flank pain and a recent decrease in urination. Urine microscopy demonstrated abundant square crystals of calcium oxalate that looked like \u201cfolded envelopes.\" Which of the following findings is most likely to be seen in this patient:",
+                "type": "multiplechoice",
+                "choices": [
+                    "Metabolic alkalosis",
+                    "Anion gap metabolic acidosis",
+                    "Non-anion gap metabolic acidosis",
+                    "Respiratory acidosis",
+                    "Respiratory alkalosis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Anion gap metabolic acidosis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "96c64d34-4228-48c9-9665-bc98e38cf550",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient has a history of alcoholism, which can lead to metabolic acidosis due to increased production of lactic acid and ketoacids.\n2. The patient presents with bilateral flank pain and a decrease in urination, which suggests possible kidney involvement.\n3. The presence of calcium oxalate crystals in the urine indicates that the patient may have kidney stones, which can cause renal tubular acidosis (RTA). RTA is a type of non-anion gap metabolic acidosis.\n\nBased on these findings, the most likely answer is:\n\nC) Non-anion gap metabolic acidosis",
+                        "answers": [
+                            {
+                                "id": "9d0100c6-11b6-40ca-ac83-f3ed7f9cc68a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Non-anion gap metabolic acidosis",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:44:14",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e0a7e99b-140e-490b-8c3d-2359caf605b6",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) Anion gap metabolic acidosis",
+                        "answers": [
+                            {
+                                "id": "ccc082f4-6010-42d2-a98c-9a5ff60c89de",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Anion gap metabolic acidosis",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:57:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "medmc_qa": {
+        "validation": [
+            {
+                "id": "b944ada9-d776-4c2a-9180-3ae5f393f72d",
+                "ref_id": "",
+                "question": "Which of the following is not true about glomerular capillaries')",
+                "type": "multiplechoice",
+                "choices": [
+                    "The oncotic pressure of the fluid leaving the capillaries is less than that of fluid entering it",
+                    "Glucose concentration in the capillaries is the same as that in glomerular filtrate",
+                    "Constriction of afferent aeriole decreases the blood flow to the glomerulas",
+                    "Hematocrit of the fluid leaving the capillaries is less than that of the fluid entering it"
+                ],
+                "context": "",
+                "cot": [
+                    "Ans-a. The oncotic pressure of the fluid leaving the capillaries is less than that of fluid entering it Guyton I LpJ1 4-.;anong 23/e p653-6_)Glomerular oncotic pressure (due to plasma protein content) is higher than that of filtrate oncotic pressure in Bowman's capsule\"Since glucose is freely filtered and the fluid in the Bowman's capsule is isotonic with plasma, the concentration of glucose in the filtrate is the same as in the capillaries"
+                ],
+                "answer": [
+                    "The oncotic pressure of the fluid leaving the capillaries is less than that of fluid entering it"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b2ac6b9b-2c74-489f-ac78-b421cd54f808",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) The oncotic pressure of the fluid leaving the capillaries is less than that of fluid entering it - This statement is true. Oncotic pressure is the pressure exerted by proteins in the blood plasma, which tends to pull water into the circulatory system. As fluid is filtered out of the glomerular capillaries, the concentration of proteins in the remaining fluid increases, leading to an increase in oncotic pressure.\n\nB) Glucose concentration in the capillaries is the same as that in glomerular filtrate - This statement is true. Glucose is freely filtered through the glomerular capillaries, and its concentration in the filtrate is the same as that in the blood plasma.\n\nC) Constriction of afferent arteriole decreases the blood flow to the glomerulus - This statement is true. The afferent arteriole is the blood vessel that supplies blood to the glomerulus. Constriction of this vessel will decrease the blood flow to the glomerulus, leading to a decrease in glomerular filtration rate.\n\nD) Hematocrit of the fluid leaving the capillaries is less than that of the fluid entering it - This statement is not true. Hematocrit is the percentage of red blood cells in the blood. Since red blood cells are not filtered through the glomerular capillaries, the hematocrit of the fluid leaving the capillaries should be the same as that of the fluid entering it.\n\nSo, the correct answer is D) Hematocrit of the fluid leaving the capillaries is less than that of the fluid entering it.",
+                        "answers": [
+                            {
+                                "id": "605d30ac-829b-4cde-bad2-74ba22947293",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Hematocrit of the fluid leaving the capillaries is less than that of the fluid entering it.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:47:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "9a2ab592-4cc7-44b5-b176-2cc5afb1f670",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) The oncotic pressure of the fluid leaving the capillaries is less than that of fluid entering it",
+                        "answers": [
+                            {
+                                "id": "cd80c561-dd5a-441d-8953-2286aa69cbc1",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The oncotic pressure of the fluid leaving the capillaries is less than that of fluid entering it",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:58:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "a963bf66-e44e-445f-b3ba-26efcd836ad9",
+                "ref_id": "",
+                "question": "Best guide for the management of Resuscitation is:",
+                "type": "multiplechoice",
+                "choices": [
+                    "CVP",
+                    "Urine output",
+                    "Blood pressure",
+                    "Saturation of Oxygen"
+                ],
+                "context": "",
+                "cot": [
+                    "The best measure of organ perfusion and the best monitor of the adequacy of shock therapy remains the urine output\". Minimum urine output in ADULTS - 1ml/min Minimum urine output in CHILDRENS - (0.5 - 1) ml/min"
+                ],
+                "answer": [
+                    "Urine output"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "cf9bc713-9ed3-4841-921c-71ed94bea50c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) CVP (Central Venous Pressure) - This is a measurement of the pressure in the large veins returning blood to the heart. It can be a useful guide for fluid management in critically ill patients, but it is not the only factor to consider.\n\nB) Urine output - Monitoring urine output can be a helpful indicator of kidney function and overall perfusion, but it is not the only factor to consider in resuscitation management.\n\nC) Blood pressure - Maintaining adequate blood pressure is essential for perfusion of vital organs, but it is not the only factor to consider in resuscitation management.\n\nD) Saturation of Oxygen - Ensuring adequate oxygen delivery to tissues is important in resuscitation, but it is not the only factor to consider.\n\nIn conclusion, there is no single \"best\" guide for the management of resuscitation, as it depends on the individual patient's condition and needs. A combination of factors, including CVP, urine output, blood pressure, and oxygen saturation, should be considered and monitored during resuscitation to ensure optimal outcomes.",
+                        "answers": [
+                            {
+                                "id": "23251f06-39f6-4d50-a259-660d9203d3d6",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Saturation of Oxygen.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:52:52",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "02fea9ba-ef63-4c33-8db0-b2905b2e3bb0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) Urine output",
+                        "answers": [
+                            {
+                                "id": "12501b06-5faf-4852-a618-ace3ff8c5990",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Urine output",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:59:57",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "8a82f9e4-b38f-43f6-9d8d-4ef8a6a4bcbf",
+                "ref_id": "",
+                "question": "40-year male patient who was a known smoker presents in AIIMS OPD with fever, latigue, jaundice, yellow colored urine with clay colored stools. For the past few days he had developed aversion to cigarette smoking. On examination scleral icterus was present. LFT are:Total Bill18.5Direct Bill7.5SGOT723SGPT812What investigations will you send for ruling out acute viral hepatitis?",
+                "type": "multiplechoice",
+                "choices": [
+                    "HBsAg, IgM antiHBC, AntiHCV AntiHEV",
+                    "AntiHAV, HBsAg, IgM antiHBc, AntiHCV",
+                    "HBsAg, IgM antiHBC,AntiHDV AntiHCV AntiHEV",
+                    "AntiHAV IgMantiHBC, AntiHCV, AntiHEV."
+                ],
+                "context": "",
+                "cot": [
+                    "Ans: B. AntiHAV, HBsAg, IgM antiHBc, AntiHCVRef: Harrison, I8't' ed., pg. 328, 2549-2552, 2550t, 2551tHB- sAgIgM Anti- HAVIgM Anti- HBcAnti-HCVDiagnostic Interpretation+ + Acute hepatitis B Chronic hepatitis B++ Acute hepatitis A superim? posed on chronic hepatitis B+++ Acute hepatitis A and B--+ Acute hepatitis A--++ Acute hepatitis A and B (HBsAg below detection threshold) + Acute hepatitis B (HBsAg below detection threshold) Acute hepatitis C"
+                ],
+                "answer": [
+                    "AntiHAV, HBsAg, IgM antiHBc, AntiHCV"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e182f753-cfc6-45ec-82e8-d9dda9a25984",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's list the symptoms and signs the patient is presenting with:\n- Fever\n- Fatigue\n- Jaundice\n- Yellow colored urine\n- Clay colored stools\n- Aversion to cigarette smoking\n- Scleral icterus\n- Abnormal LFT results\n\nThese symptoms and signs are suggestive of acute viral hepatitis. To rule out the different types of viral hepatitis, we need to test for the following markers:\n\n1. Hepatitis A: Anti-HAV IgM\n2. Hepatitis B: HBsAg and IgM anti-HBc\n3. Hepatitis C: Anti-HCV\n4. Hepatitis D: Anti-HDV (only if the patient is positive for Hepatitis B)\n5. Hepatitis E: Anti-HEV\n\nNow let's look at the options given:\n\nA) HBsAg, IgM antiHBC, AntiHCV AntiHEV\n- This option is missing Anti-HAV IgM, so it cannot rule out Hepatitis A.\n\nB) AntiHAV, HBsAg, IgM antiHBc, AntiHCV\n- This option is missing Anti-HEV, so it cannot rule out Hepatitis E.\n\nC) HBsAg, IgM antiHBC,AntiHDV AntiHCV AntiHEV\n- This option is missing Anti-HAV IgM, so it cannot rule out Hepatitis A.\n\nD) AntiHAV IgMantiHBC, AntiHCV, AntiHEV.\n- This option includes all the necessary markers to rule out Hepatitis A, B, C, and E. However, it does not include Anti-HDV, which is only necessary if the patient tests positive for Hepatitis B.\n\nTherefore, the correct answer is D) AntiHAV IgMantiHBC, AntiHCV, AntiHEV. If the patient tests positive for Hepatitis B, then further testing for Anti-HDV should be done to rule out Hepatitis D.",
+                        "answers": [
+                            {
+                                "id": "47d4a66e-2d7a-49f2-ad00-e6ae3038a7c3",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) AntiHAV IgMantiHBC, AntiHCV, AntiHEV.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:53:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d4d8f1bc-e28e-44aa-9cb2-b561b2251926",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) AntiHAV, HBsAg, IgM antiHBc, AntiHCV",
+                        "answers": [
+                            {
+                                "id": "8dadac51-c34e-4908-a023-f0cc6ee7f8f3",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) AntiHAV, HBsAg, IgM antiHBc, AntiHCV",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:00:03",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "2267ecd3-7b7f-4416-86f8-5ef2312e643e",
+                "ref_id": "",
+                "question": "A child presents with high grade fever, inspiratory stridor and develops swallowing difficulty with drooling of saliva since last 4-6 hours. Which of the following treatment is recommended apa from general airway management?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Nebulized racemic epinephrine",
+                    "Anti-diphtheria toxin",
+                    "Coicosteroids",
+                    "IV ceftriaxone"
+                ],
+                "context": "",
+                "cot": [
+                    "ACUTE EPIGLOTTITIS- The classical presentation of acute epiglottitis is welldescribed. It is of a toxic child with a sho history of sorethroat, inspiratory stridor, muffled voice and droolingdue to odynophagia and dysphagia. Left untreated thereis progressive respiratory distress. The child is febrile. It is commonest between the ages of 2 and 8 Nebulized epinephrine (1mL of 1 in 1000 epinephrinediluted in 3mL of 0.9% saline) has an established role inthe acute paediatric airway in reducing mucosal oedemaby an alpha-agonist effect causing vasoconstriction andbronchodilation; a maximum effect is achieved within30-60 minutes. It may postpone or eliminate the need for an aificial airway, or give symptomaticrelief until effective treatment can be given."
+                ],
+                "answer": [
+                    "Nebulized racemic epinephrine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "ac4627b7-72ce-450e-b978-cc59dba49005",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the symptoms and possible condition\n- High grade fever\n- Inspiratory stridor\n- Swallowing difficulty\n- Drooling of saliva\n\nThese symptoms suggest a possible upper airway obstruction, such as croup, epiglottitis, or bacterial tracheitis.\n\nStep 2: Evaluate the treatment options\nA) Nebulized racemic epinephrine: This is used to treat croup, which is characterized by a barking cough, stridor, and respiratory distress. However, the presence of high-grade fever and drooling of saliva are not typical for croup.\n\nB) Anti-diphtheria toxin: This is used to treat diphtheria, which presents with a sore throat, fever, and a thick gray membrane covering the throat. The symptoms described do not match diphtheria.\n\nC) Corticosteroids: These can be used to treat croup and may also be beneficial in other upper airway obstructions. However, they may not be the primary treatment for the condition described.\n\nD) IV ceftriaxone: This is a broad-spectrum antibiotic used to treat bacterial infections, including epiglottitis and bacterial tracheitis. The symptoms described are more consistent with epiglottitis, which is a medical emergency requiring immediate treatment with antibiotics.\n\nStep 3: Choose the best treatment option\nBased on the symptoms and the treatment options, the best treatment for this child is IV ceftriaxone (option D). However, it is important to note that general airway management and other supportive measures should also be provided.",
+                        "answers": [
+                            {
+                                "id": "e1de8caa-090e-448f-aa29-e26d485cd4cb",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) IV ceftriaxone.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:54:04",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "63cdbb77-b2ea-47e5-9077-e1965496788d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Nebulized racemic epinephrine",
+                        "answers": [
+                            {
+                                "id": "bda4e717-56ac-449b-85f5-8a2bebf45448",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Nebulized racemic epinephrine.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:00:25",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "5c97e587-2436-40b2-9f70-6f08a903d543",
+                "ref_id": "",
+                "question": "In intraoral radiograph, patient radiation is decreased by\nall except:",
+                "type": "multiplechoice",
+                "choices": [
+                    "High speed film",
+                    "Intensifying screens",
+                    "Lead apron",
+                    "Decreasing kVp"
+                ],
+                "context": "",
+                "cot": [
+                    "Kilovoltage:\nThe optimal operating potential of dental X-ray units is between 60 and 70 kVp (ADA 2012).\nAlthough image diagnosis may be improved slightly with increased image contrast (low kVp) images, the patient dose is reduced with higher kVp exposures. Most intraoral machines use 60 to 70 kVp. The availability of constant-potential (fully rectified), high-frequency or direct current (DC)\u00a0dental X-ray units have made possible the production of radiographs with lower kilovoltage and at reduced levels of radiation. The surface exposure required to produce a comparable radiographic density using a constant-potential unit is approximately 25% less than that of a conventional self-rectified unit operating at the same kilovoltage. At the present time, several manufacturers produce DC units.\nThus, in intraoral radiograph, patient radiation is not decreased by decreasing kVp.\n\u00a0Reference: White and Pharoah's Oral Radiology Principles and Interpretation 7th edition page no 36"
+                ],
+                "answer": [
+                    "Decreasing kVp"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "0dd65519-c150-4c8b-a3ee-d4270540e020",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) High speed film - This is correct, as using high-speed film requires less radiation exposure to produce the same image quality as slower films.\n\nB) Intensifying screens - These are used in extraoral radiography, not intraoral radiography. They help reduce patient radiation exposure by intensifying the effect of the X-rays on the film, allowing for a lower dose to be used. However, since they are not used in intraoral radiography, this option is incorrect.\n\nC) Lead apron - This is correct, as a lead apron helps protect the patient's body from scatter radiation, reducing their overall exposure.\n\nD) Decreasing kVp - This is incorrect. Decreasing the kVp (kilovolt peak) would actually increase patient radiation exposure, as it would require a higher exposure time to achieve the same image quality. Increasing kVp while decreasing exposure time can help reduce patient radiation exposure.\n\nSo, the correct answer is B) Intensifying screens, as they are not used in intraoral radiography and therefore do not contribute to decreasing patient radiation in this context.",
+                        "answers": [
+                            {
+                                "id": "99774345-d04e-483e-9091-720447d261ce",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Intensifying screens.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:01:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "23ea6958-925b-4823-87c0-5e7ee7ba2201",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) Decreasing kVp",
+                        "answers": [
+                            {
+                                "id": "2077127c-bd42-4c73-9d1c-1a6c710be60c",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Decreasing kVp",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:02:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "acc7b73e-20f6-40c7-b831-d8b45a8f38fb",
+                "ref_id": "",
+                "question": "Poor prognostic indicator of ALL is \u2013",
+                "type": "multiplechoice",
+                "choices": [
+                    "Female sex",
+                    "Leukocyte count < 50,000",
+                    "Age greater than 1 year",
+                    "Hypodiploidy"
+                ],
+                "context": "",
+                "cot": [
+                    "Prognostic factors in ALL"
+                ],
+                "answer": [
+                    "Hypodiploidy"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a2f7bcee-0da8-4445-9fed-3d0a8936a640",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Female sex - This is not a poor prognostic indicator for ALL. In fact, males have a slightly higher risk of developing ALL.\n\nB) Leukocyte count < 50,000 - This is not a poor prognostic indicator for ALL. A high leukocyte count (greater than 50,000) is associated with a poorer prognosis.\n\nC) Age greater than 1 year - This is a poor prognostic indicator for ALL. Children younger than 1 year and older than 10 years have a poorer prognosis.\n\nD) Hypodiploidy - This is a poor prognostic indicator for ALL. Hypodiploidy (having fewer than the normal number of chromosomes) is associated with a poorer prognosis.\n\nSo, both options C and D are poor prognostic indicators for ALL.",
+                        "answers": [
+                            {
+                                "id": "bb1835a0-304c-467f-855f-c2ae0e7e0297",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Age greater than 1 year and D) Hypodiploidy.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:06:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7aeef251-f060-44ec-b365-b39056859734",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) Hypodiploidy",
+                        "answers": [
+                            {
+                                "id": "7a9eda99-b3a8-41e6-9236-15f8219e6fc0",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Hypodiploidy",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:14:20",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "26dd7eda-3dde-43f0-a734-392796fdc8e2",
+                "ref_id": "",
+                "question": "Which inflammatory mediator involve in intracellular killing of microbes?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Catalase",
+                    "Oxidase",
+                    "Lysozyme",
+                    "IL6"
+                ],
+                "context": "",
+                "cot": [
+                    "The killing of microbes and the destruction of ingested materials are accomplished by reactive oxygen species (ROS, also called reactive oxygen intermediates), reactive nitrogen species, mainly derived from nitric oxide (NO), and lysosomal enzymes.\nNeutrophils and monocytes contain granules packed with enzymes and anti-microbial proteins that degrade microbes and dead tissues and may contribute to tissue damage. These granules are actively secretory and thus distinct from classical lysosomes.\u00a0\nNeutrophils have two main types of granules:\n\nThe smaller specific (or secondary) granules contain lysozyme, collagenase, gelatinase, lactoferrin, plasminogen activator, histaminase, and alkaline phosphatase.\u00a0\nThe larger azurophil (or primary) granules contain MPO, bactericidal factors (such as defensins), acid hydrolases, and a variety of neutral proteases (elastase, cathepsin G, nonspecific collagenases, proteinase 3).\n\nKumar V, Abbas AK, Aster JC. Robbins basic pathology. Elsevier Health Sciences; 2017. Page 68"
+                ],
+                "answer": [
+                    "Lysozyme"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "7939c73d-32c6-452a-94b2-4e7a6fef1d52",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Catalase: This enzyme is involved in breaking down hydrogen peroxide, which is produced by immune cells to kill microbes. However, catalase itself is not directly involved in killing microbes.\n\nB) Oxidase: This enzyme is involved in producing reactive oxygen species (ROS), which are used by immune cells to kill microbes. This seems like a possible answer.\n\nC) Lysozyme: This enzyme is involved in breaking down the cell walls of bacteria, leading to their destruction. However, it is not directly involved in intracellular killing of microbes.\n\nD) IL6: This is a cytokine involved in the immune response, but it is not directly involved in killing microbes.\n\nBased on this information, the best answer is B) Oxidase, as it is involved in producing ROS, which are used by immune cells to kill microbes intracellularly.",
+                        "answers": [
+                            {
+                                "id": "d2608a78-4bfb-4d92-9b7f-47e98e9cb951",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Oxidase.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:11:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "559700a3-fe64-4deb-818b-f8b9ba914b57",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) Lysozyme",
+                        "answers": [
+                            {
+                                "id": "e7b3d404-36f4-4ac5-a8c1-ab54ffa9585b",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Lysozyme",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:25:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "2388aeb7-4920-452f-9acb-28be49c72966",
+                "ref_id": "",
+                "question": "Autoinfection can be caused by all the following helminths except:",
+                "type": "multiplechoice",
+                "choices": [
+                    "Enterobius vermicularis",
+                    "Hymenolepis nana",
+                    "Taenia solium",
+                    "Ascaris lumbricoides"
+                ],
+                "context": "",
+                "cot": [
+                    "Ans: D. Ascaris lumbricoidesAutoinfection:Infection of a primary host with a parasite, paicularly a helminth, in such a way that the complete life cycle of the parasite happens in a single organism, without the involvement of another host.Primary host is at the same time the secondary host of parasite.Autoinfection is seen in (CHEST)Cryptosporidium parvumdegHymenolepis nanadegEnterobius vermicularisQStrongyloides stercoralisdegTaenia soliumdeg"
+                ],
+                "answer": [
+                    "Ascaris lumbricoides"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "af34b902-7d92-4e31-ab83-90cb4ff033e4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Enterobius vermicularis: This is a pinworm, and autoinfection can occur when eggs are transferred from the anus to the mouth, either directly or indirectly through contaminated surfaces or objects. So, autoinfection can be caused by this helminth.\n\nB) Hymenolepis nana: This is a tapeworm, and autoinfection can occur when eggs are ingested, either directly from contaminated hands or indirectly through contaminated food or water. So, autoinfection can be caused by this helminth.\n\nC) Taenia solium: This is also a tapeworm, but autoinfection is not common with this helminth. Infection usually occurs by ingesting undercooked pork containing cysticerci (larval stage), which then develop into adult tapeworms in the intestine. Autoinfection is not a typical feature of Taenia solium infection.\n\nD) Ascaris lumbricoides: This is a roundworm, and autoinfection can occur when eggs are ingested, either directly from contaminated hands or indirectly through contaminated food or water. So, autoinfection can be caused by this helminth.\n\nBased on this information, the correct answer is:\n\nC) Taenia solium",
+                        "answers": [
+                            {
+                                "id": "7f40f70d-2b9e-4fa9-b12d-a6d873103f7a",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Taenia solium",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:17:08",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7a423215-27c8-4685-b5a0-7e0f5cee0402",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) Ascaris lumbricoides",
+                        "answers": [
+                            {
+                                "id": "6062c85a-3fae-49b2-b54c-d827b2cc1deb",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Ascaris lumbricoides",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:27:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_75",
+                "ref_id": "",
+                "question": "Over a period of time the weather can change",
+                "type": "multiplechoice",
+                "choices": [
+                    "The color of my hair",
+                    "The way I walk",
+                    "The size of a statue",
+                    "The sound a computer makes"
+                ],
+                "context": "",
+                "cot": [
+                    "sometimes weathering smooths rocks"
+                ],
+                "answer": [
+                    "The size of a statue"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "446de6cf-8476-4e4e-b526-c4008d4826bb",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) The color of my hair - Weather can affect hair color to some extent, especially if you spend a lot of time in the sun. Sun exposure can lighten hair color.\n\nB) The way I walk - Weather can affect the way you walk, especially if it's slippery or wet outside. You might walk more cautiously in such conditions.\n\nC) The size of a statue - Weather does not directly change the size of a statue. However, over a long period of time, weathering and erosion can wear down a statue, making it appear smaller.\n\nD) The sound a computer makes - Weather does not affect the sound a computer makes.\n\nBased on this analysis, the most accurate answer is A) The color of my hair.",
+                        "answers": [
+                            {
+                                "id": "0f8dfd53-c3c8-48a5-b7d6-cce79beafc04",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The color of my hair.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:26:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a6dad95d-cc09-4fbb-bc5f-736c054abbc1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) The size of a statue",
+                        "answers": [
+                            {
+                                "id": "d889e9b5-48c5-442a-9f0b-e33ef436a1ef",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) The size of a statue",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:29:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_435",
+                "ref_id": "",
+                "question": "The balance result will be number of",
+                "type": "multiplechoice",
+                "choices": [
+                    "kilowatts",
+                    "kilobytes",
+                    "kilograms",
+                    "kilometers"
+                ],
+                "context": "",
+                "cot": [
+                    "a balance is used for measuring mass of an object"
+                ],
+                "answer": [
+                    "kilograms"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b742a78d-82ea-4879-abd7-0522a2b7c200",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The question does not provide enough information to determine what the balance result will be. We need more context or information about what is being measured or calculated to determine the correct unit of measurement.",
+                        "answers": [
+                            {
+                                "id": "33a0f873-e671-436f-9eb2-63d0ee7e29b4",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Not enough information provided.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:43:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c32f4396-ab75-4216-ae2b-2de670b87c7e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) kilograms",
+                        "answers": [
+                            {
+                                "id": "09943c90-32d0-4be1-a13e-b356c696bffb",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) kilograms",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:01:42",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "e6391d901dcc8a269c79",
+                "ref_id": "",
+                "question": "Did King James I despise fairy beings?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "King James I wrote Daemonologie in which he stated that a fairy was a being that could act as a familiar.",
+                    "A familiar was an animal or spirit that conspired with The Devil.",
+                    "King James I presided over the execution of Agnes Sampson.",
+                    "Agnes Sampson was accused of conspiring with familiars and was burned at the stake."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a9a5aaab-92f9-4988-b130-fc9b73303b18",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "King James I was known for his interest in witchcraft and the supernatural. He even wrote a book called \"Daemonologie\" in 1597, which explored the topics of witchcraft, necromancy, and demonic possession. In this book, he mentioned fairies as part of the supernatural world. However, it is not clear if he despised them or simply considered them as part of the broader supernatural realm.\n\nBased on the available information, it is difficult to definitively say whether King James I despised fairy beings or not.",
+                        "answers": [
+                            {
+                                "id": "20ea5c39-a01d-4a61-b102-1b0cf3a83a18",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "unclear.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:47:48",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "213b9c41-f8a5-4328-bee5-d86253194518",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) True",
+                        "answers": [
+                            {
+                                "id": "6b538fd0-3d45-4258-836f-94fe0dc86b10",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:03:24",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "efde6ff2282415b9f2f6",
+                "ref_id": "",
+                "question": "Would General Zod prefer an iPhone over a Samsung Galaxy S4?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "General Zod is a villain.",
+                    "Apple does not allow moviemakers to give villains iPhones."
+                ],
+                "answer": [
+                    "False"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "c4b34979-10c6-4a2d-9b1e-68b3babc7c91",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "As an AI, I cannot predict personal preferences of fictional characters like General Zod. However, both iPhone and Samsung Galaxy S4 have their own unique features and it would depend on General Zod's personal preferences and needs.",
+                        "answers": [
+                            {
+                                "id": "b889cf5f-45e5-4361-b4e3-a07bc66852c0",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "uncertain.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:54:06",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e486aa12-fe11-4c9c-9768-a758fbbf3420",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "350f7ed8-3636-4b05-812d-3b680e0530df",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:09:41",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "6e16eb72a2aceb3dc9cf",
+                "ref_id": "",
+                "question": "Would a kindergarten teacher make a lesson of the New Testament?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The majority of Kindergarten teachers work in public schools.",
+                    "Public schools abide by a separation of church and state, and do not have any overall religion.",
+                    "Students of all religions are welcome to attend public school."
+                ],
+                "answer": [
+                    "False"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "433871ab-8240-4188-bce1-1d9f4532e633",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "It depends on the context of the kindergarten. If it is a religious school or a school that incorporates religious teachings, then it is possible that a kindergarten teacher may teach a lesson on the New Testament. However, if it is a public school or a secular school, it is unlikely that a kindergarten teacher would teach a lesson on the New Testament, as it may not be appropriate for the curriculum or the diverse beliefs of the students.\n\nSo, the answer could be either A) True or B) False, depending on the context of the kindergarten.",
+                        "answers": [
+                            {
+                                "id": "dacd8075-bfbd-4a57-8a1a-0a46d9c874a3",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "insufficient information.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:07:30",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a755606a-4a2a-4c50-baba-09a4d5e8d040",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "f511e8b0-de94-4f25-a399-8c4d2d7a4c16",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:15:42",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    }
+}

@@ -1,0 +1,1201 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "f20d40bc4af588223e880e0bb58b27b8",
+                "ref_id": "",
+                "question": "What is the primary purpose of cars?",
+                "type": "multiplechoice",
+                "choices": [
+                    "cost money",
+                    "slow down",
+                    "move people",
+                    "turn right",
+                    "get girls"
+                ],
+                "context": "",
+                "cot": [
+                    "Cars help in moving people while turning right and getting girls do not.",
+                    "Moving people connects them from one place to another unlike costing money or slowing down."
+                ],
+                "answer": [
+                    "move people"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e7fa0885-ddff-4a91-98c9-dee67aec6042",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) move people",
+                        "answers": [
+                            {
+                                "id": "37682d19-f03f-44a9-98d8-f5ba9d2a03f1",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) move people.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 00:09:02",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "f44508b5-8522-4719-95ec-8ae71c55f424",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: Identify the primary function of cars.\n- Cars are vehicles designed to transport people and goods from one place to another.\n\nStep 2: Evaluate the options.\n- A) Cost money: This is not the primary purpose of cars, but rather a consequence of owning and operating one.\n- B) Slow down: This is not the primary purpose of cars, but rather a function of the driver's actions.\n- C) Move people: This is the primary purpose of cars.\n- D) Turn right: This is not the primary purpose of cars, but rather a function of the driver's actions.\n- E) Get girls: This is not the primary purpose of cars, but rather a social stereotype.\n\nStep 3: Choose the correct answer.\n- The correct answer is C) Move people.",
+                        "answers": [
+                            {
+                                "id": "cdce1633-4949-4da4-bf3a-756362c84467",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Move people.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 17:13:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b1538f8c-6bae-4b8f-997b-b690341b4140",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Cars do cost money, but that is not their primary purpose.\nB) Cars can slow down, but that is not their primary purpose.\nC) Cars are designed to move people from one place to another, so this could be the primary purpose.\nD) Cars can turn right, but that is not their primary purpose.\nE) Getting girls is not the primary purpose of cars.\n\nBased on the analysis, the primary purpose of cars is to move people. So the answer is C) move people.",
+                        "answers": [
+                            {
+                                "id": "75d43a85-1834-4710-b0d8-3d6068c28999",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) move people.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:55:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "a5456dc611aa93b81d7ab6ed8e160f85",
+                "ref_id": "",
+                "question": "The chief saw his entire tribe wiped out, he was a leader with a single what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "peon",
+                    "indian",
+                    "minister",
+                    "follower",
+                    "employee"
+                ],
+                "context": "",
+                "cot": [
+                    "Leaders have followers who are supporters unlike peon, indian or minister.",
+                    "Followers do not work for money while employees do."
+                ],
+                "answer": [
+                    "follower"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "0d2ef987-86af-443d-8104-e429d238b789",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) Indian",
+                        "answers": [
+                            {
+                                "id": "d6579084-41c5-4f72-b993-bf840bdd052a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Indian.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 00:32:12",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d15adb3f-fddd-44af-985e-aff12d6fd159",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: Identify the main idea of the sentence.\nThe main idea is that the chief's entire tribe was wiped out.\n\nStep 2: Look for clues in the sentence that might help answer the question.\nThe only clue in the sentence is that the chief was a leader.\n\nStep 3: Use logic and reasoning to eliminate unlikely options.\nOption B is unlikely because it is not specific enough. Option C is unlikely because it is not relevant to the context. Option E is unlikely because it is too general.\n\nStep 4: Choose the best answer.\nThe best answer is D) follower because it makes sense that a leader would have followers.",
+                        "answers": [
+                            {
+                                "id": "4d41ed7f-27f0-44d3-b232-dbccf63af707",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) follower.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 17:28:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a433eba8-4c78-4718-8e47-64dd6720abb1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The chief saw his entire tribe wiped out, so he was left with only one person to lead. The most appropriate term for this person would be a \"follower.\" Therefore, the correct answer is:\n\nD) follower",
+                        "answers": [
+                            {
+                                "id": "91d36d7d-e73a-400d-8b00-26489ae45c6c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) follower",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:55:35",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_194",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the pediatrician because of abdominal pain and constipation for 3 weeks. His mother says he has been increasingly irritable recently. His vocabulary consists of 50 words and he does not use sentences. Physical examination shows pale conjunctivae and abdominal tenderness. He refers to himself by name but is unable to name body parts or count to three. Peripheral blood smear shows small, pale red blood cells with basophilic stippling. Which of the following processes is most likely impaired in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Conversion of ferrous iron to ferric iron",
+                    "Conversion of porphobilinogen to hydroxymethylbilane",
+                    "Conversion of aminolevulinic acid to porphobilinogen",
+                    "Conversion of homocysteine to methionine",
+                    "Conversion of uroporphyrinogen III to coproporphyrinogen III"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Conversion of aminolevulinic acid to porphobilinogen"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "7c6c1673-b079-4a58-8476-73fad753c63b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nThe correct answer is C) Conversion of aminolevulinic acid to porphobilinogen.\n\nThe patient is presenting with symptoms of lead poisoning, which can cause abdominal pain, constipation, irritability, and developmental delays. The basophilic stippling seen on the peripheral blood smear is a characteristic finding in lead poisoning.\n\nLead inhibits the enzyme aminolevulinic acid dehydratase (ALAD), which is involved in the conversion of aminolevulinic acid to porphobilinogen in the heme synthesis pathway. This leads to a buildup of aminolevulinic acid and other intermediates, which can cause damage to the nervous system and other organs.\n\nThe other answer choices are not directly related to the symptoms and findings in this patient.",
+                        "answers": [
+                            {
+                                "id": "9c249984-6290-414d-a7ec-847c2fd4bea7",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Conversion of aminolevulinic acid to porphobilinogen.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 00:42:03",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "38f8ad15-72b9-49cd-99e9-d89449a5ba48",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nThe patient's symptoms and physical examination findings suggest a possible diagnosis of lead poisoning, which can cause abdominal pain, constipation, irritability, anemia, and neurological symptoms. The basophilic stippling seen on the peripheral blood smear is a characteristic finding in lead poisoning, indicating impaired heme synthesis.\n\nThe heme synthesis pathway involves several steps, including the conversion of aminolevulinic acid (ALA) to porphobilinogen (PBG) by the enzyme ALA synthase. Therefore, option C is the correct answer.\n\nOption A refers to the conversion of ferrous iron (Fe2+) to ferric iron (Fe3+), which is important for the binding of oxygen to hemoglobin. This process is not directly related to heme synthesis.\n\nOption B refers to the conversion of porphobilinogen to hydroxymethylbilane, which is a later step in heme synthesis. However, this step is not specifically affected by lead poisoning.\n\nOption D refers to the conversion of homocysteine to methionine, which is a step in the methionine cycle and is not directly related to heme synthesis.\n\nOption E refers to the conversion of uroporphyrinogen III to coproporphyrinogen III, which is another step in heme synthesis but is not specifically affected by lead poisoning.",
+                        "answers": [
+                            {
+                                "id": "87e8def6-6259-4c32-980c-e0cb30bf01a7",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Conversion of aminolevulinic acid to porphobilinogen.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 17:40:13",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d0e7a2f8-815a-4f10-ba6f-5c7a6422072d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the patient's symptoms and signs\n- Abdominal pain and constipation\n- Irritability\n- Pale conjunctivae (anemia)\n- Basophilic stippling on peripheral blood smear\n- Delayed language development\n\nStep 2: Identify the most likely diagnosis\nThe combination of anemia, basophilic stippling, and developmental delay suggests lead poisoning.\n\nStep 3: Identify the process impaired in lead poisoning\nLead poisoning interferes with heme synthesis, specifically by inhibiting two enzymes: delta-aminolevulinic acid dehydratase (ALAD) and ferrochelatase. ALAD is responsible for the conversion of aminolevulinic acid (ALA) to porphobilinogen, while ferrochelatase is responsible for the conversion of ferrous iron to ferric iron.\n\nStep 4: Match the impaired process with the answer choices\nA) Conversion of ferrous iron to ferric iron\nB) Conversion of porphobilinogen to hydroxymethylbilane\nC) Conversion of aminolevulinic acid to porphobilinogen\nD) Conversion of homocysteine to methionine\nE) Conversion of uroporphyrinogen III to coproporphyrinogen III\n\nThe correct answer is C) Conversion of aminolevulinic acid to porphobilinogen, as this process is impaired due to the inhibition of ALAD enzyme in lead poisoning.",
+                        "answers": [
+                            {
+                                "id": "c085c9ac-a151-4e8c-b967-cac39e2b1a9f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Conversion of aminolevulinic acid to porphobilinogen.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:56:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1107",
+                "ref_id": "",
+                "question": "A 76-year-old woman comes to the physician for a routine examination. She has a history of hypertension well controlled with diet and exercise. She has no history of smoking or illicit drug use. She walks one mile daily. Her pulse is 68/min, respirations are 16/min, and blood pressure is 119/76 mm Hg. Physical examination shows no abnormalities. When compared to a healthy 20-year-old woman, which of the following changes in respiratory function is most likely present in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increased lung compliance",
+                    "Increased vital capacity",
+                    "Decreased residual volume",
+                    "Increased chest wall compliance",
+                    "Decreased A-a gradient"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Increased lung compliance"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "add9c527-597d-438d-9e91-00d6631ad1a8",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nC) Decreased residual volume\n\nAs we age, our respiratory system undergoes several changes, including decreased lung elasticity, decreased chest wall compliance, and decreased respiratory muscle strength. These changes can lead to a decrease in lung volumes, including vital capacity and residual volume. In this patient, the fact that her respiratory rate is normal and there are no abnormalities on physical examination suggests that her respiratory function is likely well-preserved. Therefore, the most likely change in respiratory function compared to a healthy 20-year-old woman is a decrease in residual volume. This is because residual volume tends to increase with age due to decreased lung elasticity and airway closure. The other answer choices are less likely to be present in this patient based on the information provided.",
+                        "answers": [
+                            {
+                                "id": "2ba9a274-dc3a-4272-9a95-c9f5ffe00678",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Decreased residual volume.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:06:46",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c4132bb9-c81d-4048-9c1c-618e620cc500",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand the normal changes in respiratory function that occur with aging. As people age, their lung tissue becomes less elastic and more rigid, which can lead to decreased lung compliance. This means that the lungs are less able to expand and contract, making it harder to breathe. Additionally, the muscles that support breathing may weaken, leading to decreased chest wall compliance.\n\nBased on this information, we can eliminate options A and D, as they suggest increased lung and chest wall compliance, respectively. Option E, decreased A-a gradient, is not directly related to respiratory function and is unlikely to be affected by aging alone.\n\nOption B, increased vital capacity, is a possibility, as some studies have shown that vital capacity may increase with age due to increased lung size. However, this is not a consistent finding and may not be the most likely change to occur in this patient.\n\nOption C, decreased residual volume, is the most likely change to occur in this patient. Residual volume is the amount of air that remains in the lungs after a maximal exhalation, and it tends to decrease with age due to decreased lung elasticity. This means that the patient may have less air trapped in her lungs, which could make breathing easier.\n\nTherefore, the correct answer is C) Decreased residual volume.",
+                        "answers": [
+                            {
+                                "id": "68155e64-2f4e-4f90-afab-775f7e9c4a74",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Decreased residual volume.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 18:11:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "fdce40b5-454f-4935-8981-339713e6c4c5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Increased lung compliance: Lung compliance decreases with age due to loss of elastic tissue and increased stiffness. So, this option is incorrect.\n\nB) Increased vital capacity: Vital capacity decreases with age due to decreased lung compliance and increased chest wall stiffness. So, this option is incorrect.\n\nC) Decreased residual volume: Residual volume actually increases with age due to decreased lung elastic recoil and increased airway closure. So, this option is incorrect.\n\nD) Increased chest wall compliance: Chest wall compliance decreases with age due to increased stiffness and calcification of costal cartilages. So, this option is incorrect.\n\nE) Decreased A-a gradient: The A-a gradient (alveolar-arterial gradient) tends to increase with age due to ventilation-perfusion mismatch and decreased lung function. So, this option is incorrect.\n\nBased on the analysis, none of the given options seem to be correct. However, if we have to choose the best answer among the given options, we can consider option A) Increased lung compliance, as it is the least incorrect option. The lung compliance might be relatively increased in this patient due to her healthy lifestyle and lack of smoking history, but it is still expected to be lower than that of a healthy 20-year-old woman.",
+                        "answers": [
+                            {
+                                "id": "29d066f2-b5bd-44bb-afd4-f253507c6d35",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Increased lung compliance.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:56:39",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "medmc_qa": {
+        "validation": [
+            {
+                "id": "3b184f01-db13-4379-ab0b-7709853e0326",
+                "ref_id": "",
+                "question": "A case of jaundice with 50% direct bilirubin, other LFTs normal. Diagnosis is \u2013",
+                "type": "multiplechoice",
+                "choices": [
+                    "Rotor syndrome",
+                    "Gilbert syndrome",
+                    "Glucuronyl transferase deficiency",
+                    "Primary biliary cirrhosis"
+                ],
+                "context": "",
+                "cot": [
+                    "50% direct bilirubin means conjugated hyperbilirubinemia.\nNormally the direct (conjugated) bilirubin is less than 15-20% of total bilirubin.\n\nNormal Values of bilirubin\nTotal bilirubin\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 >\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 0.2 - 1.9 mg/d1.\n\u00a0\u00a0\u00a0 Direct bilirubin >\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 0 - 0.3 mg/dl.\n\nSo, this child has : -\n\n\nConjugated hyperbilirubinemia\nOther LFTs normal\n\n\nAmongst the given options, Rotor syndrome and Primary biliary cirrhosis cause conjugated hyperbilirubinemia.\nIn Primary biliary cirrhosis, other LFTs are also abnormal, e.g., SGOT and SGPT are raised. Now we are left with Rotor syndrome which causes conjugated hyperbilirubinemia. Other LFTs are normal."
+                ],
+                "answer": [
+                    "Rotor syndrome"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e48c2727-ae5d-41c1-86ca-5b67ebd96bcb",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nC) Glucuronyl transferase deficiency\n\nThis is because a high level of direct bilirubin indicates impaired conjugation of bilirubin in the liver, which is the function of glucuronyl transferase. Rotor syndrome and Gilbert syndrome both have elevated indirect bilirubin levels, while primary biliary cirrhosis typically presents with elevated levels of both direct and indirect bilirubin.",
+                        "answers": [
+                            {
+                                "id": "92ab9c6e-9caa-4ba8-be6c-13efd57be1e9",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Glucuronyl transferase deficiency.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:18:52",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0e4a17a2-f2fe-4640-9866-08035b393d46",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nJaundice is a condition where the skin and whites of the eyes turn yellow due to the buildup of bilirubin in the blood. Bilirubin is a yellow pigment that is produced when red blood cells break down. It is normally processed by the liver and excreted in the bile. When the liver is unable to process bilirubin properly, it can lead to jaundice.\n\nIn this case, the direct bilirubin level is 50%, which means that there is a problem with the liver's ability to excrete bilirubin. The other liver function tests (LFTs) are normal, which rules out liver damage or inflammation.\n\nA) Rotor syndrome is a rare genetic disorder that causes jaundice, but it is usually associated with elevated levels of both direct and indirect bilirubin. This is not the correct answer.\n\nB) Gilbert syndrome is a common genetic disorder that causes mild jaundice, but it is usually associated with elevated levels of indirect bilirubin, not direct bilirubin. This is not the correct answer.\n\nC) Glucuronyl transferase deficiency is a rare genetic disorder that causes jaundice due to a deficiency in the enzyme that conjugates bilirubin in the liver. This can lead to elevated levels of both direct and indirect bilirubin. However, in this case, the direct bilirubin level is elevated while the other LFTs are normal, which is not consistent with this diagnosis. This is not the correct answer.\n\nD) Primary biliary cirrhosis is a chronic liver disease that can cause jaundice, but it is usually associated with elevated levels of both direct and indirect bilirubin, as well as other abnormalities in the LFTs. This is not the correct answer.\n\nTherefore, the correct answer is none of the above. Without more information, it is difficult to determine the exact cause of the jaundice in this case. Further testing and evaluation would be necessary to make a definitive diagnosis.",
+                        "answers": [
+                            {
+                                "id": "cae96514-e09a-441d-bcb8-4dee575e5dc3",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "none of the above.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 18:25:18",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "9630844b-e855-4591-b605-07911ae4ef52",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's understand the basic concepts of each option:\n\nA) Rotor syndrome: A rare genetic disorder characterized by intermittent jaundice due to elevated levels of both direct and indirect bilirubin. Liver function tests (LFTs) are usually normal.\n\nB) Gilbert syndrome: A common, mild liver disorder in which the liver does not properly process bilirubin, leading to slightly elevated levels of indirect bilirubin. LFTs are usually normal.\n\nC) Glucuronyl transferase deficiency: Also known as Crigler-Najjar syndrome, it is a rare genetic disorder characterized by severe jaundice due to high levels of unconjugated (indirect) bilirubin. LFTs are usually normal.\n\nD) Primary biliary cirrhosis: A chronic liver disease characterized by the destruction of bile ducts, leading to the accumulation of bile in the liver and elevated levels of direct bilirubin. LFTs are usually abnormal.\n\nNow, let's analyze the given case: A patient with jaundice and 50% direct bilirubin, with normal LFTs. This suggests that the issue is related to the processing of bilirubin, rather than liver damage or dysfunction. \n\nConsidering the options, Rotor syndrome (A) seems to be the most likely diagnosis, as it is characterized by elevated levels of both direct and indirect bilirubin with normal LFTs. Gilbert syndrome (B) and Glucuronyl transferase deficiency (C) are less likely, as they primarily involve elevated indirect bilirubin. Primary biliary cirrhosis (D) is also less likely, as LFTs are usually abnormal in this condition.\n\nSo, the most likely diagnosis is:\n\nA) Rotor syndrome",
+                        "answers": [
+                            {
+                                "id": "fb8a58a8-777c-4faf-b87e-15332dc0c78b",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Rotor syndrome",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:57:21",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "8be32dbe-9a46-4a8a-8c08-ff89c3e78c3d",
+                "ref_id": "",
+                "question": "Fetal adrenals release which hormone predominantly:March 2009, September 2010",
+                "type": "multiplechoice",
+                "choices": [
+                    "Oestrogen",
+                    "Testosterone",
+                    "Aldosterone",
+                    "Coisone"
+                ],
+                "context": "",
+                "cot": [
+                    "Ans. D: CoisoneFetal adrenals shows hyperophy of the reticular zone (fetal zone), which is the site of synthesis of oestriol precursor, coisol and dehydroepiandrosterone.After 12 weeks of gestation, the activity of 3 p-hydroxysteroid dehydrogenase (HSD3B) decreases in fetal adrenal and sulfokinase activity increases.At that time (during the mid-gestation, 12 to 22 weeks) the major steroid products are DHEA and DHEA Sulfate (DHEA-S).During the mid-gestation (12 to 22 weeks), the aromatase activity and sulfokinase activity increases. So Placenta itself utilizes fetal DHEA and DHEA-S as substrate for estrone and estradiol as precursors."
+                ],
+                "answer": [
+                    "Coisone"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6b327a21-fe76-4403-bf75-6a30a8fd171b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nD) Coisone",
+                        "answers": [
+                            {
+                                "id": "f235597f-f586-4602-ba7b-9b8b6a3c1977",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Coisone.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:40:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "492338db-b6cb-47c2-90f1-afe0018bbaa7",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what the fetal adrenal gland is and what hormones it produces. The fetal adrenal gland is a gland located above the kidneys in a developing fetus. It produces several hormones, including cortisol, aldosterone, and androgens (such as testosterone).\n\nNext, we need to determine which hormone is predominantly released by the fetal adrenal gland. The question gives us four options: estrogen, testosterone, aldosterone, and coisone. We can eliminate estrogen and testosterone because they are not predominantly produced by the fetal adrenal gland. Estrogen is mainly produced by the ovaries in females and testosterone is mainly produced by the testes in males.\n\nThat leaves us with aldosterone and coisone. Coisone is not a well-known hormone and is not typically produced by the adrenal gland. Therefore, the correct answer must be aldosterone.\n\nAnswer: C) Aldosterone",
+                        "answers": [
+                            {
+                                "id": "a14dba5d-fbd0-4d17-a523-53afb77e52fc",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Aldosterone.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 18:49:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ced8c1e5-7b1b-4d40-bd3b-3c159843eb2b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Fetal adrenals predominantly release:\n\nA) Oestrogen - This hormone is mainly produced by the ovaries and placenta during pregnancy, not the fetal adrenals.\nB) Testosterone - This hormone is mainly produced by the testes in males and the ovaries in females, not the fetal adrenals.\nC) Aldosterone - This hormone is produced by the adrenal cortex, but it is not the predominant hormone released by fetal adrenals.\nD) Cortisone - This hormone is produced by the adrenal cortex and is involved in stress response and metabolism.\n\nBased on this information, the predominant hormone released by fetal adrenals is:\n\nD) Cortisone",
+                        "answers": [
+                            {
+                                "id": "e03ad484-7d57-4e4d-a1b2-6521622e205e",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Cortisone",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:57:36",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_72",
+                "ref_id": "",
+                "question": "After a torrential downpour over a week, a man notices that the pond in his backyard is",
+                "type": "multiplechoice",
+                "choices": [
+                    "melted",
+                    "dehydrated",
+                    "bloated",
+                    "salted"
+                ],
+                "context": "",
+                "cot": [
+                    "storms cause bodies of water to increase amount of water they contain"
+                ],
+                "answer": [
+                    "bloated"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4223f1ac-71b4-4b26-a394-9fb3be214b4c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) bloated",
+                        "answers": [
+                            {
+                                "id": "41e13785-1daa-4206-83eb-022499293c70",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) bloated.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:48:34",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "1e5fca65-0045-4c1b-b1bc-2c162dd8c609",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: Identify the situation\nThe situation is that there has been a week-long torrential downpour.\n\nStep 2: Identify the location\nThe location is the man's backyard.\n\nStep 3: Identify the object being observed\nThe object being observed is the pond in the man's backyard.\n\nStep 4: Analyze the options\nA) Melted - This option does not make sense as ponds do not melt.\nB) Dehydrated - This option does not make sense as the pond would have more water after a week-long downpour.\nC) Bloated - This option makes sense as the pond would have more water after a week-long downpour.\nD) Salted - This option does not make sense as there is no mention of salt being added to the pond.\n\nStep 5: Choose the correct answer\nThe correct answer is C) bloated.",
+                        "answers": [
+                            {
+                                "id": "2e1e1b58-2cdb-4656-a5dc-1d86bc5ce86d",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) bloated.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 19:00:28",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3d018d32-b428-4f9a-bb94-6b78c832bba1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Understand the situation - There has been a torrential downpour for a week, which means there has been a lot of rain.\n\nStep 2: Consider the effect of rain on a pond - Rain would add more water to the pond, causing the water level to rise.\n\nStep 3: Match the effect with the given options:\nA) Melted - This would imply that the pond was frozen and has now turned to liquid. This is not related to the rain.\nB) Dehydrated - This would mean the pond has lost water, which is the opposite of what would happen with rain.\nC) Bloated - This term can be used to describe something that has expanded or increased in size, which matches the effect of rain on the pond.\nD) Salted - This would imply that salt has been added to the pond, which is not related to the rain.\n\nAnswer: C) bloated",
+                        "answers": [
+                            {
+                                "id": "3679e006-7769-4105-a358-a7c4eedf35fe",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) bloated",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:58:01",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_423",
+                "ref_id": "",
+                "question": "What kind of object does light bounce off of?",
+                "type": "multiplechoice",
+                "choices": [
+                    "tadpole",
+                    "any object",
+                    "item that reflects",
+                    "black hole"
+                ],
+                "context": "",
+                "cot": [
+                    "when light hits a reflective object , that light bounces off that object"
+                ],
+                "answer": [
+                    "item that reflects"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1d7372c0-776b-4c8c-b8f1-bc5d4866e6eb",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) item that reflects",
+                        "answers": [
+                            {
+                                "id": "0e40d90d-5884-4b43-89bd-93892742e4d1",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) item that reflects.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:03:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "dfcf955c-2620-48ac-984f-431082cd14be",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: What is light?\nLight is a form of electromagnetic radiation that travels in waves and can be seen by the human eye.\n\nStep 2: How does light interact with objects?\nWhen light hits an object, it can be absorbed, transmitted, or reflected. The type of interaction depends on the properties of the object and the wavelength of the light.\n\nStep 3: What kind of object does light bounce off of?\nBased on the above information, we can conclude that light bounces off of objects that reflect it. Therefore, the correct answer is C) item that reflects.",
+                        "answers": [
+                            {
+                                "id": "ee362360-7ee4-4f28-83c5-19be69c4ed8f",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) item that reflects.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 19:17:39",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b489b5b9-5519-4c3a-9398-522599d905dc",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) A tadpole is a living organism, not an object that light typically bounces off of.\n\nB) Any object - This is a broad statement, but it is true that light can bounce off of many different objects. However, not all objects reflect light in the same way.\n\nC) Item that reflects - This is a more specific answer, as it directly refers to objects that reflect light. Reflective surfaces, such as mirrors, glass, and water, are examples of items that light bounces off of.\n\nD) Black hole - A black hole is an object in space with such strong gravity that not even light can escape it. Therefore, light does not bounce off of a black hole.\n\nBased on this analysis, the best answer is C) item that reflects.",
+                        "answers": [
+                            {
+                                "id": "9e7f2a04-4ef9-45c4-a6fe-86a4900f6b6f",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) item that reflects.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:58:18",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "b0ab236d19fec61c0111",
+                "ref_id": "",
+                "question": "Is it expected that Charla Nash would be anxious near a gorilla?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "In 2009, Charla Nash was attacked and nearly killed by a chimpanzee. ",
+                    "While a different species, Gorillas and Chimpanzees have similar physical appearances and are both primates."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e3cbd0d8-ee7b-43fb-93fb-f31509b221d6",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "As an AI language model, I cannot accurately determine Charla Nash's personal feelings or reactions towards gorillas.",
+                        "answers": [
+                            {
+                                "id": "42607433-f2b4-41f7-8c4b-226ce71bea33",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "not applicable.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:10:00",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "502c9ff8-8048-4e68-ac2c-09caf90aebeb",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\n1. Who is Charla Nash? \n\nCharla Nash is a woman who was attacked by a chimpanzee in 2009, resulting in severe injuries to her face and hands. \n\n2. What is the question asking? \n\nThe question is asking whether it is expected that Charla Nash would be anxious near a gorilla. \n\n3. What is the connection between Charla Nash and gorillas? \n\nThere is no direct connection between Charla Nash and gorillas, as far as we know. \n\n4. What is the general attitude towards gorillas? \n\nGorillas are generally seen as powerful and potentially dangerous animals, but they are also respected and admired for their intelligence and social behavior. \n\n5. Would it be reasonable for someone who has been attacked by a chimpanzee to be anxious around gorillas? \n\nIt is possible that someone who has been attacked by a chimpanzee, which is a close relative of gorillas, might feel anxious around gorillas or other primates. However, this would depend on the individual's specific experiences and feelings. \n\n6. What is the answer to the question? \n\nBased on the information provided, we cannot say for certain whether it is expected that Charla Nash would be anxious near a gorilla. It would depend on her personal feelings and experiences. Therefore, the answer is: \n\nC) Cannot be determined from the information given.",
+                        "answers": [
+                            {
+                                "id": "787436b7-863b-401c-b79a-d40130c10779",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "N/A or Cannot be determined.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 19:25:41",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "56d7d256-452b-4986-9c75-0292f4126684",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Charla Nash is a woman who was severely injured in a chimpanzee attack in 2009. Given her traumatic experience with a primate, it is reasonable to assume that she might feel anxious near a gorilla, which is also a large primate.\n\nAnswer: A) True",
+                        "answers": [
+                            {
+                                "id": "c77b88d0-ab60-48b2-94cf-99fcd5a6b36b",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:58:28",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "7cf376afb78c20dd6f18",
+                "ref_id": "",
+                "question": "Was John Gall from same city as Stanford University?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "John Gall is a former major league baseball player born in Stanford, California.",
+                    "Stanford University was founded by Leland and Jane Stanford  in Stanford, California."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "199fc666-99e0-4182-8817-9f283736a228",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "9dd32d3d-c1e6-4790-88fd-ab239f13aba8",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:23:02",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c29fd737-acea-4dfd-a2fe-5c918f5b7f32",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nAs an AI language model, I do not have access to personal information about individuals. However, based on my research, there is no clear evidence to suggest that John Gall was from the same city as Stanford University. Therefore, the answer is most likely B) False.",
+                        "answers": [
+                            {
+                                "id": "712beaf2-7c72-4ffc-a4cc-a2ebb139aeef",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 19:39:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a05b4d05-7371-4ef6-be66-165132eb848b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "John Gall was an American author and pediatrician, best known for his book \"Systemantics.\" He was born in Los Angeles, California.\n\nStanford University is located in Stanford, California, which is near Palo Alto, California.\n\nSince John Gall was from Los Angeles and Stanford University is located in Stanford, they are not from the same city.\n\nAnswer: B) False",
+                        "answers": [
+                            {
+                                "id": "ea51868e-351b-45ae-9820-0ff8e9ec86dc",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:58:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_255",
+                "ref_id": "",
+                "question": "Which action should be taken in order to identify the streak of a mineral during an investigation?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Weigh the mineral",
+                    "Dip the mineral in acid",
+                    "Heat the mineral until it melts",
+                    "Drag an edge of the mineral across a tile"
+                ],
+                "context": "",
+                "cot": [
+                    "When a mineral is rubbed on a streak plate , some of the mineral breaks off and forms a powder.",
+                    "When a mineral is dragged across a streak plate , then the edge of the mineral is touching the surface of the streak plate.",
+                    "Testing the streak of a mineral requires the powdered form of that mineral.",
+                    "An unglazed tile is a kind of streak plate.",
+                    "Dragging is a kind of action."
+                ],
+                "answer": [
+                    "Drag an edge of the mineral across a tile"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "12b36c61-80af-461b-ab1c-8cf6cb903fc1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) Drag an edge of the mineral across a tile",
+                        "answers": [
+                            {
+                                "id": "049afaaf-2ac6-4a7b-8f09-86d3f6be6a22",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:29:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "afd5b9b7-bf71-474b-a072-df68c81ebc13",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: Understand the question\nThe question is asking about identifying the streak of a mineral during an investigation.\n\nStep 2: Understand the term \"streak\"\nThe streak of a mineral is the color of the powder left behind when the mineral is dragged across a surface.\n\nStep 3: Analyze the options\nA) Weigh the mineral - Weighing the mineral will not help in identifying its streak.\nB) Dip the mineral in acid - This may help identify the mineral, but it will not help in identifying its streak.\nC) Heat the mineral until it melts - This may help identify the mineral, but it will not help in identifying its streak.\nD) Drag an edge of the mineral across a tile - This is the correct option as it will help identify the streak of the mineral.\n\nStep 4: Choose the correct answer\nTherefore, the correct answer is D) Drag an edge of the mineral across a tile.",
+                        "answers": [
+                            {
+                                "id": "d23d9362-a9df-4c17-84a9-e32cc20efb1d",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Drag an edge of the mineral across a tile.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 19:46:36",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5ee2b25e-b34f-4479-916e-c82d305e8bc5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Understand the question\nThe question is asking for the action that should be taken to identify the streak of a mineral during an investigation.\n\nStep 2: Define the term \"streak\"\nStreak is the color of a mineral when it is crushed to a powder or when it is rubbed against an unglazed porcelain tile (called a streak plate).\n\nStep 3: Evaluate the options\nA) Weigh the mineral: This action will give us the weight of the mineral, not its streak.\nB) Dip the mineral in acid: This action may cause a reaction with the mineral, but it will not help us identify its streak.\nC) Heat the mineral until it melts: This action may change the mineral's properties, but it will not help us identify its streak.\nD) Drag an edge of the mineral across a tile: This action will cause the mineral to leave a streak on the tile, which can be used to identify its streak.\n\nStep 4: Choose the correct answer\nThe correct answer is D) Drag an edge of the mineral across a tile.",
+                        "answers": [
+                            {
+                                "id": "45e69554-a1f5-4815-9343-9be148f222d1",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Drag an edge of the mineral across a tile.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:58:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "worldtree_test_1368",
+                "ref_id": "",
+                "question": "Which of the following could occur as a result of decreasing the heat energy of a gas?",
+                "type": "multiplechoice",
+                "choices": [
+                    "condensation",
+                    "evaporation",
+                    "radiation",
+                    "vaporization"
+                ],
+                "context": "",
+                "cot": [
+                    "Condensation is when matter changes from a gas into a liquid by decreasing heat energy.",
+                    "A change is a kind of event.",
+                    "Events occur at a specific place.",
+                    "Gas is a kind of substance.",
+                    "To cause means to result in.",
+                    "Temperature changing can cause phase changes.",
+                    "Condensing is a kind of phase change.",
+                    "Temperature is a measure of heat energy."
+                ],
+                "answer": [
+                    "condensation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "827a16fe-c810-49bf-bc3e-fae4d4e965ad",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nA) condensation",
+                        "answers": [
+                            {
+                                "id": "cc2fce9d-2d1f-4496-8e69-bb44940d01d4",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) condensation.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:43:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e8659fa4-182e-425d-9bc2-72acbb65748e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, let's review the different states of matter and their transitions:\n\n- Solid: particles are tightly packed and vibrate in place\n- Liquid: particles are close together but can move past each other\n- Gas: particles are far apart and move freely\n\nTransitions between these states can occur through changes in temperature and pressure. For example:\n\n- Melting: solid to liquid\n- Freezing: liquid to solid\n- Vaporization: liquid to gas\n- Condensation: gas to liquid\n- Sublimation: solid to gas\n- Deposition: gas to solid\n\nNow, let's consider the question. We are asked what could occur as a result of decreasing the heat energy of a gas. Heat energy is a form of energy that is transferred from one object to another due to a difference in temperature. When we decrease the heat energy of a gas, we are essentially cooling it down.\n\nBased on our knowledge of the different states of matter and their transitions, we can eliminate options C (radiation) and D (vaporization) as they do not involve a change from gas to another state.\n\nOption B (evaporation) is also unlikely, as evaporation typically occurs when a liquid is heated and its particles gain enough energy to escape into the air as a gas. Decreasing the heat energy of a gas would not cause it to evaporate.\n\nTherefore, the most likely answer is A (condensation). When we cool down a gas, its particles lose energy and move closer together. If we continue to cool it down, the gas will eventually reach its dew point, which is the temperature at which it begins to condense into a liquid. This is why we see condensation on a cold glass of water or on the outside of a can of soda on a hot day.",
+                        "answers": [
+                            {
+                                "id": "6bf6712d-a301-48f0-a5b9-c0961b64c493",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) condensation.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 20:03:33",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e40bde55-36ba-4abf-bcd9-a1a7bb7cca22",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Condensation: This is the process of a gas turning into a liquid. Decreasing the heat energy of a gas would cause the gas particles to slow down and come closer together, which could lead to condensation. So, this is a possible result.\n\nB) Evaporation: This is the process of a liquid turning into a gas. Decreasing the heat energy of a gas would not cause evaporation, as evaporation requires an increase in heat energy. So, this is not a possible result.\n\nC) Radiation: This refers to the emission of energy as electromagnetic waves or as moving subatomic particles. Decreasing the heat energy of a gas does not directly relate to radiation. So, this is not a possible result.\n\nD) Vaporization: This is the process of a liquid or solid turning into a gas. Decreasing the heat energy of a gas would not cause vaporization, as vaporization requires an increase in heat energy. So, this is not a possible result.\n\nBased on the analysis, the correct answer is:\n\nA) condensation",
+                        "answers": [
+                            {
+                                "id": "b331af18-01a5-4157-81f1-e50024cf8961",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) condensation",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 09:59:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

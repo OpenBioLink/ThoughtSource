@@ -1,0 +1,309 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "9382bc51ba092f55a494eff8615899de",
+                "ref_id": "",
+                "question": "I picked from an apple tree outside of Fort Wayne, where am I?",
+                "type": "multiplechoice",
+                "choices": [
+                    "woods",
+                    "illinois",
+                    "indiana",
+                    "washington state",
+                    "tampa"
+                ],
+                "context": "",
+                "cot": [
+                    "Fort wayne is a city in northeastern indiana so if you\u2019re outside fort wayne, you are in indiana.",
+                    "Fort wayne is not in the places from all the other options."
+                ],
+                "answer": [
+                    "indiana"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4ed2171d-f683-4ef9-aea0-0d8d8a4514dc",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-08",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The answer is C.\nThe reasoning is The answer is C. The clue is: I picked from an apple tree outside of Fort Wayne, where am I? Fort Wayne is in Indiana. The answer is C.",
+                        "answers": [
+                            {
+                                "id": "d8ad1b8f-0c9c-4b7b-b8ac-0c350ac90eeb",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/04/06 19:31:06",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_647",
+                "ref_id": "",
+                "question": "A 2-month-old girl is brought to the pediatrician by her concerned father. He states that ever since her uncomplicated delivery she has failed to gain weight, has had chronic diarrhea, and has had multiple bacterial and viral infections. During the course of the workup, an absent thymic shadow is noted and a lymph node biopsy demonstrates the absence of germinal centers. Which of the following is the most likely cause of this patient's symptoms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Defect in WASP gene",
+                    "Defect in ATM gene",
+                    "Adenosine deaminase deficiency",
+                    "NADPH oxidase deficiency",
+                    "Defect in BTK gene"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Adenosine deaminase deficiency"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "119720db-f587-4f2b-b87d-ca87e49fa750",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-08",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Defect in WASP gene\nB) Defect in ATM gene\nC) Adenosine deaminase deficiency\nD) NADPH oxidase deficiency\nE) Defect in BTK gene\n\nThe answer is A.",
+                        "answers": [
+                            {
+                                "id": "2cc6f318-586e-4f9a-a084-b3d9aac3af12",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/04/06 19:32:04",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "medmc_qa": {
+        "validation": [
+            {
+                "id": "080ecd84-88cb-49eb-a9f5-03569b7fa1f0",
+                "ref_id": "",
+                "question": "Episodes of repeated thin stools with mucus, subjective feeling of fever and lower abdominal pain, with leukocytes in stool. Which of the following is likely?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Giardia",
+                    "Entamoeba",
+                    "Staph",
+                    "Clostridium perfringens"
+                ],
+                "context": "",
+                "cot": [
+                    "As leucocytes are present in stools so it is inflammatory type of diarrhea. So the likely organism is Entamoeba As Staph and C. perfringens are responsible for water diarrhea (non-inflammatory diarrhea) Giardia cause malabsorption syndrome."
+                ],
+                "answer": [
+                    "Entamoeba"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "63568278-9787-4308-8d09-2e1a32a030a1",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-08",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The answer is A.",
+                        "answers": [
+                            {
+                                "id": "c55d20b4-7454-44e6-8965-02267f687eaa",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/04/06 19:32:40",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_258",
+                "ref_id": "",
+                "question": "To get warm frogs can",
+                "type": "multiplechoice",
+                "choices": [
+                    "wear a Christmas sweater",
+                    "Drink a hot chocolate",
+                    "Go for a run",
+                    "sit under a lamp"
+                ],
+                "context": "",
+                "cot": [
+                    "as temperature in the environment increases , the body temperature of a reptile in that environment will increase"
+                ],
+                "answer": [
+                    "sit under a lamp"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b51f3641-17aa-43e2-8434-e62f23c3b022",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-08",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "To get warm frogs can\nA) wear a Christmas sweater\nB) Drink a hot chocolate\nC) Go for a run\nD) sit under a lamp\n\nA) wear a Christmas sweater\nB) Drink a hot chocolate\nC) Go for a run\nD) sit under a lamp\n\nA) wear a Christmas sweater\nB) Drink a hot chocolate\nC) Go for a run\nD) sit under a lamp\n\nA) wear a Christmas sweater\nB) Drink a hot chocolate\nC) Go for a run\nD) sit under a lamp\n\nA) wear a Christmas sweater\nB) Drink a hot chocolate\nC) Go for a run\nD) sit under a lamp",
+                        "answers": [
+                            {
+                                "id": "0be0b2d7-bfb5-482e-81b9-b130e783d44f",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/04/06 19:33:35",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "cc266a3e29a3b8442b14",
+                "ref_id": "",
+                "question": "Would a 900,000 pound net worth person be an American billionaire if they exchange currency June 2020?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The exchange rate in June of 2020 between dollars and pounds is 1 Euro= 1.23 dollar.",
+                    "900000 pounds is equal to about 1,107,000.00"
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b1eb46d4-fe19-464b-b544-93777dfe81b2",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-08",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) True\nB) False",
+                        "answers": [
+                            {
+                                "id": "3206b988-6b13-48b0-9a33-263e9624cbbd",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/04/06 19:34:11",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_906",
+                "ref_id": "",
+                "question": "Gravity on Earth is caused by",
+                "type": "multiplechoice",
+                "choices": [
+                    "the mass of Earth.",
+                    "the rotation of Earth.",
+                    "the revolution of Earth.",
+                    "weather patterns on Earth."
+                ],
+                "context": "",
+                "cot": [
+                    "The mass of a planet causes the pull of gravity on that planet.",
+                    "Earth is a kind of planet."
+                ],
+                "answer": [
+                    "the mass of Earth."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "c7bf91e5-3b88-4951-bed9-922d9f908ab7",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-08",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's work out every answer option in a step by step way and consider if it is the correct option.\nGravity on Earth is caused by the mass of Earth.\nTherefore, the answer is A.",
+                        "answers": [
+                            {
+                                "id": "d80dc4cc-428b-4326-8e1a-a0ea635784c8",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A.\nTherefore, the answer is A.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/04/06 19:34:46",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

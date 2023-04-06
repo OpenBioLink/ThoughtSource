@@ -1,0 +1,262 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "684dbde19719e8224113433981d6e01e",
+                "ref_id": "",
+                "question": "Billy lived in the capital of his country, then he moved.  Where might he move to?",
+                "type": "multiplechoice",
+                "choices": [
+                    "small town",
+                    "jail",
+                    "lower case",
+                    "contain governmental activities",
+                    "lowercase"
+                ],
+                "context": "",
+                "cot": [
+                    "One usually moves to a small town from the country's capital and not to a jail.",
+                    "Small town is a place to live and has lesser population.",
+                    "Lower case, a place containing governmental activities and lowercase are not places to live."
+                ],
+                "answer": [
+                    "small town"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "119a8cdb-81c8-4070-b23e-74aba34fb22c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "Billy lived in the capital of his country, then he moved.  Where might he move to?\nA) small town\nB) jail\nC) lower case\nD) contain governmental activities\nE) lowercase\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.",
+                        "cot": "Step 1: Billy lived in the capital of his country.\nStep 2: The capital is typically where the government is located and where most governmental activities take place.\nStep 3: Billy moved, so he may have moved to a place that does not contain as many governmental activities.\nStep 4: Based on this reasoning, the most likely answer is A) small town. \n\nTherefore, the answer is A) small town.",
+                        "answers": [
+                            {
+                                "id": "1752a5dd-059b-464d-baf3-28a3c1a09ced",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "Billy lived in the capital of his country, then he moved.  Where might he move to?\nA) small town\nB) jail\nC) lower case\nD) contain governmental activities\nE) lowercase\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.Step 1: Billy lived in the capital of his country.\nStep 2: The capital is typically where the government is located and where most governmental activities take place.\nStep 3: Billy moved, so he may have moved to a place that does not contain as many governmental activities.\nStep 4: Based on this reasoning, the most likely answer is A) small town. \n\nTherefore, the answer is A) small town.\nTherefore, among A through E, the answer is",
+                                "answer": "A) small town.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:18:01",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_621",
+                "ref_id": "",
+                "question": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Cat bite",
+                    "Human bite",
+                    "Spider bite",
+                    "Fish bite",
+                    "Dog bite"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Dog bite"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e1136dc5-e40f-4dde-947f-3cacde1571fe",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?\nA) Cat bite\nB) Human bite\nC) Spider bite\nD) Fish bite\nE) Dog bite\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.",
+                        "cot": "First, we need to identify the most concerning bite in a patient with sickle cell disease who presents with fever, night sweats, lethargy, and swollen bite marks with red streaks extending to the elbow. \n\nA) Cat bite: While cat bites can lead to infections, they are not typically associated with the symptoms described in this patient. \n\nB) Human bite: Human bites can also lead to infections, but again, they are not typically associated with the symptoms described in this patient. \n\nC) Spider bite: Spider bites can cause a range of symptoms, but they are not typically associated with fever, night sweats, and lethargy. \n\nD) Fish bite: Fish bites are not typically associated with the symptoms described in this patient. \n\nE) Dog bite: Dog bites can lead to serious infections, including sepsis, which could explain the patient's symptoms. Additionally, the swollen bite marks with red streaks extending to the elbow suggest that the infection is spreading rapidly, which is also concerning. \n\nTherefore, the most concerning bite in this patient would be an E) dog bite.",
+                        "answers": [
+                            {
+                                "id": "d97f83f2-ce0e-460f-8a8d-a9d131b86569",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?\nA) Cat bite\nB) Human bite\nC) Spider bite\nD) Fish bite\nE) Dog bite\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.First, we need to identify the most concerning bite in a patient with sickle cell disease who presents with fever, night sweats, lethargy, and swollen bite marks with red streaks extending to the elbow. \n\nA) Cat bite: While cat bites can lead to infections, they are not typically associated with the symptoms described in this patient. \n\nB) Human bite: Human bites can also lead to infections, but again, they are not typically associated with the symptoms described in this patient. \n\nC) Spider bite: Spider bites can cause a range of symptoms, but they are not typically associated with fever, night sweats, and lethargy. \n\nD) Fish bite: Fish bites are not typically associated with the symptoms described in this patient. \n\nE) Dog bite: Dog bites can lead to serious infections, including sepsis, which could explain the patient's symptoms. Additionally, the swollen bite marks with red streaks extending to the elbow suggest that the infection is spreading rapidly, which is also concerning. \n\nTherefore, the most concerning bite in this patient would be an E) dog bite.\nTherefore, among A through E, the answer is",
+                                "answer": "E) Dog bite.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:18:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_250",
+                "ref_id": "",
+                "question": "Rain is usually guaranteed when all are present but",
+                "type": "multiplechoice",
+                "choices": [
+                    "cirrus clouds",
+                    "cumulus clouds",
+                    "hail stones",
+                    "direct sunshine"
+                ],
+                "context": "",
+                "cot": [
+                    "if weather is stormy then there is a greater chance of rain"
+                ],
+                "answer": [
+                    "direct sunshine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "642bac0f-2e2e-4b9a-a0c2-1141cb04654e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "Rain is usually guaranteed when all are present but\nA) cirrus clouds\nB) cumulus clouds\nC) hail stones\nD) direct sunshine\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.",
+                        "cot": "First, we need to understand what conditions are necessary for rain to occur. Rain is formed when water droplets in the atmosphere combine and become heavy enough to fall to the ground. This usually happens when warm, moist air rises and cools, causing the water vapor to condense into clouds. Eventually, the water droplets in the clouds become too heavy to stay aloft and fall to the ground as rain.\n\nNow, let's look at the options given:\n\nA) Cirrus clouds are thin, wispy clouds that are usually found at high altitudes. They are made up of ice crystals and are not associated with rain. Therefore, we can eliminate this option.\n\nB) Cumulus clouds are large, fluffy clouds that are often associated with fair weather. However, they can also develop into thunderstorms and produce rain. So, this option is a possibility.\n\nC) Hail stones are small, hard balls of ice that are formed in thunderstorms. They are not directly related to rain, but they can be a sign of severe weather. Therefore, we can eliminate this option.\n\nD) Direct sunshine is not a condition for rain to occur. In fact, sunny weather usually means that there is no rain. Therefore, we can eliminate this option.\n\nBased on our analysis, the correct answer is B) cumulus clouds. While not all cumulus clouds produce rain, they are often associated with rain and thunderstorms.",
+                        "answers": [
+                            {
+                                "id": "d1fb943d-42f0-4333-b16c-bcc2d92cc6df",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "Rain is usually guaranteed when all are present but\nA) cirrus clouds\nB) cumulus clouds\nC) hail stones\nD) direct sunshine\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.First, we need to understand what conditions are necessary for rain to occur. Rain is formed when water droplets in the atmosphere combine and become heavy enough to fall to the ground. This usually happens when warm, moist air rises and cools, causing the water vapor to condense into clouds. Eventually, the water droplets in the clouds become too heavy to stay aloft and fall to the ground as rain.\n\nNow, let's look at the options given:\n\nA) Cirrus clouds are thin, wispy clouds that are usually found at high altitudes. They are made up of ice crystals and are not associated with rain. Therefore, we can eliminate this option.\n\nB) Cumulus clouds are large, fluffy clouds that are often associated with fair weather. However, they can also develop into thunderstorms and produce rain. So, this option is a possibility.\n\nC) Hail stones are small, hard balls of ice that are formed in thunderstorms. They are not directly related to rain, but they can be a sign of severe weather. Therefore, we can eliminate this option.\n\nD) Direct sunshine is not a condition for rain to occur. In fact, sunny weather usually means that there is no rain. Therefore, we can eliminate this option.\n\nBased on our analysis, the correct answer is B) cumulus clouds. While not all cumulus clouds produce rain, they are often associated with rain and thunderstorms.\nTherefore, among A through D, the answer is",
+                                "answer": "B) cumulus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:18:23",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "ffd8a720264778c0fd6e",
+                "ref_id": "",
+                "question": "Can the Toyota Hilux tip the scales against Mr. Ed?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The current generation of Toyota Hilux weighs at least 4,310 lbs",
+                    "Mr. Ed was portrayed by an adult horse",
+                    "The average adult horse weighs up to 2,000 lbs"
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "2338009b-a185-48cc-970f-1cc2de89a2bd",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "Can the Toyota Hilux tip the scales against Mr. Ed?\nA) True\nB) False\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.",
+                        "cot": "There is not enough information to determine the answer to this question. It is unclear who or what Mr. Ed is and what the context of the comparison is.",
+                        "answers": [
+                            {
+                                "id": "3c4b9ed1-dec0-4747-b5e3-487bcfd9659d",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "Can the Toyota Hilux tip the scales against Mr. Ed?\nA) True\nB) False\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.There is not enough information to determine the answer to this question. It is unclear who or what Mr. Ed is and what the context of the comparison is.\nTherefore, the answer (Yes or No) is",
+                                "answer": "not possible to determine.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:18:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_2",
+                "ref_id": "",
+                "question": "Which event occurs once per day?",
+                "type": "multiplechoice",
+                "choices": [
+                    "The Moon rises.",
+                    "The new Moon occurs.",
+                    "The Moon cycles through its phases.",
+                    "The Moon passes in front of the Sun."
+                ],
+                "context": "",
+                "cot": [
+                    "The moon rising occurs once per day.",
+                    "A moon is a kind of celestial object.",
+                    "Movements of celestial bodies are a kind of event.",
+                    "Rising is a kind of motion."
+                ],
+                "answer": [
+                    "The Moon rises."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9d0d6e44-8a61-4ef0-bebe-2a68773180ee",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "Which event occurs once per day?\nA) The Moon rises.\nB) The new Moon occurs.\nC) The Moon cycles through its phases.\nD) The Moon passes in front of the Sun.\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.",
+                        "cot": "A) The Moon rises: This event occurs once per day, but it is not specific to the Moon. The Sun also rises once per day.\n\nB) The new Moon occurs: This event occurs once per lunar month, which is about every 29.5 days.\n\nC) The Moon cycles through its phases: This event occurs once per lunar cycle, which is about every 29.5 days.\n\nD) The Moon passes in front of the Sun: This event occurs during a solar eclipse, which happens only a few times per year and is not specific to a daily occurrence.\n\nTherefore, the correct answer is C) The Moon cycles through its phases, which occurs once per day.",
+                        "answers": [
+                            {
+                                "id": "3ff750d1-35e8-4ccf-afc6-b14f96975983",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "Which event occurs once per day?\nA) The Moon rises.\nB) The new Moon occurs.\nC) The Moon cycles through its phases.\nD) The Moon passes in front of the Sun.\n\nAnswer: Let's work this out in a step by step way to be sure we have the right answer.A) The Moon rises: This event occurs once per day, but it is not specific to the Moon. The Sun also rises once per day.\n\nB) The new Moon occurs: This event occurs once per lunar month, which is about every 29.5 days.\n\nC) The Moon cycles through its phases: This event occurs once per lunar cycle, which is about every 29.5 days.\n\nD) The Moon passes in front of the Sun: This event occurs during a solar eclipse, which happens only a few times per year and is not specific to a daily occurrence.\n\nTherefore, the correct answer is C) The Moon cycles through its phases, which occurs once per day.\nTherefore, among A through D, the answer is",
+                                "answer": "C) The Moon cycles through its phases.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:18:35",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}
