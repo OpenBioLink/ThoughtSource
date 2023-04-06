@@ -195,7 +195,7 @@ class Collection:
                         str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode
                     )
 
-    def get_ids(self, file_name=None):
+    def dump_ids(self, file_name=None):
         """Get the ids of the items of all collections
         returns a list of ids if file_name is None, otherwise writes the ids to a file"""
         id_list = []

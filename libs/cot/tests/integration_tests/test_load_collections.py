@@ -14,7 +14,7 @@ def test_thoughtsource() -> None:
             assert len(pd_["id"]) == pd_["id"].nunique(), f"IDs are not unique in {name} {split}"
 
     """Test that id is unique for all datasets"""
-    ids = collection.get_ids()
+    ids = collection.dump_ids()
     len_ids = len(ids)
     len_ids_unique = len(set(ids))
     assert len_ids == len_ids_unique, "IDs are not unique for all datasets"
