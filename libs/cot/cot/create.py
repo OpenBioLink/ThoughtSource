@@ -178,7 +178,7 @@ def create_special_medmc_100(load_pregenerated_cots=False):
 
 def unique_index_correction(self):
     for name in self._cache:
-        if name in ["med_qa", "open_book_qa", "worldtree"]:
+        if name in ["aqua", "entailment_bank", "gsm8k", "mawps", "med_qa", "open_book_qa", "worldtree", "svamp"]: 
             for split in self._cache[name]:
                 self[name][split] = self[name][split].map(
                     _unique_index_correction,
