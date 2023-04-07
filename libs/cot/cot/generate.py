@@ -337,7 +337,8 @@ def select_generated_cots(dataset, **kwargs):
     )
     return dataset
 
-def _select_generated_cots(item, **kwargs):
+def _select_generated_cots(item, reverse=False, **kwargs):
+    # if reverse is True, unselect/delete all CoTs that match the given criteria
     # load all allows keys from the cot_features
     allowed_keys = list(cot_features["generated_cot"][0].keys()) + ["answer"]
     for key, value in kwargs.items():
@@ -349,11 +350,20 @@ def _select_generated_cots(item, **kwargs):
             value = [value]
         # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
         if key == "model":
-            item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
+            if not reverse:
+                item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
+            else:
+                item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] not in value]
         elif key == "answer":
-            item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] == value]
+            if not reverse:
+                item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] == value]
+            else:
+                item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] != value]
         else:
-            item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+            if not reverse:
+                item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+            else:
+                item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] not in value]
     return item
 
 def delete_all_generated_cots(dataset):
