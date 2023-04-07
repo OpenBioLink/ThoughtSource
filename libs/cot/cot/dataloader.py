@@ -306,10 +306,14 @@ class Collection:
             try:
                 with open(path_or_json, "r") as infile:
                     content = json.load(infile)
-            except FileNotFoundError:
-                path_or_json = path_or_json + ".json"
-                with open(path_or_json, "r") as infile:
-                    content = json.load(infile)
+            # if file is not found and path does not end with .json, try to load it with .json
+            except FileNotFoundError as e:
+                if not path_or_json.endswith(".json"):
+                    path_or_json = path_or_json + ".json"
+                    with open(path_or_json, "r") as infile:
+                        content = json.load(infile)
+                else:
+                    raise e
         elif isinstance(path_or_json, dict):
             content = path_or_json
 
