@@ -81,11 +81,11 @@ def _self_generate_extract(item,input_dict,chain):
                 "model": str(
                     {
                         "name": input_dict['model_name'],
-                        "temperature": 0,
-                        "max_tokens": 800,
+                        "temperature": input_dict["temperature"],
+                        "max_tokens": input_dict["max_tokens"]
                     }
                 ),
-                "comment": "",
+                "comment": "generated and extracted",
                 "annotations": [],
             }
     generated_cot["date"] = print_now(1)
@@ -139,11 +139,11 @@ def _self_generate(item,input_dict,chain):
                 "model": str(
                     {
                         "name": input_dict["model"],
-                        "temperature": 0,
-                        "max_tokens": 800,
+                        "temperature": input_dict["temperature"],
+                        "max_tokens": input_dict["max_tokens"]
                     }
                 ),
-                "comment": "",
+                "comment": "generated",
                 "annotations": [],
             }
     generated_cot["date"] = print_now(1)
@@ -167,8 +167,12 @@ def _self_extract(item,input_dict,chain):
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
 
-    #extract based on the first cot in the dataset
-    cot = item['generated_cot'][0]['cot'] 
+    # TODO later: be able to choose between different cots
+    #extract based on the first cot in the dataset, throw error otherwise
+    if len(item['generated_cot'])>1:
+        raise ValueError('Too many generated CoTs, only one allowed')
+    else:
+        cot = item['generated_cot'][0]['cot'] 
     input_dict['cot'] = cot
     
     #this is where the magic happens
@@ -189,8 +193,8 @@ def _self_extract(item,input_dict,chain):
                 "model": str(
                     {
                         "name": input_dict["model"],
-                        "temperature": 0,
-                        "max_tokens": 800,
+                        "temperature": input_dict["temperature"],
+                        "max_tokens": input_dict["max_tokens"]
                     }
                 ),
                 "comment": "answer_extraction cot",
@@ -229,11 +233,20 @@ def self_reflect(data,chain,input_dict):
 
 
 """In this version the reflection is added to generated_cot"""
+
 def _self_reflect(item,input_dict,chain):
 
+
+ 
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
-    input_dict['cot'] = item['generated_cot'][0]['cot']
+
+    # TODO later: be able to choose between different cots
+    #extract based on the first cot in the dataset, throw error otherwise
+    if len(item['generated_cot'])>1:
+        raise ValueError('Too many generated CoTs, only one allowed')
+    else:
+        input_dict['cot'] = item['generated_cot'][0]['cot'] 
 
     # here we take the first answer from the first cot
     input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer']
@@ -257,8 +270,8 @@ def _self_reflect(item,input_dict,chain):
                 "model": str(
                     {
                         "name": input_dict["model"],
-                        "temperature": 0,
-                        "max_tokens": 800,
+                        "temperature": input_dict["temperature"],
+                        "max_tokens": input_dict["max_tokens"],
                     }
                 ),
                 "comment": "self_reflection cot",

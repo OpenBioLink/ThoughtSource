@@ -384,7 +384,7 @@ class Collection:
                 print(f"Generating {name}...")
                 self[name][split] = generate_and_extract(self[name][split], config=config)
     
-    def generate_extract_flexibly(self,chain, input_dict,name=None, split=None):
+    def generate_extract_flexible(self,chain, input_dict,name=None, split=None):
         
         if name is None:
             for name in self._cache:
@@ -429,34 +429,6 @@ class Collection:
             else:
                 print(f"Generating {name}...")
                 self[name][split] = self_extract(self[name][split], chain, input_dict)  
-    
-    # def metareason_flexible(self,chain, input_dict,name=None, split=None):
-    #     if name is None:
-    #         for name in self._cache:
-    #             print(f"Generating {name}...")
-    #             return self_reflect(self[name], chain, input_dict)
-    #     else:
-    #         if split is None:
-    #             print(f"Generating {name}...")
-    #             return self_reflect(self[name], chain, input_dict)
-    #         else:
-    #             print(f"Generating {name}...")
-    #             return self_reflect(self[name][split], chain, input_dict)
-            
-    # def metareason_flexible(self,chain, input_dict,name=None, split=None):
-    #     if name is None:
-    #         for name in self._cache:
-    #             for split in self._cache[name]:
-    #                 print(f"Generating {name}...")
-    #                 self[name][split] = self_reflect(self[name][split], chain, input_dict,name,split)
-    #            
-    #     else:
-    #         if split is None:
-    #             for split in self._cache[name]:
-    #                 self[name][split] = self_reflect(self[name][split], chain, input_dict,name,split)
-    #         else:
-    #             print(f"Generating {name}...")
-    #             self[name][split] = self_reflect(self[name][split], chain, input_dict,name,split)
     
     def metareason_flexible(self,chain, input_dict,name=None, split=None):
         # extraction = input_dict['reflect_answer_extraction']
