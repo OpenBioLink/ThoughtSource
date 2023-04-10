@@ -193,7 +193,7 @@ def _self_extract(item,input_dict,chain):
                         "max_tokens": 800,
                     }
                 ),
-                "comment": "self_reflection cot",
+                "comment": "answer_extraction cot",
                 "annotations": [],
             }
     generated_cot["date"] = print_now(1)
