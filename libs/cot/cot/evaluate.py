@@ -2,6 +2,7 @@ import json
 import re
 import string
 import warnings
+import pandas as pd
 from ast import literal_eval
 from collections import defaultdict
 from pprint import pprint
@@ -512,3 +513,35 @@ def compare_evaluation_difference(collection):
     # evaluation_before = collection.evaluate()
     # pprint(evaluation_after)
     # pprint(evaluation_before)
+
+
+def json_to_dataframe(json_data: json):
+    """
+    This function accepts as an input a generated json and outputs a formated dataframe
+    to be used for further evaluation
+    returns: a dataframe
+    """
+    df_data = []
+    for category, data in json_data.items():
+        for subset, questions in data.items():
+            for question in questions:
+                row = {
+                    'dataset': category,
+                    'split': subset,
+                    'id': question['id'],
+                    'model': question['generated_cot'][0]['model'],
+                    'generated_cot': question['generated_cot'][0]['cot'],
+                    'correct_answer': question['generated_cot'][0]['answers'][0]['correct_answer'],
+                     }
+                df_data.append(row)
+    df = pd.DataFrame(df_data)
+    df["model"] = clean_column(df, "model")
+    return df
+
+
+def clean_column(df: pd.DataFrame, col_name: str):
+    """
+    Remove all characters in the model string except for the model_name
+    """
+    pattern = r"^.*?'(.*?)'.*?'(.*?)'.*?'(.*?)'.*?'(.*?)'.*$"
+    return(df[col_name].apply(lambda x: re.sub(pattern, r"'\2", x)[1:]))
