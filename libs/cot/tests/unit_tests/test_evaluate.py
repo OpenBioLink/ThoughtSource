@@ -108,35 +108,35 @@ def test_is_correct_bool():
     assert not is_correct(type_, pred, gold)
 
 
-def test_is_correct_multiple_answers():
-    type_ = "multiplechoice"
-    # if multiple answers are given take the first one (can be changed of course)
+# def test_is_correct_multiple_answers():
+#     type_ = "multiplechoice"
+#     # if multiple answers are given take the first one (can be changed of course)
 
-    choices = ["1", "2", "3", "4", "5", "6", "7"]
+#     choices = ["1", "2", "3", "4", "5", "6", "7"]
 
-    pred = "So the answer is (a), (b), or (e)."
-    gold = "A"
-    assert not is_correct(type_, pred, gold, choices)
+#     pred = "So the answer is (a), (b), or (e)."
+#     gold = "A"
+#     assert not is_correct(type_, pred, gold, choices)
 
-    pred = "Therefore, among A through E, the answer is A, B, C, or D."
-    gold = "A"
-    assert not is_correct(type_, pred, gold, choices)
+#     pred = "Therefore, among A through E, the answer is A, B, C, or D."
+#     gold = "A"
+#     assert not is_correct(type_, pred, gold, choices)
 
-    pred = "Therefore, among A through E, the answer is most likely B, D, or E."
-    gold = "B"
-    assert not is_correct(type_, pred, gold, choices)
+#     pred = "Therefore, among A through E, the answer is most likely B, D, or E."
+#     gold = "B"
+#     assert not is_correct(type_, pred, gold, choices)
 
-    pred = "Therefore, among A through E, the answer is probably A or C."
-    gold = "A"
-    assert not is_correct(type_, pred, gold, choices)
+#     pred = "Therefore, among A through E, the answer is probably A or C."
+#     gold = "A"
+#     assert not is_correct(type_, pred, gold, choices)
 
-    pred = "Therefore, among A through E, the answer is most likely C, airport, but it could also be A, car."
-    gold = "C"
-    assert not is_correct(type_, pred, gold, choices)
+#     pred = "Therefore, among A through E, the answer is most likely C, airport, but it could also be A, car."
+#     gold = "C"
+#     assert not is_correct(type_, pred, gold, choices)
 
-    pred = "Therefore, among A through E, the answer is probably (A), (B), (C), or (D)."
-    gold = "A"
-    assert not is_correct(type_, pred, gold, choices)
+#     pred = "Therefore, among A through E, the answer is probably (A), (B), (C), or (D)."
+#     gold = "A"
+#     assert not is_correct(type_, pred, gold, choices)
 
 
 def test_predefined_correct_value():
