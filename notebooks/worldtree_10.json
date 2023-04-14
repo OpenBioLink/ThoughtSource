@@ -43,6 +43,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C.",
+                                "answer_from_choices": "C",
                                 "correct_answer": true
                             }
                         ],
@@ -68,6 +69,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C.",
+                                "answer_from_choices": "C",
                                 "correct_answer": true
                             }
                         ],
@@ -93,6 +95,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " D.",
+                                "answer_from_choices": "C",
                                 "correct_answer": false
                             }
                         ],
@@ -143,6 +146,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " A) Competition.",
+                                "answer_from_choices": "A",
                                 "correct_answer": true
                             }
                         ],
@@ -168,6 +172,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " A) competition.",
+                                "answer_from_choices": "A",
                                 "correct_answer": true
                             }
                         ],
@@ -193,6 +198,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " A) competition.",
+                                "answer_from_choices": "A",
                                 "correct_answer": true
                             }
                         ],
@@ -243,6 +249,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B) presence of a tail.",
+                                "answer_from_choices": "B",
                                 "correct_answer": true
                             }
                         ],
@@ -268,6 +275,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B) presence of a tail.",
+                                "answer_from_choices": "B",
                                 "correct_answer": true
                             }
                         ],
@@ -293,6 +301,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B) presence of a tail.",
+                                "answer_from_choices": "B",
                                 "correct_answer": true
                             }
                         ],
@@ -342,6 +351,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C) Recycles nutrients.",
+                                "answer_from_choices": "C",
                                 "correct_answer": true
                             }
                         ],
@@ -367,6 +377,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C.",
+                                "answer_from_choices": "C",
                                 "correct_answer": true
                             }
                         ],
@@ -392,6 +403,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C.",
+                                "answer_from_choices": "C",
                                 "correct_answer": true
                             }
                         ],
@@ -441,6 +453,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C) being a good cook.",
+                                "answer_from_choices": "C",
                                 "correct_answer": true
                             }
                         ],
@@ -466,6 +479,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C.",
+                                "answer_from_choices": "C",
                                 "correct_answer": true
                             }
                         ],
@@ -491,6 +505,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C) being a good cook.",
+                                "answer_from_choices": "C",
                                 "correct_answer": true
                             }
                         ],
@@ -542,6 +557,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " D) number of broken branches.",
+                                "answer_from_choices": "A",
                                 "correct_answer": false
                             }
                         ],
@@ -567,6 +583,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " D) number of broken branches.",
+                                "answer_from_choices": "A",
                                 "correct_answer": false
                             }
                         ],
@@ -592,6 +609,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " A.",
+                                "answer_from_choices": "A",
                                 "correct_answer": true
                             }
                         ],
@@ -649,6 +667,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B.",
+                                "answer_from_choices": "B",
                                 "correct_answer": true
                             }
                         ],
@@ -674,6 +693,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B.",
+                                "answer_from_choices": "B",
                                 "correct_answer": true
                             }
                         ],
@@ -699,6 +719,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B.",
+                                "answer_from_choices": "B",
                                 "correct_answer": true
                             }
                         ],
@@ -751,6 +772,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C) the mass of the student.",
+                                "answer_from_choices": "A",
                                 "correct_answer": false
                             }
                         ],
@@ -776,6 +798,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C.",
+                                "answer_from_choices": "A",
                                 "correct_answer": false
                             }
                         ],
@@ -801,6 +824,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " C) the mass of the student.",
+                                "answer_from_choices": "A",
                                 "correct_answer": false
                             }
                         ],
@@ -851,6 +875,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " D) thermometer.",
+                                "answer_from_choices": "D",
                                 "correct_answer": true
                             }
                         ],
@@ -876,6 +901,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " D) thermometer.",
+                                "answer_from_choices": "D",
                                 "correct_answer": true
                             }
                         ],
@@ -901,6 +927,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " D) thermometer.",
+                                "answer_from_choices": "D",
                                 "correct_answer": true
                             }
                         ],
@@ -949,6 +976,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B) Sugar cubes and C) Plastic straws.",
+                                "answer_from_choices": "",
                                 "correct_answer": false
                             }
                         ],
@@ -974,7 +1002,8 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B, sugar cubes.",
-                                "correct_answer": false
+                                "answer_from_choices": "B",
+                                "correct_answer": true
                             }
                         ],
                         "author": "your_name",
@@ -999,6 +1028,7 @@
                                 "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
                                 "answer_extraction_text": "",
                                 "answer": " B) Sugar cubes.",
+                                "answer_from_choices": "B",
                                 "correct_answer": true
                             }
                         ],
