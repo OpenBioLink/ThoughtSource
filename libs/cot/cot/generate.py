@@ -192,6 +192,7 @@ def _generate_and_extract(
                                 "answer_extraction_template": template_answer_extraction,
                                 "answer_extraction_text": "",
                                 "answer": "",
+                                "answer_from_choices": "",
                                 "correct_answer": None,
                             }
 

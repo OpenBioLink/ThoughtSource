@@ -5,6 +5,7 @@ import warnings
 from ast import literal_eval
 from collections import defaultdict
 from pprint import pprint
+from typing import Tuple, Optional
 
 import datasets as ds
 from cot.generate import FRAGMENTS
@@ -109,21 +110,23 @@ def _evaluate(example, type_, overwrite, warn):
             if answer["correct_answer"] is not None and not overwrite:
                 continue
             prediction = answer["answer"]
-            answer_eval = is_correct(type_, prediction, dataset_correct_answer, dataset_choices, warn)
+            answer_eval, answer_from_choices = is_correct(type_, prediction, dataset_correct_answer, dataset_choices, warn)
             answer["correct_answer"] = answer_eval
+            if answer_from_choices is not None:
+                answer["answer_from_choices"] = answer_from_choices.upper()
     return example
 
 
 
 
 
-def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bool:
+def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tuple[bool, Optional[str]]:
     """Compares prediction with gold answer."""
     # warn if pred is empty
     if pred == "":
         if warn:
             warnings.warn(f"Prediction is empty: {pred}")
-        return False
+        return (False, None)
     
     # if the pred starts with any of the answer sequences in fragements, remove it
     # save the original pred for debugging
@@ -154,7 +157,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
 
     if type_ not in ["bool", "multiplechoice"]:
         warnings.warn(f"Answer type {type_} not supported yet.")
-        return None
+        return (None, None)
 
     if type_ == "multiplechoice":
         # E.g.: "Therefore, among A through E, the answer is (c)"
@@ -228,7 +231,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             return is_correct
         # if more than one hit return false
         elif len(hits) > 1:
-            return False
+            return (False, None)
         
         # it that did not work, check if only keys (a,b,c,d,...) are given as answers
         # remove unnecessary words
@@ -256,7 +259,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                 if re.search(pattern, pred, re.IGNORECASE):
                     hits_letters.append(key)
             if sorted(hits_letters) == sorted(letters):
-                return False
+                return (False, None)
 
     if type_ == "bool":
         hits = []
@@ -305,7 +308,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             possible answers: {choices_dict}
             """
         )
-    return False
+    return (False, None)
 
 def escape_special_characters(string):
     result = r""
@@ -335,7 +338,17 @@ def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
 
     comparison = pred.lower() == gold_key.lower() or pred.lower() == gold_value.lower()
 
-    return comparison
+    if gold_key == "yes":
+        return (comparison, "A")
+    elif gold_key == "no":
+        return (comparison, "B")
+    
+    if pred in choices_dict.keys():
+        pred_as_key = pred
+    elif pred in choices_dict.values():
+        pred_as_key = list(choices_dict.keys())[list(choices_dict.values()).index(pred)]
+    
+    return (comparison, pred_as_key)
 
 # evaluating all files in a directory
 def print_evaluation_of_all_files_in_dir(dir):
