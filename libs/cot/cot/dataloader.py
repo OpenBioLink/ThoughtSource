@@ -238,18 +238,24 @@ class Collection:
                     number_generated_cots.append(len(item["generated_cot"]))
             print(name, set(number_generated_cots))
 
-    def unload_datasets(self, names=None):
+    def unload_datasets(self, names=None, reverse=False):
         """
-        It takes a list of names and unloads the datasets
+        It takes a list of names and unloads the datasets.
 
-        :param names: A list of dataset names to load. If None, all datasets are unloaded
+        :param names: A list of dataset names to unload. If None, all datasets are unloaded.
+        :param reverse: If False (default), unloads the datasets specified in 'names'. 
+        If True, unloads all datasets except the ones specified in 'names'.
         """
         if names is None:
             self._cache.clear()
-        else:
+        elif not reverse:
             for name in names:
                 if name in self._cache:
                     del self._cache[name]
+        else:
+            datasets_to_unload = [name for name in self._cache if name not in names]
+            for name in datasets_to_unload:
+                del self._cache[name]
 
     def clear(self):
         self.unload_datasets()    
