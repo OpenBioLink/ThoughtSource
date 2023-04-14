@@ -334,6 +334,12 @@ class Collection:
                 elif split_name == "test":
                     split = ds.Split.TEST
 
+                for item in content[dataset_name][split]:
+                    for generated_cot in item["generated_cot"]:
+                        for answer in generated_cot["answers"]:
+                            if "answer_from_choices" not in answer:
+                                answer["answer_from_choices"] = ""
+
                 dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict("series")
                 dic = {k: list(v) for (k, v) in dic.items()}
                 # important: after annotation on the annotator website, the dataset is saved with the following keys:
@@ -361,6 +367,23 @@ class Collection:
         if not load_pregenerated_cots:
             collection.delete_all_generated_cots()
         return collection
+    
+    @staticmethod
+    def load_thoughtsource_33(names="all", load_pregenerated_cots=True) -> "Collection":
+        """load the thoughtsource_33 dataset"""
+        path_to_biodatasets = (pathlib.Path(__file__).parent.absolute() / "datasets").resolve()
+        path_to_thoughtsource_33 = path_to_biodatasets / "thoughtsource" / "thoughtsource_33.json"
+        collection = Collection.from_json(str(path_to_thoughtsource_33))
+        # drop all names that are not in the list
+        if names != "all":
+            all_names = list(collection._cache.keys())
+            names_to_remove = [name for name in all_names if name not in names]
+            collection.unload_datasets(names_to_remove)
+        # drop all generated cots if load_pregenerated_cots is False
+        if not load_pregenerated_cots:
+            collection.delete_all_generated_cots()
+        return collection
+
 
     def number_examples(self, name=None, split=None):
         """
