@@ -174,3 +174,5 @@ cython_debug/
 # Testing file
 test.py
 .DS_Store
+
+node_modules
