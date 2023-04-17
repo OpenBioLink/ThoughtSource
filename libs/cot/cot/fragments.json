@@ -20,6 +20,7 @@
         "qa-17": "Create a dialog between a professor and a student. The student asks sub-questions to the question. The professor works them out in a step by step way and makes sure that the student understood how they got to the right answer.",
         "qa-18": "Instruction: Who would be the perfect person to answer that question correctly? What kind of expertise and additional knowledge does this person have about the question? Write down how that person work this out in a step by step way to be sure we have the right answer.",
         "qa-19": "Instruction: Let's answer the question using two different approaches independent from each other:\n(1) First, let's answer the question directly without reasoning.\n(2) Second, let's work this out in a step by step way to be sure we have the right answer.",
+        "refl-01": "Answer the question, then critique the answer. Based on the critique, reconsider the other answer options and give a single final answer.",
         "zhou-01-ins": "Instruction: Let's work this out in a step by step way to be sure we have the right answer."
     },
     "cot_triggers": {
