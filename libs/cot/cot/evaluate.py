@@ -353,6 +353,7 @@ def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
 # evaluating all files in a directory
 def print_evaluation_of_all_files_in_dir(dir):
     import os
+    from cot import Collection
     for filename in os.listdir(dir):
         if filename.endswith(".json"):
             collection = Collection.from_json(os.path.join(dir, filename))
