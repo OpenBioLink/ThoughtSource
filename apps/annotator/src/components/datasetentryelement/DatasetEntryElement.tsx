@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import CotData, { annotate, CotOutput, findExistingAnnotation, SentenceElement, SentenceElementDict, SimilarityInfo } from '../../dtos/CotData';
+import CotData, { CotOutput, SentenceElement, SentenceElementDict, SimilarityInfo, annotate, findExistingAnnotation } from '../../dtos/CotData';
 import CotOutputElement from '../cotoutputelement/CotOutputElement';
 import styles from './DatasetEntryElement.module.scss';
 
@@ -26,12 +26,15 @@ const DatasetEntryElement: FC<DatasetEntryElementProps> = (props) => {
   const similarityType = props.selectedSimilarityType
 
   // Previously methods of class
-  function updateBestCot(bestCotIndex: number) {
-    setBestCotIndex(bestCotIndex)
+  function updateBestCot(newIndex: number) {
+    if (newIndex == bestCotIndex) {
+      newIndex = -1;
+    }
+    setBestCotIndex(newIndex)
 
     // Update each CotOutput's 'favored' annotation
     props.cotData.generated_cot?.forEach((cotOutput, index) => {
-      const isBest = bestCotIndex == index
+      const isBest = newIndex == index
       annotate(cotOutput, FAVORED, isBest, props.username, null)
     })
 
