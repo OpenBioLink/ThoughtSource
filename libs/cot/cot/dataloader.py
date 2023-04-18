@@ -278,6 +278,74 @@ class Collection:
         for name in names_to_delete:
             del self._cache[name]
 
+    def collection_to_dataframe(self):
+        df_list = []
+        """Converts a collection into a dataframe"""
+
+        def extract_keys(row):
+            # Extract the desired keys from the row
+            instruction = row['instruction']
+            cot_trigger = row['cot_trigger']
+            answer_from_choices = row['answers'][0]['answer_from_choices']
+            correct_answer = row['answers'][0]['correct_answer']
+            model_name = eval(row['model'])['name']
+
+            # Return a Series with the extracted data
+            return pd.Series({
+                'instruction': instruction,
+                'cot_trigger': cot_trigger,
+                'answer_from_choices': answer_from_choices,
+                'correct_answer': correct_answer,
+                'model': model_name,
+            })
+        def find_correct_choice(row):
+            choices = row['choices']
+            answer = row['answer'][0]
+
+            if answer in choices:
+                position = choices.index(answer) + 1
+                return chr(ord('A') + position - 1)
+            else:
+                return None
+        
+        for name in self._cache:
+            for split in self._cache[name]:
+                df = pd.DataFrame(self[name][split])
+                df.insert(0, 'dataset', name)
+                df.insert(1, 'split', split)
+                df = df.explode('generated_cot')
+                df.reset_index(inplace=True, drop=True)
+
+                df = df.join(df['generated_cot'].apply(extract_keys))
+                df.drop(columns=['generated_cot'], inplace=True)
+
+                df['answer_label'] = df.apply(find_correct_choice, axis=1)
+                df['number_choices'] = df['choices'].apply(len)
+                df['instruction'] = df['instruction'].fillna('None')
+                df['cot_trigger'] = df['cot_trigger'].fillna('None')
+                df['prompt'] = df['instruction'] + '_' + df['cot_trigger']
+                
+                df.drop(columns=['question', 'context', 'ref_id', 'cot', 'choices', 'answer', 'feedback'], inplace=True)
+
+                df = df[['dataset', 
+                         'split', 
+                         'id', 
+                         'type', 
+                         'number_choices', 
+                         'answer_label',
+                         'prompt',
+                         'instruction', 
+                         'cot_trigger', 
+                         'answer_from_choices', 
+                         'correct_answer',
+                         'model']]
+
+                df_list.append(df)
+        df = pd.concat(df_list)
+        df.reset_index(inplace=True, drop=True)
+        return df
+
+
     def dump(self, path_to_file_or_directory="./dump.json"):
         self.clear_empty_datasets()
         if not path_to_file_or_directory.endswith(".json"):
