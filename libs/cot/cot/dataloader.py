@@ -11,6 +11,7 @@ from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from os import devnull
 
 import datasets as ds
+import numpy as np
 import pandas as pd
 
 from .evaluate import evaluate
@@ -286,6 +287,7 @@ class Collection:
             # Extract the desired keys from the row
             instruction = row['instruction']
             cot_trigger = row['cot_trigger']
+            # answer_pred = row['answers'][0]['answer']
             answer_from_choices = row['answers'][0]['answer_from_choices']
             correct_answer = row['answers'][0]['correct_answer']
             model_name = eval(row['model'])['name']
@@ -294,6 +296,7 @@ class Collection:
             return pd.Series({
                 'instruction': instruction,
                 'cot_trigger': cot_trigger,
+                # 'answer_pred': answer_pred,
                 'answer_from_choices': answer_from_choices,
                 'correct_answer': correct_answer,
                 'model': model_name,
@@ -325,17 +328,20 @@ class Collection:
                 df['cot_trigger'] = df['cot_trigger'].fillna('None')
                 df['prompt'] = df['instruction'] + '_' + df['cot_trigger']
                 
-                df.drop(columns=['question', 'context', 'ref_id', 'cot', 'choices', 'answer', 'feedback'], inplace=True)
+                # df.drop(columns=['question', 'context', 'ref_id', 'cot', 'choices', 'answer', 'feedback'], inplace=True)
 
                 df = df[['dataset', 
                          'split', 
                          'id', 
-                         'type', 
-                         'number_choices', 
+                         'type',
+                        #  'choices', #
+                        #  'answer', #
+                        #  'number_choices',
                          'answer_label',
                          'prompt',
                          'instruction', 
                          'cot_trigger', 
+                        #  'answer_pred',
                          'answer_from_choices', 
                          'correct_answer',
                          'model']]
@@ -343,6 +349,9 @@ class Collection:
                 df_list.append(df)
         df = pd.concat(df_list)
         df.reset_index(inplace=True, drop=True)
+
+        # correct None to np.nan in answer_from_choices for krippendorff metric
+        df['answer_from_choices'] = df['answer_from_choices'].replace({None: np.nan})
         return df
 
 

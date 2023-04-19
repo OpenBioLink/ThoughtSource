@@ -114,10 +114,9 @@ def _evaluate(example, type_, overwrite, warn):
             answer["correct_answer"] = answer_eval
             if answer_from_choices is not None:
                 answer["answer_from_choices"] = answer_from_choices.upper()
+            if answer_from_choices is None:
+                answer["answer_from_choices"] = None
     return example
-
-
-
 
 
 def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tuple[bool, Optional[str]]:
@@ -127,15 +126,15 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
         if warn:
             warnings.warn(f"Prediction is empty: {pred}")
         return (False, None)
-    
-    # if the pred starts with any of the answer sequences in fragements, remove it
+
     # save the original pred for debugging
     original_pred = pred
 
     # Sort the list of strings by length (longest to shortest) as one might include another
     answer_extractions = list(FRAGMENTS["answer_extractions"].values())
     answer_extractions = sorted(answer_extractions, key=len, reverse=True)
-    
+
+    # if the pred starts with any of the answer sequences in fragments, remove it
     # Loop through the list of answer_extractions and remove the longest matching prefix
     for e in answer_extractions:
         if pred.startswith(e):
@@ -147,22 +146,12 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
     if choices:
         choices = [choice.lower() for choice in choices]
 
-    # # strip whitespaces from prediction
-    # pred = pred.strip()
-    # # strip whitespaces from gold
-    # gold = gold.strip()
-    # # strip a trailing period from prediction
-    # if pred.endswith("."):
-    #     pred = pred[:-1]
-
     if type_ not in ["bool", "multiplechoice"]:
         warnings.warn(f"Answer type {type_} not supported yet.")
         return (None, None)
 
     if type_ == "multiplechoice":
-        # E.g.: "Therefore, among A through E, the answer is (c)"
-
-        # make dict of choices with uppercase letters A,B,C,...
+        # make dict of choices with lowercase letters a,b,c,...
         choices_dict = dict(zip(string.ascii_lowercase, choices))
         choices_keys = list(choices_dict.keys())
         choices_values_raw = list(choices_dict.values())
@@ -338,15 +327,18 @@ def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
 
     comparison = pred.lower() == gold_key.lower() or pred.lower() == gold_value.lower()
 
-    if gold_key == "yes":
-        return (comparison, "A")
-    elif gold_key == "no":
-        return (comparison, "B")
-    
+    # get prediction as key (a,b,c,...)
     if pred in choices_dict.keys():
         pred_as_key = pred
     elif pred in choices_dict.values():
         pred_as_key = list(choices_dict.keys())[list(choices_dict.values()).index(pred)]
+    
+    # for boolean we need to correct that they have three values, [A, true, yes] and [B, false, no]
+    if len(choices_dict.keys()) == 2:
+        if pred_as_key == "yes":
+            pred_as_key = "A"
+        elif pred_as_key == "no":
+            pred_as_key = "B"
     
     return (comparison, pred_as_key)
 
