@@ -380,6 +380,7 @@ def compare_evaluation_difference(collection):
         collection_before.dump("compare_evaluation_" + timestamp + "_before.json")
         collection_after.dump("compare_evaluation_" + timestamp + "_after.json")
         # then just compare the two json files inside vscode or any other editor
+        print("Found difference in collection before/after evaluation overwrite. Files for comparison are created: compare_evaluation_" + timestamp + "_before.json and compare_evaluation_" + timestamp + "_after.json")
     
     # evaluation_before = collection.evaluate()
     # pprint(evaluation_after)
