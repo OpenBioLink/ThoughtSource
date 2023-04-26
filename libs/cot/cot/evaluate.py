@@ -169,27 +169,19 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
             if warn:
                 warnings.warn(f"Choices: {choices_dict} contain common elements: {common_elements}. This might lead to false positives.")
 
-    if type_ == "bool":
-        # E.g.: "Therefore, the answer (Yes or No) is NO."
-        choices_dict = {"yes": "true", "no": "false"}
-        choices_keys = list(choices_dict.keys())
-        choices_values = list(choices_dict.values())
-        choices_values_raw = choices_values  # in bool case, we need the raw values for the quick check
-        keys_lower = [i.lower() for i in choices_dict.keys()]
-        values_lower = [j.lower() for j in choices_dict.values()]
-
     # quick check if pred is in choices_dict
-    if (
-        # We need to take the raw values here, as this is not regex
-        pred in choices_values_raw
-        or pred in choices_keys
-        or pred in keys_lower
-        or pred in values_lower
-    ):
-        # raise ValueError("not in choices_dict")
-        is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+    if type_ == "multiplechoice":
+        if (
+            # We need to take the raw values here, as this is not regex
+            pred in choices_values_raw
+            or pred in choices_keys
+            or pred in keys_lower
+            or pred in values_lower
+        ):
+            # raise ValueError("not in choices_dict")
+            is_correct = compare_pred_with_gold(pred, gold, choices_dict)
 
-        return is_correct
+            return is_correct
 
     if type_ == "multiplechoice":        
     # check if only one of the choices are part of the pred and report this as answer
@@ -252,7 +244,9 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
 
     if type_ == "bool":
         hits = []
-        choices_keys_and_values = choices_keys + choices_values
+        a = ['a', 'yes', 'true']
+        b = ['b', 'no', 'false']
+        choices_keys_and_values = a + b
         for value in choices_keys_and_values:
             # only check if length of value is smaller or same than pred
             if len(value) <= len(pred):
@@ -263,9 +257,42 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
                     hits.append(value)
         # if only one hit, use that as predicted answer
         if len(hits) == 1:
-            pred = hits[0]
-            is_correct = compare_pred_with_gold(pred, gold, choices_dict)
-            return is_correct
+            # if the hit is a or b, then we need to return the corresponding value
+            # just check for 'yes' 'no' and 'true' 'false'
+            if hits[0] in a[1:]:
+                pred = 'true'
+            elif hits[0] in b[1:]:
+                pred = 'false'
+            else:
+                # only do this if the string is short, so no sentences with "a" or "b" in it are falsely classified
+                if hits[0] in ['a', 'b'] and len(pred) < 10:
+                    if hits[0] == 'a':
+                        pred = 'true'
+                    elif hits[0] == 'b':
+                        pred = 'false'
+                    
+        elif len(hits) > 1:
+            # if all hits in a pred is true
+            if all(x in a for x in hits):
+                pred = 'true'
+            # if all hits in b pred is false
+            if all(x in b for x in hits):
+                pred = 'false'
+
+            # hits excluding a or b, just go for yes/no and true/false
+            hits_no_ab = [x for x in hits if x not in ['a', 'b']]
+            if len (hits_no_ab) > 0:
+                # if only 'yes' and/or 'true' in pred, then pred is true
+                if all(x in a[1:] for x in hits_no_ab):
+                    pred = 'true'
+                # if only 'no' and/or 'false' in pred, then pred is false
+                if all(x in b[1:] for x in hits_no_ab):
+                    pred = 'false'
+
+
+        choices_dict = {"yes": "true", "no": "false"}
+        is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+        return is_correct
         # makes errors in examples like "Yes, bla bla has no effect", since it counts yes and no
         # could be corrected by:
         # 1) checking if multiple hits
@@ -327,18 +354,20 @@ def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
 
     comparison = pred.lower() == gold_key.lower() or pred.lower() == gold_value.lower()
 
-    # get prediction as key (a,b,c,...)
-    if pred in choices_dict.keys():
-        pred_as_key = pred
-    elif pred in choices_dict.values():
-        pred_as_key = list(choices_dict.keys())[list(choices_dict.values()).index(pred)]
-    
-    # for boolean we need to correct that they have three values, [A, true, yes] and [B, false, no]
-    if len(choices_dict.keys()) == 2:
-        if pred_as_key == "yes":
+    # for boolean
+    if choices_dict == {"yes": "true", "no": "false"}:
+        if pred == "true":
             pred_as_key = "A"
-        elif pred_as_key == "no":
+        elif pred == "false":
             pred_as_key = "B"
+        else:
+            pred_as_key = None
+
+    else: # get prediction as key (a,b,c,...)
+        if pred in choices_dict.keys():
+            pred_as_key = pred
+        elif pred in choices_dict.values():
+            pred_as_key = list(choices_dict.keys())[list(choices_dict.values()).index(pred)]
     
     return (comparison, pred_as_key)
 
@@ -374,13 +403,13 @@ def compare_evaluation_difference(collection):
     collection_after_json = collection_after.to_json()
 
     if collection_before_json == collection_after_json:
-        print("No difference in collection before/after evaluation overwrite. No files files for comparison are created.")
+        print("No difference in collection old/new evaluation overwrite. No files files for comparison are created.")
 
     else:
-        collection_before.dump("compare_evaluation_" + timestamp + "_before.json")
-        collection_after.dump("compare_evaluation_" + timestamp + "_after.json")
+        collection_before.dump("compare_evaluation_" + timestamp + "_old.json")
+        collection_after.dump("compare_evaluation_" + timestamp + "_new.json")
         # then just compare the two json files inside vscode or any other editor
-        print("Found difference in collection before/after evaluation overwrite. Files for comparison are created: compare_evaluation_" + timestamp + "_before.json and compare_evaluation_" + timestamp + "_after.json")
+        print("Found difference in collection old/new evaluation overwrite. Files for comparison are created: compare_evaluation_" + timestamp + "_old.json and compare_evaluation_" + timestamp + "_new.json")
     
     # evaluation_before = collection.evaluate()
     # pprint(evaluation_after)
