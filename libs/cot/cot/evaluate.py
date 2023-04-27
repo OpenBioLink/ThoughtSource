@@ -125,7 +125,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
     if pred == "":
         if warn:
             warnings.warn(f"Prediction is empty: {pred}")
-        return (False, None)
+        return (None, None)
 
     # save the original pred for debugging
     original_pred = pred
@@ -193,26 +193,49 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
                 # This following pattern almost perfectly, much better than with using \\bword\\b to mark the words beginning and end,
                 # since this pattern works also if special characters like brackets are in the value
                 # (only thing it does not catch if the model answers in plural and appends and "s" to the end of the word,
-                # but I do not want to change it since this could also be two seperate answer choices singular/plural, which we need to distinguish)
+                # but I do not want to change it since this could also be two separate answer choices singular/plural, which we need to distinguish)
                 pattern = r'(?<!\w){}(?!\w)'.format(re.escape(value))
                 if re.search(pattern, pred, re.IGNORECASE):
                     hits.append(value)
+
         # Old version of the above, just stays here for reference and debugging          
-        hits_2 = []
-        for value in choices_values_raw:
-            # only check if length of value is smaller or same than pred
-            if len(value) <= len(pred):
-                # we go for the simple solution here, the one that is used in type_ == "bool" below does not work here
-                if value.lower() in pred.lower():
-                    hits_2.append(value)
+        # hits_2 = []
+        # for value in choices_values_raw:
+        #     # only check if length of value is smaller or same than pred
+        #     if len(value) <= len(pred):
+        #         # we go for the simple solution here, the one that is used in type_ == "bool" below does not work here
+        #         if value.lower() in pred.lower():
+        #             hits_2.append(value)
+
         # if only one hit, use that as predicted answer
         if len(hits) == 1:
             pred = hits[0]
             is_correct = compare_pred_with_gold(pred, gold, choices_dict)
             return is_correct
-        # if more than one hit return false
+        # if more than one hit check if one of the hits is a substring of another hit
         elif len(hits) > 1:
-            return (False, None)
+            # sort hits by length
+            hits_sorted = sorted(hits, key=len)
+            # check if one of the hits is a substring of another hit
+            for i in range(len(hits_sorted)):
+                for j in range(len(hits_sorted)):
+                    # do not use same index
+                    if i != j:
+                        # if is already None, do not check
+                        if hits_sorted[i] is not None and hits_sorted[j] is not None:
+                            # if substring
+                            if hits_sorted[i] in hits_sorted[j]:
+                                # set to None if substring
+                                hits_sorted[i] = None
+            # remove None values
+            hits_sorted = [x for x in hits_sorted if x is not None]
+            # if only one hit left, use that as predicted answer
+            if len(hits_sorted) == 1:
+                pred = hits_sorted[0]
+                is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+                return is_correct
+        # if not return false
+            return (None, None)
         
         # it that did not work, check if only keys (a,b,c,d,...) are given as answers
         # remove unnecessary words
@@ -239,8 +262,13 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
                 pattern = r'(?<!\w){}(?!\w)'.format(re.escape(key))
                 if re.search(pattern, pred, re.IGNORECASE):
                     hits_letters.append(key)
+            # if there is only one standalone letter, then we return this as answer (only if it is not "a", since this is a common word)
+            if len(hits_letters) == 1 and hits_letters[0] != "a":
+                is_correct = compare_pred_with_gold(hits_letters[0], gold, choices_dict)
+                return is_correct
+            # if there are more than one standalone letter, then we return false as answer
             if sorted(hits_letters) == sorted(letters):
-                return (False, None)
+                return (None, None)
 
     if type_ == "bool":
         hits = []
@@ -324,7 +352,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
             possible answers: {choices_dict}
             """
         )
-    return (False, None)
+    return (None, None)
 
 def escape_special_characters(string):
     result = r""
@@ -406,10 +434,10 @@ def compare_evaluation_difference(collection):
         print("No difference in collection old/new evaluation overwrite. No files files for comparison are created.")
 
     else:
-        collection_before.dump("compare_evaluation_" + timestamp + "_old.json")
-        collection_after.dump("compare_evaluation_" + timestamp + "_new.json")
+        collection_before.dump("compare_evaluation_" + timestamp + "_a_old.json")
+        collection_after.dump("compare_evaluation_" + timestamp + "_b_new.json")
         # then just compare the two json files inside vscode or any other editor
-        print("Found difference in collection old/new evaluation overwrite. Files for comparison are created: compare_evaluation_" + timestamp + "_old.json and compare_evaluation_" + timestamp + "_new.json")
+        print("Found difference in collection old/new evaluation overwrite. Files for comparison are created: compare_evaluation_" + timestamp + "_a_old.json and compare_evaluation_" + timestamp + "_b_new.json")
     
     # evaluation_before = collection.evaluate()
     # pprint(evaluation_after)
