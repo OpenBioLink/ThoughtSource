@@ -291,6 +291,7 @@ class Collection:
             answer_from_choices = row['answers'][0]['answer_from_choices']
             correct_answer = row['answers'][0]['correct_answer']
             model_name = eval(row['model'])['name']
+            answer_id = row['answers'][0]['id']
 
             # Return a Series with the extracted data
             return pd.Series({
@@ -300,6 +301,7 @@ class Collection:
                 'answer_from_choices': answer_from_choices,
                 'correct_answer': correct_answer,
                 'model': model_name,
+                'answer_id': answer_id
             })
         def find_correct_choice(row):
             choices = row['choices']
@@ -340,7 +342,8 @@ class Collection:
                          'answer_label',
                          'prompt',
                          'instruction', 
-                         'cot_trigger', 
+                         'cot_trigger',
+                         'answer_id',
                         #  'answer_pred',
                          'answer_from_choices', 
                          'correct_answer',
