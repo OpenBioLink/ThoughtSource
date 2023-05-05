@@ -317,10 +317,15 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tu
                 if all(x in b[1:] for x in hits_no_ab):
                     pred = 'false'
 
-
+        # if pred is not true or false, then return None
+        if pred not in ['true', 'false']:
+            return (None, None)
+        
+        # if pred is true or false, then check if it is correct
         choices_dict = {"yes": "true", "no": "false"}
         is_correct = compare_pred_with_gold(pred, gold, choices_dict)
         return is_correct
+    
         # makes errors in examples like "Yes, bla bla has no effect", since it counts yes and no
         # could be corrected by:
         # 1) checking if multiple hits
