@@ -7,6 +7,8 @@ features = datasets.Features(
     {
         "id": datasets.Value("string"),
         "ref_id": datasets.Value("string"),
+        "choices": [datasets.Value("string")],
+        "answer": [datasets.Value("string")],
         "generated_cot": [
             {
                 "id": datasets.Value("string"),
@@ -18,6 +20,7 @@ features = datasets.Features(
                         "id": datasets.Value("string"),
                         "answer_extraction": datasets.Value("string"),
                         "answer_extraction_template": datasets.Value("string"),
+                        "answer_from_choices": datasets.Value("string"),
                         "correct_answer": datasets.Value("bool"),
                     }
                 ],

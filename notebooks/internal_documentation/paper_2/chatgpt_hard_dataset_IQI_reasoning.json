@@ -1,0 +1,262 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "684dbde19719e8224113433981d6e01e",
+                "ref_id": "",
+                "question": "Billy lived in the capital of his country, then he moved.  Where might he move to?",
+                "type": "multiplechoice",
+                "choices": [
+                    "small town",
+                    "jail",
+                    "lower case",
+                    "contain governmental activities",
+                    "lowercase"
+                ],
+                "context": "",
+                "cot": [
+                    "One usually moves to a small town from the country's capital and not to a jail.",
+                    "Small town is a place to live and has lesser population.",
+                    "Lower case, a place containing governmental activities and lowercase are not places to live."
+                ],
+                "answer": [
+                    "small town"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "8a5eaabb-c48d-4c74-802b-4ab276924df2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all those questions to your reasoning.\n    Does the response adequately address the request?\n    Is the response plausible?\n    Does the response contain any irrelevant or incorrect information?\n    Does the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information?\n    Are there any unnecessary repetitions in the response?\n    Does the response omit any steps in the process of reasoning?\n    Is the reasoning logically valid, consistent and coherent?\n    Are statements in the response made with appropriate levels of confidence?\n    Is the reasoning free of cognitive biases or fallacies?\n    Does the reasoning resemble that of a psychologically balanced, calm and reasonable person?\n    If the response contains formal reasoning (e.g., math, computer code), were any errors made?\n    If external tools (e.g., search engines, APIs, mathematical/statistical tools) were used in the response, were they used correctly?\n    If the response contains step-by-step reasoning, could better reasoning steps or sub-questions have been chosen?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "Let's work this out in a step by step way to be sure we have the right answer.\n\n1. Read the question carefully: Billy lived in the capital of his country, then he moved. Where might he move to?\n2. Consider the options provided: A) small town B) jail C) lower case D) contain governmental activities E) lowercase\n3. Eliminate options that are clearly incorrect: B) jail and C) lower case are not plausible options for where Billy might move to.\n4. Consider the remaining options: A) small town, D) contain governmental activities, and E) lowercase.\n5. Determine which option is the most plausible based on the information provided: Since Billy previously lived in the capital, it is likely that he would move to a place that also has some level of governmental activities. Therefore, the most plausible option is D) contain governmental activities.\n\nDoes the response adequately address the request? Yes.\nIs the response plausible? Yes.\nDoes the response contain any irrelevant or incorrect information? No.\nDoes the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information? No.\nAre there any unnecessary repetitions in the response? No.\nDoes the response omit any steps in the process of reasoning? No.\nIs the reasoning logically valid, consistent and coherent? Yes.\nAre statements in the response made with appropriate levels of confidence? Yes.\nIs the reasoning free of cognitive biases or fallacies? Yes.\nDoes the reasoning resemble that of a psychologically balanced, calm and reasonable person? Yes.\nIf the response contains formal reasoning (e.g., math, computer code), were any errors made? N/A\nIf external tools (e.g., search engines, APIs, mathematical/statistical tools) were used in the response, were they used correctly? N/A\nIf the response contains step-by-step reasoning, could better reasoning steps or sub-questions have been chosen? No.",
+                        "answers": [
+                            {
+                                "id": "e1ab6100-7161-4dfd-bcab-70355274cff4",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) contain governmental activities.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:21:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_621",
+                "ref_id": "",
+                "question": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Cat bite",
+                    "Human bite",
+                    "Spider bite",
+                    "Fish bite",
+                    "Dog bite"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Dog bite"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e05b524b-7b68-4f59-8b85-08691bda953c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all those questions to your reasoning.\n    Does the response adequately address the request?\n    Is the response plausible?\n    Does the response contain any irrelevant or incorrect information?\n    Does the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information?\n    Are there any unnecessary repetitions in the response?\n    Does the response omit any steps in the process of reasoning?\n    Is the reasoning logically valid, consistent and coherent?\n    Are statements in the response made with appropriate levels of confidence?\n    Is the reasoning free of cognitive biases or fallacies?\n    Does the reasoning resemble that of a psychologically balanced, calm and reasonable person?\n    If the response contains formal reasoning (e.g., math, computer code), were any errors made?\n    If external tools (e.g., search engines, APIs, mathematical/statistical tools) were used in the response, were they used correctly?\n    If the response contains step-by-step reasoning, could better reasoning steps or sub-questions have been chosen?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "Let's work this out in a step by step way to be sure we have the right answer.\n\n1. Read the scenario carefully to understand the patient's symptoms and medical history.\n2. Identify the relevant information in the scenario, such as the patient's sickle cell disease, fever, night sweats, lethargy, and swollen bite marks on his right hand with red streaks extending to his elbow.\n3. Consider the options provided and eliminate any that are clearly not relevant or do not fit the scenario.\n4. Evaluate each remaining option based on the information provided and determine which one is most concerning for this patient.\n\nDoes the response adequately address the request?\nYes, the response provides a step-by-step approach to answering the question.\n\nIs the response plausible?\nYes, the response is a logical and reasonable way to approach the question.\n\nDoes the response contain any irrelevant or incorrect information?\nNo, the response only includes relevant information from the scenario.\n\nDoes the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information?\nNo, the response accurately reflects the information provided in the scenario.\n\nAre there any unnecessary repetitions in the response?\nNo, the response is concise and does not repeat information unnecessarily.\n\nDoes the response omit any steps in the process of reasoning?\nNo, the response includes all necessary steps to arrive at an answer.\n\nIs the reasoning logically valid, consistent and coherent?\nYes, the reasoning is logical, consistent, and coherent.\n\nAre statements in the response made with appropriate levels of confidence?\nYes, the response is confident in its approach and conclusion.\n\nIs the reasoning free of cognitive biases or fallacies?\nYes, the reasoning is free of cognitive biases or fallacies.\n\nDoes the reasoning resemble that of a psychologically balanced, calm and reasonable person?\nYes, the reasoning is calm, reasonable, and balanced.\n\nIf the response contains formal reasoning (e.g., math, computer code), were any errors made?\nN/A\n\nIf external tools (e.g., search engines, APIs, mathematical/statistical tools) were used in the response, were they used correctly?\nN/A\n\nIf the response contains step-by-step reasoning, could better reasoning steps or sub-questions have been chosen?\nNo, the reasoning steps are appropriate for the given scenario.\n\nBased on the scenario provided, the most concerning bite for this patient would be a spider bite (option C). The swollen bite marks with red streaks extending to the elbow suggest an infection, and spider bites are known to cause severe infections that can be life-threatening, especially in patients with",
+                        "answers": [
+                            {
+                                "id": "45bb9414-1dff-445c-b9bc-8f07f7715abc",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Spider bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:22:13",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_250",
+                "ref_id": "",
+                "question": "Rain is usually guaranteed when all are present but",
+                "type": "multiplechoice",
+                "choices": [
+                    "cirrus clouds",
+                    "cumulus clouds",
+                    "hail stones",
+                    "direct sunshine"
+                ],
+                "context": "",
+                "cot": [
+                    "if weather is stormy then there is a greater chance of rain"
+                ],
+                "answer": [
+                    "direct sunshine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "3c899ec2-b3eb-42e3-a64c-66a9d3fd5bd0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all those questions to your reasoning.\n    Does the response adequately address the request?\n    Is the response plausible?\n    Does the response contain any irrelevant or incorrect information?\n    Does the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information?\n    Are there any unnecessary repetitions in the response?\n    Does the response omit any steps in the process of reasoning?\n    Is the reasoning logically valid, consistent and coherent?\n    Are statements in the response made with appropriate levels of confidence?\n    Is the reasoning free of cognitive biases or fallacies?\n    Does the reasoning resemble that of a psychologically balanced, calm and reasonable person?\n    If the response contains formal reasoning (e.g., math, computer code), were any errors made?\n    If external tools (e.g., search engines, APIs, mathematical/statistical tools) were used in the response, were they used correctly?\n    If the response contains step-by-step reasoning, could better reasoning steps or sub-questions have been chosen?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "Let's work this out in a step by step way to be sure we have the right answer.\n\n1. Read the question carefully and identify what is being asked.\n- The question is asking which of the given options are usually present when it rains.\n\n2. Read through the options and eliminate any that are clearly not related to rain.\n- Option D, direct sunshine, is not usually present when it rains, so we can eliminate it.\n\n3. Consider the remaining options and determine if they are usually present when it rains.\n- Cirrus clouds are high, thin clouds that are often associated with fair weather, so they are unlikely to be present when it rains. We can eliminate option A.\n- Hail stones are a type of precipitation that can occur during thunderstorms, but they are not always present when it rains. We can eliminate option C.\n- Cumulus clouds are large, puffy clouds that are often associated with thunderstorms and rain showers, so they are a likely candidate for the correct answer.\n\n4. Check our reasoning and make sure it is logically valid, consistent, and coherent.\n- Our reasoning seems to be logically valid and consistent. We eliminated options that were clearly not related to rain and considered the remaining options based on their likelihood of being present during rain.\n\n5. Choose the best answer based on our reasoning.\n- The best answer is B, cumulus clouds, as they are often present during rain showers.\n\nDoes the response adequately address the request?\n- Yes, the response provides a step-by-step approach to determining which of the given options are usually present when it rains.\n\nIs the response plausible?\n- Yes, the response is plausible and makes sense based on our understanding of weather patterns.\n\nDoes the response contain any irrelevant or incorrect information?\n- No, the response only considers the given options and eliminates those that are clearly not related to rain.\n\nDoes the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information?\n- No, the response accurately interprets the question and the given options.\n\nAre there any unnecessary repetitions in the response?\n- No, the response is concise and does not repeat any information unnecessarily.\n\nDoes the response omit any steps in the process of reasoning?\n- No, the response provides a clear and complete process of reasoning.\n\nIs the reasoning logically valid, consistent and coherent?\n- Yes, the reasoning is logically valid, consistent, and coherent.\n\nAre statements in the response made with appropriate levels of confidence?\n- Yes, the response is confident in its reasoning and conclusion.\n\nIs the reasoning free",
+                        "answers": [
+                            {
+                                "id": "1a367223-0ed9-40df-8bac-d14a94d88002",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B, cumulus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:23:00",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "ffd8a720264778c0fd6e",
+                "ref_id": "",
+                "question": "Can the Toyota Hilux tip the scales against Mr. Ed?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The current generation of Toyota Hilux weighs at least 4,310 lbs",
+                    "Mr. Ed was portrayed by an adult horse",
+                    "The average adult horse weighs up to 2,000 lbs"
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4c0109f9-c774-4dac-b2f0-4f500e60e3d7",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all those questions to your reasoning.\n    Does the response adequately address the request?\n    Is the response plausible?\n    Does the response contain any irrelevant or incorrect information?\n    Does the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information?\n    Are there any unnecessary repetitions in the response?\n    Does the response omit any steps in the process of reasoning?\n    Is the reasoning logically valid, consistent and coherent?\n    Are statements in the response made with appropriate levels of confidence?\n    Is the reasoning free of cognitive biases or fallacies?\n    Does the reasoning resemble that of a psychologically balanced, calm and reasonable person?\n    If the response contains formal reasoning (e.g., math, computer code), were any errors made?\n    If external tools (e.g., search engines, APIs, mathematical/statistical tools) were used in the response, were they used correctly?\n    If the response contains step-by-step reasoning, could better reasoning steps or sub-questions have been chosen?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "Let's apply the questions to the response:\n\nDoes the response adequately address the request? \n- Yes, the response answers the question of whether the Toyota Hilux can tip the scales against Mr. Ed.\n\nIs the response plausible? \n- It is not clear what \"tip the scales\" means in this context, so it is difficult to determine the plausibility of the response.\n\nDoes the response contain any irrelevant or incorrect information? \n- The response does not contain any irrelevant information, but it is unclear if it is correct.\n\nDoes the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information? \n- There is no information to misinterpret or misrepresent in this response.\n\nAre there any unnecessary repetitions in the response? \n- No, the response is concise.\n\nDoes the response omit any steps in the process of reasoning? \n- There is no reasoning provided in the response.\n\nIs the reasoning logically valid, consistent and coherent? \n- There is no reasoning provided in the response.\n\nAre statements in the response made with appropriate levels of confidence? \n- The response is a simple true/false statement, so confidence levels are not applicable.\n\nIs the reasoning free of cognitive biases or fallacies? \n- There is no reasoning provided in the response.\n\nDoes the reasoning resemble that of a psychologically balanced, calm and reasonable person? \n- There is no reasoning provided in the response.\n\nIf the response contains formal reasoning (e.g., math, computer code), were any errors made? \n- There is no formal reasoning provided in the response.\n\nIf external tools (e.g., search engines, APIs, mathematical/statistical tools) were used in the response, were they used correctly? \n- There is no indication that any external tools were used in the response.\n\nIf the response contains step-by-step reasoning, could better reasoning steps or sub-questions have been chosen? \n- There is no reasoning provided in the response.\n\nOverall, the response is not helpful in determining whether the Toyota Hilux can tip the scales against Mr. Ed.",
+                        "answers": [
+                            {
+                                "id": "e3f5476e-4c5e-4e70-8875-bb1891285e9a",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "indeterminate.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:23:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_2",
+                "ref_id": "",
+                "question": "Which event occurs once per day?",
+                "type": "multiplechoice",
+                "choices": [
+                    "The Moon rises.",
+                    "The new Moon occurs.",
+                    "The Moon cycles through its phases.",
+                    "The Moon passes in front of the Sun."
+                ],
+                "context": "",
+                "cot": [
+                    "The moon rising occurs once per day.",
+                    "A moon is a kind of celestial object.",
+                    "Movements of celestial bodies are a kind of event.",
+                    "Rising is a kind of motion."
+                ],
+                "answer": [
+                    "The Moon rises."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "55c25519-44c8-4163-ae6a-3824b4143c91",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all those questions to your reasoning.\n    Does the response adequately address the request?\n    Is the response plausible?\n    Does the response contain any irrelevant or incorrect information?\n    Does the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information?\n    Are there any unnecessary repetitions in the response?\n    Does the response omit any steps in the process of reasoning?\n    Is the reasoning logically valid, consistent and coherent?\n    Are statements in the response made with appropriate levels of confidence?\n    Is the reasoning free of cognitive biases or fallacies?\n    Does the reasoning resemble that of a psychologically balanced, calm and reasonable person?\n    If the response contains formal reasoning (e.g., math, computer code), were any errors made?\n    If external tools (e.g., search engines, APIs, mathematical/statistical tools) were used in the response, were they used correctly?\n    If the response contains step-by-step reasoning, could better reasoning steps or sub-questions have been chosen?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "Let's work this out in a step by step way to be sure we have the right answer.\n\n1. Read the question carefully: \"Which event occurs once per day?\"\n2. Read each answer option carefully: \n    A) The Moon rises.\n    B) The new Moon occurs.\n    C) The Moon cycles through its phases.\n    D) The Moon passes in front of the Sun.\n3. Apply all those questions to your reasoning:\n    Does the response adequately address the request? Yes, it provides four answer options to choose from.\n    Is the response plausible? Yes, all four options are related to the Moon.\n    Does the response contain any irrelevant or incorrect information? No, all options are relevant to the question.\n    Does the response exhibit reading comprehension errors, such as misinterpreting or misrepresenting information? No, the question and answer options are clear.\n    Are there any unnecessary repetitions in the response? No, each option is unique.\n    Does the response omit any steps in the process of reasoning? No, all options are presented.\n    Is the reasoning logically valid, consistent and coherent? Yes, all options are related to the Moon and the question asks for an event that occurs once per day.\n    Are statements in the response made with appropriate levels of confidence? Yes, the answer options are presented confidently.\n    Is the reasoning free of cognitive biases or fallacies? Yes, there are no biases or fallacies present.\n    Does the reasoning resemble that of a psychologically balanced, calm and reasonable person? Yes, the reasoning is clear and logical.\n    If the response contains formal reasoning (e.g., math, computer code), were any errors made? N/A\n    If external tools (e.g., search engines, APIs, mathematical/statistical tools) were used in the response, were they used correctly? N/A\n    If the response contains step-by-step reasoning, could better reasoning steps or sub-questions have been chosen? N/A\n\nBased on the answer options provided, the correct answer is A) The Moon rises, as it occurs once per day.",
+                        "answers": [
+                            {
+                                "id": "a29b9be0-bb45-444f-b21d-0b9699ee295b",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The Moon rises.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:24:05",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,1387 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "684dbde19719e8224113433981d6e01e",
+                "ref_id": "",
+                "question": "Billy lived in the capital of his country, then he moved.  Where might he move to?",
+                "type": "multiplechoice",
+                "choices": [
+                    "small town",
+                    "jail",
+                    "lower case",
+                    "contain governmental activities",
+                    "lowercase"
+                ],
+                "context": "",
+                "cot": [
+                    "One usually moves to a small town from the country's capital and not to a jail.",
+                    "Small town is a place to live and has lesser population.",
+                    "Lower case, a place containing governmental activities and lowercase are not places to live."
+                ],
+                "answer": [
+                    "small town"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b6c866a3-7fe8-43db-8c81-349eb698bdc9",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-10",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Plan:\n1. Identify the characteristics of the capital city.\n2. Consider the reasons why Billy might have moved.\n3. Use the characteristics and reasons to eliminate the options that are unlikely.\n4. Choose the option that best fits the characteristics and reasons.\n\nAnswer:\nBased on the information given, it is likely that Billy moved to a small town. The capital city is typically a large and busy place, so it is reasonable to assume that Billy may have wanted a change of pace. Additionally, small towns often offer a quieter and more relaxed lifestyle, which may have been appealing to Billy. Therefore, option A is the most likely answer. Options B, C, D, and E do not fit the characteristics or reasons for Billy's move.",
+                        "answers": [
+                            {
+                                "id": "35f3f46b-614c-4009-9bf2-dd1c5ac353b6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) small town.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:11:51",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "744c3561-05be-4d60-8c54-c376673948fe",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-11",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Plan:\n\n1. Identify the given information in the question: Billy lived in the capital of his country and then he moved.\n2. Analyze the given information and try to make an inference about where Billy might have moved.\n3. Consider the options provided in the answer choices and eliminate the ones that do not fit the inference.\n4. Choose the answer that best fits the inference made in step 2.\n\nStep-by-step plan:\n\n1. Billy lived in the capital of his country, which means he was living in a big city with a lot of people, opportunities, and resources. However, he moved from there, which means he might have wanted to experience something different or escape from the hustle and bustle of the city life.\n\n2. Based on the given information, it can be inferred that Billy might have moved to a place that is different from the capital city. This could be a smaller town, a rural area, or a place that is less populated and more peaceful.\n\n3. Let's consider the answer choices provided:\n\nA) small town - This option fits the inference made in step 2, as Billy might have moved to a small town to experience a different lifestyle.\n\nB) jail - This option does not fit the inference made in step 2, as there is no indication that Billy committed a crime or was sent to jail.\n\nC) lower case - This option does not make sense in the context of the question and is likely a distractor.\n\nD) contain governmental activities - This option does not fit the inference made in step 2, as it does not suggest a place that is different from the capital city or a place that is more peaceful.\n\nE) lowercase - This option does not make sense in the context of the question and is likely a distractor.\n\n4. Therefore, the answer is A) small town, as it best fits the inference made in step 2 and is the only option that makes sense in the context of the question.",
+                        "answers": [
+                            {
+                                "id": "e108cb77-393d-416b-ba15-e9a60c23c6c3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) small town.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:19:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "2b93aa2d-6831-4bea-8798-7c54f408243b",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-12",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Based on the information given, we know that Billy lived in the capital of his country and then moved. Therefore, we can eliminate options B and E as they do not provide a plausible answer. \n\nOption C, \"lower case,\" does not make sense in the context of the question and can also be eliminated. \n\nOption D, \"contain governmental activities,\" is a possibility as many cities around the world have government buildings and activities. However, it is not a definitive answer. \n\nThis leaves us with option A, \"small town,\" as a possible answer. It is common for people to move from big cities to smaller towns for various reasons such as a change of pace, lower cost of living, or a desire for a quieter lifestyle. \n\nTherefore, the most likely answer to the question is A) small town.",
+                        "answers": [
+                            {
+                                "id": "7ef9bca4-8eaa-4875-91b1-d8a798d29d20",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) small town.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:27:07",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d50339d4-43f4-4dd9-af19-31e8ce466f27",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-13",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Rephrased question: If Billy moved from the capital of his country, where is he likely to have moved to?\n\nStep-by-step reasoning:\n- The question is asking for a possible destination for Billy after he moved from the capital of his country.\n- Option B, jail, seems unlikely as there is no indication that Billy committed a crime.\n- Option C, lower case, does not make sense as it is not a location.\n- Option E, lowercase, also does not make sense as it is not a location.\n- Option A, small town, is a possible destination for Billy as it is a common choice for people who want to move away from big cities.\n\nAnswer: A) small town",
+                        "answers": [
+                            {
+                                "id": "80d91205-ef1b-4537-a212-08ba593f2d54",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) small town.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:40:05",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ef6f3453-d4a7-4917-ab00-c79b5c6e4de4",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-14",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "List of facts:\n- Billy lived in the capital of his country\n- He moved to a new location\n\nElaboration:\n- Which country is Billy from? (This information is not given, but it could be important to consider if the country has a specific pattern of migration)\n- Why did Billy move? (This information is not given, but it could be important to consider if he moved for work, family, or personal reasons)\n- What is the size of the new location? (This information is not given, but it could be important to consider if Billy prefers a small or large community)\n- What type of activities is Billy interested in? (This information is not given, but it could be important to consider if he wants to live in a place with a lot of cultural or recreational opportunities)\n\nStep by step:\n1. Billy lived in the capital of his country.\n2. He moved to a new location.\n3. It is possible that Billy moved to a small town, as he may have wanted a change of pace from the busy capital city.\n4. It is unlikely that Billy moved to jail, as this would not be a typical destination for someone who voluntarily moved.\n5. It is unclear what is meant by \"lower case\" in this context, so it is difficult to determine if this is a viable option.\n6. It is possible that Billy moved to a location that contains governmental activities, such as a city with a lot of political or administrative offices.\n7. It is unclear what is meant by \"lowercase\" in this context, so it is difficult to determine if this is a viable option.\n8. Based on the information given, the most likely option is that Billy moved to a small town or a location that contains governmental activities.",
+                        "answers": [
+                            {
+                                "id": "cd7a53ef-b997-4add-bc95-c67b4cb575b6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) small town or D) contain governmental activities.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:05:57",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "41244777-9864-41fc-b0d7-445d00519afb",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-15",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Facts:\n- Billy lived in the capital of his country\n- Billy moved\n\nSub-questions:\n1. What are the possible destinations for someone who moves from the capital of a country?\n2. What factors might influence where Billy moved to?\n\nAnswers:\n1. Possible destinations for someone who moves from the capital of a country include:\n- Another city or town within the same country\n- Another country\n- A rural area or small town\n2. Factors that might influence where Billy moved to include:\n- Job opportunities\n- Family or personal reasons\n- Cost of living\n- Climate or geography preferences\n\nAnswer:\nBased on the information given, it is impossible to determine where Billy moved to. However, some possible options include another city or town within the same country, another country, or a rural area or small town. The specific destination would depend on various factors such as job opportunities, family or personal reasons, cost of living, and climate or geography preferences.",
+                        "answers": [
+                            {
+                                "id": "c21466bd-01a2-4545-9e80-638bd1a6bf71",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "indeterminate.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:55:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "70171d7a-6f08-49b8-a5ea-0ceec26c0373",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-16",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Helpful knowledge: The capital of a country is typically the city where the government is located and where major political and economic activities take place.\n\nSub-questions:\n1. Why did Billy move from the capital?\n2. What are some common reasons for people to move from a capital city?\n3. What are some factors that might influence where Billy would move to?\n\nAnswering sub-question 1: The reason for Billy's move is not provided in the question, so we cannot answer this sub-question.\n\nAnswering sub-question 2: Some common reasons for people to move from a capital city include:\n- Cost of living: Capital cities are often more expensive to live in than smaller towns or cities.\n- Quality of life: Some people may prefer a quieter, more relaxed lifestyle than what a busy capital city can offer.\n- Job opportunities: While capital cities may have more job opportunities, they can also be more competitive and stressful.\n- Family or personal reasons: People may move to be closer to family or for personal reasons such as wanting to live in a certain climate or environment.\n\nAnswering sub-question 3: Factors that might influence where Billy would move to include:\n- Job opportunities: If Billy moved for work, he may move to a city or town where there are job openings in his field.\n- Cost of living: If Billy wanted to save money, he may move to a smaller town or city where the cost of living is lower.\n- Personal preferences: Billy may have personal preferences such as wanting to live near the beach or in a rural area.\n- Proximity to family and friends: Billy may want to move closer to family or friends who live in a certain area.\n\nAnswering the original question: Based on the sub-questions, it is difficult to determine exactly where Billy might move to. However, some possibilities include a small town, a city that is not the capital, or a place that is more affordable or better suited to his personal preferences. Option A, small town, is the most likely answer based on the information provided. Options B, C, and E are not relevant to the question. Option D, containing governmental activities, does not provide enough information to determine if it is a likely option for Billy.",
+                        "answers": [
+                            {
+                                "id": "71416fe8-3ff5-4b48-9d6f-3ebd1036617d",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) small town.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:08:25",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ceaa24d8-8644-43ae-a634-398091c02934",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-17",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Student: Can you explain the question again, please?\n\nProfessor: Sure. The question is asking where Billy might move to after living in the capital of his country.\n\nStudent: Okay, got it. So, what are the options?\n\nProfessor: The options are A) small town, B) jail, C) lower case, D) contain governmental activities, and E) lowercase.\n\nStudent: Hmm, I'm not sure what option C) lower case means. Can you explain that one?\n\nProfessor: Lower case refers to the way letters are written. For example, the word \"hello\" is written in lower case letters. It's not a relevant option for this question, so let's focus on the other options.\n\nStudent: Okay, I understand. So, what about option D) contain governmental activities? Can you explain that one?\n\nProfessor: Sure. This option is referring to a place that has a lot of government-related activities going on. For example, a city that has a lot of government buildings and offices would be a place that contains governmental activities.\n\nStudent: Okay, I see. So, which option do you think is the correct answer?\n\nProfessor: Based on the information given in the question, it's most likely that Billy moved to a small town. So, the correct answer is A) small town.",
+                        "answers": [
+                            {
+                                "id": "e63cbb6f-f538-455b-bdfe-7a44fb43ffb2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) small town.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:13:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "94bd5d4c-df7c-4cc0-8d46-c4d13164d130",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-18",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The perfect person to answer this question correctly would be a geographer or someone who has knowledge about the different types of settlements.\n\nStep-by-step process:\n\n1. The person would first need to understand the different types of settlements, such as cities, towns, villages, and hamlets.\n\n2. They would then need to consider the characteristics of the capital city, such as its size, population, and level of development.\n\n3. Based on this information, they would be able to eliminate options B and D, as they are not related to the question.\n\n4. They would also be able to eliminate option C, as it does not make sense in the context of the question.\n\n5. The person would then need to consider the reasons why someone might move from a capital city to a smaller settlement.\n\n6. Possible reasons could include a desire for a quieter lifestyle, lower cost of living, or a change in employment.\n\n7. Based on these reasons, the person would be able to determine that option A, a small town, is the most likely answer.\n\n8. Finally, the person would need to consider option E, lowercase, and determine that it is not a valid answer to the question.",
+                        "answers": [
+                            {
+                                "id": "486f69b2-e765-4207-9d3e-2d5473207006",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) small town.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:25:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7fa8733e-0b56-4be1-9d12-13085b67ef41",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-19",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "(1) Answer: We cannot answer the question directly without reasoning as there is no clear indication or information provided about where Billy might have moved to.\n\n(2) Step-by-step approach:\n- We know that Billy lived in the capital of his country and then moved.\n- There is no information provided about why he moved or where he moved to.\n- Therefore, we cannot determine with certainty where he might have moved to.\n- However, we can make some assumptions based on common reasons for moving, such as for work, family, or personal preferences.\n- Based on these assumptions, Billy might have moved to a small town, a city with lower governmental activities, or any other place that suits his needs and preferences.\n- Therefore, the correct answer would be A) small town or D) contain governmental activities, depending on the assumptions made.",
+                        "answers": [
+                            {
+                                "id": "b35c6d75-00dc-4f27-a740-804405500f76",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "either A) small town or D) contain governmental activities, depending on the assumptions made.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:55:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_621",
+                "ref_id": "",
+                "question": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Cat bite",
+                    "Human bite",
+                    "Spider bite",
+                    "Fish bite",
+                    "Dog bite"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Dog bite"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f56f8ac5-9041-4533-a8f3-9fc21ed99ef3",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-10",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Plan:\n1. Assess the patient's vital signs and note any abnormalities.\n2. Examine the patient for any visible bite marks or wounds.\n3. Consider the patient's medical history, specifically his sickle cell disease and absence of spleen.\n4. Evaluate the potential risks and complications associated with each type of bite.\n5. Determine which bite would be most concerning for this patient.\n\nAnswer:\nThe most concerning bite in this patient would be a spider bite. The patient's vital signs indicate that he is in shock, which could be a complication of a venomous spider bite. Additionally, the red streaks extending from the bite marks on his right hand suggest that an infection may be present, which could be further complicated by his sickle cell disease and absence of spleen. While cat, human, dog, and fish bites can also lead to infections, they are less likely to cause the severe symptoms seen in this patient.",
+                        "answers": [
+                            {
+                                "id": "3eeb9d43-88b4-49b9-831f-74808556dfe9",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Spider bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:12:00",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "4262e44e-5e65-4022-9096-6fab4bd2aa0d",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-11",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the patient's symptoms and medical history.\n- The patient is a 59-year-old man with sickle cell disease.\n- He is presenting with fever, night sweats, lethargy, and swollen bite marks on his right hand with red streaks extending to his elbow.\n- His vital signs include low blood pressure, high pulse rate, and high respiratory rate.\n- His spleen is surgically absent.\n\nStep 2: Evaluate the potential causes of the patient's symptoms.\n- The patient mentioned being bitten by something, but his wife cannot remember what.\n- Given his symptoms and medical history, the patient may be experiencing an infection or sepsis.\n\nStep 3: Consider the potential sources of the bite.\n- The question provides a list of potential bites: cat, human, spider, fish, and dog.\n- Based on the patient's symptoms and medical history, the most concerning bite would be one that is likely to cause an infection or sepsis.\n\nStep 4: Evaluate each potential bite and its likelihood of causing an infection or sepsis.\n- Cat bites can be concerning due to the risk of infection from bacteria in the cat's mouth, but they are less likely to cause sepsis than other bites.\n- Human bites can also be concerning due to the risk of infection from bacteria in the human mouth, but they are less likely to cause sepsis than other bites.\n- Spider bites can be concerning depending on the type of spider, but they are less likely to cause sepsis than other bites.\n- Fish bites are unlikely to cause an infection or sepsis.\n- Dog bites can be concerning due to the risk of infection from bacteria in the dog's mouth, and they are more likely to cause sepsis than other bites.\n\nStep 5: Choose the most concerning bite based on the patient's symptoms and medical history.\n- Given the patient's symptoms and medical history, the most concerning bite would be a dog bite.",
+                        "answers": [
+                            {
+                                "id": "c58a115f-41be-4042-ae35-5d44fec8d05d",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Dog bite.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:19:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "682dabf8-d9db-4a16-8d77-5f27c40eaff6",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-12",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient is a 59-year-old man with sickle cell disease who presents with fever, night sweats, lethargy, and swollen bite marks on his right hand with red streaks extending to his elbow. His vital signs include hypotension, tachycardia, and tachypnea. His spleen is surgically absent, which puts him at increased risk for infections. The fact that he is unable to provide an adequate history to his physician makes it difficult to determine the cause of his symptoms. However, his wife reported that he mentioned being bitten by something roughly 3 days ago.\n\nGiven the patient's symptoms and history, the most concerning bite would be one that is known to cause severe infections or sepsis. Of the options provided, the most likely culprits are cat bites, human bites, and spider bites. Fish bites and dog bites are less likely to cause serious infections.\n\nCat bites are known to cause severe infections due to the bacteria in their mouths. Human bites can also cause serious infections due to the high number of bacteria in the human mouth. Spider bites can cause a range of symptoms, from mild irritation to severe systemic reactions.\n\nTherefore, the most concerning bite in this patient would be a cat bite or a human bite. Without more information about the type of animal or insect that bit the patient, it is difficult to determine the exact cause of his symptoms. However, given the patient's history and presentation, it is important to consider the possibility of a severe infection and initiate appropriate treatment.",
+                        "answers": [
+                            {
+                                "id": "05cb7826-570c-453c-98f3-290cb20f69c4",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "either A) Cat bite or B) Human bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:27:20",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "606b8310-1c92-4e5e-8b65-6ea547eaaad0",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-13",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "What is the most concerning bite in a 59-year-old man with sickle cell disease, fever, night sweats, lethargy, and swollen bite marks on his right hand with red streaks extending to his elbow?\n\nStep-by-step reasoning:\n- The patient has sickle cell disease, which puts him at risk for infections and complications.\n- He has fever and night sweats, which are signs of infection.\n- He is lethargic and unable to provide an adequate history, which suggests he is very sick.\n- His vital signs show low blood pressure, high pulse rate, and high respiratory rate, which are signs of shock.\n- His spleen is surgically absent, which puts him at risk for infections.\n- He has swollen bite marks on his right hand with red streaks extending to his elbow, which suggest an infection spreading from the bite site.\n- The bite occurred roughly 3 days ago, which means the infection has had time to spread.\n\nTherefore, the most concerning bite in this patient would be a spider bite, as some spider bites can cause severe infections and even death in people with weakened immune systems. The other bites listed (cat, human, fish, and dog) can also cause infections, but are less likely to be as severe as a spider bite in this patient's condition.",
+                        "answers": [
+                            {
+                                "id": "7aced5e6-5f35-468c-afd3-17b376bbef79",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Spider bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:40:16",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5a6d8056-ceb6-4a4f-ac01-5c72c3d49d02",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-14",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "List of facts:\n- 59-year-old man with sickle cell disease\n- Presenting with fever, night sweats, lethargy, and swollen bite marks on right hand with red streaks extending to his elbow\n- Unable to provide an adequate history, but wife reports he mentioned being bitten by something 3 days ago\n- Vital signs include low blood pressure, high pulse rate, and high respiratory rate\n- Spleen is surgically absent\n\nElaboration:\n- Sickle cell disease can increase the risk of infections and complications, especially in the spleen, which is often affected in sickle cell disease patients\n- Fever and night sweats can be signs of infection\n- Lethargy and pale appearance can be signs of low blood pressure and anemia\n- Swollen bite marks with red streaks can indicate an infection spreading through the lymphatic system\n- Inability to provide an adequate history may make it difficult to determine the cause of the symptoms\n- Low blood pressure, high pulse rate, and high respiratory rate can indicate sepsis, a potentially life-threatening condition\n- The absence of a spleen can increase the risk of infections and complications\n\nStep-by-step:\n1. Based on the symptoms and vital signs, the patient appears to be in sepsis, a potentially life-threatening condition.\n2. The swollen bite marks with red streaks indicate an infection spreading through the lymphatic system.\n3. The fact that the patient mentioned being bitten by something 3 days ago suggests that the infection may have originated from the bite.\n4. Of the options given, the most concerning bite in this patient would be a spider bite, as some spider bites can cause severe infections and tissue damage.\n5. However, it is important to note that the cause of the infection cannot be definitively determined without further testing and evaluation.",
+                        "answers": [
+                            {
+                                "id": "cdd1dd85-7970-44ed-9e83-8595759b4620",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Spider bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:06:13",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "eedd30ff-376e-46e8-9c4b-2f027d734108",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-15",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Facts:\n- 59-year-old man with sickle cell disease\n- Presents with fever, night sweats, lethargy, and swollen bite marks on right hand with red streaks extending to his elbow\n- Unable to provide an adequate history, but wife reports he mentioned being bitten by something 3 days ago\n- Vital signs include low blood pressure, high pulse rate, and high respiratory rate\n- Spleen is surgically absent\n\nSub-questions:\n1. What are the potential causes of fever and night sweats in a patient with sickle cell disease?\n2. What are the potential complications of a bite in a patient with sickle cell disease?\n3. What are the potential sources of the bite in this patient?\n4. What are the characteristics of each type of bite listed in the question?\n5. Which type of bite is most likely to cause the symptoms and presentation described in the patient?\n\nAnswers:\n1. Potential causes of fever and night sweats in a patient with sickle cell disease include infection, acute chest syndrome, and vaso-occlusive crisis.\n2. Complications of a bite in a patient with sickle cell disease can include infection, delayed wound healing, and increased risk of sepsis.\n3. The potential sources of the bite in this patient are unknown, but could include animals, insects, or humans.\n4. Characteristics of each type of bite:\n- Cat bite: can cause infection and may require antibiotics\n- Human bite: can cause infection and may require antibiotics, also carries risk of transmission of blood-borne diseases\n- Spider bite: can cause local pain and swelling, but typically not systemic symptoms unless it is a venomous spider\n- Fish bite: can cause infection and may require antibiotics\n- Dog bite: can cause infection and may require antibiotics, also carries risk of transmission of rabies\n5. Based on the symptoms and presentation described in the patient, the most concerning bite would be a human bite due to the risk of infection and transmission of blood-borne diseases. However, it is important to note that the source of the bite is unknown and further evaluation and testing would be necessary to determine the cause and appropriate treatment.",
+                        "answers": [
+                            {
+                                "id": "b3ed8ffe-862c-4fd4-944b-2ae2f32304d8",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Human bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:56:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ca6ed2df-871b-4468-b19c-0d943de198cc",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-16",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Helpful knowledge: Sickle cell disease is a genetic blood disorder that affects the shape of red blood cells, making them crescent-shaped instead of round. This can cause blockages in blood vessels, leading to pain, organ damage, and an increased risk of infections. Patients with sickle cell disease are also at an increased risk of developing sepsis, a potentially life-threatening condition caused by an overwhelming immune response to an infection.\n\nSub-questions:\n1. What are the symptoms of sepsis?\n2. What are the potential complications of sepsis in a patient with sickle cell disease?\n3. What are the characteristics of each type of bite listed in the question?\n4. Which types of bites are most likely to cause infections that could lead to sepsis?\n\nAnswers:\n1. Symptoms of sepsis include fever, chills, rapid breathing and heart rate, confusion or disorientation, low blood pressure, and a rash or redness on the skin.\n2. Patients with sickle cell disease are at an increased risk of developing sepsis due to their weakened immune systems and increased susceptibility to infections. Sepsis can lead to organ failure, shock, and death if not treated promptly.\n3. Cat bites can cause deep puncture wounds that are prone to infection, human bites can introduce bacteria from the mouth into the bloodstream, spider bites can cause a range of symptoms depending on the type of spider, fish bites can cause tissue damage and bleeding, and dog bites can cause puncture wounds and introduce bacteria from the dog's mouth into the bloodstream.\n4. Cat and human bites are most concerning in this patient, as they are more likely to introduce bacteria into the bloodstream and cause infections that could lead to sepsis. Spider bites can also cause infections, but the symptoms described in the case (fever and night sweats) are not typical of spider bites. Fish and dog bites are less likely to cause infections that could lead to sepsis. \n\nTherefore, the answer is either A) Cat bite or B) Human bite.",
+                        "answers": [
+                            {
+                                "id": "f670cf66-edb8-4bc9-acb1-0c78087680c2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "either A) Cat bite or B) Human bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:08:41",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "2a79e732-f781-4bf0-ba63-4284f11d89ae",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-17",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Student: Can you explain what sickle cell disease is?\n\nProfessor: Sickle cell disease is a genetic disorder that affects the shape of red blood cells. Instead of being round and flexible, they become rigid and take on a crescent or sickle shape. This can cause blockages in blood vessels, leading to pain, organ damage, and other complications.\n\nStudent: Why is it important to know that the patient's spleen is surgically absent?\n\nProfessor: The spleen plays an important role in fighting infections, particularly those caused by bacteria. Without a spleen, the patient is at higher risk for infections and may not be able to fight them off as effectively.\n\nStudent: What do the patient's vital signs tell us?\n\nProfessor: The patient's blood pressure is low, which could indicate that he is in shock. His heart rate and respiratory rate are both elevated, which could be a sign of an infection or other underlying condition.\n\nStudent: What does it mean that the patient is lethargic and pale?\n\nProfessor: Lethargy means that the patient is very tired and has little energy. Pale skin can be a sign of anemia, which is common in sickle cell disease and can be worsened by infections.\n\nStudent: What is the significance of the swollen bite marks on the patient's right hand?\n\nProfessor: The bite marks could be a source of infection, particularly if they are red and streaky. It's important to determine what kind of bite caused them in order to determine the appropriate treatment.\n\nStudent: Which of the following bites would be most concerning in this patient?\n\nProfessor: The most concerning bite in this patient would be a spider bite, as some species of spiders can cause severe reactions and even death in people with sickle cell disease. The other bites listed are less likely to cause serious complications in this patient.",
+                        "answers": [
+                            {
+                                "id": "ae0b52a4-45f9-4ba4-9ede-4f2aaf5264dc",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Spider bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:14:01",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "58d3e7d8-acaa-49b7-89a7-bd39ad7d1540",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-18",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The perfect person to answer this question correctly would be a medical professional with expertise in infectious diseases and emergency medicine. They would also need to have knowledge of the symptoms and complications associated with sickle cell disease.\n\nStep-by-step approach:\n1. The medical professional would first assess the patient's vital signs and overall condition, noting the low blood pressure, high heart rate, and rapid breathing.\n2. They would then examine the patient's bite marks, noting the red streaks extending from the hand to the elbow.\n3. Based on the patient's history of sickle cell disease and current symptoms, the medical professional would suspect an infection and consider the possibility of sepsis.\n4. They would then evaluate the potential sources of the bite, ruling out bites from animals that are unlikely to cause serious infections (such as fish or cats).\n5. The medical professional would then consider the likelihood of different types of infections associated with each potential bite, taking into account the patient's location and other factors.\n6. Based on this analysis, the medical professional would determine that the most concerning bite in this patient would be a spider bite, as certain species of spiders can cause severe infections and even death in people with compromised immune systems.\n7. The medical professional would then initiate appropriate treatment, which may include antibiotics, antivenom, and supportive care to stabilize the patient's vital signs and manage any complications.",
+                        "answers": [
+                            {
+                                "id": "0261c915-1d79-452f-8fe3-4d73e2aa980e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Spider bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:26:03",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a5c61461-b8d5-442f-90b5-e0ef27008c1c",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-19",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "(1) The most concerning bite in this patient would be a spider bite because it can cause severe symptoms and complications, especially in individuals with sickle cell disease.\n\n(2) Let's work this out step by step:\n- The patient is a 59-year-old man with a history of sickle cell disease presenting with fever, night sweats, lethargy, and swollen bite marks on his right hand with red streaks extending to his elbow.\n- His vital signs include low blood pressure, high pulse rate, and high respiratory rate.\n- The patient's spleen is surgically absent, which puts him at higher risk for infections.\n- The patient's wife reported that he mentioned being bitten by something roughly 3 days ago.\n- Among the options given, the most concerning bite in this patient would be a spider bite because it can cause severe symptoms and complications, especially in individuals with sickle cell disease. Cat, human, fish, and dog bites can also cause infections and complications, but they are less likely to cause severe symptoms in this patient population.",
+                        "answers": [
+                            {
+                                "id": "7cd62cb8-ff45-4826-9c2d-cde443571f3c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Spider bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:55:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_250",
+                "ref_id": "",
+                "question": "Rain is usually guaranteed when all are present but",
+                "type": "multiplechoice",
+                "choices": [
+                    "cirrus clouds",
+                    "cumulus clouds",
+                    "hail stones",
+                    "direct sunshine"
+                ],
+                "context": "",
+                "cot": [
+                    "if weather is stormy then there is a greater chance of rain"
+                ],
+                "answer": [
+                    "direct sunshine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a4bd64e3-1a11-46fb-819e-2246b5578c95",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-10",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Plan:\n1. Identify the options given in the question.\n2. Research the characteristics of each option to determine if it is associated with rain.\n3. Eliminate the options that are not associated with rain.\n4. Determine the correct answer based on the remaining options.\n\nAnswer: \n1. The options given in the question are cirrus clouds, cumulus clouds, hail stones, and direct sunshine.\n2. Cirrus clouds are thin and wispy and are usually found at high altitudes. They are not typically associated with rain. Cumulus clouds are large and fluffy and can produce rain. Hail stones are frozen precipitation and can be associated with thunderstorms. Direct sunshine does not necessarily cause rain.\n3. Based on the research, we can eliminate option A (cirrus clouds) and option D (direct sunshine) as they are not associated with rain.\n4. The correct answer is option B (cumulus clouds) as they are known to produce rain. Option C (hail stones) can also be associated with rain, but it is not always guaranteed.",
+                        "answers": [
+                            {
+                                "id": "c13b76d4-28e9-4399-8a8c-8987613ae845",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cumulus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:12:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a79e86b8-4455-4908-ba95-2c2addde6488",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-11",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Plan:\n\n1. Identify the options given in the question: cirrus clouds, cumulus clouds, hail stones, and direct sunshine.\n2. Determine which of these options are associated with rain.\n3. Eliminate the options that are not associated with rain.\n4. Identify the option that is always present when rain occurs.\n\nStep-by-step:\n\n1. The options given in the question are cirrus clouds, cumulus clouds, hail stones, and direct sunshine.\n2. Cirrus clouds are thin, wispy clouds that are usually found at high altitudes. They are not associated with rain. Cumulus clouds are large, fluffy clouds that are often associated with thunderstorms and heavy rain. Hail stones are frozen precipitation that can fall from thunderstorms. Direct sunshine is not associated with rain.\n3. Cirrus clouds and direct sunshine are not associated with rain, so they can be eliminated as options.\n4. Cumulus clouds are usually present when rain occurs, but they are not always present. Hail stones are also not always present when rain occurs. Therefore, the correct answer is B) cumulus clouds.",
+                        "answers": [
+                            {
+                                "id": "f07662b8-9e69-46cb-a884-27e146c57512",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cumulus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:19:47",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "45b23e37-20d1-499c-ab1e-3ef22de61315",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-12",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The question is asking which of the given options is not necessary for rain to occur. \n\nOption A: Cirrus clouds are high-altitude clouds that are thin and wispy. They are usually a sign of fair weather, but they can also indicate an approaching storm. However, their presence is not necessary for rain to occur. \n\nOption B: Cumulus clouds are low-altitude clouds that are fluffy and white. They are often associated with fair weather, but they can also develop into thunderstorms. Their presence is usually a sign of potential rain, so they are necessary for rain to occur. \n\nOption C: Hail stones are formed in thunderstorms when strong updrafts carry raindrops high into the atmosphere where they freeze. They are not necessary for rain to occur, but they are a sign of severe weather. \n\nOption D: Direct sunshine is not necessary for rain to occur. In fact, rain is more likely to occur on cloudy days when the sun's heat is blocked by the clouds. \n\nTherefore, the answer is D) direct sunshine.",
+                        "answers": [
+                            {
+                                "id": "1340ab41-396d-4b52-b69f-b486868c9e75",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) direct sunshine.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:27:29",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "6010fec6-9aa7-44b9-8187-676aaae7dec7",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-13",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Rephrased question: Which of the following is not a guarantee for rain?\n\nStep-by-step reasoning:\n\n- The question is asking us to identify something that is not a guarantee for rain.\n- Let's examine each option:\n  - A) cirrus clouds: These are thin, wispy clouds that usually indicate fair weather. They are not a guarantee for rain.\n  - B) cumulus clouds: These are fluffy, white clouds that can indicate fair weather or thunderstorms. They are a common sign of rain, so they are not the correct answer.\n  - C) hail stones: These are frozen precipitation that can occur during thunderstorms, but they are not a guarantee for rain.\n  - D) direct sunshine: This is not a guarantee for rain. In fact, sunny weather usually indicates fair weather.\n- Therefore, the correct answer is D) direct sunshine.\n\nAnswer: D) direct sunshine.",
+                        "answers": [
+                            {
+                                "id": "945fe89e-863b-4e9b-824f-69d04eab0172",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) direct sunshine.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:40:25",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ce0009eb-1702-44f7-887b-09df56301227",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-14",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "List of facts:\n- Rain is usually present when certain conditions are met.\n- Cirrus clouds, cumulus clouds, and hail stones are factors that may contribute to rain.\n- Direct sunshine is not a factor that contributes to rain.\n\nElaboration:\n- Rain is usually present when there is a high level of humidity in the air, and when the temperature is cool enough for the water vapor to condense into droplets.\n- Cirrus clouds are high-altitude clouds that are made up of ice crystals. They are usually a sign of an approaching storm, and can contribute to rain if they thicken and lower in altitude.\n- Cumulus clouds are low-altitude clouds that are often associated with fair weather. However, if they grow tall and dark, they can produce rain.\n- Hail stones are formed when strong updrafts in a thunderstorm carry raindrops high into the atmosphere, where they freeze into ice. Hail stones can contribute to heavy rain if they melt as they fall to the ground.\n- Direct sunshine does not contribute to rain, as it actually causes the water vapor to evaporate rather than condense.\n\nStep-by-step:\n1. Read the question and identify the relevant facts.\n2. Eliminate direct sunshine as a factor that contributes to rain.\n3. Consider the remaining options: cirrus clouds, cumulus clouds, and hail stones.\n4. Recall that cirrus clouds are high-altitude clouds that can contribute to rain if they thicken and lower in altitude.\n5. Recall that cumulus clouds are low-altitude clouds that can produce rain if they grow tall and dark.\n6. Recall that hail stones can contribute to heavy rain if they melt as they fall to the ground.\n7. Based on these facts, conclude that rain is usually guaranteed when cirrus clouds, cumulus clouds, or hail stones are present.",
+                        "answers": [
+                            {
+                                "id": "732ceab0-5e60-4b57-aae4-c19f9763c521",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "not D, and the correct answer is A, B, or C.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:06:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "859ee19e-3315-46a4-813e-9ef8b179b9d7",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-15",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Facts:\n- Rain is usually guaranteed when cirrus clouds and cumulus clouds are present.\n- Hail stones and direct sunshine are not necessary for rain.\n\nSub-questions:\n1. What are cirrus clouds?\n2. What are cumulus clouds?\n3. How do cirrus clouds and cumulus clouds contribute to rain?\n4. What are hail stones?\n5. Why are hail stones not necessary for rain?\n6. What is the effect of direct sunshine on rain?\n\nAnswers:\n1. Cirrus clouds are thin, wispy clouds that are high in the atmosphere.\n2. Cumulus clouds are large, fluffy clouds that are often associated with thunderstorms.\n3. Cirrus clouds and cumulus clouds contribute to rain by holding moisture and releasing it as precipitation.\n4. Hail stones are small, hard balls of ice that form in thunderstorms.\n5. Hail stones are not necessary for rain because they are a type of frozen precipitation, whereas rain is liquid precipitation.\n6. Direct sunshine can actually inhibit the formation of rain by causing the air to warm and preventing moisture from condensing into clouds. Therefore, direct sunshine is not necessary for rain.",
+                        "answers": [
+                            {
+                                "id": "f122c710-1d43-4395-ad73-eaea5094733f",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) direct sunshine.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:56:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a90df36b-350b-4f4b-9b77-7bf8d572615f",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-16",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Helpful knowledge: Different types of clouds can indicate different weather patterns. Cirrus clouds are thin and wispy and usually indicate fair weather. Cumulus clouds are fluffy and can indicate fair weather or the possibility of thunderstorms. Hail stones are frozen precipitation that can occur during thunderstorms. Direct sunshine can indicate clear weather but does not necessarily guarantee rain.\n\nSub-questions:\n1. What are cirrus clouds?\n2. What are cumulus clouds?\n3. What are hail stones?\n4. Can direct sunshine cause rain?\n\nAnswers:\n1. Cirrus clouds are thin and wispy clouds that are usually found at high altitudes. They are made up of ice crystals and usually indicate fair weather.\n2. Cumulus clouds are fluffy clouds that can indicate fair weather or the possibility of thunderstorms. They are usually found at lower altitudes and can grow vertically.\n3. Hail stones are frozen precipitation that can occur during thunderstorms. They are formed when raindrops are carried up into the atmosphere and freeze before falling to the ground.\n4. Direct sunshine does not cause rain. While it can indicate clear weather, rain is usually caused by the presence of moisture in the atmosphere and other weather patterns such as low pressure systems or fronts.",
+                        "answers": [
+                            {
+                                "id": "6a17d6b9-e0c9-4892-8f18-82da674a91be",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) cirrus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:08:51",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "fb6c5868-5e8f-40b4-922a-27c89230551b",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-17",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Student: Professor, can you explain the question again?\n\nProfessor: Sure, the question is asking which of the following options is usually present when it rains.\n\nStudent: Okay, so what are cirrus clouds?\n\nProfessor: Cirrus clouds are thin, wispy clouds that are usually found at high altitudes. They are made up of ice crystals and are often a sign of good weather.\n\nStudent: And what about cumulus clouds?\n\nProfessor: Cumulus clouds are large, fluffy clouds that are often associated with fair weather. However, they can also produce thunderstorms if they grow large enough.\n\nStudent: What are hail stones?\n\nProfessor: Hail stones are small, hard balls of ice that form in thunderstorms. They are usually associated with severe weather and can cause damage to buildings and crops.\n\nStudent: And what about direct sunshine?\n\nProfessor: Direct sunshine is when the sun is shining directly on a location without any clouds blocking it. It is not usually associated with rain.\n\nStudent: So, which option is usually present when it rains?\n\nProfessor: The correct answer is B) cumulus clouds. When cumulus clouds grow large enough, they can produce rain.",
+                        "answers": [
+                            {
+                                "id": "6160e8f8-41ca-4b53-8a45-d8919dc2892e",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cumulus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:14:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3f530e6d-1d93-4b49-a024-f5ba470ddbbf",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-18",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The perfect person to answer this question correctly would be a meteorologist or a weather expert. They have the expertise and additional knowledge about the different types of clouds and weather patterns.\n\nTo work this out in a step-by-step way, the meteorologist would:\n\n1. Identify the different types of clouds mentioned in the question: cirrus clouds, cumulus clouds, and hail stones.\n2. Determine which type of cloud is associated with rain. Cumulus clouds are usually associated with rain, while cirrus clouds are high-level clouds that do not produce precipitation. Hail stones are a type of precipitation, but they do not necessarily indicate rain. \n3. Eliminate direct sunshine as a possible answer since it is not a type of cloud or precipitation.\n4. Choose the correct answer, which is B) cumulus clouds, as they are usually present when rain is expected.",
+                        "answers": [
+                            {
+                                "id": "1b89baf0-355d-4e8f-a4f0-7dcf3ca8ed8b",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cumulus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:26:12",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d2b66a1a-87fe-44eb-ab52-e435c9449db0",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-19",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "(1) Direct sunshine is the answer.\n\n(2) Step by step approach:\n- The statement says that rain is usually guaranteed when all are present except for one option.\n- Cirrus clouds and cumulus clouds are both types of clouds that can bring rain, so they are not the answer.\n- Hail stones are a type of precipitation that can occur during a thunderstorm, but they are not necessary for rain to occur.\n- Direct sunshine can prevent rain from occurring because it can evaporate the moisture in the air before it has a chance to form into raindrops. Therefore, direct sunshine is the answer.",
+                        "answers": [
+                            {
+                                "id": "2e903d83-ba9e-4118-ae7b-eadcc4079115",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) direct sunshine.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:55:56",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "ffd8a720264778c0fd6e",
+                "ref_id": "",
+                "question": "Can the Toyota Hilux tip the scales against Mr. Ed?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The current generation of Toyota Hilux weighs at least 4,310 lbs",
+                    "Mr. Ed was portrayed by an adult horse",
+                    "The average adult horse weighs up to 2,000 lbs"
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "825ea7de-7bc3-41bf-87b7-cd4b0d67f3eb",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-10",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Plan:\n1. Determine what is meant by \"tip the scales against Mr. Ed.\"\n2. Research the weight of a Toyota Hilux and the weight of Mr. Ed.\n3. Compare the weights to determine if the Toyota Hilux can tip the scales against Mr. Ed.\n\nAnswer: \nWithout knowing the weight of Mr. Ed, it is impossible to determine if the Toyota Hilux can tip the scales against him. Therefore, the answer is inconclusive.",
+                        "answers": [
+                            {
+                                "id": "ae062123-54b4-4eee-a39c-a08efb7d23f8",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "inconclusive.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:12:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "9dfb1b13-d7e4-4e0f-b97b-0ead1093ba57",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-11",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Understand the question.\nThe question is asking whether the Toyota Hilux can tip the scales against Mr. Ed.\n\nStep 2: Determine what is meant by \"tip the scales.\"\n\"Tipping the scales\" usually means to outweigh or be heavier than something else.\n\nStep 3: Identify what the Toyota Hilux and Mr. Ed are.\nThe Toyota Hilux is a pickup truck, while Mr. Ed is a fictional talking horse from a TV show.\n\nStep 4: Determine if the question is asking if the Toyota Hilux is heavier than Mr. Ed.\nSince the question is asking if the Toyota Hilux can \"tip the scales\" against Mr. Ed, it is likely asking if the Toyota Hilux is heavier than Mr. Ed.\n\nStep 5: Research the weight of the Toyota Hilux and Mr. Ed.\nAccording to sources, the Toyota Hilux weighs between 3,500 and 5,000 pounds, depending on the model. Mr. Ed, being a fictional character, does not have a weight listed.\n\nStep 6: Make an educated guess based on the research.\nSince Mr. Ed is a fictional character and does not have a weight listed, it is impossible to determine if the Toyota Hilux can tip the scales against him. Therefore, the answer is likely false.\n\nStep 7: Choose the answer.\nThe answer is B) False.",
+                        "answers": [
+                            {
+                                "id": "c20f302c-19a6-4bf9-bb43-51a3a68a1878",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:19:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "fd612628-6e3c-4f94-9016-cb13c3144265",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-12",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "This question is unclear and lacks context. It is impossible to determine what is meant by \"tip the scales against Mr. Ed\" without further information. Additionally, it is unclear who or what Mr. Ed refers to. Therefore, the answer is indeterminate.",
+                        "answers": [
+                            {
+                                "id": "1fc2df79-1a36-4fa9-b750-d33d838a305d",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "indeterminate.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:27:34",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c2a4f387-1541-4f89-9e64-7a944248ca73",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-13",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Rephrased question: Is it possible for the Toyota Hilux to weigh more than Mr. Ed?\n\nStep-by-step reasoning:\n- The Toyota Hilux is a pickup truck.\n- Mr. Ed is a fictional talking horse.\n- It is not possible for a pickup truck to weigh more than a horse, even a fictional one.\n- Therefore, the answer is B) False.\n\nAnswer: B) False.",
+                        "answers": [
+                            {
+                                "id": "ef637fbd-83a7-4366-a7f4-3cea24672aed",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:40:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3dfdf138-7870-40de-bd58-d460023c8621",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-14",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "List of facts:\n- Toyota Hilux is a type of vehicle\n- Mr. Ed is a fictional talking horse\n- \"Tip the scales\" means to outweigh or be more powerful than something else\n\nElaboration:\n- The Toyota Hilux is a popular pickup truck known for its durability and off-road capabilities.\n- Mr. Ed is a character from a TV show in the 1960s, known for his ability to talk and his mischievous personality.\n- \"Tip the scales\" is a common idiom used to describe a situation where one thing is more powerful or influential than another.\n\nStep-by-step analysis:\n- Based on the facts, it is clear that the Toyota Hilux and Mr. Ed are two very different things, and it would not make sense to compare them directly.\n- While the Toyota Hilux is a powerful vehicle, it is unlikely that it could \"tip the scales\" against a fictional talking horse.\n- Therefore, the answer to the question is most likely false.",
+                        "answers": [
+                            {
+                                "id": "8340b2e3-5d52-4177-bc41-80d8a318f402",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) False.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:06:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "1c81cdf4-baf7-448e-9f57-7256d1732d45",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-15",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Facts:\n- Toyota Hilux is a pickup truck manufactured by Toyota.\n- Mr. Ed is a fictional talking horse from a TV show in the 1960s.\n\nSub-questions:\n1. What does it mean to \"tip the scales\"?\n- It means to have a greater influence or power than something else.\n2. In what context are we comparing the Toyota Hilux and Mr. Ed?\n- It is unclear from the question.\n3. Can a pickup truck have a greater influence or power than a fictional talking horse?\n- No, it is not possible as Mr. Ed is not a real entity.\n\nAnswer:\nBased on the facts and sub-questions, the answer is B) False. It is not possible for the Toyota Hilux to tip the scales against Mr. Ed as Mr. Ed is a fictional character and does not have any real influence or power.",
+                        "answers": [
+                            {
+                                "id": "ecb05ffc-94f4-411c-9887-80592cad77f5",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:56:25",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "eeda9b46-234f-4cd6-9984-3322355824a3",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-16",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Helpful knowledge: The Toyota Hilux is a pickup truck known for its durability and off-road capabilities. Mr. Ed was a fictional talking horse from a TV show in the 1960s.\n\nSub-questions:\n1. What does it mean to \"tip the scales\"?\n2. Can the Toyota Hilux physically interact with Mr. Ed?\n3. Is there a competition or challenge between the Toyota Hilux and Mr. Ed?\n\nAnswers:\n1. \"Tipping the scales\" means to have a greater influence or power than something else.\n2. No, the Toyota Hilux and Mr. Ed are not real entities that can physically interact.\n3. There is no competition or challenge between the Toyota Hilux and Mr. Ed.\n\nConclusion:\nBased on the answers to the sub-questions, the answer to the original question is B) False. The Toyota Hilux cannot tip the scales against Mr. Ed because there is no competition or challenge between them, and they cannot physically interact.",
+                        "answers": [
+                            {
+                                "id": "461c63dd-4369-4382-ab5c-f49d95387a15",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:08:59",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "abb21f4d-e96d-4cc1-8656-5e632fea5cb3",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-17",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Student: Professor, can you explain the question a bit more? I'm not sure what it means by \"tip the scales against Mr. Ed.\"\n\nProfessor: Of course. \"Tip the scales\" means to have more influence or power than something else. And \"Mr. Ed\" is a reference to a talking horse from a TV show. So the question is asking if the Toyota Hilux has more power or influence than Mr. Ed.\n\nStudent: Oh, I see. So, is the answer A) True or B) False?\n\nProfessor: The answer is B) False. The Toyota Hilux is a powerful vehicle, but it cannot have more influence or power than a fictional talking horse. It's just a playful question to test your understanding of idioms and pop culture references.",
+                        "answers": [
+                            {
+                                "id": "c9337cac-14d7-4761-8479-0b73dce7306b",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:14:18",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7f0b15ed-faeb-4867-b81a-8f0cc80c4504",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-18",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The perfect person to answer this question correctly would be someone who has knowledge about the weight and capabilities of both the Toyota Hilux and Mr. Ed. This person would likely be an expert in the automotive industry or have experience with both vehicles.\n\nTo work this out in a step-by-step way, the person would need to:\n\n1. Determine the weight of the Toyota Hilux and Mr. Ed.\n2. Compare the weight of the two vehicles to see if the Toyota Hilux is heavier than Mr. Ed.\n3. Consider the capabilities of each vehicle, such as towing capacity and horsepower, to determine if the Toyota Hilux could \"tip the scales\" against Mr. Ed in a competition or challenge.\n4. Based on this analysis, the person would be able to confidently choose either option A) True or option B) False as the correct answer to the question.",
+                        "answers": [
+                            {
+                                "id": "71536a3a-ae29-4173-aba3-bfdc332651bc",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "unknown as it depends on the weight and capabilities of both vehicles, which would need to be analyzed by an expert in the automotive industry.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:26:21",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0d62340c-155c-49d7-9740-75f53c496af7",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-19",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "(1) Answer: We cannot answer this question directly without reasoning. We need more information about who or what Mr. Ed is and what is meant by \"tip the scales.\" \n\n(2) Step-by-step approach:\n- First, we need to know who or what Mr. Ed is. Assuming that Mr. Ed refers to the talking horse from the 1960s TV show, we can proceed.\n- Next, we need to understand what is meant by \"tip the scales.\" This phrase typically refers to a situation where one side has a significant advantage over the other, causing an imbalance or tipping point. \n- Now, we can compare the Toyota Hilux to Mr. Ed and determine if the Hilux has a significant advantage over the horse. \n- In terms of size and weight, the Toyota Hilux is certainly larger and heavier than Mr. Ed. However, this alone does not necessarily mean that the Hilux can \"tip the scales\" against the horse. \n- Other factors to consider might include the terrain or environment in which the two are competing, the specific skills or abilities of each, and any other relevant factors. \n- Without more information, it is difficult to say definitively whether the Toyota Hilux can tip the scales against Mr. Ed. Therefore, the answer is (A) True or (B) False depending on the specific circumstances and context of the situation.",
+                        "answers": [
+                            {
+                                "id": "20b88738-b23a-40dd-a6e1-ef0f3470c428",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "indeterminate without more information.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:56:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_2",
+                "ref_id": "",
+                "question": "Which event occurs once per day?",
+                "type": "multiplechoice",
+                "choices": [
+                    "The Moon rises.",
+                    "The new Moon occurs.",
+                    "The Moon cycles through its phases.",
+                    "The Moon passes in front of the Sun."
+                ],
+                "context": "",
+                "cot": [
+                    "The moon rising occurs once per day.",
+                    "A moon is a kind of celestial object.",
+                    "Movements of celestial bodies are a kind of event.",
+                    "Rising is a kind of motion."
+                ],
+                "answer": [
+                    "The Moon rises."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "bc3d7a88-309f-4fb5-9ea5-7a688b8c8ff2",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-10",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Plan:\n1. Identify what the question is asking for.\n2. Consider each option and determine which one occurs once per day.\n3. Choose the correct answer.\n\nAnswer: \n1. The question is asking for an event that occurs once per day.\n2. \nA) The Moon rises - This occurs once per day, but it is not the only event that occurs once per day.\nB) The new Moon occurs - This occurs once per lunar cycle, which is approximately once per month, not once per day.\nC) The Moon cycles through its phases - This occurs once per lunar cycle, which is approximately once per month, not once per day.\nD) The Moon passes in front of the Sun - This occurs during a solar eclipse, which happens only a few times per year, not once per day.\n3. Therefore, the correct answer is A) The Moon rises.",
+                        "answers": [
+                            {
+                                "id": "758b3b77-4a8c-4461-8600-024179d01918",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The Moon rises.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:12:23",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "57e1c768-29a1-4344-8e3f-7eee00916f6c",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-11",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Plan:\n1. Identify the events related to the Moon.\n2. Determine which event occurs once per day.\n3. Eliminate the events that do not occur once per day.\n4. Choose the event that occurs once per day as the answer.\n\nStep-by-step:\n1. The events related to the Moon are its rising, setting, phases, and eclipses.\n2. The event that occurs once per day should be a regular occurrence.\n3. The new Moon occurs once a month, the Moon cycles through its phases over a period of about 29.5 days, and the Moon passing in front of the Sun is a rare event that occurs during a solar eclipse.\n4. The only event that occurs once per day is the Moon rising, so the answer is A) The Moon rises.",
+                        "answers": [
+                            {
+                                "id": "43f3ed17-0fa1-4e1a-999c-b743326a604a",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The Moon rises.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:20:06",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "57e1471c-1418-4c4a-9eae-7063d16d17e2",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-12",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) The Moon cycles through its phases occurs once per day. \n\nThe Moon takes approximately 29.5 days to complete one cycle of its phases, which includes the new Moon, waxing crescent, first quarter, waxing gibbous, full Moon, waning gibbous, third quarter, and waning crescent. However, during this time, the Moon is also moving across the sky due to Earth's rotation. This means that over the course of one day, the Moon will appear to move through a portion of its phase cycle. Therefore, the Moon cycles through its phases once per day. \n\nA) The Moon rises occurs once per day, but this is not unique to the Moon as the Sun and other celestial objects also rise and set each day. \n\nB) The new Moon occurs approximately once per month, not once per day. \n\nD) The Moon passing in front of the Sun is a rare event that only occurs during a solar eclipse, which happens only a few times per year and only in specific locations on Earth.",
+                        "answers": [
+                            {
+                                "id": "4291223b-ec64-41f5-b667-a276a712f878",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) The Moon cycles through its phases.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:27:43",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "83cf61e9-dff9-4257-89f3-453224ce28bd",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-13",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "What is an event that happens once per day?\n\nTo answer this question, we need to consider each option and determine if it occurs once per day.\n\nA) The Moon rises - This occurs once per day as the Moon orbits around the Earth.\n\nB) The new Moon occurs - This occurs once per lunar month, which is about 29.5 days, so it does not occur once per day.\n\nC) The Moon cycles through its phases - This occurs once per lunar month, so it does not occur once per day.\n\nD) The Moon passes in front of the Sun - This occurs during a solar eclipse, which happens only a few times per year, so it does not occur once per day.\n\nTherefore, the correct answer is A) The Moon rises.",
+                        "answers": [
+                            {
+                                "id": "6fe0647e-d5cb-4fc7-a6eb-53366a18ae22",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The Moon rises.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 19:40:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "965fd1c6-de5b-4ff9-bf17-4d2a3171ec23",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-14",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "List of facts:\n- The Moon is a natural satellite of Earth.\n- The Moon orbits around Earth.\n- The Moon goes through phases, such as full Moon, new Moon, and crescent Moon.\n- The Moon rises and sets every day.\n- The Moon's orbit takes approximately 27.3 days to complete.\n\nElaboration:\n- The Moon rises and sets every day because of its orbit around Earth.\n- The Moon's phases are caused by the relative positions of the Moon, Earth, and Sun.\n- The new Moon occurs when the Moon is between the Earth and Sun, and the side of the Moon facing Earth is not illuminated.\n- The full Moon occurs when the Earth is between the Moon and Sun, and the side of the Moon facing Earth is fully illuminated.\n- The Moon's orbit is not perfectly circular, which causes slight variations in the timing of its phases.\n\nStep-by-step:\n- A) The Moon rises: This event occurs once per day, but it is not unique to the Moon. The Sun also rises and sets every day.\n- B) The new Moon occurs: This event occurs once per lunar cycle, which takes approximately 27.3 days. It is not a daily occurrence.\n- C) The Moon cycles through its phases: This event occurs once per lunar cycle, which takes approximately 27.3 days. It is not a daily occurrence.\n- D) The Moon passes in front of the Sun: This event is a solar eclipse, which occurs only a few times per year and is not a daily occurrence.",
+                        "answers": [
+                            {
+                                "id": "d8967d4a-699f-4116-b6c0-5f94373e2b5c",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) The Moon cycles through its phases, which occurs once per lunar cycle, taking approximately 27.3 days.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:06:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "52f5792f-0b22-4e83-a7d4-ac663fddd9c5",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-15",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Facts:\n- The question is related to the Moon.\n- The event occurs once per day.\n\nSub-questions:\n1. What are the different events related to the Moon?\n2. Which of these events occur once per day?\n\nAnswers:\n1. The different events related to the Moon are:\n- The Moon rises\n- The new Moon occurs\n- The Moon cycles through its phases\n- The Moon passes in front of the Sun\n2. The only event that occurs once per day is the Moon rising. Therefore, the answer is A) The Moon rises.",
+                        "answers": [
+                            {
+                                "id": "69cb4c73-8d28-4d0d-8dcc-971289f2a1cf",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The Moon rises.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 20:56:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5db8c601-01bc-4ec6-b182-7e32ac251198",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-16",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Helpful knowledge: The Moon is a natural satellite of Earth and orbits around it. It takes approximately 27.3 days for the Moon to complete one orbit around Earth.\n\nSub-questions:\n1. What is the definition of \"once per day\"?\n- \"Once per day\" means an event that happens every 24 hours.\n\n2. Does the Moon rise once per day?\n- Yes, the Moon rises once per day. This is because the Moon orbits around Earth and as Earth rotates on its axis, the Moon appears to rise in the east and set in the west once every 24 hours.\n\n3. Does the new Moon occur once per day?\n- No, the new Moon does not occur once per day. The new Moon occurs when the Moon is between the Sun and Earth, and the side of the Moon facing Earth is not illuminated by the Sun. This happens approximately once every 29.5 days.\n\n4. Does the Moon cycle through its phases once per day?\n- No, the Moon does not cycle through its phases once per day. The Moon's phases are caused by the changing angle between the Sun, Earth, and Moon, and it takes approximately 29.5 days for the Moon to cycle through its phases.\n\n5. Does the Moon pass in front of the Sun once per day?\n- No, the Moon does not pass in front of the Sun once per day. A solar eclipse occurs when the Moon passes between the Sun and Earth, but this happens only a few times per year and is not a daily occurrence.\n\nAnswer: The event that occurs once per day is the Moon rising. Therefore, the correct answer is A) The Moon rises.",
+                        "answers": [
+                            {
+                                "id": "1ff2f1d1-336c-454d-9eae-8618662491fb",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The Moon rises.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:09:12",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "81588795-7aff-4f8f-b6c3-74b13805d75a",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-17",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Student: Can you repeat the question, please?\n\nProfessor: Sure. Which event occurs once per day?\n\nStudent: And the options are?\n\nProfessor: The options are A) The Moon rises, B) The new Moon occurs, C) The Moon cycles through its phases, and D) The Moon passes in front of the Sun.\n\nStudent: Okay, I think I understand. So, which one is the correct answer?\n\nProfessor: The correct answer is A) The Moon rises.\n\nStudent: Can you explain why?\n\nProfessor: Sure. The Moon rises once per day because of the Earth's rotation. As the Earth rotates, the Moon appears to rise in the east and set in the west.\n\nStudent: Oh, I see. And what about the other options?\n\nProfessor: B) The new Moon occurs happens once per lunar cycle, which is about 29.5 days. C) The Moon cycles through its phases takes about 29.5 days as well, but it doesn't happen once per day. And D) The Moon passes in front of the Sun is a solar eclipse, which happens very rarely and not once per day.\n\nStudent: Thank you for explaining that to me. I understand now.",
+                        "answers": [
+                            {
+                                "id": "e0b7d9dc-d22a-467e-b530-325475ebc0be",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The Moon rises, which occurs once per day due to the Earth's rotation.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:14:29",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b1ad76cb-2b46-49d4-bb45-df3bc6cd4f75",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-18",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The perfect person to answer this question correctly would be an astronomer or someone with a strong background in astronomy.\n\nStep-by-step process:\n\n1. The astronomer would first eliminate options B and D as they do not occur once per day.\n2. The astronomer would then consider option A, which is that the Moon rises once per day. However, this is not entirely accurate as the Moon rises and sets every day, but it may not be visible depending on its phase.\n3. The astronomer would then consider option C, which is that the Moon cycles through its phases once per day. This is the correct answer as the Moon's phases are determined by its position relative to the Sun and Earth, which changes every day as the Moon orbits the Earth.\n4. To confirm this answer, the astronomer may consult a lunar calendar or use astronomical software to track the Moon's position and phase changes over a period of several days to ensure that it cycles through its phases once per day.",
+                        "answers": [
+                            {
+                                "id": "8a00df6f-c346-4489-9d50-43fd6d15c268",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) The Moon cycles through its phases.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:26:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b8f7f8af-8412-458d-a1f4-dfe225fbbeb6",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-19",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "(1) C) The Moon cycles through its phases.\n\n(2) \nStep 1: Identify the events\n- The Moon rises: This occurs once per day, but it is not unique to the Moon as the Sun also rises once per day.\n- The new Moon occurs: This occurs once per lunar cycle, which is approximately every 29.5 days.\n- The Moon cycles through its phases: This occurs once per day as the Moon moves in its orbit around the Earth and different portions of the Moon are illuminated by the Sun.\n- The Moon passes in front of the Sun: This occurs during a solar eclipse, which happens only a few times per year and is not unique to the Moon.\n\nStep 2: Eliminate incorrect options\n- A) The Moon rises: This occurs once per day, but it is not unique to the Moon.\n- B) The new Moon occurs: This occurs once per lunar cycle, which is not once per day.\n- D) The Moon passes in front of the Sun: This occurs only a few times per year and is not once per day.\n\nStep 3: Choose the correct option\n- C) The Moon cycles through its phases: This occurs once per day as the Moon moves in its orbit around the Earth and different portions of the Moon are illuminated by the Sun. Therefore, this is the event that occurs once per day.",
+                        "answers": [
+                            {
+                                "id": "93fbe76e-3dfb-44b0-a3af-34cd8b12da2c",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) The Moon cycles through its phases.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/30 13:56:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

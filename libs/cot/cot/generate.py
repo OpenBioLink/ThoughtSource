@@ -192,6 +192,7 @@ def _generate_and_extract(
                                 "answer_extraction_template": template_answer_extraction,
                                 "answer_extraction_text": "",
                                 "answer": "",
+                                "answer_from_choices": "",
                                 "correct_answer": None,
                             }
 
@@ -337,24 +338,70 @@ def select_generated_cots(dataset, **kwargs):
     )
     return dataset
 
-def _select_generated_cots(item, **kwargs):
-    # load all allows keys from the cot_features
+# def _select_generated_cots(item, reverse=False, **kwargs):
+#     # if reverse is True, unselect/delete all CoTs that match the given criteria
+#     # load all allows keys from the cot_features
+#     allowed_keys = list(cot_features["generated_cot"][0].keys()) + ["answer"]
+#     for key, value in kwargs.items():
+#         # check if key is allowed
+#         if key not in allowed_keys:
+#             raise ValueError(f"Key '{key}' not in allowed keys {allowed_keys}")
+#         # if value is None or a string, convert it to a list
+#         if value is None or type(value) == str:
+#             value = [value]
+#         # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
+#         if key == "model":
+#             if not reverse:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
+#             else:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] not in value]
+#         elif key == "answer":
+#             if not reverse:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] == value]
+#             else:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] != value]
+#         else:
+#             if not reverse:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+#             else:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] not in value]
+#     return item
+
+def _select_generated_cots(item, reverse=False, **kwargs):
     allowed_keys = list(cot_features["generated_cot"][0].keys()) + ["answer"]
+    filtered_cots = []
+
     for key, value in kwargs.items():
-        # check if key is allowed
         if key not in allowed_keys:
             raise ValueError(f"Key '{key}' not in allowed keys {allowed_keys}")
-        # if value is None or a string, convert it to a list
+
         if value is None or type(value) == str:
             value = [value]
-        # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
+
         if key == "model":
-            item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
+            cots = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
         elif key == "answer":
-            item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] == value]
+            cots = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] == value]
         else:
-            item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+            cots = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+
+        filtered_cots.append(cots)
+
+    if reverse:
+        # Flatten the list of filtered cots
+        flattened_filtered_cots = [cot for sublist in filtered_cots for cot in sublist]
+        # Remove duplicates from the flattened list
+        unique_filtered_cots = list({id(cot): cot for cot in flattened_filtered_cots}.values())
+        # Remove the unique filtered cots from the original set
+        item["generated_cot"] = [cot for cot in item["generated_cot"] if cot not in unique_filtered_cots]
+    else:
+        # Flatten the list of filtered cots
+        flattened_filtered_cots = [cot for sublist in filtered_cots for cot in sublist]
+        # Remove duplicates from the flattened list
+        item["generated_cot"] = list({id(cot): cot for cot in flattened_filtered_cots}.values())
+
     return item
+
 
 def delete_all_generated_cots(dataset):
     """This function deletes all pregenerated COTS from a dataset."""

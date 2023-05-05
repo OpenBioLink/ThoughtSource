@@ -11,6 +11,7 @@ from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from os import devnull
 
 import datasets as ds
+import numpy as np
 import pandas as pd
 
 from .evaluate import evaluate
@@ -238,18 +239,24 @@ class Collection:
                     number_generated_cots.append(len(item["generated_cot"]))
             print(name, set(number_generated_cots))
 
-    def unload_datasets(self, names=None):
+    def unload_datasets(self, names=None, reverse=False):
         """
-        It takes a list of names and unloads the datasets
+        It takes a list of names and unloads the datasets.
 
-        :param names: A list of dataset names to load. If None, all datasets are unloaded
+        :param names: A list of dataset names to unload. If None, all datasets are unloaded.
+        :param reverse: If False (default), unloads the datasets specified in 'names'. 
+        If True, unloads all datasets except the ones specified in 'names'.
         """
         if names is None:
             self._cache.clear()
-        else:
+        elif not reverse:
             for name in names:
                 if name in self._cache:
                     del self._cache[name]
+        else:
+            datasets_to_unload = [name for name in self._cache if name not in names]
+            for name in datasets_to_unload:
+                del self._cache[name]
 
     def clear(self):
         self.unload_datasets()    
@@ -271,6 +278,85 @@ class Collection:
 
         for name in names_to_delete:
             del self._cache[name]
+
+    def collection_to_dataframe(self):
+        df_list = []
+        """Converts a collection into a dataframe"""
+
+        def extract_keys(row):
+            # Extract the desired keys from the row
+            instruction = row['instruction']
+            cot_trigger = row['cot_trigger']
+            # answer_pred = row['answers'][0]['answer']
+            answer_from_choices = row['answers'][0]['answer_from_choices']
+            correct_answer = row['answers'][0]['correct_answer']
+            model_name = eval(row['model'])['name']
+            answer_id = row['answers'][0]['id']
+
+            # Return a Series with the extracted data
+            return pd.Series({
+                'instruction': instruction,
+                'cot_trigger': cot_trigger,
+                # 'answer_pred': answer_pred,
+                'answer_from_choices': answer_from_choices,
+                'correct_answer': correct_answer,
+                'model': model_name,
+                'answer_id': answer_id
+            })
+        def find_correct_choice(row):
+            choices = row['choices']
+            answer = row['answer'][0]
+
+            if answer in choices:
+                position = choices.index(answer) + 1
+                return chr(ord('A') + position - 1)
+            else:
+                return None
+        
+        for name in self._cache:
+            for split in self._cache[name]:
+                df = pd.DataFrame(self[name][split])
+                df.insert(0, 'dataset', name)
+                df.insert(1, 'split', split)
+                df = df.explode('generated_cot')
+                df.reset_index(inplace=True, drop=True)
+
+                df = df.join(df['generated_cot'].apply(extract_keys))
+                df.drop(columns=['generated_cot'], inplace=True)
+
+                df['answer_label'] = df.apply(find_correct_choice, axis=1)
+                df['number_choices'] = df['choices'].apply(len)
+                df['instruction'] = df['instruction'].fillna('None')
+                df['cot_trigger'] = df['cot_trigger'].fillna('None')
+                df['prompt'] = df['instruction'] + '_' + df['cot_trigger']
+                
+                # df.drop(columns=['question', 'context', 'ref_id', 'cot', 'choices', 'answer', 'feedback'], inplace=True)
+
+                df = df[['dataset', 
+                         'split', 
+                         'id', 
+                         'type',
+                        #  'choices', #
+                        #  'answer', #
+                        #  'number_choices',
+                         'answer_label',
+                         'prompt',
+                         'instruction', 
+                         'cot_trigger',
+                         'answer_id',
+                        #  'answer_pred',
+                         'answer_from_choices', 
+                         'correct_answer',
+                         'model']]
+
+                df_list.append(df)
+        df = pd.concat(df_list)
+        df.reset_index(inplace=True, drop=True)
+
+        # correct None to np.nan in answer_from_choices for krippendorff metric
+        df['answer_from_choices'] = df['answer_from_choices'].replace({None: np.nan})
+        return df
+
 
     def dump(self, path_to_file_or_directory="./dump.json"):
         self.clear_empty_datasets()
@@ -306,10 +392,14 @@ class Collection:
             try:
                 with open(path_or_json, "r") as infile:
                     content = json.load(infile)
-            except FileNotFoundError:
-                path_or_json = path_or_json + ".json"
-                with open(path_or_json, "r") as infile:
-                    content = json.load(infile)
+            # if file is not found and path does not end with .json, try to load it with .json
+            except FileNotFoundError as e:
+                if not path_or_json.endswith(".json"):
+                    path_or_json = path_or_json + ".json"
+                    with open(path_or_json, "r") as infile:
+                        content = json.load(infile)
+                else:
+                    raise e
         elif isinstance(path_or_json, dict):
             content = path_or_json
 
@@ -329,6 +419,12 @@ class Collection:
                     split = ds.Split.VALIDATION
                 elif split_name == "test":
                     split = ds.Split.TEST
+
+                for item in content[dataset_name][split]:
+                    for generated_cot in item["generated_cot"]:
+                        for answer in generated_cot["answers"]:
+                            if "answer_from_choices" not in answer:
+                                answer["answer_from_choices"] = ""
 
                 dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict("series")
                 dic = {k: list(v) for (k, v) in dic.items()}
@@ -357,6 +453,23 @@ class Collection:
         if not load_pregenerated_cots:
             collection.delete_all_generated_cots()
         return collection
+    
+    @staticmethod
+    def load_thoughtsource_33(names="all", load_pregenerated_cots=True) -> "Collection":
+        """load the thoughtsource_33 dataset"""
+        path_to_biodatasets = (pathlib.Path(__file__).parent.absolute() / "datasets").resolve()
+        path_to_thoughtsource_33 = path_to_biodatasets / "thoughtsource" / "thoughtsource_33.json"
+        collection = Collection.from_json(str(path_to_thoughtsource_33))
+        # drop all names that are not in the list
+        if names != "all":
+            all_names = list(collection._cache.keys())
+            names_to_remove = [name for name in all_names if name not in names]
+            collection.unload_datasets(names_to_remove)
+        # drop all generated cots if load_pregenerated_cots is False
+        if not load_pregenerated_cots:
+            collection.delete_all_generated_cots()
+        return collection
+
 
     def number_examples(self, name=None, split=None):
         """

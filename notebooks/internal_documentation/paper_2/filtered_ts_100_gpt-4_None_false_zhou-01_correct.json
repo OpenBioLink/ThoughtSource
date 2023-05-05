@@ -1,0 +1,2837 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "e61891746aa94ab57aaa754614034aef",
+                "ref_id": "",
+                "question": "What happens if someone kisses too long?",
+                "type": "multiplechoice",
+                "choices": [
+                    "strong feelings",
+                    "herpes",
+                    "shortness of breath",
+                    "excitement",
+                    "arousal"
+                ],
+                "context": "",
+                "cot": [
+                    "Shortness of breath happens due to the build-up of carbon dioxide in the body.",
+                    "As carbon dioxide levels accumulate in the body from exercise, it triggers us to breathe more rapidly.",
+                    "Shortness of breath happens if someone kisses too long.",
+                    "Strong emotions may happen but sometimes when you stretch for too long you have breathing problems.",
+                    "Herpes is a contagious disease but spreads skin to skin means any one of the partners should be infected by herpesvirus otherwise there is no fear of getting herpes.",
+                    "Excitement can be killed by too long kisses resulting in breathing problems and arousal is a state of excitement created by kissing and it is not what happens due to too long kisses."
+                ],
+                "answer": [
+                    "shortness of breath"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "c0bd72ef-03f9-4756-a276-4701fedf363d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Strong feelings - Possible, as kissing can evoke strong emotions.\nB) Herpes - Not necessarily, as herpes is transmitted through contact with an infected person, not just by kissing for a long time.\nC) Shortness of breath - Likely, as kissing for an extended period without taking a break to breathe can lead to shortness of breath.\nD) Excitement - Possible, as kissing can cause excitement.\nE) Arousal - Possible, as kissing can lead to sexual arousal.\n\nSo, the most likely answer is C) shortness of breath, as it is the most directly related to kissing for a long time. However, A), D), and E) are also possible outcomes.",
+                        "answers": [
+                            {
+                                "id": "8ef91394-6d85-416a-a7ee-8943bcf42950",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) shortness of breath.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:05:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "57023caf-962c-499d-94eb-04c323ff1e02",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) strong feelings\nC) shortness of breath\nD) excitement\nE) arousal",
+                        "answers": [
+                            {
+                                "id": "9e4d7dcb-6eb8-4d29-8749-3458423c961b",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A, C, D, and E.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:40:34",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "ba9132ebf2bc3ad21e6a0631dc4e0a77",
+                "ref_id": "",
+                "question": "They needed grape juice for their party, they went to buy it and other snacks at the what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "field",
+                    "restaurant",
+                    "salad",
+                    "market",
+                    "food store"
+                ],
+                "context": "",
+                "cot": [
+                    "Food store is a shop selling ready-to-eat food products including grape juice and other snacks.",
+                    "They needed grape juice for party so they bought it and other snacks at the food store.",
+                    "Market may not sell ready-to-eat foods and other options are not places to buy from."
+                ],
+                "answer": [
+                    "food store"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "967c28e9-201e-46db-98dd-ac27a23a6747",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: They needed grape juice for their party - This means they are looking for a place to buy grape juice.\n\nStep 2: Analyze the options:\nA) field - This is not a place where you can buy grape juice.\nB) restaurant - This is a place where you can eat food, but not typically buy grape juice for a party.\nC) salad - This is not a place; it's a type of food.\nD) market - This is a place where you can buy various items, including grape juice.\nE) food store - This is also a place where you can buy various food items, including grape juice.\n\nStep 3: Choose the best answer - Both D) market and E) food store are places where you can buy grape juice for a party. However, the question also mentions \"other snacks,\" which implies a wider variety of items. A food store typically has a wider variety of items than a market, so the best answer is E) food store.",
+                        "answers": [
+                            {
+                                "id": "7edb1447-9b88-4572-a1d5-ed06b3a9fb21",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) food store.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:52:26",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "60589398-d96a-4449-a9de-d073a48ab244",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) market",
+                        "answers": [
+                            {
+                                "id": "e91e473a-a8eb-4f5b-9f8b-804a96c77164",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) market",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:46:34",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "8c655f3a55bde41aad880f138d7a445d",
+                "ref_id": "",
+                "question": "When cooking sheep meat a lot of people might want to be well?",
+                "type": "multiplechoice",
+                "choices": [
+                    "ram",
+                    "lamb",
+                    "done",
+                    "ram",
+                    "wolf"
+                ],
+                "context": "",
+                "cot": [
+                    "In cooking, people want to do well.",
+                    "Well done is a common word which is used to appreciate someone.",
+                    "Ram is not an activity.",
+                    "Lamb cant be associated with a person.",
+                    "Wolf is an animal."
+                ],
+                "answer": [
+                    "done"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "aea30a2b-d53e-4e59-b140-5738efcc74b0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Ram - This is a male sheep, not a cooking preference.\nB) Lamb - This is a young sheep, which is often used for its tender meat.\nC) Done - This could refer to the level of cooking, as in \"well done.\"\nD) Ram - This is a repeat of option A, so it's not the answer.\nE) Wolf - This is not related to cooking sheep meat at all.\n\nBased on the options provided, the most appropriate answer is:\nC) done",
+                        "answers": [
+                            {
+                                "id": "586da060-d2d1-491f-ac06-0de98bc772ff",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) done",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:54:39",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "8ffc3de9-3471-4e41-94a7-580650bb0f09",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) lamb",
+                        "answers": [
+                            {
+                                "id": "4329b117-ba7d-457a-bda0-b887d6a62699",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) lamb",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:47:13",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "570be8c1edb8c638603dc5c8cae421cc",
+                "ref_id": "",
+                "question": "David watched some nesting birds using his binoculars while on vacation.  Where might David be?.",
+                "type": "multiplechoice",
+                "choices": [
+                    "sky",
+                    "vaccation",
+                    "forest",
+                    "countryside",
+                    "roof"
+                ],
+                "context": "",
+                "cot": [
+                    "Forest is a large area filled with trees and bushes where birds generally nest.",
+                    "David was on vacation in the forest.",
+                    "Vacation is not a particular place and not all of countryside has a lot of trees.",
+                    "Birds cannot nest in sky and generally do not nest on roofs."
+                ],
+                "answer": [
+                    "forest"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "69630f02-9959-4fe0-a261-a18eb36731de",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: David is on vacation, so he is not at home or in his usual environment.\nStep 2: He is watching nesting birds, which means he is in a location where birds are nesting.\nStep 3: Birds typically nest in trees or other natural environments.\n\nBased on these steps, the most likely answer is:\nC) forest",
+                        "answers": [
+                            {
+                                "id": "c7f8080f-c651-4cf1-b124-8c87844fd94f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) forest",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:55:32",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "bca20f95-8cc7-4998-a6fc-870ecf29d07b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) countryside",
+                        "answers": [
+                            {
+                                "id": "8ef63cd5-6fc9-45be-834d-a6829bdd0c05",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) countryside",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:47:34",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_300",
+                "ref_id": "",
+                "question": "A 5-year-old boy is brought to the physician because of an irregular gait 3 days after receiving age-appropriate vaccinations. Examination of the lower extremities shows no redness or swelling. When the child stands on his right leg, his left leg drops and his pelvis tilts towards the left. Sensation to light touch is normal in both legs. This patient's symptoms are most likely due to the injection of the vaccine into which of the following locations?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Inferolateral quadrant of the right buttock",
+                    "Inferomedial quadrant of the right buttock",
+                    "Inferomedial quadrant of the left buttock",
+                    "Superomedial quadrant of the right buttock",
+                    "Inferolateral quadrant of the left buttock"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Superomedial quadrant of the right buttock"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "711e854d-0832-48bd-a823-ba5d84a82256",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The child has an irregular gait and when he stands on his right leg, his left leg drops and his pelvis tilts towards the left. This suggests a problem with the muscles on the right side of his pelvis, specifically the gluteus medius and minimus muscles, which are responsible for stabilizing the pelvis during single-leg stance.\n\n2. The gluteus medius and minimus muscles are innervated by the superior gluteal nerve, which arises from the lumbosacral plexus (L4-S1).\n\n3. The superior gluteal nerve exits the pelvis through the greater sciatic foramen, above the piriformis muscle, and enters the gluteal region to supply the gluteus medius and minimus muscles.\n\n4. The most likely cause of this patient's symptoms is an injury to the superior gluteal nerve during the vaccination. This could occur if the vaccine was injected too high and too medial in the buttock, as this is where the superior gluteal nerve is located.\n\n5. Based on this information, the most likely location of the vaccine injection that caused this patient's symptoms is the superomedial quadrant of the right buttock (option D).",
+                        "answers": [
+                            {
+                                "id": "e9f2cab5-794c-4040-b68e-e8a76496c2f0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Superomedial quadrant of the right buttock.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:11:56",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b61e9de4-1b44-49bf-a04f-f8314b7a020e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Inferolateral quadrant of the right buttock",
+                        "answers": [
+                            {
+                                "id": "880ae47e-bd01-417e-b4e4-e91c243b7492",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Inferolateral quadrant of the right buttock",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:50:12",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_391",
+                "ref_id": "",
+                "question": "A 34-year-old patient is brought to the emergency room after a motor vehicle accident. An EKG shows sinus tachycardia and chest radiograph reveals an enlarged cardiac silhouette. While observing sinus tachycardia on the patient's telemetry, you note that the radial pulse cannot be palpated during inspiration. What should be the next step in management of this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "IV Heparin",
+                    "Pericardiocentesis",
+                    "Chest CT scan",
+                    "Pericardial window",
+                    "Insert chest tube"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Pericardiocentesis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "eb594894-b392-4745-8362-b185fad375d7",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient is 34 years old and has been in a motor vehicle accident.\n2. The EKG shows sinus tachycardia, which is a fast heart rate.\n3. The chest radiograph reveals an enlarged cardiac silhouette, which could indicate fluid around the heart or another issue with the heart's structure.\n4. The radial pulse cannot be palpated during inspiration, which is a sign of pulsus paradoxus. This can be seen in conditions like cardiac tamponade, where fluid accumulates around the heart and impairs its function.\n\nGiven this information, the most likely diagnosis is cardiac tamponade. The next step in management should be to relieve the pressure on the heart by removing the fluid. This can be done through pericardiocentesis (option B), which involves inserting a needle into the pericardial sac to drain the fluid. This procedure can be life-saving and should be performed as soon as possible.\n\nSo, the correct answer is B) Pericardiocentesis.",
+                        "answers": [
+                            {
+                                "id": "839d4bb5-a8f5-47f9-96a2-462ac5e811b6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Pericardiocentesis.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:14:35",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "8650a30b-9740-4020-8b71-c36a9232483a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) Chest CT scan",
+                        "answers": [
+                            {
+                                "id": "a024dea9-faa8-4cd7-9089-77c6fa919068",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Chest CT scan",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:50:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_447",
+                "ref_id": "",
+                "question": "A 52-year-old man is brought to the emergency department for recurrent vomiting that began 5 hours ago. He describes the vomitus as bloody and containing black specks. He drinks 10\u201312 beers daily and has not seen a physician in 15 years. He appears pale. His temperature is 36.7\u00b0C (98.1\u00b0F), pulse is 122/min, and blood pressure is 85/59 mm Hg. Physical examination shows decreased radial pulses, delayed capillary refill, multiple spider angiomata, and a distended abdomen. He is oriented to person but not to place or time. Which of the following is most likely decreased in this patient in response to his current condition compared to a healthy adult?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Systemic vascular resistance",
+                    "Fractional tissue oxygen extraction",
+                    "Carotid baroreceptor firing activity",
+                    "Pulmonary vascular resistance",
+                    "Cardiac inotropy"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Carotid baroreceptor firing activity"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "625fb85b-c7f7-4ad6-a6df-6c6d88dfd72a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's analyze the patient's symptoms and history:\n\n1. Recurrent vomiting with bloody and black specks: This suggests gastrointestinal bleeding, possibly due to esophageal varices or peptic ulcers.\n2. Alcohol consumption: 10-12 beers daily indicates chronic alcohol abuse, which can lead to liver cirrhosis and portal hypertension, causing esophageal varices.\n3. Pale appearance, decreased radial pulses, and delayed capillary refill: These signs indicate poor peripheral perfusion and possible hypovolemia due to blood loss.\n4. Multiple spider angiomata and distended abdomen: These are signs of liver cirrhosis and portal hypertension.\n5. Disorientation: This could be due to hepatic encephalopathy or hypovolemia causing decreased cerebral perfusion.\n\nNow let's analyze the answer choices:\n\nA) Systemic vascular resistance: This would be increased in this patient due to hypovolemia and poor peripheral perfusion, causing the body to constrict blood vessels to maintain blood pressure.\n\nB) Fractional tissue oxygen extraction: This would be increased in this patient due to poor peripheral perfusion and hypovolemia, causing tissues to extract more oxygen from the blood to meet their metabolic demands.\n\nC) Carotid baroreceptor firing activity: This would be decreased in this patient due to hypovolemia and low blood pressure, causing the baroreceptors to fire less frequently to stimulate the sympathetic nervous system to increase blood pressure.\n\nD) Pulmonary vascular resistance: This might be increased in this patient due to liver cirrhosis and portal hypertension, causing increased pressure in the pulmonary circulation. However, this is not the primary issue in this patient's current condition.\n\nE) Cardiac inotropy: This refers to the force of heart muscle contraction. It might be increased in this patient due to hypovolemia and low blood pressure, causing the heart to pump harder to maintain circulation. However, chronic alcohol abuse can also lead to decreased cardiac inotropy due to direct toxic effects on the heart muscle.\n\nBased on the analysis, the correct answer is C) Carotid baroreceptor firing activity, which is most likely decreased in this patient in response to his current condition compared to a healthy adult.",
+                        "answers": [
+                            {
+                                "id": "484fa23b-f6a6-4e8e-a824-3d0c4f88c064",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Carotid baroreceptor firing activity.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:16:18",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "806199bf-99f6-48b3-8dff-e1c6c84ea6db",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Systemic vascular resistance",
+                        "answers": [
+                            {
+                                "id": "0c01e8c1-337f-463e-a788-5e323426e4c9",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Systemic vascular resistance",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:50:52",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_861",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the physician because of a 3-day history of fatigue and yellow discoloration of his skin. One week ago, he had an upper respiratory tract infection. Examination shows jaundice of the skin and conjunctivae. The spleen tip is palpated 2 cm below the left costal margin. His hemoglobin concentration is 9.4 g/dl and his mean corpuscular hemoglobin concentration is 39% Hb/cell. A Coombs test is negative. A peripheral blood smear is shown. This patient is at greatest risk for which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Malaria",
+                    "Acute myelogenous leukemia",
+                    "Cholecystitis",
+                    "Renal papillary necrosis",
+                    "Splenic sequestration crisis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cholecystitis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "89749a94-80df-47ba-b012-b2969a375a6f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Analyze the patient's history and symptoms\n- 3-day history of fatigue and yellow discoloration of the skin (jaundice)\n- Recent upper respiratory tract infection\n- Jaundice of the skin and conjunctivae\n- Spleen tip palpated 2 cm below the left costal margin (splenomegaly)\n- Hemoglobin concentration is 9.4 g/dl (anemia)\n- Mean corpuscular hemoglobin concentration is 39% Hb/cell (normal)\n- Coombs test is negative (not autoimmune hemolytic anemia)\n\nStep 2: Interpret the peripheral blood smear\n- The question does not provide an image or description of the peripheral blood smear, but given the patient's history and symptoms, we can assume that there are signs of hemolysis (destruction of red blood cells).\n\nStep 3: Determine the most likely complication\nA) Malaria - Unlikely, as there is no mention of travel or exposure to mosquitoes.\nB) Acute myelogenous leukemia - Unlikely, as the patient's symptoms and history do not suggest leukemia.\nC) Cholecystitis - Possible, as hemolysis can lead to the formation of gallstones, which can cause cholecystitis.\nD) Renal papillary necrosis - Unlikely, as there is no mention of kidney involvement or risk factors for renal papillary necrosis.\nE) Splenic sequestration crisis - Possible, as the patient has splenomegaly and anemia, which can be associated with splenic sequestration crisis.\n\nBased on the patient's history, symptoms, and laboratory findings, the most likely complication is:\n\nC) Cholecystitis",
+                        "answers": [
+                            {
+                                "id": "4b412fb0-f619-4a16-b356-645c5fc5ba3c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Cholecystitis",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:30:56",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "50cea918-9774-431f-a27d-d91d754648bf",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "E) Splenic sequestration crisis",
+                        "answers": [
+                            {
+                                "id": "04c9953d-b534-429d-9454-3c3221abff4d",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Splenic sequestration crisis",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:54:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_911",
+                "ref_id": "",
+                "question": "A previously healthy 27-year-old woman comes to the physician because of a 2-month history of depressed mood and fatigue. During this time, she has had a 5-kg (11-lb) weight gain. She reports trouble concentrating at her job as a preschool teacher and has missed work several times in recent weeks due to generalized fatigue. She has smoked 2 packs of cigarettes daily for 10 years and is actively trying to quit smoking. A drug is prescribed that will treat the patient's mood disturbance and support smoking cessation. This patient should be counseled about which of the following possible side effects of this drug?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Decreased libido",
+                    "Hypotension",
+                    "Urinary retention",
+                    "Tachycardia",
+                    "QTc prolongation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Tachycardia"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9fe00972-7afe-44b6-b3d7-3c39dd29af6f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the drug that treats both mood disturbance and supports smoking cessation.\nThe drug that fits this description is Bupropion.\n\nStep 2: Determine the possible side effects of Bupropion.\nSome common side effects of Bupropion include:\n- Insomnia\n- Dry mouth\n- Nausea\n- Headache\n- Dizziness\n- Increased heart rate (tachycardia)\n- Increased blood pressure\n\nStep 3: Match the side effects with the options given.\nFrom the list of side effects, the one that matches the options given is:\n\nD) Tachycardia\n\nSo, the correct answer is D) Tachycardia.",
+                        "answers": [
+                            {
+                                "id": "77fd1b02-2135-4903-99d0-e366f3d9a4f9",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Tachycardia.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:32:14",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "f3315756-f5f4-4b4a-b17e-9653d4dbc1ef",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Decreased libido",
+                        "answers": [
+                            {
+                                "id": "990d3c64-cad7-4348-9bdc-65682d6c7831",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Decreased libido",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:54:25",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1010",
+                "ref_id": "",
+                "question": "A 25-year-old woman presents to her primary care provider for evaluation of a \"painful mass in my left groin.\" She says that her symptoms began 4 days ago as a painful mass that slowly enlarged, ruptured, and ulcerated. However, she denies fever, chills, dysuria, or hematuria. Three weeks prior to her current symptoms she noted a small, painless ulcer on her labium majorum that resolved after a few days. She admits to having unprotected sex with a male partner a month ago while she was traveling in Southeast Asia. Temperature is 99\u00b0F (37.2\u00b0C), blood pressure is 139/84 mmHg, pulse is 76/min, and respirations are 18/min. Physical examination is significant for left-sided, tender, ulcerative lymph nodes with a dark discoloration. Which of the following is most likely to be seen in this patient's condition?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Donovan bodies on Wright-Giemsa stain",
+                    "Gram-negative rods in school of fish formation on Gram stain",
+                    "PCR positive for Chlamydia trachomatis",
+                    "Positive RPR, VDRL, and FTA-ABS",
+                    "Tzanck smear with multinucleated giant cells"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "PCR positive for Chlamydia trachomatis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "673f4800-5c36-47ab-9843-3c1002a28917",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient's symptoms and history suggest a sexually transmitted infection. The presence of a painless ulcer on her labium majorum followed by painful, ulcerative lymph nodes with dark discoloration is characteristic of lymphogranuloma venereum (LGV), which is caused by Chlamydia trachomatis.\n\nA) Donovan bodies on Wright-Giemsa stain are seen in granuloma inguinale, which is caused by Klebsiella granulomatis. This is not consistent with the patient's presentation.\n\nB) Gram-negative rods in school of fish formation on Gram stain are seen in Haemophilus ducreyi, which causes chancroid. This is not consistent with the patient's presentation.\n\nC) PCR positive for Chlamydia trachomatis is consistent with the patient's symptoms and history, suggesting LGV.\n\nD) Positive RPR, VDRL, and FTA-ABS are tests for syphilis, which is caused by Treponema pallidum. This is not consistent with the patient's presentation.\n\nE) Tzanck smear with multinucleated giant cells is seen in herpes simplex virus infection. This is not consistent with the patient's presentation.\n\nTherefore, the correct answer is C) PCR positive for Chlamydia trachomatis.",
+                        "answers": [
+                            {
+                                "id": "86d98ea6-3606-4196-95d8-216cd91e89e3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) PCR positive for Chlamydia trachomatis.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:35:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "154c86a6-57ef-4e5d-bd45-1f10c51e79c2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Donovan bodies on Wright-Giemsa stain",
+                        "answers": [
+                            {
+                                "id": "53643eda-ccf1-49f8-bfbc-9aec1c488590",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Donovan bodies on Wright-Giemsa stain",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:55:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1074",
+                "ref_id": "",
+                "question": "A 24-year-old man with chronic back pain comes to the physician to establish care after moving to Florida. He complains of anxiety, nausea, abdominal cramping, vomiting, and diarrhea for three days. He denies smoking, drinking alcohol, and using illicit drugs. He appears restless. His temperature is 37\u00b0C (98.6\u00b0F), pulse is 110/min, and blood pressure is 150/86 mm Hg. Physical examination shows dilated pupils, diaphoresis, and piloerection. His abdominal exam shows diffuse mild tenderness. There is no rebound tenderness or guarding. His hemoglobin concentration is 14.5 g/dL, leukocyte count is 8,000/mm, and platelet count is 250,000/mm3; serum studies and urinalysis show no abnormalities. Which of the following is the most appropriate pharmacotherapy?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Lorazepam",
+                    "Naltrexone",
+                    "Methadone",
+                    "Morphine",
+                    "Naloxone\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Methadone"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "5308d060-640e-4198-9e61-d2ce4cc4fc3a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's analyze the patient's symptoms and signs:\n\n1. Chronic back pain\n2. Anxiety\n3. Nausea, abdominal cramping, vomiting, and diarrhea for three days\n4. Restlessness\n5. Dilated pupils, diaphoresis, and piloerection\n6. Diffuse mild abdominal tenderness\n\nThese symptoms and signs suggest that the patient may be experiencing opioid withdrawal, even though he denies using illicit drugs. It is possible that he has been using prescription opioids for his chronic back pain and is now experiencing withdrawal symptoms.\n\nNow let's analyze the answer choices:\n\nA) Lorazepam - This is a benzodiazepine, which is used to treat anxiety and seizures. It is not the most appropriate treatment for opioid withdrawal.\n\nB) Naltrexone - This is an opioid antagonist, which is used to prevent relapse in opioid dependence. It is not used to treat acute withdrawal symptoms.\n\nC) Methadone - This is a long-acting opioid agonist, which is used to treat opioid dependence and manage withdrawal symptoms. This is the most appropriate pharmacotherapy for this patient.\n\nD) Morphine - This is an opioid agonist, which is used to treat moderate to severe pain. It is not the most appropriate treatment for opioid withdrawal.\n\nE) Naloxone - This is an opioid antagonist, which is used to reverse opioid overdose. It is not used to treat withdrawal symptoms.\n\nTherefore, the most appropriate pharmacotherapy for this patient is C) Methadone.",
+                        "answers": [
+                            {
+                                "id": "09d58d89-50b8-47c8-913e-b2e8b8990e67",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Methadone.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:38:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "81253324-1f56-45e4-88dd-75f272c241f3",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Lorazepam",
+                        "answers": [
+                            {
+                                "id": "a5f4f5b3-a572-4701-8275-2222495627f9",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Lorazepam.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:55:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1235",
+                "ref_id": "",
+                "question": "A 21-year-old female presents to the clinic requesting prenatal counseling. She was born with a disease that has led her to have recurrent upper respiratory infections throughout her life requiring antibiotic prophylaxis and chest physiotherapy as well as pancreatic enzyme replacement therapy. She marries a man (without this disease phenotype) from a population where the prevalence of this disease is 1/100. What is the chance that their child will have the disease of interest?",
+                "type": "multiplechoice",
+                "choices": [
+                    "9/100",
+                    "1/10",
+                    "18/100",
+                    "81/100",
+                    "9/10"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "9/100"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "023873a0-32c1-4d63-8353-45974e55ffbd",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the disease\nThe description of the disease (recurrent upper respiratory infections, antibiotic prophylaxis, chest physiotherapy, and pancreatic enzyme replacement therapy) suggests that the woman has cystic fibrosis (CF).\n\nStep 2: Determine the woman's genotype\nSince the woman has CF, her genotype must be homozygous recessive (two copies of the CF gene), which we can represent as \"ff.\"\n\nStep 3: Determine the man's genotype\nThe man does not have CF, so he must have at least one normal (non-CF) gene. However, since the prevalence of CF in his population is 1/100, the carrier frequency (heterozygous genotype) can be calculated using the Hardy-Weinberg equation:\n\np^2 + 2pq + q^2 = 1\n\nWhere p is the frequency of the normal gene (F), q is the frequency of the CF gene (f), and the terms p^2, 2pq, and q^2 represent the frequencies of the genotypes FF, Ff, and ff, respectively.\n\nSince the prevalence of CF (ff) is 1/100, we can set q^2 = 1/100 and solve for q:\n\nq = sqrt(1/100) = 1/10\n\nNow we can find p:\n\np = 1 - q = 1 - 1/10 = 9/10\n\nNow we can calculate the frequency of the heterozygous genotype (Ff) using 2pq:\n\n2pq = 2 * (9/10) * (1/10) = 18/100\n\nSince the man does not have CF, he must either be homozygous normal (FF) or heterozygous (Ff). Given the calculated frequency of the heterozygous genotype (18/100), the probability that he is a carrier (Ff) is 18/100.\n\nStep 4: Calculate the chance of their child having CF\nIf the man is a carrier (Ff), there is a 50% chance that he will pass on the CF gene (f) to their child. Since the woman has CF (ff), she will always pass on the CF gene to their child. Therefore, if the man is a carrier, there is a 50% chance that their child will have CF.\n\nHowever, we must also consider the probability that the man is a carrier (",
+                        "answers": [
+                            {
+                                "id": "2bfc5f44-2d75-4d2e-87ed-b403da440dfd",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) 9/100.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:45:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "8954b0ac-b4eb-4a3d-9fce-5a03ba260b99",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) 1/10",
+                        "answers": [
+                            {
+                                "id": "57fbc230-2ced-4e92-8a47-290bc80dd623",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) 1/10",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:57:52",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1266",
+                "ref_id": "",
+                "question": "A 45-year-old male with a history of diabetes and poorly controlled hypertension presents to his primary care physician for an annual check-up. He reports that he feels well and has no complaints. He takes enalapril and metformin. His temperature is 98.8\u00b0F (37.1\u00b0C), blood pressure is 155/90 mmHg, pulse is 80/min, and respirations are 16/min. His physician adds another anti-hypertensive medication to the patient\u2019s regimen. One month later, the patient returns to the physician complaining of new onset lower extremity swelling. Which of the following medications was likely prescribed to this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Metoprolol",
+                    "Verapamil",
+                    "Nifedipine",
+                    "Hydrochlorthiazide",
+                    "Spironolactone"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Nifedipine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b4b6406b-9794-4d81-affd-97fc9fc1877a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the patient's problem - The patient has a history of diabetes and poorly controlled hypertension. He is already on enalapril (an ACE inhibitor) and metformin (an anti-diabetic medication).\n\nStep 2: Identify the new symptom - The patient is now complaining of lower extremity swelling after the addition of a new anti-hypertensive medication.\n\nStep 3: Analyze the given options - We need to find out which of the given medications can cause lower extremity swelling as a side effect.\n\nA) Metoprolol - This is a beta-blocker, which is not commonly associated with lower extremity swelling.\n\nB) Verapamil - This is a calcium channel blocker, which can cause lower extremity swelling as a side effect.\n\nC) Nifedipine - This is also a calcium channel blocker, which can cause lower extremity swelling as a side effect.\n\nD) Hydrochlorothiazide - This is a diuretic, which is actually used to treat lower extremity swelling and is not likely to cause it.\n\nE) Spironolactone - This is a potassium-sparing diuretic, which is also used to treat lower extremity swelling and is not likely to cause it.\n\nStep 4: Choose the most likely answer - Based on the analysis, the most likely medication that was prescribed to the patient and caused the lower extremity swelling is either Verapamil (B) or Nifedipine (C). Since we have to choose one answer, we can go with the more commonly prescribed medication for hypertension, which is Nifedipine (C).",
+                        "answers": [
+                            {
+                                "id": "0a73ad47-4488-4cb0-a057-08a13e9a536f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Nifedipine.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:46:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c81c31a2-32db-4b9f-9faf-90a1fd020fa5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "E) Spironolactone",
+                        "answers": [
+                            {
+                                "id": "97589484-c584-4418-8642-3afe3e264086",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Spironolactone",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:58:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "medmc_qa": {
+        "validation": [
+            {
+                "id": "3b184f01-db13-4379-ab0b-7709853e0326",
+                "ref_id": "",
+                "question": "A case of jaundice with 50% direct bilirubin, other LFTs normal. Diagnosis is \u2013",
+                "type": "multiplechoice",
+                "choices": [
+                    "Rotor syndrome",
+                    "Gilbert syndrome",
+                    "Glucuronyl transferase deficiency",
+                    "Primary biliary cirrhosis"
+                ],
+                "context": "",
+                "cot": [
+                    "50% direct bilirubin means conjugated hyperbilirubinemia.\nNormally the direct (conjugated) bilirubin is less than 15-20% of total bilirubin.\n\nNormal Values of bilirubin\nTotal bilirubin\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 >\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 0.2 - 1.9 mg/d1.\n\u00a0\u00a0\u00a0 Direct bilirubin >\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 0 - 0.3 mg/dl.\n\nSo, this child has : -\n\n\nConjugated hyperbilirubinemia\nOther LFTs normal\n\n\nAmongst the given options, Rotor syndrome and Primary biliary cirrhosis cause conjugated hyperbilirubinemia.\nIn Primary biliary cirrhosis, other LFTs are also abnormal, e.g., SGOT and SGPT are raised. Now we are left with Rotor syndrome which causes conjugated hyperbilirubinemia. Other LFTs are normal."
+                ],
+                "answer": [
+                    "Rotor syndrome"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "38670620-9318-4f9e-8ecb-c272a52e7d87",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's understand the given information:\n\n1. The patient has jaundice, which means there is an excess of bilirubin in the blood.\n2. 50% of the bilirubin is direct bilirubin, which is the conjugated form of bilirubin.\n3. Other liver function tests (LFTs) are normal.\n\nNow, let's analyze each option:\n\nA) Rotor syndrome: This is a rare genetic disorder characterized by elevated levels of both direct and indirect bilirubin. However, other LFTs are usually normal in this condition. This could be a possible diagnosis.\n\nB) Gilbert syndrome: This is a genetic disorder characterized by mild, unconjugated hyperbilirubinemia. Since the patient has 50% direct bilirubin, this option is unlikely.\n\nC) Glucuronyl transferase deficiency: This refers to a deficiency in the enzyme responsible for conjugating bilirubin. A deficiency in this enzyme would result in an increase in indirect (unconjugated) bilirubin, not direct bilirubin. Therefore, this option is unlikely.\n\nD) Primary biliary cirrhosis: This is a chronic liver disease characterized by inflammation and destruction of the bile ducts within the liver. This condition typically presents with elevated levels of alkaline phosphatase and gamma-glutamyl transferase, which are not mentioned as normal in the given information. Therefore, this option is unlikely.\n\nBased on the given information and analysis, the most likely diagnosis is:\n\nA) Rotor syndrome",
+                        "answers": [
+                            {
+                                "id": "86333b8e-dfba-40ce-9809-34ee1b029408",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Rotor syndrome.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:52:23",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0708556b-739b-404d-aca9-38306b0d53f4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) Glucuronyl transferase deficiency",
+                        "answers": [
+                            {
+                                "id": "6ba8d5cb-8c11-4768-a9ec-b116dad6006a",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Glucuronyl transferase deficiency",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:59:48",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "6b13b5d1-10ab-414c-bfd4-76b9463300f2",
+                "ref_id": "",
+                "question": "Target sign is seen in?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Spontaneous CSF Rhinorrhea",
+                    "Traumatic CSF Rhinorrhea",
+                    "Both",
+                    "None"
+                ],
+                "context": "",
+                "cot": [
+                    "Leakage of CSF into the nose is called CSF rhinorrhea. It may be clear fluid or mixed with blood as in acute head injuries. TRAUMA. Most of the cases follow trauma.it can be accidental or surgical. Inflammation, mucoceles of sinuses, sinunasal polyposis, fungal infection of sinuses & osteomyelitis, can all erode the bone and dura. Neoplasms, idiopathic- where cause is unknown and patient has spontaneous leak. SITE OF Leakage- CSF from anterior cranial fossa reaches the nose (1) cribriform plate, (2) roof of ethmoid air cells or (3) frontal sinus. CSF from middle cranial fossa follows injuries to sphenoid sinus, cribriform plate. In fracture of temporal bone, CSF reaches the middle ear and then escapes through the Eustachian tube into the nose (CSF OTORHINORRHOEA) DIAGNOSIS- there is history of clear watery discharge from the nose on bending the head or straining. CSF rhinorrhea should be differentiated from nasal discharge as the former is sudden, gushes in drops when bending and cannot be sniffed back. CSF rhinorrhea after head trauma is mixed with blood and shows \"target sign\" when collected on filter paper.it shows central red spot and peripheral lighter halo sign. LAB TEST = BETA-2 transferrin is seen in CSF and not in the nasal discharge. its presence is a specific and sensitive test."
+                ],
+                "answer": [
+                    "Traumatic CSF Rhinorrhea"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "363dea9e-6f31-4950-8030-3764b4ffe5b8",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's understand what each term means:\n\n1. CSF Rhinorrhea: This is a condition where cerebrospinal fluid (CSF) leaks from the nose due to a tear or defect in the dura mater (the outermost layer of the meninges surrounding the brain and spinal cord).\n\n2. Spontaneous CSF Rhinorrhea: This occurs without any apparent cause or trauma to the head or nose.\n\n3. Traumatic CSF Rhinorrhea: This occurs as a result of head or facial trauma, such as a skull fracture or sinus surgery.\n\nNow, let's discuss the \"Target sign\":\n\nThe \"Target sign\" is a radiological finding seen on CT scans, specifically in the context of CSF Rhinorrhea. It appears as a concentric ring pattern, with a central hyperdense area (representing blood) surrounded by a hypodense ring (representing CSF). This sign is typically associated with traumatic CSF Rhinorrhea, as it is indicative of a skull base fracture or defect.\n\nSo, based on this information, the correct answer is:\n\nB) Traumatic CSF Rhinorrhea",
+                        "answers": [
+                            {
+                                "id": "898cb8ce-8cdc-4e62-8533-74b7c3b160b6",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Traumatic CSF Rhinorrhea",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:54:24",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a4a615f7-da8c-4828-92be-5574afb03767",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) Both",
+                        "answers": [
+                            {
+                                "id": "7b15595c-ed3b-4040-975d-2740c7a7f5a4",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Both",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:00:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "c9aa8c5b-b009-4c7e-a8d4-05cf46db9282",
+                "ref_id": "",
+                "question": "The case of biliary duct stricture with retching and vomiting, given 3mg morphine epiduraly daily, one day 12 mg mistakenly dose of epidural, morphine given. Not present:-",
+                "type": "multiplechoice",
+                "choices": [
+                    "Itching",
+                    "Urinary retention",
+                    "Increase vomiting",
+                    "Overstimulation of respiratory centre"
+                ],
+                "context": "",
+                "cot": [
+                    "Side effect of high dose epidural opioid: Nausea and vomiting Pruritis Urinary retention Respiratory depression High dose of opioid can spread centrally and stimulate CTZ center and can precipitate nausea and vomiting. Pruritis due to morphine is not due to histamine release, high dose morphine can spread centrally, act on trigeminal nerve and cause pruritis. Urinary retention in morphine use is due to it's action on sacral spinal cord, therefore it can happen even at normal dose and not related to high dose. Respiratory depression in morphine overdose due to migration of morphine centrally."
+                ],
+                "answer": [
+                    "Overstimulation of respiratory centre"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4ac81bf6-66aa-47a0-bf9f-2325a9493281",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Itching: Morphine can cause itching as a side effect, so this could be present.\n\nB) Urinary retention: Morphine can also cause urinary retention as a side effect, so this could be present as well.\n\nC) Increased vomiting: Morphine can cause nausea and vomiting, but in this case, the patient is already experiencing retching and vomiting due to the biliary duct stricture. It is possible that the increased dose of morphine could exacerbate the vomiting, so this could be present.\n\nD) Overstimulation of the respiratory center: Morphine is a respiratory depressant, meaning it can slow down or inhibit the respiratory center in the brain. An overdose of morphine would more likely cause respiratory depression, not overstimulation. Therefore, this option is not present.\n\nSo, the answer is D) Overstimulation of the respiratory center.",
+                        "answers": [
+                            {
+                                "id": "e40a01b2-8753-4d60-9af2-884f7e477e51",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Overstimulation of the respiratory center.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:54:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "73521df9-16e5-4e94-94f4-7f59a718691a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) Increase vomiting",
+                        "answers": [
+                            {
+                                "id": "7ff15870-f08f-4790-8cba-497bf4d2a55c",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Increase vomiting",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:00:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "e9474805-33d3-4db9-a0dd-a7171bd262a6",
+                "ref_id": "",
+                "question": "Type of cry, which is not a cry at all, there are no tears, no sobs, just a constant whining noise:",
+                "type": "multiplechoice",
+                "choices": [
+                    "Obstinate cry.",
+                    "Frighten cry.",
+                    "Hurt cry.",
+                    "Compensatory cry."
+                ],
+                "context": "",
+                "cot": [
+                    "The four types of crying classified by Elsbach are:"
+                ],
+                "answer": [
+                    "Compensatory cry."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1c66ca3b-ce6d-4638-9b41-97ccbfe5bf44",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Obstinate cry - This type of cry is usually associated with stubbornness or defiance, but it may still involve tears or sobs.\n\nB) Frighten cry - This type of cry is typically a response to fear or being startled, and it would likely involve tears and/or sobs.\n\nC) Hurt cry - This type of cry is a response to physical or emotional pain, and it would also likely involve tears and/or sobs.\n\nD) Compensatory cry - This type of cry is not a genuine expression of emotion but rather a way to manipulate or gain attention. It may not involve tears or sobs, but it could involve a constant whining noise.\n\nBased on the descriptions, the answer is:\n\nD) Compensatory cry.",
+                        "answers": [
+                            {
+                                "id": "38b697bb-43ee-4617-a3b7-c6f794a04ee3",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Compensatory cry.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 11:57:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "80538bf6-2c8f-46d7-93d7-eea74da3964b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Obstinate cry.",
+                        "answers": [
+                            {
+                                "id": "3cc3d644-1e86-42c8-b9d7-b54860e42277",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Obstinate cry.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:01:29",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "ad5ec8c2-dd73-4a3e-8904-8675c689bca2",
+                "ref_id": "",
+                "question": "Best method to neasure HbA1c?",
+                "type": "multiplechoice",
+                "choices": [
+                    "lsoelectric focusing",
+                    "Affinity chromatography",
+                    "Ion exchange chromatography",
+                    "Electrophoresis"
+                ],
+                "context": "",
+                "cot": [
+                    "Ans: C. Ion exchange chromatographyRef: Tietz T*tbook of clinical chemistry and molecular biologt, lh ed^, pg. 1443-1444Techniques based on charge differences (ion-exchange chromatography, HPLC, electrophoresis, and isoelectric focusing), structural differences (affinity chromatography and immunoassay), or chemical analysis (photometry and spechophotometry)."
+                ],
+                "answer": [
+                    "Ion exchange chromatography"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "07e6a1bb-28a6-4546-872a-b7f7511f1855",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Isoelectric focusing: This method separates proteins based on their isoelectric points, which is the pH at which the protein has no net charge. HbA1c has a different isoelectric point than other hemoglobin variants, so this method can be used to separate and measure HbA1c.\n\nB) Affinity chromatography: This method separates proteins based on their specific binding interactions with a ligand immobilized on a stationary phase. HbA1c can be separated from other hemoglobin variants using a specific ligand that binds to the glucose moiety on HbA1c.\n\nC) Ion exchange chromatography: This method separates proteins based on their charge. HbA1c has a different charge than other hemoglobin variants due to the presence of glucose, so this method can be used to separate and measure HbA1c.\n\nD) Electrophoresis: This method separates proteins based on their size and charge. HbA1c has a different size and charge than other hemoglobin variants, so this method can be used to separate and measure HbA1c.\n\nAll of these methods can be used to separate and measure HbA1c, but the most commonly used and recommended method for HbA1c measurement is ion exchange chromatography (C). This method is considered the gold standard for HbA1c measurement due to its high specificity, accuracy, and reproducibility.",
+                        "answers": [
+                            {
+                                "id": "e9c82865-52be-4366-be14-e566e4c0f22c",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Ion exchange chromatography.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:04:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "faa24e38-6dd8-4728-a771-249135143634",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) Affinity chromatography",
+                        "answers": [
+                            {
+                                "id": "d36cefc5-bf01-4794-922a-8c93279c4963",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Affinity chromatography",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:13:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "d58a8e4e-0f5e-42bb-8b24-75a882eacfa2",
+                "ref_id": "",
+                "question": "IOL placed in the young male., After 10 year what should be done..?",
+                "type": "multiplechoice",
+                "choices": [
+                    "IOL should be removed in case of Posterior Capsule ossification",
+                    "Never be removed",
+                    "Remove when presbyopia sets in",
+                    "Should be changed after 10 year"
+                ],
+                "context": "",
+                "cot": [
+                    "Answer A. IOL should be removed in case of Posterior Capsule ossification 1. The indications for removing an intraocular lens (IOL) are:Chronic uveitisEndothelial corneal dystrophyUncontrollalbe glaucomaMetal loop cutting pupillary sphincterGross decentration of IOL (fibrous bands)Extraocular dislocation of IOL G. Recurrent severe hyphemaDevelopment of rubeosis iridisRemoval of iris (1) Iris tumor (2) Epithelial downgrowthEndophthalmitisUnilateral IOL in pending bilateral aphakia 2. The following may be indications for removing and/or replacing and/or replacing an IOL:Wrong dioptric powerForeign body attached to IOLIOL covered with pigmentRepair retinal detachment after extracapsular cataract extractionChoyce lens too shoDannheim IOL with absorbed supramid loop tipsDislocated Ridley IOLSclero-conjunctival erosion of Strampelli's \"external-fixation\" IOL loop Reference - <a href=\""
+                ],
+                "answer": [
+                    "IOL should be removed in case of Posterior Capsule ossification"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "308f6762-a980-4601-988b-ed3d039f92e5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) IOL should be removed in case of Posterior Capsule ossification: This is a possible scenario, but it is not guaranteed to happen after 10 years. It depends on the individual case.\n\nB) Never be removed: This is not necessarily true, as there might be complications or issues that require the IOL to be removed or replaced.\n\nC) Remove when presbyopia sets in: Presbyopia is a natural aging process that affects the eye's ability to focus on near objects. It is not directly related to the IOL, so this option is not correct.\n\nD) Should be changed after 10 years: There is no specific time frame for changing an IOL. It depends on the individual case and the patient's eye health.\n\nSo, the best answer would be:\nA) IOL should be removed in case of Posterior Capsule ossification, but only if it occurs and affects the patient's vision. There is no specific time frame for this to happen, and it depends on the individual case.",
+                        "answers": [
+                            {
+                                "id": "1f7eeb83-783b-4d05-969d-993962bb3efe",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) IOL should be removed in case of Posterior Capsule ossification, but only if it occurs and affects the patient's vision. There is no specific time frame for this to happen, and it depends on the individual case.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:09:16",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "4c1a01bc-1f82-493d-b24e-c9efa9b87888",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) Never be removed",
+                        "answers": [
+                            {
+                                "id": "d4960adc-d94d-4e59-a243-92923ba131be",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Never be removed",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:15:13",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "409873c7-dd6c-4284-a0b2-dda6e861d639",
+                "ref_id": "",
+                "question": "The following is characteristic feature of staphylococcus food poisoning except:",
+                "type": "multiplechoice",
+                "choices": [
+                    "Optimum temperature for toxin production is 370C",
+                    "Intradietic toxin are responsible for intestinal symptoms",
+                    "Toxin can be destroyed by boiling for 30 minutes",
+                    "Incubation period is 1-6 hours"
+                ],
+                "context": "",
+                "cot": [
+                    "Staphylococcal food poisoning:\n\nStaphylococcal food poisoning is due to heat-stable preformed toxin mostly after consuming milk products.\nToxin is produced optimally at 350C to 370C.\u00a0\nMechanism - Acts by stimulating vagus nerve and vomiting centre of brain. No antibiotics are given for Staphylococcal food poisoning."
+                ],
+                "answer": [
+                    "Toxin can be destroyed by boiling for 30 minutes"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "3c3013a2-442b-4b62-a6fb-b171034c6181",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Optimum temperature for toxin production is 37\u00b0C - This is true. Staphylococcus aureus produces toxins best at human body temperature, which is around 37\u00b0C.\n\nB) Intradietic toxin are responsible for intestinal symptoms - This is true. The toxins produced by Staphylococcus aureus are responsible for the gastrointestinal symptoms associated with staphylococcal food poisoning.\n\nC) Toxin can be destroyed by boiling for 30 minutes - This is false. Staphylococcal enterotoxins are heat-stable and can withstand boiling temperatures for extended periods of time. Some sources suggest that boiling for at least 30 minutes may reduce toxin levels, but it is not guaranteed to completely destroy the toxins.\n\nD) Incubation period is 1-6 hours - This is true. The incubation period for staphylococcal food poisoning is typically short, ranging from 1 to 6 hours after ingestion of contaminated food.\n\nTherefore, the correct answer is C) Toxin can be destroyed by boiling for 30 minutes, as this statement is not characteristic of staphylococcus food poisoning.",
+                        "answers": [
+                            {
+                                "id": "d785de0b-ef14-451e-a049-87404afb126a",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Toxin can be destroyed by boiling for 30 minutes.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:15:52",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b7019fc2-37ea-406a-ae9f-467a051cb137",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) Intradietic toxin are responsible for intestinal symptoms",
+                        "answers": [
+                            {
+                                "id": "3326cd01-b772-479e-8331-0660c987d743",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Intradietic toxin are responsible for intestinal symptoms",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:26:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "0acff0e8-a28e-4c44-ba99-7bf1ea71951f",
+                "ref_id": "",
+                "question": "Chicken pox infection in mother most dangerous for the baby when it occurs at -",
+                "type": "multiplechoice",
+                "choices": [
+                    "14-28 weeks",
+                    "3 -9 weeks",
+                    "28-37weeks",
+                    "8-14weeks"
+                ],
+                "context": "",
+                "cot": [
+                    "Ans. C. 28-37weeksBefore 28 weeks pregnant: there's no evidence you are at increased risk of suffering a miscarriage. However, there's a small risk baby could develop foetal varicella syndrome (FVS). FVS can damage the baby's skin, eyes, legs, arms, brain, bladder or bowel.Between weeks 28 and 36 of pregnancy: the virus stays in the baby's body but doesn't cause any symptoms. However, it may become active again in the first few years of the baby's life, causing shingles.After 36 weeks of pregnancy: baby may be infected and could be born with chickenpox."
+                ],
+                "answer": [
+                    "28-37weeks"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6f92f720-c0a6-4032-9c42-07cd786ffa59",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Chickenpox infection in pregnant women can be dangerous for the baby, especially if the mother contracts the infection during certain periods of pregnancy. The risk to the baby depends on the timing of the infection.\n\nA) 14-28 weeks: If the mother contracts chickenpox during this period, there is a risk of the baby developing congenital varicella syndrome (CVS), which can cause birth defects such as scarring, limb abnormalities, and eye problems. However, the risk is relatively low, at around 1-2%.\n\nB) 3-9 weeks: If the mother contracts chickenpox during this period, the risk of CVS is slightly higher, at around 2-3%. However, this is still a relatively low risk.\n\nC) 28-37 weeks: If the mother contracts chickenpox during this period, the risk to the baby is different. The baby is less likely to develop CVS, but there is a risk of neonatal varicella, which can be a severe and life-threatening infection for the newborn. The risk is highest if the mother contracts chickenpox between 5 days before and 2 days after delivery.\n\nD) 8-14 weeks: This period falls within the range of 3-9 weeks, so the risk of CVS is similar, at around 2-3%.\n\nBased on this information, the most dangerous period for the baby is during 28-37 weeks (option C), due to the risk of neonatal varicella, which can be severe and life-threatening.",
+                        "answers": [
+                            {
+                                "id": "6d22b6f1-2efa-4eff-ac18-682c0053527e",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) 28-37 weeks.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:17:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ca999353-aece-4f57-a288-3afa47ea7268",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) 3 -9 weeks",
+                        "answers": [
+                            {
+                                "id": "5bed1355-f5e8-4678-9f92-76e0aa521174",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) 3 -9 weeks",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:27:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "7f8086d8-e91b-40fc-8d8c-55cc74f84d6c",
+                "ref_id": "",
+                "question": "An adolescent male patient came with pain in calf muscles on exercise. On biopsy excessive amount of glycogen present was found to be present in the muscle. What is the most likely enzyme deficiency?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Muscle debranching enzyme",
+                    "Phosphofructokinase I",
+                    "Glucose 6 phosphatase",
+                    "Phosphorylase enzyme"
+                ],
+                "context": "",
+                "cot": [
+                    "Muscle cramps on exercise is a diagnostic feature of McArdle's disease. In this disease, due to deficiency of muscle glycogen phosphorylase, glycogen stored in muscle cannot be utilized for glucose production causing Muscle cramps and pain on doing strenuous work or exercise. Refer to the table for other symptoms. Type Name Enzyme deficiency Organ Clinical features I Von Gierke's disease Glucose 6-phosphatase Liver , Kidney Glycogen accumulation in liver and kidney Hypoglycemia lactic acidemia ketosis Hyperlipidemia II Pompe's disease Lysosomal alpha-1,4 glucosidase (acid maltase) All organs glycogen accumulation in lysosome in all organ hea is mostly affected* death occur at early age due to hea failure III Cori's disease Amylo alpha-1,6-glucosidase (debranching enzyme) Liver muscles and Hea fasting hypoglycemia hepatomegaly in infancy accumulation of characteristics branched polysaccharides (limit dextrin) muscles weakness IV Anderson's disease Glucosyl 4-6 transferase(branching enzyme) Most tissue A rare disease, glycogen with only few branches accumulate; cirrhosis of liver Death before 5 years of age dur to hea failure or liver failure V McArdle's disease Muscle glycogen phosphorylase Skeletal tissue Muscles glycogen is very high but cannot be used during exercise Cannot perform strenuous exercise Muscles cramps Blood lactate and pyruvate do not increase after exercise VI Her's disease Liver glycogen phosphorylase Liver Liver is increased in size because liver glycogen cannot conve to glucose Mild hypoglycemia and ketosis Good prognosis VII Tarui's disease Phosphofructokinase Skeletal muscles and RBC Muscles cramps due to exercise Blood lactate is elevated Hemolysis occur"
+                ],
+                "answer": [
+                    "Phosphorylase enzyme"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6dcf97d0-5167-4943-b49b-32624872ebd9",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient is experiencing pain in calf muscles during exercise and has excessive glycogen in the muscle tissue. This suggests a problem with glycogen metabolism in the muscles.\n\nA) Muscle debranching enzyme deficiency would lead to a buildup of glycogen with abnormal branching, which is not mentioned in the question.\n\nB) Phosphofructokinase I deficiency would affect glycolysis, not glycogen metabolism.\n\nC) Glucose 6 phosphatase deficiency would lead to glycogen storage disease type I (von Gierke disease), which primarily affects the liver and kidneys, not the muscles.\n\nD) Phosphorylase enzyme deficiency would impair the breakdown of glycogen in the muscles, leading to a buildup of glycogen and muscle pain during exercise. This is consistent with the patient's symptoms and biopsy findings.\n\nTherefore, the most likely enzyme deficiency in this patient is D) Phosphorylase enzyme.",
+                        "answers": [
+                            {
+                                "id": "e81d2ea9-c320-4d02-9cab-78f9245f2bc3",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Phosphorylase enzyme.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:18:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e77fd1b3-35bc-405a-89d8-610adc0ea97f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) Phosphofructokinase I",
+                        "answers": [
+                            {
+                                "id": "8c3f668a-04d7-466c-8222-8cbaab0264ef",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Phosphofructokinase I",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:27:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_71",
+                "ref_id": "",
+                "question": "Decaying vegetation is part of the process that",
+                "type": "multiplechoice",
+                "choices": [
+                    "enables nuclear power to function",
+                    "enables to emitting of light beams",
+                    "enables gas powered motors to operate",
+                    "enables windmills to power electric grids"
+                ],
+                "context": "",
+                "cot": [
+                    "forming fossil fuels requires decaying vegetation"
+                ],
+                "answer": [
+                    "enables gas powered motors to operate"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "66b2d795-fdc0-472c-9910-9f5ab5d1c271",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Decaying vegetation is a natural process that involves the breaking down of organic matter, such as leaves, branches, and other plant materials. This process is carried out by various organisms, such as bacteria, fungi, and insects, which help to recycle nutrients back into the soil.\n\nNow let's analyze each option:\n\nA) Nuclear power relies on the process of nuclear fission, which involves splitting atoms to release energy. This has nothing to do with decaying vegetation.\n\nB) Emitting light beams is a process that involves the release of photons, which are particles of light. This is not related to decaying vegetation.\n\nC) Gas-powered motors operate by burning fuel, such as gasoline or diesel, to produce mechanical energy. While some biofuels can be produced from plant materials, the process of decaying vegetation itself does not enable gas-powered motors to operate.\n\nD) Windmills convert the kinetic energy of wind into electrical energy. This process does not involve decaying vegetation.\n\nNone of the options directly relate to the process of decaying vegetation. However, if we consider the broader context of energy production and the environment, decaying vegetation can contribute to the formation of fossil fuels (such as coal, oil, and natural gas) over millions of years. These fossil fuels can then be used to power gas engines (option C) or generate electricity in power plants. So, in an indirect way, decaying vegetation can be linked to option C.",
+                        "answers": [
+                            {
+                                "id": "624b33c9-88cb-46c1-8cf7-d767b0c60ff0",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) enables gas powered motors to operate",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:25:56",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "6e2e665c-e5ea-4f2c-9c12-fde4b084e1f5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) enables windmills to power electric grids",
+                        "answers": [
+                            {
+                                "id": "52cefb01-b8c8-42c4-95d0-0eff7d2e46c3",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) enables windmills to power electric grids",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:29:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_166",
+                "ref_id": "",
+                "question": "What do cows eat?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Chickpeas",
+                    "Chocolate",
+                    "Steak",
+                    "Poultry"
+                ],
+                "context": "",
+                "cot": [
+                    "cows only eat plants"
+                ],
+                "answer": [
+                    "Chickpeas"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "8fc0ec12-14f3-46b8-85da-f8c6570fa303",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Cows are herbivores, which means they primarily eat plant-based foods.\n\nA) Chickpeas - This is a plant-based food, but it's not a common food for cows.\nB) Chocolate - This is not a plant-based food and not suitable for cows.\nC) Steak - This is a meat-based food and not suitable for cows.\nD) Poultry - This is a meat-based food and not suitable for cows.\n\nNone of the options provided are the typical food for cows. Cows mainly eat grass, hay, and silage (fermented grass). They may also be fed grains and other plant-based feed, but not the options listed above.",
+                        "answers": [
+                            {
+                                "id": "0773bd2e-0c75-4c83-a9b0-2e650bab7bfe",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Chickpeas, as it is the only plant-based option, but it's important to note that it's not a common food for cows.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:30:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "1b4f5ad6-20da-4ca5-93f9-22a8349237ea",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Cows eat:\nD) Grass",
+                        "answers": [
+                            {
+                                "id": "cbc51dcb-e159-4764-8e94-6d3e296e1ff4",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "none of the above.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:31:53",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_272",
+                "ref_id": "",
+                "question": "How can we see how wind effects sand?",
+                "type": "multiplechoice",
+                "choices": [
+                    "sand is always moving",
+                    "sandstorms create ripples in sand",
+                    "sand is easy to move through",
+                    "beaches often have waves in the sand"
+                ],
+                "context": "",
+                "cot": [
+                    "wind carries sand from one place to another place"
+                ],
+                "answer": [
+                    "sandstorms create ripples in sand"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "670d3038-582c-464e-aa60-f65ba191a3dc",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Sand is always moving - This statement is true, but it doesn't specifically show how wind affects sand.\n\nB) Sandstorms create ripples in sand - This statement shows a direct effect of wind on sand, as sandstorms are caused by strong winds blowing sand particles.\n\nC) Sand is easy to move through - This statement is not related to how wind affects sand.\n\nD) Beaches often have waves in the sand - This statement is true, but it doesn't specifically show how wind affects sand. Waves in the sand can be caused by water or other factors.\n\nSo, the best answer is B) Sandstorms create ripples in sand, as it directly shows the effect of wind on sand.",
+                        "answers": [
+                            {
+                                "id": "58e48cc8-f77b-4af6-9609-680661c7790b",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Sandstorms create ripples in sand.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:35:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "deac7e87-dfe7-4bbc-90b1-5b4fa7fa04ea",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) sandstorms create ripples in sand\nD) beaches often have waves in the sand",
+                        "answers": [
+                            {
+                                "id": "2c7d2dc5-f498-411d-a8ee-8592a71a85da",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) sandstorms create ripples in sand and D) beaches often have waves in the sand.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:44:35",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_282",
+                "ref_id": "",
+                "question": "Which characteristic did a person inherit?",
+                "type": "multiplechoice",
+                "choices": [
+                    "length of hair",
+                    "number of friends",
+                    "number of nails",
+                    "length of shirt"
+                ],
+                "context": "",
+                "cot": [
+                    "the number of body parts of an organism is an inherited characteristic"
+                ],
+                "answer": [
+                    "number of nails"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6548ef5d-abc8-4939-8dcf-47f5e9b1323f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Length of hair - This is not inherited, as it depends on how a person cuts and maintains their hair.\nB) Number of friends - This is not inherited, as it depends on a person's social skills and choices.\nC) Number of nails - This is inherited, as the number of nails on fingers and toes is determined by genetics.\nD) Length of shirt - This is not inherited, as it depends on a person's clothing choices and size.\n\nAnswer: C) Number of nails",
+                        "answers": [
+                            {
+                                "id": "11b867cb-8e83-4674-bf32-2a07fc1682ec",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Number of nails",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:36:29",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3f2d5050-08ab-48e5-87e5-a0732ce953a7",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) length of hair",
+                        "answers": [
+                            {
+                                "id": "919178b4-3aed-426d-a983-3a92b0107153",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) length of hair",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:44:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_342",
+                "ref_id": "",
+                "question": "What is an example of fire giving off light?",
+                "type": "multiplechoice",
+                "choices": [
+                    "an oven is preheated and the pilot light is lit",
+                    "a match is lit to light a cigarette",
+                    "a lit candle in a window signalling to someone",
+                    "a fire that was put out to send smoke signals"
+                ],
+                "context": "",
+                "cot": [
+                    "fire gives off light"
+                ],
+                "answer": [
+                    "a lit candle in a window signalling to someone"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "33cfaa3d-a41e-43da-b26e-7aac57e6820d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) An oven is preheated and the pilot light is lit - This involves fire, and the pilot light does give off some light, but it's not a very significant amount.\n\nB) A match is lit to light a cigarette - This involves fire, and the match does give off light when it's lit.\n\nC) A lit candle in a window signalling to someone - This involves fire, and the candle gives off light that can be seen by someone.\n\nD) A fire that was put out to send smoke signals - This does not involve fire giving off light, as the fire has been put out.\n\nBased on these explanations, the best example of fire giving off light would be:\n\nC) a lit candle in a window signalling to someone",
+                        "answers": [
+                            {
+                                "id": "ed17155f-bb69-43d4-9b45-b9f2021f7291",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) a lit candle in a window signalling to someone",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:39:08",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "1f416e7b-a4a5-45aa-8335-d643941fcc22",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) a match is lit to light a cigarette",
+                        "answers": [
+                            {
+                                "id": "32ea279b-376d-419d-a9bc-007c1be8fc3b",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) a match is lit to light a cigarette",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 14:45:41",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "de62d38623fde2c2285a",
+                "ref_id": "",
+                "question": "Would a week be enough time to watch every episode of Ugly Betty?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "There are 168 hours in a week.",
+                    "The entire Ugly Betty series is 85 hours long."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9f544f5b-a3e5-4c08-b8d0-bc4b2da365ec",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Determine the total number of episodes and their duration.\nUgly Betty has 4 seasons with a total of 85 episodes. Each episode has an approximate runtime of 42 minutes.\n\nStep 2: Calculate the total time required to watch all episodes.\nTotal time = Number of episodes * Duration of each episode\nTotal time = 85 episodes * 42 minutes/episode\nTotal time = 3570 minutes\n\nStep 3: Convert the total time to hours.\nTotal time = 3570 minutes \u00f7 60 minutes/hour\nTotal time = 59.5 hours\n\nStep 4: Determine if a week is enough time to watch all episodes.\nA week has 7 days, and each day has 24 hours.\nTotal hours in a week = 7 days * 24 hours/day\nTotal hours in a week = 168 hours\n\nSince 59.5 hours (total time to watch all episodes) is less than 168 hours (total hours in a week), a week would be enough time to watch every episode of Ugly Betty.\n\nAnswer: A) True",
+                        "answers": [
+                            {
+                                "id": "adc84cad-ca10-433a-a8c7-00ad51981679",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:47:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "f83fd500-4a1f-42ca-8456-f8a3ebab4052",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "0f0f0601-77eb-4521-b006-06b53a941176",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:02:59",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "8d708927b1593d8b9b42",
+                "ref_id": "",
+                "question": "Would Woodrow Wilson support Plessy v. Ferguson decision?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "Plessy v Ferguson was a landmark case that stated segregation did not violate the constitution.",
+                    "President Woodrow Wilson escalated the discriminatory hiring policies and segregation of government offices.",
+                    "By the end of 1913, under President Wilson, many departments, including the navy, had segregated work spaces, restrooms, and cafeterias."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "28067633-eb08-4709-a927-c166b9052c76",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Woodrow Wilson was the 28th President of the United States, serving from 1913 to 1921. Plessy v. Ferguson was a Supreme Court case in 1896 that upheld the constitutionality of racial segregation laws under the doctrine of \"separate but equal.\"\n\nWilson was known for his progressive policies, but he also held some racist views and implemented segregationist policies during his presidency. For example, he allowed the segregation of federal offices and supported the showing of the racist film \"The Birth of a Nation\" at the White House.\n\nGiven Wilson's segregationist policies and views, it is likely that he would have supported the Plessy v. Ferguson decision.\n\nAnswer: A) True",
+                        "answers": [
+                            {
+                                "id": "7dbd70f5-03a8-423d-932a-be0400238f5b",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:50:44",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d620c97a-44c0-43a4-9094-150b63dda6ca",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "ce2c01fc-8855-456f-8b29-1ccccb05a08b",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:04:29",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "af2d3c137bd3f5230012",
+                "ref_id": "",
+                "question": "Does the United States Department of Education oversee services benefiting undocumented migrants? ",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The United States Department of Education oversees public education across the United States.",
+                    "Public education is a service.",
+                    "Public education services are given to students of migrant families that may be undocumented."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f3540f29-ba89-439c-9c4d-4db5a7f5644e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The United States Department of Education is responsible for overseeing education policies and programs in the country. While their primary focus is on American citizens, they do have some programs and services that can benefit undocumented migrants, such as access to public education for all children regardless of their immigration status. This is based on the Supreme Court decision in Plyler v. Doe (1982), which ruled that states cannot deny education to undocumented children.\n\nSo, the answer is:\n\nA) True",
+                        "answers": [
+                            {
+                                "id": "1d43cb61-bd4c-4f4e-8eb5-3a07f20e7b74",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:50:52",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a50c4264-0cff-4576-b5fe-c2370c46ba20",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "3fae1107-564f-4335-b60d-abdf09384814",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:04:32",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "cdc5da16ca1bb2a4edf7",
+                "ref_id": "",
+                "question": "Would United States Air Force consider Return of the Jedi's Han Solo bad hypothetical candidate?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "Han Solo is an ace pilot ally in the Star Wars universe.",
+                    "The US Air Force requires candidates to be between 18 and 35 years old.",
+                    "Return of the Jedi's Han Solo is 36 years of age.",
+                    "The US Air Force requires a candidate to be an American citizen.",
+                    "Han Solo is from the planet Corellia in a galaxy far, far, away."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "71fe1eed-60fb-4b24-b3e5-060b06682237",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Analyze Han Solo's character traits and skills.\n- Han Solo is a skilled pilot, resourceful, and a good leader.\n- He has a history of smuggling and working outside the law.\n\nStep 2: Consider the United States Air Force's requirements for candidates.\n- The Air Force values integrity, service before self, and excellence in all they do.\n- Candidates must pass background checks and meet moral, physical, and mental standards.\n\nStep 3: Compare Han Solo's traits and skills to the Air Force's requirements.\n- Han Solo's piloting skills and leadership abilities could be valuable to the Air Force.\n- However, his history of smuggling and working outside the law may not align with the Air Force's values and requirements.\n\nConclusion: Based on the comparison, it is likely that the United States Air Force would consider Han Solo a bad hypothetical candidate due to his history of smuggling and working outside the law. So, the answer is A) True.",
+                        "answers": [
+                            {
+                                "id": "0a32ca9c-91b1-46b9-afb2-7106f4799686",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:51:12",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "2d509639-f8db-4a97-a3a7-30d3602db070",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "e2b65aa3-1f86-4cee-9737-d2acb771fccd",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:04:36",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "cdc41c9bae19c441248d",
+                "ref_id": "",
+                "question": "Does Adam Sandler skip celebrating Easter?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "Adam Sandler is Jewish.",
+                    "Jewish religious people do not celebrate Easter."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "90328dae-12b2-475e-801c-973cb4413a26",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify Adam Sandler's religion\nAdam Sandler is Jewish.\n\nStep 2: Determine if Jewish people celebrate Easter\nEaster is a Christian holiday, and Jewish people do not typically celebrate it.\n\nStep 3: Conclusion\nBased on the information above, it is likely that Adam Sandler does not celebrate Easter.\n\nAnswer: A) True",
+                        "answers": [
+                            {
+                                "id": "21b2703e-773c-425c-a4eb-e8c42e0b8e6a",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:51:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "6d50125a-9dfc-45c5-b938-be7105ffc62e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "2be0ed15-f4f3-4145-b7cb-4fa1c9d3174a",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:04:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "300927fd135e8d94af16",
+                "ref_id": "",
+                "question": "Can a prime number be represented by the number of days in a week?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "There are seven days in a week.",
+                    "Seven is a prime number."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "5c9d7f75-18a4-42d9-af1c-caf021895d3c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A prime number is a number greater than 1 that has only two factors: 1 and itself. \n\nThe number of days in a week is 7.\n\nThe factors of 7 are 1 and 7.\n\nSince 7 has only two factors (1 and 7), it is a prime number.\n\nSo, a prime number can be represented by the number of days in a week.\n\nAnswer: A) True",
+                        "answers": [
+                            {
+                                "id": "9a3167de-2e1d-468d-ad2d-87789fb4f29b",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:51:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "9e2c30ee-71f8-4b25-be62-8db06cecc5bb",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "5863ae1b-0879-4b11-bc91-abae27949578",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:04:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "f61620c8fca3a1530998",
+                "ref_id": "",
+                "question": "Can a copy of The Daily Mirror sustain a campfire?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The Daily Mirror is a British tabloid made of paper.",
+                    "Kindling helps sustain a fire because easily combustible help a fire keep igniting.",
+                    "Paper is capable of igniting and burning easily."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "cff5ce2e-9cc7-470a-8a05-1ea4652fd2a6",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. A campfire requires fuel, such as wood or paper, to burn and sustain itself.\n2. The Daily Mirror is a newspaper, which is made of paper.\n3. Paper can burn and act as fuel for a fire.\n\nBased on these points, a copy of The Daily Mirror can potentially help sustain a campfire. However, it may not be enough on its own to keep the fire going for an extended period, as it would burn quickly and may require additional fuel.\n\nAnswer: A) True",
+                        "answers": [
+                            {
+                                "id": "33820f69-25dd-4eeb-9cb2-fa9b603b095d",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:59:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "52c0f967-eac1-424d-b027-d5af2f429142",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "58f9ab7f-62d0-4259-adbc-e5d981c2d81a",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:12:20",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "42c947475244ed02629e",
+                "ref_id": "",
+                "question": "Can oysters be used in guitar manufacturing?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "Oysters produce nacre",
+                    "Nacre is also known as mother of pearl",
+                    "Mother of pearl is commonly used as an inlay on guitar fretboards, headstocks, and soundboards"
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4ed81a8f-22e5-48a5-afd0-de443a0e9fe2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Oysters themselves cannot be used in guitar manufacturing, as they are a type of shellfish and not a material suitable for constructing a guitar. However, their shells, specifically mother-of-pearl or abalone, can be used for inlays and decorative elements on guitars. So, in a way, oysters can contribute to guitar manufacturing, but not as a primary material.\n\nAnswer: A) True",
+                        "answers": [
+                            {
+                                "id": "c9e2379c-88f7-4070-9506-7500e19d25ee",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:59:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "726ab6e6-2a70-464c-a1bf-a684e1cd668e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "834086fb-8698-4d09-bc40-7a5fd518ae93",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:12:28",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "2fca3349a211a68b41f2",
+                "ref_id": "",
+                "question": "Would the owners of the company Peter Griffin works for need barley?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "Peter Griffin works for Pawtucket Brewery.",
+                    "Pawtucket Brewery produces beer.",
+                    "Barley is the preferred grain for making beer."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "771254bf-1aba-4891-b2c8-b789ff299791",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. Peter Griffin is a fictional character from the animated television series Family Guy.\n2. Peter Griffin works at the Pawtucket Brewery.\n3. The Pawtucket Brewery is a beer brewery.\n4. Barley is a key ingredient in the production of beer.\n\nBased on this information, the owners of the company Peter Griffin works for would need barley.\n\nAnswer: A) True",
+                        "answers": [
+                            {
+                                "id": "407c16be-7566-44a5-a192-f4ca571c479f",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:01:53",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ec0e8654-7cb0-4720-9fab-6aeb716ad36b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "40d34efb-bd7b-46ce-aa5a-27dda21708bd",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:13:03",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "ccf67586446bcc4a86b3",
+                "ref_id": "",
+                "question": "Would E.T. the Extra-Terrestrial alien hypothetically love Friendly's?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "E.T., the main alien from E.T. the Extra-Terrestrial, loved Reese's Pieces candy.",
+                    "Friendly's is a restaurant that serves dinner entrees and ice cream dishes.",
+                    "Friendly's has several desserts with Reese's candy including the Reese's Peanut Butter Cup Sundae, and Reese's Pieces Sundae."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "ca04d0ef-dcb8-4505-9566-9ae402aea493",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Since E.T. the Extra-Terrestrial is a fictional character, it is impossible to determine his preferences with certainty. However, if we consider that E.T. is generally portrayed as a friendly and curious being, it is possible that he might enjoy the welcoming atmosphere and food at Friendly's. So, the answer could be:\n\nA) True",
+                        "answers": [
+                            {
+                                "id": "e4ff27c1-3b56-4290-93b7-28be1e0fa476",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:02:12",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "85166c1a-e87a-491e-809b-068e9f899f79",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "This question cannot be answered with a simple true or false, as it is based on a fictional character and personal preferences. However, it is possible that E.T. the Extra-Terrestrial alien might enjoy Friendly's if he were to experience it.",
+                        "answers": [
+                            {
+                                "id": "9997f7d2-5bec-4701-bb93-d4c8de20002d",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "subjective and cannot be definitively determined.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:13:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "ffd8a720264778c0fd6e",
+                "ref_id": "",
+                "question": "Can the Toyota Hilux tip the scales against Mr. Ed?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The current generation of Toyota Hilux weighs at least 4,310 lbs",
+                    "Mr. Ed was portrayed by an adult horse",
+                    "The average adult horse weighs up to 2,000 lbs"
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "cbe31f79-8652-4b5d-9db5-92a97bbb8024",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's determine the weight of a Toyota Hilux and Mr. Ed.\n\nThe Toyota Hilux is a pickup truck, and its weight can vary depending on the specific model and configuration. However, a typical weight for a Toyota Hilux is around 2,000 to 2,200 kg (4,400 to 4,850 lbs).\n\nMr. Ed is a fictional talking horse from a 1960s television show. A horse's weight can also vary depending on the breed and size, but an average weight for a horse is around 450 to 900 kg (1,000 to 2,000 lbs).\n\nNow, let's compare the weights:\n\nToyota Hilux: 2,000 to 2,200 kg (4,400 to 4,850 lbs)\nMr. Ed (horse): 450 to 900 kg (1,000 to 2,000 lbs)\n\nBased on these weights, the Toyota Hilux is significantly heavier than Mr. Ed. Therefore, the Toyota Hilux can tip the scales against Mr. Ed.\n\nAnswer: A) True",
+                        "answers": [
+                            {
+                                "id": "c97a8389-6c16-47f2-9b5d-c5ccf62637fa",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:04:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5ac1b2ec-f8fa-4473-8378-5ca8a12ce604",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "4665ed4d-3dcc-4bd0-9af5-5646590e5bb3",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:14:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "0ea87e725225e7ce5c51",
+                "ref_id": "",
+                "question": "Was Christina Aguilera born in the forgotten borough?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "Christina Maria Aguilera was born on December 18, 1980, in Staten Island, New York.",
+                    "Staten Island has sometimes been called \"the forgotten borough\" by inhabitants who feel neglected by the city government."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "5822edd0-d000-4781-81ef-0dd297d4f806",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the \"forgotten borough\"\nThe forgotten borough refers to Staten Island, which is one of the five boroughs of New York City.\n\nStep 2: Determine Christina Aguilera's birthplace\nChristina Aguilera was born on December 18, 1980, in Staten Island, New York.\n\nStep 3: Answer the question\nSince Christina Aguilera was born in Staten Island, which is the forgotten borough, the answer is:\n\nA) True",
+                        "answers": [
+                            {
+                                "id": "ea479b54-44e1-45ca-94e9-09ab5bab3ee3",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:06:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "102c369c-7796-40eb-805b-fb725f919554",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) False",
+                        "answers": [
+                            {
+                                "id": "a5fc5fa9-0486-42f8-8cbc-be8b38f29c5b",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 15:15:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    }
+}

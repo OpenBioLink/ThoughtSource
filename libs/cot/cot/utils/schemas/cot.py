@@ -29,6 +29,7 @@ features = datasets.Features(
                         "answer_extraction_template": datasets.Value("string"),
                         "answer_extraction_text": datasets.Value("string"),
                         "answer": datasets.Value("string"),
+                        "answer_from_choices": datasets.Value("string"),
                         "correct_answer": datasets.Value("bool"),
                     }
                 ],
