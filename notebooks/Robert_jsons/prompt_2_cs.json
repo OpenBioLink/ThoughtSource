@@ -1,0 +1,2128 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "46bc1a50eeead10509a43a048e01194e",
+                "ref_id": "",
+                "question": "Where would you find a single shower curtain being used?",
+                "type": "multiplechoice",
+                "choices": [
+                    "bathtub",
+                    "washing area",
+                    "hotel",
+                    "shower stall",
+                    "department store"
+                ],
+                "context": "",
+                "cot": [
+                    "At bathtub, there is a single shower curtain.",
+                    "There is no need of shower curtain in a washing area.",
+                    "At hotel or shower stall or department store, there are many shower curtains."
+                ],
+                "answer": [
+                    "bathtub"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "8e710c2a-da6b-4a98-afdc-30c45f7d06f0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A single shower curtain is typically used in a place where there is a shower or bathtub to prevent water from splashing outside the designated area. \n\nA) Bathtub - Yes, a shower curtain can be used with a bathtub that has a showerhead.\nD) Shower stall - Yes, a shower curtain can be used in a shower stall to keep water contained.\n\nB) Washing area - This is a bit vague, but if it refers to a laundry room or a place without a shower or bathtub, then a shower curtain would not typically be used here.\n\nC) Hotel - While a hotel may have shower curtains in their bathrooms, the question is asking where the curtain is being used, not where it can be found.\n\nE) Department store - A store may sell shower curtains, but they are not being used in the store.\n\nSo, the correct answer is A) Bathtub and D) Shower stall.",
+                        "answers": [
+                            {
+                                "id": "85c81847-4d1d-4c2f-adea-f83a7750ef5a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Shower stall",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:01:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "42fad38b-388c-4318-9b18-a5fe8fc92d2e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) shower stall\n\nThe answer is correct, as a single shower curtain is typically used in a shower stall. However, it could also be used in a bathtub with a showerhead, and it might be found in a department store for purchase. An improved answer would be:\n\nA single shower curtain can be found in a shower stall, a bathtub with a showerhead, or for purchase in a department store.",
+                        "answers": [
+                            {
+                                "id": "18736f7f-edce-4bc0-9967-d3a279272ff3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) shower stall, but it can also be found in A) bathtub and E) department store.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:10:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "a64d45cecde84fdcf5f0a79805a0c6fe",
+                "ref_id": "",
+                "question": "What could committing murder prevent someone from doing?",
+                "type": "multiplechoice",
+                "choices": [
+                    "go to jail",
+                    "cry",
+                    "find god",
+                    "guilty conscience",
+                    "problems"
+                ],
+                "context": "",
+                "cot": [
+                    "Committing murder can prevent the person from being able to find god.",
+                    "One can\u2019t find god by committing evil crimes like murder.",
+                    "Committing murder increases the chances of someone to go to jail if found guilty.",
+                    "Committing murder increase the chances of someone to cry after they feel guilty of the crime and it gives rise to a guilty conscience, as the murderer will feel regret or guilt.",
+                    "Committing murder increase one\u2019s problems as one lives in fear of being punished for the crime."
+                ],
+                "answer": [
+                    "find god"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6891ec9b-9ab9-4676-9b90-a523aceae608",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Committing murder could potentially prevent someone from:\n\nA) go to jail - This is incorrect because committing murder can actually lead to going to jail if the person is caught and convicted.\n\nB) cry - This is incorrect because committing murder does not necessarily prevent someone from crying. They may cry out of guilt, fear, or other emotions.\n\nC) find god - This is incorrect because committing murder does not necessarily prevent someone from finding god. People can still seek religion or spirituality after committing a crime.\n\nD) guilty conscience - This is incorrect because committing murder can actually cause a guilty conscience, not prevent it.\n\nE) problems - This is incorrect because committing murder can create more problems for the person, such as legal issues, emotional turmoil, and damaged relationships.\n\nNone of the given options accurately describe what committing murder could prevent someone from doing. However, if we were to choose the closest answer, it would be A) go to jail, as committing murder could prevent someone from living a free life without the risk of imprisonment.",
+                        "answers": [
+                            {
+                                "id": "20e6eced-ee77-4431-9495-d93e6e01b099",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) go to jail.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:02:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "57613008-4d6b-42a3-8288-0e72e8b06e9d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: A) go to jail\n\nCritique: The answer is not accurate, as committing murder could potentially lead to going to jail, not prevent it. The question seems to be asking what consequences or limitations someone might face after committing murder.\n\nImproved Answer: Committing murder could prevent someone from living a normal life, as they may face legal consequences, guilt, and social stigma.",
+                        "answers": [
+                            {
+                                "id": "aa48e515-c41d-4c32-a01a-d5f98bba8cb6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) guilty conscience",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:11:16",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "f21ef67b31bd36a3174b6b4c7b4bbc7b",
+                "ref_id": "",
+                "question": "What does a kindergarten teacher do before nap time?",
+                "type": "multiplechoice",
+                "choices": [
+                    "lower expectations",
+                    "encourage",
+                    "fear",
+                    "time test",
+                    "tell story"
+                ],
+                "context": "",
+                "cot": [
+                    "Kindergarten teacher tells story.",
+                    "Story is told usually before nap time.",
+                    "Teacher dont lower expectations.",
+                    "Teacher dont encourage before nap time.",
+                    "Teacher dont fear.",
+                    "Before nap time, time test is not possible."
+                ],
+                "answer": [
+                    "tell story"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "85b2c6f6-6aad-4852-a781-166cb04bcfae",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A kindergarten teacher would likely do the following before nap time:\n\nA) Lower expectations - This doesn't seem relevant to nap time, as it's more about adjusting academic or behavioral expectations.\n\nB) Encourage - A teacher might encourage students to settle down and relax before nap time, so this could be a possibility.\n\nC) Fear - This doesn't seem relevant or appropriate for a kindergarten teacher to do before nap time.\n\nD) Time test - This also doesn't seem relevant to nap time, as it's more about assessing students' abilities in a timed setting.\n\nE) Tell story - A teacher might read a story to help students calm down and prepare for nap time, so this could also be a possibility.\n\nBased on the options provided, the most likely things a kindergarten teacher would do before nap time are:\n\nB) Encourage\nE) Tell story",
+                        "answers": [
+                            {
+                                "id": "f47fda4e-e0f7-4f29-8ff3-37a9d9270d4e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Encourage and E) Tell story",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:03:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "bdfaf4d1-7252-430c-b604-5f5f1cd91dab",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: E) tell story\n\nCritique: The answer is correct, as a kindergarten teacher often tells a story or reads a book to the children before nap time to help them relax and settle down. However, the answer could be more comprehensive and include other activities a teacher might do before nap time.\n\nImproved Answer: A kindergarten teacher typically tells a story, reads a book, or plays calming music to help the children relax and settle down before nap time. They may also dim the lights and provide a comfortable environment for the children to rest.",
+                        "answers": [
+                            {
+                                "id": "c63eaf9a-80a4-4e61-84b0-38aa07098e28",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) tell story, but it is important to note that a kindergarten teacher may also engage in other calming activities to help children prepare for nap time.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:11:39",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "bc08c354e5bead6863ea4a29cb8fa359",
+                "ref_id": "",
+                "question": "What kind of tale might feature a talking weasel?",
+                "type": "multiplechoice",
+                "choices": [
+                    "mulberry bush",
+                    "animated film",
+                    "chicken coop",
+                    "history book",
+                    "children's story"
+                ],
+                "context": "",
+                "cot": [
+                    "Children's story is a kind of tale.",
+                    "A talking weasel is featured in children's story.",
+                    "Animated film or mulberry bush is not a kind of tale.",
+                    "Chicken coop is not related with a weasel.",
+                    "A talking weasel is not featured in a history book."
+                ],
+                "answer": [
+                    "children's story"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "10a7ac5c-37da-4378-8e58-e4637532fec7",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Mulberry bush - This is a type of plant and not a tale.\nB) Animated film - This could feature a talking weasel as animated films often have talking animals.\nC) Chicken coop - This is a place where chickens are kept, not a tale.\nD) History book - This is unlikely to feature a talking weasel as history books are based on real events and talking animals are fictional.\nE) Children's story - This could also feature a talking weasel as children's stories often have talking animals.\n\nSo, the possible answers are B) animated film and E) children's story.",
+                        "answers": [
+                            {
+                                "id": "9a9540f9-fd1e-4352-8dec-994313938e13",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) animated film and E) children's story.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:04:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "fdf8e6e2-2d0c-4d6a-aefd-18ca489dc4ce",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) animated film\nE) children's story\n\nCritique: The answer lists two possible options, which might be confusing. It would be better to provide a single, more comprehensive answer.\n\nImproved answer: A tale featuring a talking weasel might be found in a children's story or an animated film, as these genres often include anthropomorphic animals as characters.",
+                        "answers": [
+                            {
+                                "id": "36304c77-5f70-45c1-9cb3-1d94488c584b",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) animated film and E) children's story.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:11:57",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "ae56eff01d05422ddbcb26be7181356a",
+                "ref_id": "",
+                "question": "What could suddenly stop someone when he or she is running?",
+                "type": "multiplechoice",
+                "choices": [
+                    "mushroom",
+                    "falling down",
+                    "sweating",
+                    "exhaustion",
+                    "getting tired"
+                ],
+                "context": "",
+                "cot": [
+                    "A person stops suddenly when he falls down.",
+                    "A person may fall down while running.",
+                    "Mushroom, sweating, exhaustion or tiredness donot cause someone to stop suddenly while running."
+                ],
+                "answer": [
+                    "falling down"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a14c8580-3773-428c-8a22-645eb3f930ae",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Mushroom - A mushroom cannot suddenly stop someone from running unless they trip over it, which is not mentioned in the option. So, this is not the correct answer.\n\nB) Falling down - Falling down can suddenly stop someone when they are running, as they lose their balance and hit the ground. So, this could be a correct answer.\n\nC) Sweating - Sweating is a natural response to physical activity and does not necessarily stop someone from running. So, this is not the correct answer.\n\nD) Exhaustion - Exhaustion can suddenly stop someone when they are running, as their body becomes too tired to continue. So, this could be a correct answer.\n\nE) Getting tired - Getting tired can gradually slow someone down when they are running, but it may not suddenly stop them. So, this is not the correct answer.\n\nBased on the analysis, the correct answers are B) falling down and D) exhaustion.",
+                        "answers": [
+                            {
+                                "id": "bf394394-be7c-40fd-8451-46f120c5f121",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) falling down and D) exhaustion.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:04:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c720482b-37b2-42ae-b390-ceb463321664",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) falling down\nD) exhaustion\nE) getting tired\n\nCritique: The original answer only provided one possible reason for someone to suddenly stop running. However, there are multiple factors that could cause someone to stop running suddenly.\n\nImproved Answer: Some possible reasons for someone to suddenly stop running include falling down, exhaustion, and getting tired. Other factors could include an injury, encountering an obstacle, or experiencing a sudden change in weather conditions.",
+                        "answers": [
+                            {
+                                "id": "60d2638d-158b-4d83-8740-7517a732752c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) falling down, D) exhaustion, and E) getting tired.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:12:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "056b33c7050c167b0d4348d40d169358",
+                "ref_id": "",
+                "question": "Where would stones not be arranged in a path?",
+                "type": "multiplechoice",
+                "choices": [
+                    "quarries",
+                    "field",
+                    "park",
+                    "bridge",
+                    "made from rocks"
+                ],
+                "context": "",
+                "cot": [
+                    "In field, stones are not arranged.",
+                    "There is no fixed path in a field to walk by.",
+                    "In quarries, many stones are there.",
+                    "In park, stones are arranged.",
+                    "Bridge contains a path.",
+                    "Made from rocks is not a place."
+                ],
+                "answer": [
+                    "field"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a604026b-095a-40a8-8e6f-bd42eb495075",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Quarries - Stones can be arranged in a path in quarries for transportation or organization purposes.\nB) Field - Stones can be arranged in a path in a field, for example, to create a walking path.\nC) Park - Stones can be arranged in a path in a park, as part of the landscaping or design.\nD) Bridge - Stones can be arranged in a path on a bridge, especially if it's a stone bridge or has a stone walkway.\nE) Made from rocks - This option is not a location, so it doesn't make sense in the context of the question.\n\nBased on the analysis, the correct answer is E) made from rocks, as it is not a location where stones would be arranged in a path.",
+                        "answers": [
+                            {
+                                "id": "5f1cdc04-f99f-4b81-88f3-5441379adb4b",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) made from rocks.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:05:42",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b1e9037f-07f6-49ac-b4e6-f75ff48efa09",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) park\n\nCritique: The answer is not entirely accurate, as stones can be arranged in a path in a park, but it is less likely compared to other options. \n\nImproved Answer: A) quarries",
+                        "answers": [
+                            {
+                                "id": "1667f512-8e22-45fa-86ad-fb8e681bb7bd",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) quarries\n\nCritique: This answer is more accurate, as stones in quarries are typically not arranged in a path, but rather are extracted and processed for various uses. However, it is still possible for stones to be arranged in a path in a quarry for functional or aesthetic purposes.\n\nImproved Answer: None of the given options can be definitively ruled out, as stones can potentially be arranged in a path in any of these locations. However, A) quarries is the least likely option for stones to be arranged in a path.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:12:28",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "46351b3a6beb694c5f623583a3b1473d",
+                "ref_id": "",
+                "question": "What language type is someone from Iran likely to use?",
+                "type": "multiplechoice",
+                "choices": [
+                    "books",
+                    "dard",
+                    "sky",
+                    "closed room",
+                    "television"
+                ],
+                "context": "",
+                "cot": [
+                    "Dard is the group of indic languages spoken by a member of a group of peoples inhabiting eastern afghanistan, northern pakistan and kashmir including kashmiri.",
+                    "The language type someone from iran likely to use is dard.",
+                    "Books are written in different languages but you can\u2019t define them as a language type.",
+                    "Sky is space and not a language type.",
+                    "Closed room is a completely packed room with no open entry and not a language type.",
+                    "Television is a device and not a language type."
+                ],
+                "answer": [
+                    "dard"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1975553b-05c0-4041-97fe-b603e4eb4e4e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's identify the language spoken in Iran. The official language of Iran is Persian (also known as Farsi).\n\nNow, let's analyze the given options:\n\nA) books - This is not a language type, but rather a medium through which language can be used.\nB) dard - This is not a language type or a known term related to language.\nC) sky - This is not a language type or a known term related to language.\nD) closed room - This is not a language type, but rather a location where language can be used.\nE) television - This is not a language type, but rather a medium through which language can be used.\n\nNone of the given options directly relate to the language type spoken in Iran. However, if the question is asking about the medium through which someone from Iran is likely to use their language, then options A) books and E) television could be considered as possible answers, as they are both common mediums for using language.",
+                        "answers": [
+                            {
+                                "id": "0d157de4-87e1-4610-8b18-ad3fc7b3bbb3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) books and E) television.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:06:47",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b93d181d-aa6a-46fe-86f0-cfedc6ece996",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) dard\n\nCritique: The answer provided is incorrect and does not make sense in the context of the question. The question is asking about the language type, not a specific word or medium.\n\nImproved Answer: Someone from Iran is likely to use Persian (also known as Farsi) as their primary language.",
+                        "answers": [
+                            {
+                                "id": "8eb4d7a5-ae1f-49db-ab67-cf13827e84b4",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "none of the options provided.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:12:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "99789083502af9bf111876a00fae44ac",
+                "ref_id": "",
+                "question": "If not in a stream but in a market where will you find fish?",
+                "type": "multiplechoice",
+                "choices": [
+                    "stream",
+                    "aquarium",
+                    "refrigerator",
+                    "boat ride",
+                    "market"
+                ],
+                "context": "",
+                "cot": [
+                    "Market have fishes that are used as food and all the market have refrigerator to store the fishes.stream is not something that can be in the market.",
+                    "Market doesn't have aquarium.",
+                    "Boat ride doesn't have fishes.",
+                    "Market is not appropriate option here."
+                ],
+                "answer": [
+                    "refrigerator"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "07fc1539-c34d-4977-abb4-fe296c89a3a2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The question asks where you will find fish if not in a stream but in a market. \n\nA) stream - This option is not valid as the question specifically says \"not in a stream.\"\nB) aquarium - While you can find fish in an aquarium, it is not a market setting.\nC) refrigerator - Fish can be stored in a refrigerator, but it is not a market setting.\nD) boat ride - Fish can be caught during a boat ride, but it is not a market setting.\nE) market - This option fits the criteria of being a place to find fish and being a market setting.\n\nAnswer: E) market",
+                        "answers": [
+                            {
+                                "id": "d32d56c5-b09f-4838-86bf-571836f8e5df",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) market",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:07:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "57ae4f2d-ebcd-435e-8c68-f0d628964238",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "E) market\n\nCritique: The answer is correct, but it could be more informative and specific.\n\nImproved answer: You will find fish in a market, specifically at a fishmonger's stall or in the seafood section of a grocery store.",
+                        "answers": [
+                            {
+                                "id": "3e7b185a-add3-4207-9ff3-200f92b7df27",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) market.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:13:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "9024493a3edbaf555fda5b477e835bf5",
+                "ref_id": "",
+                "question": "Where is a grape likely to be being fed to someone else?",
+                "type": "multiplechoice",
+                "choices": [
+                    "field",
+                    "bathroom",
+                    "michigan",
+                    "minnesota",
+                    "painting"
+                ],
+                "context": "",
+                "cot": [
+                    "Painting is an art which allows any kind of desired scenario to be created using paint and a grape being fed to someone else is one such scenario.",
+                    "Painting may include other options."
+                ],
+                "answer": [
+                    "painting"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "dab0c0a5-cb7b-4560-81bd-aeb1852fee14",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A grape being fed to someone else is likely to occur in a more intimate or leisurely setting. \n\nA) field - This could be a possibility if people are having a picnic or enjoying a day outdoors.\nB) bathroom - This is an unlikely place for someone to be fed grapes.\nC) Michigan - This is a state, not a specific setting where grapes would be fed to someone.\nD) Minnesota - This is also a state, not a specific setting where grapes would be fed to someone.\nE) painting - This is not a physical location, but rather an artistic representation of a scene.\n\nOut of these options, the most likely answer is A) field, as it represents a setting where people might be enjoying a picnic or spending time together outdoors.",
+                        "answers": [
+                            {
+                                "id": "17a9499e-ffeb-4eab-a5dc-78fc1f756bcf",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) field.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:09:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e7106070-e34f-4e28-a73e-1956020e8ff2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A grape is likely to be being fed to someone else in a romantic or intimate setting, such as during a picnic or a date.\n\nCritique: The answer does not directly address the options provided in the question.\n\nImproved answer: Out of the given options, a grape is most likely to be being fed to someone else in a field (A), as it could be a setting for a picnic or a romantic date.",
+                        "answers": [
+                            {
+                                "id": "c8f67d7c-4d91-4b9f-8bfa-c7649da7052b",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) field.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:13:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "236691d38665d7bcdd0c9b9834252a51",
+                "ref_id": "",
+                "question": "Where do most people turn to get information on their phones?",
+                "type": "multiplechoice",
+                "choices": [
+                    "internet",
+                    "book",
+                    "online",
+                    "google",
+                    "manual"
+                ],
+                "context": "",
+                "cot": [
+                    "Google is one of the famous online search platforms and lots of information is available on it.",
+                    "Most people turn google to get information on their phones.",
+                    "Internet and online are electronic communications network that connects computer networks but are not search engines.",
+                    "Book and manual are physically available printed material on information and not on phone."
+                ],
+                "answer": [
+                    "google"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "361fd0fc-39a2-446c-bb06-20cfd7fc8e69",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Internet and C) Online are essentially the same thing, so we can combine those options.\nD) Google is a search engine that people use to access information on the internet, so it can be considered a part of the internet/online category.\n\nNow we have:\nA/C) Internet/Online\nB) Book\nE) Manual\n\nBetween these options, most people turn to the internet/online (including Google) to get information on their phones. So the answer is A/C) Internet/Online.",
+                        "answers": [
+                            {
+                                "id": "87af24c8-1b76-4447-b837-fd6ac685c735",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) internet",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:20:46",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7429de5b-ece9-4d60-aeaa-6c01285cd625",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) internet\n\nCritique: The answer is correct, but it could be more specific and clear.\n\nImproved answer: Most people turn to the internet, specifically using search engines like Google or browsing websites and forums, to get information on their phones.",
+                        "answers": [
+                            {
+                                "id": "2e7b2880-9864-4dc0-ba50-0f8175343011",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Google",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:13:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "0854478d174c9127064f0d4b58df7e62",
+                "ref_id": "",
+                "question": "Where is a good place to put a hamburger?",
+                "type": "multiplechoice",
+                "choices": [
+                    "resturant",
+                    "fast food restaurant",
+                    "mouth",
+                    "kitchen",
+                    "pizza"
+                ],
+                "context": "",
+                "cot": [
+                    "Hamburger is a burger made from killing innocent pigs or cows and burgers are eaten by people using mouth.",
+                    "One should not exploit, kill or eat animals at all, as they are sentient beings who feel pain.",
+                    "A burger without animal substances like their flesh can be put in the good place mouth.",
+                    "All the options are not good places to put a hamburger in."
+                ],
+                "answer": [
+                    "mouth"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "241b535d-5774-4bdb-ba31-5080f56755cc",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) A restaurant is a good place to put a hamburger, as it is a food establishment where hamburgers are often served.\nB) A fast food restaurant is also a good place to put a hamburger, as they are known for serving hamburgers quickly.\nC) A mouth is a good place to put a hamburger when you are eating it.\nD) A kitchen is a good place to put a hamburger when you are preparing or cooking it.\n\nE) Pizza is not a good place to put a hamburger, as it is a different type of food.\n\nSo, the correct answer is: A) restaurant, B) fast food restaurant, C) mouth, and D) kitchen.",
+                        "answers": [
+                            {
+                                "id": "e2e72a22-439d-4f45-8757-4bbf384622b6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) restaurant, B) fast food restaurant, C) mouth, and D) kitchen.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:22:06",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "71d6210e-c66e-48f8-94ce-7a91b8c8d4c0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A good place to put a hamburger is in a fast food restaurant or a kitchen, as these are locations where hamburgers are typically prepared and served. Additionally, a hamburger can be placed in one's mouth when it is being consumed.\n\nCritique: The answer provided multiple options, but it could be more concise and clear.\n\nImproved Answer: A good place to put a hamburger is in a fast food restaurant or a kitchen, as these are appropriate locations for preparing and serving hamburgers.",
+                        "answers": [
+                            {
+                                "id": "fcc06d73-5f67-470b-abf4-d0de20e9ef5a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) fast food restaurant and D) kitchen, as these are appropriate locations for preparing and serving hamburgers.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:14:00",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "7044d82a456d0fa6f0210abb03cbf2c4",
+                "ref_id": "",
+                "question": "If I'm playing ball, I'm mostly trying to do what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "losing",
+                    "competition",
+                    "having fun",
+                    "win",
+                    "injury"
+                ],
+                "context": "",
+                "cot": [
+                    "Playing ball is playing a game.",
+                    "A person plays game when he wants to have fun.",
+                    "All the other options are not why a person will play game of ball hence are not fesiable."
+                ],
+                "answer": [
+                    "having fun"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9e693143-9234-41d3-b5a2-60aa2216788b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Losing - This is not the main goal when playing ball, as most people play to win or have fun.\nB) Competition - This is a part of playing ball, but not the primary goal.\nC) Having fun - This is a common reason for playing ball, as it is an enjoyable activity.\nD) Win - This is another common reason for playing ball, as people often play to win.\nE) Injury - This is not a goal when playing ball, as people try to avoid injuries.\n\nConsidering the options, the most appropriate answer would be a combination of C) having fun and D) win, as people usually play ball to have fun and try to win.",
+                        "answers": [
+                            {
+                                "id": "cc4af556-c16f-40c2-a73d-d6ca1fbc46fd",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) win.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:23:03",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "4017a91d-11dc-4e27-98f4-d253fa8709a4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) having fun\n\nCritique: While having fun is an important aspect of playing ball, the answer does not fully capture the competitive nature of the game, which involves trying to win.\n\nImproved answer: While having fun is important when playing ball, the main objective is to compete and try to win the game.",
+                        "answers": [
+                            {
+                                "id": "20e0faa1-abb4-453a-9539-c3b24c2f52a6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) win.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:14:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "dd4a811d18549f1ae1954cf938b28536",
+                "ref_id": "",
+                "question": "They were searching for rocks, so they missed the birds overhead as they stared at the what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "ground",
+                    "drawer",
+                    "surface of earth",
+                    "pizza",
+                    "waterfall"
+                ],
+                "context": "",
+                "cot": [
+                    "Birds are overhead, not on ground.",
+                    "Rocks are found on ground so they stared at ground.",
+                    "Staring is done at a particular thing not whole surface of earth.",
+                    "Rocks are not found in pizza or drawer.",
+                    "There are no rocks in a waterfall."
+                ],
+                "answer": [
+                    "ground"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "22962382-189e-4692-aafa-34494e3ccf61",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The question states that they were searching for rocks, which means they would be looking at the ground or the surface of the earth. So the correct answer is:\n\nA) ground\nC) surface of earth",
+                        "answers": [
+                            {
+                                "id": "75f751f2-344f-41d1-9488-03bf1291fbea",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) ground and C) surface of earth",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:23:30",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "885181ea-68e0-4d60-b77e-88ed79b3ea7d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) ground\n\nCritique: The answer is correct, but it could be more specific and provide a better context for the situation.\n\nImproved Answer: A) ground, as they were focused on finding rocks",
+                        "answers": [
+                            {
+                                "id": "a4c4094d-6d99-48b3-bbbe-c74f9ab47a0c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) ground, as they were focused on finding rocks",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:14:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "36f1ceeecde7abf99dab635239e12442",
+                "ref_id": "",
+                "question": "For many males hair is a concern as they get older, it begins to what, causing a receding hairline?",
+                "type": "multiplechoice",
+                "choices": [
+                    "thin out",
+                    "grow in ear",
+                    "fall out",
+                    "bulge",
+                    "composted"
+                ],
+                "context": "",
+                "cot": [
+                    "Fall out means falling out of place and hair becomes weak as one gets older and falls out causing the hair line to recede.",
+                    "Thin out comes under fall out and hair growing in ear does not recede hairline.",
+                    "Hair does not do the other options."
+                ],
+                "answer": [
+                    "fall out"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "2d88c280-d62e-4e3b-91d2-b2e02d49ad34",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) thin out - This is a possibility, as hair can thin out as men get older, leading to a receding hairline.\n\nB) grow in ear - This is not related to a receding hairline, although ear hair can grow more as men age.\n\nC) fall out - This is another possibility, as hair falling out can lead to a receding hairline.\n\nD) bulge - This is not related to hair or a receding hairline.\n\nE) composted - This is not related to hair or a receding hairline.\n\nBased on the options given, the most accurate answer would be:\n\nA) thin out and C) fall out, as both of these can cause a receding hairline in men as they get older.",
+                        "answers": [
+                            {
+                                "id": "bcf0cc55-1b20-4d63-a299-4a25f1d51dcf",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) thin out and C) fall out",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:24:01",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ba22ce2b-bb98-4c43-aaff-22db21b8e283",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) thin out\n\nCritique: The answer is correct, but it could be more informative and provide a better explanation.\n\nImproved Answer: As many males get older, their hair often begins to thin out and fall out, which can lead to a receding hairline.",
+                        "answers": [
+                            {
+                                "id": "faeb35be-e146-418b-ae67-e28712458fdf",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) thin out and C) fall out, as both of these factors contribute to the development of a receding hairline in aging males.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:14:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "6c4b2c93a4bdafb6cbf2b2ef2439b06f",
+                "ref_id": "",
+                "question": "Running errands with screaming kids will likely cause what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "efficiency",
+                    "insanity",
+                    "aggravation",
+                    "tiredness",
+                    "stress"
+                ],
+                "context": "",
+                "cot": [
+                    "Kids scream leads to aggravation.",
+                    "One feels aggravated when kids scream during running errands.",
+                    "Efficiency or tiredness or stress cant occur when kids scream.",
+                    "Insanity is not caused by running errands."
+                ],
+                "answer": [
+                    "aggravation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "c1fa9a5c-7ed2-43fb-ae9c-c7278702400d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Running errands with screaming kids can cause:\n\nA) Efficiency - Unlikely, as screaming kids can be distracting and slow down the errand process.\nB) Insanity - While it may feel like it at times, it's not a direct cause.\nC) Aggravation - Likely, as screaming kids can be frustrating and annoying.\nD) Tiredness - Possible, as dealing with screaming kids can be exhausting.\nE) Stress - Likely, as managing screaming kids while running errands can be stressful.\n\nConsidering the options, the most likely causes are C) aggravation and E) stress.",
+                        "answers": [
+                            {
+                                "id": "ed2680af-a4bc-4f69-b3bf-1a81b458d4f3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) aggravation and E) stress.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:24:28",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "38fb7252-2f44-4966-b170-96e717003c05",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) aggravation\n\nCritique: The answer is correct as running errands with screaming kids can cause aggravation. However, it is not the only possible outcome, as it can also lead to stress, tiredness, and even insanity in some cases. The question could be improved by asking for multiple possible outcomes.\n\nImproved answer: Running errands with screaming kids will likely cause multiple outcomes such as aggravation, stress, and tiredness.",
+                        "answers": [
+                            {
+                                "id": "55facf7d-c649-4d43-922a-1051e9339f11",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) aggravation, D) tiredness, and E) stress.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:15:01",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "22458fdcead20e2def0df0d92d5806f6",
+                "ref_id": "",
+                "question": "WHere do people live?",
+                "type": "multiplechoice",
+                "choices": [
+                    "apartment",
+                    "eat cake",
+                    "bus depot",
+                    "football stadium",
+                    "surface of earth"
+                ],
+                "context": "",
+                "cot": [
+                    "People live in houses.houses are constructed on the surface of earth.",
+                    "Not all people live in an apartment.",
+                    "Eating cake is an irrelevant option.",
+                    "Bus depot is not a place to live.",
+                    "People generally do not live in a football stadium."
+                ],
+                "answer": [
+                    "surface of earth"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a6783698-7f93-4aaf-b0a6-f3441181643c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Apartment - Yes, people live in apartments.\nB) Eat cake - This is an action, not a place where people live.\nC) Bus depot - This is a place for buses, not a living space for people.\nD) Football stadium - This is a place for sports events, not a living space for people.\nE) Surface of Earth - Yes, people live on the surface of the Earth.\n\nSo, the correct answers are A) Apartment and E) Surface of Earth.",
+                        "answers": [
+                            {
+                                "id": "e2c6fc17-8d81-4830-8c4d-6a506319ee49",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Apartment and E) Surface of Earth.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:25:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "84668a71-de5e-4491-b699-4dcb4bdf91e5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) apartment\nE) surface of earth\n\nCritique: The answer is correct, but it is not comprehensive. There are many other types of living spaces that people inhabit, such as houses, townhouses, and mobile homes. Additionally, the option \"surface of earth\" is too broad and does not specifically address the types of living spaces people occupy.\n\nImproved answer: People live in various types of living spaces, such as apartments, houses, townhouses, and mobile homes, among others. These living spaces are located on the surface of the earth, in different geographical regions and climates.",
+                        "answers": [
+                            {
+                                "id": "56cfe6c3-c4bf-4e99-a07a-0af08f4fe10e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) apartment and E) surface of earth. However, a more comprehensive answer is that people live in various types of living spaces, such as apartments, houses, townhouses, and mobile homes, among others. These living spaces are located on the surface of the earth, in different geographical regions and climates.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:15:24",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "335b51bd3a8ada014bbe6754dcbd425f",
+                "ref_id": "",
+                "question": "Where are there likely to be a variety of flats to choose from?",
+                "type": "multiplechoice",
+                "choices": [
+                    "london",
+                    "apartment building",
+                    "city",
+                    "falling down",
+                    "town"
+                ],
+                "context": "",
+                "cot": [
+                    "Generally most of the city have variety of flats and person who wants to live in city can choose one from the variety of flats.",
+                    "All the person cannot choose flats in london as everone cannot live in london.",
+                    "Apartment building doesn't have variety of flats in the same building.",
+                    "Falling down is not place where variety of flats can be.",
+                    "Town can have varity of flats but city is more appropriate here as generally city is larger than town."
+                ],
+                "answer": [
+                    "city"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1182aed2-42aa-4930-aa01-7c8b46cafce9",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) London - This is a specific city, so there could be a variety of flats to choose from.\nB) Apartment building - This is a type of building where flats are located, so there would likely be a variety of flats to choose from.\nC) City - In general, cities have a variety of flats to choose from.\nE) Town - Similar to cities, towns may also have a variety of flats to choose from.\n\nD) Falling down - This is not a location and does not relate to the availability of flats.\n\nSo, the most appropriate answer would be B) Apartment building, as it directly refers to a type of building where flats are located.",
+                        "answers": [
+                            {
+                                "id": "c055ce15-7b10-4aaf-85b5-4ec64984efad",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Apartment building",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:25:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e875c41f-19d2-47fa-af1d-719761629417",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) apartment building\n\nCritique: The answer is correct, but it could be more specific and provide more context.\n\nImproved answer: There are likely to be a variety of flats to choose from in an apartment building located in a city or town, such as London.",
+                        "answers": [
+                            {
+                                "id": "f4349e68-8da2-4641-9b70-d5b499e7bec0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) London, B) apartment building, C) city, and E) town.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:15:44",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "7bff23f6c12e9136f0961514bebb8cd3",
+                "ref_id": "",
+                "question": "If you aren't well rested and it's a rainy day what might you do?",
+                "type": "multiplechoice",
+                "choices": [
+                    "sleep",
+                    "write",
+                    "make bread",
+                    "stay in bed",
+                    "enjoy film"
+                ],
+                "context": "",
+                "cot": [
+                    "On a rainy day you can rest well by staying in bed.",
+                    "You cant write if you are not well.",
+                    "Rest is not related with sleep.",
+                    "If you aren't well then you cant make bread or enjoy film on a rainy day."
+                ],
+                "answer": [
+                    "stay in bed"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "8db2824b-ae7a-4e2d-90f4-b9b93890dce4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Consider the situation - not well rested and it's a rainy day.\nStep 2: Evaluate the options based on the situation.\n\nA) Sleep - This option makes sense as you are not well rested, and sleeping will help you feel better.\nB) Write - This option could be a relaxing indoor activity to do on a rainy day, but it may not help with the lack of rest.\nC) Make bread - This option is also an indoor activity, but it requires some effort and may not be the best choice if you are not well rested.\nD) Stay in bed - This option is similar to sleeping, as it allows you to rest and relax while staying indoors.\nE) Enjoy film - This option is another relaxing indoor activity that can be done on a rainy day and may help you feel better.\n\nBased on the evaluation, the best options for someone who is not well rested on a rainy day would be A) Sleep and D) Stay in bed.",
+                        "answers": [
+                            {
+                                "id": "dbdda357-67b8-43ac-8d7b-0301b915f24a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Sleep and D) Stay in bed.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:30:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5f77817a-5781-4bb9-9bc9-941248b21b40",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: A) sleep, D) stay in bed, E) enjoy film\n\nCritique: The answer lists three options, but it doesn't provide any reasoning or context for why these activities might be chosen on a rainy day when someone isn't well-rested.\n\nImproved Answer: On a rainy day when you aren't well-rested, you might choose to A) sleep or D) stay in bed to give your body the rest it needs to recover. Alternatively, you could E) enjoy a film, as this is a low-energy activity that can be done indoors, allowing you to relax and stay out of the rain.",
+                        "answers": [
+                            {
+                                "id": "67e60c5f-8b65-43d0-acc5-8f9bffad1d58",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) sleep, D) stay in bed, or E) enjoy a film, as these activities allow you to rest and relax indoors while avoiding the rain.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:16:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "32d5b7fcae24f0d4871cfb219c5a4b47",
+                "ref_id": "",
+                "question": "Metal is used to make what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "junkyard",
+                    "ore",
+                    "instruments",
+                    "metal fabrication shop",
+                    "bowls"
+                ],
+                "context": "",
+                "cot": [
+                    "Intruments are genrally made of metal as it makes them stiff.",
+                    "All the other options are not things nescessarily made of metal."
+                ],
+                "answer": [
+                    "instruments"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "347bd20b-4f69-47ed-931a-949915327454",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) A junkyard is a place where metal objects are stored, not something made from metal.\nB) Ore is a natural material from which metal is extracted, not something made from metal.\nC) Instruments can be made from metal, so this is a possible answer.\nD) A metal fabrication shop is a place where metal objects are made, not something made from metal.\nE) Bowls can be made from metal, so this is also a possible answer.\n\nSo, the correct answer is C) instruments and E) bowls.",
+                        "answers": [
+                            {
+                                "id": "af28a367-92d5-49a5-abaa-26c515d31afd",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) instruments and E) bowls.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:31:13",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d7e79107-b597-4c16-8b8a-1ccb3cacac61",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) instruments\n\nCritique: The answer is correct, but it is too specific and does not cover the wide range of items that can be made from metal.\n\nImproved answer: Metal is used to make a variety of items, including instruments, machinery, vehicles, buildings, and everyday objects like bowls and utensils.",
+                        "answers": [
+                            {
+                                "id": "53f1609a-36c4-40e6-9d37-97eb1da0d2d6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) instruments, D) metal fabrication shop, and E) bowls.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:16:29",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "2b9b625c788584b8d41f1a74d740e126",
+                "ref_id": "",
+                "question": "Who is the guard here for?",
+                "type": "multiplechoice",
+                "choices": [
+                    "man post",
+                    "attack",
+                    "intimidation",
+                    "prisoner",
+                    "unprotected"
+                ],
+                "context": "",
+                "cot": [
+                    "Guard is person who watches over in order to protect or control and a prisoner is a person legally committed to a prison as punishment.",
+                    "Prisoners need to be controlled so that they don't try to escape prison so the guard is here for the prisoner.",
+                    "A guard does not attack or intimidate and might not always be there for station or unprotected."
+                ],
+                "answer": [
+                    "prisoner"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "fda770e9-bcf2-4be4-a1e5-1e54b4e48491",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "We need more context or information to accurately determine the purpose of the guard in this situation. The guard could be present for any of the mentioned reasons (man post, attack, intimidation, prisoner, or unprotected), but without more details, it is impossible to provide a specific answer.",
+                        "answers": [
+                            {
+                                "id": "e8c3d640-6bc4-4f7b-91ae-7f2daa854003",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": ": Insufficient information to determine the purpose of the guard.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:34:18",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5b6b048f-e0d9-4881-a6b7-2e8e5781cdb2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) prisoner\n\nCritique: The answer is too specific and assumes that there is only one possible reason for a guard to be present. Guards can be present for various reasons, such as protecting a person or place, preventing unauthorized access, or maintaining order.\n\nImproved answer: The guard could be here for various reasons, such as protecting a person or place, preventing unauthorized access, maintaining order, or guarding a prisoner. The specific reason would depend on the context in which the guard is present.",
+                        "answers": [
+                            {
+                                "id": "cb1da1af-c552-4353-a58b-415a46233612",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) unprotected, as it is the most general option and can encompass various reasons for a guard to be present.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:16:48",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "11416df796f63d2f0dddc846b9c139d3",
+                "ref_id": "",
+                "question": "The flower grew tall to compete for sunlight, what did its neighbor do?",
+                "type": "multiplechoice",
+                "choices": [
+                    "blossom",
+                    "park",
+                    "open",
+                    "cast shadow",
+                    "vase"
+                ],
+                "context": "",
+                "cot": [
+                    "When there are two plants and a neighbour plant casts shadow, the other flower plant may try to compete as due to shadow they cannot get sunlight hence they grow tall and get sunlight.",
+                    "All the other options are incorrect as they are not a reason why flower might compete for sunlight."
+                ],
+                "answer": [
+                    "cast shadow"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "7ec5e807-f37d-41b3-a9c5-14fe2691252b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The question is asking what the neighboring flower did in response to the first flower growing tall to compete for sunlight. \n\nA) blossom - This could be a possibility, as the neighboring flower might also grow and blossom to compete for sunlight.\nB) park - This is not related to the growth of a flower.\nC) open - This could also be a possibility, as the neighboring flower might open up to receive more sunlight.\nD) cast shadow - This could be a result of the neighboring flower growing tall, but it doesn't indicate what the neighboring flower did in response to the first flower's growth.\nE) vase - This is not related to the growth of a flower.\n\nBased on the given options, the most appropriate answer would be A) blossom, as it indicates that the neighboring flower also grew and blossomed to compete for sunlight.",
+                        "answers": [
+                            {
+                                "id": "773e1325-c170-4582-a445-f1c628ffd098",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) blossom",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:51:07",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "fbe90261-e941-450d-ac5a-769b4062e66a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) cast shadow\n\nCritique: The answer is correct in the sense that the neighboring flower or plant might cast a shadow due to the tall growth of the first flower. However, it does not provide a clear understanding of the neighbor's response to compete for sunlight.\n\nImproved answer: The neighboring flower also grew taller to compete for sunlight.",
+                        "answers": [
+                            {
+                                "id": "06546d23-6d4c-40c8-b424-07b0c43a3d1c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) cast shadow. However, a more accurate answer would be that the neighboring flower also grew taller to compete for sunlight.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:17:08",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "4ccd43cdff044bc4c644dadff1ff1e0b",
+                "ref_id": "",
+                "question": "What would it be if they get a surprising show over and over?",
+                "type": "multiplechoice",
+                "choices": [
+                    "surprise",
+                    "fight",
+                    "annoyance",
+                    "might scare",
+                    "irritated"
+                ],
+                "context": "",
+                "cot": [
+                    "Getting surprisng show over and over cause annoyance.",
+                    "Surprise or fight is not the result of getting surprising shows over and over.",
+                    "Getting surprisng show over and over cant scare someone.",
+                    "One dont feel irritated while getting surprising show over and over."
+                ],
+                "answer": [
+                    "annoyance"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "3c7cde12-3362-4550-bdd3-afc9f86b677d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) surprise - This could be the initial reaction to the surprising show, but if it happens over and over, the surprise might wear off.\n\nB) fight - This doesn't seem to be related to the situation described.\n\nC) annoyance - This could be a possible reaction if someone gets tired of being surprised over and over.\n\nD) might scare - This could be another possible reaction, especially if the surprising show is startling or frightening in nature.\n\nE) irritated - This could also be a possible reaction if someone finds the repeated surprising shows bothersome or annoying.\n\nConsidering the options, the most fitting answer would be a combination of C) annoyance and E) irritated, as these both describe the potential negative reactions to being surprised over and over.",
+                        "answers": [
+                            {
+                                "id": "25cb7ebc-7080-4fd6-ac38-a4e78a5c14a3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) annoyance and E) irritated.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:51:25",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "4f172add-7b1a-46c9-960d-19f72a1c2c9d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: A) surprise\n\nCritique: The answer is correct in the sense that a surprising show would indeed cause surprise. However, the question mentions that they get the surprising show \"over and over,\" which could also lead to other emotions such as annoyance or irritation.\n\nImproved Answer: A combination of A) surprise, C) annoyance, and E) irritated. Initially, they would experience surprise, but as the surprising show continues to occur repeatedly, they may become annoyed or irritated.",
+                        "answers": [
+                            {
+                                "id": "17cf89b7-acb5-42b9-955d-6ea96308b56e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) surprise, C) annoyance, and E) irritated.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:17:30",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "a2977fd575faba162d04a490dabd1b9b",
+                "ref_id": "",
+                "question": "What does someone stop doing when being dead?",
+                "type": "multiplechoice",
+                "choices": [
+                    "moving",
+                    "working",
+                    "breathing",
+                    "alive",
+                    "deadworks"
+                ],
+                "context": "",
+                "cot": [
+                    "Breathing is a sign of a person's life which stops when they are dead .",
+                    "Breathing stooping means one dying.",
+                    "All the other options are not the most appropriate choice of what stopping means being dead."
+                ],
+                "answer": [
+                    "breathing"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f33d0d3e-8aba-4f17-a94d-a3030cbf0749",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) moving - When someone is dead, they do stop moving.\nB) working - Dead people cannot work, so they stop working.\nC) breathing - Dead people do not breathe, so they stop breathing.\nD) alive - This is not an action, so it cannot be stopped.\nE) deadworks - This is not a real word or action.\n\nSo, the correct answer is: A) moving, B) working, and C) breathing.",
+                        "answers": [
+                            {
+                                "id": "26f879ab-846b-416d-a18e-18d362b44209",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) moving, B) working, and C) breathing.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:52:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "17c19e4a-b3cf-4333-9c7d-80996ae446b4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: C) breathing\n\nCritique: The answer is correct, as a dead person stops breathing. However, it is not comprehensive, as there are other things a dead person stops doing, such as moving and being alive.\n\nImproved Answer: A dead person stops A) moving, C) breathing, and D) being alive.",
+                        "answers": [
+                            {
+                                "id": "84707328-0a2c-4499-a077-e630d97757d2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) moving, C) breathing, and D) being alive.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:17:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "5ea6b94d1a911365b06cf776919413e8",
+                "ref_id": "",
+                "question": "What does \tdrinking alcohol lead to?",
+                "type": "multiplechoice",
+                "choices": [
+                    "have fun",
+                    "intoxication",
+                    "vomiting",
+                    "drinking more alcohol",
+                    "nausea"
+                ],
+                "context": "",
+                "cot": [
+                    "Drinking alcohol lead to intoxication as alcohol make you intoxicated.drinking alcohol doesn't lead to having fun,vomiting,drinking more alcohol and nausea always."
+                ],
+                "answer": [
+                    "intoxication"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a66a4277-9e3e-4eed-ada3-9e75d9654d21",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Drinking alcohol can lead to various outcomes depending on the individual and the amount consumed. Here are the possible outcomes for each option:\n\nA) have fun - Drinking alcohol can lead to having fun for some people, as it may help them relax and enjoy social situations.\n\nB) intoxication - Drinking alcohol can lead to intoxication, which is the state of being under the influence of alcohol. This can impair a person's judgment, coordination, and reaction time.\n\nC) vomiting - Drinking excessive amounts of alcohol can lead to vomiting, as the body tries to expel the toxins.\n\nD) drinking more alcohol - Drinking alcohol can sometimes lead to a desire to drink more alcohol, especially in social situations or for individuals who struggle with alcohol addiction.\n\nE) nausea - Drinking alcohol can cause nausea, especially if consumed in large quantities or on an empty stomach.\n\nSo, the correct answer is that drinking alcohol can lead to all of these outcomes (A, B, C, D, and E), depending on the individual and the amount consumed.",
+                        "answers": [
+                            {
+                                "id": "7745a792-44b3-4214-a38a-8164385b69ac",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "all of the above (A, B, C, D, and E).",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:53:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "dc4fda65-2305-4bc5-9712-14309ce3167f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) intoxication\n\nCritique: The answer is correct, as drinking alcohol can lead to intoxication. However, the answer does not address the other possible outcomes mentioned in the options, which may also be true depending on the individual and the amount of alcohol consumed.\n\nImproved answer: Drinking alcohol can lead to various outcomes, including having fun (A), intoxication (B), vomiting (C), drinking more alcohol (D), and nausea (E). The specific outcome depends on factors such as the individual's tolerance, the amount of alcohol consumed, and the context in which the alcohol is consumed.",
+                        "answers": [
+                            {
+                                "id": "75730792-c33b-4e61-b053-1689d23835ec",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) intoxication. However, it is important to note that drinking alcohol can also lead to having fun (A), vomiting (C), drinking more alcohol (D), and nausea (E), depending on individual factors and the amount consumed.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:18:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "0a4a00ba435397c4a0496dd2c2426be7",
+                "ref_id": "",
+                "question": "What is the opposite of a little of something?",
+                "type": "multiplechoice",
+                "choices": [
+                    "much",
+                    "plenty",
+                    "more",
+                    "big",
+                    "lot of"
+                ],
+                "context": "",
+                "cot": [
+                    "A little of something signifies uncountable noun with less quantity.",
+                    "The opposite is lot of as it shows greater quantity.",
+                    "The other words although show greater but are not in respect of uncountable nouns with respect to quantity."
+                ],
+                "answer": [
+                    "lot of"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "005f9f4d-95d3-4db0-9026-4f124a764d8b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A little of something refers to a small amount or quantity. So, the opposite would be a large amount or quantity. \n\nA) much - This can refer to a large amount or quantity.\nB) plenty - This also refers to a large amount or quantity.\nC) more - This refers to an additional amount, not necessarily large.\nD) big - This refers to size, not quantity.\nE) lot of - This refers to a large amount or quantity.\n\nSo, the opposite of a little of something could be:\nA) much\nB) plenty\nE) lot of",
+                        "answers": [
+                            {
+                                "id": "8c3ce84b-bb8a-4039-ab2d-09ad8490ef5d",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) much\nB) plenty\nE) lot of",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:53:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3bab5912-7078-4e82-8215-158a65b20da3",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: A) much\n\nCritique: The answer \"much\" is correct as it represents a larger quantity compared to \"a little.\" However, other options like \"plenty\" and \"lot of\" can also be considered as opposites of \"a little\" as they also indicate a larger quantity. The options \"more\" and \"big\" are not direct opposites, as \"more\" is a comparative term and \"big\" refers to size rather than quantity.\n\nImproved Answer: A) much, B) plenty, E) lot of",
+                        "answers": [
+                            {
+                                "id": "38bdbbce-8024-452b-aae9-29871d49d6d1",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) much, B) plenty, E) lot of",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:18:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "5649bd90dbb57e223fd843b7a4563a0f",
+                "ref_id": "",
+                "question": "What do audiences clap for?",
+                "type": "multiplechoice",
+                "choices": [
+                    "cinema",
+                    "theatre",
+                    "movies",
+                    "show",
+                    "hockey game"
+                ],
+                "context": "",
+                "cot": [
+                    "Show is an entertaining act that is generally played in a theatre or television.",
+                    "The audience were clapping for the show.",
+                    "Theatre is not something for which people clap and the other options come under show."
+                ],
+                "answer": [
+                    "show"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1833577f-fef7-4fc0-993b-9ae89d2d3bb4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Cinema - Audiences generally do not clap in a cinema.\nB) Theatre - Audiences do clap in a theatre.\nC) Movies - Similar to cinema, audiences generally do not clap during movies.\nD) Show - Audiences do clap during shows (assuming it's a live performance).\nE) Hockey game - Audiences do clap during hockey games to cheer for their team.\n\nSo, the correct answers are B) Theatre, D) Show, and E) Hockey game.",
+                        "answers": [
+                            {
+                                "id": "6f153553-3442-4903-ba1b-e6e4ad76287f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Theatre, D) Show, and E) Hockey game.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:54:26",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e5fd7cce-508d-4a8a-835b-16143fe95876",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Audiences typically clap for B) theatre, D) show, and E) hockey game.\n\nThe original answer does not include all the possible events where audiences might clap. Audiences can clap for various types of performances and events, not just theatre, shows, and hockey games.\n\nImproved answer: Audiences typically clap for various types of performances and events, such as theatre, shows, concerts, sports games (including hockey), and sometimes even at the end of a particularly impressive movie in a cinema.",
+                        "answers": [
+                            {
+                                "id": "b550dc72-b41a-4e1d-95a4-f2d69922a8c7",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) theatre, D) show, and E) hockey game, but it can also include other performances and events like concerts, sports games, and occasionally at the end of impressive movies in a cinema.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:19:00",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "3884d82524f2337ce53ce64776293cf7",
+                "ref_id": "",
+                "question": "James decided that competing was the right choice.   Not competing has a defined outcome, but if he competes then what could happen?",
+                "type": "multiplechoice",
+                "choices": [
+                    "might win",
+                    "perform better",
+                    "enemies",
+                    "winners and losers",
+                    "lose"
+                ],
+                "context": "",
+                "cot": [
+                    "Not competing would mean james has definitely no chance of winning but if james competes, he might win.",
+                    "James could only perform better if he was already competing.",
+                    "He may or may not make enemies if he competes.",
+                    "James can\u2019t be both the winner and loser if he competes.",
+                    "James would definitely lose if he didn\u2019t compete."
+                ],
+                "answer": [
+                    "might win"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "db63416e-91cb-4998-ab6b-f544b1238a9a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "If James competes, the following outcomes are possible:\n\nA) He might win the competition.\nB) He might perform better than he expected, even if he doesn't win.\nC) He might make enemies with other competitors.\nD) There will be winners and losers in the competition.\nE) He might lose the competition.\n\nSo, the possible outcomes if James competes are A, B, C, D, and E.",
+                        "answers": [
+                            {
+                                "id": "2809b8ab-278c-45e7-bf76-d9d8eef01c80",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A, B, C, D, and E.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:54:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "07c1f8a9-2134-4659-9993-d09bb50f7532",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "If James competes, the possible outcomes could be that he might win (A), perform better (B), make enemies (C), or lose (E). The option (D) winners and losers is not a specific outcome for James.\n\nThe answer provided lists the possible outcomes but could be more concise and clear. An improved answer would be: If James competes, he might win, perform better, make enemies, or lose.",
+                        "answers": [
+                            {
+                                "id": "f8ec0efe-bd45-4f8a-b4b8-082ef221c080",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A, B, C, and E. If James competes, he might win, perform better, make enemies, or lose.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:19:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "3fe45ab3bd4a844ea290050fc0ece8c1_1",
+                "ref_id": "",
+                "question": "At a shop what can you buy to put your spare unused things?",
+                "type": "multiplechoice",
+                "choices": [
+                    "basement",
+                    "cardboard box",
+                    "ocean floor",
+                    "high school",
+                    "container"
+                ],
+                "context": "",
+                "cot": [
+                    "Container can hold the spare unused things and it can be bought from market.",
+                    "Basement or ocean floor, or high schhol cannot be bought from a shop.",
+                    "Cardboard box is not efficient to hold all the spare unused things."
+                ],
+                "answer": [
+                    "container"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "21592b06-b416-4832-8b87-31276f82108c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) basement - This is not something you can buy at a shop.\nB) cardboard box - This is something you can buy at a shop to store your spare unused things.\nC) ocean floor - This is not something you can buy at a shop.\nD) high school - This is not something you can buy at a shop.\nE) container - This is also something you can buy at a shop to store your spare unused things.\n\nSo, the correct answer is B) cardboard box and E) container.",
+                        "answers": [
+                            {
+                                "id": "1000d4d7-e684-4a0f-b1f6-e7a2093f4598",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cardboard box and E) container.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 10:55:23",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a3b271b7-cfd3-4d85-ae40-aa54a02ff962",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) cardboard box\n\nCritique: The answer is correct, but it could be more informative and provide additional options.\n\nImproved answer: B) cardboard box or E) container. You can buy a cardboard box or a plastic container to store your spare unused things. These storage solutions come in various sizes and can be easily found in most shops.",
+                        "answers": [
+                            {
+                                "id": "69a3b1fc-5116-416e-ae1e-b892dd774f7f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cardboard box and E) container. You can purchase a cardboard box or a plastic container to store your spare unused things. These storage solutions come in various sizes and can be easily found in most shops.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 10:25:07",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

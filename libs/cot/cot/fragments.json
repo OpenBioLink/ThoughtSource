@@ -50,7 +50,13 @@
         "lievin-27": "Answer: Let's reflect on each option from the least likely to the most likely.",
         "lievin-28": "Answer: Let's use step by step Bayesian reasoning, given the medical nature of the question.",
         "zhou-01": "Answer: Let's work this out in a step by step way to be sure we have the right answer.",
-        "zhou_edited": "Answer: Let's work this out in a step by step way to be sure we have the right answer. Select the single most probable answer"
+        "zhou_edited": "Answer: Let's work this out in a step by step way to be sure we have the right answer. Select the single most probable answer",
+        "praas-01": "Answer the question, then find problems with the answer. Based on the answer and the problems with it, write an improved answer",
+        "praas-02": "Answer the question, then critique the answer. Based on the critique, write an improved answer",
+        "praas-03": "Answer the question, then critique the answer. Based on the critique, reconsider the other answer options and write an improved answer",
+        "praas-04": "Answer the question, then critique the answer. Based on the critique, reconsider the other answer options and give a single final answer",
+        "praas-05": "Let's work this out in a step by step way to be sure we have the right answer. Then find problems with the answer. Based on the answer and the problems with it, write an improved answer",
+        "praas-06": "Let's work this out in a step by step way to be sure we have the right answer. Then critique the answer. Based on the critique, reconsider the other answer options and give a single final answer"         
     },
     "answer_extractions": {
         "kojima-01": "Therefore, the answer is",

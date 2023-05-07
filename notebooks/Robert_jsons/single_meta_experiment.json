@@ -1,0 +1,254 @@
+{
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_151",
+                "ref_id": "",
+                "question": "Which of the following statements best describes the role of gravity in the formation of stars?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Gravity converts solid matter into gases and light energy.",
+                    "Gravity causes gases and dust particles to condense into spheres.",
+                    "Gravity cools gases and liquids until they become one solid mass.",
+                    "Gravity pushes rocks and dust particles outward from a dense center."
+                ],
+                "context": "",
+                "cot": [
+                    "A star is formed by collapsing clouds of gas and dust.",
+                    "A nebula is made of hydrogen gas and dust.",
+                    "Gravity causes nebulas to collapse.",
+                    "When an nebula collapses , particles condense."
+                ],
+                "answer": [
+                    "Gravity causes gases and dust particles to condense into spheres."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1faf34a9-eb40-40c9-870d-32763757f735",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: B) Gravity causes gases and dust particles to condense into spheres.\n\nProblems with the answer: The answer is generally correct, but it does not provide a complete explanation of the role of gravity in star formation. It does not mention how gravity leads to an increase in pressure and temperature, which eventually results in nuclear fusion and the formation of a star.\n\nImproved answer: Gravity plays a crucial role in the formation of stars by causing gases and dust particles in space to condense into spheres. As these particles come together, their gravitational attraction increases, leading to a rise in pressure and temperature at the core of the sphere. When the temperature and pressure become high enough, nuclear fusion occurs, and a star is born.",
+                        "answers": [
+                            {
+                                "id": "fb7fddf9-1cea-4432-8da8-716e58b1512a",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Gravity causes gases and dust particles to condense into spheres. However, it is important to note that gravity also leads to an increase in pressure and temperature, which eventually results in nuclear fusion and the formation of a star.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/14 17:27:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "worldtree_test_621",
+                "ref_id": "",
+                "question": "The freezing and expanding of water in the cracks of rocks is a form of",
+                "type": "multiplechoice",
+                "choices": [
+                    "weathering.",
+                    "deposition.",
+                    "faulting.",
+                    "erosion."
+                ],
+                "context": "",
+                "cot": [
+                    "Ice wedging is a kind of mechanical weathering.",
+                    "Cycles of freezing and thawing water cause ice wedging.",
+                    "Ice wedging is when ice causes rocks to crack by expanding in openings.",
+                    "Form means kind.",
+                    "Water is in the solid state , called ice , for temperatures between 0 and 273 k.",
+                    "Freezing means matter changes from a liquid into a solid by decreasing heat energy.",
+                    "Water is a kind of liquid at room temperature."
+                ],
+                "answer": [
+                    "weathering."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "00577ca3-a968-4215-a769-90ffe3525e02",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) weathering.\n\nProblems with the answer: The answer is correct, but it does not provide any context or explanation for why this process is considered weathering.\n\nImproved answer: The freezing and expanding of water in the cracks of rocks is a form of weathering, specifically known as freeze-thaw or frost weathering. This occurs when water enters the cracks in rocks, freezes, and expands, causing the cracks to widen and eventually break the rock apart. This is a type of mechanical weathering, which involves the physical breakdown of rocks without any chemical changes.",
+                        "answers": [
+                            {
+                                "id": "1df696b1-9845-47ea-86d8-01afb6da69b6",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) weathering. This process is known as freeze-thaw or frost weathering and is a type of mechanical weathering that causes the physical breakdown of rocks without any chemical changes.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/14 17:27:44",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "worldtree_test_906",
+                "ref_id": "",
+                "question": "Gravity on Earth is caused by",
+                "type": "multiplechoice",
+                "choices": [
+                    "the mass of Earth.",
+                    "the rotation of Earth.",
+                    "the revolution of Earth.",
+                    "weather patterns on Earth."
+                ],
+                "context": "",
+                "cot": [
+                    "The mass of a planet causes the pull of gravity on that planet.",
+                    "Earth is a kind of planet."
+                ],
+                "answer": [
+                    "the mass of Earth."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "56d2dea4-b74f-4866-9c13-f9a8a4e93edf",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: A) the mass of Earth.\n\nProblems with the answer: The answer is correct, but it does not provide a complete explanation of how gravity works. It only mentions the mass of Earth as the cause of gravity but does not explain the role of distance between objects and the gravitational constant.\n\nImproved answer: Gravity on Earth is caused by the mass of Earth, the distance between objects, and the gravitational constant. The force of gravity is directly proportional to the product of the masses of the two objects and inversely proportional to the square of the distance between them, as described by Newton's law of universal gravitation.",
+                        "answers": [
+                            {
+                                "id": "16abe560-042d-461c-b432-cc2543866a91",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) the mass of Earth. However, it is important to consider the distance between objects and the gravitational constant as well, as described by Newton's law of universal gravitation.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/14 17:28:18",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "worldtree_test_976",
+                "ref_id": "",
+                "question": "Which of the following is a function of the digestive system of the human body?",
+                "type": "multiplechoice",
+                "choices": [
+                    "carrying oxygen to the lungs",
+                    "sending signals from the brain to the spinal cord",
+                    "breaking down food into nutrients",
+                    "providing support for the body"
+                ],
+                "context": "",
+                "cot": [
+                    "The digestive system breaks down food into nutrients for the body.",
+                    "Breaking down is a kind of function."
+                ],
+                "answer": [
+                    "breaking down food into nutrients"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "00f7af20-92f8-4e04-9211-ca7accff1adf",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: C) breaking down food into nutrients\n\nProblems with the answer: The answer is correct, but it does not provide a comprehensive explanation of the digestive system's functions.\n\nImproved answer: The primary function of the human digestive system is to break down food into nutrients, which can then be absorbed and utilized by the body for energy, growth, and cellular repair. This process involves both mechanical and chemical digestion, as well as the secretion of enzymes and other substances to aid in the breakdown and absorption of nutrients. Additionally, the digestive system plays a role in eliminating waste products from the body.",
+                        "answers": [
+                            {
+                                "id": "359a4763-03e4-42f0-be6f-fbe79b6418f9",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) breaking down food into nutrients, as the digestive system is responsible for breaking down food, absorbing nutrients, and eliminating waste products from the body.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/14 17:28:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "worldtree_test_1645",
+                "ref_id": "",
+                "question": "Centuries ago, people used their knowledge of the stars to",
+                "type": "multiplechoice",
+                "choices": [
+                    "navigate ships.",
+                    "study the weather.",
+                    "predict volcanic eruptions.",
+                    "map the Earth's surface."
+                ],
+                "context": "",
+                "cot": [
+                    "An example of navigation is directing a boat.",
+                    "A boat is similar to a ship.",
+                    "Knowledge of the stars can be used to navigate."
+                ],
+                "answer": [
+                    "navigate ships."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "40db2e95-899a-4e56-a023-0bbcd3893af6",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) navigate ships.\n\nProblems with the answer: The answer only focuses on one aspect of how people used their knowledge of the stars. It does not mention other ways in which the stars were used, such as for agricultural purposes, religious beliefs, or timekeeping.\n\nImproved answer: Centuries ago, people used their knowledge of the stars for various purposes, including navigating ships, determining the best times for planting and harvesting crops, understanding and following religious beliefs, and keeping track of time and seasons.",
+                        "answers": [
+                            {
+                                "id": "9c65c32d-ce12-45da-90d4-2539048b3bc4",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) navigate ships. However, it is important to note that people also used their knowledge of the stars for other purposes, such as determining the best times for planting and harvesting crops, understanding and following religious beliefs, and keeping track of time and seasons.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/14 17:29:18",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

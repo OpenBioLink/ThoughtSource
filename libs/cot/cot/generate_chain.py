@@ -80,7 +80,7 @@ def _self_generate_extract(item,input_dict,chain):
                 "api_service": "",
                 "model": str(
                     {
-                        "name": input_dict['model_name'],
+                        "name": input_dict['model'],
                         "temperature": input_dict["temperature"],
                         "max_tokens": input_dict["max_tokens"]
                     }

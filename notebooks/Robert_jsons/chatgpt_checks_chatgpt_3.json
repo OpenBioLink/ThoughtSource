@@ -1,0 +1,1691 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "7ed7379fc51fd35a47be022f6c56ce51",
+                "ref_id": "",
+                "question": "The kitten had nothing to dig it's claws into, so when it tried to stop it slid across what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "living room",
+                    "floor",
+                    "warm place",
+                    "carpet",
+                    "farmhouse"
+                ],
+                "context": "",
+                "cot": [
+                    "Floor is the lower surface of room, on one which may walk.",
+                    "The kitten had nothing to dig it\u2019s claws into, so when it tried to stop it slid across floor.",
+                    "Kitten walks on floor and skids also on a floor and not on living room.",
+                    "Kitten skids might be because of snow and not a warm place.",
+                    "Carpet surface is not smooth, which helps kitten to dig it\u2019s claws into to avoid skidding.",
+                    "Farmhouse is a whole building and kitten could be in some of the areas of it and not on whole farmhouse."
+                ],
+                "answer": [
+                    "floor"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "fd0482d8-af2f-46b3-b336-c53fe60a8db5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nThe kitten had nothing to dig its claws into, which means it couldn't find anything to grip onto. Therefore, when it tried to stop, it slid across something. \n\nOption A, living room, doesn't provide any information about what the kitten slid across. \n\nOption B, floor, is a possibility, but it's too general. What kind of floor? \n\nOption C, warm place, doesn't make sense in this context. \n\nOption D, carpet, is a likely answer. Carpets provide a surface that cats can dig their claws into, but if the kitten was on a hardwood or tile floor, it would slide across the carpet. \n\nOption E, farmhouse, is irrelevant to the question. \n\nTherefore, the most likely answer is D) carpet.",
+                        "answers": [
+                            {
+                                "id": "08617981-7aef-4b07-bd66-b4b1d7547104",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) carpet.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "c866e9f5-27f0-41c8-9e3c-38b32d8dc352",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is logical and correctly eliminates options that do not make sense. However, it could be improved by providing more context about the situation. For example, where was the kitten? Was it in a house or outside? What kind of flooring was present? These details could help narrow down the answer even further. Additionally, it would be helpful to explain why the other options are not likely answers. For example, why is a warm place not a possible answer? Providing more information and explanation would make the reasoning more thorough and convincing.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 00:07:19",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "Too verbose",
+                                "value": "false"
+                            },
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "comment",
+                                "value": ""
+                            },
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "79635fa5-a487-4cce-807b-ab13e89d8b4f",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nThe kitten had nothing to dig its claws into, which means it couldn't find anything to grip onto. Therefore, when it tried to stop, it slid across something. \n\nOption A, living room, doesn't provide any information about what the kitten slid across. \n\nOption B, floor, is a possibility, but it's too general. What kind of floor? \n\nOption C, warm place, doesn't make sense in this context. \n\nOption D, carpet, is a likely answer. Carpets provide a surface that cats can dig their claws into, but if the kitten was on a hardwood or tile floor, it would slide across the carpet. \n\nOption E, farmhouse, is irrelevant to the question. \n\nTherefore, the most likely answer is D) carpet.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:25:14",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "f21ef67b31bd36a3174b6b4c7b4bbc7b",
+                "ref_id": "",
+                "question": "What does a kindergarten teacher do before nap time?",
+                "type": "multiplechoice",
+                "choices": [
+                    "lower expectations",
+                    "encourage",
+                    "fear",
+                    "time test",
+                    "tell story"
+                ],
+                "context": "",
+                "cot": [
+                    "Kindergarten teacher tells story.",
+                    "Story is told usually before nap time.",
+                    "Teacher dont lower expectations.",
+                    "Teacher dont encourage before nap time.",
+                    "Teacher dont fear.",
+                    "Before nap time, time test is not possible."
+                ],
+                "answer": [
+                    "tell story"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6706ab34-3114-47a9-94bd-75c9c18b13d2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nBefore nap time, a kindergarten teacher typically:\n\n1. Encourages children to use the bathroom and wash their hands.\n2. Helps children settle down and transition from playtime to nap time.\n3. Provides a quiet and calming environment by dimming the lights, playing soft music, and closing curtains or blinds.\n4. Reads a story or sings a lullaby to help children relax and feel comfortable.\n5. Checks on each child to ensure they are comfortable and have everything they need for nap time.\n6. Monitors the room to ensure that children are resting quietly and not disturbing others.\n7. Wakes children up gently when nap time is over and helps them transition back to playtime.\n\nTherefore, the answer is B) encourage.",
+                        "answers": [
+                            {
+                                "id": "b919c0d6-7196-426b-a30c-d6d063c07c7f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) encourage.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "1c4df2a3-5618-479c-9cfa-21969e0d18a0",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate and provides a comprehensive list of tasks that a kindergarten teacher typically does before nap time. The answer choice B) encourage is the most appropriate as it aligns with the teacher's role in helping children settle down and feel comfortable before nap time. However, it could be expanded by mentioning other activities that a teacher may do, such as providing a snack or a drink, or allowing children to choose a stuffed animal or blanket to sleep with. Additionally, it is important to note that nap time routines may vary depending on the school or classroom, and some teachers may have different approaches or strategies.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 00:07:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "67ebcdef-c9e5-4b5a-95b6-a1aa84b16387",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nBefore nap time, a kindergarten teacher typically:\n\n1. Encourages children to use the bathroom and wash their hands.\n2. Helps children settle down and transition from playtime to nap time.\n3. Provides a quiet and calming environment by dimming the lights, playing soft music, and closing curtains or blinds.\n4. Reads a story or sings a lullaby to help children relax and feel comfortable.\n5. Checks on each child to ensure they are comfortable and have everything they need for nap time.\n6. Monitors the room to ensure that children are resting quietly and not disturbing others.\n7. Wakes children up gently when nap time is over and helps them transition back to playtime.\n\nTherefore, the answer is B) encourage.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:25:20",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "2f97a77d155cb99092e8a7c055737b03_1",
+                "ref_id": "",
+                "question": "In what country are the most fast food restaurants?",
+                "type": "multiplechoice",
+                "choices": [
+                    "new york",
+                    "blocks of flats",
+                    "center of town",
+                    "america",
+                    "big cities"
+                ],
+                "context": "",
+                "cot": [
+                    "America have many most of all the fast food restaurants and  america is a country.",
+                    "New york have many fast food restaurants but its not country.",
+                    "Blocks of flat or center of town is not relevant option here.big cities are cities not a country."
+                ],
+                "answer": [
+                    "america"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4eac6e91-1f6c-442d-8dec-6025e082a437",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we can eliminate options A, B, and C as they are not countries. \n\nOption D, America, is a possibility as it is home to many fast food chains such as McDonald's, Burger King, and KFC. However, America is a large country and it is possible that other countries may have a higher concentration of fast food restaurants. \n\nTherefore, option E, big cities, is the most likely answer as many big cities around the world have a high concentration of fast food restaurants due to their high population density and demand for quick and convenient food options. However, it is difficult to determine which specific country has the most fast food restaurants without more specific data.",
+                        "answers": [
+                            {
+                                "id": "d2eeda03-68aa-41d7-87af-2c1ee9651a70",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) big cities.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "681a6b7e-03f6-443e-a805-c172e0fa59a7",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is generally sound, but it could be improved by providing more specific data or sources to support the claim that big cities have the highest concentration of fast food restaurants. Additionally, it would be helpful to clarify that while America may have a high number of fast food restaurants, it is not necessarily the country with the most. To address these issues, the response could provide statistics or studies on the concentration of fast food restaurants in different countries or regions, and explain how factors such as population density and consumer demand contribute to the distribution of fast food chains.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 00:14:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "91a7c6fc-0bfb-4e50-af1f-e72a0aacfc5b",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we can eliminate options A, B, and C as they are not countries. \n\nOption D, America, is a possibility as it is home to many fast food chains such as McDonald's, Burger King, and KFC. However, America is a large country and it is possible that other countries may have a higher concentration of fast food restaurants. \n\nTherefore, option E, big cities, is the most likely answer as many big cities around the world have a high concentration of fast food restaurants due to their high population density and demand for quick and convenient food options. However, it is difficult to determine which specific country has the most fast food restaurants without more specific data.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:25:26",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "684dbde19719e8224113433981d6e01e",
+                "ref_id": "",
+                "question": "Billy lived in the capital of his country, then he moved.  Where might he move to?",
+                "type": "multiplechoice",
+                "choices": [
+                    "small town",
+                    "jail",
+                    "lower case",
+                    "contain governmental activities",
+                    "lowercase"
+                ],
+                "context": "",
+                "cot": [
+                    "One usually moves to a small town from the country's capital and not to a jail.",
+                    "Small town is a place to live and has lesser population.",
+                    "Lower case, a place containing governmental activities and lowercase are not places to live."
+                ],
+                "answer": [
+                    "small town"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "de9583e7-45e9-4aa4-8ecc-855276e13cd2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we know that Billy lived in the capital of his country, which means he lived in a big city that serves as the center of government and politics. \n\nNext, we are asked where he might move to. \n\nOption A, a small town, seems unlikely as it would be a significant change from living in a big city. \n\nOption B, jail, is not a valid option as it is not a place someone would choose to move to. \n\nOption C, lower case, is not a place at all, but rather a grammatical term. \n\nOption D, containing governmental activities, is a possibility as Billy may have moved to another city that also serves as a center of government and politics. \n\nOption E, lowercase, is not a place at all, but rather a typographical term. \n\nTherefore, the most likely answer is D) containing governmental activities.",
+                        "answers": [
+                            {
+                                "id": "7775c463-bd74-4a8d-8f55-88b95b535efd",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) containing governmental activities.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "70a10e7b-aaf7-4ca7-b668-550228b85887",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is logical and correctly eliminates options A, B, C, and E. However, option D is not specific enough as it could refer to many cities around the world. To improve the reasoning, it could be expanded to consider factors such as Billy's job, lifestyle preferences, and cultural background, which could influence his choice of a new city. For example, if Billy worked in the tech industry, he might move to a city with a thriving tech scene, such as San Francisco or Seattle. Alternatively, if he preferred a more laid-back lifestyle, he might move to a smaller city with a slower pace of life, such as Portland or Austin. By considering these additional factors, the reasoning could provide a more accurate and nuanced answer.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 00:28:19",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "4a6b293f-f4a6-4c4e-bc4e-f700e947ec73",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we know that Billy lived in the capital of his country, which means he lived in a big city that serves as the center of government and politics. \n\nNext, we are asked where he might move to. \n\nOption A, a small town, seems unlikely as it would be a significant change from living in a big city. \n\nOption B, jail, is not a valid option as it is not a place someone would choose to move to. \n\nOption C, lower case, is not a place at all, but rather a grammatical term. \n\nOption D, containing governmental activities, is a possibility as Billy may have moved to another city that also serves as a center of government and politics. \n\nOption E, lowercase, is not a place at all, but rather a typographical term. \n\nTherefore, the most likely answer is D) containing governmental activities.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:25:33",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "621",
+                "ref_id": "",
+                "question": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Cat bite",
+                    "Human bite",
+                    "Spider bite",
+                    "Fish bite",
+                    "Dog bite"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Dog bite"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "68c97c2a-672a-4012-b99e-91c096c2ecfb",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to consider the patient's medical history of sickle cell disease, which puts him at increased risk for infections and complications. \n\nNext, we need to look at his current symptoms, including fever, night sweats, lethargy, and low blood pressure. These are all concerning for a possible infection or sepsis. \n\nThe swollen bite marks on his right hand with red streaks extending to his elbow are also concerning for an infection that is spreading. \n\nGiven these factors, the most concerning bite in this patient would be a human bite. Human bites are known to have a high risk of infection due to the bacteria present in the human mouth. In addition, the bite marks on the patient's hand suggest that the infection may be spreading rapidly, which could be life-threatening in a patient with sickle cell disease. \n\nTherefore, the correct answer is B) Human bite.",
+                        "answers": [
+                            {
+                                "id": "04a9bb8a-5f0e-4962-9b03-b01c0c54234f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Human bite.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "3e36fa61-abcf-494b-9b07-9ccf5ac63f21",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is sound and takes into account the patient's medical history, symptoms, and physical examination findings. However, it would be helpful to consider other possible causes of the patient's symptoms, such as a bacterial or viral infection unrelated to a bite. Additionally, further diagnostic tests, such as blood cultures and imaging studies, may be necessary to confirm the diagnosis and guide treatment. Finally, it is important to address the patient's sickle cell disease and its potential complications, such as increased susceptibility to infections and sepsis.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 00:54:26",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "80ae6744-4c23-40b7-b968-e73a2eaad313",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to consider the patient's medical history of sickle cell disease, which puts him at increased risk for infections and complications. \n\nNext, we need to look at his current symptoms, including fever, night sweats, lethargy, and low blood pressure. These are all concerning for a possible infection or sepsis. \n\nThe swollen bite marks on his right hand with red streaks extending to his elbow are also concerning for an infection that is spreading. \n\nGiven these factors, the most concerning bite in this patient would be a human bite. Human bites are known to have a high risk of infection due to the bacteria present in the human mouth. In addition, the bite marks on the patient's hand suggest that the infection may be spreading rapidly, which could be life-threatening in a patient with sickle cell disease. \n\nTherefore, the correct answer is B) Human bite.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:25:38",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "51",
+                "ref_id": "",
+                "question": "A person has a chance to experience an equinox",
+                "type": "multiplechoice",
+                "choices": [
+                    "weekly",
+                    "monthly",
+                    "annually",
+                    "biannually"
+                ],
+                "context": "",
+                "cot": [
+                    "an equinox occurs twice per year"
+                ],
+                "answer": [
+                    "biannually"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "7da89dfc-f03a-4596-bca1-81663e19d8d0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nAn equinox is a celestial event that occurs twice a year, when the tilt of the Earth's axis is inclined neither away from nor towards the Sun, resulting in a nearly equal amount of daylight and darkness at all latitudes. \n\nTherefore, the correct answer is C) annually.",
+                        "answers": [
+                            {
+                                "id": "3ce0cf59-465c-4e41-914f-2cf192c496d2",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) annually.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "a7f0d1a1-4bbc-4811-9e2d-079c67984027",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate and correctly identifies that an equinox occurs twice a year, resulting in nearly equal amounts of daylight and darkness at all latitudes. The answer choice C) annually is the correct choice. No limitations, inaccuracies, or areas needing improvement or expansion were identified in the reasoning.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:47:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "88262cd3-1f1d-4964-a8a1-6c66de24edce",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nAn equinox is a celestial event that occurs twice a year, when the tilt of the Earth's axis is inclined neither away from nor towards the Sun, resulting in a nearly equal amount of daylight and darkness at all latitudes. \n\nTherefore, the correct answer is C) annually.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:25:41",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "55",
+                "ref_id": "",
+                "question": "The transportation with the most mass is likely a",
+                "type": "multiplechoice",
+                "choices": [
+                    "commercial plane",
+                    "private plane",
+                    "bus",
+                    "private car"
+                ],
+                "context": "",
+                "cot": [
+                    "mass is a measure of the amount of matter in an object"
+                ],
+                "answer": [
+                    "commercial plane"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f976e7e3-dda6-4521-9ec6-fabef6dc80ef",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what is meant by \"transportation with the most mass.\" Mass refers to the amount of matter in an object, and transportation refers to the means of moving people or goods from one place to another. Therefore, we are looking for the mode of transportation that has the most matter or weight.\n\nA) Commercial plane: Commercial planes are large and can carry a lot of passengers and cargo, but they are also designed to be lightweight and fuel-efficient. Therefore, while they may have a high total weight when fully loaded, they may not have the most mass.\n\nB) Private plane: Private planes are generally smaller than commercial planes and can carry fewer passengers and cargo. Therefore, they are unlikely to have the most mass.\n\nC) Bus: Buses are larger than cars and can carry more passengers, but they are also designed to be fuel-efficient and lightweight. Therefore, while they may have a high total weight when fully loaded, they may not have the most mass.\n\nD) Private car: Private cars are generally smaller than buses and can carry fewer passengers and cargo. Therefore, they are unlikely to have the most mass.\n\nBased on this analysis, the transportation mode with the most mass is likely to be a large cargo ship or a freight train, as they are designed to carry heavy loads and have a high total weight. However, this is not one of the options given in the question, so the best answer would be:\n\nAnswer: None of the above (as the correct answer is not given in the options provided).",
+                        "answers": [
+                            {
+                                "id": "361b2eae-514e-40bc-88e4-8da7ff40b506",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "None of the above.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "b265f48d-d1d0-4a88-9bf7-de2de90a8af7",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True: The reasoning is accurate in explaining the concept of mass and transportation modes. However, the options provided in the question are limited and do not include all possible transportation modes. The correct answer, as mentioned in the reasoning, would be a large cargo ship or a freight train. To improve the question, the options should be expanded to include all possible transportation modes that could have the most mass. Additionally, the question could be more specific about the type of transportation being referred to, such as passenger transportation or cargo transportation.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:48:16",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "2a118892-8730-4208-98e9-a55c5dbc36b8",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what is meant by \"transportation with the most mass.\" Mass refers to the amount of matter in an object, and transportation refers to the means of moving people or goods from one place to another. Therefore, we are looking for the mode of transportation that has the most matter or weight.\n\nA) Commercial plane: Commercial planes are large and can carry a lot of passengers and cargo, but they are also designed to be lightweight and fuel-efficient. Therefore, while they may have a high total weight when fully loaded, they may not have the most mass.\n\nB) Private plane: Private planes are generally smaller than commercial planes and can carry fewer passengers and cargo. Therefore, they are unlikely to have the most mass.\n\nC) Bus: Buses are larger than cars and can carry more passengers, but they are also designed to be fuel-efficient and lightweight. Therefore, while they may have a high total weight when fully loaded, they may not have the most mass.\n\nD) Private car: Private cars are generally smaller than buses and can carry fewer passengers and cargo. Therefore, they are unlikely to have the most mass.\n\nBased on this analysis, the transportation mode with the most mass is likely to be a large cargo ship or a freight train, as they are designed to carry heavy loads and have a high total weight. However, this is not one of the options given in the question, so the best answer would be:\n\nAnswer: None of the above (as the correct answer is not given in the options provided).",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:25:46",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "75",
+                "ref_id": "",
+                "question": "Over a period of time the weather can change",
+                "type": "multiplechoice",
+                "choices": [
+                    "The color of my hair",
+                    "The way I walk",
+                    "The size of a statue",
+                    "The sound a computer makes"
+                ],
+                "context": "",
+                "cot": [
+                    "sometimes weathering smooths rocks"
+                ],
+                "answer": [
+                    "The size of a statue"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "cc6e187c-26f6-46bd-88da-8c03034ebdaf",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nA) The color of my hair - This is possible, as exposure to sunlight and other environmental factors can cause changes in hair color.\n\nB) The way I walk - This is unlikely, as the weather does not have a direct impact on a person's gait or walking style.\n\nC) The size of a statue - This is also unlikely, as the weather may cause some wear and tear on a statue, but it is unlikely to change its size.\n\nD) The sound a computer makes - This is possible, as changes in temperature and humidity can affect the performance of electronic devices, including computers, which may result in changes in the sound they make.\n\nTherefore, the correct answer is D) The sound a computer makes.",
+                        "answers": [
+                            {
+                                "id": "e359dd3c-e4c7-43f7-93f5-3b61e2af335f",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) The sound a computer makes.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "fa89538f-80b6-42b7-aff6-1755502e7696",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate and correctly eliminates options A, B, and C as unlikely or impossible. However, it could be expanded by providing more specific examples of how weather can affect the sound a computer makes, such as changes in humidity causing static or changes in temperature affecting the performance of internal components. Additionally, it could be helpful to mention other ways in which weather can affect our environment, such as changes in precipitation, wind, or temperature, which can all have significant impacts on our daily lives.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:48:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "2f73bb0f-bb2e-4e46-a60f-95ef6c6fb397",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nA) The color of my hair - This is possible, as exposure to sunlight and other environmental factors can cause changes in hair color.\n\nB) The way I walk - This is unlikely, as the weather does not have a direct impact on a person's gait or walking style.\n\nC) The size of a statue - This is also unlikely, as the weather may cause some wear and tear on a statue, but it is unlikely to change its size.\n\nD) The sound a computer makes - This is possible, as changes in temperature and humidity can affect the performance of electronic devices, including computers, which may result in changes in the sound they make.\n\nTherefore, the correct answer is D) The sound a computer makes.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:25:51",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "111",
+                "ref_id": "",
+                "question": "Light from further away may appear to be less bright than other, closer sources, such as in which instance?",
+                "type": "multiplechoice",
+                "choices": [
+                    "the sun is always bright",
+                    "the moon is brighter than stars",
+                    "the moon is brighter than a floodlight",
+                    "the sun is darker than the moon"
+                ],
+                "context": "",
+                "cot": [
+                    "as distance from a source of light increases , that source of light will appear dimmer"
+                ],
+                "answer": [
+                    "the moon is brighter than stars"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "01663f1d-5ea1-4229-96b8-5f307f6bb561",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nA) The sun is always bright: This statement is true, but it doesn't relate to the question of whether light from further away may appear less bright than closer sources.\n\nB) The moon is brighter than stars: This statement is true, but it doesn't relate to the question of whether light from further away may appear less bright than closer sources.\n\nC) The moon is brighter than a floodlight: This statement is false. A floodlight is designed to be very bright and can often be brighter than the moon. However, this statement does relate to the question of whether light from further away may appear less bright than closer sources. In this case, the moon is further away than a floodlight, but it appears brighter because it is reflecting sunlight.\n\nD) The sun is darker than the moon: This statement is false. The sun is much brighter than the moon and is the brightest object in our solar system. This statement doesn't relate to the question of whether light from further away may appear less bright than closer sources.\n\nTherefore, the correct answer is C) the moon is brighter than a floodlight.",
+                        "answers": [
+                            {
+                                "id": "ed76bbea-b906-4526-9865-ac105426ae61",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) the moon is brighter than a floodlight.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "112e2dd5-015b-43a4-bb5a-2e369fe7a1c0",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True: The reasoning correctly identifies that option C is the answer to the question. However, the explanation could be improved by providing more context on why the moon appears brighter than a floodlight despite being further away. This could include discussing the reflective properties of the moon's surface and how it reflects sunlight, as well as the fact that floodlights are designed to be directional and focused, whereas the moon's light is diffused. Additionally, the reasoning could benefit from explaining why options A and D are incorrect, as this would help to eliminate confusion for those who may not understand why these options are not relevant to the question.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:49:32",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "50c868ba-61ff-4295-b2c6-9fd7bec0e229",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nA) The sun is always bright: This statement is true, but it doesn't relate to the question of whether light from further away may appear less bright than closer sources.\n\nB) The moon is brighter than stars: This statement is true, but it doesn't relate to the question of whether light from further away may appear less bright than closer sources.\n\nC) The moon is brighter than a floodlight: This statement is false. A floodlight is designed to be very bright and can often be brighter than the moon. However, this statement does relate to the question of whether light from further away may appear less bright than closer sources. In this case, the moon is further away than a floodlight, but it appears brighter because it is reflecting sunlight.\n\nD) The sun is darker than the moon: This statement is false. The sun is much brighter than the moon and is the brightest object in our solar system. This statement doesn't relate to the question of whether light from further away may appear less bright than closer sources.\n\nTherefore, the correct answer is C) the moon is brighter than a floodlight.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:25:57",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "154",
+                "ref_id": "",
+                "question": "A teacher wants to show how to combine two substances together. The two things that he can use in order to mix them completely are",
+                "type": "multiplechoice",
+                "choices": [
+                    "water and soda",
+                    "water and oil",
+                    "sand and rocks",
+                    "salt and bark"
+                ],
+                "context": "",
+                "cot": [
+                    "An example of combining two substances is pouring one substance into the other substance"
+                ],
+                "answer": [
+                    "water and soda"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "65b36ad5-6264-4504-89ef-00e99864ebaa",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to identify which substances can be easily mixed together. Option A, water and soda, may mix temporarily but will eventually separate due to the different densities of the two liquids. Option C, sand and rocks, cannot be mixed together as they are both solids and will not combine. Option D, salt and bark, also cannot be mixed together as they are two different types of matter.\n\nThis leaves us with option B, water and oil. While oil and water do not naturally mix together, they can be combined with the help of an emulsifier, such as soap. This is a common experiment in science classes and can demonstrate the concept of emulsification and the importance of using a substance to help mix two substances that do not naturally combine. Therefore, the correct answer is B) water and oil.",
+                        "answers": [
+                            {
+                                "id": "7687bea4-66dc-4ca9-9a3d-9f96b21149f1",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) water and oil.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "9cd1c519-180c-4f22-9526-8af78221b732",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True: The reasoning is accurate and provides a logical explanation for why option B, water and oil, is the correct answer. However, it could be expanded by providing more information on how an emulsifier works and why it is necessary to mix oil and water. Additionally, it may be helpful to mention other examples of emulsifiers and how they are used in everyday life.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:51:20",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "1635e769-639c-480c-836d-bea40284d22b",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to identify which substances can be easily mixed together. Option A, water and soda, may mix temporarily but will eventually separate due to the different densities of the two liquids. Option C, sand and rocks, cannot be mixed together as they are both solids and will not combine. Option D, salt and bark, also cannot be mixed together as they are two different types of matter.\n\nThis leaves us with option B, water and oil. While oil and water do not naturally mix together, they can be combined with the help of an emulsifier, such as soap. This is a common experiment in science classes and can demonstrate the concept of emulsification and the importance of using a substance to help mix two substances that do not naturally combine. Therefore, the correct answer is B) water and oil.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:00",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "181",
+                "ref_id": "",
+                "question": "were there fossil fuels in the ground when humans evolved?",
+                "type": "multiplechoice",
+                "choices": [
+                    "this was only created by humans",
+                    "humans predate fossil fuel formation",
+                    "significant supplies accumulated prior",
+                    "none of these"
+                ],
+                "context": "",
+                "cot": [
+                    "fossil fuels forming occurs over a period of 300000000 years which is considered a very long time to a human"
+                ],
+                "answer": [
+                    "significant supplies accumulated prior"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a65a3e78-c204-4043-8b8f-b54b0cd248f3",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand when humans evolved. According to scientific evidence, the earliest known human-like species, Homo habilis, lived around 2.8 million years ago. \n\nNext, we need to know when fossil fuels were formed. Fossil fuels, such as coal, oil, and natural gas, are formed from the remains of dead plants and animals that lived millions of years ago. These remains were buried under sediment and rock, and over time, heat and pressure transformed them into fossil fuels. \n\nBased on this information, we can conclude that humans predate fossil fuel formation. Therefore, the correct answer is B) humans predate fossil fuel formation.",
+                        "answers": [
+                            {
+                                "id": "7e0addd6-da20-4d51-b43b-d400f82c8424",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) humans predate fossil fuel formation.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "43ed64fa-d62a-4f1a-b098-aa1b3e6e502a",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate and provides a correct answer to the question. However, it could be expanded by mentioning that while humans predate fossil fuel formation, there were still significant supplies of fossil fuels that accumulated prior to human existence. This would make option C) significant supplies accumulated prior, a partially correct answer. Additionally, it could be noted that while fossil fuels were not created by humans, their extraction and use have had a significant impact on human societies and the environment.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:53:01",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "8298ba08-7d13-40fe-a28c-e0d4b636e103",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand when humans evolved. According to scientific evidence, the earliest known human-like species, Homo habilis, lived around 2.8 million years ago. \n\nNext, we need to know when fossil fuels were formed. Fossil fuels, such as coal, oil, and natural gas, are formed from the remains of dead plants and animals that lived millions of years ago. These remains were buried under sediment and rock, and over time, heat and pressure transformed them into fossil fuels. \n\nBased on this information, we can conclude that humans predate fossil fuel formation. Therefore, the correct answer is B) humans predate fossil fuel formation.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:05",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "250",
+                "ref_id": "",
+                "question": "Rain is usually guaranteed when all are present but",
+                "type": "multiplechoice",
+                "choices": [
+                    "cirrus clouds",
+                    "cumulus clouds",
+                    "hail stones",
+                    "direct sunshine"
+                ],
+                "context": "",
+                "cot": [
+                    "if weather is stormy then there is a greater chance of rain"
+                ],
+                "answer": [
+                    "direct sunshine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e2728494-03bb-4a27-a72b-16ad35e39cf5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand that rain is formed when water droplets in the atmosphere combine and become heavy enough to fall to the ground. This usually happens when there is a lot of moisture in the air and the temperature is cool enough for the water droplets to condense.\n\nNow, let's look at the options:\n\nA) Cirrus clouds are high-altitude clouds that are made up of ice crystals. They are usually thin and wispy and do not produce rain. So, we can eliminate this option.\n\nB) Cumulus clouds are low-altitude clouds that are puffy and white. They are often associated with fair weather but can also produce rain showers. So, this option is a possibility.\n\nC) Hail stones are frozen precipitation that falls from thunderstorms. They are not a guarantee of rain, but they do indicate that there is a lot of moisture in the air. So, we can eliminate this option.\n\nD) Direct sunshine does not usually lead to rain. In fact, it often dries up moisture in the air and makes it less likely to rain. So, we can eliminate this option.\n\nTherefore, the answer is B) cumulus clouds. When cumulus clouds are present, it is a sign that there is enough moisture in the air to potentially produce rain. However, it is important to note that other factors, such as wind patterns and atmospheric pressure, also play a role in whether or not it will actually rain.",
+                        "answers": [
+                            {
+                                "id": "7a74ca02-1c83-4bc8-9f68-5f60f4095fca",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cumulus clouds.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "4d3a953f-92a9-4d25-8b83-1388ec607575",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate and provides a good explanation of how rain is formed and the role of different factors in its occurrence. However, it could be expanded by mentioning other types of clouds that can also produce rain, such as stratus and nimbus clouds. Additionally, it is important to note that the presence of cumulus clouds alone does not guarantee rain, as other factors such as temperature and humidity levels also play a role. Therefore, the answer could be improved by stating that cumulus clouds increase the likelihood of rain, but are not a guarantee.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:55:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "22d0cba1-aad1-41c8-8d72-7865630fc8a8",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand that rain is formed when water droplets in the atmosphere combine and become heavy enough to fall to the ground. This usually happens when there is a lot of moisture in the air and the temperature is cool enough for the water droplets to condense.\n\nNow, let's look at the options:\n\nA) Cirrus clouds are high-altitude clouds that are made up of ice crystals. They are usually thin and wispy and do not produce rain. So, we can eliminate this option.\n\nB) Cumulus clouds are low-altitude clouds that are puffy and white. They are often associated with fair weather but can also produce rain showers. So, this option is a possibility.\n\nC) Hail stones are frozen precipitation that falls from thunderstorms. They are not a guarantee of rain, but they do indicate that there is a lot of moisture in the air. So, we can eliminate this option.\n\nD) Direct sunshine does not usually lead to rain. In fact, it often dries up moisture in the air and makes it less likely to rain. So, we can eliminate this option.\n\nTherefore, the answer is B) cumulus clouds. When cumulus clouds are present, it is a sign that there is enough moisture in the air to potentially produce rain. However, it is important to note that other factors, such as wind patterns and atmospheric pressure, also play a role in whether or not it will actually rain.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:10",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "266",
+                "ref_id": "",
+                "question": "Which of the following can be used to turn on an electrical device?",
+                "type": "multiplechoice",
+                "choices": [
+                    "solar-rechargeable battery",
+                    "a wedge",
+                    "a magnet",
+                    "pressure gauge"
+                ],
+                "context": "",
+                "cot": [
+                    "an electrical device requires electricity to turn on"
+                ],
+                "answer": [
+                    "solar-rechargeable battery"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "2a9027ea-43eb-4894-80b1-023b7c1f60ae",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what is meant by \"turn on an electrical device.\" This typically means supplying power to the device so that it can operate. \n\nA) A solar-rechargeable battery can be used to supply power to an electrical device, but it is not a mechanism for turning it on. \n\nB) A wedge is a simple machine used to split or lift objects, and it is not typically used to turn on electrical devices. \n\nC) A magnet can be used to activate a switch or sensor in an electrical device, which can then turn it on. So, this is a possible answer. \n\nD) A pressure gauge is a device used to measure pressure, and it is not typically used to turn on electrical devices. \n\nTherefore, the correct answer is C) a magnet.",
+                        "answers": [
+                            {
+                                "id": "b6a6f47a-9277-4a5e-bdda-28b94125a0a0",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) a magnet.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "e433567f-1b7c-45bb-b20e-9ef1cc05fcfa",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate and provides a clear explanation of the process of turning on an electrical device. However, it could be expanded by providing more examples of how a magnet can be used to turn on electrical devices, such as in magnetic switches or sensors. Additionally, it would be helpful to clarify that while a magnet can be used to activate a switch or sensor, it is not the only mechanism for turning on an electrical device. Other methods include pressing a button, flipping a switch, or using a remote control.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:56:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "4c108e8b-c0f5-4fc6-840a-08f305de2335",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what is meant by \"turn on an electrical device.\" This typically means supplying power to the device so that it can operate. \n\nA) A solar-rechargeable battery can be used to supply power to an electrical device, but it is not a mechanism for turning it on. \n\nB) A wedge is a simple machine used to split or lift objects, and it is not typically used to turn on electrical devices. \n\nC) A magnet can be used to activate a switch or sensor in an electrical device, which can then turn it on. So, this is a possible answer. \n\nD) A pressure gauge is a device used to measure pressure, and it is not typically used to turn on electrical devices. \n\nTherefore, the correct answer is C) a magnet.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:15",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "320",
+                "ref_id": "",
+                "question": "A warm-weather organism can be found in",
+                "type": "multiplechoice",
+                "choices": [
+                    "the Sahara",
+                    "the mountains",
+                    "the ocean",
+                    "the sewers"
+                ],
+                "context": "",
+                "cot": [
+                    "warm-weather organisms live in warm climates"
+                ],
+                "answer": [
+                    "the Sahara"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "d5ef7ba5-9e95-4eee-a355-cffbf2719110",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what a warm-weather organism is. This refers to an organism that thrives in warm temperatures and cannot survive in colder climates. \n\nA) The Sahara is a hot and dry desert, which means it could be a possible habitat for warm-weather organisms. \n\nB) The mountains can have varying temperatures depending on the altitude, so it's not a guaranteed habitat for warm-weather organisms. \n\nC) The ocean can have warm and cold temperatures depending on the location, but there are definitely warm-weather organisms that live in tropical waters. \n\nD) The sewers are not a natural habitat for any organism, let alone warm-weather organisms. \n\nTherefore, the correct answer is C) the ocean.",
+                        "answers": [
+                            {
+                                "id": "1c798cfe-4afa-47ca-b3fc-05f1ad9a59b2",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) the ocean.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "fabf2f91-c5a7-45fb-9687-e4e1b1cf77ff",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate and provides a logical thought process to arrive at the correct answer. However, it could be expanded by providing examples of warm-weather organisms that live in each of the habitats mentioned. Additionally, it's important to note that warm-weather organisms can also be found in other habitats such as rainforests, deserts, and savannas.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:59:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "9434a6e2-c3ad-483b-956b-a9f7a0b9fbd3",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what a warm-weather organism is. This refers to an organism that thrives in warm temperatures and cannot survive in colder climates. \n\nA) The Sahara is a hot and dry desert, which means it could be a possible habitat for warm-weather organisms. \n\nB) The mountains can have varying temperatures depending on the altitude, so it's not a guaranteed habitat for warm-weather organisms. \n\nC) The ocean can have warm and cold temperatures depending on the location, but there are definitely warm-weather organisms that live in tropical waters. \n\nD) The sewers are not a natural habitat for any organism, let alone warm-weather organisms. \n\nTherefore, the correct answer is C) the ocean.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:19",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "424",
+                "ref_id": "",
+                "question": "The amount of brush in a park has been decreasing. What could be a cause?",
+                "type": "multiplechoice",
+                "choices": [
+                    "the season has been quite dry",
+                    "There has been a lot of rain",
+                    "snakes shelter under the brush",
+                    "People have been walking by the brush on the trails"
+                ],
+                "context": "",
+                "cot": [
+                    "as available water decreases , the population of plants will decrease"
+                ],
+                "answer": [
+                    "the season has been quite dry"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4773a01c-4605-4963-bae9-c249c475ca24",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what brush is. Brush refers to dense vegetation, such as shrubs and small trees, that grow in a particular area. \n\nNow, let's consider the options:\n\nA) The season has been quite dry: This could be a possible cause as lack of water can lead to the drying out and death of plants, including brush.\n\nB) There has been a lot of rain: This is unlikely to be the cause as rain would typically promote the growth of vegetation, including brush.\n\nC) Snakes shelter under the brush: This is not a cause for the decrease in brush, as snakes are not known to destroy vegetation.\n\nD) People have been walking by the brush on the trails: This could be a possible cause as trampling by humans can damage and kill vegetation, including brush.\n\nTherefore, the most likely cause for the decrease in brush in the park is D) People have been walking by the brush on the trails.",
+                        "answers": [
+                            {
+                                "id": "3f372d2f-6e20-4858-bc50-0e2af50f6d5b",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) People have been walking by the brush on the trails.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "6e661027-aca8-4b75-940c-b8eee90def49",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is sound and correctly identifies option D as the most likely cause for the decrease in brush in the park. However, it would be helpful to consider other possible causes as well, such as natural disasters like wildfires or disease outbreaks that could affect the vegetation. Additionally, it would be useful to gather more information about the park, such as the history of human activity and any recent changes in management practices, to better understand the factors contributing to the decrease in brush.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:03:32",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "5dbc5851-9534-4f5d-85e7-6d0b37075364",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what brush is. Brush refers to dense vegetation, such as shrubs and small trees, that grow in a particular area. \n\nNow, let's consider the options:\n\nA) The season has been quite dry: This could be a possible cause as lack of water can lead to the drying out and death of plants, including brush.\n\nB) There has been a lot of rain: This is unlikely to be the cause as rain would typically promote the growth of vegetation, including brush.\n\nC) Snakes shelter under the brush: This is not a cause for the decrease in brush, as snakes are not known to destroy vegetation.\n\nD) People have been walking by the brush on the trails: This could be a possible cause as trampling by humans can damage and kill vegetation, including brush.\n\nTherefore, the most likely cause for the decrease in brush in the park is D) People have been walking by the brush on the trails.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:23",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "435",
+                "ref_id": "",
+                "question": "The balance result will be number of",
+                "type": "multiplechoice",
+                "choices": [
+                    "kilowatts",
+                    "kilobytes",
+                    "kilograms",
+                    "kilometers"
+                ],
+                "context": "",
+                "cot": [
+                    "a balance is used for measuring mass of an object"
+                ],
+                "answer": [
+                    "kilograms"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "c7322fda-6811-4f57-9b1a-fc60d129c84f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what the question is asking for. The question is asking for the \"balance result,\" which means the final outcome or total after some kind of calculation or measurement.\n\nNext, we need to look at the answer choices and determine which unit of measurement makes the most sense for a balance result. Kilowatts (A) are a unit of power, which doesn't seem like it would be relevant to a balance result. Kilobytes (B) are a unit of digital storage, which also doesn't seem relevant. Kilograms (C) are a unit of mass, which could potentially be relevant if we were measuring the weight of something on a balance. However, the most likely answer is kilometers (D), which are a unit of distance. If we were measuring the distance traveled by something, the balance result could be expressed in kilometers. \n\nTherefore, the answer is D) kilometers.",
+                        "answers": [
+                            {
+                                "id": "3772c327-2b9d-4541-a957-4b74b35d7894",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) kilometers.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "a14ebb07-bb6c-4e9f-a68c-ffb768163ca7",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True: The reasoning is sound and leads to the correct answer. However, it is important to note that the question does not provide enough context to determine what is being measured on the balance. Therefore, while kilometers may be the most likely answer, it is not necessarily the only possible answer. Additionally, it would be helpful to have more information about the situation in order to make a more informed decision about which unit of measurement is most appropriate for the balance result.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:04:08",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "99b219bd-fc5c-4c7d-b3b6-f9ec1a0d275c",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what the question is asking for. The question is asking for the \"balance result,\" which means the final outcome or total after some kind of calculation or measurement.\n\nNext, we need to look at the answer choices and determine which unit of measurement makes the most sense for a balance result. Kilowatts (A) are a unit of power, which doesn't seem like it would be relevant to a balance result. Kilobytes (B) are a unit of digital storage, which also doesn't seem relevant. Kilograms (C) are a unit of mass, which could potentially be relevant if we were measuring the weight of something on a balance. However, the most likely answer is kilometers (D), which are a unit of distance. If we were measuring the distance traveled by something, the balance result could be expressed in kilometers. \n\nTherefore, the answer is D) kilometers.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:28",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "443",
+                "ref_id": "",
+                "question": "Camouflage can be used by animals for hunting",
+                "type": "multiplechoice",
+                "choices": [
+                    "water",
+                    "trees",
+                    "air",
+                    "meals"
+                ],
+                "context": "",
+                "cot": [
+                    "camouflage can be used for hunting for prey"
+                ],
+                "answer": [
+                    "meals"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9e223334-1d8b-471c-b7b6-4a5f782a8c8d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what camouflage is. Camouflage is a way for animals to blend in with their surroundings, making it harder for predators to spot them or for prey to detect them. \n\nNow, let's look at the options given. \n\nA) Water: While some animals may use camouflage in water, it is not typically used for hunting. \n\nB) Trees: This is a more likely option. Many animals, such as chameleons and certain birds, use camouflage to blend in with trees and bushes while hunting. \n\nC) Air: Camouflage in the air is not very common, as there are fewer objects to blend in with. \n\nD) Meals: This option doesn't make sense in the context of the question. \n\nTherefore, the answer is B) trees.",
+                        "answers": [
+                            {
+                                "id": "91393659-ca9a-42e5-bfc8-880780f97789",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) trees.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "d26d3446-0de5-4aec-8715-8aaace728322",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate and provides a logical explanation for why animals use camouflage for hunting. However, it could be improved by providing specific examples of animals that use camouflage while hunting in trees, such as the owl or the jaguar. Additionally, it would be helpful to clarify that while camouflage can be used for hunting, it can also be used for defense or to attract a mate.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:04:21",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "62926bf2-9a66-4c51-8a9f-220e435c242c",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what camouflage is. Camouflage is a way for animals to blend in with their surroundings, making it harder for predators to spot them or for prey to detect them. \n\nNow, let's look at the options given. \n\nA) Water: While some animals may use camouflage in water, it is not typically used for hunting. \n\nB) Trees: This is a more likely option. Many animals, such as chameleons and certain birds, use camouflage to blend in with trees and bushes while hunting. \n\nC) Air: Camouflage in the air is not very common, as there are fewer objects to blend in with. \n\nD) Meals: This option doesn't make sense in the context of the question. \n\nTherefore, the answer is B) trees.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:31",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "1b29d402c3e17cb3b435",
+                "ref_id": "",
+                "question": "Is a pound sterling valuable?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "A pound sterling is fiat money.",
+                    "Fiat money is backed by government decree and has no intrinsic value.",
+                    "One pound sterling is worth about 1.24 US dollars by May of 2020."
+                ],
+                "answer": [
+                    "False"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e8026661-40c2-44c0-8777-9602491d5cfb",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to define what we mean by \"valuable.\" If we mean valuable in terms of purchasing power, then the answer depends on the context. \n\nIn the United Kingdom, where the pound sterling is the official currency, it is valuable because it is widely accepted and can be used to purchase goods and services. However, if we compare the value of the pound sterling to other currencies, its value fluctuates depending on various economic and political factors. \n\nFor example, in 2021, the pound sterling has been relatively strong against the US dollar, but weaker against the euro. So, whether the pound sterling is valuable or not depends on the context and the comparison being made. \n\nTherefore, the answer is: it depends on the context and how we define \"valuable.\"",
+                        "answers": [
+                            {
+                                "id": "ce201c58-dc2a-4363-bb18-c6aca3a8c6a5",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "not applicable.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "fe7d0094-1db9-42ff-ab5f-7314862c5bed",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate in stating that the value of the pound sterling depends on the context and comparison being made. However, it could be expanded by acknowledging that the value of the pound sterling is also influenced by factors such as inflation, interest rates, and political stability. Additionally, the answer could be improved by providing examples of when the pound sterling has been particularly valuable or not valuable in certain contexts.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:07:24",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "af98f843-ada8-47cf-888d-196a3577e474",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to define what we mean by \"valuable.\" If we mean valuable in terms of purchasing power, then the answer depends on the context. \n\nIn the United Kingdom, where the pound sterling is the official currency, it is valuable because it is widely accepted and can be used to purchase goods and services. However, if we compare the value of the pound sterling to other currencies, its value fluctuates depending on various economic and political factors. \n\nFor example, in 2021, the pound sterling has been relatively strong against the US dollar, but weaker against the euro. So, whether the pound sterling is valuable or not depends on the context and the comparison being made. \n\nTherefore, the answer is: it depends on the context and how we define \"valuable.\"",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:36",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "ffd8a720264778c0fd6e",
+                "ref_id": "",
+                "question": "Can the Toyota Hilux tip the scales against Mr. Ed?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The current generation of Toyota Hilux weighs at least 4,310 lbs",
+                    "Mr. Ed was portrayed by an adult horse",
+                    "The average adult horse weighs up to 2,000 lbs"
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "13ca2286-9e7b-4e69-9247-8748eed97df1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what is meant by \"tip the scales.\" This phrase typically refers to a situation where one thing has a greater influence or impact than another.\n\nNext, we need to consider what is meant by \"Mr. Ed.\" This could refer to the famous talking horse from the 1960s TV show, or it could be a nickname for a person or object that we are not aware of.\n\nAssuming we are talking about the TV show character, it is unlikely that the Toyota Hilux could tip the scales against Mr. Ed. The two are completely different entities with different abilities and purposes. The Toyota Hilux is a pickup truck designed for transportation and hauling, while Mr. Ed is a fictional talking horse.\n\nTherefore, the answer is B) False.",
+                        "answers": [
+                            {
+                                "id": "e4727d1a-c3e1-45c7-83c8-eba45133d863",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "effc3d2c-ce59-4f97-b53a-b1ce3ffd27ed",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "False. While the reasoning correctly identifies the meaning of \"tip the scales,\" it assumes that \"Mr. Ed\" refers to the TV show character without any context or clarification. This could lead to confusion or misinterpretation of the question. Additionally, the reasoning does not provide any evidence or explanation for why the Toyota Hilux could not tip the scales against Mr. Ed if it were referring to a different entity. To improve the reasoning, it would be helpful to provide more context or clarification on who or what \"Mr. Ed\" refers to and to provide a more detailed explanation for why the Toyota Hilux could not tip the scales against that entity.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:22:43",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "d6e6d2bf-3f6e-443c-be74-aac035bb00e4",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what is meant by \"tip the scales.\" This phrase typically refers to a situation where one thing has a greater influence or impact than another.\n\nNext, we need to consider what is meant by \"Mr. Ed.\" This could refer to the famous talking horse from the 1960s TV show, or it could be a nickname for a person or object that we are not aware of.\n\nAssuming we are talking about the TV show character, it is unlikely that the Toyota Hilux could tip the scales against Mr. Ed. The two are completely different entities with different abilities and purposes. The Toyota Hilux is a pickup truck designed for transportation and hauling, while Mr. Ed is a fictional talking horse.\n\nTherefore, the answer is B) False.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:42",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "4931b5e5a55f092e40a8",
+                "ref_id": "",
+                "question": "Would the Who concert in international space station be audible?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "Sound travels through the vibration of atoms and molecules in a medium (such as air or water). ",
+                    "There is air in the international space station. "
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "aed12c9d-d1dc-42cc-ab61-2d49e1d1b5c8",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to consider the fact that sound cannot travel through the vacuum of space. Therefore, any sound produced by the concert would not be audible outside of the space station.\n\nHowever, if the concert was taking place inside the space station, the sound would be audible to the astronauts and any equipment within the station. So the answer would be:\n\nB) False, the concert would not be audible outside of the space station, but it would be audible inside the station.",
+                        "answers": [
+                            {
+                                "id": "16a41130-5334-4dd3-8e5b-b38fe3e34cb3",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "ff8dd4b5-6518-4aca-8e77-b370183513b8",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is correct in stating that sound cannot travel through the vacuum of space and therefore the concert would not be audible outside of the space station. However, the reasoning could be expanded to include the fact that even inside the space station, the sound would be greatly reduced due to the lack of air molecules to transmit the sound waves. Therefore, the sound would need to be amplified and transmitted through the station's speakers in order for it to be audible to the astronauts. Additionally, the acoustics of the space station may not be ideal for a concert, as the lack of gravity and confined space could affect the quality of the sound. These limitations could be addressed by using specialized equipment and designing the concert to take advantage of the unique environment of the space station.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:23:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "4d52d769-83b3-445f-a0f1-7ec8864c9fa3",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to consider the fact that sound cannot travel through the vacuum of space. Therefore, any sound produced by the concert would not be audible outside of the space station.\n\nHowever, if the concert was taking place inside the space station, the sound would be audible to the astronauts and any equipment within the station. So the answer would be:\n\nB) False, the concert would not be audible outside of the space station, but it would be audible inside the station.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:49",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "2",
+                "ref_id": "",
+                "question": "Which event occurs once per day?",
+                "type": "multiplechoice",
+                "choices": [
+                    "The Moon rises.",
+                    "The new Moon occurs.",
+                    "The Moon cycles through its phases.",
+                    "The Moon passes in front of the Sun."
+                ],
+                "context": "",
+                "cot": [
+                    "The moon rising occurs once per day.",
+                    "A moon is a kind of celestial object.",
+                    "Movements of celestial bodies are a kind of event.",
+                    "Rising is a kind of motion."
+                ],
+                "answer": [
+                    "The Moon rises."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "fd06f1cf-dde5-46a4-bc68-b2d7f410c856",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nA) The Moon rises: This event occurs once per day, but it is not specific to the Moon. The Sun also rises once per day.\n\nB) The new Moon occurs: This event occurs once per lunar month, which is about every 29.5 days.\n\nC) The Moon cycles through its phases: This event occurs once per lunar month, as the Moon goes through its full cycle of phases.\n\nD) The Moon passes in front of the Sun: This event occurs during a solar eclipse, which happens only a few times per year and is not specific to the Moon rising or setting.\n\nTherefore, the correct answer is C) The Moon cycles through its phases, which occurs once per day.",
+                        "answers": [
+                            {
+                                "id": "f09420c5-56cb-4c07-9621-8d2593f0dd26",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) The Moon cycles through its phases.",
+                                "correct_answer": false
+                            },
+                            {
+                                "id": "8a805552-c8ad-49de-9a28-edf759814896",
+                                "answer_extraction": "You will provide a Critique of the Reasoning, highlighting the limitations, inaccuracies, or areas that need improvement or expansion, while providing guidance on how to address these issues in a response. Start with 'False' if the Reasoning leads to the wrong answer, else start with 'True'.",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "True. The reasoning is accurate and correctly identifies that the Moon cycles through its phases once per day. No limitations, inaccuracies, or areas needing improvement or expansion were identified.",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:26:35",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": [
+                            {
+                                "author": "Rob",
+                                "date": "2023-03-28",
+                                "key": "preferred",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "4d82b520-d629-4cdd-a73a-dcccc130786e",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "Answer: Let's think step by step.",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "\n\nA) The Moon rises: This event occurs once per day, but it is not specific to the Moon. The Sun also rises once per day.\n\nB) The new Moon occurs: This event occurs once per lunar month, which is about every 29.5 days.\n\nC) The Moon cycles through its phases: This event occurs once per lunar month, as the Moon goes through its full cycle of phases.\n\nD) The Moon passes in front of the Sun: This event occurs during a solar eclipse, which happens only a few times per year and is not specific to the Moon rising or setting.\n\nTherefore, the correct answer is C) The Moon cycles through its phases, which occurs once per day.",
+                        "answers": [],
+                        "author": "",
+                        "date": "2023/03/29 08:26:53",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 800}",
+                        "comment": "self_reflection cot",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}
