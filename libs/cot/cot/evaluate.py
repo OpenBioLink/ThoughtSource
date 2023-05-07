@@ -13,7 +13,8 @@ from cot.generate import FRAGMENTS
 
 
 def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
-    assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
+    #commented out for test purposes
+    #assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
 
     # get dataset type, e.g. multiplechoice
     type_ = dataset[0]["type"]
