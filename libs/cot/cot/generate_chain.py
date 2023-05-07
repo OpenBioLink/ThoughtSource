@@ -114,6 +114,7 @@ def self_generate(data,chain,input_dict):
     for example in data:
         processed_example = _self_generate(example,input_dict,chain)
         new_dataset.append(processed_example)
+    print(new_dataset)
     return new_dataset
 
 def _self_generate(item,input_dict,chain):

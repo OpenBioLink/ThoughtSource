@@ -146,7 +146,7 @@ class Collection:
             (
                 name,
                 self._cache[name]["train"].num_rows if "train" in self._cache[name] else "-",
-                self._cache[name]["validation"].num_rows if "validation" in self._cache[name] else "-",
+                self._cache[name]["validation"].num_rows if "validation" in self._cache[name] else "-".
                 self._cache[name]["test"].num_rows if "test" in self._cache[name] else "-",
             )
             for name in self._cache.keys()
@@ -453,7 +453,8 @@ class Collection:
 
         #create and collect a json to make collection
         with open(f"{file_name}.json", "w") as outfile:
-            json.dump(ts_set, outfile)
+            json.dump(ts_set, outfile) 
+            #ts_set.dump(outfile) #dump dict not possible
         collect = Collection.from_json(f'{file_name}.json')
 
         return collect
