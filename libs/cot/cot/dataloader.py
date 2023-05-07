@@ -18,6 +18,7 @@ from .evaluate import evaluate
 from .generate import (full_text_prompts, generate_and_extract,
                        select_generated_cots, delete_all_generated_cots)
 from .merge import merge
+from .generate_chain import *
 
 
 @contextmanager
@@ -504,12 +505,7 @@ class Collection:
         return count
 
     def generate(self, name=None, split=None, config={}):
-        if ("warn" not in config or config["warn"]) and not config["api_service"] == "mock_api":
-            # more detailed option, but not necessary:
-            # if ("warn" not in config or config["warn"]) and (("api_service" in config and not config["api_service"]=="mock_api") ...
-            # ... or "api_service" not in config):
-            n_samples = self.number_examples(name, split)
-            print_warning(config, n_samples)
+        
         # always do it per split, so less data is lost in case of an API error causing a crash
         if name is None:
             for name in self._cache:
@@ -524,7 +520,82 @@ class Collection:
             else:
                 print(f"Generating {name}...")
                 self[name][split] = generate_and_extract(self[name][split], config=config)
+    
+    def generate_extract_flexible(self,chain, input_dict,name=None, split=None):
+        
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
+        else:
+            if split is None:
+                print(f"Generating {name}...")
+                for split in self._cache[name]:
+                    self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
 
+    #for split in name:
+    #loop through datasets
+    def generate_flexible(self,chain, input_dict,name=None, split=None):
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_generate(self[name][split], chain, input_dict)    
+        else:
+            if split is None:
+                print(f"Generating {name}...")
+                self[name][split] = self_generate(self[name][split], chain, input_dict)
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = self_generate(self[name][split], chain, input_dict)
+    
+    def extract_flexible(self,chain, input_dict,name=None, split=None):
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_extract(self[name][split], chain, input_dict)  
+        else:
+            if split is None:
+                for split in self._cache[name]:
+                    self[name][split] = self_extract(self[name][split], chain, input_dict)  
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = self_extract(self[name][split], chain, input_dict)  
+    
+    def metareason_flexible(self,chain, input_dict,name=None, split=None):
+        # extraction = input_dict['reflect_answer_extraction']
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_reflect(self[name][split], chain, input_dict)   
+        else:
+            if split is None:
+                for split in self._cache[name]:
+                    self[name][split] = self_reflect(self[name][split], chain, input_dict)   
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = self_reflect(self[name][split], chain, input_dict)   
+            
+    """Creates json and collection from Thoughtsource ouptut; chain_output from chain_generation"""
+    def to_Collection(chain_output,dataset_name,split,file_name):
+
+        #Force langchain into TS structure 
+        ts_set = {dataset_name:{split:chain_output}}
+
+        #create and collect a json to make collection
+        with open(f"{file_name}.json", "w") as outfile:
+            json.dump(ts_set, outfile)
+        collect = Collection.from_json(f'{file_name}.json')
+
+        return collect
+            
+    
     def evaluate(self, name=None, split=None, overwrite=False, warn=False):
         evaluations_dict = defaultdict(dict)
         if name is None:

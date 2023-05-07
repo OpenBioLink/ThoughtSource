@@ -352,6 +352,7 @@ def evaluation_as_table(eval:dict):
     import pandas as pd
     eval_dict = pd.json_normalize(eval).to_dict('records')[0]
     eval_list = list(eval_dict.keys())
+    print(eval_list)
     datasets = sorted(list(eval.keys()))
 
     models = []

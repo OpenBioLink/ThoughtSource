@@ -1,0 +1,448 @@
+{
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_75",
+                "ref_id": "",
+                "question": "Over a period of time the weather can change",
+                "type": "multiplechoice",
+                "choices": [
+                    "The color of my hair",
+                    "The way I walk",
+                    "The size of a statue",
+                    "The sound a computer makes"
+                ],
+                "context": "",
+                "cot": [
+                    "sometimes weathering smooths rocks"
+                ],
+                "answer": [
+                    "The size of a statue"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "446de6cf-8476-4e4e-b526-c4008d4826bb",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) The color of my hair - Weather can affect hair color to some extent, especially if you spend a lot of time in the sun. Sun exposure can lighten hair color.\n\nB) The way I walk - Weather can affect the way you walk, especially if it's slippery or wet outside. You might walk more cautiously in such conditions.\n\nC) The size of a statue - Weather does not directly change the size of a statue. However, over a long period of time, weathering and erosion can wear down a statue, making it appear smaller.\n\nD) The sound a computer makes - Weather does not affect the sound a computer makes.\n\nBased on this analysis, the most accurate answer is A) The color of my hair.",
+                        "answers": [
+                            {
+                                "id": "0f8dfd53-c3c8-48a5-b7d6-cce79beafc04",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The color of my hair.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:26:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d4c53842-9238-4b4b-982d-06eeac3ed75a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: A) The color of my hair\n\nCritique: The answer is not entirely accurate, as the weather itself does not directly change the color of one's hair. However, prolonged exposure to sunlight can cause hair to lighten, which is a weather-related factor.\n\nImproved Answer: A) The color of my hair (due to prolonged exposure to sunlight)",
+                        "answers": [
+                            {
+                                "id": "aa670d98-95b7-4b56-b377-eba627503fb2",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The color of my hair (due to prolonged exposure to sunlight)",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 09:37:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_128",
+                "ref_id": "",
+                "question": "all cells use cellular respiration to",
+                "type": "multiplechoice",
+                "choices": [
+                    "photosynthesize",
+                    "release waste",
+                    "perform meiosis",
+                    "release energy"
+                ],
+                "context": "",
+                "cot": [
+                    "all cells perform cellular respiration"
+                ],
+                "answer": [
+                    "release waste"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "eaac8d6c-6539-4efd-ba36-b1edc58df8c3",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Cellular respiration is a process that occurs in the cells of organisms to convert biochemical energy from nutrients into adenosine triphosphate (ATP), which is then used to fuel cellular activities. \n\nA) Photosynthesis is a process used by plants and some other organisms to convert light energy into chemical energy, which is then stored in the form of glucose or other sugars. This is not the same as cellular respiration.\n\nB) While releasing waste is a part of cellular respiration, it is not the main purpose of the process. The main purpose is to produce ATP, which is used as an energy source for various cellular activities.\n\nC) Meiosis is a type of cell division that results in four daughter cells, each with half the number of chromosomes of the parent cell. This process is involved in sexual reproduction and is not directly related to cellular respiration.\n\nD) The primary purpose of cellular respiration is to release energy in the form of ATP. This energy is then used to power various cellular activities, such as growth, repair, and maintenance.\n\nBased on this information, the correct answer is:\n\nD) release energy",
+                        "answers": [
+                            {
+                                "id": "c62a8d7b-24c6-4695-ac23-886824403d88",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) release energy",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:28:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "612a092e-397e-4219-b6e2-ff3476bd5547",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) release energy\n\nCritique: The answer is correct, but it could be more informative and provide a brief explanation of cellular respiration.\n\nImproved answer: D) release energy - Cellular respiration is the process by which cells convert nutrients, such as glucose, into usable energy in the form of adenosine triphosphate (ATP). This process is essential for all living cells to carry out their functions and maintain life.",
+                        "answers": [
+                            {
+                                "id": "d2591ee5-0585-4ede-9149-79385e2279f1",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) release energy - Cellular respiration is the process by which cells convert nutrients, such as glucose, into usable energy in the form of adenosine triphosphate (ATP). This process is essential for all living cells to carry out their functions and maintain life.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 09:37:28",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_250",
+                "ref_id": "",
+                "question": "Rain is usually guaranteed when all are present but",
+                "type": "multiplechoice",
+                "choices": [
+                    "cirrus clouds",
+                    "cumulus clouds",
+                    "hail stones",
+                    "direct sunshine"
+                ],
+                "context": "",
+                "cot": [
+                    "if weather is stormy then there is a greater chance of rain"
+                ],
+                "answer": [
+                    "direct sunshine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a683ae05-901c-4c36-9e36-1038083c77a1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Cirrus clouds are high-altitude clouds that are thin and wispy. They usually indicate fair weather and do not produce rain.\n\nB) Cumulus clouds are puffy, cotton-like clouds that can develop into rain-producing clouds if they grow tall enough. However, they do not guarantee rain on their own.\n\nC) Hail stones are formed in thunderstorms when updrafts carry raindrops upward into extremely cold areas of the atmosphere, where they freeze and combine with other droplets. Hail stones are associated with rain, but they are not a guarantee of rain.\n\nD) Direct sunshine is not associated with rain, as it indicates clear skies and fair weather.\n\nBased on this information, none of the options guarantee rain on their own. However, cumulus clouds (option B) are the most likely to be associated with rain if they grow tall enough and develop into cumulonimbus clouds.",
+                        "answers": [
+                            {
+                                "id": "9f212559-29d6-4b17-b1a1-816ca8e170da",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cumulus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:34:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b61b5a09-48c1-44b3-a22a-c6a8ff9f8bdf",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "D) direct sunshine\n\nCritique: The answer is incorrect because direct sunshine is not a cloud type or precipitation form that guarantees rain. The question is also poorly worded, as it does not specify what \"all\" refers to.\n\nImproved answer: Rain is more likely to occur when there are cumulus clouds, specifically nimbostratus or cumulonimbus clouds, as these are the types of clouds associated with precipitation.",
+                        "answers": [
+                            {
+                                "id": "457e4259-8666-44a2-934d-6f72c9eaeb14",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cumulus clouds.\n\nCritique: The improved answer correctly identifies the cloud types associated with precipitation, but it could be more concise and directly answer the question.\n\nImproved answer: Rain is most likely to occur when cumulus clouds, specifically nimbostratus or cumulonimbus clouds, are present. Therefore, the answer is B) cumulus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 09:37:53",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_435",
+                "ref_id": "",
+                "question": "The balance result will be number of",
+                "type": "multiplechoice",
+                "choices": [
+                    "kilowatts",
+                    "kilobytes",
+                    "kilograms",
+                    "kilometers"
+                ],
+                "context": "",
+                "cot": [
+                    "a balance is used for measuring mass of an object"
+                ],
+                "answer": [
+                    "kilograms"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b742a78d-82ea-4879-abd7-0522a2b7c200",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The question does not provide enough information to determine what the balance result will be. We need more context or information about what is being measured or calculated to determine the correct unit of measurement.",
+                        "answers": [
+                            {
+                                "id": "33a0f873-e671-436f-9eb2-63d0ee7e29b4",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Not enough information provided.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:43:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5a3f6887-3dc5-4ce4-b7d5-06bb8f2d9876",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "C) kilograms\n\nCritique: The answer is correct, but it lacks context and explanation. It is unclear what the balance result is referring to.\n\nImproved answer: The balance result will be measured in C) kilograms. This is because a balance is typically used to measure mass or weight, and the kilogram is the standard unit of mass in the International System of Units (SI).",
+                        "answers": [
+                            {
+                                "id": "ad60b5b7-e2bd-45f1-84de-77641c97af66",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) kilograms. A balance is a device used to measure the mass or weight of an object, and the kilogram is the standard unit of mass in the International System of Units (SI). Kilowatts, kilobytes, and kilometers are units for power, digital information, and distance, respectively, and are not relevant to a balance result.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 09:38:18",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_443",
+                "ref_id": "",
+                "question": "Camouflage can be used by animals for hunting",
+                "type": "multiplechoice",
+                "choices": [
+                    "water",
+                    "trees",
+                    "air",
+                    "meals"
+                ],
+                "context": "",
+                "cot": [
+                    "camouflage can be used for hunting for prey"
+                ],
+                "answer": [
+                    "meals"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a8779e44-a034-4280-b593-b8a5ebe21975",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Camouflage is a technique used by animals to blend in with their surroundings, making them less visible to predators or prey. This can be used for hunting purposes, as it allows the animal to remain hidden and undetected until it is ready to strike.\n\nA) Water - Some aquatic animals use camouflage to blend in with their surroundings in the water, making it easier for them to hunt prey. For example, certain fish species can change their coloration to match the ocean floor or coral reefs.\n\nB) Trees - Many animals that live in forests or wooded areas use camouflage to blend in with the trees and foliage. This can help them avoid predators or sneak up on prey. For example, a green tree python's coloration allows it to blend in with the leaves and branches of its habitat.\n\nC) Air - Some birds and insects use camouflage to blend in with the sky or clouds, making it difficult for predators to spot them. For example, certain moth species have wings that resemble the color and pattern of tree bark, allowing them to blend in when they are at rest.\n\nD) Meals - This option does not make sense in the context of camouflage for hunting, as animals do not use camouflage to blend in with their meals.\n\nBased on the information above, the correct answer is:\n\nCamouflage can be used by animals for hunting in:\nA) water\nB) trees\nC) air",
+                        "answers": [
+                            {
+                                "id": "945c93fc-a089-4fc9-8cc0-a8412cc64214",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) water, B) trees, and C) air.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 12:43:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "cc7ccbb6-57d3-424f-b3cf-3ae5f152da5a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "B) trees\n\nCritique: The answer is too specific and does not cover the full range of environments where animals use camouflage for hunting.\n\nImproved answer: Animals can use camouflage for hunting in various environments, such as forests, grasslands, deserts, and aquatic habitats.",
+                        "answers": [
+                            {
+                                "id": "1ac7436b-b16d-4795-b4d0-f09023822c66",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) meals",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 09:38:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_530",
+                "ref_id": "",
+                "question": "Evidence of extensive glaciation has been suggested as an explanation for extinctions at the end of the Permian period. Such glaciation could have disrupted ocean ecosystems by producing which effect?",
+                "type": "multiplechoice",
+                "choices": [
+                    "steep drop in ocean salinity and density",
+                    "steep drop in ocean volume and area",
+                    "increased exposure of oceans to ultraviolet radiation",
+                    "increased exposure of tsunamis to ocean life"
+                ],
+                "context": "",
+                "cot": [
+                    "Permian is a kind of geologic period.",
+                    "An extinction happened at the end of permian.",
+                    "Disrupting is similar to having a negative impact.",
+                    "A disruption of an ecosystem can cause an extinction.",
+                    "Steep drop in ocean volume and area has a negative impact on the ocean ecosystem.",
+                    "Extensive glaciation can cause ocean volume to drop steeply.",
+                    "To cause means to have an effect."
+                ],
+                "answer": [
+                    "steep drop in ocean volume and area"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4d07e194-6af4-48a5-bb8c-3cafda1d131f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Glaciation would involve the freezing of water, which would lead to a decrease in ocean salinity and density as the salt would be left behind in the remaining liquid water. This could disrupt ocean ecosystems.\n\nB) Glaciation would also lead to a decrease in ocean volume and area as water is locked up in ice. However, this would not necessarily have a direct impact on ocean ecosystems.\n\nC) Glaciation would not directly increase exposure of oceans to ultraviolet radiation, as ice would still block sunlight from reaching the water beneath.\n\nD) Glaciation would not directly increase exposure of tsunamis to ocean life, as tsunamis are caused by underwater earthquakes and other geological events, not ice.\n\nBased on this analysis, the most likely answer is A) steep drop in ocean salinity and density.",
+                        "answers": [
+                            {
+                                "id": "31ea8111-0c75-458c-ab94-51a2cd52d6be",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) steep drop in ocean salinity and density.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/17 13:15:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "912dde2d-e8cd-4daf-9e4d-b615ec96ee27",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "praas-02",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: A) steep drop in ocean salinity and density\n\nCritique: The answer is correct in stating that extensive glaciation could have disrupted ocean ecosystems by producing a steep drop in ocean salinity and density. However, the answer could be improved by providing more context and explanation for why this would lead to extinctions.\n\nImproved Answer: A) Extensive glaciation at the end of the Permian period could have disrupted ocean ecosystems by causing a steep drop in ocean salinity and density. This is because the formation of large ice sheets would have trapped a significant amount of freshwater, reducing the overall salinity of the oceans. Additionally, the lower temperatures associated with glaciation would have caused the water to become denser. These changes in salinity and density could have had a profound impact on marine life, as many species are adapted to specific salinity and temperature ranges. As a result, the altered ocean conditions could have led to widespread extinctions of marine species during this time.",
+                        "answers": [
+                            {
+                                "id": "06495aca-ef82-4c04-9417-e416e042d439",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) steep drop in ocean salinity and density. Extensive glaciation at the end of the Permian period could have disrupted ocean ecosystems by causing a steep drop in ocean salinity and density due to the formation of large ice sheets trapping significant amounts of freshwater and lowering temperatures. These changes could have led to widespread extinctions of marine species adapted to specific salinity and temperature ranges.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "Robert",
+                        "date": "2023/04/17 09:39:14",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}
