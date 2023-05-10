@@ -43,21 +43,15 @@ def self_generate_extract(data,chain,input_dict):
         load_from_cache_file=False,
     )
 
-    
-    new_dataset = []
-    for example in data['train']: #hardcoded
-        processed_example = _self_generate_extract(example,input_dict,chain)
-        print("processed_example:")
-        print(processed_example)
-        new_dataset.append(processed_example)
-    return new_dataset
-
-def _self_generate_extract(item,instruction,cot_trigger,answer_extraction_key,chain):
-    
+def _self_generate_extract(item,idx,instruction,cot_trigger,answer_extraction,chain):
+   
 
     input_dict = {}
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+    input_dict['instruction'] = instruction
+    input_dict['cot_trigger'] = cot_trigger
+    input_dict['answer_extraction'] = answer_extraction
     
     #this is where the magic happens
     lang_chain = chain(input_dict)
@@ -90,7 +84,7 @@ def _self_generate_extract(item,instruction,cot_trigger,answer_extraction_key,ch
 
     answer = {
                         "id": str(uuid.uuid4()),
-                        "answer_extraction": answer_extraction_key,
+                        "answer_extraction": answer_extraction,
                         "answer_extraction_template": "",
                         "answer_extraction_text": "",
                         "answer": "",

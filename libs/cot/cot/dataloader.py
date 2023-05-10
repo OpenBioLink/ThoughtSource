@@ -333,7 +333,7 @@ class Collection:
                 self[name] = self_generate_extract(self[name], chain, input_dict)
             else:
                 print(f"Generating {name}...")
-                self[name][split] = self_generate_extract(self[name], chain, input_dict)
+                self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
 
     #for split in name:
     #loop through datasets
