@@ -47,28 +47,45 @@ Input: item, langchains, triggers
 Output: cot and answer
 Generate a cot and extract an answer with helper function _self_generate_extract
 """
-def self_generate_extract(data,chain,input_dict):
+def self_generate_extract(data,input_dict):
 
-    #temp dataset to be filled
-    new_dataset = []
-    
-    #For loop in dataset.map()
-    for example in data:
-        processed_example = _self_generate_extract(example,input_dict,chain)
-        new_dataset.append(processed_example)
-    return new_dataset
+    ds.disable_caching()
+    data.cleanup_cache_files()
 
-def _self_generate_extract(item,input_dict,chain):
+    if isinstance(data, ds.arrow_dataset.Dataset):
+        features = data.info.features
+
+    elif isinstance(data, ds.dataset_dict.DatasetDict):
+        name_of_first_split = list(data.keys())[0]
+        features = data[name_of_first_split].info.features
+    else:
+        raise ValueError("Not recognized data")
     
+    return data.map(
+        _self_generate_extract,
+        with_indices=True,
+        fn_kwargs=input_dict,
+        features=features,
+        load_from_cache_file=False,
+    )
+
+def _self_generate_extract(item,idx,chain,instruction,cot_trigger,answer_extraction,model,temperature,max_tokens):
+    
+    var_list = ['instruction','cot_trigger','answer_extraction','model','temperature','max_tokens']
+
+    #recreate input dict to feed to langchain
+    input_dict = {}
+    for i,element in enumerate([instruction,cot_trigger,answer_extraction,model,temperature,max_tokens]):
+        input_dict[var_list[i]] = element
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
     
-    #this is where the magic happens: get cot and predicted answer
+    #get cot and predicted answer
     lang_chain = chain(input_dict) 
 
     generated_cot = {
                 "id": str(uuid.uuid4()),
-                "fragments_version": FRAGMENTS["version"],
+                "fragments_version": None,
                 "instruction": input_dict['instruction'],
                 "cot_trigger": input_dict['cot_trigger'],
                 "cot_trigger_template": "",
@@ -95,12 +112,12 @@ def _self_generate_extract(item,input_dict,chain):
                         "answer_extraction": input_dict['answer_extraction'],
                         "answer_extraction_template": "",
                         "answer_extraction_text": "",
-                        "answer": "",
+                        "answer": lang_chain['predicted_answer'],
                         "correct_answer": None,
                 }
-    answer["answer"] = lang_chain['predicted_answer']
+    
+    #add created answer and cot to item
     generated_cot["answers"].append(answer)
-
     item["generated_cot"].append(generated_cot)
 
     return item
