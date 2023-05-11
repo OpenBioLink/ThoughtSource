@@ -775,26 +775,27 @@ def print_warning(config, n_samples):
         pass
     else:
         # break the execution of the code if the user does not want to continue
+        raise ValueError("Generation aborted by user.")
     
 
-# ideas for additional functions
+    # ideas for additional functions
 
-# def list_datasets_and_splits(coll):
-#     datasets_and_splits = []
-#     for name in coll._cache:
-#         for split in coll._cache[name]:
-#             datasets_and_splits.append((name, split))
-#     return datasets_and_splits
+    # def list_datasets_and_splits(coll):
+    #     datasets_and_splits = []
+    #     for name in coll._cache:
+    #         for split in coll._cache[name]:
+    #             datasets_and_splits.append((name, split))
+    #     return datasets_and_splits
 
-# def keep_only_datasets_and_splits(coll, datasets_and_splits):
-#     to_delete = []
+    # def keep_only_datasets_and_splits(coll, datasets_and_splits):
+    #     to_delete = []
 
-#     for name in coll._cache:
-#         for split in coll._cache[name]:
-#             if (name, split) not in datasets_and_splits:
-#                 to_delete.append((name, split))
+    #     for name in coll._cache:
+    #         for split in coll._cache[name]:
+    #             if (name, split) not in datasets_and_splits:
+    #                 to_delete.append((name, split))
 
-#     for name, split in to_delete:
-#         del coll._cache[name][split]
+    #     for name, split in to_delete:
+    #         del coll._cache[name][split]
 
-#     return coll
+    #     return coll
