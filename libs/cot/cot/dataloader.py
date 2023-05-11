@@ -521,21 +521,21 @@ class Collection:
                 print(f"Generating {name}...")
                 self[name][split] = generate_and_extract(self[name][split], config=config)
     
-    def generate_extract_flexible(self,chain, input_dict,name=None, split=None):
+    def generate_extract_flexible(self,input_dict,name=None, split=None):
         
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     print(f"Generating {name}...")
-                    self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
+                    self[name][split] = self_generate_extract(self[name][split], input_dict)
         else:
             if split is None:
                 print(f"Generating {name}...")
                 for split in self._cache[name]:
-                    self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
+                    self[name][split] = self_generate_extract(self[name][split], input_dict)
             else:
                 print(f"Generating {name}...")
-                self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
+                self[name][split] = self_generate_extract(self[name][split], input_dict)
 
     #for split in name:
     #loop through datasets
@@ -590,7 +590,8 @@ class Collection:
 
         #create and collect a json to make collection
         with open(f"{file_name}.json", "w") as outfile:
-            json.dump(ts_set, outfile)
+            json.dump(ts_set, outfile) 
+            #ts_set.dump(outfile) #dump dict not possible
         collect = Collection.from_json(f'{file_name}.json')
 
         return collect
@@ -775,7 +776,6 @@ def print_warning(config, n_samples):
     else:
         # break the execution of the code if the user does not want to continue
         raise ValueError("Generation aborted by user.")
-    
 
 # ideas for additional functions
 
