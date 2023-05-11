@@ -195,6 +195,7 @@ def map_example_to_kojima_cot(question, cots, answer_extraction):
                         "answer_extraction_text": "",
                         "answer_extraction_template": "",
                         "answer": answer,
+                        "answer_from_choices": "",
                         "correct_answer": cot["correct_answer"],
                     }
                 ],
@@ -241,6 +242,7 @@ def map_example_to_wei_cot(question, cots):
                         "answer_extraction_template": "",
                         "answer_extraction_text": "",
                         "answer": answer,
+                        "answer_from_choices": "",
                         "correct_answer": cot["correct_answer"],
                     }
                 ],
@@ -307,6 +309,7 @@ def map_example_to_lievin_cot(id, item, dataset):
                 "answer_extraction_template": "",
                 "answer_extraction_text": "",
                 "answer": item["options"][item["prediction_idx"]],
+                "answer_from_choices": "",
                 "correct_answer": (item["prediction_symbol"] == "correct"),
             }
         ],
@@ -365,6 +368,7 @@ def map_json_to_lievin_cots_2(id, json, dataset):
                         "answer_extraction_template": "",
                         "answer_extraction_text": "",
                         "answer": json["options"][cot["pred_idx"]],
+                        "answer_from_choices": "",
                         "correct_answer": cot["is_correct"],
                     }
                 ],

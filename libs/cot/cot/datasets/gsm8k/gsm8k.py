@@ -135,18 +135,20 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
                 gen_kwargs={
+                    "split": "train",
                     "filepath": os.path.join(data_dir["train"]),
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
+                    "split": "test",
                     "filepath": os.path.join(data_dir["test"]),
                 },
             ),
         ]
 
-    def _generate_examples(self, filepath) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, split) -> Tuple[int, Dict]:
         with open(filepath, "r") as json_file:
             data = [json.loads(line) for line in json_file]
 
@@ -164,7 +166,7 @@ class Gsm8kDataset(datasets.GeneratorBasedBuilder):
                 answer = chain[-1].replace("#### ", "")
 
                 example_ = {
-                    "id": key,
+                    "id": "gsm8k_" + split + "_" + str(key),
                     "ref_id": "",
                     "question": example["question"],
                     "type": "number",

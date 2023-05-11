@@ -4,7 +4,24 @@
         "qa-01": "Answer the following question through step-by-step reasoning.",
         "qa-02": "Answer the following question through careful, concise step-by-step reasoning.",
         "qa-03": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\".",
-        "qa-04": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. Generate sub-questions that are required to answer the original question, answer them until you can answer the original question. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\"."
+        "qa-04": "Answer the following question through careful, concise step-by-step reasoning. Avoid making up wrong statements. Generate sub-questions that are required to answer the original question, answer them until you can answer the original question. If the question does not make sense or cannot be answered, write \"I cannot answer the question\". If you do not have a good answer, write \"I do not have a good answer\". If you are uncertain, write \"I am uncertain about this\".",
+        "qa-05": "Instruction: Read the question and decide if it is easy or difficult. If it is easy, give the answer directly without reasoning. If it is difficult, answer it through step-by-step reasoning.",
+        "qa-06": "Instruction: Determine how much step-by-step thinking is required to correctly answer the question.",
+        "qa-07": "Instruction: Determine how much step-by-step thinking is required to correctly answer the question. Suppose that exactly one of the answer choices must be the right one.",
+        "qa-08": "Let's use the following clues to answer the following multiple-choice question, using the following procedure:\n(1) First, let's work out every answer option in a step by step way and consider if it is the correct option.\n(2) Second, let's combine all the information gathered to be sure we have the right answer.\n(3) Third, map the answer to one of the multiple choice answers. If you think none of the answers is correct, state that, but nevertheless select the one of the multiple choice answers that fits best.",
+        "qa-09": "Let's use the following strategy to be sure we have the right answer:\n(1) First, let's write down a step-by-step procedure of how to come to the right answer.\n(2) Second, let's go through each of those steps.",
+        "qa-10": "First think step by step - describe your plan for how to get to the right answer, written out in great detail. Then answer the question.",
+        "qa-11": "Instruction: First think step by step - describe your plan for how to get to answer the question, written out in great detail. Work your plan out in a step by step way to be sure you have the right answer.",
+        "qa-12": "Carefully read the question & work this out in a step by step way to be sure you have the right answer. Be certain to spell out your thoughts & reasoning so anyone can verify them. Spell out everything in painstaking detail & don't skip any steps!",
+        "qa-13": "Instruction: First let's rephrase the question to be sure we understood it correctly. Second, let's work this out step by step by spelling out our thoughts & reasoning so anyone can verify them. Third, make sure we have the right answer.",
+        "qa-14": "Instruction: First, make a list of facts, which are relevant to the question. Second, elaborate multiple times on this list of facts, to be sure you wrote down everything that could be important. Third, work it out in a step by step way to be sure you have the right answer.",
+        "qa-15": "Answer the following question through careful, concise step-by-step reasoning. First, write down the most important facts you know related to the question. Second, generate sub-questions that are required to answer the original question, answer them until you can answer the original question.",
+        "qa-16": "Answer the following question through careful, concise step-by-step reasoning. First, complement the question with helpful knowledge and important additional facts. Second, generate sub-questions that are required to answer the original question, answer them until you can answer the original question.",
+        "qa-17": "Create a dialog between a professor and a student. The student asks sub-questions to the question. The professor works them out in a step by step way and makes sure that the student understood how they got to the right answer.",
+        "qa-18": "Instruction: Who would be the perfect person to answer that question correctly? What kind of expertise and additional knowledge does this person have about the question? Write down how that person work this out in a step by step way to be sure we have the right answer.",
+        "qa-19": "Instruction: Let's answer the question using two different approaches independent from each other:\n(1) First, let's answer the question directly without reasoning.\n(2) Second, let's work this out in a step by step way to be sure we have the right answer.",
+        "refl-01": "Answer the question, then critique the answer. Based on the critique, reconsider the other answer options and give a single final answer.",
+        "zhou-01-ins": "Instruction: Let's work this out in a step by step way to be sure we have the right answer."
     },
     "cot_triggers": {
         "kojima-01": "Answer: Let's think step by step.",
@@ -50,13 +67,7 @@
         "lievin-27": "Answer: Let's reflect on each option from the least likely to the most likely.",
         "lievin-28": "Answer: Let's use step by step Bayesian reasoning, given the medical nature of the question.",
         "zhou-01": "Answer: Let's work this out in a step by step way to be sure we have the right answer.",
-        "zhou_edited": "Answer: Let's work this out in a step by step way to be sure we have the right answer. Select the single most probable answer",
-        "praas-01": "Answer the question, then find problems with the answer. Based on the answer and the problems with it, write an improved answer",
-        "praas-02": "Answer the question, then critique the answer. Based on the critique, write an improved answer",
-        "praas-03": "Answer the question, then critique the answer. Based on the critique, reconsider the other answer options and write an improved answer",
-        "praas-04": "Answer the question, then critique the answer. Based on the critique, reconsider the other answer options and give a single final answer",
-        "praas-05": "Let's work this out in a step by step way to be sure we have the right answer. Then find problems with the answer. Based on the answer and the problems with it, write an improved answer",
-        "praas-06": "Let's work this out in a step by step way to be sure we have the right answer. Then critique the answer. Based on the critique, reconsider the other answer options and give a single final answer"         
+        "ts-01": "Answer: Let's be logical."
     },
     "answer_extractions": {
         "kojima-01": "Therefore, the answer is",

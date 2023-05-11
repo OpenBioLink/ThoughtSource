@@ -1,0 +1,601 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "f20d40bc4af588223e880e0bb58b27b8",
+                "ref_id": "",
+                "question": "What is the primary purpose of cars?",
+                "type": "multiplechoice",
+                "choices": [
+                    "cost money",
+                    "slow down",
+                    "move people",
+                    "turn right",
+                    "get girls"
+                ],
+                "context": "",
+                "cot": [
+                    "Cars help in moving people while turning right and getting girls do not.",
+                    "Moving people connects them from one place to another unlike costing money or slowing down."
+                ],
+                "answer": [
+                    "move people"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "52dfd40e-9103-4984-8c71-6ec731a964d5",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Answer: C) move people.",
+                        "answers": [
+                            {
+                                "id": "b2ef5d9c-993b-42f8-841d-c75cc5ec0b45",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) move people.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:09:43",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "a5456dc611aa93b81d7ab6ed8e160f85",
+                "ref_id": "",
+                "question": "The chief saw his entire tribe wiped out, he was a leader with a single what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "peon",
+                    "indian",
+                    "minister",
+                    "follower",
+                    "employee"
+                ],
+                "context": "",
+                "cot": [
+                    "Leaders have followers who are supporters unlike peon, indian or minister.",
+                    "Followers do not work for money while employees do."
+                ],
+                "answer": [
+                    "follower"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1ab2b4e0-4dea-41fd-aa2e-c737af1f2f27",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nAnswer: B) indian",
+                        "answers": [
+                            {
+                                "id": "8fafca09-80bc-4996-b7fa-2cf6dd336649",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) indian. This is an easy question as the answer is directly stated in the question itself.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:09:47",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_194",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the pediatrician because of abdominal pain and constipation for 3 weeks. His mother says he has been increasingly irritable recently. His vocabulary consists of 50 words and he does not use sentences. Physical examination shows pale conjunctivae and abdominal tenderness. He refers to himself by name but is unable to name body parts or count to three. Peripheral blood smear shows small, pale red blood cells with basophilic stippling. Which of the following processes is most likely impaired in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Conversion of ferrous iron to ferric iron",
+                    "Conversion of porphobilinogen to hydroxymethylbilane",
+                    "Conversion of aminolevulinic acid to porphobilinogen",
+                    "Conversion of homocysteine to methionine",
+                    "Conversion of uroporphyrinogen III to coproporphyrinogen III"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Conversion of aminolevulinic acid to porphobilinogen"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "17aded39-1719-4ab5-be97-ad60e85f67ac",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nDifficult. \n\nThe symptoms and physical examination findings suggest a possible diagnosis of lead poisoning, which can impair heme synthesis. The small, pale red blood cells with basophilic stippling seen on the peripheral blood smear are also consistent with lead poisoning. Therefore, the process most likely impaired in this patient is the conversion of aminolevulinic acid to porphobilinogen (C), which is the first step in heme synthesis and requires the enzyme ALA synthase, which is inhibited by lead. The other answer choices are not directly related to heme synthesis or lead poisoning.",
+                        "answers": [
+                            {
+                                "id": "a3319850-1200-4ab1-ae92-8de4ce6b5e65",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Conversion of aminolevulinic acid to porphobilinogen.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:09:57",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1107",
+                "ref_id": "",
+                "question": "A 76-year-old woman comes to the physician for a routine examination. She has a history of hypertension well controlled with diet and exercise. She has no history of smoking or illicit drug use. She walks one mile daily. Her pulse is 68/min, respirations are 16/min, and blood pressure is 119/76 mm Hg. Physical examination shows no abnormalities. When compared to a healthy 20-year-old woman, which of the following changes in respiratory function is most likely present in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increased lung compliance",
+                    "Increased vital capacity",
+                    "Decreased residual volume",
+                    "Increased chest wall compliance",
+                    "Decreased A-a gradient"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Increased lung compliance"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "3731f220-7747-483e-9f87-e55c3477d567",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nDifficult. \n\nThe question is asking about the respiratory function of a 76-year-old woman compared to a healthy 20-year-old woman. The information provided in the case suggests that the patient has no abnormalities and her vital signs are within normal limits. To answer the question, we need to understand the normal changes in respiratory function that occur with aging. \n\nA) Increased lung compliance: This is not likely to be present in the patient as lung compliance decreases with age due to changes in the elasticity of lung tissue. \n\nB) Increased vital capacity: This is also not likely to be present in the patient as vital capacity decreases with age due to changes in lung tissue and chest wall compliance. \n\nC) Decreased residual volume: This may be present in the patient as residual volume decreases with age due to changes in lung tissue and chest wall compliance. \n\nD) Increased chest wall compliance: This is not likely to be present in the patient as chest wall compliance decreases with age due to changes in the elasticity of chest wall tissue. \n\nE) Decreased A-a gradient: This is not likely to be present in the patient as the A-a gradient increases with age due to changes in lung tissue and ventilation-perfusion matching. \n\nTherefore, the correct answer is C) Decreased residual volume.",
+                        "answers": [
+                            {
+                                "id": "5da3d4ba-a1e4-4eee-9aef-e7f549402c61",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Decreased residual volume.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:10:14",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "medmc_qa": {
+        "validation": [
+            {
+                "id": "3b184f01-db13-4379-ab0b-7709853e0326",
+                "ref_id": "",
+                "question": "A case of jaundice with 50% direct bilirubin, other LFTs normal. Diagnosis is \u2013",
+                "type": "multiplechoice",
+                "choices": [
+                    "Rotor syndrome",
+                    "Gilbert syndrome",
+                    "Glucuronyl transferase deficiency",
+                    "Primary biliary cirrhosis"
+                ],
+                "context": "",
+                "cot": [
+                    "50% direct bilirubin means conjugated hyperbilirubinemia.\nNormally the direct (conjugated) bilirubin is less than 15-20% of total bilirubin.\n\nNormal Values of bilirubin\nTotal bilirubin\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 >\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 0.2 - 1.9 mg/d1.\n\u00a0\u00a0\u00a0 Direct bilirubin >\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 0 - 0.3 mg/dl.\n\nSo, this child has : -\n\n\nConjugated hyperbilirubinemia\nOther LFTs normal\n\n\nAmongst the given options, Rotor syndrome and Primary biliary cirrhosis cause conjugated hyperbilirubinemia.\nIn Primary biliary cirrhosis, other LFTs are also abnormal, e.g., SGOT and SGPT are raised. Now we are left with Rotor syndrome which causes conjugated hyperbilirubinemia. Other LFTs are normal."
+                ],
+                "answer": [
+                    "Rotor syndrome"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e10a51d5-5c37-4970-aee0-ed3fafe9e566",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nDifficult. \n\nThe presence of 50% direct bilirubin suggests a problem with bilirubin metabolism or excretion. Rotor syndrome and Gilbert syndrome are both conditions that can cause elevated levels of unconjugated bilirubin, but they do not typically cause an increase in direct bilirubin. Glucuronyl transferase deficiency (also known as Crigler-Najjar syndrome) is a rare genetic disorder that results in a deficiency of the enzyme responsible for conjugating bilirubin, leading to high levels of unconjugated bilirubin. However, in this case, the direct bilirubin is elevated, which suggests that conjugation is occurring normally. Primary biliary cirrhosis is a chronic liver disease that can cause elevated levels of both direct and indirect bilirubin, as well as other liver function tests. However, the other liver function tests are reported as normal in this case. \n\nTherefore, based on the information given, none of the options provided seem to be a likely diagnosis. Further testing and evaluation would be necessary to determine the underlying cause of the jaundice.",
+                        "answers": [
+                            {
+                                "id": "3c61518b-f54f-4601-92b9-1ae52ba272e5",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "none of the above.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:10:28",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "8be32dbe-9a46-4a8a-8c08-ff89c3e78c3d",
+                "ref_id": "",
+                "question": "Fetal adrenals release which hormone predominantly:March 2009, September 2010",
+                "type": "multiplechoice",
+                "choices": [
+                    "Oestrogen",
+                    "Testosterone",
+                    "Aldosterone",
+                    "Coisone"
+                ],
+                "context": "",
+                "cot": [
+                    "Ans. D: CoisoneFetal adrenals shows hyperophy of the reticular zone (fetal zone), which is the site of synthesis of oestriol precursor, coisol and dehydroepiandrosterone.After 12 weeks of gestation, the activity of 3 p-hydroxysteroid dehydrogenase (HSD3B) decreases in fetal adrenal and sulfokinase activity increases.At that time (during the mid-gestation, 12 to 22 weeks) the major steroid products are DHEA and DHEA Sulfate (DHEA-S).During the mid-gestation (12 to 22 weeks), the aromatase activity and sulfokinase activity increases. So Placenta itself utilizes fetal DHEA and DHEA-S as substrate for estrone and estradiol as precursors."
+                ],
+                "answer": [
+                    "Coisone"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9183b8e0-dba0-418d-8869-933e06a0b4cc",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nDifficult. \n\nStep-by-step reasoning: \n\nThe question is asking about the hormone predominantly released by fetal adrenals. To answer this, we need to know what fetal adrenals are and what hormones they produce. \n\nAdrenals are small glands located on top of the kidneys that produce hormones. Fetal adrenals refer to the adrenal glands of a developing fetus. \n\nThere are several hormones produced by the adrenal glands, including cortisol, aldosterone, adrenaline, and noradrenaline. However, the question is asking specifically about the hormone predominantly released by fetal adrenals. \n\nResearch shows that fetal adrenals predominantly produce cortisol, which is a steroid hormone that helps regulate metabolism, immune response, and stress. Therefore, the answer is not A) Oestrogen, B) Testosterone, or C) Aldosterone. \n\nCoisone is not a known hormone produced by the adrenal glands, so the answer must be D) Cortisol.",
+                        "answers": [
+                            {
+                                "id": "3afe027e-9e5a-4ef9-8a68-44d5669d21a5",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Cortisol.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:10:42",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_72",
+                "ref_id": "",
+                "question": "After a torrential downpour over a week, a man notices that the pond in his backyard is",
+                "type": "multiplechoice",
+                "choices": [
+                    "melted",
+                    "dehydrated",
+                    "bloated",
+                    "salted"
+                ],
+                "context": "",
+                "cot": [
+                    "storms cause bodies of water to increase amount of water they contain"
+                ],
+                "answer": [
+                    "bloated"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9b4afb3b-3ddc-4981-aaf4-65bea06f80dd",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Difficult. A pond cannot melt or be dehydrated, so we can eliminate options A and B. Option D, salted, is also unlikely unless the man intentionally added salt to the pond. Therefore, the most likely answer is C) bloated, as heavy rainfall can cause a pond to fill up and expand beyond its usual size.",
+                        "answers": [
+                            {
+                                "id": "ecd21f06-52ef-435e-bed8-531a93397cf6",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) bloated.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:10:48",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "open_book_qa_test_423",
+                "ref_id": "",
+                "question": "What kind of object does light bounce off of?",
+                "type": "multiplechoice",
+                "choices": [
+                    "tadpole",
+                    "any object",
+                    "item that reflects",
+                    "black hole"
+                ],
+                "context": "",
+                "cot": [
+                    "when light hits a reflective object , that light bounces off that object"
+                ],
+                "answer": [
+                    "item that reflects"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "80813bcc-d43e-4bb6-9f68-b6009e1dc558",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nAnswer: C) item that reflects.",
+                        "answers": [
+                            {
+                                "id": "29c95ed6-932f-439e-b454-c0fddfec196b",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) item that reflects.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:10:52",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "b0ab236d19fec61c0111",
+                "ref_id": "",
+                "question": "Is it expected that Charla Nash would be anxious near a gorilla?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "In 2009, Charla Nash was attacked and nearly killed by a chimpanzee. ",
+                    "While a different species, Gorillas and Chimpanzees have similar physical appearances and are both primates."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "3e136f80-b6b1-4823-8b72-3e81f6d6e2a6",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Easy: It is expected that Charla Nash would be anxious near a gorilla. Answer: True.",
+                        "answers": [
+                            {
+                                "id": "9b68e2c9-c16e-4cfe-868f-c488d1e15bcc",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "True.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:10:56",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            },
+            {
+                "id": "7cf376afb78c20dd6f18",
+                "ref_id": "",
+                "question": "Was John Gall from same city as Stanford University?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "John Gall is a former major league baseball player born in Stanford, California.",
+                    "Stanford University was founded by Leland and Jane Stanford  in Stanford, California."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "302c0c08-5a41-4ec9-a23e-8d3184b0730c",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Easy: False.",
+                        "answers": [
+                            {
+                                "id": "a989292b-339f-480f-8c5b-2479312b2c52",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:10:59",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_255",
+                "ref_id": "",
+                "question": "Which action should be taken in order to identify the streak of a mineral during an investigation?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Weigh the mineral",
+                    "Dip the mineral in acid",
+                    "Heat the mineral until it melts",
+                    "Drag an edge of the mineral across a tile"
+                ],
+                "context": "",
+                "cot": [
+                    "When a mineral is rubbed on a streak plate , some of the mineral breaks off and forms a powder.",
+                    "When a mineral is dragged across a streak plate , then the edge of the mineral is touching the surface of the streak plate.",
+                    "Testing the streak of a mineral requires the powdered form of that mineral.",
+                    "An unglazed tile is a kind of streak plate.",
+                    "Dragging is a kind of action."
+                ],
+                "answer": [
+                    "Drag an edge of the mineral across a tile"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "8e91a8b5-9065-4a07-98e3-27515d197c6c",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nAnswer: D) Drag an edge of the mineral across a tile.",
+                        "answers": [
+                            {
+                                "id": "1ae7f466-78a6-4a44-acd4-6e32b91f731f",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Drag an edge of the mineral across a tile.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:11:03",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "worldtree_test_1368",
+                "ref_id": "",
+                "question": "Which of the following could occur as a result of decreasing the heat energy of a gas?",
+                "type": "multiplechoice",
+                "choices": [
+                    "condensation",
+                    "evaporation",
+                    "radiation",
+                    "vaporization"
+                ],
+                "context": "",
+                "cot": [
+                    "Condensation is when matter changes from a gas into a liquid by decreasing heat energy.",
+                    "A change is a kind of event.",
+                    "Events occur at a specific place.",
+                    "Gas is a kind of substance.",
+                    "To cause means to result in.",
+                    "Temperature changing can cause phase changes.",
+                    "Condensing is a kind of phase change.",
+                    "Temperature is a measure of heat energy."
+                ],
+                "answer": [
+                    "condensation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6ee9627a-c27c-41a6-9501-27e477ee6426",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-05",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nEasy: \n\nA) Condensation",
+                        "answers": [
+                            {
+                                "id": "4a8675cb-504e-4e00-9dae-36761e6bbd6b",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Condensation.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/15 18:11:07",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

@@ -1,0 +1,262 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "684dbde19719e8224113433981d6e01e",
+                "ref_id": "",
+                "question": "Billy lived in the capital of his country, then he moved.  Where might he move to?",
+                "type": "multiplechoice",
+                "choices": [
+                    "small town",
+                    "jail",
+                    "lower case",
+                    "contain governmental activities",
+                    "lowercase"
+                ],
+                "context": "",
+                "cot": [
+                    "One usually moves to a small town from the country's capital and not to a jail.",
+                    "Small town is a place to live and has lesser population.",
+                    "Lower case, a place containing governmental activities and lowercase are not places to live."
+                ],
+                "answer": [
+                    "small town"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9213b354-a29d-4051-b6be-60e3a7b152c4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all of those questions to your reasoning:\n    What is the goal of this request?\n    What level of detail and complexity is expected in the response?\n    What level of certainty is expected in the response?\n    Is the response expected to be accompanied by supporting evidence or references?\n    Is responding to the request straightforward or does it require step-by-step reasoning or raising sub-questions?\n    If step-by-step reasoning or sub-questions are needed, which reasoning steps should be taken, or which sub-questions should be raised?\n    What resources and methods are available to respond to the request?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "(1) Let's work this out in a step by step way to be sure we have the right answer.\n\n(2) Apply all of those questions to your reasoning:\n\nWhat is the goal of this request?\n- The goal of this request is to determine where Billy might have moved to after living in the capital of his country.\n\nWhat level of detail and complexity is expected in the response?\n- The question is fairly straightforward, so a simple answer is expected.\n\nWhat level of certainty is expected in the response?\n- A high level of certainty is expected in the response.\n\nIs the response expected to be accompanied by supporting evidence or references?\n- No, supporting evidence or references are not necessary for this question.\n\nIs responding to the request straightforward or does it require step-by-step reasoning or raising sub-questions?\n- Responding to the request is straightforward.\n\nIf step-by-step reasoning or sub-questions are needed, which reasoning steps should be taken, or which sub-questions should be raised?\n- No step-by-step reasoning or sub-questions are needed for this question.\n\nWhat resources and methods are available to respond to the request?\n- Knowledge of geography and common destinations for people who move from a capital city may be helpful in responding to the request.\n\nAnswer: A) small town",
+                        "answers": [
+                            {
+                                "id": "f9a5ea6c-f72d-4173-8ebf-f4d94e3f834d",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) small town.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:45:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_621",
+                "ref_id": "",
+                "question": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Cat bite",
+                    "Human bite",
+                    "Spider bite",
+                    "Fish bite",
+                    "Dog bite"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Dog bite"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f75cd0af-5652-41e8-adff-f149363af6b0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all of those questions to your reasoning:\n    What is the goal of this request?\n    What level of detail and complexity is expected in the response?\n    What level of certainty is expected in the response?\n    Is the response expected to be accompanied by supporting evidence or references?\n    Is responding to the request straightforward or does it require step-by-step reasoning or raising sub-questions?\n    If step-by-step reasoning or sub-questions are needed, which reasoning steps should be taken, or which sub-questions should be raised?\n    What resources and methods are available to respond to the request?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the goal of the request.\nThe goal of the request is to determine which type of bite would be most concerning in a 59-year-old man with sickle cell disease who presents with fever, night sweats, lethargy, and swollen bite marks on his right hand with red streaks extending to his elbow.\n\nStep 2: Apply the questions to your reasoning.\n- What level of detail and complexity is expected in the response?\nThe response should provide a clear and concise answer to the question.\n- What level of certainty is expected in the response?\nThe response should be based on sound medical knowledge and evidence.\n- Is the response expected to be accompanied by supporting evidence or references?\nIt would be helpful to provide supporting evidence or references to back up the answer.\n- Is responding to the request straightforward or does it require step-by-step reasoning or raising sub-questions?\nResponding to the request requires step-by-step reasoning and consideration of different factors.\n- If step-by-step reasoning or sub-questions are needed, which reasoning steps should be taken, or which sub-questions should be raised?\nWe need to consider the patient's medical history, symptoms, and physical examination findings, as well as the potential risks associated with different types of bites.\n- What resources and methods are available to respond to the request?\nWe can use medical textbooks, online resources, and consult with other healthcare professionals to help answer the question.\n\nStep 3: Determine the answer.\nGiven the patient's history of sickle cell disease, which can impair the immune system and increase the risk of infections, and his current symptoms of fever, night sweats, lethargy, and swollen bite marks with red streaks, the most concerning bite would be a spider bite. Spider bites can cause severe systemic symptoms, including fever, chills, muscle pain, and weakness, and can be life-threatening in immunocompromised individuals. Cat, human, dog, and fish bites are less likely to cause such severe symptoms and complications.\n\nStep 4: Provide supporting evidence or references.\nAccording to the Centers for Disease Control and Prevention (CDC), spider bites can cause a range of symptoms, from mild irritation to severe systemic reactions, and can be particularly dangerous in individuals with weakened immune systems, such as those with sickle cell disease (CDC, 2021). In contrast, cat, human, dog, and fish bites are more likely to cause local inflammation and infection, but are generally less severe and less likely to cause systemic symptoms (CDC, 202",
+                        "answers": [
+                            {
+                                "id": "2989425a-c16c-4029-8c47-70ec9e5a8db6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Spider bite.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:45:29",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_250",
+                "ref_id": "",
+                "question": "Rain is usually guaranteed when all are present but",
+                "type": "multiplechoice",
+                "choices": [
+                    "cirrus clouds",
+                    "cumulus clouds",
+                    "hail stones",
+                    "direct sunshine"
+                ],
+                "context": "",
+                "cot": [
+                    "if weather is stormy then there is a greater chance of rain"
+                ],
+                "answer": [
+                    "direct sunshine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "46ec5484-fced-41c9-a560-47e03b2a162b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all of those questions to your reasoning:\n    What is the goal of this request?\n    What level of detail and complexity is expected in the response?\n    What level of certainty is expected in the response?\n    Is the response expected to be accompanied by supporting evidence or references?\n    Is responding to the request straightforward or does it require step-by-step reasoning or raising sub-questions?\n    If step-by-step reasoning or sub-questions are needed, which reasoning steps should be taken, or which sub-questions should be raised?\n    What resources and methods are available to respond to the request?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "Step 1: Read and understand the question.\n\nStep 2: Identify the goal of the request. The goal is to determine which of the given options are usually present when rain occurs.\n\nStep 3: Determine the level of detail and complexity expected in the response. The response should be straightforward and simple.\n\nStep 4: Determine the level of certainty expected in the response. The response should be certain and accurate.\n\nStep 5: Determine if the response is expected to be accompanied by supporting evidence or references. No supporting evidence or references are required.\n\nStep 6: Determine if responding to the request requires step-by-step reasoning or raising sub-questions. No step-by-step reasoning or sub-questions are required.\n\nStep 7: Determine which resources and methods are available to respond to the request. The resources required are knowledge of weather patterns and common sense.\n\nAnswer: B) cumulus clouds are usually present when rain occurs.",
+                        "answers": [
+                            {
+                                "id": "4f3866bb-05c5-4819-8855-b90c143e5fbd",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) cumulus clouds.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:45:38",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "ffd8a720264778c0fd6e",
+                "ref_id": "",
+                "question": "Can the Toyota Hilux tip the scales against Mr. Ed?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "The current generation of Toyota Hilux weighs at least 4,310 lbs",
+                    "Mr. Ed was portrayed by an adult horse",
+                    "The average adult horse weighs up to 2,000 lbs"
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "641d3f37-fde5-4cbb-9e66-8ae23c1aefd4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all of those questions to your reasoning:\n    What is the goal of this request?\n    What level of detail and complexity is expected in the response?\n    What level of certainty is expected in the response?\n    Is the response expected to be accompanied by supporting evidence or references?\n    Is responding to the request straightforward or does it require step-by-step reasoning or raising sub-questions?\n    If step-by-step reasoning or sub-questions are needed, which reasoning steps should be taken, or which sub-questions should be raised?\n    What resources and methods are available to respond to the request?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "(1) Let's work this out in a step by step way to be sure we have the right answer.\n\n(2) Apply all of those questions to your reasoning:\n\nWhat is the goal of this request?\n- The goal of this request is to determine whether the Toyota Hilux can tip the scales against Mr. Ed.\n\nWhat level of detail and complexity is expected in the response?\n- The level of detail and complexity expected in the response is not specified, but it should be sufficient to answer the question accurately.\n\nWhat level of certainty is expected in the response?\n- The level of certainty expected in the response is high, as the answer should be based on factual information.\n\nIs the response expected to be accompanied by supporting evidence or references?\n- It is not specified whether the response should be accompanied by supporting evidence or references, but it would be helpful to provide them to support the answer.\n\nIs responding to the request straightforward or does it require step-by-step reasoning or raising sub-questions?\n- Responding to the request is straightforward, as it only requires a simple yes or no answer.\n\nIf step-by-step reasoning or sub-questions are needed, which reasoning steps should be taken, or which sub-questions should be raised?\n- No step-by-step reasoning or sub-questions are needed for this request.\n\nWhat resources and methods are available to respond to the request?\n- Resources and methods that can be used to respond to the request include researching the specifications and capabilities of the Toyota Hilux and Mr. Ed, and comparing them to determine if the Toyota Hilux can tip the scales against Mr. Ed.\n\nCan the Toyota Hilux tip the scales against Mr. Ed?\n- False.",
+                        "answers": [
+                            {
+                                "id": "27a96d5b-5bae-4f5c-974d-2d2b8b9f3ba0",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) False.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:45:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_2",
+                "ref_id": "",
+                "question": "Which event occurs once per day?",
+                "type": "multiplechoice",
+                "choices": [
+                    "The Moon rises.",
+                    "The new Moon occurs.",
+                    "The Moon cycles through its phases.",
+                    "The Moon passes in front of the Sun."
+                ],
+                "context": "",
+                "cot": [
+                    "The moon rising occurs once per day.",
+                    "A moon is a kind of celestial object.",
+                    "Movements of celestial bodies are a kind of event.",
+                    "Rising is a kind of motion."
+                ],
+                "answer": [
+                    "The Moon rises."
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1243dadd-f74b-456b-b0f7-1c0254b8b029",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": null,
+                        "cot_trigger_template": "\n    Instruction: \n    (1) Let's work this out in a step by step way to be sure we have the right answer.\n    (2) Apply all of those questions to your reasoning:\n    What is the goal of this request?\n    What level of detail and complexity is expected in the response?\n    What level of certainty is expected in the response?\n    Is the response expected to be accompanied by supporting evidence or references?\n    Is responding to the request straightforward or does it require step-by-step reasoning or raising sub-questions?\n    If step-by-step reasoning or sub-questions are needed, which reasoning steps should be taken, or which sub-questions should be raised?\n    What resources and methods are available to respond to the request?\n    \\n\\n{question}\\n{answer_choices}\\n\\n{cot_trigger}\n    ",
+                        "prompt_text": "",
+                        "cot": "(1) Let's work this out in a step by step way to be sure we have the right answer.\n\n(2) Apply all of those questions to your reasoning:\n\n- What is the goal of this request?\nThe goal is to determine which event occurs once per day.\n\n- What level of detail and complexity is expected in the response?\nThe response should be straightforward and simple.\n\n- What level of certainty is expected in the response?\nThe response should be certain and accurate.\n\n- Is the response expected to be accompanied by supporting evidence or references?\nIt is not necessary to provide supporting evidence or references for this question.\n\n- Is responding to the request straightforward or does it require step-by-step reasoning or raising sub-questions?\nResponding to the request is straightforward.\n\n- If step-by-step reasoning or sub-questions are needed, which reasoning steps should be taken, or which sub-questions should be raised?\nNo step-by-step reasoning or sub-questions are needed.\n\n- What resources and methods are available to respond to the request?\nThe resources and methods available are general knowledge and common sense.\n\nBased on the above reasoning, the correct answer is A) The Moon rises.",
+                        "answers": [
+                            {
+                                "id": "9047fd59-abaf-4991-aab6-3428be54d256",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) The Moon rises.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/29 21:46:00",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}
