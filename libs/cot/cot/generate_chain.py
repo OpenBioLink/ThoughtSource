@@ -113,7 +113,6 @@ def _self_generate_extract(item,idx,chain,instruction,cot_trigger,answer_extract
                         "answer_extraction_template": "",
                         "answer_extraction_text": "",
                         "answer": lang_chain['predicted_answer'],
-                        'answer_from_choices':"",
                         "correct_answer": None,
                 }
     
