@@ -42,13 +42,8 @@ import datasets as ds
 ds.disable_caching()
 FRAGMENTS = json.loads(pkgutil.get_data(__name__, "fragments.json"))
 
-""" 
-Input: item, langchains, triggers
-Output: cot and answer
-Generate a cot and extract an answer with helper function _self_generate_extract
-"""
-def self_generate_extract(data,input_dict):
 
+def helper(data):
     ds.disable_caching()
     data.cleanup_cache_files()
 
@@ -61,6 +56,17 @@ def self_generate_extract(data,input_dict):
     else:
         raise ValueError("Not recognized data")
     
+    return data, features
+
+""" 
+Input: item, langchains, triggers
+Output: cot and answer
+Generate a cot and extract an answer with helper function _self_generate_extract
+"""
+def self_generate_extract(data,input_dict):
+
+    data, features = helper(data)
+    
     return data.map(
         _self_generate_extract,
         with_indices=True,
@@ -70,21 +76,13 @@ def self_generate_extract(data,input_dict):
     )
 
 def _self_generate_extract(item,idx,input_dict):
-#def _self_generate_extract(item,idx,chain,instruction,cot_trigger,answer_extraction,model,temperature,max_tokens):
-    
-    #var_list = ['instruction','cot_trigger','answer_extraction','model','temperature','max_tokens']
-    
-    # #recreate input dict to feed to langchain
-    # input_dict = {}
-    # for i,element in enumerate([instruction,cot_trigger,answer_extraction,model,temperature,max_tokens]):
-    #     input_dict[var_list[i]] = element
+
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
     chain = input_dict.pop('chain')
+
     #get cot and predicted answer
     lang_chain = chain(input_dict) 
-    print(lang_chain['cot'])
-    print(lang_chain['predicted_answer'])
 
     generated_cot = {
                 "id": str(uuid.uuid4()),
@@ -129,28 +127,32 @@ def _self_generate_extract(item,idx,input_dict):
     return item
 
 """Generate CoTs only"""
-def self_generate(data,chain,input_dict):
+def self_generate(data,input_dict):
 
-    input_dict['chain'] = chain
+    data, features = helper(data)
+    
+    return data.map(
+        _self_generate,
+        with_indices=True,
+        fn_kwargs=input_dict,
+        features=features,
+        load_from_cache_file=False,
+    )
 
-    new_dataset = []
-    for example in data:
-        processed_example = _self_generate(example,input_dict,chain)
-        new_dataset.append(processed_example)
-    print(new_dataset)
-    return new_dataset
+def _self_generate(item,idx, input_dict):
 
-def _self_generate(item,input_dict,chain):
-
+    #feed data to input dict, isolate chain
     input_dict['question'] = item["question"]
     input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
-    
-    lang_chain = chain(input_dict)
+    chain = input_dict.pop('chain')
+
+    #get cot
+    lang_chain = chain(input_dict) 
 
     """If conditions for input keys"""
     generated_cot = {
                 "id": str(uuid.uuid4()),
-                "fragments_version": FRAGMENTS["version"],
+                "fragments_version": "",
                 "instruction": input_dict["instruction"],
                 "cot_trigger": input_dict["cot_trigger"],
                 "cot_trigger_template": "",
@@ -167,7 +169,7 @@ def _self_generate(item,input_dict,chain):
                         "max_tokens": input_dict["max_tokens"]
                     }
                 ),
-                "comment": "generated",
+                "comment": "generated only",
                 "annotations": [],
             }
     generated_cot["date"] = print_now(1)
@@ -177,54 +179,35 @@ def _self_generate(item,input_dict,chain):
     return item
 
 """Extract answers based on CoTs only"""
-def self_extract(data,chain,input_dict):
+def self_extract(data,input_dict):
 
-    new_dataset = []
-    for example in data:
-        processed_example = _self_extract(example,input_dict,chain)
-        new_dataset.append(processed_example)
-    return new_dataset
+    data, features = helper(data)
+    
+    return data.map(
+        _self_extract,
+        with_indices=True,
+        fn_kwargs=input_dict,
+        features=features,
+        load_from_cache_file=False,
+    )
 
 """ToDo show which CoT to take"""
-def _self_extract(item,input_dict,chain):
+def _self_extract(item,idx,input_dict):
 
-    input_dict['question'] = item["question"]
-    input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
-
-    # TODO later: be able to choose between different cots
     #extract based on the first cot in the dataset, throw error otherwise
     if len(item['generated_cot'])>1:
         raise ValueError('Too many generated CoTs, only one allowed')
     else:
         cot = item['generated_cot'][0]['cot'] 
     input_dict['cot'] = cot
-    
-    #this is where the magic happens
-    lang_chain = chain(input_dict)
-    #retrieve question and answer choices from item, add to input dict
-    generated_cot = {
-                "id": str(uuid.uuid4()),
-                "fragments_version": FRAGMENTS["version"],
-                "instruction": input_dict["instruction"],
-                "cot_trigger": input_dict["cot_trigger"],
-                "cot_trigger_template": "",
-                "prompt_text": "",
-                "cot": lang_chain['cot'],
-                "answers": [],
-                "author": "",
-                "date": "",
-                "api_service": input_dict["api_service"],
-                "model": str(
-                    {
-                        "name": input_dict["model"],
-                        "temperature": input_dict["temperature"],
-                        "max_tokens": input_dict["max_tokens"]
-                    }
-                ),
-                "comment": "answer_extraction cot",
-                "annotations": [],
-            }
-    generated_cot["date"] = print_now(1)
+
+    #feed data to input dict, isolate chain
+    input_dict['question'] = item["question"]
+    input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+    chain = input_dict.pop('chain')
+
+    #extract answer
+    lang_chain = chain(input_dict) 
 
     """If conditions for input keys"""
     answer = {
@@ -233,63 +216,67 @@ def _self_extract(item,input_dict,chain):
                         "answer_extraction_template": "",
                         "answer_extraction_text": "",
                         "answer": "",
+                        'answer_from_choices':"",
                         "correct_answer": None,
                 }
     answer["answer"] = lang_chain['predicted_answer']
     
-    #we add a generated cot (with new ans) to be assessed in annotator
-    generated_cot["answers"].append(answer) 
-    item["generated_cot"].append(generated_cot)
-
-    #could use line below to add the answer to existing cot
-    #item["generated_cot"][0]["answers"].append(answer)
+    #we add the answer to the already existing generated cot
+    print(item['generated_cot'][0]["answers"])
+    item['generated_cot'][0]["answers"].append(answer) 
+    print("################")
+    print(item['generated_cot'][0]["answers"])
 
     return item
 
-"""Reflect on CoT (or some other part) and generate new answer"""
-def self_reflect(data,chain,input_dict):
 
-    new_dataset = []
-    for example in data:
-        processed_example = _self_reflect(example,input_dict,chain)
-        new_dataset.append(processed_example)
-    return new_dataset
+"""Reflect on CoT (or some other part) and generate new answer"""
+def self_reflect(data, input_dict):
+
+    data, features = helper(data)
+
+    return data.map(
+        _self_reflect,
+        with_indices=True,
+        fn_kwargs=input_dict,
+        features=features,
+        load_from_cache_file=False,
+    )
 
 
 """In this version the reflection is added to generated_cot"""
+def _self_reflect(item, idx, input_dict):
 
-def _self_reflect(item,input_dict,chain):
-
-
- 
-    input_dict['question'] = item["question"]
-    input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
-
-    # TODO later: be able to choose between different cots
-    #extract based on the first cot in the dataset, throw error otherwise
-    if len(item['generated_cot'])>1:
+    #reflect based on the first cot in the dataset, throw error otherwise
+    if len(item['generated_cot']) > 1:
         raise ValueError('Too many generated CoTs, only one allowed')
     else:
-        input_dict['cot'] = item['generated_cot'][0]['cot'] 
+        input_dict['cot'] = item['generated_cot'][0]['cot']
+
+    #feed data to input dict, isolate chain
+    input_dict['question'] = item["question"]
+    input_dict['answer_choices'] = multiple_choice_answer_formatting(
+        item["choices"])
+    chain = input_dict.pop('chain')
 
     # here we take the first answer from the first cot
     input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer']
-    
+
     #this is where the magic happens
     lang_chain = chain(input_dict)
 
     #retrieve question and answer choices from item, add to input dict
     generated_cot = {
-                "id": str(uuid.uuid4()),
-                "fragments_version": FRAGMENTS["version"],
-                "instruction": "",
-                "cot_trigger": input_dict["reflection_prompt"],
-                "cot_trigger_template": "",
-                "prompt_text": "",
-                "cot": lang_chain['reflection'],
-                "answers": [],
-                "author": "",
-                "date": "",
+        "id": str(uuid.uuid4()),
+        "fragments_version": "",
+        "instruction": "",
+        "cot_trigger": input_dict["reflection_prompt"],
+        "cot_trigger_template": "",
+        "prompt_text": "",
+        "cot": lang_chain['reflection'],
+        "answers": [],
+        "author": "",
+        "date": "",
                 "api_service": input_dict["api_service"],
                 "model": str(
                     {
@@ -297,28 +284,27 @@ def _self_reflect(item,input_dict,chain):
                         "temperature": input_dict["temperature"],
                         "max_tokens": input_dict["max_tokens"],
                     }
-                ),
-                "comment": "self_reflection cot",
-                "annotations": [],
-            }
+        ),
+        "comment": "self_reflection cot",
+        "annotations": [],
+    }
     generated_cot["date"] = print_now(1)
 
     """If conditions for input keys"""
     answer = {
-                        "id": str(uuid.uuid4()),
-                        "answer_extraction": input_dict['reflect_answer_extraction'],
-                        "answer_extraction_template": "",
-                        "answer_extraction_text": "self_reflection",
-                        "answer": "",
-                        "correct_answer": None,
-                }
+        "id": str(uuid.uuid4()),
+        "answer_extraction": input_dict['reflect_answer_extraction'],
+        "answer_extraction_template": "",
+        "answer_extraction_text": "self_reflection",
+        "answer": "",
+        'answer_from_choices':"",
+        "correct_answer": None,
+    }
     answer["answer"] = lang_chain['reflection_answer']
 
-
-    generated_cot["answers"].append(answer) 
+    generated_cot["answers"].append(answer)
 
     item["generated_cot"].append(generated_cot)
-    
 
     return item
 
