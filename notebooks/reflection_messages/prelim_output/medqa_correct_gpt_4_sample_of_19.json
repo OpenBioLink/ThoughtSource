@@ -1,0 +1,899 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_127",
+                "ref_id": "",
+                "question": "A 67-year-old man with peripheral neuropathy comes to the physician for a follow-up examination after the results of serum protein electrophoresis showed monoclonal gammopathy. A complete blood count, serum creatinine, and serum electrolyte concentrations are within the reference ranges. A bone marrow biopsy shows 6% monoclonal plasma cells. Further analysis shows that class I major histocompatibility molecules are downregulated in these monoclonal plasma cells. The proliferation of these monoclonal plasma cells is normally prevented by a class of immune cells that lyse abnormal cells without the need for opsonization, priming, or prior activation. Which of the following best describes this class of immune cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "CD8+ T lymphocytes",
+                    "Bone marrow-derived macrophages",
+                    "CD4+ T lymphocytes",
+                    "Natural killer cells",
+                    "Band neutrophils"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Natural killer cells"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1b333505-91e4-4a90-958d-dc80c1d28039",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the key information in the question stem.\n- Monoclonal gammopathy\n- Class I major histocompatibility molecules are downregulated in monoclonal plasma cells\n- Immune cells that lyse abnormal cells without the need for opsonization, priming, or prior activation\n\nStep 2: Recall the function and characteristics of each immune cell type listed in the answer choices.\nA) CD8+ T lymphocytes: cytotoxic T cells that kill infected or abnormal cells, but require activation by antigen-presenting cells\nB) Bone marrow-derived macrophages: phagocytic cells that engulf and digest pathogens, but require opsonization for efficient phagocytosis\nC) CD4+ T lymphocytes: helper T cells that assist in activating other immune cells, but do not directly kill abnormal cells\nD) Natural killer cells: immune cells that can kill abnormal cells without prior activation or priming, and are particularly important in recognizing cells with downregulated MHC class I molecules\nE) Band neutrophils: immature neutrophils that are part of the innate immune response, but do not directly kill abnormal cells without prior activation\n\nStep 3: Match the characteristics of the immune cells to the information provided in the question stem.\nThe immune cells described in the question are able to lyse abnormal cells without the need for opsonization, priming, or prior activation. This best matches the characteristics of natural killer cells (D), which can kill abnormal cells without prior activation or priming and are particularly important in recognizing cells with downregulated MHC class I molecules.\n\nAnswer: D) Natural killer cells",
+                        "answers": [
+                            {
+                                "id": "0b6d0f0a-44b7-47da-863a-ae7dcad14db6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Natural killer cells.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:30:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_191",
+                "ref_id": "",
+                "question": "A stillborn infant is delivered at 38 weeks' gestation to a 32-year-old woman. The mother had no prenatal care. Examination of the stillborn shows a small pelvis, shallow intergluteal cleft, and club feet. An x-ray shows the absence of the sacrum and lumbar vertebrae. Which of the following is the strongest predisposing factor for this patient's condition?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Maternal oligohydramnios",
+                    "Intrauterine alcohol exposure",
+                    "Chromosome 13 trisomy",
+                    "Maternal diabetes",
+                    "Chromosome 18 trisomy"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Maternal diabetes"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "298988f0-4ccb-4c89-835d-3d4939c6f672",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's identify the condition described in the question. The absence of the sacrum and lumbar vertebrae, along with the small pelvis, shallow intergluteal cleft, and club feet, suggest a diagnosis of caudal regression syndrome (also known as sacral agenesis).\n\nNow let's go through the answer choices:\n\nA) Maternal oligohydramnios: Oligohydramnios is a condition where there is not enough amniotic fluid surrounding the fetus. It can cause various complications, but it is not the strongest predisposing factor for caudal regression syndrome.\n\nB) Intrauterine alcohol exposure: Alcohol exposure during pregnancy can lead to a range of birth defects, known as fetal alcohol spectrum disorders. However, it is not the strongest predisposing factor for caudal regression syndrome.\n\nC) Chromosome 13 trisomy: Trisomy 13, also known as Patau syndrome, is a chromosomal disorder that causes severe intellectual disability and physical abnormalities. It is not specifically associated with caudal regression syndrome.\n\nD) Maternal diabetes: Maternal diabetes, particularly pregestational diabetes, is a well-established risk factor for caudal regression syndrome. Infants born to mothers with diabetes have an increased risk of developing this condition.\n\nE) Chromosome 18 trisomy: Trisomy 18, also known as Edwards syndrome, is a chromosomal disorder that causes severe developmental delays and physical abnormalities. It is not specifically associated with caudal regression syndrome.\n\nBased on the information provided, the strongest predisposing factor for this patient's condition is:\n\nD) Maternal diabetes",
+                        "answers": [
+                            {
+                                "id": "58315e5d-3630-40b3-966f-fa919ec39866",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Maternal diabetes",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:38:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_266",
+                "ref_id": "",
+                "question": "A 60-year-old man presents with a 2-day history of increasing difficulty in breathing with a productive cough. He reports having shortness of breath over the last 6 months, but he has felt worse since he contracted a cold that has been traveling around his office. Today, he reports body aches, headache, and fever along with this chronic cough. His past medical history is significant for prediabetes, which he controls with exercise and diet. He has a 30-pack-year smoking history. His blood pressure is 130/85 mmHg, pulse rate is 90/min, temperature is 36.9\u00b0C (98.5\u00b0F), and respiratory rate is 18/min. Physical examination reveals diminished breath sounds bilateral, a barrel-shaped chest, and measured breathing through pursed lips. A chest X-ray reveals a flattened diaphragm and no signs of consolidation. Pulmonary function testing reveals FEV1/FVC ratio of 60%. Arterial blood gases (ABG) of this patient are most likely to reveal which of the following?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Non-anion gap metabolic acidosis",
+                    "Primary respiratory acidosis",
+                    "Primary respiratory alkalosis",
+                    "Compensatory respiratory acidosis",
+                    "Anion gap metabolic acidosis with respiratory alkalosis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Primary respiratory acidosis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6fe345ae-a16f-4167-9ef7-25daf8931dcd",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient has a history of smoking, shortness of breath, and a chronic cough. The physical examination reveals diminished breath sounds, a barrel-shaped chest, and pursed-lip breathing. These findings suggest chronic obstructive pulmonary disease (COPD).\n\n2. The chest X-ray shows a flattened diaphragm, which is consistent with COPD.\n\n3. Pulmonary function testing reveals an FEV1/FVC ratio of 60%, which is indicative of airflow obstruction, again supporting the diagnosis of COPD.\n\n4. In COPD, the primary problem is difficulty in exhaling, leading to air trapping and hyperinflation of the lungs. This results in an increase in the partial pressure of carbon dioxide (PaCO2) in the arterial blood, causing respiratory acidosis.\n\n5. The body compensates for respiratory acidosis by increasing the bicarbonate (HCO3-) concentration in the blood, which is a metabolic compensation. However, this compensation is not perfect, and the pH of the blood remains slightly acidic.\n\nBased on this information, the most likely ABG finding in this patient would be primary respiratory acidosis (option B).",
+                        "answers": [
+                            {
+                                "id": "85f3025a-5969-4950-96c2-c38862058783",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Primary respiratory acidosis.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:42:28",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_286",
+                "ref_id": "",
+                "question": "A 27-year-old HIV positive female gave birth to a 7lb 2oz (3.2 kg) baby girl. The obstetrician is worried that the child may have been infected due to the mother's haphazard use of her anti-retroviral medications. Which of the following assays would a hospital use detect the genetic material of HIV if the child had been infected?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Enzyme-linked immunosorbent assay (ELISA)",
+                    "Western blot",
+                    "Rapid HIV antibody test",
+                    "Polymerase chain reaction",
+                    "Southern blot"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Polymerase chain reaction"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "11ba5102-7671-4219-907b-f083541c73c1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Enzyme-linked immunosorbent assay (ELISA) - This test detects antibodies against HIV, not the genetic material of the virus itself. So, this is not the correct answer.\n\nB) Western blot - This test also detects antibodies against HIV, not the genetic material of the virus. So, this is not the correct answer.\n\nC) Rapid HIV antibody test - As the name suggests, this test detects antibodies against HIV, not the genetic material of the virus. So, this is not the correct answer.\n\nD) Polymerase chain reaction (PCR) - This test detects the genetic material of the virus (specifically, its RNA). This is the correct answer.\n\nE) Southern blot - This test detects specific DNA sequences, but HIV is an RNA virus, so this test would not be appropriate for detecting HIV genetic material.\n\nSo, the correct answer is D) Polymerase chain reaction.",
+                        "answers": [
+                            {
+                                "id": "240de870-153d-490d-9a2a-687d30942df1",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Polymerase chain reaction.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:43:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_291",
+                "ref_id": "",
+                "question": "A 32-year-old woman presents to the emergency department because she has a cord-like rash on her left calf that is red and painful to touch. She says that she has had multiple such lesions previously. Other medical history reveals that she has had 3 past spontaneous abortions at < 10 weeks of gestational age but has never been diagnosed with any diseases. She drinks socially but has never smoked or used drugs. She has never taken any medications except for over the counter analgesics and antipyretics. Physical exam shows that the cord-like lesion is tender, thick, and hardened on palpation. In addition, she has a lacy mottled violaceous rash on multiple extremities. Which of the following antibodies would most likely be found in this patient's blood?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Anti-cardiolipin",
+                    "Anti-centromere",
+                    "Anti-helicase",
+                    "Anti-histone",
+                    "Anti-ribonucleoprotein"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Anti-cardiolipin"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "32d9cbf6-61a5-40d3-a542-1e5667c1ea48",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the patient's symptoms and signs\n- Cord-like rash on the left calf, red and painful to touch\n- Multiple similar lesions in the past\n- 3 past spontaneous abortions at < 10 weeks of gestational age\n- Lacy mottled violaceous rash on multiple extremities\n\nStep 2: Consider possible diagnoses\nGiven the patient's history of recurrent rashes and spontaneous abortions, an autoimmune disorder should be considered. The cord-like rash and lacy mottled violaceous rash suggest a vasculitis or thrombotic process.\n\nStep 3: Match the antibodies to the possible diagnoses\nA) Anti-cardiolipin: Associated with antiphospholipid syndrome, which can cause recurrent miscarriages and thrombotic events.\nB) Anti-centromere: Associated with limited cutaneous systemic sclerosis (scleroderma), which typically presents with skin thickening and Raynaud's phenomenon.\nC) Anti-helicase: Not a well-known antibody associated with a specific autoimmune disorder.\nD) Anti-histone: Associated with drug-induced lupus, but the patient has no history of taking medications that could cause this.\nE) Anti-ribonucleoprotein: Associated with mixed connective tissue disease, which can present with features of lupus, scleroderma, and polymyositis, but does not typically cause recurrent miscarriages or thrombotic events.\n\nStep 4: Choose the most likely antibody\nBased on the patient's symptoms and the associated autoimmune disorders, the most likely antibody to be found in this patient's blood is A) Anti-cardiolipin. This is consistent with a diagnosis of antiphospholipid syndrome, which can cause recurrent miscarriages and thrombotic events, such as the cord-like rash on her calf.",
+                        "answers": [
+                            {
+                                "id": "827db6a5-391e-4d7f-93ef-c58b016b7e1d",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Anti-cardiolipin.",
+                                "answer_from_choices": "A",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:44:54",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_447",
+                "ref_id": "",
+                "question": "A 52-year-old man is brought to the emergency department for recurrent vomiting that began 5 hours ago. He describes the vomitus as bloody and containing black specks. He drinks 10\u201312 beers daily and has not seen a physician in 15 years. He appears pale. His temperature is 36.7\u00b0C (98.1\u00b0F), pulse is 122/min, and blood pressure is 85/59 mm Hg. Physical examination shows decreased radial pulses, delayed capillary refill, multiple spider angiomata, and a distended abdomen. He is oriented to person but not to place or time. Which of the following is most likely decreased in this patient in response to his current condition compared to a healthy adult?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Systemic vascular resistance",
+                    "Fractional tissue oxygen extraction",
+                    "Carotid baroreceptor firing activity",
+                    "Pulmonary vascular resistance",
+                    "Cardiac inotropy"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Carotid baroreceptor firing activity"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9d42a049-e144-44b9-944e-83dc643690c5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's analyze the patient's symptoms and history:\n\n1. Recurrent vomiting with bloody and black specks: This suggests gastrointestinal bleeding, possibly due to esophageal varices or peptic ulcers.\n2. Alcohol consumption: 10-12 beers daily indicates chronic alcohol abuse, which can lead to liver cirrhosis and portal hypertension, further supporting the possibility of esophageal varices.\n3. Pale appearance, decreased radial pulses, and delayed capillary refill: These signs indicate poor peripheral perfusion and possible hypovolemia due to blood loss.\n4. Multiple spider angiomata and distended abdomen: These are signs of liver cirrhosis and portal hypertension.\n5. Disorientation: This could be due to hepatic encephalopathy or hypovolemia causing decreased cerebral perfusion.\n\nNow let's analyze the answer choices:\n\nA) Systemic vascular resistance: This would likely be increased in this patient due to hypovolemia and the body's attempt to maintain blood pressure.\n\nB) Fractional tissue oxygen extraction: This would likely be increased in this patient due to poor peripheral perfusion and the body's attempt to extract more oxygen from the available blood supply.\n\nC) Carotid baroreceptor firing activity: This would likely be decreased in this patient due to hypovolemia and low blood pressure, which would reduce the stretch on the carotid baroreceptors.\n\nD) Pulmonary vascular resistance: This might be increased in this patient due to hypoxemia and possible hypoxic pulmonary vasoconstriction, but it is not the most likely answer compared to the other choices.\n\nE) Cardiac inotropy: This might be increased in this patient as a compensatory mechanism to maintain cardiac output in the face of hypovolemia and decreased preload.\n\nBased on the analysis, the most likely decreased parameter in this patient compared to a healthy adult is C) Carotid baroreceptor firing activity.",
+                        "answers": [
+                            {
+                                "id": "21dddc76-a72f-488e-a992-baf85793d405",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Carotid baroreceptor firing activity.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:54:53",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_532",
+                "ref_id": "",
+                "question": "A 38-year-old man is brought to the emergency room by his father because of altered mental status. According to the father, the patient was unable to get out of bed that morning and has become increasingly confused over the past several hours. The father also noticed it was \u201cpretty cold\u201d in his son's apartment because all of the windows were left open overnight. He has a history of hypothyroidism, schizoaffective disorder, type 2 diabetes mellitus, dyslipidemia, and hypertension for which he takes medication. Ten days ago, he was started on a new drug. He appears lethargic. His rectal temperature is 32\u00b0C (89.6\u00b0F), pulse is 54/min, respirations are 8/min, and blood pressure is 122/80 mm Hg. Examination shows weakness in the lower extremities with absent deep tendon reflexes. Deep tendon reflexes are 1+ in the upper extremities. The pupils are dilated and poorly reactive to light. Throughout the examination, the patient attempts to remove his clothing. Which of the following drugs is the most likely cause of these findings?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Lisinopril",
+                    "Fluphenazine",
+                    "Tolbutamide",
+                    "Levothyroxine",
+                    "Atorvastatin\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Fluphenazine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "65e1742b-9ce9-430e-a314-e3993fccf82f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the patient's symptoms and signs\n- Altered mental status\n- Unable to get out of bed\n- Confusion\n- Cold environment\n- Lethargy\n- Hypothermia (rectal temperature 32\u00b0C / 89.6\u00b0F)\n- Bradycardia (pulse 54/min)\n- Bradypnea (respirations 8/min)\n- Normal blood pressure (122/80 mm Hg)\n- Weakness in lower extremities\n- Absent deep tendon reflexes in lower extremities\n- 1+ deep tendon reflexes in upper extremities\n- Dilated and poorly reactive pupils\n- Attempts to remove clothing\n\nStep 2: Analyze the possible drugs and their side effects\nA) Lisinopril - an ACE inhibitor used for hypertension. Side effects include cough, dizziness, and hyperkalemia. It does not match the patient's symptoms.\nB) Fluphenazine - an antipsychotic used for schizoaffective disorder. Side effects include extrapyramidal symptoms, sedation, and anticholinergic effects. It can cause neuroleptic malignant syndrome, which presents with fever, altered mental status, and muscle rigidity. However, the patient has hypothermia, not fever.\nC) Tolbutamide - a sulfonylurea used for type 2 diabetes. Side effects include hypoglycemia, weight gain, and gastrointestinal symptoms. It does not match the patient's symptoms.\nD) Levothyroxine - a thyroid hormone replacement used for hypothyroidism. Side effects include hyperthyroidism symptoms like tachycardia, weight loss, and heat intolerance. It does not match the patient's symptoms.\nE) Atorvastatin - a statin used for dyslipidemia. Side effects include myalgia, liver dysfunction, and gastrointestinal symptoms. It does not match the patient's symptoms.\n\nStep 3: Determine the most likely cause\nBased on the patient's symptoms and the side effects of the drugs, the most likely cause of these findings is:\n\nB) Fluphenazine",
+                        "answers": [
+                            {
+                                "id": "96c415bd-3759-4eda-8ab2-be9baec46dc8",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Fluphenazine.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:02:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_533",
+                "ref_id": "",
+                "question": "A 36-year-old woman presents with increased tiredness and lethargy for the past 4 weeks. Investigations show her hemoglobin level to be 8.6 gm/dL and serum creatinine of 4.6 mg/dL. The serum is negative for antinuclear antibodies (ANA) and positive for C3 nephritic factor. Urinalysis shows a 3+ proteinuria. The renal biopsy demonstrates hypercellular glomerulus with electron dense deposits along the glomerular basement membrane. What is the most likely cause?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Poststreptococcal glomerulonephritis (PSGN)",
+                    "Membrano proliferative glomerulonephritis (MPGN)",
+                    "Rapidly progressive glomerulonephritis (RPGN)",
+                    "Minimal change disease",
+                    "Membranous glomerulonephritis (MGN)"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Membrano proliferative glomerulonephritis (MPGN)"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "03693f86-dee5-44b0-a9c0-77e5f9e42ab5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient is presenting with symptoms of tiredness and lethargy, which can be associated with kidney problems.\n2. Her hemoglobin level is low (8.6 gm/dL), indicating anemia, which can also be a sign of kidney disease.\n3. Her serum creatinine level is elevated (4.6 mg/dL), which is a marker of impaired kidney function.\n4. The serum is negative for antinuclear antibodies (ANA) but positive for C3 nephritic factor. This suggests an immune-mediated cause of the kidney disease.\n5. Urinalysis shows significant proteinuria (3+), which is a sign of glomerular damage.\n6. The renal biopsy demonstrates hypercellular glomerulus with electron dense deposits along the glomerular basement membrane, which is a characteristic finding in certain types of glomerulonephritis.\n\nBased on these findings, the most likely cause is:\n\nB) Membrano proliferative glomerulonephritis (MPGN)\n\nMPGN is characterized by immune complex deposition in the glomerulus, leading to inflammation and damage. The presence of C3 nephritic factor and the biopsy findings support this diagnosis. Other options like PSGN, RPGN, minimal change disease, and MGN do not fit the clinical and laboratory findings as well as MPGN.",
+                        "answers": [
+                            {
+                                "id": "ff352eae-877b-4480-8a16-ffe2e8e38314",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Membrano proliferative glomerulonephritis (MPGN)",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:03:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_617",
+                "ref_id": "",
+                "question": "A microbiologist has isolated several colonies of Escherichia coli on an agar plate. The microbiologist exposes the agar plate to ciprofloxacin, which destroys all of the bacteria except for one surviving colony. Which of the following is the most likely mechanism of antibiotic resistance in the surviving colony?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Replacement of D-alanine",
+                    "Mutation of DNA gyrase",
+                    "Inactivation by bacterial transferase",
+                    "Production of \u03b2-lactamase",
+                    "Modification of surface binding proteins"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Mutation of DNA gyrase"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a0adf7af-e582-4356-858d-2ecee424d68e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Replacement of D-alanine: This mechanism is related to resistance against antibiotics that target cell wall synthesis, such as vancomycin. Ciprofloxacin is a fluoroquinolone antibiotic, which targets DNA replication, not cell wall synthesis. So, this option is not correct.\n\nB) Mutation of DNA gyrase: Ciprofloxacin is a fluoroquinolone antibiotic that targets DNA gyrase, an enzyme involved in DNA replication. A mutation in DNA gyrase could potentially lead to resistance against ciprofloxacin. This option is a possibility.\n\nC) Inactivation by bacterial transferase: This mechanism is related to resistance against aminoglycoside antibiotics, which are inactivated by bacterial transferases. Ciprofloxacin is not an aminoglycoside antibiotic, so this option is not correct.\n\nD) Production of \u03b2-lactamase: This mechanism is related to resistance against \u03b2-lactam antibiotics, such as penicillins and cephalosporins. Ciprofloxacin is not a \u03b2-lactam antibiotic, so this option is not correct.\n\nE) Modification of surface binding proteins: This mechanism is related to resistance against antibiotics that target bacterial surface proteins, such as penicillins. Ciprofloxacin targets DNA replication, not surface proteins, so this option is not correct.\n\nBased on the analysis, the most likely mechanism of antibiotic resistance in the surviving colony is:\n\nB) Mutation of DNA gyrase",
+                        "answers": [
+                            {
+                                "id": "d79be746-4f01-4b43-b50b-8569bf5995d3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Mutation of DNA gyrase.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:09:10",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_647",
+                "ref_id": "",
+                "question": "A 2-month-old girl is brought to the pediatrician by her concerned father. He states that ever since her uncomplicated delivery she has failed to gain weight, has had chronic diarrhea, and has had multiple bacterial and viral infections. During the course of the workup, an absent thymic shadow is noted and a lymph node biopsy demonstrates the absence of germinal centers. Which of the following is the most likely cause of this patient's symptoms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Defect in WASP gene",
+                    "Defect in ATM gene",
+                    "Adenosine deaminase deficiency",
+                    "NADPH oxidase deficiency",
+                    "Defect in BTK gene"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Adenosine deaminase deficiency"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b352d1e6-c282-47cf-a6a0-dcb6bba04957",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Defect in WASP gene: This would cause Wiskott-Aldrich syndrome, which is characterized by eczema, thrombocytopenia, and immunodeficiency. However, it does not typically present with an absent thymic shadow or absence of germinal centers.\n\nB) Defect in ATM gene: This would cause ataxia-telangiectasia, which is characterized by progressive cerebellar ataxia, telangiectasias, and immunodeficiency. However, it does not typically present with an absent thymic shadow or absence of germinal centers.\n\nC) Adenosine deaminase deficiency: This is a cause of severe combined immunodeficiency (SCID), which can present with failure to thrive, chronic diarrhea, and recurrent infections. The absence of a thymic shadow and germinal centers is also consistent with SCID.\n\nD) NADPH oxidase deficiency: This would cause chronic granulomatous disease, which is characterized by recurrent infections with catalase-positive organisms. However, it does not typically present with an absent thymic shadow or absence of germinal centers.\n\nE) Defect in BTK gene: This would cause X-linked agammaglobulinemia, which is characterized by recurrent infections and low levels of immunoglobulins. However, it does not typically present with an absent thymic shadow or absence of germinal centers.\n\nBased on the clinical presentation and the findings of an absent thymic shadow and absence of germinal centers, the most likely cause of this patient's symptoms is:\n\nC) Adenosine deaminase deficiency",
+                        "answers": [
+                            {
+                                "id": "427fdc9d-727e-41e0-83be-3ade0cfbdf75",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Adenosine deaminase deficiency.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:11:16",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_733",
+                "ref_id": "",
+                "question": "A 1-month-old girl is brought to the emergency department with persistent vomiting, dehydration, and irritability. Over the past week, she has been projectile vomiting after most feedings. Initially, the vomiting would occur just once or twice a day, but now it occurs after every feed. However, her appetite hasn\u2019t decreased, and she seeks milk right after each episode of vomiting. She was born at 39 weeks gestation via spontaneous vaginal delivery and is breastfed exclusively. On physical exam, the vital signs include: temperature 37.5\u00b0C (99.5\u00b0F), blood pressure 85/55 mm Hg, respiratory rate 28/min, and heart rate 150/min. On examination, she appears to be mildly dehydrated, listless, and irritable. Her abdomen is soft and nontender with a palpable olive-shaped mass in the epigastric region. Which of the following acid-base disturbances is most likely associated with this patient\u2019s condition?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Respiratory alkalosis",
+                    "Metabolic acidosis",
+                    "Metabolic alkalosis",
+                    "Respiratory acidosis",
+                    "Mixed respiratory and metabolic acidosis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Metabolic alkalosis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1d8eed3d-5dae-4512-b135-85d9236aa337",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the patient's condition\nThe patient is a 1-month-old girl with persistent vomiting, dehydration, and irritability. She has projectile vomiting after most feedings and a palpable olive-shaped mass in the epigastric region. These findings are suggestive of pyloric stenosis, a condition in which the opening between the stomach and the small intestine (the pylorus) becomes narrowed, causing obstruction and vomiting.\n\nStep 2: Determine the acid-base disturbance associated with the condition\nPyloric stenosis leads to persistent vomiting, which results in the loss of gastric acid (hydrochloric acid). This loss of acid leads to a decrease in hydrogen ions (H+) in the body, causing an increase in bicarbonate ions (HCO3-) and a subsequent increase in blood pH. This is known as metabolic alkalosis.\n\nStep 3: Choose the correct answer\nBased on the information above, the most likely acid-base disturbance associated with this patient's condition is metabolic alkalosis (C).",
+                        "answers": [
+                            {
+                                "id": "a2b5b575-e01a-44d0-8e0b-860b99cf3c17",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Metabolic alkalosis.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:18:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_861",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the physician because of a 3-day history of fatigue and yellow discoloration of his skin. One week ago, he had an upper respiratory tract infection. Examination shows jaundice of the skin and conjunctivae. The spleen tip is palpated 2 cm below the left costal margin. His hemoglobin concentration is 9.4 g/dl and his mean corpuscular hemoglobin concentration is 39% Hb/cell. A Coombs test is negative. A peripheral blood smear is shown. This patient is at greatest risk for which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Malaria",
+                    "Acute myelogenous leukemia",
+                    "Cholecystitis",
+                    "Renal papillary necrosis",
+                    "Splenic sequestration crisis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cholecystitis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "13670d20-50ce-4f94-b313-1b152e0b2020",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient has a history of fatigue, yellow discoloration of the skin (jaundice), and an upper respiratory tract infection. These symptoms suggest a possible hemolytic anemia.\n\n2. The physical examination shows jaundice of the skin and conjunctivae, and the spleen tip is palpated 2 cm below the left costal margin. This indicates that the patient has an enlarged spleen (splenomegaly), which is often seen in hemolytic anemias.\n\n3. The patient's hemoglobin concentration is 9.4 g/dl, which is low, and his mean corpuscular hemoglobin concentration is 39% Hb/cell, which is within the normal range. This suggests that the anemia is not due to a lack of hemoglobin production but rather to an increased destruction of red blood cells.\n\n4. The Coombs test is negative, which means that the hemolytic anemia is not caused by an autoimmune process.\n\n5. The peripheral blood smear is not shown, but we can assume that it shows signs of hemolysis, such as fragmented red blood cells or spherocytes.\n\nBased on this information, the patient is most likely experiencing a hemolytic anemia, possibly due to a recent infection. Now let's consider the possible complications listed in the answer choices:\n\nA) Malaria - This is a parasitic infection that can cause hemolytic anemia, but there is no indication that the patient has been exposed to malaria or has any risk factors for this disease.\n\nB) Acute myelogenous leukemia - This is a type of blood cancer that can cause anemia, but it is not typically associated with hemolytic anemia or the patient's symptoms.\n\nC) Cholecystitis - This is inflammation of the gallbladder, which can be a complication of hemolytic anemia due to the increased production of bilirubin and the formation of gallstones. This is a possible complication for this patient.\n\nD) Renal papillary necrosis - This is a rare condition that can be caused by a variety of factors, including hemolytic anemia. However, it is not the most likely complication for this patient.\n\nE) Splenic sequestration crisis - This is a complication of hemolytic anemia in which the spleen suddenly enlarges and traps a large number of red blood cells, leading to a rapid drop in hemoglobin levels. This is a possible complication for this patient, especially given",
+                        "answers": [
+                            {
+                                "id": "1f8c90a6-05df-47f0-a53e-6d31b5ed490a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Cholecystitis.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:23:42",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_911",
+                "ref_id": "",
+                "question": "A previously healthy 27-year-old woman comes to the physician because of a 2-month history of depressed mood and fatigue. During this time, she has had a 5-kg (11-lb) weight gain. She reports trouble concentrating at her job as a preschool teacher and has missed work several times in recent weeks due to generalized fatigue. She has smoked 2 packs of cigarettes daily for 10 years and is actively trying to quit smoking. A drug is prescribed that will treat the patient's mood disturbance and support smoking cessation. This patient should be counseled about which of the following possible side effects of this drug?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Decreased libido",
+                    "Hypotension",
+                    "Urinary retention",
+                    "Tachycardia",
+                    "QTc prolongation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Tachycardia"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "38dcbb62-b081-41b7-9fd5-30c9f1534ad4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the drug that treats both mood disturbance and supports smoking cessation.\nThe drug that fits this description is Bupropion.\n\nStep 2: Determine the possible side effects of Bupropion.\nSome common side effects of Bupropion include:\n- Insomnia\n- Dry mouth\n- Nausea\n- Headache\n- Dizziness\n- Increased heart rate (tachycardia)\n- Increased blood pressure\n\nStep 3: Match the side effects with the options given.\nFrom the list of side effects, the one that matches the options given is:\n\nD) Tachycardia\n\nSo, the patient should be counseled about the possible side effect of tachycardia.",
+                        "answers": [
+                            {
+                                "id": "bed5c96d-cc1b-40ed-9c80-f4fc12b8a030",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Tachycardia.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:25:43",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_966",
+                "ref_id": "",
+                "question": "A 59-year-old man complains of chest pain that has been present for 4 hours on the 5th day of hospitalization for acute myocardial infarction. 5 days ago, he had a burning sensation in his chest and discomfort in his left shoulder. Upon initial presentation to the hospital\u2019s emergency department, he was diagnosed with an ST-elevation myocardial infarction and treated with alteplase. He has been under close observation since then. The patient now describes discomfort in his chest and left shoulder, somewhat similar in nature to what initially brought him into the hospital. A pulse of 86/min, respiratory rate of 16/min, and a blood pressure of 146/90 mm Hg are observed. Auscultation of the chest reveals no abnormal findings. The patient\u2019s ECG is difficult to interpret. Of the following laboratory tests, an abnormal result of which would have the most diagnostic utility?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Alanine aminotransferase",
+                    "Alkaline phosphatase",
+                    "Creatine kinase (CK-MB)",
+                    "Lactate dehydrogenase",
+                    "Troponin T"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Creatine kinase (CK-MB)"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f57b801a-37c0-41d1-8913-e5fd45a2578a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient is presenting with chest pain and discomfort in his left shoulder, similar to his initial symptoms of acute myocardial infarction (AMI). We need to determine which laboratory test would be most useful in diagnosing a possible recurrent AMI or ongoing cardiac issue.\n\nA) Alanine aminotransferase (ALT) - This enzyme is primarily found in the liver and is used to assess liver function. It is not specific to cardiac issues, so it would not be the most useful test in this case.\n\nB) Alkaline phosphatase (ALP) - This enzyme is found in various tissues, including the liver, bones, and kidneys. It is not specific to cardiac issues, so it would not be the most useful test in this case.\n\nC) Creatine kinase (CK-MB) - This is an isoenzyme of creatine kinase that is found primarily in cardiac muscle. Elevated levels of CK-MB can indicate damage to the heart muscle, such as in an AMI. This test would be useful in diagnosing a possible recurrent AMI or ongoing cardiac issue.\n\nD) Lactate dehydrogenase (LDH) - This enzyme is found in many tissues, including the heart, liver, and kidneys. It is not specific to cardiac issues, so it would not be the most useful test in this case.\n\nE) Troponin T - This is a protein found in cardiac muscle and is released into the bloodstream when there is damage to the heart muscle, such as in an AMI. Elevated levels of troponin T can indicate a recent or ongoing AMI.\n\nBased on the information provided, the most useful laboratory test for diagnosing a possible recurrent AMI or ongoing cardiac issue in this patient would be C) Creatine kinase (CK-MB).",
+                        "answers": [
+                            {
+                                "id": "a862dbbd-3b97-4ce0-bbcb-482bda80c30e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Creatine kinase (CK-MB).",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:27:41",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1047",
+                "ref_id": "",
+                "question": "A 57-year-old woman comes to the physician because of a 3-month history of fatigue. She also reports generalized itchiness that started approximately 2 months ago. Two weeks ago, she noticed yellowing of her eyes. She does not smoke or drink alcohol. She uses eyedrops for persistent dryness of the eyes. Her vital signs are within normal limits. Physical examination shows jaundice of the conjunctivae and skin. The mucous membranes of the mouth are dry. The abdomen is soft. The liver edge is palpable 3 cm below the right costal margin. There are generalized skin excoriations. Laboratory studies show:\nHemoglobin 15 g/dL\nLeukocyte count 7,700/mm3\nPlatelet count 332,000/mm3\nSerum\nGlucose 122 mg/dL\nTotal bilirubin 3.1 mg/dL\nDirect 2.5 mg/dL\nAlkaline phosphatase 452 U/L\nAST 155 U/L\nALT 168 U/L\nHepatitis B surface antigen negative\nHepatitis B core IgM antibody negative\nHepatitis B surface antibody positive\nHepatitis C antibody negative\nUltrasonography of the abdomen shows mildly increased echogenicity of the liver. Which of the following additional findings is most likely to be found in this patient?\"",
+                "type": "multiplechoice",
+                "choices": [
+                    "Inferior vena cava thrombosis",
+                    "Cutaneous xanthomas",
+                    "Butterfly-shaped vertebrae",
+                    "Increased CA 19-9 levels",
+                    "Kayser-Fleischer rings\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cutaneous xanthomas"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1b2469fb-01a1-4921-9d1b-ad3fac85f13b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient has a 3-month history of fatigue, generalized itchiness, and jaundice. These symptoms suggest a liver problem.\n2. The patient's laboratory results show elevated total bilirubin, direct bilirubin, alkaline phosphatase, AST, and ALT, which further supports the presence of a liver problem.\n3. The patient has negative hepatitis B and C tests, so viral hepatitis is not the cause of her liver problem.\n4. Ultrasonography of the abdomen shows mildly increased echogenicity of the liver, which can be seen in various liver diseases.\n\nNow let's analyze the answer choices:\n\nA) Inferior vena cava thrombosis: This is not a common finding in liver diseases and does not explain the patient's symptoms and laboratory results.\n\nB) Cutaneous xanthomas: These are deposits of cholesterol in the skin and can be seen in patients with primary biliary cholangitis (PBC) or primary sclerosing cholangitis (PSC), both of which can cause the patient's symptoms and laboratory results.\n\nC) Butterfly-shaped vertebrae: This is a finding in Alagille syndrome, a genetic disorder that affects the liver, heart, and other organs. However, this syndrome typically presents in childhood, not in a 57-year-old woman.\n\nD) Increased CA 19-9 levels: CA 19-9 is a tumor marker that can be elevated in some cancers, including cholangiocarcinoma. However, the patient's symptoms and laboratory results are more suggestive of a non-malignant liver disease.\n\nE) Kayser-Fleischer rings: These are copper deposits in the cornea and are a characteristic finding in Wilson's disease, a genetic disorder that causes copper accumulation in the liver and other organs. However, Wilson's disease typically presents in younger patients and would not explain the patient's negative hepatitis tests.\n\nBased on the patient's symptoms, laboratory results, and age, the most likely additional finding in this patient is cutaneous xanthomas (choice B). This suggests that the patient may have primary biliary cholangitis (PBC) or primary sclerosing cholangitis (PSC), both of which can cause the patient's symptoms and laboratory results.",
+                        "answers": [
+                            {
+                                "id": "d2989863-2926-48fc-92ff-091fb48f9db3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Cutaneous xanthomas.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:35:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1067",
+                "ref_id": "",
+                "question": "A 27-year-old woman, gravida 1, para 0, at 38 weeks' gestation is admitted to the hospital for active labor. The pregnancy was complicated by gestational diabetes and fetal weight is estimated to be at the 90th percentile for gestational age. During delivery, there is an arrest in the second stage of labor, and a vacuum-assisted delivery is performed. Postpartum examination shows a third-degree laceration in the vagina extending into the perineum at the 6 o'clock position. This patient is most likely to experience which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Urge incontinence",
+                    "Vesicovaginal fistula",
+                    "Fecal incontinence",
+                    "Small bowel obstruction",
+                    "Stress incontinence"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Fecal incontinence"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "efd7fee0-d409-4d2d-9619-2176265f1839",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A third-degree laceration in the vagina extending into the perineum at the 6 o'clock position involves the anal sphincter. Damage to the anal sphincter can lead to fecal incontinence. Therefore, the correct answer is:\n\nC) Fecal incontinence",
+                        "answers": [
+                            {
+                                "id": "eb17cebc-2d95-4f06-8f4c-1e6b0642dc2f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Fecal incontinence",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:35:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1074",
+                "ref_id": "",
+                "question": "A 24-year-old man with chronic back pain comes to the physician to establish care after moving to Florida. He complains of anxiety, nausea, abdominal cramping, vomiting, and diarrhea for three days. He denies smoking, drinking alcohol, and using illicit drugs. He appears restless. His temperature is 37\u00b0C (98.6\u00b0F), pulse is 110/min, and blood pressure is 150/86 mm Hg. Physical examination shows dilated pupils, diaphoresis, and piloerection. His abdominal exam shows diffuse mild tenderness. There is no rebound tenderness or guarding. His hemoglobin concentration is 14.5 g/dL, leukocyte count is 8,000/mm, and platelet count is 250,000/mm3; serum studies and urinalysis show no abnormalities. Which of the following is the most appropriate pharmacotherapy?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Lorazepam",
+                    "Naltrexone",
+                    "Methadone",
+                    "Morphine",
+                    "Naloxone\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Methadone"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "5f9a83d3-7471-4a53-b1fd-8508dd189e52",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's analyze the patient's symptoms and signs: anxiety, nausea, abdominal cramping, vomiting, diarrhea, restlessness, dilated pupils, diaphoresis, and piloerection. These symptoms are suggestive of opioid withdrawal.\n\nNow, let's go through the answer choices:\n\nA) Lorazepam: This is a benzodiazepine, which is used for anxiety and seizures. It is not the most appropriate treatment for opioid withdrawal.\n\nB) Naltrexone: This is an opioid antagonist used for the management of alcohol and opioid dependence. It is not used for the treatment of acute opioid withdrawal symptoms.\n\nC) Methadone: This is a long-acting opioid agonist used for the treatment of opioid dependence and withdrawal. It helps to alleviate withdrawal symptoms and can be used as a maintenance therapy for opioid dependence.\n\nD) Morphine: This is an opioid analgesic used for pain management. It is not appropriate for treating opioid withdrawal, as it would only exacerbate the patient's dependence.\n\nE) Naloxone: This is an opioid antagonist used for the emergency treatment of opioid overdose. It is not used for the treatment of opioid withdrawal symptoms.\n\nBased on the patient's symptoms and the available options, the most appropriate pharmacotherapy is C) Methadone.",
+                        "answers": [
+                            {
+                                "id": "873ca2aa-5fc3-47a7-a38b-be1a7b2489a5",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Methadone.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:37:26",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1090",
+                "ref_id": "",
+                "question": "A 15-year-old boy is brought to the physician by his mother. His mother reports multiple instances over the past month when she walked into his room while he was masturbating. She is worried he may be going through some sort of \u201cproblem.\u201d He is currently in 9th grade; his mother says that he is the captain of his high school wrestling team and does reasonably well in school. On examination, he seems embarrassed and avoids making eye contact. Physical examination shows no abnormalities. Which of the following is the most appropriate next step in management?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Advise the patient to stop masturbating",
+                    "Measure serum testosterone level",
+                    "Refer the patient for behavioral therapy",
+                    "Reassure the mother",
+                    "Prescribe sertraline"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Reassure the mother"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "08ac9eaa-245d-42eb-af2b-6b450846e4d4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Advise the patient to stop masturbating - This is not an appropriate response, as masturbation is a normal part of adolescent development and not harmful.\n\nB) Measure serum testosterone level - There is no indication in the scenario that the patient has any hormonal issues, so this is not necessary.\n\nC) Refer the patient for behavioral therapy - The patient's behavior is not abnormal or harmful, so there is no need for therapy.\n\nD) Reassure the mother - This seems like the most appropriate response, as the mother is concerned about her son's behavior, which is actually normal for his age.\n\nE) Prescribe sertraline - There is no indication that the patient has any mental health issues that would require medication.\n\nBased on the analysis, the most appropriate next step in management is to reassure the mother (D).",
+                        "answers": [
+                            {
+                                "id": "7802108c-8ddf-42ba-9be6-4baaaec7fafc",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Reassure the mother.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:37:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1120",
+                "ref_id": "",
+                "question": "A 24-year-old woman comes to the physician\u2019s office with concerns about a recent pregnancy. She and her boyfriend had intercourse for the first time a few weeks ago. Two weeks ago she missed her menstrual period. She took several over the counter pregnancy tests that confirmed her pregnancy. She is tearful about the pregnancy and is very concerned. After extensive conversations with her physician and counseling, she decides she wants to medically abort her 6-week pregnancy. Which of the following drugs should be administered to this patient for this purpose?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Megestrol",
+                    "Tamoxifen",
+                    "Terbutaline",
+                    "Mifepristone",
+                    "Copper intrauterine device"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Mifepristone"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "ca03e909-ac6e-4a55-8163-6c4e64e35967",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Megestrol - This is a progestin used for appetite stimulation and hormone replacement therapy, not for abortion.\n\nB) Tamoxifen - This is an estrogen receptor modulator used for breast cancer treatment and prevention, not for abortion.\n\nC) Terbutaline - This is a beta-agonist used for asthma and preterm labor, not for abortion.\n\nD) Mifepristone - This is a progesterone receptor antagonist used for medical abortion. It is typically followed by misoprostol to induce uterine contractions and complete the abortion process.\n\nE) Copper intrauterine device - This is a contraceptive device, not a method for abortion.\n\nBased on this information, the correct answer is D) Mifepristone.",
+                        "answers": [
+                            {
+                                "id": "3456e353-c424-4642-8b30-a178477e4ecd",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Mifepristone.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:41:26",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

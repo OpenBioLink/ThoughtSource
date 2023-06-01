@@ -1,0 +1,60 @@
+annotations: []
+answers:
+- answer: ''
+  answer_extraction: ''
+  answer_extraction_template: ''
+  answer_extraction_text: ''
+  answer_from_choices: ''
+  correct_answer: null
+  id: 471d71d1-cc58-4528-be41-76bfffa3eada
+api_service: ''
+author: ''
+comment: ''
+cot: 'Reasoning:
+
+  The patient is admitted to the labor and delivery suite with mild abdominal cramps,
+  uterine contractions, and a watery vaginal discharge. She has a history of preterm
+  birth. The vital signs are stable. The pelvic examination reveals cervical softening
+  and shortening. Transvaginal ultrasound shows a cervical length of 12 mm, which
+  is consistent with preterm labor. A tocolytic and a single dose of betamethasone
+  are administered. Betamethasone is a corticosteroid that is given to pregnant women
+  who are at risk of preterm delivery. It is given to accelerate fetal lung maturation
+  and reduce the risk of respiratory distress syndrome (RDS) in preterm infants. Betamethasone
+  stimulates the production of surfactant by the fetal lungs. Surfactant is produced
+  by type II pneumocytes in the fetal lungs. Therefore, the correct answer is D) Type
+  II pneumocytes.
+
+
+  Scores of objectives:
+
+  1: 10
+
+  2: 10
+
+  3: 10
+
+  4: 10
+
+  5: 10
+
+  6: 10
+
+  7: 10
+
+  8: 10
+
+  9: 10
+
+  10: 10
+
+  11: 10
+
+  12: '
+cot_trigger: ''
+cot_trigger_template: ''
+date: 2023/05/25 16:08:51
+fragments_version: '0.01'
+id: 351fe9d7-8bcc-4102-bfec-9de255612369
+instruction: ''
+model: '{''name'': '''', ''temperature'': 0, ''max_tokens'': 1600}'
+prompt_text: ''

@@ -1,0 +1,79 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_788",
+                "ref_id": "",
+                "question": "A 26-year-old gravida 2 para 1 at 24 weeks gestation is admitted to the labor and delivery suite with mild abdominal cramps, uterine contractions, and a watery vaginal discharge. She has a history of preterm birth. The vital signs are as follows: blood pressure 125/80 mm Hg; heart rate 100/min; respiratory rate 13/min; and temperature 36.6\u2103 (97.9\u2109). The pelvic examination reveals cervical softening and shortening. Transvaginal ultrasound shows a cervical length of 12 mm, which is consistent with preterm labor. A tocolytic and a single dose of betamethasone are administered. Betamethasone stimulates which fetal cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Type I pneumocytes",
+                    "Goblet cells",
+                    "Bronchial epithelial cells",
+                    "Type II pneumocytes",
+                    "Vascular smooth myocytes"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Type II pneumocytes"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "bb4635f9-59a1-472f-a658-fbc180fa2df2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nPneumocytes are cells that line the alveoli of the lung. Goblet cells secrete mucous. Bronchial epithelial cells line the bronchioles. Vascular smooth myocytes are found in the vasculature.\n\nSo, the answer is D) Type II pneumocytes.",
+                        "answers": [
+                            {
+                                "id": "f4e397e3-9b46-4c6b-ad0c-41f76ffd26e2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D.",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/06/01 17:03:14",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "8cc892b7-a505-4f5e-a1a1-8a102fae0695",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nPneumocytes are cells that line the alveoli of the lung. Goblet cells secrete mucous. Bronchial epithelial cells line the bronchioles. Vascular smooth myocytes are found in the vasculature.\n\nSo, the answer is D) Type II pneumocytes.",
+                        "answers": [
+                            {
+                                "id": "66f80602-0c5a-421a-a491-45cbac9b261a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D.",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/06/01 17:07:35",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

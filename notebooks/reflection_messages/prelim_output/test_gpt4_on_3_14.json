@@ -1,0 +1,371 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_127",
+                "ref_id": "",
+                "question": "A 67-year-old man with peripheral neuropathy comes to the physician for a follow-up examination after the results of serum protein electrophoresis showed monoclonal gammopathy. A complete blood count, serum creatinine, and serum electrolyte concentrations are within the reference ranges. A bone marrow biopsy shows 6% monoclonal plasma cells. Further analysis shows that class I major histocompatibility molecules are downregulated in these monoclonal plasma cells. The proliferation of these monoclonal plasma cells is normally prevented by a class of immune cells that lyse abnormal cells without the need for opsonization, priming, or prior activation. Which of the following best describes this class of immune cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "CD8+ T lymphocytes",
+                    "Bone marrow-derived macrophages",
+                    "CD4+ T lymphocytes",
+                    "Natural killer cells",
+                    "Band neutrophils"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Natural killer cells"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f259b03f-ebdb-4212-a5ce-d65088fed96c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The question is asking about a class of immune cells that can lyse abnormal cells without the need for opsonization, priming, or prior activation. This rules out CD8+ T lymphocytes and CD4+ T lymphocytes, as they require activation and priming before they can lyse abnormal cells. It also rules out bone marrow-derived macrophages and band neutrophils, as they require opsonization before they can phagocytose and lyse abnormal cells.\n\nThe correct answer is therefore D) Natural killer cells. Natural killer cells are able to recognize and lyse abnormal cells without the need for opsonization, priming, or prior activation. They are part of the innate immune system and play an important role in the early defense against viral infections and cancer.",
+                        "answers": [
+                            {
+                                "id": "323b6c85-b5b8-4209-9034-7ef8aaca283d",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Natural killer cells.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/26 10:38:42",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "bc66ba11-60c1-420e-99c0-683dcacbe6c8",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "45405fa5-59cd-4bb1-8598-8415a516637e",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/28 12:30:57",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_482",
+                "ref_id": "",
+                "question": "Patients with the diagnosis of sickle cell anemia make a specific type of hemoglobin known as HgbS. This mutation results in the sickling of their red blood cells when exposed to inciting factors such as hypoxic conditions. Patients are often treated with hydroxyurea, which has which of the following direct effects on their hemoglobin physiology?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increases oxygen carrying capacity of hemoglobin",
+                    "Decreases oxygen carrying capacity of hemoglobin",
+                    "Increases levels of fetal hemoglobin (HgbF)",
+                    "Decreases levels of HgbS",
+                    "Decreases levels of fetal hemoglobin (HgbF)"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Increases levels of fetal hemoglobin (HgbF)"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "bdccea0f-ae02-4d41-8671-05f810da9425",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, we know that patients with sickle cell anemia have a mutation that results in the production of HgbS, which causes their red blood cells to sickle. \n\nNext, we know that hydroxyurea is a medication commonly used to treat sickle cell anemia. \n\nOption A, increasing the oxygen carrying capacity of hemoglobin, is not a direct effect of hydroxyurea. \n\nOption B, decreasing the oxygen carrying capacity of hemoglobin, is not a direct effect of hydroxyurea. \n\nOption C, increasing levels of fetal hemoglobin (HgbF), is a direct effect of hydroxyurea. Hydroxyurea works by increasing the production of HgbF, which is a type of hemoglobin that does not sickle. \n\nOption D, decreasing levels of HgbS, is a direct effect of hydroxyurea. Hydroxyurea works by decreasing the production of HgbS, which is the type of hemoglobin that causes sickling. \n\nOption E, decreasing levels of fetal hemoglobin (HgbF), is not a direct effect of hydroxyurea. \n\nTherefore, the correct answer is either C or D, depending on whether the question is asking about the effect on HgbF or HgbS.",
+                        "answers": [
+                            {
+                                "id": "9408bbca-94fe-4fb0-8154-5da1f86fb302",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "either C or D.",
+                                "answer_from_choices": null,
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/26 10:58:35",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "fde8cf27-aade-4d26-8a28-a22babd5d6f6",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 9\nobj_2: 8\nobj_3: 8\nobj_4: 8\nobj_5: 9\nobj_6: 8\nobj_7: 7\nobj_8: 8\nobj_9: 7\nobj_10: 9\nobj_11: 6",
+                        "answers": [
+                            {
+                                "id": "e009bfcc-56b6-43e3-9afb-1c5601bebbf9",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/28 12:31:11",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_647",
+                "ref_id": "",
+                "question": "A 2-month-old girl is brought to the pediatrician by her concerned father. He states that ever since her uncomplicated delivery she has failed to gain weight, has had chronic diarrhea, and has had multiple bacterial and viral infections. During the course of the workup, an absent thymic shadow is noted and a lymph node biopsy demonstrates the absence of germinal centers. Which of the following is the most likely cause of this patient's symptoms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Defect in WASP gene",
+                    "Defect in ATM gene",
+                    "Adenosine deaminase deficiency",
+                    "NADPH oxidase deficiency",
+                    "Defect in BTK gene"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Adenosine deaminase deficiency"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "9c625a31-eef7-4930-836b-0ad5b6e99a3a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The symptoms of failure to gain weight, chronic diarrhea, and recurrent infections suggest an immunodeficiency disorder. The absent thymic shadow and absence of germinal centers in the lymph node biopsy suggest a T-cell deficiency. \n\nA) Defect in WASP gene: This gene is associated with Wiskott-Aldrich syndrome, which is characterized by eczema, thrombocytopenia, and recurrent infections. It is a B-cell and T-cell disorder, but the absence of germinal centers in the lymph node biopsy suggests a T-cell deficiency, making this answer less likely.\n\nB) Defect in ATM gene: This gene is associated with ataxia-telangiectasia, which is characterized by cerebellar ataxia, telangiectasias, and immunodeficiency. However, this disorder is primarily a B-cell disorder, making this answer less likely.\n\nC) Adenosine deaminase deficiency: This is a severe combined immunodeficiency disorder that affects both B-cells and T-cells. However, the absence of germinal centers in the lymph node biopsy suggests a T-cell deficiency, making this answer less likely.\n\nD) NADPH oxidase deficiency: This is associated with chronic granulomatous disease, which is characterized by recurrent bacterial and fungal infections. However, this disorder primarily affects phagocytic cells, not T-cells, making this answer less likely.\n\nE) Defect in BTK gene: This gene is associated with X-linked agammaglobulinemia, which is characterized by recurrent bacterial infections and absent B-cells. This disorder does not typically affect T-cells, making this answer less likely.\n\nTherefore, the most likely cause of this patient's symptoms is a T-cell deficiency, which is consistent with answer choice C) Adenosine deaminase deficiency.",
+                        "answers": [
+                            {
+                                "id": "97a50ed3-178c-49e9-8d46-c46687294918",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Adenosine deaminase deficiency.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/26 11:09:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d08d8c11-c082-4729-ab97-5fc317214561",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 9\nobj_3: 10\nobj_4: 9\nobj_5: 9\nobj_6: 9\nobj_7: 8\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "8814efcc-547b-4f4f-a3ff-e2c8ea90868c",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/28 12:31:23",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_676",
+                "ref_id": "",
+                "question": "A 75-year-old man is admitted to the hospital because of a 3-day history of a productive cough and shortness of breath. His temperature is 38\u00b0C (100.4\u00b0F) and respirations are 32/min. Crackles are heard over the right upper and the entire left lung fields. Sputum culture confirms infection with Streptococcus pneumoniae. Despite appropriate therapy, the patient dies. A photomicrograph of a section of the lung obtained during the autopsy is shown. Which of the following mediators is most likely responsible for the presence of the cell-type indicated by the arrow?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Immunoglobulin E",
+                    "Platelet activating factor",
+                    "Interferon-gamma",
+                    "Interleukin-10",
+                    "Leukotriene D4"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Platelet activating factor"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f5c9d9cc-c6ad-4191-a33b-073828ff3ac2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Look at the photomicrograph and identify the cell type indicated by the arrow. The arrow points to a eosinophil.\n\nStep 2: Recall which mediators are known to recruit eosinophils. Eosinophils are typically associated with allergic reactions and are recruited by mediators such as immunoglobulin E and leukotriene D4.\n\nStep 3: Eliminate answer choices that are not associated with eosinophil recruitment. Interferon-gamma and interleukin-10 are not typically associated with eosinophil recruitment. Platelet activating factor can recruit eosinophils, but it is not as strongly associated with eosinophil recruitment as immunoglobulin E and leukotriene D4.\n\nStep 4: Choose the answer choice that is most strongly associated with eosinophil recruitment. The best answer is E) Leukotriene D4.\n\nTherefore, the mediator most likely responsible for the presence of eosinophils in the lung section is Leukotriene D4.",
+                        "answers": [
+                            {
+                                "id": "5050fc66-e94c-482b-b1c7-d057888583b9",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Leukotriene D4.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/26 11:11:16",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "03c7c294-53ff-4522-9846-f94dcd2181b0",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 9\nobj_2: 8\nobj_3: 10\nobj_4: 8\nobj_5: 9\nobj_6: 8\nobj_7: 7\nobj_8: 9\nobj_9: 7\nobj_10: 9\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "6409ac95-8c34-4462-9611-5b54d43ac99a",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/28 12:31:38",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1253",
+                "ref_id": "",
+                "question": "A 7 -day-old newborn boy presents to the emergency department with a history of fever, irritability, and generalized erythema. During the first 2 days of clinical manifestations, the parents of the child tried to control the symptoms using acetaminophen; however, the newborn continued to be ill, and blisters were noticeable around the buttocks, hands, and feet. During the physical examination, the vital signs include body temperature 39.0\u00b0C (102.3\u00b0F), heart rate 130/min, and respiratory rate 45/min. Ears, nose, and oral mucosa preserved their integrity, while the skin presents with diffuse blanching erythema and flaccid blisters with a positive Nikolsky\u2019s sign. What is the most likely diagnosis in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Scarlet fever",
+                    "Scalded skin syndrome",
+                    "Impetigo",
+                    "Erysipela",
+                    "Pyoderma"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Scalded skin syndrome"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a14e124d-b33b-4804-adec-4d6c6db179f7",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The clinical manifestations of fever, irritability, and generalized erythema with blisters around the buttocks, hands, and feet suggest a skin infection. The blisters and positive Nikolsky\u2019s sign indicate a blistering disease. The age of the patient (7-day-old newborn) and the diffuse erythema suggest a neonatal onset. \n\nThe most likely diagnosis in this patient is scalded skin syndrome (B), which is caused by exfoliative toxins produced by Staphylococcus aureus. The disease is characterized by diffuse erythema, flaccid blisters, and desquamation of the skin, which can be induced by gentle pressure (positive Nikolsky\u2019s sign). The disease is more common in neonates and young children and can be associated with fever, irritability, and other systemic symptoms. \n\nScarlet fever (A) is a bacterial infection caused by group A Streptococcus, which can cause a diffuse erythematous rash, but it does not typically present with blisters or desquamation. \n\nImpetigo (C) is a bacterial skin infection caused by Staphylococcus aureus or Streptococcus pyogenes, which can present with vesicles or pustules, but it does not typically cause diffuse erythema or blisters. \n\nErysipela (D) is a bacterial skin infection caused by Streptococcus pyogenes, which can cause a well-demarcated erythematous rash with raised borders, but it does not typically present with blisters or desquamation. \n\nPyoderma (E) is a general term for any bacterial skin infection that involves pus formation, but it does not specify the type of lesion or the causative organism.",
+                        "answers": [
+                            {
+                                "id": "6123ba92-7d93-4ab7-a28c-83919b23049a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Scalded skin syndrome.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/26 11:42:06",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "630a71a9-3242-4da4-92f1-bb25ef49137e",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "97faeb99-495c-437a-b73f-47cc0ff437d4",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/28 12:31:53",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

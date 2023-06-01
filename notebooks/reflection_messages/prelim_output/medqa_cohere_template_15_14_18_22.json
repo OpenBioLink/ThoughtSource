@@ -1,0 +1,2271 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_183",
+                "ref_id": "",
+                "question": "A 35-year-old Caucasian female presents to the emergency room with unilateral leg swelling. She reports that she developed painful left-sided leg swelling and redness earlier in the day. She is otherwise healthy and takes no medications. She denies any recent prolonged travel. She experienced a similar episode affecting the opposite leg one year ago and was diagnosed with a thrombus in the right femoral vein. On examination, the left leg is erythematous and swollen. Passive dorsiflexion of the left ankle elicits pain in the left calf. Ultrasound of the leg reveals a thrombus in the left popliteal vein. A genetic workup reveals that she has an inherited condition. What is the most likely pathophysiology of this patient\u2019s condition?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Elevated serum homocysteine",
+                    "Thrombin inhibitor deficiency",
+                    "Deficiency in protein C",
+                    "Auto-antibodies directed against phospholipids",
+                    "Resistance to clotting factor degradation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Resistance to clotting factor degradation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1975a67c-2d72-41ff-a553-fbcca5cf2e31",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has a history of bilateral leg swelling and was diagnosed with a thrombus in the right femoral vein. She is otherwise healthy and takes no medications. She denies any recent prolonged travel. She experienced a similar episode affecting the opposite leg one year ago. Ultrasound of the leg reveals a thrombus in the left popliteal vein. A genetic workup reveals that she has an inherited condition.\n\nThe most likely pathophysiology of this patient\u2019s condition is a deficiency in protein C, which is a natural anticoagulant.",
+                        "answers": [
+                            {
+                                "id": "fc52497e-c113-41a0-9535-68d3c5710c94",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:11:48",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "2ae7175a-dca2-4426-9f8c-634266e2423e",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by providing relevant information from the patient's history, examination, and investigations.\n- [9]\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information.\n- [9]\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response by mentioning the patient's age and the fact that she had a similar episode affecting the opposite leg one year ago.\n- [8]\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy by identifying the most likely pathophysiology of the patient's condition based on her history, examination, and investigations.\n- [9]\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail by providing a clear and concise explanation of the most likely pathophysiology of the patient's condition.\n- [8]\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance by identifying the most likely pathophysiology of the patient's condition and explaining why it is the most likely cause.\n- [9]\n\nobj_7: The response lists and considers all relevant underlying assumptions by mentioning that the patient",
+                        "answers": [
+                            {
+                                "id": "08446ba6-6c9b-4638-8a23-c10a7bc03bd7",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 22:57:47",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "22f25607-0f95-4c29-b2dc-932f0f13dbed",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 9\nobj_4: 10\nobj_5: 9\nobj_6: 10\nobj_7: 10\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "c2e853e6-4fd4-41a4-93ba-dbccb38d8f5d",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:01:36",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "cd8b1026-17d0-433b-b531-18150ff8bbe0",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 9\nobj_4: 10\nobj_5: 8\nobj_6: 9\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "61575778-457f-4306-a022-042ed13cb750",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:12:35",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "4b3ed22e-e061-41ff-a0db-4a166809d129",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by providing relevant information from the patient's history and examination.\n- Good\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information.\n- Good\nobj_3: The response is sensitive to the numerical information provided by the user and accurately incorporates it into the response by mentioning the patient's history of thrombus in the right femoral vein and a genetic workup revealing an inherited condition.\n- Good\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy by identifying protein C deficiency as a natural anticoagulant.\n- Good\nobj_5: The reasoning in the response is structured at an appropriate level of detail by providing a clear explanation of the patient's condition and the role of protein C deficiency in it.\n- Good\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance by identifying protein C deficiency as the most likely pathophysiology of the patient's condition.\n- Good\nobj_7: The response lists and considers all relevant underlying assumptions by mentioning that the patient has an inherited condition and that protein C is a natural anticoagulant.\n- Good\nobj_8: The",
+                        "answers": [
+                            {
+                                "id": "61bc7ff2-75ad-4b74-8303-54ec33aac0c7",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:29:09",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_300",
+                "ref_id": "",
+                "question": "A 5-year-old boy is brought to the physician because of an irregular gait 3 days after receiving age-appropriate vaccinations. Examination of the lower extremities shows no redness or swelling. When the child stands on his right leg, his left leg drops and his pelvis tilts towards the left. Sensation to light touch is normal in both legs. This patient's symptoms are most likely due to the injection of the vaccine into which of the following locations?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Inferolateral quadrant of the right buttock",
+                    "Inferomedial quadrant of the right buttock",
+                    "Inferomedial quadrant of the left buttock",
+                    "Superomedial quadrant of the right buttock",
+                    "Inferolateral quadrant of the left buttock"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Superomedial quadrant of the right buttock"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "ad16068b-9d74-46f1-ad9b-37153d6bf913",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe inferolateral quadrant of the right buttock is the most common site of injection for vaccinations. The patient's symptoms are most likely due to the injection of the vaccine into the inferolateral quadrant of the right buttock.\nSo, the answer is A) Inferolateral quadrant of the right buttock.",
+                        "answers": [
+                            {
+                                "id": "a91e911b-e8ed-4de6-a9cf-db820d13d095",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A) Inferolateral quadrant of the right buttock.",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:19:04",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "88cc42ff-1587-4552-ac6d-7e9d5f978a8f",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down if necessary by identifying the patient's symptoms and asking for the location of the vaccine injection.\n- 10\n\nobj_2: The response considers all relevant information by identifying the patient's symptoms and linking them to the location of the vaccine injection.\n- 10\n\nobj_3: The response is not sensitive to the numerical information provided by the user, as there is no numerical information provided in the question.\n- 5\n\nobj_4: The response does not consider any reasoning strategies, as the answer is based solely on the location of the vaccine injection.\n- 5\n\nobj_5: The reasoning in the response is not structured at an appropriate level of detail, as it consists of a single sentence.\n- 3\n\nobj_6: The response does not give appropriate priorities to different considerations based on their relevance and importance, as there are no different considerations to prioritize.\n- 5\n\nobj_7: The response does not list or consider any relevant underlying assumptions.\n- 1\n\nobj_8: The response is plausible, logically valid, sound, consistent, and coherent, as it correctly identifies the most common site of injection for vaccinations and links it to the patient's symptoms",
+                        "answers": [
+                            {
+                                "id": "5155e9bc-da44-4b61-92a3-9ac908109cc8",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 22:58:07",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a38032f0-53c3-444b-a9cf-241940c876ac",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 8\nobj_4: 10\nobj_5: 9\nobj_6: 9\nobj_7: 9\nobj_8: 10\nobj_9: 8\nobj_10: 9\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "1619ec37-b4d8-4597-b912-a9f8647473ee",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:01:44",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "4a4be8b0-a4a0-456b-8fe7-31279988b652",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 7\nobj_5: 6\nobj_6: 7\nobj_7: 6\nobj_8: 8\nobj_9: 6\nobj_10: 8\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "5e52e17c-0626-407e-9146-d4cdd6aedec0",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:12:43",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a30e5046-6a85-453f-8e29-6286651246a3",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down if necessary by identifying the patient's symptoms and linking them to the location of the vaccine injection.\n- Excellent\n- 10\n\nobj_2: The response considers all relevant information by identifying the location of the vaccine injection and linking it to the patient's symptoms, while avoiding irrelevant information.\n- Excellent\n- 10\n\nobj_3: The response is not sensitive to the numerical information provided by the user, as there is no numerical information provided in the question.\n- N/A\n- N/A\n\nobj_4: The response considers the relevant reasoning strategy by linking the patient's symptoms to the location of the vaccine injection.\n- Good\n- 7\n\nobj_5: The reasoning in the response is not structured at an appropriate level of detail, as it does not provide any sub-questions or reasoning steps.\n- Fair\n- 4\n\nobj_6: The response does not need to give appropriate priorities to different considerations based on their relevance and importance, as there is only one consideration in this question.\n- N/A\n- N/A\n\nobj_7: The response does not list any underlying assumptions.\n- Poor\n- 2\n\nobj_8: The response is",
+                        "answers": [
+                            {
+                                "id": "020af96a-7c15-4985-83b8-eb83f3ba7f46",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:29:31",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_447",
+                "ref_id": "",
+                "question": "A 52-year-old man is brought to the emergency department for recurrent vomiting that began 5 hours ago. He describes the vomitus as bloody and containing black specks. He drinks 10\u201312 beers daily and has not seen a physician in 15 years. He appears pale. His temperature is 36.7\u00b0C (98.1\u00b0F), pulse is 122/min, and blood pressure is 85/59 mm Hg. Physical examination shows decreased radial pulses, delayed capillary refill, multiple spider angiomata, and a distended abdomen. He is oriented to person but not to place or time. Which of the following is most likely decreased in this patient in response to his current condition compared to a healthy adult?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Systemic vascular resistance",
+                    "Fractional tissue oxygen extraction",
+                    "Carotid baroreceptor firing activity",
+                    "Pulmonary vascular resistance",
+                    "Cardiac inotropy"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Carotid baroreceptor firing activity"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a72e4d5c-ab66-428b-b6e6-bc253269b41d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has decreased radial pulses, delayed capillary refill, and multiple spider angiomata, which suggests that he has a low blood pressure. The low blood pressure is likely due to decreased systemic vascular resistance.\nSo, the answer is A) Systemic vascular resistance.",
+                        "answers": [
+                            {
+                                "id": "4fee3658-5160-4490-904d-a9a719f529a3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A) Systemic vascular resistance.",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:23:40",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "2360c7e4-8c74-4d8e-9b28-6b2c8528c187",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The reasoning accurately breaks down the question and interprets it correctly by identifying the key symptoms and linking them to the underlying physiological mechanism.\n- 10\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information. The reasoning focuses on the key symptoms and links them to the underlying physiological mechanism, without introducing extraneous information.\n- 10\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response. The reasoning links the low blood pressure to decreased systemic vascular resistance, which is a plausible physiological mechanism.\n- 10\n\nobj_4: The response considers the most relevant reasoning strategy by linking the key symptoms to the underlying physiological mechanism. The reasoning is straightforward and does not require complex reasoning strategies.\n- 8\n\nobj_5: The reasoning is structured at an appropriate level of detail, by linking the key symptoms to the underlying physiological mechanism. However, it could benefit from further elaboration on the specific mechanisms that lead to decreased systemic vascular resistance.\n- 7\n\nobj_6: The response gives appropriate priority to the key symptoms and their underlying physiological mechanism, which is the most relevant consideration in this case.\n- 10\n\nobj_7: The response",
+                        "answers": [
+                            {
+                                "id": "9769fb0e-21fc-466d-bb62-3fff2626d8ba",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 22:58:27",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "42bb3857-5235-4aac-965a-da5a26f0ce06",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 8\nobj_4: 10\nobj_5: 9\nobj_6: 9\nobj_7: 9\nobj_8: 10\nobj_9: 8\nobj_10: 9\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "22c6f003-ef80-4cba-9f6c-d65cf848e404",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:01:52",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "f948cd57-043f-4cbc-a703-7ac0394a9571",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 8\nobj_4: 9\nobj_5: 8\nobj_6: 9\nobj_7: 8\nobj_8: 9\nobj_9: 8\nobj_10: 9\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "fa87af2d-26a7-4a60-ba87-8ff649d487cf",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:12:51",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "74895390-1587-44b9-a06b-29d7acc4a2de",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the patient's symptoms and determining the likely cause of his low blood pressure. \n- Good\n- 7\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information. \n- Good\n- 8\n\nobj_3: The response is sensitive to the numerical information provided by the user and accurately interprets and incorporates it into the response. \n- Good\n- 8\n\nobj_4: The response considers the relevant reasoning strategy by identifying the likely cause of the patient's low blood pressure based on his symptoms. \n- Good\n- 7\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail by breaking down the patient's symptoms and determining the likely cause of his low blood pressure. \n- Good\n- 7\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance by focusing on the patient's symptoms and determining the likely cause of his low blood pressure. \n- Good\n- 8\n\nobj_7: The response does not list any underlying assumptions. \n- N/A\n- N/A\n\nobj_8: The response is plausible, logically valid",
+                        "answers": [
+                            {
+                                "id": "0c257d57-ddec-44f8-8684-7b2090b7fdc1",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:29:56",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_499",
+                "ref_id": "",
+                "question": "A 30-year-old male presents to his primary care physician complaining of infertility. He and his wife have been trying to get pregnant for the past two years. They have used fertility monitors and other aids without success. A hysterosalpingogram in his wife was normal. The patient has a history of cleft lip and recurrent upper respiratory infections as a child. He was briefly hospitalized for severe pneumonia when he was 9-years-old. His temperature is 98.6\u00b0F (37\u00b0C), blood pressure is 120/85 mmHg, pulse is 90/min, and respirations are 18/min. On examination, he is a healthy-appearing male in no acute distress with fully developed reproductive organs. Notably, cardiac auscultation is silent in the left 5th intercostal space at the midclavicular line. This patient most likely has a mutation in which of the following classes of proteins?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Microtubule monomeric protein",
+                    "Lysosomal trafficking regulator protein",
+                    "Transmembrane ion channel protein",
+                    "Retrograde cytoskeletal motor protein",
+                    "Anterograde cytoskeletal motor protein"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Retrograde cytoskeletal motor protein"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "77400478-d858-4397-b57c-870c278f1c7d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThis patient has a history of pneumonia and recurrent upper respiratory infections, which suggests that he may have a mutation in a transmembrane ion channel protein.",
+                        "answers": [
+                            {
+                                "id": "7dffd1e4-2f55-4cb3-8566-c8c843398749",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C) Transmembrane ion channel protein.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:26:32",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "05fe4709-3356-49a0-80f7-9fb50b2fff9b",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by providing a clear answer to the question. \n- [9]\n\nobj_2: The response considers the relevant information provided in the question and avoids irrelevant information. The reasoning provided is based on the patient's history of pneumonia and recurrent upper respiratory infections, which suggests a mutation in a transmembrane ion channel protein. \n- [8]\n\nobj_3: The response is not sensitive to the numerical information provided in the question, as there is no numerical information relevant to the answer. \n- [1]\n\nobj_4: The response considers the relevant reasoning strategy by linking the patient's history of pneumonia and recurrent upper respiratory infections to a mutation in a transmembrane ion channel protein. \n- [8]\n\nobj_5: The reasoning in the response is not structured through reasoning steps or sub-questions, but it is concise and to the point. \n- [5]\n\nobj_6: The response does not provide any information on how priorities were assigned to different considerations. \n- [1]\n\nobj_7: The response does not list or consider any underlying assumptions. \n- [1]\n\nobj_8: The response is plausible, logically valid, sound, consistent, and coherent",
+                        "answers": [
+                            {
+                                "id": "42dc77ac-263c-4d13-850c-518e3dd368d4",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 22:58:49",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "8fa53f57-5c8a-40e4-b136-fe25b6ceec6c",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 6\nobj_5: 5\nobj_6: 7\nobj_7: 8\nobj_8: 8\nobj_9: 6\nobj_10: 7\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "5dcd2713-0ebc-4525-b475-5659cb997107",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:01:59",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "750cc82f-343e-4ca4-a495-5f68d3f76dcd",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 7\nobj_5: 6\nobj_6: 7\nobj_7: 6\nobj_8: 8\nobj_9: 5\nobj_10: 7\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "e18bf064-0f56-4fa3-94b7-4f64bfe09529",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:12:58",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "6c451692-4acb-409c-abb3-67d87152b40e",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by providing a clear answer to the question asked.\n- Good\n- 7\n\nobj_2: The response considers relevant information by linking the patient's history of pneumonia and recurrent upper respiratory infections to a possible mutation in a transmembrane ion channel protein. However, it does not specifically avoid considering irrelevant information.\n- Satisfactory\n- 6\n\nobj_3: The response does not incorporate any numerical information provided by the user.\n- Inadequate\n- 1\n\nobj_4: The response considers one relevant reasoning strategy by linking the patient's history of pneumonia and recurrent upper respiratory infections to a possible mutation in a transmembrane ion channel protein. However, it does not consider other possible reasoning strategies.\n- Fair\n- 4\n\nobj_5: The reasoning in the response is not structured at an appropriate level of detail, as it does not provide any sub-questions or reasoning steps.\n- Poor\n- 2\n\nobj_6: The response does not give appropriate priorities to different considerations based on their relevance and importance.\n- Poor\n- 2\n\nobj_7: The response does not list or consider any relevant underlying assumptions.\n- Inadequate\n",
+                        "answers": [
+                            {
+                                "id": "62ffd76f-b69d-4c37-8c38-a76e50c6d368",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:30:21",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_533",
+                "ref_id": "",
+                "question": "A 36-year-old woman presents with increased tiredness and lethargy for the past 4 weeks. Investigations show her hemoglobin level to be 8.6 gm/dL and serum creatinine of 4.6 mg/dL. The serum is negative for antinuclear antibodies (ANA) and positive for C3 nephritic factor. Urinalysis shows a 3+ proteinuria. The renal biopsy demonstrates hypercellular glomerulus with electron dense deposits along the glomerular basement membrane. What is the most likely cause?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Poststreptococcal glomerulonephritis (PSGN)",
+                    "Membrano proliferative glomerulonephritis (MPGN)",
+                    "Rapidly progressive glomerulonephritis (RPGN)",
+                    "Minimal change disease",
+                    "Membranous glomerulonephritis (MGN)"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Membrano proliferative glomerulonephritis (MPGN)"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "337d74af-d5a9-41ef-9db6-4dce5be3c318",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nA) Poststreptococcal glomerulonephritis (PSGN)\nB) Membrano proliferative glomerulonephritis (MPGN)\nC) Rapidly progressive glomerulonephritis (RPGN)\nD) Minimal change disease\nE) Membranous glomerulonephritis (MGN)\n\nThe most likely cause is Poststreptococcal glomerulonephritis (PSGN) because the patient has symptoms of a sore throat and the urinalysis shows 3+ proteinuria.",
+                        "answers": [
+                            {
+                                "id": "3a1b8fe7-0e8d-46c3-b863-bcf3456f730d",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A) Poststreptococcal glomerulonephritis (PSGN)",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:28:48",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "65ca994d-47d8-4fdd-9171-776500e97f59",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by providing a specific diagnosis based on the given symptoms and test results.\n- [9] The response accurately interprets the question and breaks it down by providing a specific diagnosis based on the given symptoms and test results. However, the reasoning is not explained in detail, and it is not clear how the diagnosis was reached.\n\nobj_2: The response considers all relevant information and avoids irrelevant information.\n- [8] The response considers all relevant information, such as the patient's symptoms, test results, and biopsy findings, and avoids irrelevant information.\n\nobj_3: The response is sensitive to the numerical information provided by the user and accurately incorporates it into the response.\n- [8] The response is sensitive to the numerical information provided by the user and accurately incorporates it into the response by using the hemoglobin level and serum creatinine to diagnose the patient.\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy.\n- [6] The response does not consider all relevant reasoning strategies and does not explain how the diagnosis was reached.\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail.\n- [6] The reasoning in the response is",
+                        "answers": [
+                            {
+                                "id": "f25bc60f-7a86-4320-8b38-0368868fdea7",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 22:59:10",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ee5448a3-4ad3-43f3-85b1-a05c4e5873b3",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 6\nobj_5: 6\nobj_6: 7\nobj_7: 7\nobj_8: 8\nobj_9: 6\nobj_10: 7\nobj_11: 8",
+                        "answers": [
+                            {
+                                "id": "33e68d29-edcf-42d1-8349-e642fdf6dc11",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:02:07",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "800715f2-5c72-4df6-83e2-989219c95566",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 7\nobj_5: 6\nobj_6: 7\nobj_7: 7\nobj_8: 8\nobj_9: 6\nobj_10: 7\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "9823fefd-749e-4e08-88e2-dfd576f304d2",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:13:07",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "f708bf6a-da57-4af5-9f40-c9e1af618375",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by providing a diagnosis based on the given symptoms and test results.\n- Good\n- 7\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information.\n- Good\n- 8\n\nobj_3: The response is not sensitive to the numerical information provided by the user, as it does not incorporate the hemoglobin level or serum creatinine into the reasoning.\n- Poor\n- 2\n\nobj_4: The response does not consider all relevant reasoning strategies, as it only focuses on the symptoms and urinalysis results, and does not mention the electron dense deposits seen on renal biopsy.\n- Poor\n- 3\n\nobj_5: The reasoning in the response is not structured at an appropriate level of detail, as it only provides a single sentence explanation without any sub-questions or reasoning steps.\n- Inadequate\n- 1\n\nobj_6: The response does not give appropriate priorities to different considerations based on their relevance and importance, as it only focuses on one symptom and does not consider other relevant factors such as the renal biopsy results.\n- Poor\n- 3\n\nobj_7: The response does not list or consider any relevant underlying",
+                        "answers": [
+                            {
+                                "id": "9a7f70ae-5edb-4247-9c25-6132a0297d88",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:30:46",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_596",
+                "ref_id": "",
+                "question": "Six hours after birth, a newborn boy is evaluated for tachypnea. He was delivered at 41 weeks' gestation via Caesarian section and the amniotic fluid was meconium-stained. His respiratory rate is 75/min. Physical examination shows increased work of breathing. X-rays of the abdomen and chest show no abnormalities. Echocardiography shows elevated pulmonary artery pressure. He is started on an inhaled medication that increases smooth muscle cGMP, and there is immediate improvement in his tachypnea and oxygenation status. Three hours later, the newborn is tachypneic and there is blue-grey discoloration of the lips, fingers, and toes. Which of the following is the most likely cause of this infant's cyanosis?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increase in concentration of serum myoglobin",
+                    "Closure of the ductus arteriosus",
+                    "Oxidization of Fe2+ to Fe3+",
+                    "Inhibition of mitochondrial cytochrome c oxidase",
+                    "Allosteric alteration of heme groups"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Oxidization of Fe2+ to Fe3+"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "da1e6546-6927-4898-94c5-a0917cf6bb67",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe newborn is tachypneic and there is blue-grey discoloration of the lips, fingers, and toes. This is most likely caused by inhibition of mitochondrial cytochrome c oxidase, which is a key enzyme in the electron transport chain.",
+                        "answers": [
+                            {
+                                "id": "5e4bc855-4fde-4e14-9b81-0acc6f3a1d99",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:31:36",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "8648ad19-a8d5-43da-9da6-97c7860042b1",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the key information and symptoms presented in the case. \n- [9]\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information. The reasoning focuses on the symptoms presented and the likely cause of the cyanosis, without introducing extraneous information. \n- [10]\n\nobj_3: The response does not incorporate numerical information provided by the user, so this objective is not applicable. \n- [N/A]\n\nobj_4: The response considers the relevant reasoning strategy by identifying the likely cause of the cyanosis based on the symptoms presented and the known effects of the inhaled medication. \n- [9]\n\nobj_5: The reasoning is structured at an appropriate level of detail, with a clear explanation of the likely cause of the cyanosis based on inhibition of mitochondrial cytochrome c oxidase. \n- [8]\n\nobj_6: The response does not provide information on the priorities given to different considerations, so this objective is not applicable. \n- [N/A]\n\nobj_7: The response does not list or consider underlying assumptions, so this objective is not applicable. \n- [N/A]\n\nobj_8: The response is plausible,",
+                        "answers": [
+                            {
+                                "id": "af06e8a5-394e-49f9-9da0-31617750d476",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 22:59:30",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "fd287265-c5e3-4559-9465-7af34b92efca",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 9\nobj_2: 10\nobj_3: 8\nobj_4: 10\nobj_5: 8\nobj_6: 9\nobj_7: 9\nobj_8: 10\nobj_9: 8\nobj_10: 9\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "f836a3a0-70f0-4008-9884-0fffd02b1052",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:02:16",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "6e45032f-0f9b-4d09-a039-a6e8de7723e7",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 9\nobj_5: 8\nobj_6: 8\nobj_7: 8\nobj_8: 9\nobj_9: 8\nobj_10: 8\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "6ce02f57-3658-4631-a59c-e5dd27d53c1f",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:13:15",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "afd57db6-ad5c-4935-a275-ce87223ff1f7",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the symptoms and linking them to a potential cause.\n- Good\n- 7\n\nobj_2: The response considers only relevant information by focusing on the symptoms and linking them to a potential cause.\n- Good\n- 7\n\nobj_3: The response does not incorporate any numerical information, so this objective is not applicable.\n- N/A\n\nobj_4: The response considers the relevant reasoning strategy by linking the symptoms to a potential cause based on the knowledge of the electron transport chain.\n- Good\n- 7\n\nobj_5: The reasoning is not structured into steps or sub-questions, but given the simplicity of the question, this is not necessary.\n- Satisfactory\n- 6\n\nobj_6: The response does not give any indication of prioritizing different considerations, so this objective is not applicable.\n- N/A\n\nobj_7: The response does not list any underlying assumptions, so this objective is not applicable.\n- N/A\n\nobj_8: The response is plausible, logically valid, sound, consistent, and coherent. The reasoning is based on the knowledge of the electron transport chain and its role in cellular respiration.\n- Good\n",
+                        "answers": [
+                            {
+                                "id": "85b2c249-ea26-40e0-a17f-698de1f8fa7c",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:31:12",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_621",
+                "ref_id": "",
+                "question": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Cat bite",
+                    "Human bite",
+                    "Spider bite",
+                    "Fish bite",
+                    "Dog bite"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Dog bite"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "7861bfce-06c6-49cf-9c6e-1c080940cca9",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nHuman bites can cause serious infections. This patient has a history of sickle cell disease, which puts him at increased risk for infection.\nBite marks on the hand with red streaks extending to the elbow are concerning for a human bite.\nTherefore, the final answer is B.",
+                        "answers": [
+                            {
+                                "id": "96f67074-b3db-438b-a2fe-5662e9da82d4",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:32:50",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b77221f0-6b52-40c6-aeae-02ae182e9c43",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down if necessary by identifying the key information and presenting it in a clear and concise manner.\n- [9]\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information. The response focuses on the patient's medical history, symptoms, and physical examination findings to identify the most concerning bite.\n- [9]\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response. The response identifies the patient's vital signs and respiratory rate as indicators of his condition.\n- [8]\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy. The response uses the patient's medical history and physical examination findings to identify the most concerning bite.\n- [9]\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail. The response presents a clear and concise argument that is easy to follow.\n- [8]\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance. The response identifies the patient's medical history and physical examination findings as the most important factors in determining the most concerning bite.\n- [9]\n\nobj_7:",
+                        "answers": [
+                            {
+                                "id": "4376c1e6-146f-481e-9182-ddd871d1c8dd",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 22:59:50",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "087ef0a2-ea72-46f4-9c40-35c03007ac50",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 8\nobj_5: 7\nobj_6: 8\nobj_7: 8\nobj_8: 9\nobj_9: 7\nobj_10: 8\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "bbf15e79-ec49-411d-9412-8cbc70f3f1c1",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:02:24",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b55f95f3-34dd-4481-8b8f-ce27700a0825",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 8\nobj_5: 7\nobj_6: 8\nobj_7: 7\nobj_8: 9\nobj_9: 7\nobj_10: 8\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "e024affc-1e55-4253-8807-4ca2d0052b47",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:13:22",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a8288bbf-5a80-484f-80ff-f6c8f3805e23",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the patient's symptoms and history, and then linking it to the answer options.\n- Good\n- 7\n\nobj_2: The response considers all relevant information, including the patient's medical history, symptoms, and the appearance of the bite marks, while avoiding irrelevant information.\n- Very Good\n- 8\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response by identifying the patient's vital signs and the appearance of the bite marks.\n- Good\n- 7\n\nobj_4: The response considers the relevant reasoning strategy by identifying the risk factors associated with human bites and linking it to the patient's medical history.\n- Good\n- 7\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail by identifying the patient's symptoms and history, and then linking it to the answer options.\n- Satisfactory\n- 6\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance by identifying the patient's medical history and symptoms as the most important factors in determining the answer.\n- Good\n- 7\n\nobj_7",
+                        "answers": [
+                            {
+                                "id": "3be6344c-1630-421c-b060-37ebf5158587",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:31:36",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_647",
+                "ref_id": "",
+                "question": "A 2-month-old girl is brought to the pediatrician by her concerned father. He states that ever since her uncomplicated delivery she has failed to gain weight, has had chronic diarrhea, and has had multiple bacterial and viral infections. During the course of the workup, an absent thymic shadow is noted and a lymph node biopsy demonstrates the absence of germinal centers. Which of the following is the most likely cause of this patient's symptoms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Defect in WASP gene",
+                    "Defect in ATM gene",
+                    "Adenosine deaminase deficiency",
+                    "NADPH oxidase deficiency",
+                    "Defect in BTK gene"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Adenosine deaminase deficiency"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "071fe996-1cc2-4a66-825e-032e15cbe45b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has an immunodeficiency characterized by the absence of germinal centers in lymph nodes, which is most likely caused by a defect in the BTK gene.",
+                        "answers": [
+                            {
+                                "id": "f81f8d50-64b9-4952-aaec-71ba95001f75",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:33:53",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "129b8855-d09e-4d82-a800-33f41fc9df0e",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the key symptoms and diagnostic findings. \n- [9]\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information. \n- [10]\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response. \n- [8]\n\nobj_4: The response considers the relevant reasoning strategy by identifying the immunodeficiency characterized by the absence of germinal centers in lymph nodes and selecting the most appropriate gene defect. \n- [9]\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail by identifying the key diagnostic findings and linking them to the most likely gene defect. \n- [8]\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance by focusing on the key diagnostic findings and selecting the most likely gene defect. \n- [9]\n\nobj_7: The response lists and considers all relevant underlying assumptions by assuming that the diagnostic findings are accurate and that the gene defects listed are the most likely causes of the patient's symptoms. \n- [8]\n\nobj_8: The response is plausible, logically valid, sound,",
+                        "answers": [
+                            {
+                                "id": "25de5341-da16-40bd-bf54-8ce7f6c451f1",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 23:00:11",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "21da4186-5ec9-4a70-b713-73718f498e35",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 8\nobj_4: 10\nobj_5: 9\nobj_6: 9\nobj_7: 10\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "7ccc0b36-f954-440d-9094-15a2b8fe75b5",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:02:32",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "9b501ce7-538e-4b94-bf7a-66069051a6cd",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 8\nobj_4: 9\nobj_5: 8\nobj_6: 9\nobj_7: 9\nobj_8: 9\nobj_9: 8\nobj_10: 9\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "949ca296-b613-40a0-87cf-839600a101e3",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:13:30",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "81a4308b-bcd5-4ca8-b30e-4155f114b0b9",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the key symptoms and diagnostic findings. \n- Good \n- 7\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information. \n- Excellent \n- 9\n\nobj_3: The response is sensitive to the numerical information provided by the user and accurately incorporates it into the response. \n- Good \n- 7\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy by linking the diagnostic findings to the most likely genetic defect. \n- Very Good \n- 8\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail by providing a clear link between the diagnostic findings and the genetic defect. \n- Good \n- 7\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance by focusing on the most likely cause of the patient's symptoms. \n- Good \n- 7\n\nobj_7: The response lists and considers all relevant underlying assumptions by assuming that the diagnostic findings are accurate and that the genetic defects listed are the most likely causes of the patient's symptoms. \n- Satisfactory \n- 6\n\nobj_",
+                        "answers": [
+                            {
+                                "id": "f4ebcf29-a946-426a-b1b2-40384ed11a22",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:32:01",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_724",
+                "ref_id": "",
+                "question": "A 32-year-old man presents to the emergency department with fever, nausea, and vomiting. The patient states that his symptoms started last night and have persisted to this morning. He has a past medical history of asthma, and his current medications include albuterol and fluticasone. His temperature is 102\u00b0F (38.9\u00b0C), blood pressure is 110/60 mmHg, pulse is 95/min, respirations are 17/min, and oxygen saturation is 98% on room air. On physical exam, the patient seems uncomfortable. He requests that the lights in the room stay turned off during the physical exam. The patient's cardiac exam demonstrates a normal rate and rhythm, and his pulmonary exam is clear to auscultation bilaterally. Musculoskeletal exam reveals diminished mobility of the neck in all four directions, with flexion of the neck causing the patient discomfort. Lumbar puncture is performed and results are seen below.\n\nCerebrospinal fluid (CSF):\nCell count: 175/mm^3\nCl-: 119 mEq/L\nGlucose: 49 mg/dL\nPressure: 150 mmH2O\nTotal protein: 55 mg/dL\n\nWhich of the following is the best treatment for this patient's most likely diagnosis?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Acyclovir",
+                    "Amphotericin and 5-flucytosine",
+                    "Ceftriaxone",
+                    "Ceftriaxone and vancomycin",
+                    "IV fluids and monitoring"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "IV fluids and monitoring"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4ea7f082-c335-4a78-b6a0-8fc761d56ba8",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nFirst, we need to determine the most likely diagnosis. Given the patient's age, symptoms, and CSF findings, the most likely diagnosis is cryptococcosis.\nSecond, we need to determine the best treatment for cryptococcosis. The most common treatment for cryptococcosis is amphotericin and 5-flucytosine.\nTherefore, the best answer is B) Amphotericin and 5-flucytosine.",
+                        "answers": [
+                            {
+                                "id": "3eca1e46-552f-4d14-9129-32c716af86ac",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:37:40",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "86051d6f-d8cd-4f69-a410-813b9dd8d73f",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down into two parts: determining the most likely diagnosis and determining the best treatment for that diagnosis.\n- 10\n\nobj_2: The response considers all relevant information, including the patient's symptoms, medical history, medications, physical exam findings, and CSF results, and specifically focuses on the most likely diagnosis and treatment for that diagnosis.\n- 10\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating the CSF results into the reasoning and treatment plan.\n- 10\n\nobj_4: The response considers the most appropriate reasoning strategy by first determining the most likely diagnosis based on the patient's age, symptoms, and CSF findings, and then selecting the most common treatment for that diagnosis.\n- 10\n\nobj_5: The reasoning in the response is structured by breaking down the question into two parts and providing clear steps for determining the most likely diagnosis and treatment. However, it could benefit from more detail on why amphotericin and 5-flucytosine are the most common treatment for cryptococcosis.\n- 8\n\nobj_6: The response appropriately prioritizes determining the most likely diagnosis and treatment for",
+                        "answers": [
+                            {
+                                "id": "81664203-fd35-403c-ad02-e0b0a60bfc0a",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 23:00:32",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d0dddbc9-e308-4082-a50e-253fb85132cc",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 9\nobj_2: 9\nobj_3: 8\nobj_4: 9\nobj_5: 8\nobj_6: 9\nobj_7: 8\nobj_8: 9\nobj_9: 8\nobj_10: 9\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "43240525-b48d-4cd9-9f58-ef61d1d825a4",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:02:40",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a09be32b-47a5-414e-8671-199a0c6fac85",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 8\nobj_4: 9\nobj_5: 8\nobj_6: 8\nobj_7: 8\nobj_8: 9\nobj_9: 8\nobj_10: 8\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "e02af998-9a90-4a3e-8a0e-370e94914a29",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:13:37",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "8055a183-e9c2-4511-b01a-50946484d8bf",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by first determining the most likely diagnosis and then selecting the best treatment option.\n- Excellent\n- 10\n\nobj_2: The response considers all relevant information, including the patient's symptoms, medical history, physical exam findings, and CSF results, and avoids considering irrelevant information.\n- Excellent\n- 10\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response by using the CSF results to determine the most likely diagnosis and treatment.\n- Excellent\n- 10\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy by using the patient's symptoms and CSF results to determine the most likely diagnosis and then selecting the most common treatment for that diagnosis.\n- Excellent\n- 10\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail, breaking down the question into two parts and providing clear reasoning for each part.\n- Excellent\n- 10\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance by first determining the most likely diagnosis and then selecting the best treatment option for that diagnosis.\n- Excellent",
+                        "answers": [
+                            {
+                                "id": "c05301a1-15ab-417d-af7d-3726532dd2e1",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:32:24",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1010",
+                "ref_id": "",
+                "question": "A 25-year-old woman presents to her primary care provider for evaluation of a \"painful mass in my left groin.\" She says that her symptoms began 4 days ago as a painful mass that slowly enlarged, ruptured, and ulcerated. However, she denies fever, chills, dysuria, or hematuria. Three weeks prior to her current symptoms she noted a small, painless ulcer on her labium majorum that resolved after a few days. She admits to having unprotected sex with a male partner a month ago while she was traveling in Southeast Asia. Temperature is 99\u00b0F (37.2\u00b0C), blood pressure is 139/84 mmHg, pulse is 76/min, and respirations are 18/min. Physical examination is significant for left-sided, tender, ulcerative lymph nodes with a dark discoloration. Which of the following is most likely to be seen in this patient's condition?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Donovan bodies on Wright-Giemsa stain",
+                    "Gram-negative rods in school of fish formation on Gram stain",
+                    "PCR positive for Chlamydia trachomatis",
+                    "Positive RPR, VDRL, and FTA-ABS",
+                    "Tzanck smear with multinucleated giant cells"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "PCR positive for Chlamydia trachomatis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "452748c5-c250-4e64-8eed-16f6fe95f6cd",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient's symptoms are most consistent with lymphogranuloma inguinale (LGI), also known as granuloma inguinale. LGI is caused by the obligate intracellular bacteria Leishmania tropica. The most common presentation is a painful, ulcerated lymph node, usually on one side. The bacteria can also cause a painless ulcer on the labium majorum, which usually resolves without treatment. The final diagnosis is often made by detection of the parasite on a Tzanck smear, which shows multinucleated giant cells. The other answers are not relevant to this case.",
+                        "answers": [
+                            {
+                                "id": "d88c5c5c-0154-4654-849d-bfe01058ff85",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:46:30",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b2c23912-c55d-4779-ab45-9930583da9aa",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by providing a diagnosis based on the patient's symptoms and history.\n- [10]\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information by focusing on the patient's symptoms and history to arrive at a diagnosis.\n- [10]\n\nobj_3: The response is not sensitive to the numerical information provided by the user, as there is no numerical information provided in the question stem.\n- [5]\n\nobj_4: The response considers the most appropriate reasoning strategy by using the patient's symptoms and history to arrive at a diagnosis of lymphogranuloma inguinale (LGI).\n- [10]\n\nobj_5: The reasoning in the response is structured by providing a clear explanation of the patient's symptoms and history, and then using that information to arrive at a diagnosis of LGI. The response also explains how the diagnosis is made using a Tzanck smear with multinucleated giant cells.\n- [10]\n\nobj_6: The response gives appropriate priorities to different considerations by focusing on the patient's symptoms and history to arrive at a diagnosis, and then explaining how the diagnosis is made using a Tzanck smear with multinucleated giant cells.\n-",
+                        "answers": [
+                            {
+                                "id": "919b1fa3-8600-4908-ba1f-864cd8abc3a2",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 23:00:53",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7a6199a2-1b01-463a-9142-1d70a1c3ccb0",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 9\nobj_6: 10\nobj_7: 10\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "9e500730-18d0-4ff1-952d-978e9fc50fff",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:02:49",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "64b63cae-8d40-4a5b-860b-a20a80efadf9",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 9\nobj_2: 9\nobj_3: 8\nobj_4: 9\nobj_5: 8\nobj_6: 8\nobj_7: 8\nobj_8: 9\nobj_9: 8\nobj_10: 9\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "7b433c91-1a20-4494-9c18-cb3feb15a2fb",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:13:47",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "802bd5c2-7b74-4508-8834-85df695d9fcd",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by providing a diagnosis based on the patient's symptoms and physical examination.\n- Excellent\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information by focusing on the patient's symptoms and physical examination findings.\n- Excellent\nobj_3: The response is not sensitive to the numerical information provided by the user, as there is no numerical information provided in the question stem.\n- N/A\nobj_4: The response considers the most appropriate reasoning strategy by providing a diagnosis based on the patient's symptoms and physical examination findings.\n- Excellent\nobj_5: The reasoning in the response is structured at an appropriate level of detail by providing a clear explanation of the patient's symptoms and physical examination findings, and how they relate to the diagnosis of LGI.\n- Very Good\nobj_6: The response gives appropriate priorities to different considerations by focusing on the most relevant information for making a diagnosis of LGI.\n- Excellent\nobj_7: The response does not list any underlying assumptions.\n- N/A\nobj_8: The response is plausible, logically valid, sound, consistent, and coherent by providing a clear explanation of the patient's symptoms and physical examination findings, and how",
+                        "answers": [
+                            {
+                                "id": "8558e390-6120-4a83-a98a-c32c3628b313",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:32:48",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1033",
+                "ref_id": "",
+                "question": "A 35-year-old woman presents to the emergency department after losing consciousness at work. On presentation, she is found to be somnolent though she is able to be woken by vocal stimuli. She says that over the last 12 hours, she has been experiencing muscle spasms, blurred vision, dry mouth, and hallucinations. She says that the symptoms started after she went on a hike in the woods and foraged from plants along the way. Physical exam reveals dry red skin and enlarged pupils. Her bladder is also found to be completely full though she says she is unable to urinate. Which of the following drugs would most likely be administered to this patient to treat her symptoms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Atropine",
+                    "Physostigmine",
+                    "Pralidoxime",
+                    "Pyridostigmine",
+                    "Neostigmine"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Physostigmine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "27202087-03d2-4195-a207-b5413e2ad7fe",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient is experiencing symptoms of anticholinergic toxicity. Atropine is an anticholinergic agent that can be used to treat these symptoms.\nSo, the answer is A) Atropine.",
+                        "answers": [
+                            {
+                                "id": "97541193-a63c-4f35-95cf-c239a91131f6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A) Atropine.",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:46:45",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d4fc4c2b-1b75-4e55-a4c7-319349abe0ff",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down if necessary by identifying the symptoms and physical exam findings of the patient and linking them to a potential diagnosis and treatment.\n- [9]\n\nobj_2: The response considers all relevant information by identifying the symptoms, physical exam findings, and the patient's history of foraging from plants in the woods as the likely cause of her symptoms. The response also specifically avoids considering irrelevant information.\n- [9]\n\nobj_3: The response is sensitive to the numerical information provided by the user by identifying the patient's age and the duration of her symptoms (12 hours).\n- [7]\n\nobj_4: The response considers the relevant reasoning strategy by identifying the patient's symptoms as consistent with anticholinergic toxicity and selecting the appropriate treatment for this condition.\n- [9]\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail by identifying the patient's symptoms, physical exam findings, and history of foraging from plants in the woods as the likely cause of her symptoms, and linking them to a potential diagnosis and treatment.\n- [8]\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance by identifying the patient's symptoms and physical exam",
+                        "answers": [
+                            {
+                                "id": "cb11fa1e-3eab-401f-86f0-d2bc2f3822df",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 23:01:14",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "646232be-7b20-48b2-9c64-f00fb7be5f43",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 9\nobj_4: 10\nobj_5: 8\nobj_6: 9\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 9\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "1b7ca15f-a2f3-48fb-8eb5-9f5dfab4363d",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:02:56",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3bd0a0ee-0c38-468a-a675-7170e0140376",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 8\nobj_4: 8\nobj_5: 7\nobj_6: 8\nobj_7: 7\nobj_8: 9\nobj_9: 8\nobj_10: 8\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "d1b8ca86-81ec-416b-b2e8-dfbece362901",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:13:55",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "27f6515b-d758-45cc-b07d-03e1f8e9b886",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the symptoms and asking for the appropriate treatment.\n- Excellent\n- 10\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information.\n- Excellent\n- 10\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response.\n- Fair\n- 4\nExplanation: The response does not incorporate any numerical information provided by the user.\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy.\n- Good\n- 7\nExplanation: The response identifies the symptoms as anticholinergic toxicity and selects Atropine as the most appropriate treatment.\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail.\n- Satisfactory\n- 6\nExplanation: The response provides a brief explanation of the symptoms and the appropriate treatment without any further elaboration.\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance.\n- Good\n- 7\nExplanation: The response prioritizes the identification of the symptoms and the appropriate treatment.\n\nobj_7: The response lists and considers all relevant",
+                        "answers": [
+                            {
+                                "id": "6078d247-6d91-4a06-bedd-fa05badda939",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:33:13",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1068",
+                "ref_id": "",
+                "question": "A 63-year-old man presents to his primary care physician for follow-up. He reports a slow and steady weight gain of 6 pounds over the past 6 months, despite attempts to control his diet and increase his level of exercise. His medications include pravastatin, lisinopril, and hydrochlorothiazide. On exam, his vital signs are stable. He is obese (BMI 32), and his waist circumference is 43 inches. His physician is concerned about an abnormal fasting blood glucose and dyslipidemia. On further work-up with oral glucose tolerance test, the patient is diagnosed with diabetes. Which of the following associations is consistent with this patient\u2019s most likely form of diabetes?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Strong HLA class II gene makeup",
+                    "Pancreatic islet cell amyloid deposition",
+                    "Pancreatic islet cell leukocyte infiltration",
+                    "Auto-antibodies against pancreatic islet cell antigens",
+                    "Unrelated to his abdominal obesity"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Pancreatic islet cell amyloid deposition"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "925245cb-7b46-4b30-bfa7-a6f0b9efcd7f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient's diabetes is most likely type 2, which is associated with obesity, especially abdominal obesity.\nE) Unrelated to his abdominal obesity",
+                        "answers": [
+                            {
+                                "id": "4bcce7d1-a79c-42ed-9dc3-73851b135359",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:48:46",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "da1fd54d-5162-4109-989f-4993576b134c",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the patient's symptoms and asking for the most likely form of diabetes. \n- [9]\n\nobj_2: The response considers all relevant information by taking into account the patient's symptoms, medications, and physical exam findings. It specifically avoids considering irrelevant information by not mentioning any of the other answer options. \n- [9]\n\nobj_3: The response is sensitive to the numerical information provided by the user by incorporating the patient's BMI and waist circumference into the reasoning. \n- [8]\n\nobj_4: The response considers the most appropriate reasoning strategy by identifying the patient's symptoms and using that information to determine the most likely form of diabetes. \n- [9]\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail by identifying the patient's symptoms and using that information to determine the most likely form of diabetes. \n- [8]\n\nobj_6: The response gives appropriate priorities to different considerations by identifying the patient's symptoms and using that information to determine the most likely form of diabetes. \n- [8]\n\nobj_7: The response does not list or consider any underlying assumptions. \n- [5]\n\nobj_8: The response",
+                        "answers": [
+                            {
+                                "id": "7cddb618-d823-4745-983e-30c1e46dc33a",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 23:01:34",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "6c8e8ca6-883a-4876-abd5-cdd1f2d1726d",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 8\nobj_5: 7\nobj_6: 8\nobj_7: 7\nobj_8: 9\nobj_9: 6\nobj_10: 8\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "0e695c87-5bfd-4ebf-8f19-7d3b13d2abb2",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:03:04",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3caf4fa2-fd88-4046-85c7-75be00b1a404",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 7\nobj_5: 6\nobj_6: 8\nobj_7: 6\nobj_8: 9\nobj_9: 6\nobj_10: 8\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "65eba583-4767-44a8-9455-ec9687fcfff4",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:14:03",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7a0ca323-d960-4591-a19a-93ef7d8b4f79",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the patient's symptoms and asking for the most likely form of diabetes.\n- Good\n- 7\n\nobj_2: The response considers all relevant information by taking into account the patient's symptoms, medications, and physical exam findings. It specifically avoids considering irrelevant information.\n- Excellent\n- 9\n\nobj_3: The response is sensitive to the numerical information provided by the user by incorporating the patient's BMI and waist circumference into the reasoning.\n- Good\n- 7\n\nobj_4: The response considers the relevant reasoning strategy by identifying the patient's symptoms and using them to determine the most likely form of diabetes.\n- Good\n- 7\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail by identifying the patient's symptoms and using them to determine the most likely form of diabetes.\n- Satisfactory\n- 6\n\nobj_6: The response gives appropriate priorities to different considerations by focusing on the patient's symptoms and physical exam findings to determine the most likely form of diabetes.\n- Good\n- 7\n\nobj_7: The response does not list or consider any underlying assumptions.\n- N/A\n- N/A\n\n",
+                        "answers": [
+                            {
+                                "id": "7a112c58-ab5d-46d0-8bf2-4d501e8f5ed1",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:33:36",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1123",
+                "ref_id": "",
+                "question": "A 72-year-old woman comes to the physician because of a 1-month history of frequent headaches, double vision, fatigue, and myalgias. Physical examination shows pallor, tenderness to palpation over the temples, and inward deviation of the left eye. Laboratory studies show an erythrocyte sedimentation rate of 65 mm/h. Temporal artery biopsy shows transmural granulomatous inflammation and fragmentation of the internal elastic lamina. Treatment with high-dose intravenous corticosteroids is begun. The patient's condition puts her at greatest risk of developing which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Pulmonary hypertension",
+                    "Lower extremity gangrene",
+                    "Palpable purpura",
+                    "Posterior uveitis",
+                    "Thoracic aortic aneurysm"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Thoracic aortic aneurysm"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "faaa8efb-5606-4855-9e99-a4a1308b1f16",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient's condition puts her at greatest risk of developing pulmonary hypertension. Pulmonary hypertension is a complication of temporal arteritis.",
+                        "answers": [
+                            {
+                                "id": "2ac7e8db-8323-4b69-b8b7-d11485c076e4",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A) Pulmonary hypertension.",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:53:04",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ae8e1312-ec51-4fe0-9ad5-4f1a1165580d",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down if necessary.\n- The response accurately interprets the question and provides a clear and concise answer.\n\n[10]\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information.\n- The response considers all relevant information provided in the question and avoids considering irrelevant information.\n\n[10]\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response.\n- The response does not require numerical information to answer the question.\n\n[10]\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy.\n- The response considers the most appropriate reasoning strategy to answer the question.\n\n[10]\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail.\n- The reasoning in the response is structured and provides a clear explanation.\n\n[10]\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance.\n- The response gives appropriate priority to the most relevant consideration.\n\n[10]\n\nobj_7: The response lists and considers all relevant underlying assumptions.\n- The response does not require underlying assumptions to answer the question.\n\n[10]\n\nobj_8: The",
+                        "answers": [
+                            {
+                                "id": "1aaef1b9-21f2-4fcd-a6c3-92b3cf572245",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 23:01:53",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "2a9b49a0-a6b4-423e-88f0-c96166ecfd5b",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 8\nobj_5: 7\nobj_6: 8\nobj_7: 8\nobj_8: 9\nobj_9: 7\nobj_10: 8\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "2da8b2c9-4c71-4398-8166-376ccd1f0417",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:03:12",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "51d59152-a8bf-46a8-b2a2-ee6b876a3646",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 9\nobj_3: 7\nobj_4: 8\nobj_5: 7\nobj_6: 8\nobj_7: 8\nobj_8: 9\nobj_9: 8\nobj_10: 8\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "1041e041-a9f6-4f30-a29a-ebe80a702f54",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:14:10",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c8c371fe-dc9f-4e8d-a281-d166c0e42ac8",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down if necessary.\n- The response accurately interprets the question and provides a clear and concise answer.\n\n[10]\n\nobj_2: The response considers all relevant information and specifically avoids considering irrelevant information.\n- The response considers all relevant information provided in the question and avoids considering irrelevant information.\n\n[10]\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response.\n- The response accurately incorporates the numerical information provided in the question, such as the erythrocyte sedimentation rate of 65 mm/h.\n\n[9]\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy.\n- The response considers the relevant reasoning strategy by identifying the complication associated with temporal arteritis.\n\n[9]\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail.\n- The reasoning in the response is structured at an appropriate level of detail, providing a clear and concise explanation for the chosen answer.\n\n[9]\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance.\n- The response gives appropriate priority to the most relevant complication associated with temporal arteritis.\n\n[",
+                        "answers": [
+                            {
+                                "id": "ac41d735-b17c-4a9a-8c83-32053385c782",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:34:04",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1194",
+                "ref_id": "",
+                "question": "A 32-year-old male presents to the emergency department because of fever and diarrhea. He was in his normal state of health until 2 weeks ago when he went abroad on a vacation. During his trip he went kayaking, visited spas, interacted with local animals, and ate local foods. Since returning he has had 3-day history of fever, cough, headache, and diarrhea. He drinks socially and has a 15-pack-year history of smoking. On presentation his temperature is 102.3\u00b0F (39.1\u00b0C), blood pressure is 105/62 mmHg, pulse is 91/min, respirations are 18/min, and O2 saturation is 91% on room air. Chest exam reveals fine crackles on auscultation. Chest radiograph reveals patchy infiltrates in both lungs and labs reveal mild hyponatremia and mild elevation of AST/ALT levels. The organism that is most likely responsible for this patient's symptoms is associated with which of the following characteristics?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Can form an endospore",
+                    "Has a rabbit reservoir",
+                    "Has no cell wall",
+                    "Is more common in parrot owners",
+                    "Is transmitted by air conditioning"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Is transmitted by air conditioning"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "52b0fec8-1790-4e39-a449-bcf27bcbc74e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient's symptoms are most likely caused by a bacteria. The patient's travel history and exposure to animals and contaminated water is most consistent with a bacterial infection. The patient's chest radiograph and crackles on auscultation are most consistent with a lower respiratory tract infection. The patient's mild hyponatremia and mild elevation of AST/ALT levels are most consistent with a gram negative rods. The patient's travel history is most consistent with a bacteria that is more common in parrot owners.\nSo, the answer is D) Is more common in parrot owners.",
+                        "answers": [
+                            {
+                                "id": "5bc0879c-8938-4dcd-86d4-a4f3da8ecec5",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:55:29",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "44240131-2fed-4d08-9d54-2fb71c2e8516",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down by identifying the patient's symptoms, travel history, and exposure to animals and contaminated water. \n- [9]\n\nobj_2: The response considers all relevant information, including the patient's symptoms, travel history, exposure to animals and contaminated water, chest radiograph, and lab results. It specifically avoids considering irrelevant information such as the patient's social drinking and smoking history. \n- [9]\n\nobj_3: The response is sensitive to the numerical information provided by the user, accurately interpreting and incorporating it into the response by identifying the patient's mild hyponatremia and mild elevation of AST/ALT levels as most consistent with a gram negative rods. \n- [8]\n\nobj_4: The response considers all relevant reasoning strategies by using the patient's symptoms, travel history, exposure to animals and contaminated water, chest radiograph, and lab results to identify the most likely organism responsible for the patient's symptoms. \n- [9]\n\nobj_5: The reasoning in the response is structured by identifying the patient's symptoms, travel history, exposure to animals and contaminated water, chest radiograph, and lab results as evidence for the most likely organism responsible for the patient's symptoms. \n",
+                        "answers": [
+                            {
+                                "id": "b1977ae9-834c-48ba-ac82-cae52359e0bc",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 23:02:13",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e5bd8d7f-de0e-4c8c-81fd-3f75b6c8ff79",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 10\nobj_2: 10\nobj_3: 8\nobj_4: 10\nobj_5: 9\nobj_6: 9\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "588fe6c5-9a6d-4e78-bee6-fc7c367d7732",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:03:19",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "2e4b442f-d56d-4dd3-98de-e53cc7b1b7e2",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 9\nobj_2: 9\nobj_3: 8\nobj_4: 9\nobj_5: 8\nobj_6: 8\nobj_7: 8\nobj_8: 9\nobj_9: 8\nobj_10: 9\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "654df548-5ccd-4dd8-a038-d6a1f58c92c8",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:14:19",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d302bdab-22bd-4b38-a741-42c44297f15c",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The reasoning accurately breaks down the question and interprets it correctly.\n- 9\n\nobj_2: \n- The response considers all relevant information and avoids irrelevant information.\n- 9\n\nobj_3: \n- The response is sensitive to the numerical information provided by the user and accurately interprets and incorporates it into the response.\n- 8\n\nobj_4: \n- The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy.\n- 8\n\nobj_5: \n- The reasoning in the response is structured at an appropriate level of detail, with clear steps and sub-questions.\n- 8\n\nobj_6: \n- The response gives appropriate priorities to different considerations based on their relevance and importance.\n- 7\n\nobj_7: \n- The response lists and considers all relevant underlying assumptions.\n- 7\n\nobj_8: \n- The response is plausible, logically valid, sound, consistent, and coherent.\n- 9\n\nobj_9: \n- The statements in the response are appropriately supported by references to evidence.\n- 7\n\nobj_10: \n- The response contains accurate, relevant, and up-to-date information, ensuring that the content is both educational and engaging.\n",
+                        "answers": [
+                            {
+                                "id": "141462d7-be9f-4bd3-9ebe-f3766065010d",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:34:29",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1235",
+                "ref_id": "",
+                "question": "A 21-year-old female presents to the clinic requesting prenatal counseling. She was born with a disease that has led her to have recurrent upper respiratory infections throughout her life requiring antibiotic prophylaxis and chest physiotherapy as well as pancreatic enzyme replacement therapy. She marries a man (without this disease phenotype) from a population where the prevalence of this disease is 1/100. What is the chance that their child will have the disease of interest?",
+                "type": "multiplechoice",
+                "choices": [
+                    "9/100",
+                    "1/10",
+                    "18/100",
+                    "81/100",
+                    "9/10"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "9/100"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b4d0834b-68af-4104-8780-9b47f5a6186b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nFirst, we need to determine the chance that the husband is a carrier for the disease. We can do this by multiplying the prevalence of the disease in the general population by the chance that any one person in the general population has the disease.\n\n1/100 x 1/2 = 1/200\n\nSo, there is a 1/200 chance that the husband is a carrier for the disease.\n\nNext, we need to determine the chance that the wife is a carrier for the disease. We can do this by multiplying the prevalence of the disease in people with the disease by the chance that any one person with the disease has the disease.\n\n1/100 x 1/2 = 1/200\n\nSo, there is a 1/200 chance that the wife is a carrier for the disease.\n\nNow, we need to determine the chance that both the husband and the wife are carriers for the disease. We can do this by multiplying the chance that the husband is a carrier by the chance that the wife is a carrier.\n\n1/200 x 1/200 = 1/400,000\n\nSo, there is a 1/400,000 chance that both the husband and the wife are carriers for the disease.\n\nFinally, we need to determine the chance that the child will have the disease. We can do this by multiplying the chance that both the husband and the wife are carriers by the chance that any one child of two carriers will have the disease.\n\n1/400,000 x 1/4 = 1/100,000\n\nSo, there is a 1/100,000 chance that the child will have the disease.\n\nNow, we need to convert this to a percentage. We can do this by multiplying the chance that the child will have the disease by 100.\n\n1/100,000 x 100 = 1/10\n\nSo, the chance that the child will have the disease is 1/10.",
+                        "answers": [
+                            {
+                                "id": "29d4a2c9-bd9c-45ac-ada3-7fe24872a033",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) 1/10.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:57:55",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "1fdce534-de52-47e5-9a14-79ae584b06ca",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down into smaller parts to solve the problem.\n- 10\n\nobj_2: The response considers all relevant information and avoids irrelevant information.\n- 10\n\nobj_3: The response is sensitive to the numerical information provided by the user and accurately interprets and incorporates it into the response.\n- 10\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy.\n- 10\n\nobj_5: The reasoning in the response is structured at an appropriate level of detail, with clear steps and sub-questions.\n- 10\n\nobj_6: The response gives appropriate priorities to different considerations based on their relevance and importance.\n- 10\n\nobj_7: The response lists and considers all relevant underlying assumptions.\n- 10\n\nobj_8: The response is plausible, logically valid, sound, consistent, and coherent.\n- 10\n\nobj_9: The statements in the response are appropriately supported by references to evidence.\n- 10\n\nobj_10: The response contains accurate, relevant, and up-to-date information, ensuring that the content is both educational and engaging.\n- 10\n\nobj_11: The response provides a single final",
+                        "answers": [
+                            {
+                                "id": "90c163a6-349e-4844-bb5e-7fc34e2a90de",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/29 23:02:33",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "060a40ea-a28a-4e89-8279-93b4edc3fd02",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 8\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 9\nobj_6: 10\nobj_7: 10\nobj_8: 10\nobj_9: 10\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "edc8451b-4fc9-4da3-910a-7374d451236c",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:03:27",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c3577607-bcbb-4163-aa09-a26d37cf965e",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: 9\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 9\nobj_6: 9\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 9\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "44d819af-6da3-4023-9cc8-586fde7c8c6d",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:14:27",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "6dad3018-5ff3-4ee5-8bec-448f42ac264a",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: The response accurately interprets the question and breaks it down into smaller parts to answer it.\n- [9] The response accurately interprets the question and breaks it down into smaller parts to answer it. The agent identifies the key information in the question and uses it to determine the probability of the child having the disease.\n\nobj_2: The response considers all relevant information and avoids irrelevant information.\n- [9] The response considers all relevant information and avoids irrelevant information. The agent only uses information that is necessary to determine the probability of the child having the disease.\n\nobj_3: The response is sensitive to the numerical information provided by the user and accurately interprets and incorporates it into the response.\n- [10] The response is sensitive to the numerical information provided by the user and accurately interprets and incorporates it into the response. The agent uses the numerical information provided to calculate the probability of the child having the disease.\n\nobj_4: The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy.\n- [9] The response considers all relevant reasoning strategies and selects the most appropriate reasoning strategy. The agent uses conditional probability to determine the probability of the child having the disease.\n\nobj_5: The reasoning in the response is structured at an appropriate",
+                        "answers": [
+                            {
+                                "id": "9e3edba6-cc73-4e92-9c5f-ffca036f533b",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 15:34:54",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

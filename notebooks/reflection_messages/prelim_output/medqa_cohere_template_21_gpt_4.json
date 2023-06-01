@@ -1,0 +1,2196 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_127",
+                "ref_id": "",
+                "question": "A 67-year-old man with peripheral neuropathy comes to the physician for a follow-up examination after the results of serum protein electrophoresis showed monoclonal gammopathy. A complete blood count, serum creatinine, and serum electrolyte concentrations are within the reference ranges. A bone marrow biopsy shows 6% monoclonal plasma cells. Further analysis shows that class I major histocompatibility molecules are downregulated in these monoclonal plasma cells. The proliferation of these monoclonal plasma cells is normally prevented by a class of immune cells that lyse abnormal cells without the need for opsonization, priming, or prior activation. Which of the following best describes this class of immune cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "CD8+ T lymphocytes",
+                    "Bone marrow-derived macrophages",
+                    "CD4+ T lymphocytes",
+                    "Natural killer cells",
+                    "Band neutrophils"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Natural killer cells"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "86b82453-0831-4143-a3d3-dbbe231d8894",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nA) CD8+ T lymphocytes: CD8+ T lymphocytes are a class of immune cells that lyse abnormal cells after opsonization, priming, or prior activation.\nD) Natural killer cells: Natural killer cells are a class of immune cells that lyse abnormal cells without the need for opsonization, priming, or prior activation.",
+                        "answers": [
+                            {
+                                "id": "583d31bc-3943-406f-81c5-067387dd6462",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:08:50",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "4ca11437-13ae-46e3-b020-65abe4fb126a",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the key information needed to answer the question.\n- 10\nobj_2: \n- The response considers relevant information from the question and avoids considering irrelevant information.\n- 10\nobj_3: \n- The response does not involve numerical information, so this objective is not applicable.\n- N/A\nobj_4: \n- The response considers the relevant reasoning strategies by comparing the characteristics of the immune cells and selecting the most appropriate one.\n- 10\nobj_5: \n- The reasoning in the response is structured by comparing the characteristics of the immune cells and providing a brief explanation for the chosen answer.\n- 9\nobj_6: \n- The response gives appropriate priorities to the characteristics of the immune cells and their ability to lyse abnormal cells without the need for opsonization, priming, or prior activation.\n- 10\nobj_7: \n- The response does not explicitly list underlying assumptions, but it does consider the information provided in the question.\n- 8\nobj_8: \n- The response is plausible, logically valid, sound, consistent, and coherent.\n- 10\nobj_9: \n- The statements in the response are",
+                        "answers": [
+                            {
+                                "id": "fdc9fd9b-4217-47b2-8855-6359c51d2cc8",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 01:54:35",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_164",
+                "ref_id": "",
+                "question": "A 70-year-old woman comes to the physician for the evaluation of back pain. For the past six days, she has had a burning pain in her upper right back and chest. She cannot recall any recent injury and has no prior history of back pain. She has a history of hypertension and gastroesophageal reflux. The patient volunteers at an animal shelter three times a week. She does not smoke or drink alcohol. Current medications include ramipril and pantoprazole. The patient appears healthy and well nourished. Her temperature is 36.9\u00b0C (98.42\u00b0F), pulse is 76/min, and blood pressure is 145/92 mm Hg. Examination shows a long erythematous rash covered with multiple clear vesicles and crusty lesions extending from her back to below her right breast. Which of the following is the most likely underlying mechanism of the disease?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Viral reactivation in dorsal root ganglia",
+                    "IgA deposits in the upper dermis",
+                    "Bacterial lymphatic infection of the epidermis",
+                    "Infestation with bloodsucking parasites",
+                    "Brown recluse spider envenomation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Viral reactivation in dorsal root ganglia"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1ae4612f-82df-42c1-a982-7167fca3f9d8",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nA) Viral reactivation in dorsal root ganglia\nB) IgA deposits in the upper dermis\nC) Bacterial lymphatic infection of the epidermis\nD) Infestation with bloodsucking parasites\nE) Brown recluse spider envenomation",
+                        "answers": [
+                            {
+                                "id": "aceff0d0-dc25-42cb-9579-163d2b575caa",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E, Brown recluse spider envenomation.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:11:13",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d126676f-5c03-4e12-91af-85eb964cba89",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately but does not break it down.\n- 7\nobj_2: \n- The response does not consider all relevant information and does not provide reasoning for the chosen answer.\n- 3\nobj_3: \n- The response does not incorporate the numerical information provided in the question.\n- 3\nobj_4: \n- The response does not consider all relevant reasoning strategies and does not select the most appropriate reasoning strategy.\n- 3\nobj_5: \n- The reasoning in the response is not structured and lacks reasoning steps or sub-questions.\n- 3\nobj_6: \n- The response does not give appropriate priorities to different considerations based on their relevance and importance.\n- 3\nobj_7: \n- The response does not list or consider all relevant underlying assumptions.\n- 3\nobj_8: \n- The response is not plausible, logically valid, sound, consistent, or coherent, as it does not provide reasoning for the chosen answer.\n- 3\nobj_9: \n- The statements in the response are not supported by references to evidence.\n- 3\nobj_10: \n- The response does not contain accurate, relevant, or",
+                        "answers": [
+                            {
+                                "id": "6b847bd9-9b38-4fa5-b1b4-237ceabb3f2d",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 01:55:11",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_187",
+                "ref_id": "",
+                "question": "A 65-year-old man with metastatic lung cancer has been experiencing severe, unremitting pain. He has required escalating doses of oral morphine, but is now having dose limiting side-effects. His pain management team recommends using a medication that can reduce his opioid need through interaction with the NMDA-receptor. Which of the following was the most likely recommended agent?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Propofol",
+                    "Ketamine",
+                    "Fentanyl",
+                    "Ketorolac",
+                    "Midazolam"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Ketamine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b11dad51-ffe8-4c8e-832e-7b57803e0ff1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nKetamine is an NMDA-receptor antagonist. Ketamine is used for pain management.\nSo, the answer is B) Ketamine.",
+                        "answers": [
+                            {
+                                "id": "157cd2ce-0ec6-4994-adf5-dca3bc601a86",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) Ketamine.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:12:46",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3df3acb6-fa74-450a-807a-3e7017e4775d",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the need for a medication that interacts with the NMDA-receptor to reduce opioid need.\n- 10\nobj_2: \n- The response focuses on the relevant information, which is the NMDA-receptor interaction, and does not consider irrelevant information.\n- 10\nobj_3: \n- The response does not involve any numerical information, so this objective is not applicable.\n- N/A\nobj_4: \n- The response considers the relevant reasoning strategy, which is identifying the medication that interacts with the NMDA-receptor.\n- 10\nobj_5: \n- The reasoning in the response is structured and straightforward, identifying the correct medication based on its interaction with the NMDA-receptor.\n- 10\nobj_6: \n- The response gives appropriate priority to the consideration of NMDA-receptor interaction, which is the main focus of the question.\n- 10\nobj_7: \n- The response does not explicitly list underlying assumptions, but it assumes that the pain management team's recommendation is based on the NMDA-receptor interaction.\n- 8\nobj_8: \n- The response is plausible, logically valid",
+                        "answers": [
+                            {
+                                "id": "e8ae1623-d19a-4954-92aa-9a34bcf1061d",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 01:55:51",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_223",
+                "ref_id": "",
+                "question": "A 15-year-old girl comes to the physician because of episodic pelvic pain radiating to her back and thighs for 4 months. The pain occurs a few hours before her menstrual period and lasts for 2 days. She has been taking ibuprofen, which has provided some relief. Menses have occurred at regular 28-day intervals since menarche at the age of 12 years and last for 5 to 6 days. She is sexually active with two male partners and uses condoms inconsistently. Vital signs are within normal limits. Physical examination shows no abnormalities. Which of the following is the most likely cause of this patient's symptoms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Endometrial sloughing and uterine contractions mediated by prostaglandin",
+                    "Ascending infection of the uterus, fallopian tubes, ovaries, or surrounding tissue",
+                    "Fluid-filled sac within the ovary",
+                    "Pregnancy",
+                    "Hormone-sensitive smooth muscle tumor of the myometrium"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Endometrial sloughing and uterine contractions mediated by prostaglandin"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "2a395940-84f7-4fe4-b237-f80a34ccb8f4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe most likely cause of this patient's symptoms is ascending infection of the uterus, fallopian tubes, ovaries, or surrounding tissue.",
+                        "answers": [
+                            {
+                                "id": "cdf066cd-e3b0-4d98-a3d6-97841c6476ae",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:15:39",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "81c643a7-6230-455f-8480-2ef42a0b3349",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately, identifying the need to determine the most likely cause of the patient's symptoms.\n- 10\nobj_2: \n- The response does not consider all relevant information, such as the patient's age, the timing and duration of the pain, and the effectiveness of ibuprofen. It also does not avoid considering irrelevant information.\n- 4\nobj_3: \n- The response does not incorporate the numerical information provided, such as the patient's age, the duration of her symptoms, and the regularity of her menstrual cycle.\n- 3\nobj_4: \n- The response does not consider all relevant reasoning strategies, as it does not evaluate each answer option in relation to the patient's symptoms and history.\n- 4\nobj_5: \n- The reasoning in the response is not structured, as it does not provide any reasoning steps or sub-questions to support the chosen answer.\n- 3\nobj_6: \n- The response does not give appropriate priorities to different considerations, as it does not weigh the relevance of the patient's symptoms, history, and risk factors.\n- 3\nobj_7: \n- The response does not list or consider any relevant",
+                        "answers": [
+                            {
+                                "id": "f0fd37e4-9bd2-407d-a504-6ac53babcc36",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 01:56:35",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_255",
+                "ref_id": "",
+                "question": "The Kozak sequence for the Beta-globin gene has a known mutation which decreases, though does not abolish, translation of the Beta-globin mRNA, leading to a phenotype of thalassemia intermedia. What would the blood smear be expected to show in a patient positive for this mutation?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Macrocytic red blood cells",
+                    "Hyperchromic red blood cells",
+                    "Microcytic red blood cells",
+                    "Bite cells",
+                    "Ringed sideroblasts"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Microcytic red blood cells"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "8cf6bf1c-483f-440e-92a9-da9025d9189f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe Kozak sequence for the Beta-globin gene has a known mutation which decreases, though does not abolish, translation of the Beta-globin mRNA, leading to a phenotype of thalassemia intermedia.\n\nA) Macrocytic red blood cells\n\nThis is not the right answer because the patient would have a normal red blood cell size.\n\nB) Hyperchromic red blood cells\n\nThis is not the right answer because the patient would have a normal red blood cell color.\n\nC) Microcytic red blood cells\n\nThis is the right answer because the patient would have a small red blood cell size.",
+                        "answers": [
+                            {
+                                "id": "a0de9631-2c4d-4fd8-a864-d380843258ba",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C) Microcytic red blood cells.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:16:42",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0c85432e-4887-4988-863f-ec0213afc4d0",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and breaks it down by considering the effect of the mutation on the Beta-globin gene and its relation to thalassemia intermedia.\n- 10\nobj_2: \n- The response considers relevant information about the mutation and its effect on red blood cells, while avoiding irrelevant information.\n- 10\nobj_3: \n- The response does not involve any numerical information provided by the user.\n- N/A\nobj_4: \n- The response considers the reasoning strategy of evaluating the effect of the mutation on red blood cells and selects the most appropriate reasoning strategy.\n- 10\nobj_5: \n- The reasoning in the response is structured through reasoning steps, considering each answer option and explaining why it is or isn't the correct answer.\n- 10\nobj_6: \n- The response gives appropriate priorities to different considerations based on their relevance and importance, focusing on red blood cell size and color.\n- 10\nobj_7: \n- The response does not explicitly list underlying assumptions, but it assumes that the mutation leads to a specific phenotype in red blood cells.\n- 8\nobj_8: \n- The response is plausible, logically valid,",
+                        "answers": [
+                            {
+                                "id": "cb351cd4-68e8-4d2a-a871-9e373be0db97",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 01:57:16",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_387",
+                "ref_id": "",
+                "question": "A 6-year-old boy is brought in by his parents to a pediatrician\u2019s office for persistent fever. His temperature has ranged from 38.6\u00b0C\u201339.5\u00b0C (101.5\u00b0F\u2013103.1\u00b0F) over the past week. He was diagnosed with a gene defect on chromosome 7, which has caused dysfunction in a transmembrane protein. This defect has resulted in several hospitalizations for various respiratory infections. At the present time, he is struggling with a cough with thick purulent sputum. A sputum sample is sent for culture and the patient is started on vancomycin.The pediatrician tells the patient\u2019s family that there is a collection of mucus in the respiratory tree which increases the patient's chances of future infections. He will have to undergo chest physiotherapy and they should report any signs of infection immediately to a medical professional. Which of the following pathogens will most likely infect this patient in adulthood?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Staphylococcus",
+                    "Pseudomonas",
+                    "Burkholderia",
+                    "Influenza",
+                    "Candida"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Pseudomonas"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "265102d1-d981-49d3-bbec-660226771a0f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThis patient has a transmembrane protein defect on chromosome 7. The transmembrane protein defect on chromosome 7 is most often caused by a Burkholderia infection. Burkholderia is a gram negative bacteria.",
+                        "answers": [
+                            {
+                                "id": "32af6d6c-f3df-4972-97f4-874fb1ce4446",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:21:22",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b7ac0412-1d4a-4078-bdc0-204af0862fc5",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately, identifying the patient's condition and the need to determine the most likely pathogen to infect the patient in adulthood.\n- 10\nobj_2: \n- The response considers the patient's gene defect and its consequences but does not consider all relevant information about the pathogens listed in the answer options.\n- 6\nobj_3: \n- The response does not specifically address the numerical information provided, but it is not crucial to the reasoning process in this case.\n- 8\nobj_4: \n- The response does not consider all relevant reasoning strategies, as it jumps to the conclusion that the transmembrane protein defect is caused by a Burkholderia infection without considering other possibilities.\n- 5\nobj_5: \n- The reasoning is not structured at an appropriate level of detail, as it does not consider the characteristics of the other pathogens listed in the answer options.\n- 5\nobj_6: \n- The response does not give appropriate priorities to different considerations, as it focuses solely on the gene defect without considering other factors that may influence the likelihood of infection by different pathogens.\n- 5\nobj_7: \n- The response does not list or consider all relevant underlying",
+                        "answers": [
+                            {
+                                "id": "b46d8353-c44d-45ef-8ad8-5c6a072a2bd9",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 01:57:56",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_454",
+                "ref_id": "",
+                "question": "A 42-year-old man presents to a neurologist for evaluation of severe headache. He started experiencing episodic headaches and palpitations 3 months ago; however, he thought that these symptoms were simply related to the stress of moving and starting a new job. He has continued to experience these intermittent headaches and has also noticed that he sweats profusely during these episodes. On presentation his temperature is 99.1\u00b0F (37.3\u00b0C), blood pressure is 163/112 mmHg, pulse is 112/min, and respirations are 15/min. Physical exam reveals pallor and perspiration but is otherwise unremarkable. The most likely cause of this patient's symptoms is produced by cells located in which region of the histology slide shown in figure A?",
+                "type": "multiplechoice",
+                "choices": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "E"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "3867c204-9400-43e1-b375-6c563be60b6c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe answer is C.\n\nThe reasoning is The autonomic nervous system is composed of the sympathetic (S) and parasympathetic (P) nervous system. The autonomic nervous system is always active at some level. The autonomic nervous system is composed of the sympathetic (S) and parasympathetic (P) nervous system. The autonomic nervous system is always active at some level. The autonomic nervous system is composed of the sympathetic (S) and parasympathetic (P) nervous system. The autonomic nervous system is always active at some level..",
+                        "answers": [
+                            {
+                                "id": "33c679a3-ef21-4991-be5e-e1c0eeb3e521",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:24:17",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "802c1c56-e5b5-4844-b30a-5c42906bb817",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately but does not break it down.\n- 7\nobj_2: \n- The response does not consider all relevant information and includes irrelevant information about the autonomic nervous system.\n- 4\nobj_3: \n- The response does not incorporate the numerical information provided in the question.\n- 3\nobj_4: \n- The response does not consider all relevant reasoning strategies and does not select the most appropriate one.\n- 3\nobj_5: \n- The reasoning in the response is not structured and lacks appropriate detail.\n- 3\nobj_6: \n- The response does not give appropriate priorities to different considerations based on their relevance and importance.\n- 3\nobj_7: \n- The response does not list or consider any relevant underlying assumptions.\n- 2\nobj_8: \n- The response is not plausible, logically valid, sound, consistent, or coherent.\n- 2\nobj_9: \n- The statements in the response are not supported by references to evidence.\n- 2\nobj_10: \n- The response does not contain accurate, relevant, or up-to-date information.\n- 2\nobj_11: \n-",
+                        "answers": [
+                            {
+                                "id": "7c39d899-31a2-4df8-89b4-a695c5e15319",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 01:58:45",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_482",
+                "ref_id": "",
+                "question": "Patients with the diagnosis of sickle cell anemia make a specific type of hemoglobin known as HgbS. This mutation results in the sickling of their red blood cells when exposed to inciting factors such as hypoxic conditions. Patients are often treated with hydroxyurea, which has which of the following direct effects on their hemoglobin physiology?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increases oxygen carrying capacity of hemoglobin",
+                    "Decreases oxygen carrying capacity of hemoglobin",
+                    "Increases levels of fetal hemoglobin (HgbF)",
+                    "Decreases levels of HgbS",
+                    "Decreases levels of fetal hemoglobin (HgbF)"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Increases levels of fetal hemoglobin (HgbF)"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a02c2be0-cc41-4581-8358-f2bd15f25ece",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nC) Increases levels of fetal hemoglobin (HgbF)",
+                        "answers": [
+                            {
+                                "id": "460392cb-f80d-4993-b715-54c91e2d2da6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "\nC) Increases levels of fetal hemoglobin (HgbF)",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:24:42",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "81974256-8431-41d5-aa7f-c9c74e27960b",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response accurately interprets the question and breaks it down into relevant information.\n- 10\nobj_2: \n- The response considers relevant information about hydroxyurea and its effect on hemoglobin physiology.\n- 10\nobj_3: \n- The response does not involve numerical information, but it accurately interprets the information provided in the question.\n- 10\nobj_4: \n- The response considers the relevant reasoning strategy by identifying the direct effect of hydroxyurea on hemoglobin physiology.\n- 10\nobj_5: \n- The reasoning is structured at an appropriate level of detail, providing a clear and concise answer.\n- 10\nobj_6: \n- The response gives appropriate priority to the consideration of hydroxyurea's direct effect on hemoglobin physiology.\n- 10\nobj_7: \n- The response does not explicitly list underlying assumptions, but it is clear that the answer is based on the understanding of hydroxyurea's effect on hemoglobin physiology.\n- 9\nobj_8: \n- The response is plausible, logically valid, sound, consistent, and coherent.\n- 10\nobj_9: \n- The response does not provide specific references to",
+                        "answers": [
+                            {
+                                "id": "fa7dcb28-2220-42ef-b0e1-42738e13466b",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 01:59:29",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_499",
+                "ref_id": "",
+                "question": "A 30-year-old male presents to his primary care physician complaining of infertility. He and his wife have been trying to get pregnant for the past two years. They have used fertility monitors and other aids without success. A hysterosalpingogram in his wife was normal. The patient has a history of cleft lip and recurrent upper respiratory infections as a child. He was briefly hospitalized for severe pneumonia when he was 9-years-old. His temperature is 98.6\u00b0F (37\u00b0C), blood pressure is 120/85 mmHg, pulse is 90/min, and respirations are 18/min. On examination, he is a healthy-appearing male in no acute distress with fully developed reproductive organs. Notably, cardiac auscultation is silent in the left 5th intercostal space at the midclavicular line. This patient most likely has a mutation in which of the following classes of proteins?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Microtubule monomeric protein",
+                    "Lysosomal trafficking regulator protein",
+                    "Transmembrane ion channel protein",
+                    "Retrograde cytoskeletal motor protein",
+                    "Anterograde cytoskeletal motor protein"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Retrograde cytoskeletal motor protein"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "77400478-d858-4397-b57c-870c278f1c7d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThis patient has a history of pneumonia and recurrent upper respiratory infections, which suggests that he may have a mutation in a transmembrane ion channel protein.",
+                        "answers": [
+                            {
+                                "id": "7dffd1e4-2f55-4cb3-8566-c8c843398749",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C) Transmembrane ion channel protein.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:26:32",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "904a5440-07c2-437b-9d50-40950f2561c4",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately, identifying the patient's symptoms and the need to determine the class of proteins with a mutation.\n- 10\nobj_2: \n- The response considers the patient's history of pneumonia and recurrent upper respiratory infections but does not consider the cleft lip, infertility, or the silent cardiac auscultation.\n- 5\nobj_3: \n- The response does not specifically address the numerical information provided, such as the patient's age, temperature, blood pressure, pulse, or respirations.\n- 4\nobj_4: \n- The response jumps to a conclusion based on the patient's history of pneumonia and recurrent upper respiratory infections, without considering other relevant reasoning strategies or symptoms.\n- 4\nobj_5: \n- The reasoning is not structured and lacks reasoning steps or sub-questions to arrive at the final answer.\n- 3\nobj_6: \n- The response gives priority to the patient's history of pneumonia and recurrent upper respiratory infections but does not consider other relevant symptoms.\n- 4\nobj_7: \n- The response does not list or consider any underlying assumptions.\n- 1\nobj_8: \n- The response is not entirely plausible, as",
+                        "answers": [
+                            {
+                                "id": "639fdbae-1785-4a03-a72e-e8a4e5db80ef",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:00:15",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_530",
+                "ref_id": "",
+                "question": "A previously healthy 35-year-old woman comes to the emergency department because of sudden weakness of her right arm and leg that started 3 hours ago. She returned from a business trip from Europe 3 days ago. She has smoked a pack of cigarettes daily for 10 years. Her only medication is an oral contraceptive. Her temperature is 38.0\u00b0C (100.4\u00b0F), pulse is 115/min and regular, and blood pressure is 155/85 mm Hg. Examination shows decreased muscle strength on the entire right side. Deep tendon reflexes are 4+ on the right. Babinski sign is present on the right. The left lower leg is swollen, erythematous, and tender to palpation. Further evaluation is most likely to show which of the following?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Patent foramen ovale",
+                    "Atrial myxoma",
+                    "Mitral valve vegetation",
+                    "Atrial fibrillation",
+                    "Carotid artery dissection"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Patent foramen ovale"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "5446a0e1-bd95-429a-8dbf-6a77b2781cdd",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has a history of smoking and has recently traveled to Europe, so pulmonary embolism is a likely diagnosis. Pulmonary embolism would cause decreased blood flow to the right side of the body, which would explain the patient's symptoms.\nB) Atrial myxoma",
+                        "answers": [
+                            {
+                                "id": "87c78c83-9246-44f7-908d-bcbbf1fe5e5e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) Atrial myxoma.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:27:14",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "67c2320f-eb2b-4a6a-8120-4f47f638393b",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately but does not break it down into relevant factors.\n- 7\nobj_2: \n- The response considers the patient's history of smoking and recent travel but does not address other relevant factors such as oral contraceptive use and the swollen left lower leg.\n- 5\nobj_3: \n- The response does not incorporate the numerical information provided, such as temperature, pulse, and blood pressure.\n- 4\nobj_4: \n- The response does not consider all relevant reasoning strategies and jumps to a conclusion based on limited information.\n- 4\nobj_5: \n- The reasoning is not structured and lacks appropriate detail.\n- 4\nobj_6: \n- The response does not give appropriate priorities to different considerations, focusing only on smoking and recent travel.\n- 4\nobj_7: \n- The response does not list or consider all relevant underlying assumptions.\n- 4\nobj_8: \n- The response is not logically valid or sound, as it does not consider all relevant factors and jumps to a conclusion.\n- 4\nobj_9: \n- The statements in the response are not supported by references to evidence.\n- 1\nobj_",
+                        "answers": [
+                            {
+                                "id": "a1eb9779-d59d-4bc1-b5b7-eec78681732b",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:00:57",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_532",
+                "ref_id": "",
+                "question": "A 38-year-old man is brought to the emergency room by his father because of altered mental status. According to the father, the patient was unable to get out of bed that morning and has become increasingly confused over the past several hours. The father also noticed it was \u201cpretty cold\u201d in his son's apartment because all of the windows were left open overnight. He has a history of hypothyroidism, schizoaffective disorder, type 2 diabetes mellitus, dyslipidemia, and hypertension for which he takes medication. Ten days ago, he was started on a new drug. He appears lethargic. His rectal temperature is 32\u00b0C (89.6\u00b0F), pulse is 54/min, respirations are 8/min, and blood pressure is 122/80 mm Hg. Examination shows weakness in the lower extremities with absent deep tendon reflexes. Deep tendon reflexes are 1+ in the upper extremities. The pupils are dilated and poorly reactive to light. Throughout the examination, the patient attempts to remove his clothing. Which of the following drugs is the most likely cause of these findings?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Lisinopril",
+                    "Fluphenazine",
+                    "Tolbutamide",
+                    "Levothyroxine",
+                    "Atorvastatin\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Fluphenazine"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "79b23b4d-0a9c-4197-a132-f5ae04cdef63",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has a history of schizoaffective disorder, so fluphenazine is a likely cause of his findings.",
+                        "answers": [
+                            {
+                                "id": "1639dc0d-9b9a-4998-82bd-4292f1a583de",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) Fluphenazine.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:28:11",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b305ce01-7d6e-472a-b016-70b2079afe2c",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the relevant information about the patient's condition and medical history.\n- 10\nobj_2: \n- The response considers the patient's medical history and symptoms, but does not explicitly consider the effects of the other medications listed in the answer options.\n- 7\nobj_3: \n- The response does not specifically address the numerical information provided, such as the patient's temperature, pulse, respirations, and blood pressure.\n- 5\nobj_4: \n- The response selects the most appropriate reasoning strategy by focusing on the patient's schizoaffective disorder and the new drug started ten days ago.\n- 9\nobj_5: \n- The reasoning is not structured in a detailed manner, but it does provide a clear connection between the patient's schizoaffective disorder and the chosen answer.\n- 7\nobj_6: \n- The response gives appropriate priority to the patient's schizoaffective disorder and the new drug started ten days ago, but does not consider other factors in detail.\n- 7\nobj_7: \n- The response does not list or consider all relevant underlying assumptions, such as the potential effects of the other medications listed in",
+                        "answers": [
+                            {
+                                "id": "a069a606-55af-4011-894d-bbdfbd320472",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:01:40",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_577",
+                "ref_id": "",
+                "question": "A 63-year-old man from the countryside presents with leg swelling and right upper abdominal tenderness. He reports a history of myocardial infarction 4 years ago, but he has no supporting documentation. At the moment, his only medication is aspirin. He also stated that he used to have \u2018high blood sugars\u2019 when checked in the hospital 4 years ago, but he did not follow up regarding this issue. He works as a farmer and noticed that it became much harder for him to work in the last few days because of fatigue and syncope. He has a 24-pack-year history of smoking and consumes alcohol occasionally. The vital signs include: blood pressure 150/90 mm Hg, heart rate 83/min, respiratory rate 16/min, and temperature 36.5\u2103 (97.7\u2109). On physical examination, the patient is pale and acrocyanotic. There is a visible jugular vein distention and bilateral lower leg pitting edema. The pulmonary auscultation is significant for occasional bilateral wheezes. Cardiac auscultation is significant for a decreased S1, S3 gallop, and grade 3/6 systolic murmur best heard at the left sternal border in the 4th left intercostal space. Abdominal percussion and palpation are suggestive of ascites. The hepatic margin is 3 cm below the right costal margin. Hepatojugular reflux is positive. Which of the following is the most likely clinical finding observed in this patient on an echocardiogram?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Left ventricular ejection fraction of 41%",
+                    "Increased peak tricuspid regurgitation",
+                    "Hypokinetic wall of the left ventricle",
+                    "Abnormal left ventricular relaxation",
+                    "Decreased right atrial pressure"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Increased peak tricuspid regurgitation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "35f6ffc8-9563-4855-a94f-869bd13edc43",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has a decreased S1, S3 gallop, and grade 3/6 systolic murmur best heard at the left sternal border in the 4th left intercostal space. These findings are suggestive of a left-sided heart disease. Hypokinetic wall of the left ventricle is the most likely finding in this patient with a left-sided heart disease.",
+                        "answers": [
+                            {
+                                "id": "4a99f68f-313d-4bf6-9e06-2abb189c64eb",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:29:32",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5e9ec99e-e8ee-4043-b627-b9ea1fd8f8aa",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the relevant symptoms and signs presented by the patient.\n- 10\nobj_2: \n- The response considers all relevant information from the patient's history and physical examination, and does not include irrelevant information.\n- 10\nobj_3: \n- The response does not specifically address the numerical information provided, but it does not negatively impact the reasoning or answer.\n- 8\nobj_4: \n- The response considers the most appropriate reasoning strategy by focusing on the patient's symptoms and signs, leading to the conclusion of left-sided heart disease.\n- 9\nobj_5: \n- The reasoning is structured and focuses on the patient's symptoms and signs, leading to the conclusion of left-sided heart disease.\n- 9\nobj_6: \n- The response gives appropriate priority to the patient's symptoms and signs, which are the most relevant and important considerations for determining the most likely clinical finding.\n- 10\nobj_7: \n- The response does not explicitly list underlying assumptions, but it assumes that the patient's symptoms and signs are indicative of left-sided heart disease.\n- 8\nobj_8: \n- The response is plausible, logically valid, sound",
+                        "answers": [
+                            {
+                                "id": "8e36dce3-8237-4453-8bee-1debc1dddaac",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:02:21",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_596",
+                "ref_id": "",
+                "question": "Six hours after birth, a newborn boy is evaluated for tachypnea. He was delivered at 41 weeks' gestation via Caesarian section and the amniotic fluid was meconium-stained. His respiratory rate is 75/min. Physical examination shows increased work of breathing. X-rays of the abdomen and chest show no abnormalities. Echocardiography shows elevated pulmonary artery pressure. He is started on an inhaled medication that increases smooth muscle cGMP, and there is immediate improvement in his tachypnea and oxygenation status. Three hours later, the newborn is tachypneic and there is blue-grey discoloration of the lips, fingers, and toes. Which of the following is the most likely cause of this infant's cyanosis?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increase in concentration of serum myoglobin",
+                    "Closure of the ductus arteriosus",
+                    "Oxidization of Fe2+ to Fe3+",
+                    "Inhibition of mitochondrial cytochrome c oxidase",
+                    "Allosteric alteration of heme groups"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Oxidization of Fe2+ to Fe3+"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "da1e6546-6927-4898-94c5-a0917cf6bb67",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe newborn is tachypneic and there is blue-grey discoloration of the lips, fingers, and toes. This is most likely caused by inhibition of mitochondrial cytochrome c oxidase, which is a key enzyme in the electron transport chain.",
+                        "answers": [
+                            {
+                                "id": "5e4bc855-4fde-4e14-9b81-0acc6f3a1d99",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:31:36",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "1b3d9ebb-06f7-4b4d-9118-f72fc243afb7",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the main issue: the cause of the infant's cyanosis.\n- 10\nobj_2: \n- The response considers the relevant information provided in the question, such as the infant's symptoms and the effect of the inhaled medication.\n- 10\nobj_3: \n- The response does not specifically address the numerical information provided (respiratory rate, gestation week), but it is not crucial for determining the cause of cyanosis.\n- 8\nobj_4: \n- The response does not consider all relevant reasoning strategies, as it jumps to a single answer without discussing or eliminating other options.\n- 5\nobj_5: \n- The reasoning is not structured at an appropriate level of detail, as it does not discuss or eliminate other answer options.\n- 5\nobj_6: \n- The response does not give appropriate priorities to different considerations, as it does not discuss or eliminate other answer options.\n- 5\nobj_7: \n- The response does not list or consider all relevant underlying assumptions, as it does not discuss why other answer options are less likely.\n- 5\nobj_8: \n- The response is plausible and",
+                        "answers": [
+                            {
+                                "id": "54b894c4-6263-4ab4-952c-da8cee9ebecc",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:03:04",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_647",
+                "ref_id": "",
+                "question": "A 2-month-old girl is brought to the pediatrician by her concerned father. He states that ever since her uncomplicated delivery she has failed to gain weight, has had chronic diarrhea, and has had multiple bacterial and viral infections. During the course of the workup, an absent thymic shadow is noted and a lymph node biopsy demonstrates the absence of germinal centers. Which of the following is the most likely cause of this patient's symptoms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Defect in WASP gene",
+                    "Defect in ATM gene",
+                    "Adenosine deaminase deficiency",
+                    "NADPH oxidase deficiency",
+                    "Defect in BTK gene"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Adenosine deaminase deficiency"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "071fe996-1cc2-4a66-825e-032e15cbe45b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has an immunodeficiency characterized by the absence of germinal centers in lymph nodes, which is most likely caused by a defect in the BTK gene.",
+                        "answers": [
+                            {
+                                "id": "f81f8d50-64b9-4952-aaec-71ba95001f75",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:33:53",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "920a5342-92bf-46a5-9e80-9e61f320cada",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately, identifying the patient's symptoms and the need to determine the most likely cause.\n- 10\nobj_2: \n- The response considers relevant information, such as the patient's symptoms and the absence of germinal centers in lymph nodes. It does not consider irrelevant information.\n- 10\nobj_3: \n- The response does not involve numerical information, so this objective is not applicable.\n- N/A\nobj_4: \n- The response considers the most appropriate reasoning strategy by focusing on the immunodeficiency and the absence of germinal centers in lymph nodes.\n- 8\nobj_5: \n- The reasoning is structured at an appropriate level of detail, focusing on the key symptom of absent germinal centers.\n- 9\nobj_6: \n- The response gives appropriate priority to the patient's symptoms and the absence of germinal centers in lymph nodes.\n- 9\nobj_7: \n- The response does not explicitly list underlying assumptions, but it assumes that the absence of germinal centers is the most relevant symptom for determining the cause.\n- 7\nobj_8: \n- The response is plausible, logically valid, sound, consistent, and coherent",
+                        "answers": [
+                            {
+                                "id": "679aeadc-bdc7-4443-83e1-bb90ad94adeb",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:03:51",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_655",
+                "ref_id": "",
+                "question": "A 62-year-old woman with a pancreatic insulinoma is being prepared for a laparoscopic enucleation of the tumor. After induction of general anesthesia, preparation of a sterile surgical field, and port placement, the surgeon needs to enter the space posterior to the stomach to access the pancreatic tumor. Which of the following ligaments must be cut in order to access this space?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Phrenoesophageal ligament",
+                    "Gastrohepatic ligament",
+                    "Phrenicocolic ligament",
+                    "Ligamentum venosum",
+                    "Falciform ligament\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Gastrohepatic ligament"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1ba1bb13-699a-496c-995f-dc0a60a674f8",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe posterior aspect of the stomach is located posterior to the abdominal wall and is accessed through the midline of the patient. The midline of the patient is located between the two sides of the patient. The two sides of the patient are the left and right sides of the patient. The left and right sides of the patient are accessed through the midaxillary line. The midaxillary line is located at the midpoint of the side of the patient. The midpoint of the side of the patient is located halfway between the anterior midline of the patient and the posterior midline of the patient. The posterior midline of the patient is located at the posterior aspect of the patient. The posterior aspect of the patient is located behind the patient. The midline of the patient is located halfway between the two sides of the patient. The two sides of the patient are the left and right sides of the patient. The left and right sides of the patient are accessed through the midaxillary line. The midaxillary line is located at the midpoint of the side of the patient. The midpoint of the side of the patient is located halfway between the anterior midline of the patient and the posterior midline of the patient. The posterior midline of the patient is located at the posterior aspect of the patient. The posterior aspect of the patient is located behind the patient. The midline of the patient is located halfway between the two sides of the patient. The two sides of the patient are the left and right sides of the patient. The left and right sides of the patient are accessed through the midaxillary line. The midaxillary line is located at the midpoint of the side of the patient. The midpoint of the side of the patient is located halfway between the anterior midline of the patient and the posterior midline of the patient. The posterior midline of the patient is located at the posterior aspect of the patient. The posterior aspect of the patient is located behind the patient. The midline of the patient is located halfway between the two sides of the patient. The two sides of the patient are the left and right sides of the patient. The left and right sides of the patient are accessed through the midaxillary line. The midaxillary line is located at the midpoint of the side of the patient. The midpoint of the side of the patient is located halfway between the anterior midline of the patient and the posterior midline of the patient. The posterior midline of the patient is located at the posterior aspect",
+                        "answers": [
+                            {
+                                "id": "01cb44bb-b511-4961-ad23-c4abb2fdd6f2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A) Phrenoesophageal ligament",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:35:04",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7f4ed774-9d3c-4b16-9734-8f1aaa8b1ff8",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response does not interpret the question accurately and does not break it down. The reasoning is repetitive and does not address the specific ligaments mentioned in the question.\n- 2\nobj_2: \n- The response does not consider relevant information and instead focuses on irrelevant details about the patient's midline and midaxillary line.\n- 1\nobj_3: \n- The response does not incorporate any numerical information provided by the user.\n- 1\nobj_4: \n- The response does not consider any relevant reasoning strategies and does not select an appropriate reasoning strategy.\n- 1\nobj_5: \n- The reasoning in the response is not structured and lacks appropriate detail.\n- 1\nobj_6: \n- The response does not give appropriate priorities to different considerations based on their relevance and importance.\n- 1\nobj_7: \n- The response does not list or consider any relevant underlying assumptions.\n- 1\nobj_8: \n- The response is not plausible, logically valid, sound, consistent, or coherent.\n- 1\nobj_9: \n- The statements in the response are not supported by references to evidence.\n- 1\nobj_10: \n- The",
+                        "answers": [
+                            {
+                                "id": "5511ba20-9fcf-4d12-a840-3fed89c99cee",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:04:33",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_676",
+                "ref_id": "",
+                "question": "A 75-year-old man is admitted to the hospital because of a 3-day history of a productive cough and shortness of breath. His temperature is 38\u00b0C (100.4\u00b0F) and respirations are 32/min. Crackles are heard over the right upper and the entire left lung fields. Sputum culture confirms infection with Streptococcus pneumoniae. Despite appropriate therapy, the patient dies. A photomicrograph of a section of the lung obtained during the autopsy is shown. Which of the following mediators is most likely responsible for the presence of the cell-type indicated by the arrow?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Immunoglobulin E",
+                    "Platelet activating factor",
+                    "Interferon-gamma",
+                    "Interleukin-10",
+                    "Leukotriene D4"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Platelet activating factor"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "cdb39cf4-c48c-4ae7-9c84-5ddca2dfc25d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe presence of neutrophils indicates an immunological response to the infection. Interleukin-10 is an immunosuppressive cytokine.\nSo, the answer is D) Interleukin-10.",
+                        "answers": [
+                            {
+                                "id": "7bced883-092f-4051-8fda-8023c31dd0ab",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D) Interleukin-10.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:36:22",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "785d6e4c-8d02-4f7c-a86d-e7d3bbc3437b",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately, identifying the need to determine the mediator responsible for the presence of the cell-type indicated by the arrow.\n- 10\nobj_2: \n- The response considers relevant information, such as the presence of neutrophils and the role of Interleukin-10. However, it does not consider the roles of other answer options.\n- 6\nobj_3: \n- The response does not involve any numerical information provided by the user.\n- N/A\nobj_4: \n- The response does not consider all relevant reasoning strategies, as it only focuses on Interleukin-10 and does not evaluate the roles of other answer options.\n- 4\nobj_5: \n- The reasoning in the response is not structured at an appropriate level of detail, as it only briefly mentions the presence of neutrophils and the role of Interleukin-10 without considering other answer options.\n- 4\nobj_6: \n- The response does not give appropriate priorities to different considerations, as it only focuses on Interleukin-10 without evaluating the roles of other answer options.\n- 4\nobj_7: \n- The response does not list or",
+                        "answers": [
+                            {
+                                "id": "d7eb4dd4-51f6-443a-9f5f-21d3aac5fe05",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:05:15",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_816",
+                "ref_id": "",
+                "question": "A 65-year-old woman comes to the physician for a routine bone mineral density screening. She does not have any children. Menopause was at age 55. Her mother died of breast cancer at the age of 48 years. She has hypertension for which she takes ramipril. Dual-energy x-ray absorptiometry at the femoral neck shows a T-score of -2.7 SD. The physician considers treatment with raloxifene. This medication would put her at increased risk of developing which of the following conditions?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Pulmonary embolism",
+                    "Cellulitis",
+                    "Breast cancer",
+                    "Mandibular osteonecrosis",
+                    "Hypercholesterolemia"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Pulmonary embolism"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6eb1d833-399a-4bca-a7fd-a2142887dfd8",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nRaloxifene is a selective estrogen receptor modulator (SERM) that is used to treat and prevent osteoporosis in postmenopausal women.\nBreast cancer is a condition that can be caused by SERMs.\nTherefore, the answer is C) Breast cancer.",
+                        "answers": [
+                            {
+                                "id": "0fdd30a6-2c46-4572-8b63-0cd70c4cb9d9",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C) Breast cancer.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:39:56",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "2b662dd9-5b5f-4f4b-91f3-553ac6ccb843",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the relevant information about the patient and the medication.\n- 10\nobj_2: \n- The response considers relevant information about the patient's age, menopause, and family history, as well as the medication's mechanism of action. However, it does not consider the correct side effect of raloxifene.\n- 6\nobj_3: \n- The response acknowledges the T-score of -2.7 SD but does not incorporate it into the reasoning.\n- 5\nobj_4: \n- The response considers the mechanism of action of raloxifene but selects an incorrect reasoning strategy by focusing on breast cancer as a side effect.\n- 4\nobj_5: \n- The reasoning is structured but lacks appropriate detail and consideration of the correct side effect of raloxifene.\n- 5\nobj_6: \n- The response does not give appropriate priority to the correct side effect of raloxifene, focusing instead on breast cancer.\n- 4\nobj_7: \n- The response does not list or consider all relevant underlying assumptions, such as the increased risk of thromboembolic events with raloxifene",
+                        "answers": [
+                            {
+                                "id": "8d008956-87c2-4485-9923-4cb1c4d57bac",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:05:57",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_829",
+                "ref_id": "",
+                "question": "A 66-year-old man presents to the emergency department for a cough and fatigue. The patient was brought in from a nursing home with documentation stating that he has seemed confused for the past day according to the staff. The patient has a past medical history of diabetes and hypertension. He is currently taking insulin, metformin, lisinopril, and atorvastatin. His temperature is 102\u00b0F (38.9\u00b0C), blood pressure is 107/58 mmHg, pulse is 120/min, respirations are 15/min, and oxygen saturation is 98% on room air. Physical exam reveals crackles on pulmonary exam and S4 on cardiac auscultation. Which of the following is the next best step in management?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Azithromycin and admission to the medical floor",
+                    "Azithromycin and discharge",
+                    "Azithromycin, moxifloxacin, and admission to the intensive care unit",
+                    "Ceftriaxone, azithromycin, and admission to the intensive care unit",
+                    "Moxifloxacin and admission to the medical floor"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Moxifloxacin and admission to the medical floor"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1f20984c-0935-4b92-a0fd-c4a12749e091",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has a high respiratory rate and crackles on pulmonary exam, which suggests pneumonia. Moxifloxacin is a good choice for treatment of pneumonia. Admission to the medical floor is appropriate for management of pneumonia.\nSo, the answer is E.",
+                        "answers": [
+                            {
+                                "id": "0110e371-3eb9-447c-b670-a2a14dc994c3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:40:55",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "cc39df30-daa8-47e6-8286-1d3a1aa7e3bc",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the patient's symptoms and medical history.\n- 10\nobj_2: \n- The response considers relevant information such as the patient's symptoms, medical history, and medications. However, it does not consider the patient's age, confusion, and vital signs in the reasoning.\n- 7\nobj_3: \n- The response does not incorporate the numerical information provided, such as the patient's temperature, blood pressure, pulse, respirations, and oxygen saturation.\n- 4\nobj_4: \n- The response considers the patient's symptoms and medical history but does not consider all relevant reasoning strategies, such as the severity of the patient's condition and the need for additional treatments or tests.\n- 6\nobj_5: \n- The reasoning is not structured at an appropriate level of detail, as it does not consider all relevant factors and jumps to a conclusion without fully evaluating the answer options.\n- 5\nobj_6: \n- The response does not give appropriate priorities to different considerations, as it focuses on the patient's respiratory symptoms but does not consider the patient's confusion, vital signs, and other factors.\n- 5\nobj_7: \n- The",
+                        "answers": [
+                            {
+                                "id": "7e65ab21-b6a6-4137-acef-2342b0473b28",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:06:38",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_861",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the physician because of a 3-day history of fatigue and yellow discoloration of his skin. One week ago, he had an upper respiratory tract infection. Examination shows jaundice of the skin and conjunctivae. The spleen tip is palpated 2 cm below the left costal margin. His hemoglobin concentration is 9.4 g/dl and his mean corpuscular hemoglobin concentration is 39% Hb/cell. A Coombs test is negative. A peripheral blood smear is shown. This patient is at greatest risk for which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Malaria",
+                    "Acute myelogenous leukemia",
+                    "Cholecystitis",
+                    "Renal papillary necrosis",
+                    "Splenic sequestration crisis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cholecystitis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "00d37d7b-6768-489a-98dd-3fd79d69a139",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has anemia and jaundice. The spleen is palpable. The patient is at risk for a hemolytic anemia. A Coombs test is negative which rules out a drug-induced hemolytic anemia. A peripheral blood smear shows spherocytes. The patient is at risk for a spherocytic anemia. A spherocytic anemia can be seen in malaria or in a patient with a splenic sequestration crisis. A splenic sequestration crisis is a clinical spectrum with aplastic crisis on one end and hyperhemolytic anemia on the other. A patient with a splenic sequestration crisis can have a palpable spleen. A patient with a splenic sequestration crisis can have a negative Coombs test. A patient with a splenic sequestration crisis can have a peripheral blood smear with spherocytes.\nSo, the answer is E.",
+                        "answers": [
+                            {
+                                "id": "8fb697a4-7a92-4a88-9c0e-9e94dd5a7235",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "\nE: Splenic sequestration crisis.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:41:34",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "92789770-e799-43f6-99a7-aa26bb509e8e",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response accurately interprets the question and breaks it down into relevant components.\n- 10\nobj_2: \n- The response considers all relevant information from the question and avoids considering irrelevant information.\n- 10\nobj_3: \n- The response is sensitive to the numerical information provided, such as the hemoglobin concentration and mean corpuscular hemoglobin concentration.\n- 10\nobj_4: \n- The response considers relevant reasoning strategies, such as ruling out drug-induced hemolytic anemia and identifying spherocytic anemia.\n- 10\nobj_5: \n- The reasoning is structured through steps, such as identifying anemia and jaundice, ruling out drug-induced hemolytic anemia, and considering spherocytic anemia.\n- 10\nobj_6: \n- The response gives appropriate priorities to different considerations based on their relevance and importance, such as focusing on the patient's symptoms and test results.\n- 10\nobj_7: \n- The response lists and considers relevant underlying assumptions, such as the possibility of a splenic sequestration crisis.\n- 10\nobj_8: \n- The response is plausible, logically valid, sound, consistent, and coherent",
+                        "answers": [
+                            {
+                                "id": "230e2dba-087d-4015-80f4-d19d59658355",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:07:26",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_906",
+                "ref_id": "",
+                "question": "A 45-year-old woman comes to the emergency department because of intermittent chest pain and palpitations. She also complains of dyspnea on exertion and has had a 4.5-kg (10-lb) weight loss in the past 2 months despite normal appetite. She has no history of serious medical illness. Cardiac examination shows an irregularly irregular rhythm and a grade 3/6, low pitched, rumbling, mid-diastolic murmur heard best over the apex. Diffuse wheezing and bilateral rales are present in the lung bases. A transthoracic echocardiogram shows a left-ventricular ejection fraction of 40% and a mass in the left atrium. A biopsy of the mass is likely to show which of the following?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Nonencapsulated groups of well-differentiated skeletal muscle cells",
+                    "Clusters of bland cells without mitotic activity",
+                    "Mixture of cells from different germinal layers",
+                    "Encapsulated cluster of mature fat cells",
+                    "Nests of atypical melanocytes"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Nests of atypical melanocytes"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "57385501-88fc-46b1-b5a7-99042c38caa5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has a cardiac tumor, most likely a myxoma, which is a benign tumor of mesenchymal origin. A myxoma is a tumor of skeletal muscle origin, so the correct answer is A.",
+                        "answers": [
+                            {
+                                "id": "7c648ef1-55eb-4887-82d0-230f275b60de",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A.",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:42:13",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "4785876d-9bf2-4977-b201-7f1c904afc94",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately, identifying the need to determine the likely biopsy result of the mass in the left atrium.\n- 10\nobj_2: \n- The response considers the patient's symptoms and echocardiogram results but does not consider all relevant information, as it incorrectly identifies myxoma as a tumor of skeletal muscle origin.\n- 5\nobj_3: \n- The response does not specifically address the numerical information provided, such as the patient's age, weight loss, or ejection fraction, but these details do not significantly impact the reasoning.\n- 8\nobj_4: \n- The response does not consider all relevant reasoning strategies, as it incorrectly identifies myxoma as a tumor of skeletal muscle origin and does not consider other possible cardiac tumors.\n- 4\nobj_5: \n- The reasoning in the response is not structured at an appropriate level of detail, as it jumps to the conclusion that the tumor is a myxoma without considering other possibilities.\n- 4\nobj_6: \n- The response does not give appropriate priorities to different considerations, as it focuses on the incorrect assumption that myxomas are of skeletal muscle origin.\n- 4\nobj_7",
+                        "answers": [
+                            {
+                                "id": "5744fa66-519a-4789-bdb7-82687882eb66",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:08:08",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_911",
+                "ref_id": "",
+                "question": "A previously healthy 27-year-old woman comes to the physician because of a 2-month history of depressed mood and fatigue. During this time, she has had a 5-kg (11-lb) weight gain. She reports trouble concentrating at her job as a preschool teacher and has missed work several times in recent weeks due to generalized fatigue. She has smoked 2 packs of cigarettes daily for 10 years and is actively trying to quit smoking. A drug is prescribed that will treat the patient's mood disturbance and support smoking cessation. This patient should be counseled about which of the following possible side effects of this drug?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Decreased libido",
+                    "Hypotension",
+                    "Urinary retention",
+                    "Tachycardia",
+                    "QTc prolongation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Tachycardia"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "19a3f1b5-4349-43d0-a2ff-3fa05c6f8720",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe drug is likely bupropion, and bupropion can cause QTc prolongation. Prolongation of the QTc can lead to torsades de pointes, which can be fatal.\nE) QTc prolongation",
+                        "answers": [
+                            {
+                                "id": "7a517b9c-f7de-4b4a-a989-cc3a63506a9e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:43:12",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "05ca9eec-a781-4e84-bb25-01fe4ec78676",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately, identifying the drug and the possible side effects.\n- 10\nobj_2: \n- The response considers relevant information about the patient's symptoms and the drug's side effects, avoiding irrelevant information.\n- 10\nobj_3: \n- The response does not specifically address the numerical information provided, but it is not crucial for answering the question.\n- 8\nobj_4: \n- The response considers the most appropriate reasoning strategy by identifying the drug and its side effects.\n- 10\nobj_5: \n- The reasoning is structured, identifying the drug and its possible side effect.\n- 9\nobj_6: \n- The response gives appropriate priority to the drug's side effects based on their relevance to the patient's symptoms.\n- 10\nobj_7: \n- The response does not explicitly list underlying assumptions, but it assumes that the drug is bupropion based on the patient's symptoms and the need for smoking cessation support.\n- 8\nobj_8: \n- The response is plausible, logically valid, sound, consistent, and coherent.\n- 10\nobj_9: \n- The response does not provide specific references to evidence,",
+                        "answers": [
+                            {
+                                "id": "981a2917-fcea-411d-ace7-706e4977ccc5",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:08:53",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_975",
+                "ref_id": "",
+                "question": "A 28-year-old man reports to his physician that he is having second thoughts about his long-term compatibility with his wife ever since they relocated to a new city. He admits that he has noticed himself flirting with some of the female co-workers at his new workplace. When he goes on a dinner date with his wife after work one evening, he accuses her of giving their waiter flirtatious looks and asks her whether she has been cheating on him or trying to spend time with other men. The man\u2019s actions are most consistent with which of the following psychological defense mechanisms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Displacement",
+                    "Dissociation",
+                    "Projection",
+                    "Reaction formation",
+                    "Repression"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Projection"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "2b747da0-7941-4ca9-961b-8d0a575e652e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe man's actions are most consistent with reaction formation, in which an individual unconsciously expresses the opposite of what he or she feels.",
+                        "answers": [
+                            {
+                                "id": "72605ac7-6c9b-420d-90cf-14a6487a2563",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:44:23",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0ec6f84e-333b-4807-b3cc-8aeeba6c2517",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately, identifying the need to determine the psychological defense mechanism that best explains the man's actions.\n- 10\nobj_2: \n- The response considers relevant information from the question, but it does not consider all answer options before selecting the final answer.\n- 6\nobj_3: \n- The response does not involve numerical information, so this objective is not applicable.\n- N/A\nobj_4: \n- The response does not consider all relevant reasoning strategies, as it jumps to a conclusion without evaluating other answer options.\n- 5\nobj_5: \n- The reasoning in the response is not structured, as it does not provide reasoning steps or sub-questions to support the chosen answer.\n- 4\nobj_6: \n- The response does not give appropriate priorities to different considerations, as it does not evaluate all answer options before selecting the final answer.\n- 5\nobj_7: \n- The response does not list or consider any underlying assumptions.\n- 4\nobj_8: \n- The response is not entirely plausible, as it does not provide a clear explanation for why reaction formation is the most appropriate answer.\n- 5\nobj_9:",
+                        "answers": [
+                            {
+                                "id": "66837ac5-0944-4207-87b2-6a1cd068f414",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:09:38",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1002",
+                "ref_id": "",
+                "question": "A previously healthy 28-year-old man comes to the emergency department because of dizziness and palpitations for 2 days. Prior to the onset of the symptoms, he attended a bachelor party where he lost several drinking games. An ECG is shown. Which of the following is the most likely diagnosis?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Hypertrophic obstructive cardiomoyopathy",
+                    "Paroxysmal atrial fibrillation",
+                    "Brugada syndrome",
+                    "Ventricular tachycardia",
+                    "Sick sinus syndrome"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Paroxysmal atrial fibrillation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b256c516-73a0-4a2c-9e69-434376f11b2a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe ECG shows a regular narrow complex tachycardia. The most likely diagnosis is therefore ventricular tachycardia.\nSo, the answer is D) Ventricular tachycardia.",
+                        "answers": [
+                            {
+                                "id": "d33ea04a-15a6-4f4f-a39d-cdf28ba2c3db",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D) Ventricular tachycardia.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:45:59",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e2126936-9d49-46a9-8d2e-1599dcac029a",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the need to diagnose the condition based on the given information and ECG.\n- 10\nobj_2: \n- The response does not consider all relevant information, such as the patient's history of attending a bachelor party and losing drinking games, which could be relevant to the diagnosis.\n- 5\nobj_3: \n- The response does not mention any specific numerical information from the ECG, which is crucial for making an accurate diagnosis.\n- 3\nobj_4: \n- The response does not consider all relevant reasoning strategies, as it jumps to a conclusion without considering other answer options or the patient's history.\n- 4\nobj_5: \n- The reasoning in the response is not structured, as it does not provide any reasoning steps or sub-questions to support the chosen answer.\n- 3\nobj_6: \n- The response does not give appropriate priorities to different considerations, as it does not consider the patient's history or other answer options.\n- 4\nobj_7: \n- The response does not list or consider any underlying assumptions, such as the assumption that the ECG is the only relevant information for making a diagnosis.\n- ",
+                        "answers": [
+                            {
+                                "id": "4385a638-c441-4998-9e4b-d4e12e8e8421",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:10:18",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1040",
+                "ref_id": "",
+                "question": "A 55-year-old woman is brought to the emergency department because of worsening upper abdominal pain for the past 8 hours. She reports that the pain radiates to her back and is associated with nausea. She has hypertension and hyperlipidemia, for which she takes enalapril, furosemide, and simvastatin. Her temperature is 37.5\u00b0C (99.5\u00b0F), blood pressure is 84/58 mm Hg, and pulse is 115/min. The lungs are clear to auscultation. Examination shows abdominal distention with epigastric tenderness and guarding. Bowel sounds are decreased. Extremities are warm. Laboratory studies show:\nHematocrit 48%\nLeukocyte count 13,800/mm3\nPlatelet count 175,000/mm3\nSerum  \nCalcium 8.0 mg/dL\nUrea nitrogen 32 mg/dL\nAmylase 250 U/L\nAn ECG shows sinus tachycardia. Which of the following is the most likely underlying cause of this patient's vital sign abnormalities?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Abnormal coagulation and fibrinolysis",
+                    "Capillary leakage",
+                    "Decreased cardiac output",
+                    "Increased excretion of water",
+                    "Pseudocyst formation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Capillary leakage"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "121c1267-1a97-4bd6-aa19-2b2b530dade4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has abdominal pain and distention with decreased bowel sounds, which is concerning for peritonitis. Peritonitis is most commonly caused by a ruptured viscus, which can lead to decreased cardiac output. Decreased cardiac output can lead to decreased blood pressure and increased heart rate.\nSo, the answer is C.",
+                        "answers": [
+                            {
+                                "id": "3f188f0a-477c-42de-b2a0-b84bac1640e1",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:47:44",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "137b41f1-0e41-47d8-81c3-83e6330f482a",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the main issue as the cause of the patient's vital sign abnormalities.\n- 10\nobj_2: \n- The response considers relevant information from the patient's history, symptoms, and laboratory studies, but does not address all answer options.\n- 7\nobj_3: \n- The response does not specifically address the numerical information provided, but it does consider the overall clinical picture.\n- 7\nobj_4: \n- The response considers the most appropriate reasoning strategy by focusing on the patient's symptoms and laboratory findings, but it does not evaluate all answer options.\n- 7\nobj_5: \n- The reasoning is structured through the identification of the patient's symptoms and the conclusion that peritonitis is the most likely cause, but it does not address all answer options.\n- 7\nobj_6: \n- The response gives appropriate priority to the patient's symptoms and laboratory findings, but it does not consider all answer options.\n- 7\nobj_7: \n- The response does not list or consider all relevant underlying assumptions, as it does not address all answer options.\n- 6\nobj_8: \n- The response is plausible and logically",
+                        "answers": [
+                            {
+                                "id": "8bbcf1de-ba8e-49ac-ae71-e2efead5289e",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:10:57",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1047",
+                "ref_id": "",
+                "question": "A 57-year-old woman comes to the physician because of a 3-month history of fatigue. She also reports generalized itchiness that started approximately 2 months ago. Two weeks ago, she noticed yellowing of her eyes. She does not smoke or drink alcohol. She uses eyedrops for persistent dryness of the eyes. Her vital signs are within normal limits. Physical examination shows jaundice of the conjunctivae and skin. The mucous membranes of the mouth are dry. The abdomen is soft. The liver edge is palpable 3 cm below the right costal margin. There are generalized skin excoriations. Laboratory studies show:\nHemoglobin 15 g/dL\nLeukocyte count 7,700/mm3\nPlatelet count 332,000/mm3\nSerum\nGlucose 122 mg/dL\nTotal bilirubin 3.1 mg/dL\nDirect 2.5 mg/dL\nAlkaline phosphatase 452 U/L\nAST 155 U/L\nALT 168 U/L\nHepatitis B surface antigen negative\nHepatitis B core IgM antibody negative\nHepatitis B surface antibody positive\nHepatitis C antibody negative\nUltrasonography of the abdomen shows mildly increased echogenicity of the liver. Which of the following additional findings is most likely to be found in this patient?\"",
+                "type": "multiplechoice",
+                "choices": [
+                    "Inferior vena cava thrombosis",
+                    "Cutaneous xanthomas",
+                    "Butterfly-shaped vertebrae",
+                    "Increased CA 19-9 levels",
+                    "Kayser-Fleischer rings\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cutaneous xanthomas"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "da7fdf72-3cab-4502-8c49-a27894618cef",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has a 3-month history of fatigue and itchiness, and 2 weeks ago, she noticed yellowing of her eyes. She does not smoke or drink alcohol. She uses eyedrops for persistent dryness of the eyes. Her vital signs are within normal limits. Physical examination shows jaundice of the conjunctivae and skin. The mucous membranes of the mouth are dry. The abdomen is soft. The liver edge is palpable 3 cm below the right costal margin. There are generalized skin excoriations. Laboratory studies show:\nHemoglobin 15 g/dL\nLeukocyte count 7,700/mm3\nPlatelet count 332,000/mm3\nSerum\nGlucose 122 mg/dL\nTotal bilirubin 3.1 mg/dL\nDirect 2.5 mg/dL\nAlkaline phosphatase 452 U/L\nAST 155 U/L\nALT 168 U/L\nHepatitis B surface antigen negative\nHepatitis B core IgM antibody negative\nHepatitis B surface antibody positive\nHepatitis C antibody negative\nUltrasonography of the abdomen shows mildly increased echogenicity of the liver.\nBased on this, the final diagnosis is \"hepatitis\".\nSo, the answer is B) Cutaneous xanthomas.",
+                        "answers": [
+                            {
+                                "id": "c4108b4f-e592-4d2c-b6ba-af9fa7ab0b2b",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) Cutaneous xanthomas.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:48:26",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "61f0104b-8dde-4f9d-ad1a-ac3348dad4ac",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the patient's symptoms and laboratory results.\n- 10\nobj_2: \n- The response considers all relevant information from the patient's history, physical examination, and laboratory results. It does not consider irrelevant information.\n- 10\nobj_3: \n- The response is sensitive to the numerical information provided, such as laboratory results and physical examination findings.\n- 10\nobj_4: \n- The response does not explicitly consider all relevant reasoning strategies, but it does arrive at a final diagnosis of \"hepatitis\" based on the information provided.\n- 7\nobj_5: \n- The reasoning is structured through the patient's history, physical examination, and laboratory results, but it could be more detailed in explaining the connection between the diagnosis and the answer choice.\n- 7\nobj_6: \n- The response gives appropriate priorities to the patient's symptoms, laboratory results, and physical examination findings.\n- 10\nobj_7: \n- The response does not explicitly list and consider all relevant underlying assumptions, such as the cause of the hepatitis or the specific type of hepatitis.\n- 6\nobj_8: \n- The response is plausible, logically",
+                        "answers": [
+                            {
+                                "id": "55791fb3-c261-4716-91ef-d57c46f457f1",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:11:48",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1068",
+                "ref_id": "",
+                "question": "A 63-year-old man presents to his primary care physician for follow-up. He reports a slow and steady weight gain of 6 pounds over the past 6 months, despite attempts to control his diet and increase his level of exercise. His medications include pravastatin, lisinopril, and hydrochlorothiazide. On exam, his vital signs are stable. He is obese (BMI 32), and his waist circumference is 43 inches. His physician is concerned about an abnormal fasting blood glucose and dyslipidemia. On further work-up with oral glucose tolerance test, the patient is diagnosed with diabetes. Which of the following associations is consistent with this patient\u2019s most likely form of diabetes?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Strong HLA class II gene makeup",
+                    "Pancreatic islet cell amyloid deposition",
+                    "Pancreatic islet cell leukocyte infiltration",
+                    "Auto-antibodies against pancreatic islet cell antigens",
+                    "Unrelated to his abdominal obesity"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Pancreatic islet cell amyloid deposition"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "925245cb-7b46-4b30-bfa7-a6f0b9efcd7f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient's diabetes is most likely type 2, which is associated with obesity, especially abdominal obesity.\nE) Unrelated to his abdominal obesity",
+                        "answers": [
+                            {
+                                "id": "4bcce7d1-a79c-42ed-9dc3-73851b135359",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:48:46",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "2dbbd03e-87e8-4b68-9f00-d65820248a68",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately, identifying the patient's most likely form of diabetes.\n- 10\nobj_2: \n- The response considers the patient's age, weight gain, obesity, and waist circumference, but does not consider the specific associations listed in the answer options.\n- 6\nobj_3: \n- The response does not specifically address the numerical information provided, such as the patient's age, weight gain, or waist circumference.\n- 5\nobj_4: \n- The response identifies the most likely form of diabetes but does not consider the associations listed in the answer options to determine the most appropriate answer.\n- 5\nobj_5: \n- The reasoning is not structured and does not break down the question or consider the answer options in detail.\n- 4\nobj_6: \n- The response focuses on the patient's obesity but does not prioritize the specific associations listed in the answer options.\n- 5\nobj_7: \n- The response does not list or consider the underlying assumptions related to the patient's most likely form of diabetes and its associations.\n- 4\nobj_8: \n- The response is plausible in identifying the patient's most likely form of diabetes but",
+                        "answers": [
+                            {
+                                "id": "0e9844d4-8cb2-48ba-9a6e-dde8e9b1718b",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:12:33",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1090",
+                "ref_id": "",
+                "question": "A 15-year-old boy is brought to the physician by his mother. His mother reports multiple instances over the past month when she walked into his room while he was masturbating. She is worried he may be going through some sort of \u201cproblem.\u201d He is currently in 9th grade; his mother says that he is the captain of his high school wrestling team and does reasonably well in school. On examination, he seems embarrassed and avoids making eye contact. Physical examination shows no abnormalities. Which of the following is the most appropriate next step in management?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Advise the patient to stop masturbating",
+                    "Measure serum testosterone level",
+                    "Refer the patient for behavioral therapy",
+                    "Reassure the mother",
+                    "Prescribe sertraline"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Reassure the mother"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e349e9c7-1ab2-4196-89cb-99cf8756fe16",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient is embarrassed and avoids eye contact, which suggests that he may have some sort of \"problem.\"\nThe patient is the captain of his high school wrestling team and does reasonably well in school, which suggests that he is not going through any sort of \"problem.\"\nThe most appropriate next step in management is to reassure the mother.",
+                        "answers": [
+                            {
+                                "id": "31296c80-32cc-489a-89d5-6ccab374d269",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:49:48",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d13cf0c1-e20c-4ea6-958a-7cb3959fc1f6",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and breaks it down into relevant information.\n- 10\nobj_2: \n- The response considers relevant information, such as the boy's school performance and wrestling team involvement, but does not address the mother's concern about the frequency of masturbation.\n- 7\nobj_3: \n- The response does not incorporate any numerical information provided by the user.\n- 1\nobj_4: \n- The response considers the most appropriate reasoning strategy by focusing on the boy's overall well-being and addressing the mother's concern.\n- 9\nobj_5: \n- The reasoning in the response is structured at an appropriate level of detail, considering the boy's situation and the mother's concern.\n- 9\nobj_6: \n- The response gives appropriate priority to the boy's overall well-being and addressing the mother's concern.\n- 9\nobj_7: \n- The response does not list or consider all relevant underlying assumptions, such as the assumption that masturbation is a normal part of adolescent development.\n- 6\nobj_8: \n- The response is plausible, logically valid, sound, consistent, and coherent.\n- 9\nobj_9: \n- The",
+                        "answers": [
+                            {
+                                "id": "58ab76e0-b745-44ff-9ddf-a7e5810f7688",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:13:15",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1112",
+                "ref_id": "",
+                "question": "An 18-year-old patient is visiting the pediatrician with her mother for her annual exam before college starts. Her height and weight are appropriate for her age, and she is up to date on all her vaccinations and has no medical complaints. She is doing well in school and has a part-time job stocking shelves at a clothing store. She was offered a higher-paying job as a cashier at the store, but she declined. She is very shy and withdrawn with the physician. Afterwards, her mother asks to speak to the physician alone and expresses concern that her daughter is very socially isolated and feels lonely. She is also worried that her daughter is extremely sensitive to criticism, even from family. The daughter is interested in art and music, but hasn\u2019t participated in any extracurriculars because she says that she is untalented and thinks nobody wants to hang out with her. When her mother has encouraged her to invite friends over, the daughter bursts into tears and says, \u201cNobody wants to be friends with me, I am too lame and ugly and I just know I\u2019ll end up getting rejected.\u201d Which of the following is the most likely explanation for the daughter\u2019s behavior?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Schizotypal personality disorder",
+                    "Generalized anxiety disorder",
+                    "Avoidant personality disorder",
+                    "Paranoid personality disorder",
+                    "Dependent personality disorder"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Avoidant personality disorder"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4525a981-0b24-45bc-a15f-b74fe625f66b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient is shy, withdrawn, and feels lonely, which are all traits of avoidant personality disorder.\nSo, the answer is C) Avoidant personality disorder.",
+                        "answers": [
+                            {
+                                "id": "7e5ae4a6-8c07-44b1-a0e9-215b588907cc",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C) Avoidant personality disorder.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:51:03",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0ccb6ee6-f687-4455-affa-86fdd45351ba",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response accurately interprets the question and identifies the key aspects of the patient's behavior.\n- 10\nobj_2: \n- The response focuses on the relevant information provided in the question, such as the patient's shyness, withdrawal, and feelings of loneliness.\n- 10\nobj_3: \n- The response does not involve numerical information, so this objective is not applicable.\n- N/A\nobj_4: \n- The response jumps to a conclusion without considering other potential explanations for the daughter's behavior, such as the other answer options.\n- 4\nobj_5: \n- The reasoning lacks structure and does not provide a step-by-step analysis of the patient's behavior or a comparison of the answer options.\n- 4\nobj_6: \n- The response does not prioritize different considerations or weigh the relevance of different aspects of the patient's behavior.\n- 4\nobj_7: \n- The response does not list or consider any underlying assumptions about the patient's behavior or the potential explanations for it.\n- 4\nobj_8: \n- The response is plausible and coherent, but it does not provide a logically valid or sound argument for the chosen answer.\n- 6\n",
+                        "answers": [
+                            {
+                                "id": "1775d878-fe68-421d-90ec-b974f3afc329",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:14:26",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1123",
+                "ref_id": "",
+                "question": "A 72-year-old woman comes to the physician because of a 1-month history of frequent headaches, double vision, fatigue, and myalgias. Physical examination shows pallor, tenderness to palpation over the temples, and inward deviation of the left eye. Laboratory studies show an erythrocyte sedimentation rate of 65 mm/h. Temporal artery biopsy shows transmural granulomatous inflammation and fragmentation of the internal elastic lamina. Treatment with high-dose intravenous corticosteroids is begun. The patient's condition puts her at greatest risk of developing which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Pulmonary hypertension",
+                    "Lower extremity gangrene",
+                    "Palpable purpura",
+                    "Posterior uveitis",
+                    "Thoracic aortic aneurysm"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Thoracic aortic aneurysm"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "faaa8efb-5606-4855-9e99-a4a1308b1f16",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient's condition puts her at greatest risk of developing pulmonary hypertension. Pulmonary hypertension is a complication of temporal arteritis.",
+                        "answers": [
+                            {
+                                "id": "2ac7e8db-8323-4b69-b8b7-d11485c076e4",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A) Pulmonary hypertension.",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:53:04",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7085c221-0914-4667-b047-976ff2410002",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the patient's condition as temporal arteritis.\n- 9\nobj_2: \n- The response does not consider all relevant information, as it does not mention the symptoms and biopsy results that led to the diagnosis of temporal arteritis.\n- 5\nobj_3: \n- The response does not mention the numerical information provided, such as the erythrocyte sedimentation rate.\n- 4\nobj_4: \n- The response does not consider all relevant reasoning strategies, as it jumps to the conclusion that pulmonary hypertension is the most likely complication without considering other options.\n- 4\nobj_5: \n- The reasoning in the response is not structured, as it does not provide any reasoning steps or sub-questions.\n- 3\nobj_6: \n- The response does not give appropriate priorities to different considerations, as it does not consider the symptoms and biopsy results that led to the diagnosis of temporal arteritis.\n- 4\nobj_7: \n- The response does not list or consider any underlying assumptions.\n- 3\nobj_8: \n- The response is not plausible, as it does not provide a logical connection between temporal arteritis and",
+                        "answers": [
+                            {
+                                "id": "f2d7ac00-ad8b-4832-8e4a-f455a133d3d2",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:15:09",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1253",
+                "ref_id": "",
+                "question": "A 7 -day-old newborn boy presents to the emergency department with a history of fever, irritability, and generalized erythema. During the first 2 days of clinical manifestations, the parents of the child tried to control the symptoms using acetaminophen; however, the newborn continued to be ill, and blisters were noticeable around the buttocks, hands, and feet. During the physical examination, the vital signs include body temperature 39.0\u00b0C (102.3\u00b0F), heart rate 130/min, and respiratory rate 45/min. Ears, nose, and oral mucosa preserved their integrity, while the skin presents with diffuse blanching erythema and flaccid blisters with a positive Nikolsky\u2019s sign. What is the most likely diagnosis in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Scarlet fever",
+                    "Scalded skin syndrome",
+                    "Impetigo",
+                    "Erysipela",
+                    "Pyoderma"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Scalded skin syndrome"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e3cf6f3b-a77f-4a94-a374-e154421344ad",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nScalded skin syndrome is also known as toxic epidermal necrolysis and is characterized by the sudden onset of high fever, followed by a blanching erythema and flaccid blisters with a positive Nikolsky's sign.\nSo, the answer is B) Scalded skin syndrome.",
+                        "answers": [
+                            {
+                                "id": "d6ad670c-895a-4156-ab1f-cc97ac5478ff",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) Scalded skin syndrome.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:59:29",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "253f6bc1-c014-4e5e-9ae5-e93156ba3699",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "obj_1: \n- The response interprets the question accurately and identifies the relevant symptoms and signs to consider for the diagnosis.\n- 10\nobj_2: \n- The response focuses on the relevant information, specifically the symptoms and signs presented in the question, and does not consider irrelevant information.\n- 10\nobj_3: \n- The response is sensitive to the numerical information provided, such as the age of the newborn, fever, heart rate, and respiratory rate, and incorporates it into the reasoning.\n- 10\nobj_4: \n- The response considers the most appropriate reasoning strategy, which is to match the symptoms and signs with the correct diagnosis.\n- 10\nobj_5: \n- The reasoning in the response is structured, focusing on the key symptoms and signs, and identifying the positive Nikolsky's sign as a crucial factor in the diagnosis.\n- 10\nobj_6: \n- The response gives appropriate priority to the symptoms and signs presented in the question, focusing on the positive Nikolsky's sign as a key diagnostic factor.\n- 10\nobj_7: \n- The response does not explicitly list underlying assumptions, but it assumes that the symptoms and signs presented are accurate and sufficient for a diagnosis.\n",
+                        "answers": [
+                            {
+                                "id": "20319812-4a9d-4373-bcbc-7442d5c0bfaf",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/30 02:15:48",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

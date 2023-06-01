@@ -1,0 +1,736 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_127",
+                "ref_id": "",
+                "question": "A 67-year-old man with peripheral neuropathy comes to the physician for a follow-up examination after the results of serum protein electrophoresis showed monoclonal gammopathy. A complete blood count, serum creatinine, and serum electrolyte concentrations are within the reference ranges. A bone marrow biopsy shows 6% monoclonal plasma cells. Further analysis shows that class I major histocompatibility molecules are downregulated in these monoclonal plasma cells. The proliferation of these monoclonal plasma cells is normally prevented by a class of immune cells that lyse abnormal cells without the need for opsonization, priming, or prior activation. Which of the following best describes this class of immune cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "CD8+ T lymphocytes",
+                    "Bone marrow-derived macrophages",
+                    "CD4+ T lymphocytes",
+                    "Natural killer cells",
+                    "Band neutrophils"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Natural killer cells"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "86b82453-0831-4143-a3d3-dbbe231d8894",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nA) CD8+ T lymphocytes: CD8+ T lymphocytes are a class of immune cells that lyse abnormal cells after opsonization, priming, or prior activation.\nD) Natural killer cells: Natural killer cells are a class of immune cells that lyse abnormal cells without the need for opsonization, priming, or prior activation.",
+                        "answers": [
+                            {
+                                "id": "583d31bc-3943-406f-81c5-067387dd6462",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:08:50",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5e5122ea-3df5-4f72-89ae-855ff0421770",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "Critique: The reasoning is accurate and concise. The answer is supported by the correct explanation of the function of natural killer cells. \n\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "1812df9e-dc5a-4066-92c7-ce4b7be9ff54",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:22:35",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_482",
+                "ref_id": "",
+                "question": "Patients with the diagnosis of sickle cell anemia make a specific type of hemoglobin known as HgbS. This mutation results in the sickling of their red blood cells when exposed to inciting factors such as hypoxic conditions. Patients are often treated with hydroxyurea, which has which of the following direct effects on their hemoglobin physiology?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increases oxygen carrying capacity of hemoglobin",
+                    "Decreases oxygen carrying capacity of hemoglobin",
+                    "Increases levels of fetal hemoglobin (HgbF)",
+                    "Decreases levels of HgbS",
+                    "Decreases levels of fetal hemoglobin (HgbF)"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Increases levels of fetal hemoglobin (HgbF)"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a02c2be0-cc41-4581-8358-f2bd15f25ece",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nC) Increases levels of fetal hemoglobin (HgbF)",
+                        "answers": [
+                            {
+                                "id": "460392cb-f80d-4993-b715-54c91e2d2da6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "\nC) Increases levels of fetal hemoglobin (HgbF)",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:24:42",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "99aa9663-f9c3-4e0e-9cdb-b292dcf827e9",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning is not provided, so it is difficult to evaluate whether the answer is appropriate or not.\n\nobj_1: 50\nobj_2: 100\nobj_3: 100\nobj_4: 50\nobj_5: 75\nobj_6: 75\nobj_7: 75\nobj_8: 75\nobj_9: 50\nobj_10: 75\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "03d8aea5-f175-404d-94ab-a56f487fbdd3",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:22:44",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_530",
+                "ref_id": "",
+                "question": "A previously healthy 35-year-old woman comes to the emergency department because of sudden weakness of her right arm and leg that started 3 hours ago. She returned from a business trip from Europe 3 days ago. She has smoked a pack of cigarettes daily for 10 years. Her only medication is an oral contraceptive. Her temperature is 38.0\u00b0C (100.4\u00b0F), pulse is 115/min and regular, and blood pressure is 155/85 mm Hg. Examination shows decreased muscle strength on the entire right side. Deep tendon reflexes are 4+ on the right. Babinski sign is present on the right. The left lower leg is swollen, erythematous, and tender to palpation. Further evaluation is most likely to show which of the following?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Patent foramen ovale",
+                    "Atrial myxoma",
+                    "Mitral valve vegetation",
+                    "Atrial fibrillation",
+                    "Carotid artery dissection"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Patent foramen ovale"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "5446a0e1-bd95-429a-8dbf-6a77b2781cdd",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has a history of smoking and has recently traveled to Europe, so pulmonary embolism is a likely diagnosis. Pulmonary embolism would cause decreased blood flow to the right side of the body, which would explain the patient's symptoms.\nB) Atrial myxoma",
+                        "answers": [
+                            {
+                                "id": "87c78c83-9246-44f7-908d-bcbbf1fe5e5e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) Atrial myxoma.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:27:14",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e4b2e495-6085-4557-9f40-495e8c9d6cc2",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "Critique: The reasoning provided in the response is not accurate. The given symptoms are more indicative of a possible stroke or deep vein thrombosis rather than pulmonary embolism. The patient's history of smoking and recent travel to Europe may be relevant, but the reasoning does not explain how they are related to the diagnosis of atrial myxoma.\n\nobj_1: 30\nobj_2: 60\nobj_3: 40\nobj_4: 20\nobj_5: 40\nobj_6: 30\nobj_7: 20\nobj_8: 30\nobj_9: 10\nobj_10: 20\nobj_11: 0",
+                        "answers": [
+                            {
+                                "id": "38e25e00-2c77-4ba4-a157-13a49e46c1b1",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:22:58",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_647",
+                "ref_id": "",
+                "question": "A 2-month-old girl is brought to the pediatrician by her concerned father. He states that ever since her uncomplicated delivery she has failed to gain weight, has had chronic diarrhea, and has had multiple bacterial and viral infections. During the course of the workup, an absent thymic shadow is noted and a lymph node biopsy demonstrates the absence of germinal centers. Which of the following is the most likely cause of this patient's symptoms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Defect in WASP gene",
+                    "Defect in ATM gene",
+                    "Adenosine deaminase deficiency",
+                    "NADPH oxidase deficiency",
+                    "Defect in BTK gene"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Adenosine deaminase deficiency"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "071fe996-1cc2-4a66-825e-032e15cbe45b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has an immunodeficiency characterized by the absence of germinal centers in lymph nodes, which is most likely caused by a defect in the BTK gene.",
+                        "answers": [
+                            {
+                                "id": "f81f8d50-64b9-4952-aaec-71ba95001f75",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:33:53",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "9f0efbc6-1922-4aca-9b45-ad291671788a",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "Critique: The reasoning provided is brief and lacks explanation. While it correctly identifies the immunodeficiency as being caused by a defect in the BTK gene, it does not provide any further information or justification for this conclusion. Additionally, the reasoning does not address the other symptoms mentioned in the question stem, such as chronic diarrhea and failure to gain weight.\n\nobj_1: 80\nobj_2: 90\nobj_3: 70\nobj_4: 80\nobj_5: 70\nobj_6: 70\nobj_7: 80\nobj_8: 80\nobj_9: 60\nobj_10: 70\nobj_11: 80",
+                        "answers": [
+                            {
+                                "id": "0ddc1183-ac67-485a-a57d-e26b19b709f6",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:23:10",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_655",
+                "ref_id": "",
+                "question": "A 62-year-old woman with a pancreatic insulinoma is being prepared for a laparoscopic enucleation of the tumor. After induction of general anesthesia, preparation of a sterile surgical field, and port placement, the surgeon needs to enter the space posterior to the stomach to access the pancreatic tumor. Which of the following ligaments must be cut in order to access this space?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Phrenoesophageal ligament",
+                    "Gastrohepatic ligament",
+                    "Phrenicocolic ligament",
+                    "Ligamentum venosum",
+                    "Falciform ligament\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Gastrohepatic ligament"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1ba1bb13-699a-496c-995f-dc0a60a674f8",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe posterior aspect of the stomach is located posterior to the abdominal wall and is accessed through the midline of the patient. The midline of the patient is located between the two sides of the patient. The two sides of the patient are the left and right sides of the patient. The left and right sides of the patient are accessed through the midaxillary line. The midaxillary line is located at the midpoint of the side of the patient. The midpoint of the side of the patient is located halfway between the anterior midline of the patient and the posterior midline of the patient. The posterior midline of the patient is located at the posterior aspect of the patient. The posterior aspect of the patient is located behind the patient. The midline of the patient is located halfway between the two sides of the patient. The two sides of the patient are the left and right sides of the patient. The left and right sides of the patient are accessed through the midaxillary line. The midaxillary line is located at the midpoint of the side of the patient. The midpoint of the side of the patient is located halfway between the anterior midline of the patient and the posterior midline of the patient. The posterior midline of the patient is located at the posterior aspect of the patient. The posterior aspect of the patient is located behind the patient. The midline of the patient is located halfway between the two sides of the patient. The two sides of the patient are the left and right sides of the patient. The left and right sides of the patient are accessed through the midaxillary line. The midaxillary line is located at the midpoint of the side of the patient. The midpoint of the side of the patient is located halfway between the anterior midline of the patient and the posterior midline of the patient. The posterior midline of the patient is located at the posterior aspect of the patient. The posterior aspect of the patient is located behind the patient. The midline of the patient is located halfway between the two sides of the patient. The two sides of the patient are the left and right sides of the patient. The left and right sides of the patient are accessed through the midaxillary line. The midaxillary line is located at the midpoint of the side of the patient. The midpoint of the side of the patient is located halfway between the anterior midline of the patient and the posterior midline of the patient. The posterior midline of the patient is located at the posterior aspect",
+                        "answers": [
+                            {
+                                "id": "01cb44bb-b511-4961-ad23-c4abb2fdd6f2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A) Phrenoesophageal ligament",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:35:04",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "84d28ce5-e33b-417c-8cb4-4075ef910966",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "Critique: The reasoning provided does not directly address the question being asked and instead provides a repetitive and irrelevant description of the patient's anatomy. The correct answer is provided without any explanation or justification. \n\nobj_1: 10\nobj_2: 20\nobj_3: 0\nobj_4: 10\nobj_5: 0\nobj_6: 10\nobj_7: 20\nobj_8: 10\nobj_9: 0\nobj_10: 10\nobj_11: 50",
+                        "answers": [
+                            {
+                                "id": "48f30293-4953-443d-a579-ccaf0b825140",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:23:21",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_676",
+                "ref_id": "",
+                "question": "A 75-year-old man is admitted to the hospital because of a 3-day history of a productive cough and shortness of breath. His temperature is 38\u00b0C (100.4\u00b0F) and respirations are 32/min. Crackles are heard over the right upper and the entire left lung fields. Sputum culture confirms infection with Streptococcus pneumoniae. Despite appropriate therapy, the patient dies. A photomicrograph of a section of the lung obtained during the autopsy is shown. Which of the following mediators is most likely responsible for the presence of the cell-type indicated by the arrow?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Immunoglobulin E",
+                    "Platelet activating factor",
+                    "Interferon-gamma",
+                    "Interleukin-10",
+                    "Leukotriene D4"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Platelet activating factor"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "cdb39cf4-c48c-4ae7-9c84-5ddca2dfc25d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe presence of neutrophils indicates an immunological response to the infection. Interleukin-10 is an immunosuppressive cytokine.\nSo, the answer is D) Interleukin-10.",
+                        "answers": [
+                            {
+                                "id": "7bced883-092f-4051-8fda-8023c31dd0ab",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D) Interleukin-10.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:36:22",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d23d67df-43ba-493f-8109-e79593a69110",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning is not accurate. The presence of neutrophils indicates an inflammatory response to the infection, not necessarily an immunological response. Interleukin-10 is an anti-inflammatory cytokine, not an immunosuppressive cytokine. \nobj_1: 50\nobj_2: 80\nobj_3: 60\nobj_4: 60\nobj_5: 70\nobj_6: 60\nobj_7: 60\nobj_8: 60\nobj_9: 50\nobj_10: 70\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "05eb825b-fbda-4b89-a574-743035e4e4fa",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:23:31",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_829",
+                "ref_id": "",
+                "question": "A 66-year-old man presents to the emergency department for a cough and fatigue. The patient was brought in from a nursing home with documentation stating that he has seemed confused for the past day according to the staff. The patient has a past medical history of diabetes and hypertension. He is currently taking insulin, metformin, lisinopril, and atorvastatin. His temperature is 102\u00b0F (38.9\u00b0C), blood pressure is 107/58 mmHg, pulse is 120/min, respirations are 15/min, and oxygen saturation is 98% on room air. Physical exam reveals crackles on pulmonary exam and S4 on cardiac auscultation. Which of the following is the next best step in management?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Azithromycin and admission to the medical floor",
+                    "Azithromycin and discharge",
+                    "Azithromycin, moxifloxacin, and admission to the intensive care unit",
+                    "Ceftriaxone, azithromycin, and admission to the intensive care unit",
+                    "Moxifloxacin and admission to the medical floor"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Moxifloxacin and admission to the medical floor"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1f20984c-0935-4b92-a0fd-c4a12749e091",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has a high respiratory rate and crackles on pulmonary exam, which suggests pneumonia. Moxifloxacin is a good choice for treatment of pneumonia. Admission to the medical floor is appropriate for management of pneumonia.\nSo, the answer is E.",
+                        "answers": [
+                            {
+                                "id": "0110e371-3eb9-447c-b670-a2a14dc994c3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:40:55",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e9991ced-64f7-4bfe-a70f-38c6978a61c2",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning is partially correct, but it does not consider all relevant information and reasoning strategies. The patient also has a fever, tachycardia, and confusion, which suggest a more severe infection. The patient's low blood pressure also raises concern for sepsis. Therefore, admission to the medical floor may not be sufficient, and the patient may require admission to the intensive care unit for closer monitoring and more aggressive treatment. Additionally, the answer does not verify whether the final answer corresponds to one of the answer options.\n\nobj_1: 70\nobj_2: 80\nobj_3: 70\nobj_4: 60\nobj_5: 70\nobj_6: 60\nobj_7: 60\nobj_8: 70\nobj_9: 50\nobj_10: 70\nobj_11: 50",
+                        "answers": [
+                            {
+                                "id": "d31c03be-1f72-4f2b-b3ba-ba7ab67791bb",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:23:46",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_861",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the physician because of a 3-day history of fatigue and yellow discoloration of his skin. One week ago, he had an upper respiratory tract infection. Examination shows jaundice of the skin and conjunctivae. The spleen tip is palpated 2 cm below the left costal margin. His hemoglobin concentration is 9.4 g/dl and his mean corpuscular hemoglobin concentration is 39% Hb/cell. A Coombs test is negative. A peripheral blood smear is shown. This patient is at greatest risk for which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Malaria",
+                    "Acute myelogenous leukemia",
+                    "Cholecystitis",
+                    "Renal papillary necrosis",
+                    "Splenic sequestration crisis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cholecystitis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "00d37d7b-6768-489a-98dd-3fd79d69a139",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe patient has anemia and jaundice. The spleen is palpable. The patient is at risk for a hemolytic anemia. A Coombs test is negative which rules out a drug-induced hemolytic anemia. A peripheral blood smear shows spherocytes. The patient is at risk for a spherocytic anemia. A spherocytic anemia can be seen in malaria or in a patient with a splenic sequestration crisis. A splenic sequestration crisis is a clinical spectrum with aplastic crisis on one end and hyperhemolytic anemia on the other. A patient with a splenic sequestration crisis can have a palpable spleen. A patient with a splenic sequestration crisis can have a negative Coombs test. A patient with a splenic sequestration crisis can have a peripheral blood smear with spherocytes.\nSo, the answer is E.",
+                        "answers": [
+                            {
+                                "id": "8fb697a4-7a92-4a88-9c0e-9e94dd5a7235",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "\nE: Splenic sequestration crisis.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:41:34",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "84135fa4-9042-4566-9179-1056a6f2ce4c",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning is well-structured and considers all relevant information provided in the question stem. The answer is supported by the given information and the reasoning is sound.\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "28b328f7-232b-4661-be83-ebc2e878b2bd",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:23:57",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_911",
+                "ref_id": "",
+                "question": "A previously healthy 27-year-old woman comes to the physician because of a 2-month history of depressed mood and fatigue. During this time, she has had a 5-kg (11-lb) weight gain. She reports trouble concentrating at her job as a preschool teacher and has missed work several times in recent weeks due to generalized fatigue. She has smoked 2 packs of cigarettes daily for 10 years and is actively trying to quit smoking. A drug is prescribed that will treat the patient's mood disturbance and support smoking cessation. This patient should be counseled about which of the following possible side effects of this drug?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Decreased libido",
+                    "Hypotension",
+                    "Urinary retention",
+                    "Tachycardia",
+                    "QTc prolongation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Tachycardia"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "19a3f1b5-4349-43d0-a2ff-3fa05c6f8720",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nThe drug is likely bupropion, and bupropion can cause QTc prolongation. Prolongation of the QTc can lead to torsades de pointes, which can be fatal.\nE) QTc prolongation",
+                        "answers": [
+                            {
+                                "id": "7a517b9c-f7de-4b4a-a989-cc3a63506a9e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " E.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:43:12",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "cb5df8f9-5c13-43e2-8b82-029668ed3745",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning is concise and accurate, but it lacks detail and does not consider all relevant information.\nobj_1: 80\nobj_2: 80\nobj_3: 80\nobj_4: 80\nobj_5: 70\nobj_6: 80\nobj_7: 70\nobj_8: 90\nobj_9: 80\nobj_10: 80\nobj_11: 90",
+                        "answers": [
+                            {
+                                "id": "2c175ecb-b548-49c0-bd45-d329041bf316",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:24:07",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1253",
+                "ref_id": "",
+                "question": "A 7 -day-old newborn boy presents to the emergency department with a history of fever, irritability, and generalized erythema. During the first 2 days of clinical manifestations, the parents of the child tried to control the symptoms using acetaminophen; however, the newborn continued to be ill, and blisters were noticeable around the buttocks, hands, and feet. During the physical examination, the vital signs include body temperature 39.0\u00b0C (102.3\u00b0F), heart rate 130/min, and respiratory rate 45/min. Ears, nose, and oral mucosa preserved their integrity, while the skin presents with diffuse blanching erythema and flaccid blisters with a positive Nikolsky\u2019s sign. What is the most likely diagnosis in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Scarlet fever",
+                    "Scalded skin syndrome",
+                    "Impetigo",
+                    "Erysipela",
+                    "Pyoderma"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Scalded skin syndrome"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e3cf6f3b-a77f-4a94-a374-e154421344ad",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\nScalded skin syndrome is also known as toxic epidermal necrolysis and is characterized by the sudden onset of high fever, followed by a blanching erythema and flaccid blisters with a positive Nikolsky's sign.\nSo, the answer is B) Scalded skin syndrome.",
+                        "answers": [
+                            {
+                                "id": "d6ad670c-895a-4156-ab1f-cc97ac5478ff",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) Scalded skin syndrome.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/29 08:59:29",
+                        "api_service": "cohere",
+                        "model": "{'name': 'command-xlarge-nightly', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e1eb0d4a-8699-4e08-afdc-8f57f483b3f1",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and concise, and it correctly identifies the most likely diagnosis based on the given symptoms and physical examination findings.\n\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "0204fe4f-ecf1-42b6-911b-a3e67c0c3354",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 14:24:19",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

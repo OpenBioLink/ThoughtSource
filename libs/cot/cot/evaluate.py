@@ -12,7 +12,7 @@ import datasets as ds
 from cot.generate import FRAGMENTS
 
 
-def evaluate(dataset,name=None, overwrite=False, warn=True, config=None):  # config can be deleted
+def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
     #commented out for test purposes
     #assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
 
@@ -51,11 +51,7 @@ def evaluate(dataset,name=None, overwrite=False, warn=True, config=None):  # con
                     model_name = cot["model"]
                 model_names.add(model_name)
                 # make a key for each combination of triggers, e.g. "None_lievin-02_kojima-A-C"
-                #key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
-                if name is not None:
-                    key = name
-                else:
-                    key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
+                key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
                 keys.add(key)
                 counter[model_name][key] += 1
                 if answer["correct_answer"]:

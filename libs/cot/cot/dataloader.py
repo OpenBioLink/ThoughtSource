@@ -15,9 +15,10 @@ import numpy as np
 import pandas as pd
 
 from .evaluate import evaluate
-from .generate import *
+from .generate import (full_text_prompts, generate_and_extract,
+                       select_generated_cots, delete_all_generated_cots)
 from .merge import merge
-
+from .generate_chain import *
 
 
 @contextmanager
@@ -502,96 +503,119 @@ class Collection:
             else:
                 count += self._cache[name][split].num_rows
         return count
+    
+    def system_generate(self,input_dict,name=None, split=None):
+        
+        # always do it per split, so less data is lost in case of an API error causing a crash
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = generate_with_system(self[name][split],input_dict)
+        else:
+            if split is None:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = generate_with_system(self[name][split],input_dict)
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = generate_with_system(self[name][split],input_dict)
+    
+    def system_evals(self,input_dict,name=None, split=None):
+        
+        # always do it per split, so less data is lost in case of an API error causing a crash
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = system_eval_cot(self[name][split],input_dict)
+        else:
+            if split is None:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = system_eval_cot(self[name][split],input_dict)
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = system_eval_cot(self[name][split],input_dict)
 
     def generate(self, name=None, split=None, config={}):
-
+        
         # always do it per split, so less data is lost in case of an API error causing a crash
         if name is None:
             for name in self._cache:
                 print(f"Generating {name}...")
                 for split in self._cache[name]:
-                    self[name][split] = generate_and_extract(
-                        self[name][split], config=config)
+                    self[name][split] = generate_and_extract(self[name][split], config=config)
         else:
             if split is None:
                 print(f"Generating {name}...")
                 for split in self._cache[name]:
-                    self[name][split] = generate_and_extract(
-                        self[name][split], config=config)
+                    self[name][split] = generate_and_extract(self[name][split], config=config)
             else:
                 print(f"Generating {name}...")
-                self[name][split] = generate_and_extract(
-                    self[name][split], config=config)
+                self[name][split] = generate_and_extract(self[name][split], config=config)
     
-    def generate_extract_flexible(self, input_dict, name=None, split=None):
-
+    def generate_extract_flexible(self,chain, input_dict,name=None, split=None):
+        
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     print(f"Generating {name}...")
-                    self[name][split] = self_generate_extract(
-                        self[name][split], input_dict)
+                    self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
         else:
             if split is None:
                 print(f"Generating {name}...")
                 for split in self._cache[name]:
-                    self[name][split] = self_generate_extract(
-                        self[name][split], input_dict)
+                    self[name][split] = self_generate_extract(self[name][split], chain, input_dict)
             else:
                 print(f"Generating {name}...")
-                self[name][split] = self_generate_extract(
-                    self[name][split], input_dict)
+                return self_generate_extract(self[name][split], chain, input_dict)
 
     #for split in name:
     #loop through datasets
-    def generate_flexible(self, input_dict, name=None, split=None):
+    def generate_flexible(self,chain, input_dict,name=None, split=None):
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     print(f"Generating {name}...")
-                    self[name][split] = self_generate(
-                        self[name][split], input_dict)
+                    self[name][split] = self_generate(self[name][split], chain, input_dict)    
         else:
             if split is None:
-                print(f"Generating {name}...")
-                self[name][split] = self_generate(
-                    self[name][split], input_dict)
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_generate(self[name][split], chain, input_dict)
             else:
                 print(f"Generating {name}...")
-                self[name][split] = self_generate(
-                    self[name][split], input_dict)
+                self[name][split] = self_generate(self[name][split], chain, input_dict)
     
-    def extract_flexible(self, input_dict, name=None, split=None):
+    def extract_flexible(self,chain, input_dict,name=None, split=None):
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     print(f"Generating {name}...")
-                    self[name][split] = self_extract(
-                        self[name][split], input_dict)
+                    self[name][split] = self_extract(self[name][split], chain, input_dict)  
         else:
             if split is None:
                 for split in self._cache[name]:
-                    self[name][split] = self_extract(
-                        self[name][split], input_dict)
+                    self[name][split] = self_extract(self[name][split], chain, input_dict)  
             else:
                 print(f"Generating {name}...")
-                self[name][split] = self_extract(self[name][split], input_dict)
+                self[name][split] = self_extract(self[name][split], chain, input_dict)  
     
-    def metareason_flexible(self, input_dict, name=None, split=None):
+    def metareason_flexible(self,chain, input_dict,name=None, split=None):
+        # extraction = input_dict['reflect_answer_extraction']
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     print(f"Generating {name}...")
-                    self[name][split] = self_reflect(
-                        self[name][split], input_dict)
+                    self[name][split] = self_reflect(self[name][split], chain, input_dict)   
         else:
             if split is None:
                 for split in self._cache[name]:
-                    self[name][split] = self_reflect(
-                        self[name][split], input_dict)
+                    self[name][split] = self_reflect(self[name][split], chain, input_dict)   
             else:
                 print(f"Generating {name}...")
-                self[name][split] = self_reflect(self[name][split], input_dict)
+                self[name][split] = self_reflect(self[name][split], chain, input_dict)   
             
     """Creates json and collection from Thoughtsource ouptut; chain_output from chain_generation"""
     def to_Collection(chain_output,dataset_name,split,file_name):
@@ -601,31 +625,30 @@ class Collection:
 
         #create and collect a json to make collection
         with open(f"{file_name}.json", "w") as outfile:
-            json.dump(ts_set, outfile) 
-            #ts_set.dump(outfile) #dump dict not possible
+            json.dump(ts_set, outfile)
         collect = Collection.from_json(f'{file_name}.json')
 
         return collect
             
     
-    def evaluate(self,title, name=None, split=None, overwrite=False, warn=False):
+    def evaluate(self, name=None, split=None, overwrite=False, warn=False):
         evaluations_dict = defaultdict(dict)
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     # print(f"Evaluating {name}...")
-                    self[name][split], evaluation = evaluate(self[name][split],title, overwrite=overwrite, warn=warn)
+                    self[name][split], evaluation = evaluate(self[name][split], overwrite=overwrite, warn=warn)
                     evaluations_dict[name][split] = evaluation
         else:
             if split is None:
                 for split in self._cache[name]:
                     # print(f"Evaluating {name}...")
-                    self[name][split], evaluations = evaluate(self[name][split],title, overwrite=overwrite, warn=warn)
+                    self[name][split], evaluations = evaluate(self[name][split], overwrite=overwrite, warn=warn)
                     evaluations_dict[name][split] = evaluations
 
             else:
                 # print(f"Evaluating {name}...")
-                self[name][split], evaluations = evaluate(self[name][split],title, overwrite=overwrite, warn=warn)
+                self[name][split], evaluations = evaluate(self[name][split], overwrite=overwrite, warn=warn)
                 evaluations_dict[name][split] = evaluations
 
         # return evaluation outcome
@@ -787,6 +810,7 @@ def print_warning(config, n_samples):
     else:
         # break the execution of the code if the user does not want to continue
         raise ValueError("Generation aborted by user.")
+    
 
 # ideas for additional functions
 

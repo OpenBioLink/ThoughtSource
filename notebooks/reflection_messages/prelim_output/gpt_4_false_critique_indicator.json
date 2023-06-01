@@ -1,0 +1,1393 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_128",
+                "ref_id": "",
+                "question": "A 47-year-old woman comes to the physician because of progressive muscle weakness for five months. She feels that the muscles in her shoulders and hips have been getting weaker and sometimes feel sore. She now has difficulty getting up from chairs, climbing stairs, and combing her hair. She has also noticed new difficulty with swallowing solid foods, but has no trouble with liquids. She has a 5-year history of hyperlipidemia controlled with fluvastatin. Her maternal uncle died at age 26 from Duchenne's muscular dystrophy and her mother has Hashimoto's thyroiditis. Vital signs are within normal limits. Neurologic examination shows moderate weakness in the arm abductors and hip flexors bilaterally. Deep tendon reflexes are 2+ bilaterally. Laboratory studies show:\nHemoglobin 13.7 g/dL\nLeukocytes 11,200/mm3\nErythrocyte sedimentation rate 33 mm/h\nSerum\nCreatine kinase 212 U/L\nLactate dehydrogenase 164 U/L\nAST 34 U/L\nALT 35 U/L\nWhich of the following is most likely to confirm the diagnosis?\"",
+                "type": "multiplechoice",
+                "choices": [
+                    "Intrafascicular infiltration on muscle biopsy",
+                    "Inflammation of synovial spaces on ultrasound",
+                    "Perifascicular and perivascular infiltration on muscle biopsy",
+                    "Positive anti-acetylcholine receptor antibodies",
+                    "Dystrophin gene mutation on genetic analysis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Intrafascicular infiltration on muscle biopsy"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6002982f-83bb-4f17-b30e-897e649c35b7",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's analyze the patient's symptoms and history:\n- Progressive muscle weakness for five months\n- Difficulty getting up from chairs, climbing stairs, and combing hair\n- Difficulty swallowing solid foods\n- Family history of Duchenne's muscular dystrophy and Hashimoto's thyroiditis\n\nNow let's analyze the laboratory results:\n- Elevated erythrocyte sedimentation rate (ESR)\n- Normal creatine kinase, lactate dehydrogenase, AST, and ALT levels\n\nBased on the patient's symptoms, history, and laboratory results, we can narrow down the possible diagnoses. The progressive muscle weakness, difficulty with certain movements, and difficulty swallowing solid foods suggest a myopathy or muscle disorder. The family history of Duchenne's muscular dystrophy and Hashimoto's thyroiditis may also be relevant.\n\nNow let's consider the answer choices:\n\nA) Intrafascicular infiltration on muscle biopsy: This finding is not specific to any particular muscle disorder and would not confirm the diagnosis.\n\nB) Inflammation of synovial spaces on ultrasound: This finding would be more suggestive of a joint or connective tissue disorder, rather than a muscle disorder.\n\nC) Perifascicular and perivascular infiltration on muscle biopsy: This finding is characteristic of inflammatory myopathies, such as polymyositis or dermatomyositis. Given the patient's symptoms and elevated ESR, this is a likely diagnosis.\n\nD) Positive anti-acetylcholine receptor antibodies: These antibodies are associated with myasthenia gravis, a neuromuscular disorder. However, the patient's symptoms and laboratory results do not strongly suggest myasthenia gravis.\n\nE) Dystrophin gene mutation on genetic analysis: This would confirm a diagnosis of Duchenne's muscular dystrophy. However, the patient's age and symptoms are not typical for Duchenne's muscular dystrophy, which usually presents in childhood and affects males.\n\nBased on the patient's symptoms, history, and laboratory results, the most likely diagnosis is an inflammatory myopathy, such as polymyositis or dermatomyositis. Therefore, the correct answer is C) Perifascicular and perivascular infiltration on muscle biopsy.",
+                        "answers": [
+                            {
+                                "id": "89801b02-b4ac-488d-884b-4496fe535c2c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Perifascicular and perivascular infiltration on muscle biopsy.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:31:34",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0c3c5858-464a-4fbf-b01f-9e7cae3d6fba",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response provides a thorough analysis of the patient's symptoms, history, and laboratory results. It also considers each answer choice and explains why it is or isn't likely to confirm the diagnosis. The final answer is well-supported by the reasoning provided.\nobj_1: 10\nobj_2: 9\nobj_3: 10\nobj_4: 9\nobj_5: 10\nobj_6: 9\nobj_7: 8\nobj_8: 10\nobj_9: 9\nobj_10: 9\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "72787a3a-d26b-430f-b4d5-4a04bdcbf1b6",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:03:52",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_202",
+                "ref_id": "",
+                "question": "A 48-year-old female presents for a follow-up appointment to discuss her ultrasound results. She presented with a lump in her neck 2 weeks ago. On examination, a thyroid nodule was present; the nodule was fixed, immobile, and non-tender. Ultrasound showed a hypoechoic nodule with a size of 2 cm. Histological examination of a fine needle biopsy was performed and cytological examination reported a likely suspicion of neoplasia. CT scan is performed to check for any lesions in the bones and/or lungs, common metastatic sites in this condition. Treatment with radioiodine therapy is planned after near-total thyroidectomy. Considering this tumor, which of the following is the most likely initial metastatic site in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Trachea",
+                    "Hilar lymph nodes",
+                    "Cervical lymph nodes",
+                    "Inferior thyroid arteries",
+                    "Thyrohyoid muscle"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Inferior thyroid arteries"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "c3b6ddd0-ebb5-42fc-9cb6-b9880a817316",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient has a thyroid nodule that is fixed, immobile, and non-tender, which raises suspicion for malignancy.\n2. Ultrasound shows a hypoechoic nodule, which also supports the suspicion of malignancy.\n3. Fine needle biopsy reports a likely suspicion of neoplasia, further supporting the possibility of cancer.\n4. The question asks for the most likely initial metastatic site in this patient.\n\nConsidering these factors, the most likely initial metastatic site in this patient would be the cervical lymph nodes (C). Thyroid cancer commonly spreads to the cervical lymph nodes first before spreading to other areas such as the lungs and bones.",
+                        "answers": [
+                            {
+                                "id": "2aa03649-9708-480b-b0e0-a3dbb6a576dc",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Cervical lymph nodes.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:39:12",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "4bad2d38-6cfa-4a05-860d-1bc9f4f6e585",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and well-structured, considering the relevant information from the patient's case and using it to determine the most likely initial metastatic site.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "4842774a-719a-42ff-b40e-f1378438dd8d",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:04:13",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_285",
+                "ref_id": "",
+                "question": "A 30-year-old man presents to his primary care physician with complaints of excessive fatigue and weakness for the last several weeks. He also complains of abdominal pain and constipation for the same duration. On further questioning, he reports that he has lost 8 pounds in the last 2 weeks. Past medical history and family history are insignificant. His temperature is 37.3\u00b0 C (99.2\u00b0 F), respirations are 21/min, pulse is 63/min, and blood pressure is 99/70 mm Hg. On physical examination, he is a tired-appearing, thin male. He has a bronze discoloration to his skin, but he denies being outside in the sun or any history of laying in tanning beds. What is the next best step in the management of this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Administer intravenous hydrocortisone",
+                    "Administer intravenous fludrocortisone",
+                    "Start him on androgen replacement treatment",
+                    "Start him on both hydrocortisone and fludrocortisone therapy",
+                    "Order an ACTH stimulation test"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Start him on both hydrocortisone and fludrocortisone therapy"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b413a970-587c-41f2-8c48-681295d12c3d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient presents with symptoms of fatigue, weakness, abdominal pain, constipation, and weight loss, along with physical findings of bronze skin discoloration and low blood pressure. These symptoms and signs are suggestive of adrenal insufficiency, also known as Addison's disease.\n\nThe next best step in the management of this patient would be to confirm the diagnosis of adrenal insufficiency. This can be done by ordering an ACTH stimulation test (Option E). The ACTH stimulation test measures the response of the adrenal glands to adrenocorticotropic hormone (ACTH) and can help determine if the patient has primary adrenal insufficiency.\n\nOnce the diagnosis is confirmed, the appropriate treatment can be initiated, which may include hydrocortisone and fludrocortisone therapy (Option D). However, it is important to first confirm the diagnosis before starting treatment.\n\nTherefore, the correct answer is E) Order an ACTH stimulation test.",
+                        "answers": [
+                            {
+                                "id": "8a721779-c351-4916-bf8d-437d618f3fb2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Order an ACTH stimulation test.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:43:07",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0cfdebc7-4958-47c4-8508-f2c3ad841a33",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response provides a clear and accurate interpretation of the question and the patient's symptoms. It considers all relevant information and selects the most appropriate reasoning strategy. The response is structured, coherent, and provides a single final answer based on the reasoning.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "fe6cef3c-d9f0-4abf-80f1-11f6df20bfba",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:04:46",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_416",
+                "ref_id": "",
+                "question": "A 25-year-old woman presents to her new family physician for a follow-up appointment. She previously presented with itching, as well as frequent and painful urination. A vaginal swab was taken and sent to the laboratory to confirm the diagnosis. Diplococci were seen on Gram stain and were grown on Thayer-Martin agar. When discussing her infection, the patient says that she uses safe sex practices. Her history is significant for meningitis and for infection with Streptococcus pneumoniae. The physician discusses that the reason behind these infections comes from a defect in the innate immune system. Which of the following best describes the component that is likely deficient in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Acts as an important opsonin  ",
+                    "Plays a role in angioedema",
+                    "Degraded by C1 esterase inhibitor",
+                    "Creates pores in the cell membrane",
+                    "Induces the alternative complement pathway"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Creates pores in the cell membrane"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "63c479fe-59d0-4a1d-b46c-210b27277bf2",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient has a history of meningitis and infection with Streptococcus pneumoniae, which suggests a deficiency in the immune system. The presence of diplococci on Gram stain and growth on Thayer-Martin agar indicates a Neisseria gonorrhoeae infection. This further supports the idea of an immune deficiency.\n\nNow let's analyze the answer choices:\n\nA) Acts as an important opsonin: This refers to a component that enhances phagocytosis, such as antibodies or complement proteins. This could be a possibility.\n\nB) Plays a role in angioedema: This is related to the bradykinin pathway and is not directly related to the patient's infections.\n\nC) Degraded by C1 esterase inhibitor: This refers to the complement system, specifically the classical pathway. A deficiency in this component could lead to increased susceptibility to infections, but it is not the most likely answer.\n\nD) Creates pores in the cell membrane: This refers to the membrane attack complex (MAC) of the complement system, which is responsible for creating pores in the cell membrane of pathogens. A deficiency in this component could lead to increased susceptibility to infections, but it is not the most likely answer.\n\nE) Induces the alternative complement pathway: This refers to the activation of the complement system through the alternative pathway, which is important in the defense against bacterial infections. A deficiency in this component could lead to increased susceptibility to infections, but it is not the most likely answer.\n\nBased on the patient's history and the information provided, the most likely deficient component in this patient is the one that acts as an important opsonin (choice A). This would be a deficiency in the complement system, specifically the C3b protein, which is an important opsonin that enhances phagocytosis of pathogens. This deficiency would make the patient more susceptible to infections, such as meningitis and Streptococcus pneumoniae, as well as Neisseria gonorrhoeae.",
+                        "answers": [
+                            {
+                                "id": "ff6d61f9-bad4-4ba8-8a4c-952bab3f00c0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Acts as an important opsonin.",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:52:24",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3fbc10d6-8228-45b9-9d4e-ac060dd047d9",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is thorough and considers each answer choice in relation to the patient's history and symptoms. However, it could be more explicit in explaining why the other options are less likely than option A.\nobj_1: 9\nobj_2: 8\nobj_3: 9\nobj_4: 8\nobj_5: 8\nobj_6: 8\nobj_7: 7\nobj_8: 9\nobj_9: 7\nobj_10: 9\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "6da9b85f-0e64-4160-b80f-60e228a8f3bc",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:05:12",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_454",
+                "ref_id": "",
+                "question": "A 42-year-old man presents to a neurologist for evaluation of severe headache. He started experiencing episodic headaches and palpitations 3 months ago; however, he thought that these symptoms were simply related to the stress of moving and starting a new job. He has continued to experience these intermittent headaches and has also noticed that he sweats profusely during these episodes. On presentation his temperature is 99.1\u00b0F (37.3\u00b0C), blood pressure is 163/112 mmHg, pulse is 112/min, and respirations are 15/min. Physical exam reveals pallor and perspiration but is otherwise unremarkable. The most likely cause of this patient's symptoms is produced by cells located in which region of the histology slide shown in figure A?",
+                "type": "multiplechoice",
+                "choices": [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "E"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "7ac07eda-ceec-4666-a67a-ef21497c5d8a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the patient's symptoms and presentation\n- Severe headache\n- Episodic headaches and palpitations\n- Sweating during episodes\n- High blood pressure (163/112 mmHg)\n- High pulse rate (112/min)\n\nStep 2: Consider possible diagnoses\nThese symptoms are suggestive of a pheochromocytoma, which is a tumor of the adrenal medulla that produces excess catecholamines (epinephrine and norepinephrine), leading to the symptoms described.\n\nStep 3: Identify the relevant region on the histology slide\nSince we suspect a pheochromocytoma, we need to identify the adrenal medulla on the histology slide. The adrenal gland is divided into two main regions: the outer cortex (which produces steroid hormones) and the inner medulla (which produces catecholamines).\n\nStep 4: Match the region to the answer choices\nIn Figure A, the regions are labeled as follows:\n- A: Adrenal cortex (zona glomerulosa)\n- B: Adrenal cortex (zona fasciculata)\n- C: Adrenal cortex (zona reticularis)\n- D: Adrenal medulla\n- E: Capsule\n\nSince we are looking for the region responsible for producing catecholamines, the correct answer is D) Adrenal medulla.",
+                        "answers": [
+                            {
+                                "id": "571c716b-b4f9-43bd-8292-e9aeb616494b",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Adrenal medulla.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:55:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "dcade042-c2f3-439a-b7fd-d1b5f1c982da",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response provides a clear and structured reasoning process, identifying the patient's symptoms, considering possible diagnoses, and matching the relevant region on the histology slide to the answer choices.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "917136c8-d34e-4885-aaad-870a2ab10e76",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:05:34",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_495",
+                "ref_id": "",
+                "question": "A 55-year-old woman is found to have an abnormal mass on routine mammography. The mass is biopsied and cytology results are diagnostic for invasive ductal adenocarcinoma that is estrogen receptor positive. The patient is started on chemotherapy and ultimately has the mass resected. She is taking tamoxifen and has regular outpatient follow up appointments to monitor for any recurrence of cancer. The patient has a past medical history of asthma, obesity, and a uterine leimyoma which was definitively treated last year. Her last menstrual period was at the age of 47. The patient's vital signs and exam are unremarkable. Which of the following is a potential complication that could occur in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Deep venous thrombosis",
+                    "Endometrial cancer",
+                    "Eruption of seborrheic keratoses",
+                    "Increased bleeding",
+                    "Osteoporosis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Deep venous thrombosis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "627048f1-a01e-4a48-8bbe-b2dec6d2b378",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Deep venous thrombosis: Tamoxifen is known to increase the risk of blood clots, including deep venous thrombosis (DVT). So this is a potential complication for this patient.\n\nB) Endometrial cancer: Tamoxifen has been associated with an increased risk of endometrial cancer due to its estrogen-like effects on the endometrium. This patient has a history of uterine leiomyoma, which was treated, but she is still at risk for endometrial cancer.\n\nC) Eruption of seborrheic keratoses: This is not a known complication of tamoxifen or related to the patient's medical history.\n\nD) Increased bleeding: Tamoxifen does not typically cause increased bleeding as a side effect.\n\nE) Osteoporosis: Tamoxifen has mixed effects on bone health. It can have a protective effect on bone density in postmenopausal women, but it can also increase the risk of fractures. However, this is not the most concerning potential complication for this patient.\n\nBased on the information provided, the most concerning potential complications for this patient are deep venous thrombosis (A) and endometrial cancer (B).",
+                        "answers": [
+                            {
+                                "id": "3b869fc5-afa2-4405-9440-0361179e0ddd",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Endometrial cancer.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:58:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d228c2c1-d592-46c7-a89b-f9fbd0f74c88",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is mostly accurate and considers relevant information. However, it does not clearly explain why endometrial cancer is chosen as the most concerning potential complication over deep venous thrombosis.\nobj_1: 9\nobj_2: 9\nobj_3: 9\nobj_4: 8\nobj_5: 8\nobj_6: 8\nobj_7: 8\nobj_8: 8\nobj_9: 7\nobj_10: 9\nobj_11: 8\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "cac4bc1f-5926-46d4-be90-10b2f92ff940",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:06:01",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_499",
+                "ref_id": "",
+                "question": "A 30-year-old male presents to his primary care physician complaining of infertility. He and his wife have been trying to get pregnant for the past two years. They have used fertility monitors and other aids without success. A hysterosalpingogram in his wife was normal. The patient has a history of cleft lip and recurrent upper respiratory infections as a child. He was briefly hospitalized for severe pneumonia when he was 9-years-old. His temperature is 98.6\u00b0F (37\u00b0C), blood pressure is 120/85 mmHg, pulse is 90/min, and respirations are 18/min. On examination, he is a healthy-appearing male in no acute distress with fully developed reproductive organs. Notably, cardiac auscultation is silent in the left 5th intercostal space at the midclavicular line. This patient most likely has a mutation in which of the following classes of proteins?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Microtubule monomeric protein",
+                    "Lysosomal trafficking regulator protein",
+                    "Transmembrane ion channel protein",
+                    "Retrograde cytoskeletal motor protein",
+                    "Anterograde cytoskeletal motor protein"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Retrograde cytoskeletal motor protein"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "07897ba2-1edd-400c-a515-c067ca0d0493",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's analyze the patient's symptoms and history. The patient presents with infertility, a history of cleft lip, recurrent upper respiratory infections, and an abnormal cardiac auscultation. These symptoms suggest a possible genetic disorder affecting multiple organ systems.\n\nNow let's go through the answer choices and see which class of proteins could be responsible for these symptoms:\n\nA) Microtubule monomeric protein: These proteins are involved in the formation of microtubules, which are essential for cell division and intracellular transport. While mutations in these proteins could potentially lead to some developmental abnormalities, they are not specifically associated with the symptoms presented by the patient.\n\nB) Lysosomal trafficking regulator protein: These proteins are involved in the transport of materials within lysosomes, which are cellular organelles responsible for breaking down waste materials and cellular debris. Mutations in these proteins can lead to lysosomal storage diseases, which typically present with a wide range of symptoms, including developmental abnormalities and organ dysfunction. However, the patient's symptoms do not specifically point to a lysosomal storage disease.\n\nC) Transmembrane ion channel protein: These proteins are involved in the transport of ions across cell membranes, which is essential for maintaining cellular homeostasis and proper cell function. Mutations in these proteins can lead to a variety of disorders, including cystic fibrosis, which is characterized by recurrent respiratory infections and infertility in males. However, the patient's other symptoms, such as cleft lip and abnormal cardiac auscultation, are not typically associated with cystic fibrosis.\n\nD) Retrograde cytoskeletal motor protein: These proteins are involved in the transport of materials along the cytoskeleton in a retrograde (toward the cell body) direction. Mutations in these proteins can lead to a variety of disorders, including some forms of hereditary spastic paraplegia, which is characterized by progressive muscle stiffness and weakness. However, the patient's symptoms do not specifically point to a disorder involving retrograde cytoskeletal motor proteins.\n\nE) Anterograde cytoskeletal motor protein: These proteins are involved in the transport of materials along the cytoskeleton in an anterograde (away from the cell body) direction. Mutations in these proteins can lead to a variety of disorders, including primary ciliary dyskinesia (PCD), which is characterized by recurrent respiratory infections, infertility in males, and situs inversus (abnormal positioning of internal organs). The patient's symptoms, including cleft lip and abnormal cardiac",
+                        "answers": [
+                            {
+                                "id": "c6bc1839-b2b9-410d-9046-61e891315025",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Anterograde cytoskeletal motor protein.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:00:18",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e26a5a00-3118-43c2-ad0a-87250298ac6f",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is thorough and considers each answer option in relation to the patient's symptoms and history. However, the connection between cleft lip and primary ciliary dyskinesia could be better explained, as it is not a common symptom of PCD.\nobj_1: 9\nobj_2: 8\nobj_3: 10\nobj_4: 9\nobj_5: 9\nobj_6: 9\nobj_7: 8\nobj_8: 9\nobj_9: 8\nobj_10: 9\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "49062367-372c-42f3-8a96-947f26370b0e",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:06:28",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_564",
+                "ref_id": "",
+                "question": "A 35-year-old man visits your office for his annual health checkup. He was diagnosed with generalized anxiety disorder 6 months ago, which is being treated with citalopram. He comments that his symptoms have improved since initiating the prescribed therapy; however, in the past 2 months, he has been unable to have sexual intercourse due to weak tumescence and low libido. His blood pressure is 122/74 mm Hg, heart rate is 75/min, and respiratory rate is 16/min. Physical examination reveals regular heart and lung sounds. What is the appropriate step in the management of this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Lowering citalopram dose",
+                    "Addition of bupropion",
+                    "Switch to fluoxetine",
+                    "Addition of sildenafil",
+                    "Switch to selegiline"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Lowering citalopram dose"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "0e7d9858-38f9-4e93-81a4-761096cbc9f5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Lowering citalopram dose: This option may help reduce the sexual side effects, but it could also compromise the effectiveness of the treatment for generalized anxiety disorder.\n\nB) Addition of bupropion: Bupropion is an antidepressant that has been shown to have fewer sexual side effects compared to other antidepressants like citalopram. Adding bupropion to the patient's treatment plan may help alleviate the sexual dysfunction without compromising the treatment of anxiety.\n\nC) Switch to fluoxetine: Fluoxetine is another selective serotonin reuptake inhibitor (SSRI) like citalopram, and it is also associated with sexual side effects. Switching to fluoxetine may not improve the patient's sexual dysfunction.\n\nD) Addition of sildenafil: Sildenafil is a medication used to treat erectile dysfunction. While it may help with the weak tumescence, it may not address the low libido issue.\n\nE) Switch to selegiline: Selegiline is a monoamine oxidase inhibitor (MAOI) used to treat Parkinson's disease and depression. It is not typically used as a first-line treatment for generalized anxiety disorder and may not be the best option for this patient.\n\nBased on the information provided, the most appropriate step in the management of this patient would be:\n\nB) Addition of bupropion",
+                        "answers": [
+                            {
+                                "id": "e408d740-6859-4740-b42d-0063b9129fd2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Addition of bupropion.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:04:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5fec7b57-d35e-4f3e-b4dc-dbd3b7771763",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response provides a clear and well-structured analysis of the given answer options, considering the potential benefits and drawbacks of each option in relation to the patient's symptoms and diagnosis. However, it does not mention the potential risks and side effects of adding bupropion, which would be important to consider in the decision-making process.\nobj_1: 10\nobj_2: 8\nobj_3: 10\nobj_4: 9\nobj_5: 10\nobj_6: 9\nobj_7: 7\nobj_8: 9\nobj_9: 9\nobj_10: 9\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "ddbe254c-65c6-47d7-be08-8992bb4f8a06",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:06:59",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_594",
+                "ref_id": "",
+                "question": "A 38-year-old woman presents to an urgent care clinic with the complaint of epigastric discomfort and cramping pain for the past 2 hours. She states that she has experienced similar pain in the past. These episodes occur mostly after meals and often subside several hours after she finishes eating. Due to this reason she mostly avoids eating. She says she has lost a few pounds in the last couple of months. She is a smoker and drinks alcohol occasionally. Past medical history is insignificant except for chronic knee pain, for which she takes over the counter painkillers. Her temperature is 37\u00b0C (98.6\u00b0F), respiratory rate is 16/min, pulse is 77/min, and blood pressure is 120/89 mm Hg. A physical abdominal exam is unremarkable, including examination of the abdomen. Which of the following is the most likely diagnosis?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Duodenal peptic ulcer",
+                    "Choledocholithiasis",
+                    "Pancreatitis",
+                    "Gastric peptic ulcer",
+                    "Gallbladder cancer"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Gastric peptic ulcer"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4ee5bac8-d94c-46cc-8f9d-f9dd42108a2a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Duodenal peptic ulcer - This is the most likely diagnosis given the patient's history of epigastric discomfort and cramping pain after meals, which often subsides several hours after eating. Additionally, her history of smoking and occasional alcohol use are risk factors for peptic ulcers.\n\nB) Choledocholithiasis - This condition involves gallstones in the bile duct, which typically presents with right upper quadrant pain, jaundice, and fever. The patient's symptoms do not match this presentation.\n\nC) Pancreatitis - This condition typically presents with severe, constant abdominal pain that radiates to the back, along with nausea and vomiting. The patient's symptoms do not match this presentation.\n\nD) Gastric peptic ulcer - This is a possibility, but gastric ulcers typically cause pain immediately after eating, whereas the patient's pain occurs mostly after meals and subsides several hours after eating. This makes a duodenal peptic ulcer more likely.\n\nE) Gallbladder cancer - This is a rare condition and typically presents with right upper quadrant pain, jaundice, and weight loss. The patient's symptoms do not match this presentation.\n\nBased on the patient's symptoms and risk factors, the most likely diagnosis is A) Duodenal peptic ulcer.",
+                        "answers": [
+                            {
+                                "id": "c1fc2fad-8cde-433e-a09e-089908b04b14",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Duodenal peptic ulcer.",
+                                "answer_from_choices": "A",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:07:13",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "f66391cd-a4d7-410c-a05d-cf136f8b2cdc",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is thorough and considers each answer option, comparing the patient's symptoms and risk factors to the typical presentations of each condition. The response accurately interprets the question and provides a clear final answer.\nobj_1: 10\nobj_2: 9\nobj_3: 10\nobj_4: 9\nobj_5: 9\nobj_6: 9\nobj_7: 8\nobj_8: 10\nobj_9: 9\nobj_10: 9\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "954baa5c-44fb-4e46-8425-1d945e146f1a",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:07:24",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_596",
+                "ref_id": "",
+                "question": "Six hours after birth, a newborn boy is evaluated for tachypnea. He was delivered at 41 weeks' gestation via Caesarian section and the amniotic fluid was meconium-stained. His respiratory rate is 75/min. Physical examination shows increased work of breathing. X-rays of the abdomen and chest show no abnormalities. Echocardiography shows elevated pulmonary artery pressure. He is started on an inhaled medication that increases smooth muscle cGMP, and there is immediate improvement in his tachypnea and oxygenation status. Three hours later, the newborn is tachypneic and there is blue-grey discoloration of the lips, fingers, and toes. Which of the following is the most likely cause of this infant's cyanosis?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increase in concentration of serum myoglobin",
+                    "Closure of the ductus arteriosus",
+                    "Oxidization of Fe2+ to Fe3+",
+                    "Inhibition of mitochondrial cytochrome c oxidase",
+                    "Allosteric alteration of heme groups"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Oxidization of Fe2+ to Fe3+"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "7db37c89-e354-4bc8-930a-b92925e38155",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the clinical scenario\n- A newborn boy with tachypnea, increased work of breathing, and elevated pulmonary artery pressure. He initially improved with inhaled medication but later developed cyanosis.\n\nStep 2: Analyze the answer choices\nA) Increase in concentration of serum myoglobin - This is not directly related to the infant's respiratory issues and cyanosis.\nB) Closure of the ductus arteriosus - This is a normal physiological process that occurs after birth, but it can lead to cyanosis if there is a problem with the pulmonary circulation.\nC) Oxidization of Fe2+ to Fe3+ - This would result in methemoglobinemia, which can cause cyanosis. However, there is no indication that this is happening in this case.\nD) Inhibition of mitochondrial cytochrome c oxidase - This would impair cellular respiration and could lead to cyanosis, but there is no indication that this is happening in this case.\nE) Allosteric alteration of heme groups - This would affect the oxygen-carrying capacity of hemoglobin and could cause cyanosis, but there is no indication that this is happening in this case.\n\nStep 3: Choose the most likely answer\nBased on the clinical scenario and analysis of the answer choices, the most likely cause of this infant's cyanosis is:\nB) Closure of the ductus arteriosus\n\nThe closure of the ductus arteriosus can lead to increased pulmonary artery pressure and cyanosis if there is a problem with the pulmonary circulation. This is consistent with the infant's clinical presentation and response to the inhaled medication.",
+                        "answers": [
+                            {
+                                "id": "c0c96539-4633-4778-bd78-51db7c76949f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Closure of the ductus arteriosus.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:08:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "dcf4cd16-9d4f-4515-8726-2de143083737",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is well-structured and considers the clinical scenario and answer choices. However, it does not fully consider the immediate improvement in tachypnea and oxygenation status after the administration of the inhaled medication, which increases smooth muscle cGMP. This is an important aspect of the question that should be taken into account when selecting the most appropriate answer.\nobj_1: 9\nobj_2: 7\nobj_3: 8\nobj_4: 8\nobj_5: 9\nobj_6: 7\nobj_7: 7\nobj_8: 8\nobj_9: 8\nobj_10: 8\nobj_11: 8\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "ef866f69-405e-425f-942e-8fdc05d5a697",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:07:57",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_621",
+                "ref_id": "",
+                "question": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Cat bite",
+                    "Human bite",
+                    "Spider bite",
+                    "Fish bite",
+                    "Dog bite"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Dog bite"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "94be4966-a22f-4b31-a4f4-c47c18151ebe",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Cat bite - Cat bites can cause infections, but they are not typically associated with the symptoms described in this case.\n\nB) Human bite - Human bites can also cause infections, but again, they are not typically associated with the symptoms described in this case.\n\nC) Spider bite - Some spider bites can cause severe symptoms, including fever, night sweats, and lethargy. The swollen bite marks and red streaks extending to the elbow are also consistent with a spider bite. This is a concerning possibility for this patient.\n\nD) Fish bite - Fish bites are not typically associated with the symptoms described in this case.\n\nE) Dog bite - Dog bites can cause infections, but they are not typically associated with the symptoms described in this case.\n\nBased on the information provided, the most concerning bite for this patient would be a spider bite (C).",
+                        "answers": [
+                            {
+                                "id": "17e62b22-9eb1-409e-bb17-9bb4da866e65",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Spider bite.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:09:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "45093220-ebe6-4d15-a12e-96d1c9063761",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is mostly accurate, but it does not consider the patient's history of sickle cell disease and the potential complications that could arise from different types of bites. Additionally, the response does not address the significance of the patient's fever and night sweats.\nobj_1: 8\nobj_2: 6\nobj_3: 9\nobj_4: 7\nobj_5: 8\nobj_6: 6\nobj_7: 5\nobj_8: 7\nobj_9: 7\nobj_10: 8\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "a0ace95a-847d-455f-bb7c-42eab58a21b5",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:08:25",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_724",
+                "ref_id": "",
+                "question": "A 32-year-old man presents to the emergency department with fever, nausea, and vomiting. The patient states that his symptoms started last night and have persisted to this morning. He has a past medical history of asthma, and his current medications include albuterol and fluticasone. His temperature is 102\u00b0F (38.9\u00b0C), blood pressure is 110/60 mmHg, pulse is 95/min, respirations are 17/min, and oxygen saturation is 98% on room air. On physical exam, the patient seems uncomfortable. He requests that the lights in the room stay turned off during the physical exam. The patient's cardiac exam demonstrates a normal rate and rhythm, and his pulmonary exam is clear to auscultation bilaterally. Musculoskeletal exam reveals diminished mobility of the neck in all four directions, with flexion of the neck causing the patient discomfort. Lumbar puncture is performed and results are seen below.\n\nCerebrospinal fluid (CSF):\nCell count: 175/mm^3\nCl-: 119 mEq/L\nGlucose: 49 mg/dL\nPressure: 150 mmH2O\nTotal protein: 55 mg/dL\n\nWhich of the following is the best treatment for this patient's most likely diagnosis?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Acyclovir",
+                    "Amphotericin and 5-flucytosine",
+                    "Ceftriaxone",
+                    "Ceftriaxone and vancomycin",
+                    "IV fluids and monitoring"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "IV fluids and monitoring"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "fc757ca7-5d85-47ea-a15d-74ea8336181b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. First, let's identify the most likely diagnosis based on the patient's symptoms and CSF results. The patient presents with fever, nausea, vomiting, and discomfort with neck flexion, which are suggestive of meningitis. The CSF results show an elevated cell count, elevated protein, and normal glucose, which are consistent with bacterial meningitis.\n\n2. Now, let's consider the treatment options for bacterial meningitis:\n\nA) Acyclovir is an antiviral medication, which would not be effective against bacterial meningitis.\n\nB) Amphotericin and 5-flucytosine are antifungal medications, which would not be effective against bacterial meningitis.\n\nC) Ceftriaxone is a third-generation cephalosporin antibiotic, which is effective against many bacteria that cause meningitis, including Streptococcus pneumoniae and Neisseria meningitidis.\n\nD) Ceftriaxone and vancomycin is a combination of antibiotics that provides broader coverage against bacteria that cause meningitis, including Streptococcus pneumoniae, Neisseria meningitidis, and Listeria monocytogenes. This combination is often used empirically in adults with suspected bacterial meningitis until the specific causative organism is identified.\n\nE) IV fluids and monitoring would not be sufficient to treat bacterial meningitis, as antibiotics are necessary to target the infection.\n\nBased on the information provided, the best treatment for this patient's most likely diagnosis is option D) Ceftriaxone and vancomycin.",
+                        "answers": [
+                            {
+                                "id": "7edc180b-a38f-4b42-bb6e-88591c6046de",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Ceftriaxone and vancomycin.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:17:48",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "49c8335b-fc56-4428-87fa-fb5bd94aa7de",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is thorough and accurate, considering the patient's symptoms, CSF results, and the various treatment options. The response identifies the most likely diagnosis and selects the appropriate treatment based on the available information.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "a05f45dd-c0d4-4512-a30b-26c47dc8b0fe",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:08:54",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_829",
+                "ref_id": "",
+                "question": "A 66-year-old man presents to the emergency department for a cough and fatigue. The patient was brought in from a nursing home with documentation stating that he has seemed confused for the past day according to the staff. The patient has a past medical history of diabetes and hypertension. He is currently taking insulin, metformin, lisinopril, and atorvastatin. His temperature is 102\u00b0F (38.9\u00b0C), blood pressure is 107/58 mmHg, pulse is 120/min, respirations are 15/min, and oxygen saturation is 98% on room air. Physical exam reveals crackles on pulmonary exam and S4 on cardiac auscultation. Which of the following is the next best step in management?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Azithromycin and admission to the medical floor",
+                    "Azithromycin and discharge",
+                    "Azithromycin, moxifloxacin, and admission to the intensive care unit",
+                    "Ceftriaxone, azithromycin, and admission to the intensive care unit",
+                    "Moxifloxacin and admission to the medical floor"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Moxifloxacin and admission to the medical floor"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "5825767d-b864-4460-9b9e-c34df2195b85",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient is presenting with a cough, fatigue, and confusion, which could indicate an infection. The fever of 102\u00b0F (38.9\u00b0C) supports this suspicion.\n\n2. The patient has crackles on pulmonary exam, which could indicate pneumonia.\n\n3. The patient has a history of diabetes and hypertension, which puts him at higher risk for complications from infections.\n\n4. The patient's vital signs show a fever, tachycardia (pulse of 120/min), and hypotension (blood pressure of 107/58 mmHg), which could indicate sepsis.\n\nConsidering these factors, the patient likely has pneumonia and is at risk for sepsis. The next best step in management would be to start antibiotics and admit the patient to the hospital for monitoring and treatment.\n\nA) Azithromycin and admission to the medical floor - This option provides antibiotics and admission, but azithromycin alone may not be sufficient to cover the possible pathogens causing the pneumonia.\n\nB) Azithromycin and discharge - This option provides antibiotics but does not admit the patient for monitoring and treatment, which is necessary given his risk factors and vital signs.\n\nC) Azithromycin, moxifloxacin, and admission to the intensive care unit - This option provides broad-spectrum antibiotics and admission to the ICU, which may be appropriate given the patient's risk factors and vital signs.\n\nD) Ceftriaxone, azithromycin, and admission to the intensive care unit - This option also provides broad-spectrum antibiotics and admission to the ICU, which may be appropriate given the patient's risk factors and vital signs.\n\nE) Moxifloxacin and admission to the medical floor - This option provides antibiotics and admission, but moxifloxacin alone may not be sufficient to cover the possible pathogens causing the pneumonia.\n\nBased on the information provided, the best answer is D) Ceftriaxone, azithromycin, and admission to the intensive care unit. This option provides broad-spectrum antibiotics to cover the possible pathogens causing the pneumonia and admits the patient to the ICU for monitoring and treatment, which is appropriate given his risk factors and vital signs.",
+                        "answers": [
+                            {
+                                "id": "cb83ab29-44ac-440b-b717-878eb913f477",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Ceftriaxone, azithromycin, and admission to the intensive care unit.",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:21:57",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e7bdecce-c3b8-453b-aab8-012cb4ca7b58",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is thorough and considers the patient's symptoms, risk factors, and vital signs. It evaluates each answer option and explains why the chosen answer is the most appropriate course of action.\nobj_1: 10\nobj_2: 9\nobj_3: 10\nobj_4: 9\nobj_5: 9\nobj_6: 9\nobj_7: 8\nobj_8: 10\nobj_9: 8\nobj_10: 9\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "5f7a5c62-ce73-4b2c-9eed-19c17274f73e",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:09:18",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_906",
+                "ref_id": "",
+                "question": "A 45-year-old woman comes to the emergency department because of intermittent chest pain and palpitations. She also complains of dyspnea on exertion and has had a 4.5-kg (10-lb) weight loss in the past 2 months despite normal appetite. She has no history of serious medical illness. Cardiac examination shows an irregularly irregular rhythm and a grade 3/6, low pitched, rumbling, mid-diastolic murmur heard best over the apex. Diffuse wheezing and bilateral rales are present in the lung bases. A transthoracic echocardiogram shows a left-ventricular ejection fraction of 40% and a mass in the left atrium. A biopsy of the mass is likely to show which of the following?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Nonencapsulated groups of well-differentiated skeletal muscle cells",
+                    "Clusters of bland cells without mitotic activity",
+                    "Mixture of cells from different germinal layers",
+                    "Encapsulated cluster of mature fat cells",
+                    "Nests of atypical melanocytes"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Nests of atypical melanocytes"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "371f946c-e2c8-4786-98de-ccea8a0f2796",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the main clinical features\n- Intermittent chest pain and palpitations\n- Dyspnea on exertion\n- Weight loss\n- Irregularly irregular rhythm\n- Mid-diastolic murmur\n- Left atrial mass\n\nStep 2: Determine the most likely diagnosis\nThe presence of an irregularly irregular rhythm, mid-diastolic murmur, and left atrial mass suggest the possibility of a cardiac tumor, most likely a myxoma, which is the most common primary cardiac tumor.\n\nStep 3: Match the histological findings with the most likely diagnosis\nA myxoma is characterized by clusters of bland cells without mitotic activity. Therefore, the correct answer is B) Clusters of bland cells without mitotic activity.",
+                        "answers": [
+                            {
+                                "id": "48105324-8c61-4fcc-9eaa-534201848a3a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Clusters of bland cells without mitotic activity.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:25:13",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7d87873c-c08c-49ee-a1cb-cef8d4ac627e",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response provides a clear and structured reasoning process to arrive at the correct answer. It identifies the main clinical features, determines the most likely diagnosis, and matches the histological findings with the diagnosis.\nobj_1: 10\nobj_2: 9\nobj_3: 10\nobj_4: 9\nobj_5: 10\nobj_6: 9\nobj_7: 8\nobj_8: 10\nobj_9: 8\nobj_10: 9\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "fa8c0778-8b83-44b4-ad5a-26b8293a75d5",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:09:42",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1106",
+                "ref_id": "",
+                "question": "A 35-year-old woman presents to a psychiatrist for an initial consultation. She reports that for the past 3 years, she has experienced several periods of depressed mood. The episodes do not coincide with any specific life events and seem to resolve after 4-6 weeks. During these episodes, she experiences a depressed mood, sleep disturbances, and a poor appetite, but she at times is able to enjoy spending time with her children and husband but other times she is distressed and cannot enjoy time with them. Upon further questioning, she also reports experiencing occasional episodes of elevated mood over the past ten years. During these episodes, she is very productive at her work as a lawyer and requires less sleep than usual. Her past medical history is notable for obesity, type I diabetes mellitus, and rheumatoid arthritis. She is on insulin and takes methotrexate. She smokes marijuana occasionally. Her temperature is 99.2\u00b0F (37.3\u00b0C), blood pressure is 124/80 mmHg, pulse is 78/min, and respirations are 17/min. On exam, she is quiet with a flattened affect, but is cooperative and answers questions thoroughly. Which of the following is the most likely diagnosis in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Bipolar I disorder",
+                    "Bipolar II disorder",
+                    "Cyclothymic disorder",
+                    "Persistent depressive disorder",
+                    "Schizoaffective disorder"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cyclothymic disorder"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "86844ccc-aac3-4152-a001-8ddc3dd69e0e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's look at the symptoms the patient is experiencing:\n\n1. Depressed mood for 3 years with episodes lasting 4-6 weeks.\n2. Sleep disturbances and poor appetite during depressive episodes.\n3. Occasional episodes of elevated mood over the past ten years, with increased productivity and less need for sleep.\n\nNow, let's go through each of the possible diagnoses and see which one fits best:\n\nA) Bipolar I disorder: This is characterized by at least one manic episode, which is not mentioned in the patient's history. The patient does experience episodes of elevated mood, but they do not seem to be severe enough to be considered manic episodes.\n\nB) Bipolar II disorder: This is characterized by at least one hypomanic episode and one major depressive episode. The patient's history of occasional episodes of elevated mood and increased productivity could be considered hypomanic episodes, and her depressive episodes fit the criteria for major depressive episodes.\n\nC) Cyclothymic disorder: This is characterized by at least two years of numerous periods of hypomanic symptoms and depressive symptoms that do not meet the criteria for a major depressive episode. The patient's history does not seem to fit this diagnosis, as her depressive episodes are more severe and last longer than what is typical for cyclothymic disorder.\n\nD) Persistent depressive disorder: This is characterized by a depressed mood that lasts for at least two years, with no periods of normal mood lasting more than two months. The patient's history does not fit this diagnosis, as she has periods of elevated mood and her depressive episodes resolve after 4-6 weeks.\n\nE) Schizoaffective disorder: This is characterized by a combination of schizophrenia symptoms and mood disorder symptoms. The patient's history does not mention any symptoms of schizophrenia, such as hallucinations or delusions.\n\nBased on the patient's history and symptoms, the most likely diagnosis is:\n\nB) Bipolar II disorder",
+                        "answers": [
+                            {
+                                "id": "59c1bd74-3e69-457b-b737-2c71d28ef2e5",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Bipolar II disorder.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:39:07",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d0dbd54c-7941-4412-9afa-6e558e79a9c0",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is thorough and well-structured, considering each possible diagnosis and comparing it to the patient's symptoms. The response accurately interprets the question and incorporates relevant information from the patient's history.\nobj_1: 10\nobj_2: 9\nobj_3: 9\nobj_4: 10\nobj_5: 10\nobj_6: 9\nobj_7: 8\nobj_8: 10\nobj_9: 8\nobj_10: 10\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "809b50d0-8b5b-40bf-96de-a93fe4a53e44",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:10:04",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1121",
+                "ref_id": "",
+                "question": "A 25-year-old woman comes to the physician because of periodic painful double vision for 3 days. Her symptoms occur only when looking sideways. She has myopia and has been wearing corrective lenses for 10 years. Ten days ago, she lost her balance and fell off her bike, for which she went to a hospital. A CT scan of the head at that time showed no abnormalities and she was released without further treatment. Her only medication is an oral contraceptive. Her vital signs are within normal limits. The pupils are equal and reactive to light. Her best corrected visual acuity is 20/40 in each eye. She has an adduction deficit in the right eye and nystagmus in the left eye when looking left; she has an adduction deficit in the left eye and nystagmus in the right eye when looking right. Fundoscopy reveals bilateral disc hyperemia. Which of the following is the most likely cause of this patient's findings?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Demyelination of the medial longitudinal fasciculus",
+                    "Compressive tumor of the pons",
+                    "Oxidative damage due to thiamine deficiency",
+                    "Subdural hematoma extending into the orbit",
+                    "Infarction of the brainstem"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Demyelination of the medial longitudinal fasciculus"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "467758e7-99e6-43a7-9d45-79f202bcd573",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Analyze the patient's symptoms and findings\n- Periodic painful double vision for 3 days\n- Symptoms occur only when looking sideways\n- Myopia with corrective lenses for 10 years\n- Recent fall off bike with no abnormalities on CT scan\n- Oral contraceptive use\n- Normal vital signs\n- Equal and reactive pupils\n- Best corrected visual acuity 20/40 in each eye\n- Adduction deficit in right eye and nystagmus in left eye when looking left\n- Adduction deficit in left eye and nystagmus in right eye when looking right\n- Bilateral disc hyperemia on fundoscopy\n\nStep 2: Match the symptoms and findings to the possible causes\nA) Demyelination of the medial longitudinal fasciculus - This could cause adduction deficits and nystagmus, but it would not typically cause painful double vision or disc hyperemia.\nB) Compressive tumor of the pons - This could cause adduction deficits and nystagmus, but it would not typically cause painful double vision or disc hyperemia. Additionally, a tumor would likely have been seen on the recent CT scan.\nC) Oxidative damage due to thiamine deficiency - This could cause nystagmus and ataxia, but it would not typically cause adduction deficits, painful double vision, or disc hyperemia.\nD) Subdural hematoma extending into the orbit - This could cause painful double vision and disc hyperemia, but it would not typically cause adduction deficits or nystagmus. Additionally, a subdural hematoma would likely have been seen on the recent CT scan.\nE) Infarction of the brainstem - This could cause adduction deficits, nystagmus, painful double vision, and disc hyperemia.\n\nStep 3: Determine the most likely cause\nBased on the patient's symptoms and findings, the most likely cause is E) Infarction of the brainstem. This option best explains all of the patient's symptoms and findings, including the adduction deficits, nystagmus, painful double vision, and disc hyperemia.",
+                        "answers": [
+                            {
+                                "id": "2ceb269c-45e2-4093-8c47-4ddc88ff142b",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Infarction of the brainstem.",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:42:45",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "1852ce7b-c16d-442d-8cab-6c0a37c28c34",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning is well-structured and considers the patient's symptoms and findings. However, it does not consider the age of the patient and the rarity of brainstem infarctions in young adults. Additionally, it does not provide enough evidence to rule out other options, such as demyelination of the medial longitudinal fasciculus.\nobj_1: 9\nobj_2: 7\nobj_3: 8\nobj_4: 7\nobj_5: 9\nobj_6: 7\nobj_7: 6\nobj_8: 7\nobj_9: 6\nobj_10: 8\nobj_11: 9\nchange_answer: yes",
+                        "answers": [
+                            {
+                                "id": "5427a824-05d8-469b-8992-046663c57433",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:10:34",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1146",
+                "ref_id": "",
+                "question": "A 27-year-old male presents for emergency surgery to reattach his left arm, severed during a high-speed car accident, and has lost significant amounts of blood. His wife arrives within minutes to the hospital exclaiming that under no circumstance should he receive any blood transfusions during surgery. After reviewing his medical chart, you see also see an annotation indicating no blood transfusions for religious reasons. Knowing that he needs a blood transfusion to save his life, what do you do?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Administer a blood transfusion to save the patient's life",
+                    "Call the ethics board of the hospital to discuss the issue",
+                    "Respect the patient's written instructions and do not adminster a blood transfusion",
+                    "Convince the wife to administer a blood transfusion to her husband",
+                    "Refuse to treat the patient as he will die without a blood transfusion"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Respect the patient's written instructions and do not adminster a blood transfusion"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "47f53106-8b68-49e2-a2a5-d7f0cc0ee51f",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, it is important to consider the patient's autonomy and respect their wishes, especially if they have previously documented their preferences in their medical chart. However, the patient's life is at risk, and as a healthcare provider, your primary responsibility is to save lives and provide the best possible care.\n\nIn this situation, the best course of action would be to:\n\n1. Attempt to discuss the issue with the patient if they are conscious and able to communicate. If the patient is unconscious or unable to communicate, proceed to the next step.\n\n2. Call the ethics board of the hospital to discuss the issue (Option B). The ethics board can provide guidance on how to proceed in this complex situation, balancing the patient's autonomy with the healthcare provider's responsibility to save lives.\n\n3. If the ethics board advises to respect the patient's wishes, then proceed with Option C, respecting the patient's written instructions and not administering a blood transfusion. If the ethics board advises to administer a blood transfusion, then proceed with Option A, administering a blood transfusion to save the patient's life.\n\n4. Throughout this process, it is important to communicate with the patient's wife and involve her in the decision-making process. However, it is not appropriate to try to convince her to administer a blood transfusion to her husband (Option D), as this may cause additional distress and conflict.\n\n5. Refusing to treat the patient (Option E) is not an appropriate course of action, as healthcare providers have a duty to provide care and attempt to save lives, even in challenging situations.\n\nIn conclusion, the best course of action in this situation is to call the ethics board of the hospital to discuss the issue (Option B). This will help ensure that the healthcare provider is making the most appropriate decision, balancing the patient's autonomy with their responsibility to save lives.",
+                        "answers": [
+                            {
+                                "id": "79d1aa03-55c6-4e8b-ab82-2ff06abc097f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Call the ethics board of the hospital to discuss the issue.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:46:30",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3d4c250f-3bae-409e-b2be-65df8f64d992",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response provides a well-structured reasoning process, considering the patient's autonomy, the healthcare provider's responsibility, and the involvement of the ethics board. It also takes into account the importance of communication with the patient's wife. However, it does not explicitly mention the legal implications of going against the patient's wishes.\nobj_1: 10\nobj_2: 8\nobj_3: 10\nobj_4: 9\nobj_5: 10\nobj_6: 9\nobj_7: 8\nobj_8: 9\nobj_9: 9\nobj_10: 10\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "dc4613bb-fce1-4bd0-b331-671cc5dbf7a6",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:11:04",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1162",
+                "ref_id": "",
+                "question": "A 51-year-old Asian woman presents to her primary care provider with abdominal pain. On examination, she is found to have rebound tenderness in the lower right quadrant of her abdomen. Further workup suggests ovarian cancer, which is confirmed later in the week to be stage 4 with confirmed distant metastases in the lungs and brain. Which of the following routes describes the most likely lymphatic route for this malignancy to have metastasized to the brain?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Sentinel node - left lumbar trunk - cisterna chyli - right bronchomediastinal trunk - right lymphatic duct - right subclavian vein - systemic circulation",
+                    "Sentinel node - left lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation",
+                    "Sentinel node - right lumbar trunk - cisterna chyli - right bronchomediastinal trunk - right lymphatic duct - right subclavian vein - systemic circulation",
+                    "Sentinel node - right lumbar trunk - cisterna chyli - thoracic duct - right subclavian vein - systemic circulation",
+                    "Sentinel node - right lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Sentinel node - right lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "aad7e7aa-6204-45b5-b47f-6439eac5760a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. Sentinel node: This is the first lymph node that cancer cells are most likely to spread to from the primary tumor. In the case of ovarian cancer, the sentinel nodes are usually located in the pelvic region.\n\n2. Lumbar trunks: The lymph from the pelvic region drains into the lumbar trunks. Since the patient is an Asian woman, it is more likely that the cancer cells would have spread to the left lumbar trunk.\n\n3. Cisterna chyli: The left lumbar trunk drains into the cisterna chyli, which is a large sac-like structure that collects lymph from the lower half of the body.\n\n4. Thoracic duct: The cisterna chyli continues as the thoracic duct, which is the largest lymphatic vessel in the body. It carries lymph from the lower half of the body and the left side of the upper body.\n\n5. Left subclavian vein: The thoracic duct empties into the left subclavian vein, which is a large vein that carries blood from the upper extremity and thoracic region back to the heart.\n\n6. Systemic circulation: Once the cancer cells have entered the left subclavian vein, they can travel through the systemic circulation to reach distant organs, such as the lungs and brain.\n\nSo, the most likely lymphatic route for this malignancy to have metastasized to the brain is:\n\nSentinel node - left lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation\n\nThe correct answer is B) Sentinel node - left lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation.",
+                        "answers": [
+                            {
+                                "id": "73917086-3483-4dcd-ad9e-9f6f1ac1653c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Sentinel node - left lumbar trunk - cisterna chyli - thoracic duct - left subclavian vein - systemic circulation.",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:47:30",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3ba5de3e-79d0-4bed-acb4-8c9ef2feb7c2",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is mostly accurate, but it incorrectly assumes that the cancer cells would have spread to the left lumbar trunk because the patient is an Asian woman. This assumption is irrelevant and not supported by evidence. The response also lacks consideration of other reasoning strategies and underlying assumptions.\nobj_1: 8\nobj_2: 6\nobj_3: 9\nobj_4: 6\nobj_5: 8\nobj_6: 7\nobj_7: 5\nobj_8: 7\nobj_9: 6\nobj_10: 8\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "dd3fa039-1d2b-4952-80a0-9d0fac80957a",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:11:32",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1194",
+                "ref_id": "",
+                "question": "A 32-year-old male presents to the emergency department because of fever and diarrhea. He was in his normal state of health until 2 weeks ago when he went abroad on a vacation. During his trip he went kayaking, visited spas, interacted with local animals, and ate local foods. Since returning he has had 3-day history of fever, cough, headache, and diarrhea. He drinks socially and has a 15-pack-year history of smoking. On presentation his temperature is 102.3\u00b0F (39.1\u00b0C), blood pressure is 105/62 mmHg, pulse is 91/min, respirations are 18/min, and O2 saturation is 91% on room air. Chest exam reveals fine crackles on auscultation. Chest radiograph reveals patchy infiltrates in both lungs and labs reveal mild hyponatremia and mild elevation of AST/ALT levels. The organism that is most likely responsible for this patient's symptoms is associated with which of the following characteristics?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Can form an endospore",
+                    "Has a rabbit reservoir",
+                    "Has no cell wall",
+                    "Is more common in parrot owners",
+                    "Is transmitted by air conditioning"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Is transmitted by air conditioning"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "538ecf6c-5a7e-47f3-9b67-a1d9cf7198b0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient's symptoms include fever, cough, headache, diarrhea, and patchy infiltrates in both lungs. These symptoms, along with his recent travel history, suggest a respiratory infection caused by an organism that he may have been exposed to during his trip.\n\nA) Can form an endospore - This characteristic is associated with some bacteria, such as Bacillus and Clostridium species. However, these bacteria typically cause different types of infections (e.g., anthrax, botulism, tetanus) and do not fit the patient's symptoms.\n\nB) Has a rabbit reservoir - This characteristic is associated with the bacterium Francisella tularensis, which causes tularemia. While tularemia can cause pneumonia, the patient's symptoms and travel history do not strongly suggest this infection.\n\nC) Has no cell wall - This characteristic is associated with Mycoplasma species, which can cause atypical pneumonia. Mycoplasma pneumoniae is a common cause of community-acquired pneumonia and can present with the patient's symptoms, including fever, cough, and patchy infiltrates on chest radiograph.\n\nD) Is more common in parrot owners - This characteristic is associated with the bacterium Chlamydia psittaci, which causes psittacosis, a respiratory infection transmitted by birds. While the patient's symptoms could be consistent with psittacosis, his travel history and activities do not strongly suggest exposure to birds.\n\nE) Is transmitted by air conditioning - This characteristic is associated with the bacterium Legionella pneumophila, which causes Legionnaires' disease, a severe form of pneumonia. However, the patient's symptoms and travel history do not strongly suggest this infection.\n\nBased on the patient's symptoms and the characteristics of the organisms, the most likely answer is C) Has no cell wall, which is associated with Mycoplasma species.",
+                        "answers": [
+                            {
+                                "id": "d617387c-f782-4252-b769-6411b0fb1b2b",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Has no cell wall.",
+                                "answer_from_choices": "C",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:49:13",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "f8c894e1-12ce-4e5e-a81f-5ef8584ca52b",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is thorough and considers each answer option in relation to the patient's symptoms and travel history. However, it could have been more explicit about the relevance of the patient's smoking history and the mild elevation of AST/ALT levels.\nobj_1: 9\nobj_2: 8\nobj_3: 10\nobj_4: 9\nobj_5: 9\nobj_6: 8\nobj_7: 7\nobj_8: 9\nobj_9: 8\nobj_10: 9\nobj_11: 10\nchange_answer: no",
+                        "answers": [
+                            {
+                                "id": "220b4abf-bc79-46b5-a312-841199489602",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 07:11:56",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

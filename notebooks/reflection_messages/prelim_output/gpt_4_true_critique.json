@@ -1,0 +1,736 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_127",
+                "ref_id": "",
+                "question": "A 67-year-old man with peripheral neuropathy comes to the physician for a follow-up examination after the results of serum protein electrophoresis showed monoclonal gammopathy. A complete blood count, serum creatinine, and serum electrolyte concentrations are within the reference ranges. A bone marrow biopsy shows 6% monoclonal plasma cells. Further analysis shows that class I major histocompatibility molecules are downregulated in these monoclonal plasma cells. The proliferation of these monoclonal plasma cells is normally prevented by a class of immune cells that lyse abnormal cells without the need for opsonization, priming, or prior activation. Which of the following best describes this class of immune cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "CD8+ T lymphocytes",
+                    "Bone marrow-derived macrophages",
+                    "CD4+ T lymphocytes",
+                    "Natural killer cells",
+                    "Band neutrophils"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Natural killer cells"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1b333505-91e4-4a90-958d-dc80c1d28039",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the key information in the question stem.\n- Monoclonal gammopathy\n- Class I major histocompatibility molecules are downregulated in monoclonal plasma cells\n- Immune cells that lyse abnormal cells without the need for opsonization, priming, or prior activation\n\nStep 2: Recall the function and characteristics of each immune cell type listed in the answer choices.\nA) CD8+ T lymphocytes: cytotoxic T cells that kill infected or abnormal cells, but require activation by antigen-presenting cells\nB) Bone marrow-derived macrophages: phagocytic cells that engulf and digest pathogens, but require opsonization for efficient phagocytosis\nC) CD4+ T lymphocytes: helper T cells that assist in activating other immune cells, but do not directly kill abnormal cells\nD) Natural killer cells: immune cells that can kill abnormal cells without prior activation or priming, and are particularly important in recognizing cells with downregulated MHC class I molecules\nE) Band neutrophils: immature neutrophils that are part of the innate immune response, but do not directly kill abnormal cells without prior activation\n\nStep 3: Match the characteristics of the immune cells to the information provided in the question stem.\nThe immune cells described in the question are able to lyse abnormal cells without the need for opsonization, priming, or prior activation. This best matches the characteristics of natural killer cells (D), which can kill abnormal cells without prior activation or priming and are particularly important in recognizing cells with downregulated MHC class I molecules.\n\nAnswer: D) Natural killer cells",
+                        "answers": [
+                            {
+                                "id": "0b6d0f0a-44b7-47da-863a-ae7dcad14db6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Natural killer cells.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 11:30:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "9b71b8f0-caa0-4dc9-940b-418073051d63",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response provides a clear and structured reasoning process to arrive at the correct answer. It identifies the key information in the question stem, recalls the function and characteristics of each immune cell type, and matches the characteristics to the information provided in the question.\nobj_1: 10\nobj_2: 9\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 9\nobj_7: 8\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "5674ae5b-f09f-4a8d-ae42-756ca3399634",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:07:28",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_533",
+                "ref_id": "",
+                "question": "A 36-year-old woman presents with increased tiredness and lethargy for the past 4 weeks. Investigations show her hemoglobin level to be 8.6 gm/dL and serum creatinine of 4.6 mg/dL. The serum is negative for antinuclear antibodies (ANA) and positive for C3 nephritic factor. Urinalysis shows a 3+ proteinuria. The renal biopsy demonstrates hypercellular glomerulus with electron dense deposits along the glomerular basement membrane. What is the most likely cause?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Poststreptococcal glomerulonephritis (PSGN)",
+                    "Membrano proliferative glomerulonephritis (MPGN)",
+                    "Rapidly progressive glomerulonephritis (RPGN)",
+                    "Minimal change disease",
+                    "Membranous glomerulonephritis (MGN)"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Membrano proliferative glomerulonephritis (MPGN)"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "03693f86-dee5-44b0-a9c0-77e5f9e42ab5",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient is presenting with symptoms of tiredness and lethargy, which can be associated with kidney problems.\n2. Her hemoglobin level is low (8.6 gm/dL), indicating anemia, which can also be a sign of kidney disease.\n3. Her serum creatinine level is elevated (4.6 mg/dL), which is a marker of impaired kidney function.\n4. The serum is negative for antinuclear antibodies (ANA) but positive for C3 nephritic factor. This suggests an immune-mediated cause of the kidney disease.\n5. Urinalysis shows significant proteinuria (3+), which is a sign of glomerular damage.\n6. The renal biopsy demonstrates hypercellular glomerulus with electron dense deposits along the glomerular basement membrane, which is a characteristic finding in certain types of glomerulonephritis.\n\nBased on these findings, the most likely cause is:\n\nB) Membrano proliferative glomerulonephritis (MPGN)\n\nMPGN is characterized by immune complex deposition in the glomerulus, leading to inflammation and damage. The presence of C3 nephritic factor and the biopsy findings support this diagnosis. Other options like PSGN, RPGN, minimal change disease, and MGN do not fit the clinical and laboratory findings as well as MPGN.",
+                        "answers": [
+                            {
+                                "id": "ff352eae-877b-4480-8a16-ffe2e8e38314",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Membrano proliferative glomerulonephritis (MPGN)",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:03:49",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "a6b300bd-873e-4b2a-a047-88fabcedd23d",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is thorough and well-structured, considering the patient's symptoms, laboratory findings, and renal biopsy results. The response accurately interprets the question and selects the most appropriate reasoning strategy, leading to a final answer that corresponds to one of the answer options.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "37709711-ae7c-4d27-b03d-862cbbda9ad5",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:07:58",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_647",
+                "ref_id": "",
+                "question": "A 2-month-old girl is brought to the pediatrician by her concerned father. He states that ever since her uncomplicated delivery she has failed to gain weight, has had chronic diarrhea, and has had multiple bacterial and viral infections. During the course of the workup, an absent thymic shadow is noted and a lymph node biopsy demonstrates the absence of germinal centers. Which of the following is the most likely cause of this patient's symptoms?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Defect in WASP gene",
+                    "Defect in ATM gene",
+                    "Adenosine deaminase deficiency",
+                    "NADPH oxidase deficiency",
+                    "Defect in BTK gene"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Adenosine deaminase deficiency"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "b352d1e6-c282-47cf-a6a0-dcb6bba04957",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Defect in WASP gene: This would cause Wiskott-Aldrich syndrome, which is characterized by eczema, thrombocytopenia, and immunodeficiency. However, it does not typically present with an absent thymic shadow or absence of germinal centers.\n\nB) Defect in ATM gene: This would cause ataxia-telangiectasia, which is characterized by progressive cerebellar ataxia, telangiectasias, and immunodeficiency. However, it does not typically present with an absent thymic shadow or absence of germinal centers.\n\nC) Adenosine deaminase deficiency: This is a cause of severe combined immunodeficiency (SCID), which can present with failure to thrive, chronic diarrhea, and recurrent infections. The absence of a thymic shadow and germinal centers is also consistent with SCID.\n\nD) NADPH oxidase deficiency: This would cause chronic granulomatous disease, which is characterized by recurrent infections with catalase-positive organisms. However, it does not typically present with an absent thymic shadow or absence of germinal centers.\n\nE) Defect in BTK gene: This would cause X-linked agammaglobulinemia, which is characterized by recurrent infections and low levels of immunoglobulins. However, it does not typically present with an absent thymic shadow or absence of germinal centers.\n\nBased on the clinical presentation and the findings of an absent thymic shadow and absence of germinal centers, the most likely cause of this patient's symptoms is:\n\nC) Adenosine deaminase deficiency",
+                        "answers": [
+                            {
+                                "id": "427fdc9d-727e-41e0-83be-3ade0cfbdf75",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Adenosine deaminase deficiency.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:11:16",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "339e621c-0bf5-4eac-906f-5f8f1d31d837",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response accurately interprets the question, considers all relevant information, and provides a well-structured reasoning for each answer option. The final answer is based on the reasoning and corresponds to one of the answer options.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "d9602958-31ec-44e1-85bb-29f0c29facd8",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:08:22",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_733",
+                "ref_id": "",
+                "question": "A 1-month-old girl is brought to the emergency department with persistent vomiting, dehydration, and irritability. Over the past week, she has been projectile vomiting after most feedings. Initially, the vomiting would occur just once or twice a day, but now it occurs after every feed. However, her appetite hasn\u2019t decreased, and she seeks milk right after each episode of vomiting. She was born at 39 weeks gestation via spontaneous vaginal delivery and is breastfed exclusively. On physical exam, the vital signs include: temperature 37.5\u00b0C (99.5\u00b0F), blood pressure 85/55 mm Hg, respiratory rate 28/min, and heart rate 150/min. On examination, she appears to be mildly dehydrated, listless, and irritable. Her abdomen is soft and nontender with a palpable olive-shaped mass in the epigastric region. Which of the following acid-base disturbances is most likely associated with this patient\u2019s condition?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Respiratory alkalosis",
+                    "Metabolic acidosis",
+                    "Metabolic alkalosis",
+                    "Respiratory acidosis",
+                    "Mixed respiratory and metabolic acidosis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Metabolic alkalosis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1d8eed3d-5dae-4512-b135-85d9236aa337",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the patient's condition\nThe patient is a 1-month-old girl with persistent vomiting, dehydration, and irritability. She has projectile vomiting after most feedings and a palpable olive-shaped mass in the epigastric region. These findings are suggestive of pyloric stenosis, a condition in which the opening between the stomach and the small intestine (the pylorus) becomes narrowed, causing obstruction and vomiting.\n\nStep 2: Determine the acid-base disturbance associated with the condition\nPyloric stenosis leads to persistent vomiting, which results in the loss of gastric acid (hydrochloric acid). This loss of acid leads to a decrease in hydrogen ions (H+) in the body, causing an increase in bicarbonate ions (HCO3-) and a subsequent increase in blood pH. This is known as metabolic alkalosis.\n\nStep 3: Choose the correct answer\nBased on the information above, the most likely acid-base disturbance associated with this patient's condition is metabolic alkalosis (C).",
+                        "answers": [
+                            {
+                                "id": "a2b5b575-e01a-44d0-8e0b-860b99cf3c17",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Metabolic alkalosis.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:18:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "39851fff-8663-4100-8357-ccf6808e308a",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is well-structured and accurately identifies the patient's condition and the associated acid-base disturbance. The response interprets the question accurately, considers relevant information, and provides a clear final answer.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "1550944f-c807-49b9-a3be-afc548bda381",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:08:56",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_861",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the physician because of a 3-day history of fatigue and yellow discoloration of his skin. One week ago, he had an upper respiratory tract infection. Examination shows jaundice of the skin and conjunctivae. The spleen tip is palpated 2 cm below the left costal margin. His hemoglobin concentration is 9.4 g/dl and his mean corpuscular hemoglobin concentration is 39% Hb/cell. A Coombs test is negative. A peripheral blood smear is shown. This patient is at greatest risk for which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Malaria",
+                    "Acute myelogenous leukemia",
+                    "Cholecystitis",
+                    "Renal papillary necrosis",
+                    "Splenic sequestration crisis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cholecystitis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "13670d20-50ce-4f94-b313-1b152e0b2020",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient has a history of fatigue, yellow discoloration of the skin (jaundice), and an upper respiratory tract infection. These symptoms suggest a possible hemolytic anemia.\n\n2. The physical examination shows jaundice of the skin and conjunctivae, and the spleen tip is palpated 2 cm below the left costal margin. This indicates that the patient has an enlarged spleen (splenomegaly), which is often seen in hemolytic anemias.\n\n3. The patient's hemoglobin concentration is 9.4 g/dl, which is low, and his mean corpuscular hemoglobin concentration is 39% Hb/cell, which is within the normal range. This suggests that the anemia is not due to a lack of hemoglobin production but rather to an increased destruction of red blood cells.\n\n4. The Coombs test is negative, which means that the hemolytic anemia is not caused by an autoimmune process.\n\n5. The peripheral blood smear is not shown, but we can assume that it shows signs of hemolysis, such as fragmented red blood cells or spherocytes.\n\nBased on this information, the patient is most likely experiencing a hemolytic anemia, possibly due to a recent infection. Now let's consider the possible complications listed in the answer choices:\n\nA) Malaria - This is a parasitic infection that can cause hemolytic anemia, but there is no indication that the patient has been exposed to malaria or has any risk factors for this disease.\n\nB) Acute myelogenous leukemia - This is a type of blood cancer that can cause anemia, but it is not typically associated with hemolytic anemia or the patient's symptoms.\n\nC) Cholecystitis - This is inflammation of the gallbladder, which can be a complication of hemolytic anemia due to the increased production of bilirubin and the formation of gallstones. This is a possible complication for this patient.\n\nD) Renal papillary necrosis - This is a rare condition that can be caused by a variety of factors, including hemolytic anemia. However, it is not the most likely complication for this patient.\n\nE) Splenic sequestration crisis - This is a complication of hemolytic anemia in which the spleen suddenly enlarges and traps a large number of red blood cells, leading to a rapid drop in hemoglobin levels. This is a possible complication for this patient, especially given",
+                        "answers": [
+                            {
+                                "id": "1f8c90a6-05df-47f0-a53e-6d31b5ed490a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Cholecystitis.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:23:42",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "3215d965-467d-4237-be97-dda3b21d193a",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is thorough and considers the patient's symptoms, test results, and possible complications. However, the response does not fully explain why Cholecystitis is the most likely complication compared to Splenic sequestration crisis.\nobj_1: 10\nobj_2: 9\nobj_3: 10\nobj_4: 9\nobj_5: 9\nobj_6: 8\nobj_7: 8\nobj_8: 9\nobj_9: 9\nobj_10: 10\nobj_11: 9",
+                        "answers": [
+                            {
+                                "id": "b8597373-114a-40e3-adf2-5bfe00938056",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:09:32",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_911",
+                "ref_id": "",
+                "question": "A previously healthy 27-year-old woman comes to the physician because of a 2-month history of depressed mood and fatigue. During this time, she has had a 5-kg (11-lb) weight gain. She reports trouble concentrating at her job as a preschool teacher and has missed work several times in recent weeks due to generalized fatigue. She has smoked 2 packs of cigarettes daily for 10 years and is actively trying to quit smoking. A drug is prescribed that will treat the patient's mood disturbance and support smoking cessation. This patient should be counseled about which of the following possible side effects of this drug?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Decreased libido",
+                    "Hypotension",
+                    "Urinary retention",
+                    "Tachycardia",
+                    "QTc prolongation"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Tachycardia"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "38dcbb62-b081-41b7-9fd5-30c9f1534ad4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Identify the drug that treats both mood disturbance and supports smoking cessation.\nThe drug that fits this description is Bupropion.\n\nStep 2: Determine the possible side effects of Bupropion.\nSome common side effects of Bupropion include:\n- Insomnia\n- Dry mouth\n- Nausea\n- Headache\n- Dizziness\n- Increased heart rate (tachycardia)\n- Increased blood pressure\n\nStep 3: Match the side effects with the options given.\nFrom the list of side effects, the one that matches the options given is:\n\nD) Tachycardia\n\nSo, the patient should be counseled about the possible side effect of tachycardia.",
+                        "answers": [
+                            {
+                                "id": "bed5c96d-cc1b-40ed-9c80-f4fc12b8a030",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Tachycardia.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:25:43",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "106ddc74-2bf5-41ef-a806-15a5439e616a",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response accurately interprets the question, identifies the appropriate drug, and lists its side effects. The final answer is correct and well-supported by the reasoning.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 9\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "75fc8ee6-02be-43cc-89c0-7717e0f8d53f",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:09:54",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_966",
+                "ref_id": "",
+                "question": "A 59-year-old man complains of chest pain that has been present for 4 hours on the 5th day of hospitalization for acute myocardial infarction. 5 days ago, he had a burning sensation in his chest and discomfort in his left shoulder. Upon initial presentation to the hospital\u2019s emergency department, he was diagnosed with an ST-elevation myocardial infarction and treated with alteplase. He has been under close observation since then. The patient now describes discomfort in his chest and left shoulder, somewhat similar in nature to what initially brought him into the hospital. A pulse of 86/min, respiratory rate of 16/min, and a blood pressure of 146/90 mm Hg are observed. Auscultation of the chest reveals no abnormal findings. The patient\u2019s ECG is difficult to interpret. Of the following laboratory tests, an abnormal result of which would have the most diagnostic utility?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Alanine aminotransferase",
+                    "Alkaline phosphatase",
+                    "Creatine kinase (CK-MB)",
+                    "Lactate dehydrogenase",
+                    "Troponin T"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Creatine kinase (CK-MB)"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "f57b801a-37c0-41d1-8913-e5fd45a2578a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient is presenting with chest pain and discomfort in his left shoulder, similar to his initial symptoms of acute myocardial infarction (AMI). We need to determine which laboratory test would be most useful in diagnosing a possible recurrent AMI or ongoing cardiac issue.\n\nA) Alanine aminotransferase (ALT) - This enzyme is primarily found in the liver and is used to assess liver function. It is not specific to cardiac issues, so it would not be the most useful test in this case.\n\nB) Alkaline phosphatase (ALP) - This enzyme is found in various tissues, including the liver, bones, and kidneys. It is not specific to cardiac issues, so it would not be the most useful test in this case.\n\nC) Creatine kinase (CK-MB) - This is an isoenzyme of creatine kinase that is found primarily in cardiac muscle. Elevated levels of CK-MB can indicate damage to the heart muscle, such as in an AMI. This test would be useful in diagnosing a possible recurrent AMI or ongoing cardiac issue.\n\nD) Lactate dehydrogenase (LDH) - This enzyme is found in many tissues, including the heart, liver, and kidneys. It is not specific to cardiac issues, so it would not be the most useful test in this case.\n\nE) Troponin T - This is a protein found in cardiac muscle and is released into the bloodstream when there is damage to the heart muscle, such as in an AMI. Elevated levels of troponin T can indicate a recent or ongoing AMI.\n\nBased on the information provided, the most useful laboratory test for diagnosing a possible recurrent AMI or ongoing cardiac issue in this patient would be C) Creatine kinase (CK-MB).",
+                        "answers": [
+                            {
+                                "id": "a862dbbd-3b97-4ce0-bbcb-482bda80c30e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Creatine kinase (CK-MB).",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:27:41",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "ff0ee2db-ac9c-4c01-82a3-540efaf469a1",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is mostly accurate and considers the relevant information. However, it does not mention that troponin T is considered a more sensitive and specific marker for myocardial infarction than CK-MB. The final answer should be E) Troponin T instead of C) Creatine kinase (CK-MB).\nobj_1: 9\nobj_2: 8\nobj_3: 9\nobj_4: 7\nobj_5: 8\nobj_6: 8\nobj_7: 7\nobj_8: 7\nobj_9: 8\nobj_10: 8\nobj_11: 6",
+                        "answers": [
+                            {
+                                "id": "cf5a6295-ea06-474f-9889-b9557147f562",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:10:31",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1047",
+                "ref_id": "",
+                "question": "A 57-year-old woman comes to the physician because of a 3-month history of fatigue. She also reports generalized itchiness that started approximately 2 months ago. Two weeks ago, she noticed yellowing of her eyes. She does not smoke or drink alcohol. She uses eyedrops for persistent dryness of the eyes. Her vital signs are within normal limits. Physical examination shows jaundice of the conjunctivae and skin. The mucous membranes of the mouth are dry. The abdomen is soft. The liver edge is palpable 3 cm below the right costal margin. There are generalized skin excoriations. Laboratory studies show:\nHemoglobin 15 g/dL\nLeukocyte count 7,700/mm3\nPlatelet count 332,000/mm3\nSerum\nGlucose 122 mg/dL\nTotal bilirubin 3.1 mg/dL\nDirect 2.5 mg/dL\nAlkaline phosphatase 452 U/L\nAST 155 U/L\nALT 168 U/L\nHepatitis B surface antigen negative\nHepatitis B core IgM antibody negative\nHepatitis B surface antibody positive\nHepatitis C antibody negative\nUltrasonography of the abdomen shows mildly increased echogenicity of the liver. Which of the following additional findings is most likely to be found in this patient?\"",
+                "type": "multiplechoice",
+                "choices": [
+                    "Inferior vena cava thrombosis",
+                    "Cutaneous xanthomas",
+                    "Butterfly-shaped vertebrae",
+                    "Increased CA 19-9 levels",
+                    "Kayser-Fleischer rings\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cutaneous xanthomas"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1b2469fb-01a1-4921-9d1b-ad3fac85f13b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "1. The patient has a 3-month history of fatigue, generalized itchiness, and jaundice. These symptoms suggest a liver problem.\n2. The patient's laboratory results show elevated total bilirubin, direct bilirubin, alkaline phosphatase, AST, and ALT, which further supports the presence of a liver problem.\n3. The patient has negative hepatitis B and C tests, so viral hepatitis is not the cause of her liver problem.\n4. Ultrasonography of the abdomen shows mildly increased echogenicity of the liver, which can be seen in various liver diseases.\n\nNow let's analyze the answer choices:\n\nA) Inferior vena cava thrombosis: This is not a common finding in liver diseases and does not explain the patient's symptoms and laboratory results.\n\nB) Cutaneous xanthomas: These are deposits of cholesterol in the skin and can be seen in patients with primary biliary cholangitis (PBC) or primary sclerosing cholangitis (PSC), both of which can cause the patient's symptoms and laboratory results.\n\nC) Butterfly-shaped vertebrae: This is a finding in Alagille syndrome, a genetic disorder that affects the liver, heart, and other organs. However, this syndrome typically presents in childhood, not in a 57-year-old woman.\n\nD) Increased CA 19-9 levels: CA 19-9 is a tumor marker that can be elevated in some cancers, including cholangiocarcinoma. However, the patient's symptoms and laboratory results are more suggestive of a non-malignant liver disease.\n\nE) Kayser-Fleischer rings: These are copper deposits in the cornea and are a characteristic finding in Wilson's disease, a genetic disorder that causes copper accumulation in the liver and other organs. However, Wilson's disease typically presents in younger patients and would not explain the patient's negative hepatitis tests.\n\nBased on the patient's symptoms, laboratory results, and age, the most likely additional finding in this patient is cutaneous xanthomas (choice B). This suggests that the patient may have primary biliary cholangitis (PBC) or primary sclerosing cholangitis (PSC), both of which can cause the patient's symptoms and laboratory results.",
+                        "answers": [
+                            {
+                                "id": "d2989863-2926-48fc-92ff-091fb48f9db3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Cutaneous xanthomas.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:35:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "13522d36-a2b4-4b50-bb2d-480e80f95ef6",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning is well-structured and considers the patient's symptoms, laboratory results, and age. It also analyzes each answer choice and provides a clear explanation for the final answer.\nobj_1: 10\nobj_2: 9\nobj_3: 10\nobj_4: 9\nobj_5: 10\nobj_6: 9\nobj_7: 8\nobj_8: 10\nobj_9: 9\nobj_10: 9\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "092b9cef-4732-4dd7-a589-5a7f3a4d0e75",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:10:54",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1067",
+                "ref_id": "",
+                "question": "A 27-year-old woman, gravida 1, para 0, at 38 weeks' gestation is admitted to the hospital for active labor. The pregnancy was complicated by gestational diabetes and fetal weight is estimated to be at the 90th percentile for gestational age. During delivery, there is an arrest in the second stage of labor, and a vacuum-assisted delivery is performed. Postpartum examination shows a third-degree laceration in the vagina extending into the perineum at the 6 o'clock position. This patient is most likely to experience which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Urge incontinence",
+                    "Vesicovaginal fistula",
+                    "Fecal incontinence",
+                    "Small bowel obstruction",
+                    "Stress incontinence"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Fecal incontinence"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "efd7fee0-d409-4d2d-9619-2176265f1839",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A third-degree laceration in the vagina extending into the perineum at the 6 o'clock position involves the anal sphincter. Damage to the anal sphincter can lead to fecal incontinence. Therefore, the correct answer is:\n\nC) Fecal incontinence",
+                        "answers": [
+                            {
+                                "id": "eb17cebc-2d95-4f06-8f4c-1e6b0642dc2f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Fecal incontinence",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:35:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "679df9c7-0973-4204-a07f-c044c9877003",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response accurately interprets the question, considers relevant information, and provides a logical and coherent reasoning for the answer. The response identifies the correct answer based on the information provided.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 8\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "39133500-ebdc-4f10-9393-e5e94774503c",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:11:19",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1090",
+                "ref_id": "",
+                "question": "A 15-year-old boy is brought to the physician by his mother. His mother reports multiple instances over the past month when she walked into his room while he was masturbating. She is worried he may be going through some sort of \u201cproblem.\u201d He is currently in 9th grade; his mother says that he is the captain of his high school wrestling team and does reasonably well in school. On examination, he seems embarrassed and avoids making eye contact. Physical examination shows no abnormalities. Which of the following is the most appropriate next step in management?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Advise the patient to stop masturbating",
+                    "Measure serum testosterone level",
+                    "Refer the patient for behavioral therapy",
+                    "Reassure the mother",
+                    "Prescribe sertraline"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Reassure the mother"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "08ac9eaa-245d-42eb-af2b-6b450846e4d4",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "A) Advise the patient to stop masturbating - This is not an appropriate response, as masturbation is a normal part of adolescent development and not harmful.\n\nB) Measure serum testosterone level - There is no indication in the scenario that the patient has any hormonal issues, so this is not necessary.\n\nC) Refer the patient for behavioral therapy - The patient's behavior is not abnormal or harmful, so there is no need for therapy.\n\nD) Reassure the mother - This seems like the most appropriate response, as the mother is concerned about her son's behavior, which is actually normal for his age.\n\nE) Prescribe sertraline - There is no indication that the patient has any mental health issues that would require medication.\n\nBased on the analysis, the most appropriate next step in management is to reassure the mother (D).",
+                        "answers": [
+                            {
+                                "id": "7802108c-8ddf-42ba-9be6-4baaaec7fafc",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Reassure the mother.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/27 12:37:58",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-4', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5711d05a-ad31-41a5-9aff-0dbf88222e36",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The response accurately interprets the question, considers all relevant information, and provides a well-structured reasoning for each answer option. The final answer is appropriate and based on the reasoning provided.\nobj_1: 10\nobj_2: 10\nobj_3: 10\nobj_4: 10\nobj_5: 10\nobj_6: 10\nobj_7: 9\nobj_8: 10\nobj_9: 10\nobj_10: 10\nobj_11: 10",
+                        "answers": [
+                            {
+                                "id": "d1d6da5c-b274-4b26-9bb3-00290bc8dcc2",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/05/31 00:11:44",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

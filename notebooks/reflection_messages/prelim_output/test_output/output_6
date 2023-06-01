@@ -1,0 +1,105 @@
+annotations: []
+answers:
+- answer: 'Reasoning:
+
+    Betamethasone is a corticosteroid that is administered to pregnant women at risk
+    of preterm labor to help accelerate fetal lung maturation. The primary target
+    of betamethasone in the fetal lung is the type II pneumocytes. These cells are
+    responsible for producing and secreting surfactant, a substance that reduces surface
+    tension in the alveoli and prevents lung collapse. By stimulating type II pneumocytes,
+    betamethasone increases surfactant production, which improves lung function and
+    reduces the risk of respiratory distress syndrome in preterm infants.
+
+
+    Scores of objectives:
+
+    1: 10
+
+    2: 10
+
+    3: 10
+
+    4: 10
+
+    5: 10
+
+    6: 10
+
+    7: 10
+
+    8: 10
+
+    9: 10
+
+    10: 10
+
+    11: 10
+
+    12: 10
+
+    13: 10
+
+
+    Final answer:
+
+    D'
+  answer_extraction: ''
+  answer_extraction_template: ''
+  answer_extraction_text: ''
+  answer_from_choices: ''
+  correct_answer: null
+  id: ddfe9695-aac7-43a3-b315-08dbba48d38d
+api_service: ''
+author: ''
+comment: ''
+cot: 'Reasoning:
+
+  Betamethasone is a corticosteroid that is administered to pregnant women at risk
+  of preterm labor to help accelerate fetal lung maturation. The primary target of
+  betamethasone in the fetal lung is the type II pneumocytes. These cells are responsible
+  for producing and secreting surfactant, a substance that reduces surface tension
+  in the alveoli and prevents lung collapse. By stimulating type II pneumocytes, betamethasone
+  increases surfactant production, which improves lung function and reduces the risk
+  of respiratory distress syndrome in preterm infants.
+
+
+  Scores of objectives:
+
+  1: 10
+
+  2: 10
+
+  3: 10
+
+  4: 10
+
+  5: 10
+
+  6: 10
+
+  7: 10
+
+  8: 10
+
+  9: 10
+
+  10: 10
+
+  11: 10
+
+  12: 10
+
+  13: 10
+
+
+  Final answer:
+
+  D) Type II pneumocytes'
+cot_trigger: ''
+cot_trigger_template: ''
+date: 2023/05/25 13:16:09
+fragments_version: '0.01'
+id: fb86b2e8-040f-43e1-8448-1920f6f9de3a
+instruction: ''
+model: '{''name'': '''', ''temperature'': 0, ''max_tokens'': 1600}'
+prompt_text: ''

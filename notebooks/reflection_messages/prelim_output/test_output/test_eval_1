@@ -1,0 +1,30 @@
+annotations: []
+answers:
+- answer: ''
+  answer_extraction: ''
+  answer_extraction_template: ''
+  answer_extraction_text: ''
+  answer_from_choices: ''
+  correct_answer: null
+  id: 4182b592-5162-4dbd-9415-6c4889d2cf1c
+api_service: ''
+author: ''
+comment: ''
+cot: 'Scores of objectives:
+
+  1: 10
+
+  2: 10
+
+
+  Should the answer be changed:
+
+  No'
+cot_trigger: ''
+cot_trigger_template: ''
+date: 2023/05/25 16:50:35
+fragments_version: '0.01'
+id: 1d6b7824-fcbe-4679-823c-839e6f2e33fe
+instruction: ''
+model: '{''name'': '''', ''temperature'': 0, ''max_tokens'': 1600}'
+prompt_text: ''

@@ -1,0 +1,35 @@
+annotations: []
+answers:
+- answer: "Reasoning: \nThe question describes a pregnant woman at 24 weeks gestation\
+    \ who is experiencing symptoms of preterm labor. The woman is given a tocolytic\
+    \ and a single dose of betamethasone. Betamethasone is a corticosteroid that is\
+    \ given to pregnant women who are at risk of preterm delivery to accelerate fetal\
+    \ lung maturation. Betamethasone stimulates the production of surfactant by the\
+    \ fetal lungs. Surfactant is produced by type II pneumocytes in the fetal lungs.\
+    \ Therefore, the correct answer is D"
+  answer_extraction: ''
+  answer_extraction_template: ''
+  answer_extraction_text: ''
+  answer_from_choices: ''
+  correct_answer: null
+  id: 24600c23-bff7-44fa-bc50-2dd09fb5c5c2
+api_service: ''
+author: ''
+comment: ''
+cot: "Reasoning: \nThe question describes a pregnant woman at 24 weeks gestation who\
+  \ is experiencing symptoms of preterm labor. The woman is given a tocolytic and\
+  \ a single dose of betamethasone. Betamethasone is a corticosteroid that is given\
+  \ to pregnant women who are at risk of preterm delivery to accelerate fetal lung\
+  \ maturation. Betamethasone stimulates the production of surfactant by the fetal\
+  \ lungs. Surfactant is produced by type II pneumocytes in the fetal lungs. Therefore,\
+  \ the correct answer is D) Type II pneumocytes.\n\nScores of objectives:\n1: 9\n\
+  2: 10\n3: 10\n4: 10\n5: 9\n6: 10\n7: 10\n8: 10\n9: 10\n10: 10\n11: 10\n12: 10\n\
+  13: 10\n\nFinal answer:\nThe correct answer is D) Type II pneumocytes."
+cot_trigger: ''
+cot_trigger_template: ''
+date: 2023/05/25 09:51:16
+fragments_version: '0.01'
+id: 601a3be7-3e55-4889-9a89-b27369978acf
+instruction: ''
+model: '{''name'': '''', ''temperature'': 0, ''max_tokens'': 1600}'
+prompt_text: ''

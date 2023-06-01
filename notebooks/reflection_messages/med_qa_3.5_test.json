@@ -1,0 +1,53 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_788",
+                "ref_id": "",
+                "question": "A 26-year-old gravida 2 para 1 at 24 weeks gestation is admitted to the labor and delivery suite with mild abdominal cramps, uterine contractions, and a watery vaginal discharge. She has a history of preterm birth. The vital signs are as follows: blood pressure 125/80 mm Hg; heart rate 100/min; respiratory rate 13/min; and temperature 36.6\u2103 (97.9\u2109). The pelvic examination reveals cervical softening and shortening. Transvaginal ultrasound shows a cervical length of 12 mm, which is consistent with preterm labor. A tocolytic and a single dose of betamethasone are administered. Betamethasone stimulates which fetal cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Type I pneumocytes",
+                    "Goblet cells",
+                    "Bronchial epithelial cells",
+                    "Type II pneumocytes",
+                    "Vascular smooth myocytes"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Type II pneumocytes"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4e51f82b-84c6-428f-97c9-564878174d35",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, we need to understand what betamethasone is and what it does. Betamethasone is a corticosteroid medication that is given to pregnant women at risk of preterm delivery to help mature the fetal lungs and reduce the risk of respiratory distress syndrome (RDS) in the newborn. \n\nNext, we need to know which fetal cells are responsible for producing surfactant, which is the substance that helps keep the lungs inflated and prevents them from collapsing. Surfactant is produced by type II pneumocytes in the fetal lungs. \n\nTherefore, the correct answer is D) Type II pneumocytes. Betamethasone stimulates the production of surfactant by these cells, which helps to reduce the risk of RDS in premature infants.",
+                        "answers": [
+                            {
+                                "id": "a4d98ad6-9433-4cb7-9ac7-d1794d7b716c",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Type II pneumocytes.",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/05/31 16:54:22",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}
