@@ -168,6 +168,9 @@ cython_debug/
 # VS Code
 .vscode
 
+# Conda
+.conda
+
 # Miscellaneous
 /misc
 

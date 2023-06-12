@@ -4,6 +4,7 @@ import pkgutil
 import time
 import uuid
 import os
+import copy
 from dataclasses import asdict
 
 import datasets as ds
@@ -274,12 +275,15 @@ def self_generate_extract(data,input_dict):
 
 def _self_generate_extract(item,idx,input_dict):
 
-    input_dict['question'] = item["question"]
-    input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
-    chain = input_dict.pop('chain')
+    shadow_input_dict = copy.deepcopy(input_dict)
+    chain  = input_dict['chain']
+    del shadow_input_dict['chain']
+
+    shadow_input_dict['question'] = item["question"]
+    shadow_input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
 
     #get cot and predicted answer
-    lang_chain = chain(input_dict) 
+    lang_chain = chain(shadow_input_dict) 
 
     generated_cot = {
                 "id": str(uuid.uuid4()),
@@ -339,12 +343,15 @@ def self_generate(data,input_dict):
 def _self_generate(item,idx, input_dict):
 
     #feed data to input dict, isolate chain
-    input_dict['question'] = item["question"]
-    input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
-    chain = input_dict.pop('chain')
+    shadow_input_dict = copy.deepcopy(input_dict)
+    chain  = input_dict['chain']
+    del shadow_input_dict['chain']
 
-    #get cot
-    lang_chain = chain(input_dict) 
+    shadow_input_dict['question'] = item["question"]
+    shadow_input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+
+    #get cot and predicted answer
+    lang_chain = chain(shadow_input_dict) 
 
     """If conditions for input keys"""
     generated_cot = {
@@ -398,13 +405,15 @@ def _self_extract(item,idx,input_dict):
         cot = item['generated_cot'][0]['cot'] 
     input_dict['cot'] = cot
 
-    #feed data to input dict, isolate chain
-    input_dict['question'] = item["question"]
-    input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
-    chain = input_dict.pop('chain')
+    shadow_input_dict = copy.deepcopy(input_dict)
+    chain  = input_dict['chain']
+    del shadow_input_dict['chain']
 
-    #extract answer
-    lang_chain = chain(input_dict) 
+    shadow_input_dict['question'] = item["question"]
+    shadow_input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+
+    #get cot and predicted answer
+    lang_chain = chain(shadow_input_dict) 
 
     """If conditions for input keys"""
     answer = {
@@ -419,10 +428,10 @@ def _self_extract(item,idx,input_dict):
     answer["answer"] = lang_chain['predicted_answer']
     
     #we add the answer to the already existing generated cot
-    print(item['generated_cot'][0]["answers"])
-    item['generated_cot'][0]["answers"].append(answer) 
-    print("################")
-    print(item['generated_cot'][0]["answers"])
+    # print(item['generated_cot'][0]["answers"])
+    # item['generated_cot'][0]["answers"].append(answer) 
+    # print("################")
+    # print(item['generated_cot'][0]["answers"])
 
     return item
 
@@ -450,17 +459,19 @@ def _self_reflect(item, idx, input_dict):
     else:
         input_dict['cot'] = item['generated_cot'][0]['cot']
 
-    #feed data to input dict, isolate chain
-    input_dict['question'] = item["question"]
-    input_dict['answer_choices'] = multiple_choice_answer_formatting(
-        item["choices"])
-    chain = input_dict.pop('chain')
+    shadow_input_dict = copy.deepcopy(input_dict)
+    chain  = input_dict['chain']
+    del shadow_input_dict['chain']
+
+    shadow_input_dict['question'] = item["question"]
+    shadow_input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+
 
     # here we take the first answer from the first cot
-    input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer']
+    shadow_input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer']
 
     #this is where the magic happens
-    lang_chain = chain(input_dict)
+    lang_chain = chain(shadow_input_dict)
 
     #retrieve question and answer choices from item, add to input dict
     generated_cot = {
