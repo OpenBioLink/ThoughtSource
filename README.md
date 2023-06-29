@@ -15,6 +15,8 @@ ThoughtSource is a central, open resource and community centered on data and too
 📄 Pre-print: Ott _et al._ [__"ThoughtSource: A central hub for large language
 model reasoning data"__](https://arxiv.org/abs/2301.11596), arXiv, 2023
 
+📄 Pre-print: Hebenstreit _et al._ [__"An automatically discovered chain-of-thought prompt generalizes to novel models and datasets"__](https://arxiv.org/abs/2305.02897), arXiv, 2023
+
 
 
 ## Workflow
