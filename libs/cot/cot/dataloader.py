@@ -608,24 +608,24 @@ class Collection:
         return collect
             
     
-    def evaluate(self,title, name=None, split=None, overwrite=False, warn=False):
+    def evaluate(self, name=None, split=None, title=None, overwrite=False, warn=False):
         evaluations_dict = defaultdict(dict)
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     # print(f"Evaluating {name}...")
-                    self[name][split], evaluation = evaluate(self[name][split],title, overwrite=overwrite, warn=warn)
+                    self[name][split], evaluation = evaluate(self[name][split], title=title, overwrite=overwrite, warn=warn)
                     evaluations_dict[name][split] = evaluation
         else:
             if split is None:
                 for split in self._cache[name]:
                     # print(f"Evaluating {name}...")
-                    self[name][split], evaluations = evaluate(self[name][split],title, overwrite=overwrite, warn=warn)
+                    self[name][split], evaluations = evaluate(self[name][split], title=title, overwrite=overwrite, warn=warn)
                     evaluations_dict[name][split] = evaluations
 
             else:
                 # print(f"Evaluating {name}...")
-                self[name][split], evaluations = evaluate(self[name][split],title, overwrite=overwrite, warn=warn)
+                self[name][split], evaluations = evaluate(self[name][split], title=title, overwrite=overwrite, warn=warn)
                 evaluations_dict[name][split] = evaluations
 
         # return evaluation outcome
