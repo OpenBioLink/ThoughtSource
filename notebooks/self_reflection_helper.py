@@ -171,6 +171,8 @@ def u_test(scores_with_indicator):
 
     dict_1 = scores_per_objective_true
     dict_2 = scores_per_objective_false
+    print(dict_1)
+    print(dict_2)
 
     # make sure both dictionaries have the same keys
     assert dict_1.keys() == dict_2.keys()

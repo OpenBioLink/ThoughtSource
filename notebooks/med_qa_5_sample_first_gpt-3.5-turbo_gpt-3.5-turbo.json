@@ -1,0 +1,371 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_82",
+                "ref_id": "",
+                "question": "A 44-year-old African-American woman comes to the physician for a routine examination. She is concerned about cancer because her uncle died of metastatic melanoma 1 year ago. She has no history of serious illness and does not take any medication. She has been working in a law firm for the past 20 years and travels to the Carribean regularly with her husband. Examination of her skin shows no abnormal moles or warts. This woman is at greatest risk of which of the following types of melanoma?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Desmoplastic",
+                    "Nodular",
+                    "Acral lentiginous",
+                    "Lentigo maligna",
+                    "Superficial spreading"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Acral lentiginous"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "40c29b29-a14e-4384-be3b-51fe97e1668c",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's review the information given in the question stem. The patient is a 44-year-old African-American woman with no history of serious illness. Her main concern is her family history of metastatic melanoma, as her uncle died from this condition. She has no abnormal moles or warts on examination. She has been working in a law firm for the past 20 years and travels to the Caribbean regularly with her husband.\n\nNow, let's analyze the options:\n\nA) Desmoplastic melanoma: This type of melanoma is characterized by dense fibrous tissue and is more commonly found in older individuals. There is no specific information in the question stem to suggest that this patient is at greater risk for desmoplastic melanoma.\n\nB) Nodular melanoma: Nodular melanoma is a rapidly growing type of melanoma that often presents as a raised, dome-shaped nodule. There is no specific information in the question stem to suggest that this patient is at greater risk for nodular melanoma.\n\nC) Acral lentiginous melanoma: Acral lentiginous melanoma is a type of melanoma that occurs on the palms, soles, or under the nails. It is more common in individuals with darker skin types, such as African-Americans. Given that the patient is African-American, this type of melanoma may be more relevant to her.\n\nD) Lentigo maligna melanoma: Lentigo maligna melanoma is a type of melanoma that typically occurs in older individuals with a history of chronic sun exposure. There is no specific information in the question stem to suggest that this patient is at greater risk for lentigo maligna melanoma.\n\nE) Superficial spreading melanoma: Superficial spreading melanoma is the most common type of melanoma and typically presents as an irregularly shaped, pigmented lesion. There is no specific information in the question stem to suggest that this patient is at greater risk for superficial spreading melanoma.\n\nBased on the information provided, the patient's African-American ethnicity and the fact that she has no abnormal moles or warts on examination, the most likely type of melanoma she is at greatest risk for is acral lentiginous melanoma (Option C).",
+                        "answers": [
+                            {
+                                "id": "5e5784dc-fb87-4de3-9e61-0b5e2b48c015",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Acral lentiginous",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/07 16:31:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "443c96c5-7bc7-4582-8528-d5a344cbb292",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is generally accurate and breaks down the question stem and answer options effectively. However, there is room for improvement in terms of considering all relevant information and providing more detailed reasoning steps.\n\nobj_1: 90\nobj_2: 80\nobj_3: 80\nobj_4: 80\nobj_5: 70\nobj_6: 80\nobj_7: 80\nobj_8: 90\nobj_9: 70\nobj_10: 80\nobj_11: 90",
+                        "answers": [
+                            {
+                                "id": "a4923313-28a8-4ef1-8368-049c59ae95a2",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/07 16:37:16",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_530",
+                "ref_id": "",
+                "question": "A previously healthy 35-year-old woman comes to the emergency department because of sudden weakness of her right arm and leg that started 3 hours ago. She returned from a business trip from Europe 3 days ago. She has smoked a pack of cigarettes daily for 10 years. Her only medication is an oral contraceptive. Her temperature is 38.0\u00b0C (100.4\u00b0F), pulse is 115/min and regular, and blood pressure is 155/85 mm Hg. Examination shows decreased muscle strength on the entire right side. Deep tendon reflexes are 4+ on the right. Babinski sign is present on the right. The left lower leg is swollen, erythematous, and tender to palpation. Further evaluation is most likely to show which of the following?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Patent foramen ovale",
+                    "Atrial myxoma",
+                    "Mitral valve vegetation",
+                    "Atrial fibrillation",
+                    "Carotid artery dissection"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Patent foramen ovale"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "6a7b909a-8f70-429b-b951-427f0cb50a85",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient is presenting with sudden weakness of her right arm and leg, which is concerning for a neurological deficit. Given her recent travel history and the presence of a swollen, erythematous, and tender left lower leg, a possible diagnosis to consider is deep vein thrombosis (DVT) with subsequent pulmonary embolism (PE). \n\nDVT and PE can cause a paradoxical embolism, where a clot from the venous system crosses over to the arterial system through a right-to-left shunt. This can occur in the presence of a patent foramen ovale (PFO), which is a common congenital heart defect. A PFO allows blood to flow from the right atrium to the left atrium, bypassing the lungs. If a clot from the DVT crosses over to the arterial system and reaches the brain, it can cause a stroke, leading to the patient's symptoms of sudden weakness of the right arm and leg.\n\nTherefore, the most likely finding on further evaluation in this patient is A) Patent foramen ovale.",
+                        "answers": [
+                            {
+                                "id": "61226e43-da35-4d6e-a48e-3dbd4bc4ddf2",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Patent foramen ovale",
+                                "answer_from_choices": "A",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/07 16:31:25",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "667f3402-d46c-44a5-be7f-44e9452070ca",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is logical and relevant to the information given in the question. However, it does not consider other possible causes of the patient's symptoms, such as atrial myxoma, mitral valve vegetation, atrial fibrillation, or carotid artery dissection. The reasoning should have explored these possibilities and provided a more comprehensive analysis.\n\nobj_1: 80\nobj_2: 60\nobj_3: 70\nobj_4: 50\nobj_5: 70\nobj_6: 60\nobj_7: 50\nobj_8: 80\nobj_9: 50\nobj_10: 70\nobj_11: 50",
+                        "answers": [
+                            {
+                                "id": "92e8f81a-88bb-4dfa-9fe2-a37ddce36ea8",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/07 16:37:21",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_788",
+                "ref_id": "",
+                "question": "A 26-year-old gravida 2 para 1 at 24 weeks gestation is admitted to the labor and delivery suite with mild abdominal cramps, uterine contractions, and a watery vaginal discharge. She has a history of preterm birth. The vital signs are as follows: blood pressure 125/80 mm Hg; heart rate 100/min; respiratory rate 13/min; and temperature 36.6\u2103 (97.9\u2109). The pelvic examination reveals cervical softening and shortening. Transvaginal ultrasound shows a cervical length of 12 mm, which is consistent with preterm labor. A tocolytic and a single dose of betamethasone are administered. Betamethasone stimulates which fetal cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Type I pneumocytes",
+                    "Goblet cells",
+                    "Bronchial epithelial cells",
+                    "Type II pneumocytes",
+                    "Vascular smooth myocytes"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Type II pneumocytes"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "2c0ddaf4-91f1-4e7f-90aa-5dcec2b2aa97",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Betamethasone is a corticosteroid that is commonly used to promote fetal lung maturation in cases of preterm labor. It acts by stimulating the production of surfactant in the fetal lungs. Surfactant is produced by type II pneumocytes, which are responsible for the synthesis and secretion of surfactant in the alveoli of the lungs. \n\nTherefore, the correct answer is D) Type II pneumocytes.",
+                        "answers": [
+                            {
+                                "id": "1b7449ba-438e-4571-a642-25f94b7962b3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Type II pneumocytes.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/07 16:31:31",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0c79da5f-104e-4df8-b206-6b0d7e023384",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and relevant. It correctly explains how betamethasone stimulates the production of surfactant in the fetal lungs by acting on type II pneumocytes. The answer is also correct.\n\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "87abcffb-afa4-4bb2-a858-f58cce03f964",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/07 16:37:26",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_861",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the physician because of a 3-day history of fatigue and yellow discoloration of his skin. One week ago, he had an upper respiratory tract infection. Examination shows jaundice of the skin and conjunctivae. The spleen tip is palpated 2 cm below the left costal margin. His hemoglobin concentration is 9.4 g/dl and his mean corpuscular hemoglobin concentration is 39% Hb/cell. A Coombs test is negative. A peripheral blood smear is shown. This patient is at greatest risk for which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Malaria",
+                    "Acute myelogenous leukemia",
+                    "Cholecystitis",
+                    "Renal papillary necrosis",
+                    "Splenic sequestration crisis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cholecystitis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "ca2745a5-5812-40dd-b3ab-ba52bc686f12",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Evaluate the clinical presentation\nThe 3-year-old boy has a 3-day history of fatigue and yellow discoloration of his skin, which are signs of jaundice. He also has a palpable spleen tip, indicating splenomegaly. These findings suggest that the patient has hemolytic anemia.\n\nStep 2: Analyze the laboratory findings\nThe patient's hemoglobin concentration is 9.4 g/dl, which is below the normal range for his age. The mean corpuscular hemoglobin concentration (MCHC) is 39% Hb/cell, which is also abnormal. These findings further support the diagnosis of hemolytic anemia.\n\nStep 3: Interpret the peripheral blood smear\nThe peripheral blood smear is not provided in the question, so we cannot analyze it.\n\nStep 4: Consider the possible complications\nBased on the clinical presentation and laboratory findings, the patient is most likely experiencing a hemolytic crisis. The most common cause of hemolytic anemia in children is sickle cell disease. In sickle cell disease, patients are at greatest risk for a splenic sequestration crisis.\n\nStep 5: Choose the correct answer\nTherefore, the correct answer is E) Splenic sequestration crisis.",
+                        "answers": [
+                            {
+                                "id": "98fd083f-711d-4538-aca0-c9fb295a9ac8",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Splenic sequestration crisis",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/07 16:36:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7596a051-a2ad-4411-b62e-856f5def2f2f",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is generally accurate and follows a logical progression. However, there are a few areas that could be improved. First, the reasoning could have included a discussion of the patient's age and the relevance of the upper respiratory tract infection in the context of the presenting symptoms. Additionally, the reasoning could have mentioned the absence of a positive Coombs test, which helps rule out immune-mediated hemolysis. Finally, the reasoning could have provided more information on the clinical features and pathophysiology of a splenic sequestration crisis to further support the choice of answer E.\n\nobj_1: 90\nobj_2: 90\nobj_3: 80\nobj_4: 80\nobj_5: 80\nobj_6: 80\nobj_7: 70\nobj_8: 90\nobj_9: 70\nobj_10: 80\nobj_11: 90",
+                        "answers": [
+                            {
+                                "id": "f6558d63-0735-47f5-bd94-98e7e76682c6",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/07 16:37:33",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1047",
+                "ref_id": "",
+                "question": "A 57-year-old woman comes to the physician because of a 3-month history of fatigue. She also reports generalized itchiness that started approximately 2 months ago. Two weeks ago, she noticed yellowing of her eyes. She does not smoke or drink alcohol. She uses eyedrops for persistent dryness of the eyes. Her vital signs are within normal limits. Physical examination shows jaundice of the conjunctivae and skin. The mucous membranes of the mouth are dry. The abdomen is soft. The liver edge is palpable 3 cm below the right costal margin. There are generalized skin excoriations. Laboratory studies show:\nHemoglobin 15 g/dL\nLeukocyte count 7,700/mm3\nPlatelet count 332,000/mm3\nSerum\nGlucose 122 mg/dL\nTotal bilirubin 3.1 mg/dL\nDirect 2.5 mg/dL\nAlkaline phosphatase 452 U/L\nAST 155 U/L\nALT 168 U/L\nHepatitis B surface antigen negative\nHepatitis B core IgM antibody negative\nHepatitis B surface antibody positive\nHepatitis C antibody negative\nUltrasonography of the abdomen shows mildly increased echogenicity of the liver. Which of the following additional findings is most likely to be found in this patient?\"",
+                "type": "multiplechoice",
+                "choices": [
+                    "Inferior vena cava thrombosis",
+                    "Cutaneous xanthomas",
+                    "Butterfly-shaped vertebrae",
+                    "Increased CA 19-9 levels",
+                    "Kayser-Fleischer rings\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cutaneous xanthomas"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "77a44a4f-5e1e-4432-b8d6-97dcddb2d2c6",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Based on the patient's history and physical examination findings, the most likely diagnosis is primary biliary cholangitis (PBC). PBC is a chronic autoimmune liver disease characterized by destruction of the intrahepatic bile ducts, leading to cholestasis and liver injury.\n\nThe laboratory findings in this patient are consistent with PBC. The elevated alkaline phosphatase, AST, and ALT levels indicate liver injury. The elevated total bilirubin and direct bilirubin levels suggest cholestasis. The presence of jaundice, dry mucous membranes, and pruritus further support the diagnosis.\n\nNow, let's evaluate the answer choices:\n\nA) Inferior vena cava thrombosis: This finding is not associated with PBC. It is more commonly seen in conditions such as deep vein thrombosis or liver cirrhosis.\n\nB) Cutaneous xanthomas: Cutaneous xanthomas are not typically seen in PBC. They are more commonly associated with hyperlipidemia or other lipid metabolism disorders.\n\nC) Butterfly-shaped vertebrae: Butterfly-shaped vertebrae are characteristic of osteogenesis imperfecta, a genetic disorder affecting collagen synthesis. This finding is not related to PBC.\n\nD) Increased CA 19-9 levels: CA 19-9 is a tumor marker that can be elevated in pancreatic and biliary tract cancers. While PBC is associated with an increased risk of developing cholangiocarcinoma, CA 19-9 levels are not typically elevated in PBC itself.\n\nE) Kayser-Fleischer rings: Kayser-Fleischer rings are a characteristic finding in Wilson disease, a genetic disorder characterized by impaired hepatic copper transport. This finding is not associated with PBC.\n\nTherefore, the correct answer is B) Cutaneous xanthomas.",
+                        "answers": [
+                            {
+                                "id": "2fbd8db3-3d08-4f4d-8a12-96a6f85d2026",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Cutaneous xanthomas.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/07 16:37:08",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7c4dd03e-b6a7-41ab-a327-2db8703f6e7a",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and thorough. It correctly identifies the most likely diagnosis based on the patient's history, physical examination findings, and laboratory results. The evaluation of the answer choices is also well-supported and provides clear explanations for why each option is either associated or not associated with the diagnosis of primary biliary cholangitis (PBC).\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "df4842fa-3707-4064-9a0d-c3b25b5d3a51",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/07 16:37:38",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}
