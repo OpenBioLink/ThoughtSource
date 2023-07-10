@@ -1,0 +1,736 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_82",
+                "ref_id": "",
+                "question": "A 44-year-old African-American woman comes to the physician for a routine examination. She is concerned about cancer because her uncle died of metastatic melanoma 1 year ago. She has no history of serious illness and does not take any medication. She has been working in a law firm for the past 20 years and travels to the Carribean regularly with her husband. Examination of her skin shows no abnormal moles or warts. This woman is at greatest risk of which of the following types of melanoma?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Desmoplastic",
+                    "Nodular",
+                    "Acral lentiginous",
+                    "Lentigo maligna",
+                    "Superficial spreading"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Acral lentiginous"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "36804a4a-4f64-47fb-b19d-7380617868d0",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "First, let's review the information given in the question stem. The patient is a 44-year-old African-American woman with no history of serious illness. Her main concern is her family history of metastatic melanoma, as her uncle died from this condition. She has no abnormal moles or warts on examination. She has been working in a law firm for the past 20 years and travels to the Caribbean regularly with her husband.\n\nNow, let's analyze the options:\n\nA) Desmoplastic melanoma: This type of melanoma is characterized by dense fibrous tissue and is more commonly found in older individuals. There is no specific information in the question stem to suggest that this patient is at greater risk for desmoplastic melanoma.\n\nB) Nodular melanoma: Nodular melanoma is a rapidly growing type of melanoma that often presents as a raised, dome-shaped nodule. There is no specific information in the question stem to suggest that this patient is at greater risk for nodular melanoma.\n\nC) Acral lentiginous melanoma: Acral lentiginous melanoma is a type of melanoma that occurs on the palms, soles, or under the nails. It is more common in individuals with darker skin types, such as African-Americans. Given that the patient is African-American, this type of melanoma may be more relevant to her.\n\nD) Lentigo maligna melanoma: Lentigo maligna melanoma is a type of melanoma that typically occurs in older individuals with a history of chronic sun exposure. There is no specific information in the question stem to suggest that this patient is at greater risk for lentigo maligna melanoma.\n\nE) Superficial spreading melanoma: Superficial spreading melanoma is the most common type of melanoma and typically presents as an irregularly shaped, pigmented lesion. There is no specific information in the question stem to suggest that this patient is at greater risk for superficial spreading melanoma.\n\nBased on the information provided, the patient's African-American ethnicity and the fact that she has no abnormal moles or warts on examination, the most likely type of melanoma she is at greatest risk for is acral lentiginous melanoma (Option C).",
+                        "answers": [
+                            {
+                                "id": "612d25b6-03b3-4b52-a7d8-fb1446a1edec",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Acral lentiginous",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:12:27",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e55ad6ba-dd59-4058-bbb8-4aec0c9877f3",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is generally accurate and breaks down the question stem and answer options effectively. However, there is room for improvement in terms of considering all relevant information and providing more detailed reasoning steps.\n\nobj_1: 90\nobj_2: 80\nobj_3: 80\nobj_4: 80\nobj_5: 70\nobj_6: 80\nobj_7: 80\nobj_8: 90\nobj_9: 70\nobj_10: 80\nobj_11: 90",
+                        "answers": [
+                            {
+                                "id": "1c0f7292-0d0a-4e62-9eec-3a435a4fa93a",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:03",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_530",
+                "ref_id": "",
+                "question": "A previously healthy 35-year-old woman comes to the emergency department because of sudden weakness of her right arm and leg that started 3 hours ago. She returned from a business trip from Europe 3 days ago. She has smoked a pack of cigarettes daily for 10 years. Her only medication is an oral contraceptive. Her temperature is 38.0\u00b0C (100.4\u00b0F), pulse is 115/min and regular, and blood pressure is 155/85 mm Hg. Examination shows decreased muscle strength on the entire right side. Deep tendon reflexes are 4+ on the right. Babinski sign is present on the right. The left lower leg is swollen, erythematous, and tender to palpation. Further evaluation is most likely to show which of the following?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Patent foramen ovale",
+                    "Atrial myxoma",
+                    "Mitral valve vegetation",
+                    "Atrial fibrillation",
+                    "Carotid artery dissection"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Patent foramen ovale"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "4c577803-057e-4712-ac60-8bca363227d6",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient is presenting with sudden weakness of her right arm and leg, which is concerning for a neurological deficit. Given her recent travel history and the presence of a swollen, erythematous, and tender left lower leg, a possible diagnosis to consider is deep vein thrombosis (DVT) with subsequent pulmonary embolism (PE). \n\nDVT and PE can cause a paradoxical embolism, where a clot from the venous system crosses over to the arterial system through a right-to-left shunt. This can occur in the presence of a patent foramen ovale (PFO), which is a common congenital heart defect. A PFO allows blood to flow from the right atrium to the left atrium, bypassing the lungs. If a clot from the DVT crosses over to the arterial system and reaches the brain, it can cause a stroke, leading to the patient's symptoms of sudden weakness of the right arm and leg. \n\nTherefore, the most likely finding on further evaluation in this patient is A) Patent foramen ovale.",
+                        "answers": [
+                            {
+                                "id": "f0485514-6078-4941-ac84-c31cc1956f5a",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) Patent foramen ovale.",
+                                "answer_from_choices": "A",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:12:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "af83a8ed-32d5-4145-bb4c-dbf85649fd6b",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is not accurate. The reasoning correctly identifies the patient's symptoms as concerning for a neurological deficit and considers the possibility of deep vein thrombosis (DVT) with subsequent pulmonary embolism (PE). However, the reasoning incorrectly suggests that a paradoxical embolism can occur in the presence of a patent foramen ovale (PFO) and that it can cause a stroke. While a PFO can allow a clot to cross over from the venous system to the arterial system, it is not the most likely finding in this patient. The presence of a swollen, erythematous, and tender left lower leg suggests a more likely diagnosis of DVT with subsequent PE. Therefore, the most likely finding on further evaluation in this patient is not A) Patent foramen ovale, but rather E) Carotid artery dissection.\n\nobj_1: 50\nobj_2: 50\nobj_3: 50\nobj_4: 50\nobj_5: 50\nobj_6: 50\nobj_7: 50\nobj_8: 50\nobj_9: 50\nobj_10: 50\nobj_11: 0",
+                        "answers": [
+                            {
+                                "id": "4692632c-6566-4fac-ad74-33b7072a409b",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:10",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_621",
+                "ref_id": "",
+                "question": "A 59-year-old man with a history of sickle cell disease presents to the emergency department for evaluation of his fever and night sweats. He is extremely lethargic and is unable to provide an adequate history to his physician. His wife noted that roughly 3 days ago, her husband mentioned that something bit him, but she cannot remember what exactly. The vital signs include blood pressure 85/67 mm Hg, pulse rate 107/min, and respiratory rate 35/min. Upon examination, the man is currently afebrile but is lethargic and pale. His spleen is surgically absent. There are some swollen bite marks on his right hand with red streaks extending to his elbow. Which of the following bites would be most concerning in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Cat bite",
+                    "Human bite",
+                    "Spider bite",
+                    "Fish bite",
+                    "Dog bite"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Dog bite"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "498ff822-2d32-45cd-b26d-e8b0e3bf4d60",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Given the patient's history of sickle cell disease and the presence of fever, night sweats, lethargy, and hypotension, it is important to consider the possibility of an infection. The swollen bite marks on his right hand with red streaks extending to his elbow suggest the presence of cellulitis or an ascending infection.\n\nIn this scenario, the most concerning bite would be one that is more likely to cause an infection. Among the options provided, the most concerning bite would be a human bite (Option B). Human bites have a high risk of infection due to the presence of a wide range of bacteria in the oral cavity. The bacteria can be introduced into the deep tissues during a bite, leading to cellulitis and potentially life-threatening infections.\n\nCat bites (Option A) can also lead to infections, but they are less concerning compared to human bites. Spider bites (Option C) and fish bites (Option D) are less likely to cause significant infections. Dog bites (Option E) can also lead to infections, but they are generally less concerning compared to human bites.\n\nTherefore, the most concerning bite in this patient would be a human bite (Option B).",
+                        "answers": [
+                            {
+                                "id": "d433f5ab-952a-4946-b4df-672ef9a211e0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Human bite",
+                                "answer_from_choices": "B",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:12:46",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "48dd9e34-a4d3-40a1-9a42-2358e2f32436",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and breaks down the question by considering the patient's history, symptoms, and physical examination findings. It correctly identifies the need to consider the possibility of an infection and focuses on the bite marks as a potential source. The reasoning then compares the different bite options and concludes that a human bite would be the most concerning due to the high risk of infection.\n\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "c1b4e14e-fa51-4035-8447-b5d4f225543f",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:14",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_733",
+                "ref_id": "",
+                "question": "A 1-month-old girl is brought to the emergency department with persistent vomiting, dehydration, and irritability. Over the past week, she has been projectile vomiting after most feedings. Initially, the vomiting would occur just once or twice a day, but now it occurs after every feed. However, her appetite hasn\u2019t decreased, and she seeks milk right after each episode of vomiting. She was born at 39 weeks gestation via spontaneous vaginal delivery and is breastfed exclusively. On physical exam, the vital signs include: temperature 37.5\u00b0C (99.5\u00b0F), blood pressure 85/55 mm Hg, respiratory rate 28/min, and heart rate 150/min. On examination, she appears to be mildly dehydrated, listless, and irritable. Her abdomen is soft and nontender with a palpable olive-shaped mass in the epigastric region. Which of the following acid-base disturbances is most likely associated with this patient\u2019s condition?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Respiratory alkalosis",
+                    "Metabolic acidosis",
+                    "Metabolic alkalosis",
+                    "Respiratory acidosis",
+                    "Mixed respiratory and metabolic acidosis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Metabolic alkalosis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "8e9565e7-b294-4830-ab35-7ed2e3cf09ca",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The clinical presentation of persistent vomiting, dehydration, and irritability in a 1-month-old girl is suggestive of pyloric stenosis. Pyloric stenosis is a condition characterized by hypertrophy and hyperplasia of the pyloric sphincter, leading to gastric outlet obstruction. The classic presentation includes projectile vomiting, which typically occurs after every feed. The infant may appear hungry and seek milk immediately after vomiting. On physical examination, a palpable olive-shaped mass can be felt in the epigastric region.\n\nIn pyloric stenosis, the persistent vomiting leads to loss of gastric acid and chloride, resulting in hypochloremic metabolic alkalosis. The loss of gastric acid leads to a decrease in hydrogen ion concentration, causing alkalosis. The loss of chloride leads to a decrease in serum chloride concentration, which further contributes to the alkalosis.\n\nTherefore, the correct answer is C) Metabolic alkalosis.",
+                        "answers": [
+                            {
+                                "id": "51511f5b-df3d-4ed3-a79f-5a5f38f0df56",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Metabolic alkalosis.",
+                                "answer_from_choices": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:12:55",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "b49498ff-ef7f-40e4-9176-6de783ca4c2f",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided accurately interprets the question and breaks down the information provided. It correctly identifies the clinical presentation and physical examination findings associated with pyloric stenosis. The reasoning also correctly explains the mechanism behind the acid-base disturbance in this condition, specifically hypochloremic metabolic alkalosis. The answer is supported by the reasoning provided.\n\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "17a045a7-d5d2-453f-8cac-459facc18c23",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:19",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_788",
+                "ref_id": "",
+                "question": "A 26-year-old gravida 2 para 1 at 24 weeks gestation is admitted to the labor and delivery suite with mild abdominal cramps, uterine contractions, and a watery vaginal discharge. She has a history of preterm birth. The vital signs are as follows: blood pressure 125/80 mm Hg; heart rate 100/min; respiratory rate 13/min; and temperature 36.6\u2103 (97.9\u2109). The pelvic examination reveals cervical softening and shortening. Transvaginal ultrasound shows a cervical length of 12 mm, which is consistent with preterm labor. A tocolytic and a single dose of betamethasone are administered. Betamethasone stimulates which fetal cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Type I pneumocytes",
+                    "Goblet cells",
+                    "Bronchial epithelial cells",
+                    "Type II pneumocytes",
+                    "Vascular smooth myocytes"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Type II pneumocytes"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "a14aa389-7880-474f-a5da-fe2cbe517788",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Betamethasone is a corticosteroid that is commonly used to promote fetal lung maturation in cases of preterm labor. It acts by stimulating the production of surfactant in the fetal lungs. Surfactant is produced by type II pneumocytes, which are responsible for the synthesis and secretion of surfactant in the alveoli of the lungs. \n\nTherefore, the correct answer is D) Type II pneumocytes.",
+                        "answers": [
+                            {
+                                "id": "6421778c-66f9-4638-b1c1-747b1d276190",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Type II pneumocytes.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:13:01",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5f55574c-4bdf-4532-91b0-919994e6eec8",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and relevant. It correctly explains how betamethasone stimulates the production of surfactant in the fetal lungs by acting on type II pneumocytes. The answer is also correct.\n\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "9931acb6-6993-4b9c-9876-d0720d5bb9ff",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:23",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_829",
+                "ref_id": "",
+                "question": "A 66-year-old man presents to the emergency department for a cough and fatigue. The patient was brought in from a nursing home with documentation stating that he has seemed confused for the past day according to the staff. The patient has a past medical history of diabetes and hypertension. He is currently taking insulin, metformin, lisinopril, and atorvastatin. His temperature is 102\u00b0F (38.9\u00b0C), blood pressure is 107/58 mmHg, pulse is 120/min, respirations are 15/min, and oxygen saturation is 98% on room air. Physical exam reveals crackles on pulmonary exam and S4 on cardiac auscultation. Which of the following is the next best step in management?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Azithromycin and admission to the medical floor",
+                    "Azithromycin and discharge",
+                    "Azithromycin, moxifloxacin, and admission to the intensive care unit",
+                    "Ceftriaxone, azithromycin, and admission to the intensive care unit",
+                    "Moxifloxacin and admission to the medical floor"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Moxifloxacin and admission to the medical floor"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "762a0ec5-7d6c-4ced-b657-2238b05820a1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The patient is a 66-year-old man presenting with a cough, fatigue, confusion, and a fever. He has crackles on pulmonary exam and an S4 on cardiac auscultation. These findings suggest a possible diagnosis of pneumonia.\n\nStep 1: Assess the patient's stability\nThe patient's vital signs are as follows:\n- Temperature: 102\u00b0F (38.9\u00b0C)\n- Blood pressure: 107/58 mmHg\n- Pulse: 120/min\n- Respirations: 15/min\n- Oxygen saturation: 98% on room air\n\nThe patient's blood pressure is on the lower side, indicating possible hypotension. However, the patient's oxygen saturation is normal, suggesting that he is adequately oxygenated. Overall, the patient appears to be stable.\n\nStep 2: Consider the patient's risk factors and comorbidities\nThe patient has a past medical history of diabetes and hypertension. He is currently taking insulin, metformin, lisinopril, and atorvastatin. These comorbidities and medications increase the patient's risk for complications from pneumonia.\n\nStep 3: Determine the most likely causative organism\nGiven the patient's presentation with crackles on pulmonary exam and the presence of fever, a bacterial etiology is more likely than a viral etiology. Streptococcus pneumoniae is the most common bacterial pathogen causing community-acquired pneumonia in adults.\n\nStep 4: Choose the appropriate antibiotic regimen\nThe initial empiric antibiotic treatment for community-acquired pneumonia in a patient with risk factors and comorbidities should cover both typical and atypical pathogens. Options for empiric treatment include a combination of a beta-lactam (such as ceftriaxone) plus a macrolide (such as azithromycin) or a respiratory fluoroquinolone (such as moxifloxacin).\n\nStep 5: Determine the appropriate level of care\nThe patient's stable vital signs and absence of severe respiratory distress suggest that he does not require admission to the intensive care unit (ICU) at this time. However, his confusion and comorbidities increase his risk for complications, so admission to a medical floor is warranted.\n\nStep 6: Choose the next best step in management\nBased on the above considerations, the next best step in management would be to administer ceftriaxone and azithromycin and admit the patient to the medical floor. Therefore, the correct answer is D) Ceftr",
+                        "answers": [
+                            {
+                                "id": "e96eb468-b756-43b3-8007-289aa9fe01e3",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Ceftriaxone, azithromycin, and admission to the intensive care unit",
+                                "answer_from_choices": "D",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:13:15",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "f5cd32a0-80ca-4186-a23c-fca7a790522e",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is generally accurate and follows a logical flow. However, there are a few areas where the reasoning could be improved. First, the reasoning could have explicitly mentioned that the patient's crackles on pulmonary exam and S4 on cardiac auscultation are consistent with findings seen in pneumonia. Additionally, the reasoning could have discussed the significance of the patient's confusion and its association with pneumonia in older adults. Lastly, the reasoning could have provided more information on why admission to the intensive care unit is necessary for this patient.\n\nobj_1: 90\nobj_2: 90\nobj_3: 90\nobj_4: 90\nobj_5: 80\nobj_6: 80\nobj_7: 80\nobj_8: 90\nobj_9: 80\nobj_10: 90\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "87153c8c-8b24-47eb-b771-fa4f75baab6e",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:28",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_861",
+                "ref_id": "",
+                "question": "A 3-year-old boy is brought to the physician because of a 3-day history of fatigue and yellow discoloration of his skin. One week ago, he had an upper respiratory tract infection. Examination shows jaundice of the skin and conjunctivae. The spleen tip is palpated 2 cm below the left costal margin. His hemoglobin concentration is 9.4 g/dl and his mean corpuscular hemoglobin concentration is 39% Hb/cell. A Coombs test is negative. A peripheral blood smear is shown. This patient is at greatest risk for which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Malaria",
+                    "Acute myelogenous leukemia",
+                    "Cholecystitis",
+                    "Renal papillary necrosis",
+                    "Splenic sequestration crisis"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cholecystitis"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "90a8c1c1-273a-4cd1-b032-c6c90ffcf379",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Evaluate the clinical presentation\nThe 3-year-old boy has a 3-day history of fatigue and yellow discoloration of his skin, which are signs of jaundice. He also has a palpable spleen tip, indicating splenomegaly. These findings suggest that the patient has hemolytic anemia.\n\nStep 2: Analyze the laboratory findings\nThe patient's hemoglobin concentration is 9.4 g/dl, which is below the normal range for his age. The mean corpuscular hemoglobin concentration (MCHC) is 39% Hb/cell, which is also abnormal. These findings further support the diagnosis of hemolytic anemia.\n\nStep 3: Interpret the peripheral blood smear\nThe peripheral blood smear is not provided in the question, so we cannot analyze it.\n\nStep 4: Consider the possible complications\nBased on the clinical presentation and laboratory findings, the patient is most likely experiencing a hemolytic crisis. The most common cause of hemolytic anemia in children is sickle cell disease. In sickle cell disease, patients are at greatest risk for a splenic sequestration crisis.\n\nStep 5: Choose the correct answer\nTherefore, the correct answer is E) Splenic sequestration crisis.",
+                        "answers": [
+                            {
+                                "id": "3cc71524-0a48-48ba-a8a2-2f53c50870cb",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Splenic sequestration crisis",
+                                "answer_from_choices": "E",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:13:24",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "34a260ba-d2e7-42bd-8e35-6e8e62c1e621",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is generally accurate and follows a logical progression. However, there are a few areas that could be improved. First, the reasoning could have included a discussion of the patient's age and the relevance of the upper respiratory tract infection in the context of the presenting symptoms. Additionally, the reasoning could have mentioned the absence of a positive Coombs test, which helps rule out immune-mediated hemolysis. Finally, the reasoning could have provided more information on the clinical features and pathophysiology of a splenic sequestration crisis to further support the choice of answer E.\n\nobj_1: 90\nobj_2: 90\nobj_3: 80\nobj_4: 80\nobj_5: 80\nobj_6: 80\nobj_7: 70\nobj_8: 90\nobj_9: 70\nobj_10: 80\nobj_11: 90",
+                        "answers": [
+                            {
+                                "id": "d988710c-1f0a-45df-a13b-9f15f5b88538",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:34",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_976",
+                "ref_id": "",
+                "question": "A 25-year-old, G2P2L2 woman presents with a complaint of missed menstrual cycle for 4 weeks. Her previous menstrual cycles were regular, occurring every 28\u201335 days consistently. The patient does not have any other complaints currently. Her past medical history reveals two uncomplicated and normal vaginal deliveries at term. She has a 2-year-old boy and a 6-month-old girl. The patient and her partner use the withdrawal method for contraception. The urine pregnancy test result is positive. The patient returns to the clinic after 1 week expressing her desire to discontinue with the pregnancy and inquires about the possibility of an elective abortion. Which of the following procedures is the most appropriate for elective termination of pregnancy in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Dilatation and evacuation (D&E)",
+                    "Oxytocin-induced labor",
+                    "Manual uterine aspiration",
+                    "Dilatation and curettage (D & C) after vacuum evacuation",
+                    "Oral mifepristone + misoprostol"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Oral mifepristone + misoprostol"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "e203e3d2-c32b-4cda-a212-9c6e52ee4aa9",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Step 1: Determine the gestational age of the pregnancy\nSince the patient missed her menstrual cycle for 4 weeks, we can estimate the gestational age to be around 4-5 weeks.\n\nStep 2: Consider the options for elective termination of pregnancy\nThe most appropriate procedure for elective termination of pregnancy at this gestational age is medication abortion. This involves the use of medications to induce a miscarriage. The two most commonly used medications for medication abortion are mifepristone and misoprostol.\n\nStep 3: Evaluate the answer choices\nA) Dilatation and evacuation (D&E) is a surgical procedure typically used for second-trimester abortions. It is not appropriate for a patient at 4-5 weeks gestation.\nB) Oxytocin-induced labor is not appropriate for a patient at 4-5 weeks gestation.\nC) Manual uterine aspiration is a surgical procedure that can be used for first-trimester abortions. However, medication abortion is the preferred method at this gestational age.\nD) Dilatation and curettage (D & C) after vacuum evacuation is a surgical procedure that can be used for first-trimester abortions. However, medication abortion is the preferred method at this gestational age.\nE) Oral mifepristone + misoprostol is the most appropriate option for elective termination of pregnancy at 4-5 weeks gestation. This is the correct answer.\n\nTherefore, the most appropriate procedure for elective termination of pregnancy in this patient is E) Oral mifepristone + misoprostol.",
+                        "answers": [
+                            {
+                                "id": "617480a3-16e1-44a0-b79b-4599fa4af6b6",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Oral mifepristone + misoprostol.",
+                                "answer_from_choices": "E",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:13:34",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "0ad04bda-30d6-4071-9af3-911183dbe3ad",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and breaks down the question into steps. It considers the gestational age and evaluates each answer choice based on its appropriateness for the given situation. The final answer is supported by the reasoning provided.\n\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "46672d6a-3f08-4cea-b3f9-96e562f2c5ca",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:39",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_995",
+                "ref_id": "",
+                "question": "A 36-year-old woman, gravida 3, para 2, at 42 weeks' gestation comes to the physician for induction of labor. Her pregnancy has been uncomplicated. Her two other children were born after uncomplicated vaginal deliveries at 41 and 42 weeks' gestation, respectively. Her only medication is a prenatal vitamin. She is 165 cm (5 ft 5 in) tall and weighs 86 kg (200 lb); BMI is 33 kg/m2. Her temperature is 36.8\u00b0C (98.4\u00b0F), pulse is 90/min, respirations are 14/min, and blood pressure is 110/80 mmHg. Examination shows a nontender, soft uterus consistent in size with a 42-weeks' gestation. This patient's child is at greatest risk for which of the following complications?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Polyhydramnios",
+                    "Acute respiratory distress syndrome",
+                    "Caudal regression syndrome",
+                    "Meconium aspiration",
+                    "Placental abruption"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Meconium aspiration"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "c78b6bbe-7f74-440a-a694-0e6e41bc2d74",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "This patient is at 42 weeks' gestation, which is considered post-term. Post-term pregnancies are associated with an increased risk of complications, including fetal macrosomia, meconium aspiration syndrome, and placental insufficiency. \n\nPolyhydramnios (option A) is not typically associated with post-term pregnancies. It is more commonly seen in conditions such as fetal anomalies, maternal diabetes, or multiple gestations.\n\nAcute respiratory distress syndrome (option B) is a severe lung condition that occurs primarily in premature infants. It is not directly related to post-term pregnancies.\n\nCaudal regression syndrome (option C) is a rare congenital disorder characterized by abnormal development of the lower spine and spinal cord. It is not specifically associated with post-term pregnancies.\n\nMeconium aspiration (option D) occurs when a newborn inhales meconium-stained amniotic fluid into the lungs. It can occur in post-term pregnancies due to fetal distress and passage of meconium in utero.\n\nPlacental abruption (option E) is the premature separation of the placenta from the uterine wall. It is more common in post-term pregnancies due to placental aging and decreased placental function.\n\nTherefore, the correct answer is D) Meconium aspiration.",
+                        "answers": [
+                            {
+                                "id": "000acd0b-e3bb-49f6-bf4d-ffa5467d5f59",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Meconium aspiration",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:13:44",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e08ad958-7387-4d30-b32c-84de9cd0c940",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and breaks down the question effectively. It considers the risk factors associated with post-term pregnancies and eliminates the options that are not directly related to this condition. However, it could have provided more specific information about the risk factors for meconium aspiration in post-term pregnancies, such as fetal distress and passage of meconium in utero.\n\nobj_1: 100\nobj_2: 100\nobj_3: 90\nobj_4: 100\nobj_5: 90\nobj_6: 90\nobj_7: 90\nobj_8: 90\nobj_9: 80\nobj_10: 90\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "a6b3f7ec-5c32-4021-849b-c4dbd4139afd",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:45",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            },
+            {
+                "id": "med_qa_test_1047",
+                "ref_id": "",
+                "question": "A 57-year-old woman comes to the physician because of a 3-month history of fatigue. She also reports generalized itchiness that started approximately 2 months ago. Two weeks ago, she noticed yellowing of her eyes. She does not smoke or drink alcohol. She uses eyedrops for persistent dryness of the eyes. Her vital signs are within normal limits. Physical examination shows jaundice of the conjunctivae and skin. The mucous membranes of the mouth are dry. The abdomen is soft. The liver edge is palpable 3 cm below the right costal margin. There are generalized skin excoriations. Laboratory studies show:\nHemoglobin 15 g/dL\nLeukocyte count 7,700/mm3\nPlatelet count 332,000/mm3\nSerum\nGlucose 122 mg/dL\nTotal bilirubin 3.1 mg/dL\nDirect 2.5 mg/dL\nAlkaline phosphatase 452 U/L\nAST 155 U/L\nALT 168 U/L\nHepatitis B surface antigen negative\nHepatitis B core IgM antibody negative\nHepatitis B surface antibody positive\nHepatitis C antibody negative\nUltrasonography of the abdomen shows mildly increased echogenicity of the liver. Which of the following additional findings is most likely to be found in this patient?\"",
+                "type": "multiplechoice",
+                "choices": [
+                    "Inferior vena cava thrombosis",
+                    "Cutaneous xanthomas",
+                    "Butterfly-shaped vertebrae",
+                    "Increased CA 19-9 levels",
+                    "Kayser-Fleischer rings\n\""
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Cutaneous xanthomas"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "490c13ab-433b-4485-9ed8-bf945a666395",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Based on the patient's history and physical examination findings, the most likely diagnosis is primary biliary cholangitis (PBC). PBC is a chronic autoimmune liver disease characterized by destruction of the intrahepatic bile ducts, leading to cholestasis and liver injury.\n\nThe laboratory findings in this patient are consistent with PBC. The elevated alkaline phosphatase, AST, and ALT levels indicate liver injury. The elevated total bilirubin and direct bilirubin levels suggest cholestasis. The presence of jaundice, dry mucous membranes, and generalized itchiness further support the diagnosis.\n\nNow, let's evaluate the answer choices:\n\nA) Inferior vena cava thrombosis: This finding is not associated with PBC. It is more commonly seen in conditions such as deep vein thrombosis or liver cirrhosis.\n\nB) Cutaneous xanthomas: Cutaneous xanthomas are not typically seen in PBC. They are more commonly associated with hyperlipidemia or other lipid metabolism disorders.\n\nC) Butterfly-shaped vertebrae: Butterfly-shaped vertebrae are characteristic of osteogenesis imperfecta, a genetic disorder affecting collagen synthesis. This finding is not related to PBC.\n\nD) Increased CA 19-9 levels: CA 19-9 is a tumor marker that can be elevated in pancreatic and biliary tract cancers. While PBC can increase the risk of developing cholangiocarcinoma (bile duct cancer), it does not typically cause a significant elevation in CA 19-9 levels.\n\nE) Kayser-Fleischer rings: Kayser-Fleischer rings are a characteristic finding in Wilson disease, a genetic disorder characterized by impaired hepatic copper transport. This finding is not associated with PBC.\n\nTherefore, the correct answer is B) Cutaneous xanthomas.",
+                        "answers": [
+                            {
+                                "id": "bdb1a37b-537b-4edb-aff2-a429ebfa95a8",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Cutaneous xanthomas.",
+                                "answer_from_choices": "B",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 09:13:57",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c3ea7f37-89f8-49c6-9554-9db02bab1d94",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and thorough. It correctly identifies the most likely diagnosis based on the patient's history, physical examination findings, and laboratory results. The evaluation of the answer choices is also well-supported and provides clear explanations for why each option is either associated or not associated with the diagnosis of primary biliary cholangitis (PBC).\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "6f61c62b-b99b-4965-b423-bd7416db16ba",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 09:14:51",
+                        "api_service": "",
+                        "model": "{'name': '', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}
