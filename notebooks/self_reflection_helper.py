@@ -67,7 +67,7 @@ def system_evaluate(data,model, path_system_template):
     system_message_prompt = SystemMessagePromptTemplate.from_template(template)
     
     chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])  
-    input_dict = {'chat':chat,'chat_prompt':chat_prompt, "api_time_interval": 1} 
+    input_dict = {'chat':chat,'chat_prompt':chat_prompt, "api_time_interval": 1,'model':model,'template':path_system_template} 
     
     return data.system_evals(input_dict)
 

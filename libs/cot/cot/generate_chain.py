@@ -194,7 +194,7 @@ def system_eval_cot(data,input_dict):
 
 
 
-def _system_eval_cot(item,idx,chat,chat_prompt,api_time_interval):
+def _system_eval_cot(item,idx,chat,chat_prompt,api_time_interval,model,template):
 
     #extract based on the first cot in the dataset, throw error otherwise
     # if len(item['generated_cot'])>1:
@@ -221,7 +221,7 @@ def _system_eval_cot(item,idx,chat,chat_prompt,api_time_interval):
                         "id": str(uuid.uuid4()),
                         "fragments_version": FRAGMENTS["version"],
                         "instruction": "",
-                        "cot_trigger": "",
+                        "cot_trigger": template,
                         "cot_trigger_template": "",
                         "prompt_text": "",
                         "cot": output,
@@ -231,7 +231,7 @@ def _system_eval_cot(item,idx,chat,chat_prompt,api_time_interval):
                         "api_service": "",
                         "model": str(
                             {
-                                "name": "",
+                                "name": model,
                                 "temperature": 0,
                                 "max_tokens": 1600,
                             }

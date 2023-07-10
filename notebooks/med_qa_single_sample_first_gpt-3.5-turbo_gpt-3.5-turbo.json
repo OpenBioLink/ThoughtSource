@@ -1,0 +1,79 @@
+{
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_788",
+                "ref_id": "",
+                "question": "A 26-year-old gravida 2 para 1 at 24 weeks gestation is admitted to the labor and delivery suite with mild abdominal cramps, uterine contractions, and a watery vaginal discharge. She has a history of preterm birth. The vital signs are as follows: blood pressure 125/80 mm Hg; heart rate 100/min; respiratory rate 13/min; and temperature 36.6\u2103 (97.9\u2109). The pelvic examination reveals cervical softening and shortening. Transvaginal ultrasound shows a cervical length of 12 mm, which is consistent with preterm labor. A tocolytic and a single dose of betamethasone are administered. Betamethasone stimulates which fetal cells?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Type I pneumocytes",
+                    "Goblet cells",
+                    "Bronchial epithelial cells",
+                    "Type II pneumocytes",
+                    "Vascular smooth myocytes"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Type II pneumocytes"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "5c7b9332-ebf3-478a-88fe-d6cf0f8f324a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Betamethasone is a corticosteroid that is commonly used to promote fetal lung maturation in cases of preterm labor. It acts by stimulating the production of surfactant in the fetal lungs. Surfactant is produced by type II pneumocytes, which are responsible for the synthesis and secretion of surfactant in the alveoli of the lungs. \n\nTherefore, the correct answer is D) Type II pneumocytes.",
+                        "answers": [
+                            {
+                                "id": "d727f3b3-dab8-4bd1-aba4-648ee5ca25f5",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) Type II pneumocytes.",
+                                "answer_from_choices": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/07/10 10:30:54",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "cc723292-44e9-4dbe-ba77-4baa4f18d6ca",
+                        "fragments_version": "0.01",
+                        "instruction": "",
+                        "cot_trigger": "./reflection_messages/final_system_messages/first_template.yaml",
+                        "cot_trigger_template": "",
+                        "prompt_text": "",
+                        "cot": "critique: The reasoning provided is accurate and relevant. It correctly explains how betamethasone stimulates the production of surfactant in the fetal lungs by acting on type II pneumocytes. The answer is also correct.\n\nobj_1: 100\nobj_2: 100\nobj_3: 100\nobj_4: 100\nobj_5: 100\nobj_6: 100\nobj_7: 100\nobj_8: 100\nobj_9: 100\nobj_10: 100\nobj_11: 100",
+                        "answers": [
+                            {
+                                "id": "2a86c228-e55e-4071-8a02-0f41f2e6a941",
+                                "answer_extraction": "",
+                                "answer_extraction_template": "",
+                                "answer_extraction_text": "",
+                                "answer": "",
+                                "answer_from_choices": "",
+                                "correct_answer": null
+                            }
+                        ],
+                        "author": "",
+                        "date": "2023/07/10 10:31:03",
+                        "api_service": "",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 1600}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}
