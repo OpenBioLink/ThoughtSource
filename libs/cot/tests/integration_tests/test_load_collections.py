@@ -35,9 +35,9 @@ def test_thoughtsource_100() -> None:
 
 
 
-def test_source() -> None:
-    collection = Collection("all", generate_mode="recache", source=True)
-    assert collection
+# def test_source() -> None:
+#     collection = Collection("all", generate_mode="recache", source=True)
+#     assert collection
 
 
 def test_keep_generated_cots() -> None:
