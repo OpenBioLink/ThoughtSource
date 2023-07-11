@@ -16,6 +16,9 @@ ThoughtSource is a central, open resource and community centered on data and too
 model reasoning data"__](https://arxiv.org/abs/2301.11596), arXiv, 2023
 
 
+📄 Pre-print: Hebenstreit _et al._ [__"An automatically discovered chain-of-thought prompt generalizes to novel models and datasets"__](https://arxiv.org/abs/2305.02897), arXiv, 2023
+
+
 
 ## Workflow
 
@@ -53,11 +56,12 @@ model reasoning data"__](https://arxiv.org/abs/2301.11596), arXiv, 2023
 * __[worldtree](http://cognitiveai.org/explanationbank/):__ Scientific question-answering data from the WorldTree v2 dataset ([Xie 2020](https://aclanthology.org/2020.lrec-1.671/)). __Human-generated__ reasoning chains derived from the original dataset. _License:_ AI2 Mercury.
 * __[entailment_bank](https://allenai.org/data/entailmentbank):__ Science exam questions with expert-authored explanations from the EntailmentBank dataset ([Dalvi 2022](https://arxiv.org/pdf/2104.08661.pdf)). __Human-generated__ reasoning chains derived from the original dataset. _License:_ CC BY 4.0. (Note: significant overlap with worldtree v2)
 * __[open_book_qa](https://allenai.org/data/open-book-qa):__ Scientific question-answering modeled after open book exams for assessing human understanding from the OpenBookQA dataset ([Mihaylov 2018](https://aclanthology.org/D18-1260.pdf)). __Human-generated__ reasoning chains derived from the original dataset. _License:_ Apache License 2.0.
-* __[med_qa](https://github.com/jind11/MedQA) (USMLE subset):__ Free-form multiple-choice OpenQA dataset containing questions from medical board exams in US (USMLE). Note: the original MedQA dataset also provides Chinese-language data, which are currently not included. ([Jin 2020](https://arxiv.org/abs/2009.13081v1)). _License:_ MIT. 
+* __[med_qa](https://github.com/jind11/MedQA) (USMLE subset):__ Free-form multiple-choice OpenQA dataset containing questions from medical board exams in US (USMLE). Note: the original MedQA dataset also provides Chinese-language data, which are currently not included. ([Jin 2020](https://arxiv.org/abs/2009.13081v1)). _License:_ MIT. <br> Additionally the dataset is also available in an open-answer version. ([Nair 2023](https://arxiv.org/abs/2303.17071)). _License:_ MIT.
   * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. Only available for the __test split__, only US questions. _License:_ Unknown.
 * __[medmc_qa](https://medmcqa.github.io/):__ Multiple-Choice Question Answering dataset containing real-world medical entrance exam questions from the All India Institute of Medical Sciences (AIIMS PG) and National Eligibility cum Entrance Test (NEET PG). ([Pal 2022](https://arxiv.org/abs/2203.14371)). _License:_ MIT.
   * __Human-generated__ reasoning chains derived from the original dataset for ~85% of train and validation split. Used as gold standard. _License:_ MIT.
   * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. Only available for 1000 samples from the __validation split__.  _License:_ CC-BY.
+* __[mmlu](https://github.com/hendrycks/test):__ (Massive Multitask Language Understanding) is a compendium of 57 distinct question-and-answer tasks. Included are the selected six subjects related to medicine: anatomy, clinical knowledge, college biology, college medicine, medical genetics, and professional medicine. _License:_ MIT.
 * __[pubmed_qa](https://github.com/pubmedqa/pubmedqa):__ QA dataset containing biomedical questions extracted from PubMed abstracts that can be answered with yes/no/maybe ([Jin 2019](https://arxiv.org/abs/1909.06146)). _License:_ MIT.
   * __Human-generated__ reasoning chains derived from the original dataset. Used as gold standard. _License:_ MIT.
   * __AI-generated (zero-shot)__ reasoning chains derived from __[Liévin 2022](https://arxiv.org/abs/2207.08143)__. Only available for the __test split__. _License:_ CC-BY.
@@ -68,6 +72,14 @@ model reasoning data"__](https://arxiv.org/abs/2301.11596), arXiv, 2023
 * __[gsm8k](https://github.com/openai/grade-school-math):__  Math word problems from the GSM8K dataset ([Cobbe 2021](https://arxiv.org/abs/2110.14168)). Reasoning chains derived from the original dataset. _License:_ MIT.
 * __[mawps](https://github.com/sroy9/mawps):__ Math word problems from MAWPS, the Math Word Problem Repository dataset ([Koncel-Kedziorski 2016](https://aclanthology.org/N16-1136.pdf)). Reasoning chains derived from the original dataset. _License:_ MIT.
 * __[svamp](https://github.com/arkilpatel/SVAMP):__ Math word problems. Source: SVAMP ([Patel 2021](https://aclanthology.org/2021.naacl-main.168/)). Reasoning chains derived from the original dataset. _License:_ MIT.
+
+### Collections of datasets
+For quick and economic formative evaluation of CoT reasoning, we combined random examples of the above datasets to collections.
+* __ThoughtSource_33__ ([Hebenstreit 2023](https://arxiv.org/abs/2305.02897)) is a collection made up of 33 samples each from Commonsense QA, MedQA (USMLE), MedMCQA, OpenBookQA, StrategyQA and WorldTree V2. We generated zero-shot CoTs with ten different prompting strategies , each employed by six models: davinci-002, davinci-003, GPT-3.5-turbo, GPT-4, Flan-T5-XXL and Cohere's command-xlarge-nightly. 
+The data can easily be accessed:
+```python
+collection = Collection.load_thoughtsource_33()
+```
 
 
 We are working on collecting and generating additional datasets, and on further improving the quality of existing datasets (see [dataset issues](https://github.com/OpenBioLink/ThoughtSource/issues?q=is%3Aissue+label%3Adataset)). We welcome suggestions for the inclusion of other datasets.
@@ -175,14 +187,45 @@ collection.evaluate()
 ## Versioning
 All updates/changes to datasets are explicitly mentioned in bold.
 
-0.0.5 (2023-03-10) -  Function to select which generated CoTs to keep after loading: collection.select_generated_cots(author="thoughtsource")
+<details>
+<summary>1.0.0 (2023-07-11)</summary>
 
-0.0.4 (2023-03-08) -  Evaluation function improved. Function to load ThoughtSource100 collection: Collection.load_thoughtsource_100()
+- Released ThoughtSource_33 collection with 60 reasoning chains for each item: `Collection.load_thoughtsource_33()`
+- Added an option for creating chained commands
+- Added chat option of gpt
+- Added filtering functions for already created chain-of-thoughts
+- Added new datasets: **MMLU** (six medical subsets) and open-ended question version of **MedQA**
+</details>
 
-0.0.3 (2023-02-24) -  ThoughtSource_100 collection released with reasoning chains from GPT-text-davinci-003, flan-t5-xxl, and cohere's command-xl
+<details>
+<summary>0.0.5 (2023-03-10)</summary>
 
-0.0.2 (2023-02-15) -  Annotator tool updated for correct data schema (this might result in errors loading old datasets, when loading from json files).
+- Added a function to select which generated CoTs to keep after loading: `collection.select_generated_cots(author="thoughtsource")`
+</details>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Pubmed_qa**: Included "LONG_ANSWER" from origin schema as "cot" in ThoughtSource schema
+<details>
+<summary>0.0.4 (2023-03-08)</summary>
 
-0.0.1 (2023-02-01) -  Initial release after Twitter announcement of project
+- Improved evaluation function
+- Added a function to load ThoughtSource100 collection: `Collection.load_thoughtsource_100()`
+</details>
+
+<details>
+<summary>0.0.3 (2023-02-24)</summary>
+
+- Released ThoughtSource_100 collection with reasoning chains from GPT-text-davinci-003, flan-t5-xxl, and cohere's command-xl
+</details>
+
+<details>
+<summary>0.0.2 (2023-02-15)</summary>
+
+- Updated annotator tool for correct data schema (this might result in errors loading old datasets, when loading from json files)
+  - **Pubmed_qa**: Included "LONG_ANSWER" from origin schema as "cot" in ThoughtSource schema
+</details>
+
+<details>
+<summary>0.0.1 (2023-02-01)</summary>
+
+- Initial release after Twitter announcement of project
+</details>
+
