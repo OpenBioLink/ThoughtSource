@@ -1,0 +1,51 @@
+# specify all items as strings, e.g. 454 has to be in quotations to be a string ''
+---
+wrong: 
+  # have to be taken out, answering correctly is impossible or answer is wrong
+  commonsense_qa:
+  med_qa:
+  # no answer options written, just A,B,C,D
+  - '454' 
+  medmc_qa:
+  # no answer options written, just A,B,C,D
+  - 9a29cd2c-e0d3-4d1e-82a7-32af10b47c9b
+  open_book_qa:
+  strategy_qa:
+  # wrong answer millionaire/billionaire
+  - cc266a3e29a3b8442b14
+  worldtree:
+
+ambiguous:
+  # unclear if the answer is really true or also if multiple could be correct
+  commonsense_qa:
+  - '128'
+  # tilt of axis not rotation is reason for seasons
+  - '133'
+  med_qa:
+  medmc_qa:
+  open_book_qa:
+  strategy_qa:
+  - 7cf376afb78c20dd6f18 # John Gall is different persons
+  worldtree:
+
+typing_error: 
+  # wrong texts etc. minor problems that are gone if models answers with A,B,C,...
+  commonsense_qa:
+  - 3f3ba1d9a3bfe63df11247a968eaddce #nd
+  med_qa:
+  medmc_qa:
+  - df8ae3bc-aef6-48d0-8033-d715cfe36b3d # -PCR
+  - 69f1a181-5580-4146-ba87-bbd3980f948c # aery
+  - 8be32dbe-9a46-4a8a-8c08-ff89c3e78c3d # Coisone
+  open_book_qa:
+  strategy_qa:
+  worldtree:
+
+# new_field: 
+#   # 
+#   commonsense_qa:
+#   med_qa:
+#   medmc_qa:
+#   open_book_qa:
+#   strategy_qa:
+#   worldtree:

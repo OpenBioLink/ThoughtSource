@@ -4,6 +4,7 @@ import pkgutil
 import time
 import uuid
 import os
+import copy
 from dataclasses import asdict
 
 import datasets as ds
@@ -32,17 +33,33 @@ def generate_and_extract(data, config):
 
     if isinstance(data, ds.arrow_dataset.Dataset):
         features = data.info.features
+        question_type = data[0]["type"]
+        question_number_choices = len(data[0]["choices"])
 
     elif isinstance(data, ds.dataset_dict.DatasetDict):
         name_of_first_split = list(data.keys())[0]
         features = data[name_of_first_split].info.features
+        question_type = data[name_of_first_split][0]["type"]
+        question_number_choices = len(data[name_of_first_split][0]["choices"])
 
     else:
         raise ValueError("Not recognized data")
+    
+    # automated change of answer_extraction depending on the type of the task and the number of choices
+    # if type str make list
+    if isinstance(config["answer_extraction_keys"], str):
+        config["answer_extraction_keys"] = [config["answer_extraction_keys"]]
+
+    # make copy of config, so it is not changed permanently (but only for the current dataset), when auto-kojima is used:
+    adaptive_config = config.copy()
+
+    if adaptive_config["answer_extraction_keys"] == ["auto-kojima"]:
+        adaptive_config["answer_extraction_keys"] = adaptive_answer_extraction("auto-kojima", question_type, question_number_choices)
+
 
     # The config is transformed into a dataclass object, where all testing is done
     # But it will be transformed back to a dictionary for the function 'map'
-    config_as_dataclass = Config(**config)
+    config_as_dataclass = Config(**adaptive_config)
 
     return data.map(
         _generate_and_extract,
@@ -71,7 +88,7 @@ def _generate_and_extract(
     template_answer_extraction,
     warn,
     verbose,
-):
+): 
     """
     The function takes in a JSON object (item) and generates a CoT (Chain-of-Thought) for each combination of
     of instructions and CoT triggers. For each generated CoT and for each of the given answer extractions it extracts an answer.
@@ -176,6 +193,7 @@ def _generate_and_extract(
                                 "answer_extraction_template": template_answer_extraction,
                                 "answer_extraction_text": "",
                                 "answer": "",
+                                "answer_from_choices": "",
                                 "correct_answer": None,
                             }
 
@@ -223,6 +241,281 @@ def _generate_and_extract(
     
     return item
 
+def helper(data):
+    ds.disable_caching()
+    data.cleanup_cache_files()
+
+    if isinstance(data, ds.arrow_dataset.Dataset):
+        features = data.info.features
+
+    elif isinstance(data, ds.dataset_dict.DatasetDict):
+        name_of_first_split = list(data.keys())[0]
+        features = data[name_of_first_split].info.features
+    else:
+        raise ValueError("Not recognized data")
+    
+    return data, features
+
+""" 
+Input: item, langchains, triggers
+Output: cot and answer
+Generate a cot and extract an answer with helper function _self_generate_extract
+"""
+def self_generate_extract(data,input_dict):
+
+    data, features = helper(data)
+    
+    return data.map(
+        _self_generate_extract,
+        with_indices=True,
+        fn_kwargs=input_dict,
+        features=features,
+        load_from_cache_file=False,
+    )
+
+def _self_generate_extract(item,idx,input_dict):
+
+    shadow_input_dict = copy.deepcopy(input_dict)
+    chain  = input_dict['chain']
+    del shadow_input_dict['chain']
+
+    shadow_input_dict['question'] = item["question"]
+    shadow_input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+
+    #get cot and predicted answer
+    lang_chain = chain(shadow_input_dict) 
+
+    generated_cot = {
+                "id": str(uuid.uuid4()),
+                "fragments_version": None,
+                "instruction": input_dict['instruction'],
+                "cot_trigger": input_dict['cot_trigger'],
+                "cot_trigger_template": "",
+                "prompt_text": "",
+                "cot": lang_chain['cot'],
+                "answers": [],
+                "author": "",
+                "date": "",
+                "api_service": "",
+                "model": str(
+                    {
+                        "name": input_dict['model'],
+                        "temperature": input_dict["temperature"],
+                        "max_tokens": input_dict["max_tokens"]
+                    }
+                ),
+                "comment": "generated and extracted",
+                "annotations": [],
+            }
+    generated_cot["date"] = print_now(1)
+
+    answer = {
+                        "id": str(uuid.uuid4()),
+                        "answer_extraction": input_dict['answer_extraction'],
+                        "answer_extraction_template": "",
+                        "answer_extraction_text": "",
+                        "answer": lang_chain['predicted_answer'],
+                        'answer_from_choices':"",
+                        "correct_answer": None,
+                }
+    
+    #add created answer and cot to item
+    generated_cot["answers"].append(answer)
+    item["generated_cot"].append(generated_cot)
+
+    print(item)
+
+    return item
+
+"""Generate CoTs only"""
+def self_generate(data,input_dict):
+
+    data, features = helper(data)
+    
+    return data.map(
+        _self_generate,
+        with_indices=True,
+        fn_kwargs=input_dict,
+        features=features,
+        load_from_cache_file=False,
+    )
+
+def _self_generate(item,idx, input_dict):
+
+    #feed data to input dict, isolate chain
+    shadow_input_dict = copy.deepcopy(input_dict)
+    chain  = input_dict['chain']
+    del shadow_input_dict['chain']
+
+    shadow_input_dict['question'] = item["question"]
+    shadow_input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+
+    #get cot and predicted answer
+    lang_chain = chain(shadow_input_dict) 
+
+    """If conditions for input keys"""
+    generated_cot = {
+                "id": str(uuid.uuid4()),
+                "fragments_version": "",
+                "instruction": input_dict["instruction"],
+                "cot_trigger": input_dict["cot_trigger"],
+                "cot_trigger_template": "",
+                "prompt_text": "",
+                "cot": lang_chain['cot'],
+                "answers": [],
+                "author": "",
+                "date": "",
+                "api_service": input_dict["api_service"],
+                "model": str(
+                    {
+                        "name": input_dict["model"],
+                        "temperature": input_dict["temperature"],
+                        "max_tokens": input_dict["max_tokens"]
+                    }
+                ),
+                "comment": "generated only",
+                "annotations": [],
+            }
+    generated_cot["date"] = print_now(1)
+
+    item["generated_cot"].append(generated_cot)
+
+    return item
+
+"""Extract answers based on CoTs only"""
+def self_extract(data,input_dict):
+
+    data, features = helper(data)
+    
+    return data.map(
+        _self_extract,
+        with_indices=True,
+        fn_kwargs=input_dict,
+        features=features,
+        load_from_cache_file=False,
+    )
+
+"""ToDo show which CoT to take"""
+def _self_extract(item,idx,input_dict):
+
+    #extract based on the first cot in the dataset, throw error otherwise
+    if len(item['generated_cot'])>1:
+        raise ValueError('Too many generated CoTs, only one allowed')
+    else:
+        cot = item['generated_cot'][0]['cot'] 
+    input_dict['cot'] = cot
+
+    shadow_input_dict = copy.deepcopy(input_dict)
+    chain  = input_dict['chain']
+    del shadow_input_dict['chain']
+
+    shadow_input_dict['question'] = item["question"]
+    shadow_input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+
+    #get cot and predicted answer
+    lang_chain = chain(shadow_input_dict) 
+
+    """If conditions for input keys"""
+    answer = {
+                        "id": str(uuid.uuid4()),
+                        "answer_extraction": input_dict['answer_extraction'],
+                        "answer_extraction_template": "",
+                        "answer_extraction_text": "",
+                        "answer": "",
+                        'answer_from_choices':"",
+                        "correct_answer": None,
+                }
+    answer["answer"] = lang_chain['predicted_answer']
+    
+    #we add the answer to the already existing generated cot
+    # print(item['generated_cot'][0]["answers"])
+    # item['generated_cot'][0]["answers"].append(answer) 
+    # print("################")
+    # print(item['generated_cot'][0]["answers"])
+
+    return item
+
+
+"""Reflect on CoT (or some other part) and generate new answer"""
+def self_reflect(data, input_dict):
+
+    data, features = helper(data)
+
+    return data.map(
+        _self_reflect,
+        with_indices=True,
+        fn_kwargs=input_dict,
+        features=features,
+        load_from_cache_file=False,
+    )
+
+
+"""In this version the reflection is added to generated_cot"""
+def _self_reflect(item, idx, input_dict):
+
+    #reflect based on the first cot in the dataset, throw error otherwise
+    if len(item['generated_cot']) > 1:
+        raise ValueError('Too many generated CoTs, only one allowed')
+    else:
+        input_dict['cot'] = item['generated_cot'][0]['cot']
+
+    shadow_input_dict = copy.deepcopy(input_dict)
+    chain  = input_dict['chain']
+    del shadow_input_dict['chain']
+
+    shadow_input_dict['question'] = item["question"]
+    shadow_input_dict['answer_choices'] = multiple_choice_answer_formatting(item["choices"])
+
+
+    # here we take the first answer from the first cot
+    shadow_input_dict['answer'] = item["generated_cot"][0]['answers'][0]['answer']
+
+    #this is where the magic happens
+    lang_chain = chain(shadow_input_dict)
+
+    #retrieve question and answer choices from item, add to input dict
+    generated_cot = {
+        "id": str(uuid.uuid4()),
+        "fragments_version": "",
+        "instruction": "",
+        "cot_trigger": input_dict["reflection_prompt"],
+        "cot_trigger_template": "",
+        "prompt_text": "",
+        "cot": lang_chain['reflection'],
+        "answers": [],
+        "author": "",
+        "date": "",
+                "api_service": input_dict["api_service"],
+                "model": str(
+                    {
+                        "name": input_dict["model"],
+                        "temperature": input_dict["temperature"],
+                        "max_tokens": input_dict["max_tokens"],
+                    }
+        ),
+        "comment": "self_reflection cot",
+        "annotations": [],
+    }
+    generated_cot["date"] = print_now(1)
+
+    """If conditions for input keys"""
+    answer = {
+        "id": str(uuid.uuid4()),
+        "answer_extraction": input_dict['reflect_answer_extraction'],
+        "answer_extraction_template": "",
+        "answer_extraction_text": "self_reflection",
+        "answer": "",
+        'answer_from_choices':"",
+        "correct_answer": None,
+    }
+    answer["answer"] = lang_chain['reflection_answer']
+
+    generated_cot["answers"].append(answer)
+
+    item["generated_cot"].append(generated_cot)
+
+    return item
+
 
 def full_text_prompts(dataset, prompt_text=True, answer_extraction_text=True):
     assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
@@ -234,8 +527,6 @@ def full_text_prompts(dataset, prompt_text=True, answer_extraction_text=True):
             "answer_extraction_text": answer_extraction_text,
         },
         features=dataset.info.features,
-        # deleting the cache is necessary in generate if you call it multiple times
-        # not clear if it is needed here, but it doesn't hurt
         load_from_cache_file=False,
     )
 
@@ -311,6 +602,9 @@ def select_generated_cots(dataset, **kwargs):
     # Unfortunately the loading function of the datasets does not let you specify which pregenerated COTS to load
     # So we load all of them and then delete the ones we don't want
 
+    # disable progress bar
+    ds.disable_progress_bar()
+
     # remove all the pregenerated COTS that are not in the list
     dataset = dataset.map(
         _select_generated_cots,
@@ -320,19 +614,70 @@ def select_generated_cots(dataset, **kwargs):
     )
     return dataset
 
-def _select_generated_cots(item, **kwargs):
-    # load all allows keys from the cot_features
-    allowed_keys = list(cot_features["generated_cot"][0].keys())
+# def _select_generated_cots(item, reverse=False, **kwargs):
+#     # if reverse is True, unselect/delete all CoTs that match the given criteria
+#     # load all allows keys from the cot_features
+#     allowed_keys = list(cot_features["generated_cot"][0].keys()) + ["answer"]
+#     for key, value in kwargs.items():
+#         # check if key is allowed
+#         if key not in allowed_keys:
+#             raise ValueError(f"Key '{key}' not in allowed keys {allowed_keys}")
+#         # if value is None or a string, convert it to a list
+#         if value is None or type(value) == str:
+#             value = [value]
+#         # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
+#         if key == "model":
+#             if not reverse:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
+#             else:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] not in value]
+#         elif key == "answer":
+#             if not reverse:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] == value]
+#             else:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] != value]
+#         else:
+#             if not reverse:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+#             else:
+#                 item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] not in value]
+#     return item
+
+def _select_generated_cots(item, reverse=False, **kwargs):
+    allowed_keys = list(cot_features["generated_cot"][0].keys()) + ["answer"]
+    filtered_cots = []
+
     for key, value in kwargs.items():
-        # check if key is allowed
         if key not in allowed_keys:
             raise ValueError(f"Key '{key}' not in allowed keys {allowed_keys}")
-        # if value is None or a string, convert it to a list
+
         if value is None or type(value) == str:
             value = [value]
-        # loop over all generated CoTs in the item and delete the ones that don't match the given criteria
-        item["generated_cot"] = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+
+        if key == "model":
+            cots = [cot for cot in item["generated_cot"] if eval(cot["model"])["name"] in value]
+        elif key == "answer":
+            cots = [cot for cot in item["generated_cot"] if cot["answers"][0]["correct_answer"] == value]
+        else:
+            cots = [cot for cot in item["generated_cot"] if cot[str(key)] in value]
+
+        filtered_cots.append(cots)
+
+    if reverse:
+        # Flatten the list of filtered cots
+        flattened_filtered_cots = [cot for sublist in filtered_cots for cot in sublist]
+        # Remove duplicates from the flattened list
+        unique_filtered_cots = list({id(cot): cot for cot in flattened_filtered_cots}.values())
+        # Remove the unique filtered cots from the original set
+        item["generated_cot"] = [cot for cot in item["generated_cot"] if cot not in unique_filtered_cots]
+    else:
+        # Flatten the list of filtered cots
+        flattened_filtered_cots = [cot for sublist in filtered_cots for cot in sublist]
+        # Remove duplicates from the flattened list
+        item["generated_cot"] = list({id(cot): cot for cot in flattened_filtered_cots}.values())
+
     return item
+
 
 def delete_all_generated_cots(dataset):
     """This function deletes all pregenerated COTS from a dataset."""
@@ -371,6 +716,18 @@ def multiple_choice_answer_formatting(answer_choices):
 
     # Adding Letters (A,B,C,...) for the given multiple choice answers.
     return "\n".join([f"{chr(65+i)}) {example}" for i, example in enumerate(answer_choices)])  # 65 is the ASCII code for A
+
+def adaptive_answer_extraction(preference, type, len_choices):
+    if preference == "auto-kojima":
+        if type == "bool": 
+            return "kojima-yes-no"
+        elif type == "multiplechoice":
+            if len_choices == 3: answer_extraction_key = 'kojima-A-C'
+            elif len_choices == 4: answer_extraction_key = 'kojima-A-D'
+            elif len_choices == 5: answer_extraction_key = 'kojima-A-E'
+            elif len_choices == 6: answer_extraction_key = 'kojima-A-F'
+            return(answer_extraction_key)
+        else: raise ValueError("type must be bool or multiplechoice")
 
 
 def get_fragments_value(str, key):
@@ -428,6 +785,19 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
                 prompt=prompt,
                 llm=OpenAI(
                     # parameter options: https://beta.openai.com/docs/api-reference/completions/create-completion
+                    model_name=engine,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    # type: ignore (suppress pylance error)
+                ),
+            )
+
+        if api_service == "openai_chat":
+            from langchain.chat_models import ChatOpenAI
+
+            llm_chain = LLMChain(
+                prompt=prompt,
+                llm=ChatOpenAI(
                     model_name=engine,
                     max_tokens=max_tokens,
                     temperature=temperature,

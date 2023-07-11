@@ -11,12 +11,13 @@ from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from os import devnull
 
 import datasets as ds
+import numpy as np
 import pandas as pd
 
 from .evaluate import evaluate
-from .generate import (full_text_prompts, generate_and_extract,
-                       select_generated_cots, delete_all_generated_cots)
+from .generate import *
 from .merge import merge
+
 
 
 @contextmanager
@@ -195,6 +196,23 @@ class Collection:
                         str(script), name="source" if self.load_source else "thoughtsource", download_mode=self.download_mode
                     )
 
+    def dump_ids(self, file_name=None):
+        """Get the ids of the items of all collections
+        returns a list of ids if file_name is None, otherwise writes the ids to a file"""
+        id_list = []
+        # just apply it to all of the datasets and splits, no specific name or split
+        for name in self._cache:
+            for split in self._cache[name]:
+                id_list.extend(self[name][split]["id"])
+        if file_name:
+            from numpy import savetxt
+            # if file name does not end with txt, add it
+            if not file_name.endswith(".txt"):
+                file_name += ".txt"
+            savetxt(file_name, id_list, fmt="%s")
+        else:
+            return id_list
+
     def select_generated_cots(self, *args, **kwargs):
         """Decides which generated cots to keep after loading the datasets"""
         # just apply it to all of the datasets and splits, no specific name or split
@@ -211,23 +229,137 @@ class Collection:
             for split in self._cache[name]:
                 self[name][split] = delete_all_generated_cots(self[name][split])
 
-    def unload_datasets(self, names=None):
-        """
-        It takes a list of names and unloads the datasets
+    def number_generated_cots(self):
+        """Prints the number of generated cots for each dataset. If items in a dataset have different numbers 
+        of generated cots, it prints multiple numbers."""
+        for name in self._cache:
+            number_generated_cots = []
+            for split in self._cache[name]:
+                for item in self._cache[name][split]:
+                    number_generated_cots.append(len(item["generated_cot"]))
+            print(name, set(number_generated_cots))
 
-        :param names: A list of dataset names to load. If None, all datasets are unloaded
+    def unload_datasets(self, names=None, reverse=False):
+        """
+        It takes a list of names and unloads the datasets.
+
+        :param names: A list of dataset names to unload. If None, all datasets are unloaded.
+        :param reverse: If False (default), unloads the datasets specified in 'names'. 
+        If True, unloads all datasets except the ones specified in 'names'.
         """
         if names is None:
             self._cache.clear()
-        else:
+        elif not reverse:
             for name in names:
                 if name in self._cache:
                     del self._cache[name]
+        else:
+            datasets_to_unload = [name for name in self._cache if name not in names]
+            for name in datasets_to_unload:
+                del self._cache[name]
 
     def clear(self):
-        self.unload_datasets()
+        self.unload_datasets()    
+
+    def clear_empty_datasets(self):
+        names_to_delete = []
+        for name in self._cache:
+            empty_splits = []
+            for split in self._cache[name]:
+                if len(self._cache[name][split]) == 0:
+                    empty_splits.append(split)
+                else:
+                    continue
+            if len(empty_splits) == len(self._cache[name]):
+                names_to_delete.append(name)
+            else:
+                for split in empty_splits:
+                    del self._cache[name][split]
+
+        for name in names_to_delete:
+            del self._cache[name]
+
+    def collection_to_dataframe(self):
+        df_list = []
+        """Converts a collection into a dataframe"""
+
+        def extract_keys(row):
+            # Extract the desired keys from the row
+            instruction = row['instruction']
+            cot_trigger = row['cot_trigger']
+            # answer_pred = row['answers'][0]['answer']
+            answer_from_choices = row['answers'][0]['answer_from_choices']
+            correct_answer = row['answers'][0]['correct_answer']
+            model_name = eval(row['model'])['name']
+            answer_id = row['answers'][0]['id']
+
+            # Return a Series with the extracted data
+            return pd.Series({
+                'instruction': instruction,
+                'cot_trigger': cot_trigger,
+                # 'answer_pred': answer_pred,
+                'answer_from_choices': answer_from_choices,
+                'correct_answer': correct_answer,
+                'model': model_name,
+                'answer_id': answer_id
+            })
+        def find_correct_choice(row):
+            choices = row['choices']
+            answer = row['answer'][0]
+
+            if answer in choices:
+                position = choices.index(answer) + 1
+                return chr(ord('A') + position - 1)
+            else:
+                return None
+        
+        for name in self._cache:
+            for split in self._cache[name]:
+                df = pd.DataFrame(self[name][split])
+                df.insert(0, 'dataset', name)
+                df.insert(1, 'split', split)
+                df = df.explode('generated_cot')
+                df.reset_index(inplace=True, drop=True)
+
+                df = df.join(df['generated_cot'].apply(extract_keys))
+                df.drop(columns=['generated_cot'], inplace=True)
+
+                df['answer_label'] = df.apply(find_correct_choice, axis=1)
+                df['number_choices'] = df['choices'].apply(len)
+                df['instruction'] = df['instruction'].fillna('None')
+                df['cot_trigger'] = df['cot_trigger'].fillna('None')
+                df['prompt'] = df['instruction'] + '_' + df['cot_trigger']
+                
+                # df.drop(columns=['question', 'context', 'ref_id', 'cot', 'choices', 'answer', 'feedback'], inplace=True)
+
+                df = df[['dataset', 
+                         'split', 
+                         'id', 
+                         'type',
+                        #  'choices', #
+                        #  'answer', #
+                        #  'number_choices',
+                         'answer_label',
+                         'prompt',
+                         'instruction', 
+                         'cot_trigger',
+                         'answer_id',
+                        #  'answer_pred',
+                         'answer_from_choices', 
+                         'correct_answer',
+                         'model']]
+
+                df_list.append(df)
+        df = pd.concat(df_list)
+        df.reset_index(inplace=True, drop=True)
+
+        # correct None to np.nan in answer_from_choices for krippendorff metric
+        df['answer_from_choices'] = df['answer_from_choices'].replace({None: np.nan})
+        return df
+
 
     def dump(self, path_to_file_or_directory="./dump.json"):
+        self.clear_empty_datasets()
         if not path_to_file_or_directory.endswith(".json"):
             path_to_file_or_directory = path_to_file_or_directory + ".json"
         with open(path_to_file_or_directory, "w") as outfile:
@@ -255,9 +387,19 @@ class Collection:
     # make this a classmethod? (same for load_thoughtsource_100)
     @staticmethod
     def from_json(path_or_json, download_mode="reuse_dataset_if_exists", source=False):
+        # try to load it, but if FileNotFoundError, append .json
         if isinstance(path_or_json, str):
-            with open(path_or_json, "r") as infile:
-                content = json.load(infile)
+            try:
+                with open(path_or_json, "r") as infile:
+                    content = json.load(infile)
+            # if file is not found and path does not end with .json, try to load it with .json
+            except FileNotFoundError as e:
+                if not path_or_json.endswith(".json"):
+                    path_or_json = path_or_json + ".json"
+                    with open(path_or_json, "r") as infile:
+                        content = json.load(infile)
+                else:
+                    raise e
         elif isinstance(path_or_json, dict):
             content = path_or_json
 
@@ -277,6 +419,12 @@ class Collection:
                     split = ds.Split.VALIDATION
                 elif split_name == "test":
                     split = ds.Split.TEST
+
+                for item in content[dataset_name][split]:
+                    for generated_cot in item["generated_cot"]:
+                        for answer in generated_cot["answers"]:
+                            if "answer_from_choices" not in answer:
+                                answer["answer_from_choices"] = ""
 
                 dic = pd.DataFrame.from_records(content[dataset_name][split]).to_dict("series")
                 dic = {k: list(v) for (k, v) in dic.items()}
@@ -305,6 +453,23 @@ class Collection:
         if not load_pregenerated_cots:
             collection.delete_all_generated_cots()
         return collection
+    
+    @staticmethod
+    def load_thoughtsource_33(names="all", load_pregenerated_cots=True) -> "Collection":
+        """load the thoughtsource_33 dataset"""
+        path_to_biodatasets = (pathlib.Path(__file__).parent.absolute() / "datasets").resolve()
+        path_to_thoughtsource_33 = path_to_biodatasets / "thoughtsource" / "thoughtsource_33.json"
+        collection = Collection.from_json(str(path_to_thoughtsource_33))
+        # drop all names that are not in the list
+        if names != "all":
+            all_names = list(collection._cache.keys())
+            names_to_remove = [name for name in all_names if name not in names]
+            collection.unload_datasets(names_to_remove)
+        # drop all generated cots if load_pregenerated_cots is False
+        if not load_pregenerated_cots:
+            collection.delete_all_generated_cots()
+        return collection
+
 
     def number_examples(self, name=None, split=None):
         """
@@ -339,45 +504,128 @@ class Collection:
         return count
 
     def generate(self, name=None, split=None, config={}):
-        if ("warn" not in config or config["warn"]) and not config["api_service"] == "mock_api":
-            # more detailed option, but not necessary:
-            # if ("warn" not in config or config["warn"]) and (("api_service" in config and not config["api_service"]=="mock_api") ...
-            # ... or "api_service" not in config):
-            n_samples = self.number_examples(name, split)
-            print_warning(config, n_samples)
+
         # always do it per split, so less data is lost in case of an API error causing a crash
         if name is None:
             for name in self._cache:
                 print(f"Generating {name}...")
                 for split in self._cache[name]:
-                    self[name][split] = generate_and_extract(self[name][split], config=config)
+                    self[name][split] = generate_and_extract(
+                        self[name][split], config=config)
         else:
             if split is None:
                 print(f"Generating {name}...")
                 for split in self._cache[name]:
-                    self[name][split] = generate_and_extract(self[name][split], config=config)
+                    self[name][split] = generate_and_extract(
+                        self[name][split], config=config)
             else:
                 print(f"Generating {name}...")
-                self[name][split] = generate_and_extract(self[name][split], config=config)
+                self[name][split] = generate_and_extract(
+                    self[name][split], config=config)
+    
+    def generate_extract_flexible(self, input_dict, name=None, split=None):
 
-    def evaluate(self, name=None, split=None, overwrite=False, warn=False):
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_generate_extract(
+                        self[name][split], input_dict)
+        else:
+            if split is None:
+                print(f"Generating {name}...")
+                for split in self._cache[name]:
+                    self[name][split] = self_generate_extract(
+                        self[name][split], input_dict)
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = self_generate_extract(
+                    self[name][split], input_dict)
+
+    #for split in name:
+    #loop through datasets
+    def generate_flexible(self, input_dict, name=None, split=None):
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_generate(
+                        self[name][split], input_dict)
+        else:
+            if split is None:
+                print(f"Generating {name}...")
+                self[name][split] = self_generate(
+                    self[name][split], input_dict)
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = self_generate(
+                    self[name][split], input_dict)
+    
+    def extract_flexible(self, input_dict, name=None, split=None):
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_extract(
+                        self[name][split], input_dict)
+        else:
+            if split is None:
+                for split in self._cache[name]:
+                    self[name][split] = self_extract(
+                        self[name][split], input_dict)
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = self_extract(self[name][split], input_dict)
+    
+    def metareason_flexible(self, input_dict, name=None, split=None):
+        if name is None:
+            for name in self._cache:
+                for split in self._cache[name]:
+                    print(f"Generating {name}...")
+                    self[name][split] = self_reflect(
+                        self[name][split], input_dict)
+        else:
+            if split is None:
+                for split in self._cache[name]:
+                    self[name][split] = self_reflect(
+                        self[name][split], input_dict)
+            else:
+                print(f"Generating {name}...")
+                self[name][split] = self_reflect(self[name][split], input_dict)
+            
+    """Creates json and collection from Thoughtsource ouptut; chain_output from chain_generation"""
+    def to_Collection(chain_output,dataset_name,split,file_name):
+
+        #Force langchain into TS structure 
+        ts_set = {dataset_name:{split:chain_output}}
+
+        #create and collect a json to make collection
+        with open(f"{file_name}.json", "w") as outfile:
+            json.dump(ts_set, outfile) 
+            #ts_set.dump(outfile) #dump dict not possible
+        collect = Collection.from_json(f'{file_name}.json')
+
+        return collect
+            
+    
+    def evaluate(self, name=None, split=None, title=None, overwrite=False, warn=False):
         evaluations_dict = defaultdict(dict)
         if name is None:
             for name in self._cache:
                 for split in self._cache[name]:
                     # print(f"Evaluating {name}...")
-                    self[name][split], evaluation = evaluate(self[name][split], overwrite=overwrite, warn=warn)
+                    self[name][split], evaluation = evaluate(self[name][split], title=title, overwrite=overwrite, warn=warn)
                     evaluations_dict[name][split] = evaluation
         else:
             if split is None:
                 for split in self._cache[name]:
                     # print(f"Evaluating {name}...")
-                    self[name][split], evaluations = evaluate(self[name][split], overwrite=overwrite, warn=warn)
+                    self[name][split], evaluations = evaluate(self[name][split], title=title, overwrite=overwrite, warn=warn)
                     evaluations_dict[name][split] = evaluations
 
             else:
                 # print(f"Evaluating {name}...")
-                self[name][split], evaluations = evaluate(self[name][split], overwrite=overwrite, warn=warn)
+                self[name][split], evaluations = evaluate(self[name][split], title=title, overwrite=overwrite, warn=warn)
                 evaluations_dict[name][split] = evaluations
 
         # return evaluation outcome
@@ -419,38 +667,73 @@ class Collection:
         import copy
         import random
 
+        # if split is a string, convert to list
+        if type(split) is str:
+            split = [split]
+
         sampled_collection = copy.deepcopy(self)
         for dataset in sampled_collection:
             _, dataset_dict = dataset
-            subset = copy.deepcopy(dataset_dict[split])
-            # # select the whole split, without specified number of samples
-            # if not number_samples:
-            #     pass
-            # select a certain number of samples
-            if number_samples:
-                # get number of samples in subset
-                samples_count = subset.num_rows
-                # random sample
-                if random_samples:
-                    # set seed for reproducibility
-                    if type(seed) is int:
-                        random.seed(seed)
-                    elif seed is True:
-                        # setting the same seed as the default
-                        random.seed(0)
-                    random_ids = random.sample(range(samples_count), number_samples)
-                    # sort ids
-                    random_ids = sorted(random_ids)
-                    # random sample from subset
-                    subset = subset.select(random_ids)
-                # first rows of dataset, not random
-                else:
-                    subset = subset.select(range(0, number_samples))
-            # clear original dictionary
-            dataset_dict.clear()
-            # reinsert selected samples
-            dataset_dict[split] = subset
+            # if "all", select all available splits
+            if split == ["all"]:
+                split_list = list(dataset_dict.keys())
+            else:
+            # else, just select the stated ones
+                split_list = split
+            for current_split in list(dataset_dict.keys()):
+                # if the dataset does not include the current_split, no selection needed
+                if current_split not in split_list:
+                    dataset_dict.pop(current_split)
+                    continue
+                subset = copy.deepcopy(dataset_dict[current_split])
+                # # select the whole split, without specified number of samples
+                # if not number_samples:
+                #     pass
+                # select a certain number of samples
+                if number_samples:
+                    # get number of samples in subset
+                    samples_count = subset.num_rows
+                    # random sample
+                    if random_samples:
+                        # set seed for reproducibility
+                        if type(seed) is int:
+                            random.seed(seed)
+                        elif seed is True:
+                            # setting the same seed as the default
+                            random.seed(0)
+                        random_ids = random.sample(range(samples_count), number_samples)
+                        # sort ids
+                        random_ids = sorted(random_ids)
+                        # random sample from subset
+                        subset = subset.select(random_ids)
+                    # first rows of dataset, not random
+                    else:
+                        subset = subset.select(range(0, number_samples))
+                # reinsert selected samples
+                dataset_dict[current_split] = subset
+
         return sampled_collection
+    
+    def filter(self, filter_func=None, **kwargs):
+        """
+        The function takes in a collection and returns a filtered collection.
+        :param collection: the collection (of datasets) to be processed
+        :param filter_func: a lambda function to filter the collection
+        :param kwargs: the arguments to be passed to the filter function of the dataset
+        e.g. collection.filter(lambda x: len(x["generated_cot"]) == 1)
+        """
+        filtered_collection = self.copy()
+        if filter_func is not None:
+            for name in filtered_collection._cache:
+                for split in filtered_collection._cache[name]:
+                    filtered_collection[name][split] = filtered_collection[name][split].filter(filter_func, **kwargs)
+        else:
+            for name in filtered_collection._cache:
+                for split in filtered_collection._cache[name]:
+                    filtered_collection[name][split] = filtered_collection[name][split].filter(**kwargs)
+        # drop empty datasets and splits
+        filtered_collection.clear_empty_datasets()
+        return filtered_collection
 
     @property
     def loaded(self):
@@ -504,3 +787,25 @@ def print_warning(config, n_samples):
     else:
         # break the execution of the code if the user does not want to continue
         raise ValueError("Generation aborted by user.")
+
+# ideas for additional functions
+
+# def list_datasets_and_splits(coll):
+#     datasets_and_splits = []
+#     for name in coll._cache:
+#         for split in coll._cache[name]:
+#             datasets_and_splits.append((name, split))
+#     return datasets_and_splits
+
+# def keep_only_datasets_and_splits(coll, datasets_and_splits):
+#     to_delete = []
+
+#     for name in coll._cache:
+#         for split in coll._cache[name]:
+#             if (name, split) not in datasets_and_splits:
+#                 to_delete.append((name, split))
+
+#     for name, split in to_delete:
+#         del coll._cache[name][split]
+
+#     return coll

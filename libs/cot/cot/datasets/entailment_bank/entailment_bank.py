@@ -177,24 +177,27 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
                 gen_kwargs={
+                    "split": "train",
                     "filepath": os.path.join(dataset_path, "train.jsonl"),
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
+                    "split": "test",
                     "filepath": os.path.join(dataset_path, "test.jsonl"),
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
+                    "split": "validation",
                     "filepath": os.path.join(dataset_path, "dev.jsonl"),
                 },
             ),
         ]
 
-    def _generate_examples(self, filepath) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, split) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         with open(filepath, "r") as json_file:
@@ -242,7 +245,7 @@ class EntailmentBankDataset(datasets.GeneratorBasedBuilder):
                             cot_.append(self._untokenize(stmt).capitalize() + ".")
 
                 example_ = {
-                    "id": key,
+                    "id": "entailment_bank_" + split + "_" + str(key),
                     "ref_id": example["id"],
                     "question": example["question"],
                     "type": "text",

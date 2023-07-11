@@ -18,7 +18,7 @@ export function parseCotData(filename: string, data: any, startAnnotating: boole
         stateEntries = stateEntries.filter(entry => entry.generated_cot?.length > 0)
 
         // Sort entries by id and subset type
-        stateEntries.sort(entrySortFunction)
+        // stateEntries.sort(entrySortFunction)
 
     } catch (e) {
         console.error("Error parsing data")

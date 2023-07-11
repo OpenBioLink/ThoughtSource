@@ -142,24 +142,27 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
                 gen_kwargs={
+                    "split": "train",
                     "filepath": data_dir["train"],
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
+                    "split": "test",
                     "filepath": data_dir["test"],
                 },
             ),
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
+                    "split": "validation",
                     "filepath": data_dir["valid"],
                 },
             ),
         ]
 
-    def _generate_examples(self, filepath) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, split) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         with open(filepath, "r", encoding="utf8") as infile:
@@ -181,7 +184,7 @@ class AquaDataset(datasets.GeneratorBasedBuilder):
                 choices = {x[0]: x[1] for x in choices}
 
                 example_ = {
-                    "id": key,
+                    "id": "aqua_" + split + "_" + str(key),
                     "ref_id": "",
                     "question": example["question"],
                     "type": "multiplechoice",

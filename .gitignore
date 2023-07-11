@@ -168,9 +168,14 @@ cython_debug/
 # VS Code
 .vscode
 
+# Conda
+.conda
+
 # Miscellaneous
 /misc
 
 # Testing file
 test.py
 .DS_Store
+
+node_modules

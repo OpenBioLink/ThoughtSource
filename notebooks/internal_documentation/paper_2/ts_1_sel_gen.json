@@ -1,0 +1,915 @@
+{
+    "commonsense_qa": {
+        "validation": [
+            {
+                "id": "a5456dc611aa93b81d7ab6ed8e160f85",
+                "ref_id": "",
+                "question": "The chief saw his entire tribe wiped out, he was a leader with a single what?",
+                "type": "multiplechoice",
+                "choices": [
+                    "peon",
+                    "indian",
+                    "minister",
+                    "follower",
+                    "employee"
+                ],
+                "context": "",
+                "cot": [
+                    "Leaders have followers who are supporters unlike peon, indian or minister.",
+                    "Followers do not work for money while employees do."
+                ],
+                "answer": [
+                    "follower"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "110c0d20-0263-41fc-9164-e5e92cebda0d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": " The chief saw his entire tribe wiped out, so he was the leader of a tribe. Therefore, the correct answer is D) follower.",
+                        "answers": [
+                            {
+                                "id": "f4560efb-cd6c-4252-892c-e052002693e0",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " D) follower.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/15 15:21:37",
+                        "api_service": "openai",
+                        "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "32833817-bf74-4ee5-98d3-bdb017c85862",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "The chief saw his entire tribe wiped out, he was a leader with a single indian. The chief saw his entire tribe wiped out, he was a leader with a single indian. So, the answer is B.",
+                        "answers": [
+                            {
+                                "id": "a9b9c595-bf1d-46a3-ba85-cf8424eea74e",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/21 14:26:14",
+                        "api_service": "huggingface_endpoint",
+                        "model": "{'name': 'flan-T5-xxl', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d4bf0fb6-c8ca-4b97-8156-6b261a806225",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we know that the chief saw his entire tribe wiped out, which means that he was the only survivor. \n\nNext, we are told that he was a leader, which means that he held a position of authority within his tribe. \n\nFinally, we are given a clue that he had a single something. \n\nLooking at the answer choices, we can eliminate options A, C, D, and E, as they do not fit with the clues we have been given. \n\nThe correct answer is B) Indian, as this fits with the context of the question and the historical context of Native American tribes.",
+                        "answers": [
+                            {
+                                "id": "2ec6962b-3ac5-46c4-8b1e-d0b18d6ad36f",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "B) Indian.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 00:32:20",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d15adb3f-fddd-44af-985e-aff12d6fd159",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: Identify the main idea of the sentence.\nThe main idea is that the chief's entire tribe was wiped out.\n\nStep 2: Look for clues in the sentence that might help answer the question.\nThe only clue in the sentence is that the chief was a leader.\n\nStep 3: Use logic and reasoning to eliminate unlikely options.\nOption B is unlikely because it is not specific enough. Option C is unlikely because it is not relevant to the context. Option E is unlikely because it is too general.\n\nStep 4: Choose the best answer.\nThe best answer is D) follower because it makes sense that a leader would have followers.",
+                        "answers": [
+                            {
+                                "id": "4d41ed7f-27f0-44d3-b232-dbccf63af707",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) follower.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 17:28:37",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "f4ff836d-d17b-401b-b6cb-a7e6e50fed35",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-01",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: The question states that the chief saw his entire tribe wiped out.\nStep 2: The question also states that the chief was a leader with a single what?\nStep 3: We can infer from the information given that the chief was the leader of his tribe.\nStep 4: Therefore, the answer must be a word that describes someone who follows or is subordinate to a leader.\nStep 5: The options given are peon, Indian, minister, follower, and employee.\nStep 6: Indian cannot be the answer as it is not a word that describes someone who follows a leader.\nStep 7: Minister is unlikely to be the answer as it suggests a religious or political leader, which may not be applicable in this context.\nStep 8: Peon and employee are also unlikely as they suggest a subordinate in a work setting, which may not be applicable in this context.\nStep 9: Therefore, the most appropriate answer is follower, as it accurately describes someone who follows a leader. \nStep 10: Therefore, the answer is D) follower.",
+                        "answers": [
+                            {
+                                "id": "10c95048-18bb-42b0-939e-b89c4112abfe",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D) follower.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/14 17:26:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "med_qa": {
+        "test": [
+            {
+                "id": "med_qa_test_1107",
+                "ref_id": "",
+                "question": "A 76-year-old woman comes to the physician for a routine examination. She has a history of hypertension well controlled with diet and exercise. She has no history of smoking or illicit drug use. She walks one mile daily. Her pulse is 68/min, respirations are 16/min, and blood pressure is 119/76 mm Hg. Physical examination shows no abnormalities. When compared to a healthy 20-year-old woman, which of the following changes in respiratory function is most likely present in this patient?",
+                "type": "multiplechoice",
+                "choices": [
+                    "Increased lung compliance",
+                    "Increased vital capacity",
+                    "Decreased residual volume",
+                    "Increased chest wall compliance",
+                    "Decreased A-a gradient"
+                ],
+                "context": "",
+                "cot": [],
+                "answer": [
+                    "Increased lung compliance"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "353fadd2-15ed-4a81-a728-254d5966eb3a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": " The patient is 76 years old, so she is likely to have some age-related changes in her respiratory function. The most likely change is decreased vital capacity, which is the maximum amount of air that can be exhaled after a deep breath. This is due to a decrease in the elasticity of the lungs and chest wall as we age. Therefore, the correct answer is B) Increased vital capacity.",
+                        "answers": [
+                            {
+                                "id": "a026a776-00d8-46e7-82b1-287b24224435",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) Increased vital capacity.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/15 16:09:59",
+                        "api_service": "openai",
+                        "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "8756612b-77a1-4b30-87d4-27cb5e90c751",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Respiratory function is influenced by age, gender, and smoking. Respiratory function is influenced by age, gender, and smoking. Respiratory function is influenced by age, gender, and smoking. When compared to a healthy 20-year-old woman, the 76-year-old woman has decreased A-a gradient.",
+                        "answers": [
+                            {
+                                "id": "a44aba48-398c-497f-9720-085a25f7f738",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/21 15:02:59",
+                        "api_service": "huggingface_endpoint",
+                        "model": "{'name': 'flan-T5-xxl', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7a369fea-4c59-477b-a249-ebc9b3f4d49d",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we know that the patient has no abnormalities on physical examination, so we can assume that her respiratory function is within normal limits for her age. \n\nNext, we are asked to compare her respiratory function to that of a healthy 20-year-old woman. \n\nWe know that respiratory function generally declines with age, so we can eliminate options A and B, which suggest increased respiratory function. \n\nOption C suggests decreased residual volume, which is unlikely given the patient's age and lack of respiratory symptoms. \n\nOption D suggests increased chest wall compliance, which is also unlikely given the patient's age and lack of respiratory symptoms. \n\nTherefore, the most likely answer is E) decreased A-a gradient. This is because the A-a gradient (the difference in oxygen partial pressure between the alveoli and arterial blood) tends to increase with age, so a healthy 76-year-old woman would likely have a higher A-a gradient than a healthy 20-year-old woman. However, this change is not necessarily clinically significant unless the patient has respiratory symptoms or other underlying conditions.",
+                        "answers": [
+                            {
+                                "id": "6005a64e-de81-4542-8613-cb89687ed344",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "E) Decreased A-a gradient.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:06:57",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c4132bb9-c81d-4048-9c1c-618e620cc500",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand the normal changes in respiratory function that occur with aging. As people age, their lung tissue becomes less elastic and more rigid, which can lead to decreased lung compliance. This means that the lungs are less able to expand and contract, making it harder to breathe. Additionally, the muscles that support breathing may weaken, leading to decreased chest wall compliance.\n\nBased on this information, we can eliminate options A and D, as they suggest increased lung and chest wall compliance, respectively. Option E, decreased A-a gradient, is not directly related to respiratory function and is unlikely to be affected by aging alone.\n\nOption B, increased vital capacity, is a possibility, as some studies have shown that vital capacity may increase with age due to increased lung size. However, this is not a consistent finding and may not be the most likely change to occur in this patient.\n\nOption C, decreased residual volume, is the most likely change to occur in this patient. Residual volume is the amount of air that remains in the lungs after a maximal exhalation, and it tends to decrease with age due to decreased lung elasticity. This means that the patient may have less air trapped in her lungs, which could make breathing easier.\n\nTherefore, the correct answer is C) Decreased residual volume.",
+                        "answers": [
+                            {
+                                "id": "68155e64-2f4e-4f90-afab-775f7e9c4a74",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Decreased residual volume.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 18:11:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "708b512a-2452-48c8-a446-0db3d84c6719",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-01",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nThe question asks us to compare the respiratory function of a 76-year-old woman to that of a healthy 20-year-old woman. We are given the vital signs and physical examination findings of the 76-year-old woman, but we need to determine which respiratory function parameter is most likely to be different between the two age groups.\n\nOption A) Increased lung compliance: Lung compliance refers to the ease with which the lungs can expand and contract. It is determined by the elasticity of the lung tissue and the surface tension of the alveoli. Aging is associated with a decrease in lung compliance due to changes in lung tissue and decreased surfactant production. Therefore, it is unlikely that the 76-year-old woman has increased lung compliance compared to a healthy 20-year-old woman. This option is incorrect.\n\nOption B) Increased vital capacity: Vital capacity is the maximum amount of air that can be exhaled after a maximum inhalation. It is determined by the strength of the respiratory muscles and the elasticity of the lung tissue. Aging is associated with a decrease in vital capacity due to changes in respiratory muscle strength and lung tissue elasticity. Therefore, it is unlikely that the 76-year-old woman has increased vital capacity compared to a healthy 20-year-old woman. This option is incorrect.\n\nOption C) Decreased residual volume: Residual volume is the amount of air that remains in the lungs after a maximum exhalation. It is determined by the elasticity of the lung tissue and the airway resistance. Aging is associated with an increase in residual volume due to decreased lung tissue elasticity and increased airway resistance. Therefore, it is unlikely that the 76-year-old woman has decreased residual volume compared to a healthy 20-year-old woman. This option is incorrect.\n\nOption D) Increased chest wall compliance: Chest wall compliance refers to the ease with which the chest wall can expand and contract. It is determined by the elasticity of the chest wall and the strength of the respiratory muscles. Aging is associated with a decrease in chest wall compliance due to changes in chest wall elasticity and respiratory muscle strength. Therefore, it is unlikely that the 76-year-old woman has increased chest wall compliance compared to a healthy 20-year-old woman. This option is incorrect.\n\nOption E) Decreased A-a gradient: The A-a gradient is the difference in oxygen partial pressure between the alveoli and the arterial blood. It is determined by the efficiency of gas exchange in the lungs. Aging is associated with a decrease in gas exchange efficiency due to changes in lung tissue and decreased",
+                        "answers": [
+                            {
+                                "id": "11823f30-b84a-420a-9322-425f1fd4d927",
+                                "answer_extraction": "kojima-A-E",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "none of the above.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/14 17:26:48",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "medmc_qa": {
+        "validation": [
+            {
+                "id": "8be32dbe-9a46-4a8a-8c08-ff89c3e78c3d",
+                "ref_id": "",
+                "question": "Fetal adrenals release which hormone predominantly:March 2009, September 2010",
+                "type": "multiplechoice",
+                "choices": [
+                    "Oestrogen",
+                    "Testosterone",
+                    "Aldosterone",
+                    "Coisone"
+                ],
+                "context": "",
+                "cot": [
+                    "Ans. D: CoisoneFetal adrenals shows hyperophy of the reticular zone (fetal zone), which is the site of synthesis of oestriol precursor, coisol and dehydroepiandrosterone.After 12 weeks of gestation, the activity of 3 p-hydroxysteroid dehydrogenase (HSD3B) decreases in fetal adrenal and sulfokinase activity increases.At that time (during the mid-gestation, 12 to 22 weeks) the major steroid products are DHEA and DHEA Sulfate (DHEA-S).During the mid-gestation (12 to 22 weeks), the aromatase activity and sulfokinase activity increases. So Placenta itself utilizes fetal DHEA and DHEA-S as substrate for estrone and estradiol as precursors."
+                ],
+                "answer": [
+                    "Coisone"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "2ead12a1-af70-4dd5-8059-e50930466e5b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": " Fetal adrenals are part of the endocrine system, which is responsible for the production and release of hormones. Therefore, the correct answer is C) Aldosterone.",
+                        "answers": [
+                            {
+                                "id": "27657f1e-fade-41b6-966d-bf249414d7a6",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " C) Aldosterone.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/16 19:09:31",
+                        "api_service": "openai",
+                        "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d2215a50-8ee6-4e8f-86e9-6bcc4eca9e0b",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Fetal adrenals release predominantly cortisol. Cortisol is a glucocorticoid. Fetal adrenals release predominantly cortisol. So, the answer is D.",
+                        "answers": [
+                            {
+                                "id": "749fa22f-6fd1-4384-85e0-05cd6eec92fb",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "D",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/21 15:29:36",
+                        "api_service": "huggingface_endpoint",
+                        "model": "{'name': 'flan-T5-xxl', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "229c6ace-a15c-401f-ae07-224ed0f992b1",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what the fetal adrenal gland is and what hormones it produces. The fetal adrenal gland is a gland located on top of the kidneys in a developing fetus. It produces several hormones, including cortisol, aldosterone, and androgens (such as testosterone).\n\nNext, we need to determine which hormone is predominantly released by the fetal adrenal gland. The question gives us four options: estrogen, testosterone, aldosterone, and coisone. We can eliminate estrogen and testosterone because they are not predominantly produced by the fetal adrenal gland. Estrogen is mainly produced by the ovaries in females and testosterone is mainly produced by the testes in males.\n\nThat leaves us with aldosterone and coisone. While both hormones are produced by the fetal adrenal gland, aldosterone is the predominant hormone released. Aldosterone is a steroid hormone that helps regulate blood pressure and electrolyte balance in the body.\n\nTherefore, the answer is C) Aldosterone.",
+                        "answers": [
+                            {
+                                "id": "c3926d61-64d9-4746-86b5-b56b944f35e1",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Aldosterone.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 01:40:20",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "492338db-b6cb-47c2-90f1-afe0018bbaa7",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what the fetal adrenal gland is and what hormones it produces. The fetal adrenal gland is a gland located above the kidneys in a developing fetus. It produces several hormones, including cortisol, aldosterone, and androgens (such as testosterone).\n\nNext, we need to determine which hormone is predominantly released by the fetal adrenal gland. The question gives us four options: estrogen, testosterone, aldosterone, and coisone. We can eliminate estrogen and testosterone because they are not predominantly produced by the fetal adrenal gland. Estrogen is mainly produced by the ovaries in females and testosterone is mainly produced by the testes in males.\n\nThat leaves us with aldosterone and coisone. Coisone is not a well-known hormone and is not typically produced by the adrenal gland. Therefore, the correct answer must be aldosterone.\n\nAnswer: C) Aldosterone",
+                        "answers": [
+                            {
+                                "id": "a14dba5d-fbd0-4d17-a523-53afb77e52fc",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) Aldosterone.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 18:49:50",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "93773870-9202-461a-8267-b4554e5d63a3",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-01",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nAs an AI language model, I do not have personal experience or beliefs, but I can provide the following information:\n\nThe fetal adrenal gland is responsible for producing hormones that are essential for fetal development. One of the primary hormones produced by the fetal adrenal gland is cortisol, which is a steroid hormone that helps regulate metabolism, immune function, and stress response.\n\nHowever, the question specifically asks which hormone is predominantly released by the fetal adrenal gland. While cortisol is an important hormone produced by the fetal adrenal gland, it is not the predominant hormone.\n\nTherefore, we can eliminate options C and D (aldosterone and coisone) as they are not predominantly released by the fetal adrenal gland.\n\nNow, we are left with two options: estrogen and testosterone. Both of these hormones are produced by the fetal adrenal gland, but one is predominantly released over the other.\n\nTo determine which hormone is predominantly released, we need to consider the sex of the fetus. In male fetuses, the fetal adrenal gland predominantly releases testosterone, which is responsible for the development of male genitalia and other male characteristics.\n\nIn female fetuses, the fetal adrenal gland predominantly releases estrogen, which is responsible for the development of female genitalia and other female characteristics.\n\nTherefore, the answer to the question \"Fetal adrenals release which hormone predominantly?\" depends on the sex of the fetus. If the fetus is male, the answer is B (testosterone). If the fetus is female, the answer is A (estrogen).",
+                        "answers": [
+                            {
+                                "id": "f654062a-d493-4f2a-9841-8215ea645bf5",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "either A (estrogen) or B (testosterone), depending on the sex of the fetus.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/14 17:27:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "open_book_qa": {
+        "test": [
+            {
+                "id": "open_book_qa_test_423",
+                "ref_id": "",
+                "question": "What kind of object does light bounce off of?",
+                "type": "multiplechoice",
+                "choices": [
+                    "tadpole",
+                    "any object",
+                    "item that reflects",
+                    "black hole"
+                ],
+                "context": "",
+                "cot": [
+                    "when light hits a reflective object , that light bounces off that object"
+                ],
+                "answer": [
+                    "item that reflects"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "acf1813a-54b5-4903-b50d-024f47e6a216",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": " Light is a form of energy, and it can bounce off of any object. Therefore, the correct answer is B) any object.",
+                        "answers": [
+                            {
+                                "id": "3775dd9b-9c90-415a-96c2-a5b862672ebb",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " B) any object.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/10 14:44:20",
+                        "api_service": "openai",
+                        "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "50283acb-b1bc-43f0-aa30-80244291a3cc",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Light bounces off of a reflective surface. Reflective surfaces include mirrors, windows, and water. Light bounces off of an item that reflects. So, the answer is C.",
+                        "answers": [
+                            {
+                                "id": "64fed2ab-18db-404c-9ad2-e3185c8ac70a",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/21 16:55:17",
+                        "api_service": "huggingface_endpoint",
+                        "model": "{'name': 'flan-T5-xxl', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "034048aa-6cc1-4059-ac19-1a7e41323acc",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, we need to understand what happens when light hits an object. When light hits an object, it can either be absorbed, transmitted through the object, or reflected off the object. \n\nSo, the answer is C) item that reflects. Light bounces off of objects that reflect it, such as mirrors, shiny surfaces, and even some types of clothing. However, it does not bounce off of all objects, as some may absorb or transmit the light instead.",
+                        "answers": [
+                            {
+                                "id": "f0b253c1-1172-43c3-ab60-1b9857d12834",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) item that reflects.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:03:17",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "dfcf955c-2620-48ac-984f-431082cd14be",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: What is light?\nLight is a form of electromagnetic radiation that travels in waves and can be seen by the human eye.\n\nStep 2: How does light interact with objects?\nWhen light hits an object, it can be absorbed, transmitted, or reflected. The type of interaction depends on the properties of the object and the wavelength of the light.\n\nStep 3: What kind of object does light bounce off of?\nBased on the above information, we can conclude that light bounces off of objects that reflect it. Therefore, the correct answer is C) item that reflects.",
+                        "answers": [
+                            {
+                                "id": "ee362360-7ee4-4f28-83c5-19be69c4ed8f",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) item that reflects.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 19:17:39",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "d204b0d1-f34b-48f6-a7cf-b4a4af2fd8aa",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-01",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: Light is a form of electromagnetic radiation that travels in straight lines until it interacts with matter.\n\nStep 2: When light interacts with matter, it can be absorbed, transmitted, or reflected.\n\nStep 3: The question is asking what kind of object does light bounce off of, which means it is asking about the reflection of light.\n\nStep 4: According to the laws of reflection, when light hits a smooth surface, it bounces off at the same angle it hit the surface.\n\nStep 5: Therefore, an object that can reflect light must have a smooth surface.\n\nStep 6: Based on the answer choices, option A (tadpole) can be eliminated because it is a living organism and does not have a smooth surface.\n\nStep 7: Option B (any object) is too broad and does not provide a specific characteristic of the object that allows it to reflect light.\n\nStep 8: Option D (black hole) can also be eliminated because black holes are known for absorbing light, not reflecting it.\n\nStep 9: This leaves us with option C (item that reflects) as the correct answer. Objects that reflect light have a smooth surface that allows light to bounce off at the same angle it hit the surface. Examples of objects that reflect light include mirrors, glass, and polished metals.",
+                        "answers": [
+                            {
+                                "id": "1ba128c0-b798-42b9-b332-3592d2a6d602",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "C) item that reflects.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/14 17:27:35",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    },
+    "strategy_qa": {
+        "train": [
+            {
+                "id": "7cf376afb78c20dd6f18",
+                "ref_id": "",
+                "question": "Was John Gall from same city as Stanford University?",
+                "type": "bool",
+                "choices": [
+                    "True",
+                    "False"
+                ],
+                "context": "",
+                "cot": [
+                    "John Gall is a former major league baseball player born in Stanford, California.",
+                    "Stanford University was founded by Leland and Jane Stanford  in Stanford, California."
+                ],
+                "answer": [
+                    "True"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "57f2f24f-9933-468a-af73-9ecf7678d237",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nJohn Gall was an American professor and author who taught at Stanford University. Stanford University is located in Stanford, California. Therefore, John Gall was from the same city as Stanford University.",
+                        "answers": [
+                            {
+                                "id": "c443f157-b082-4c2a-9bd1-e591d8cb08fe",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " Yes.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/15 15:44:18",
+                        "api_service": "openai",
+                        "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "8e647227-d46e-4a05-b552-b1475b821e62",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "John Gall was from Palo Alto, California. Stanford University is located in Palo Alto, California. So, the answer is yes.",
+                        "answers": [
+                            {
+                                "id": "2bdedb4e-d005-48a5-8954-5a5637a998f8",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "Yes",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/21 17:13:35",
+                        "api_service": "huggingface_endpoint",
+                        "model": "{'name': 'flan-T5-xxl', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "76e4f17b-4555-4b1f-a07d-29c3085e7a5a",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nStep 1: Look up who John Gall is.\nStep 2: Look up where Stanford University is located.\nStep 3: Compare the two locations to see if they are the same.\n\nStep 1: John Gall is not a well-known public figure, so it may be difficult to find information about him. However, there are a few people with this name who have some online presence, such as a LinkedIn profile or a Twitter account. Without more information, it is impossible to determine which John Gall is being referred to in this question.\n\nStep 2: Stanford University is located in Stanford, California, which is a city in Santa Clara County.\n\nStep 3: Without knowing which city John Gall is from, it is impossible to compare the two locations. Therefore, the answer to this question is unknown.",
+                        "answers": [
+                            {
+                                "id": "b2ab1e1b-3fc8-435d-a515-75f3f3f7f1c1",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "unknown.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:23:11",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "c29fd737-acea-4dfd-a2fe-5c918f5b7f32",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nAs an AI language model, I do not have access to personal information about individuals. However, based on my research, there is no clear evidence to suggest that John Gall was from the same city as Stanford University. Therefore, the answer is most likely B) False.",
+                        "answers": [
+                            {
+                                "id": "712beaf2-7c72-4ffc-a4cc-a2ebb139aeef",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "No.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 19:39:09",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "5af5f588-2ee5-412c-afca-6161417c2f61",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-01",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nAs an AI language model, I do not have access to information about every individual in the world. However, assuming that John Gall is a known person, I can use the following reasoning to answer the question:\n\n1. Find out where John Gall is from.\n2. Determine the location of Stanford University.\n3. Compare the two locations to see if they are the same.\n\nTherefore, without information about John Gall's place of origin, it is impossible to determine whether he is from the same city as Stanford University.",
+                        "answers": [
+                            {
+                                "id": "61992684-b960-403c-8021-acc9252b85d8",
+                                "answer_extraction": "kojima-yes-no",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "indeterminate or unknown.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/14 17:27:48",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": null
+            }
+        ]
+    },
+    "worldtree": {
+        "test": [
+            {
+                "id": "worldtree_test_1368",
+                "ref_id": "",
+                "question": "Which of the following could occur as a result of decreasing the heat energy of a gas?",
+                "type": "multiplechoice",
+                "choices": [
+                    "condensation",
+                    "evaporation",
+                    "radiation",
+                    "vaporization"
+                ],
+                "context": "",
+                "cot": [
+                    "Condensation is when matter changes from a gas into a liquid by decreasing heat energy.",
+                    "A change is a kind of event.",
+                    "Events occur at a specific place.",
+                    "Gas is a kind of substance.",
+                    "To cause means to result in.",
+                    "Temperature changing can cause phase changes.",
+                    "Condensing is a kind of phase change.",
+                    "Temperature is a measure of heat energy."
+                ],
+                "answer": [
+                    "condensation"
+                ],
+                "generated_cot": [
+                    {
+                        "id": "1c232800-3c31-4475-9825-29af8829a5b7",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": " Decreasing the heat energy of a gas would cause the gas to cool. Cooling a gas can cause condensation, evaporation, and vaporization. Radiation is not a result of decreasing the heat energy of a gas. Therefore, the correct answer is A) condensation, B) evaporation, and D) vaporization.",
+                        "answers": [
+                            {
+                                "id": "3b8a6730-d039-4ff2-bd24-5cd1c41d2088",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": " A, B, and D.",
+                                "correct_answer": false
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/10 20:03:17",
+                        "api_service": "openai",
+                        "model": "{'name': 'text-davinci-003', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "77da8dd0-fd29-4bff-86da-31db05f3f393",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "Condensation occurs when the heat energy of a gas decreases. When the heat energy of a gas decreases, it becomes colder. When a gas becomes colder, it condenses. So, the answer is A.",
+                        "answers": [
+                            {
+                                "id": "6a12dd0d-c8d8-4775-bce5-1ad0ccd309d3",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/02/21 17:32:54",
+                        "api_service": "huggingface_endpoint",
+                        "model": "{'name': 'flan-T5-xxl', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "7b26e868-c88f-48ac-bcb0-8fdc2072a140",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "kojima-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nWhen the heat energy of a gas is decreased, its particles will slow down and move closer together. This can lead to a decrease in the gas's volume and pressure. \n\nA) Condensation occurs when a gas is cooled and its particles lose energy, causing them to come together and form a liquid. So, decreasing the heat energy of a gas could lead to condensation. \n\nB) Evaporation occurs when a liquid is heated and its particles gain energy, causing them to escape into the air as a gas. This is the opposite of what happens when the heat energy of a gas is decreased, so evaporation is not a likely result. \n\nC) Radiation is the transfer of energy through electromagnetic waves, and is not directly related to the heat energy of a gas. So, decreasing the heat energy of a gas would not necessarily cause radiation. \n\nD) Vaporization is the process of a liquid turning into a gas, which is also the opposite of what happens when the heat energy of a gas is decreased. So, vaporization is not a likely result. \n\nTherefore, the correct answer is A) condensation.",
+                        "answers": [
+                            {
+                                "id": "99411642-5778-4d4f-85b1-7e5bfc79b932",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) condensation.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/11 02:43:40",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "e8659fa4-182e-425d-9bc2-72acbb65748e",
+                        "fragments_version": "0.01",
+                        "instruction": null,
+                        "cot_trigger": "zhou-01",
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nFirst, let's review the different states of matter and their transitions:\n\n- Solid: particles are tightly packed and vibrate in place\n- Liquid: particles are close together but can move past each other\n- Gas: particles are far apart and move freely\n\nTransitions between these states can occur through changes in temperature and pressure. For example:\n\n- Melting: solid to liquid\n- Freezing: liquid to solid\n- Vaporization: liquid to gas\n- Condensation: gas to liquid\n- Sublimation: solid to gas\n- Deposition: gas to solid\n\nNow, let's consider the question. We are asked what could occur as a result of decreasing the heat energy of a gas. Heat energy is a form of energy that is transferred from one object to another due to a difference in temperature. When we decrease the heat energy of a gas, we are essentially cooling it down.\n\nBased on our knowledge of the different states of matter and their transitions, we can eliminate options C (radiation) and D (vaporization) as they do not involve a change from gas to another state.\n\nOption B (evaporation) is also unlikely, as evaporation typically occurs when a liquid is heated and its particles gain enough energy to escape into the air as a gas. Decreasing the heat energy of a gas would not cause it to evaporate.\n\nTherefore, the most likely answer is A (condensation). When we cool down a gas, its particles lose energy and move closer together. If we continue to cool it down, the gas will eventually reach its dew point, which is the temperature at which it begins to condense into a liquid. This is why we see condensation on a cold glass of water or on the outside of a can of soda on a hot day.",
+                        "answers": [
+                            {
+                                "id": "6bf6712d-a301-48f0-a5b9-c0961b64c493",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) condensation.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/13 20:03:33",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    },
+                    {
+                        "id": "6d27b740-f14c-4f64-bf78-a1d16e3a2631",
+                        "fragments_version": "0.01",
+                        "instruction": "qa-01",
+                        "cot_trigger": null,
+                        "cot_trigger_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}",
+                        "prompt_text": "",
+                        "cot": "\n\nThe answer is A) condensation.\n\nHere's the reasoning:\n\nWhen the heat energy of a gas is decreased, its particles lose kinetic energy and move more slowly. As a result, the gas molecules come closer together and the intermolecular forces between them become stronger.\n\nIf the temperature of the gas is lowered enough, the intermolecular forces can overcome the kinetic energy of the particles and cause them to stick together. This process is called condensation, and it results in the gas turning into a liquid.\n\nEvaporation, on the other hand, occurs when a liquid turns into a gas due to an increase in heat energy. Radiation refers to the emission of energy in the form of electromagnetic waves, and is not directly related to the state of matter. Vaporization is a general term that refers to the process of a liquid turning into a gas, and can occur due to an increase or decrease in heat energy depending on the specific conditions.",
+                        "answers": [
+                            {
+                                "id": "bd9ce819-f661-4d04-b3d1-3120ea870716",
+                                "answer_extraction": "kojima-A-D",
+                                "answer_extraction_template": "{instruction}\n\n{question}\n{answer_choices}\n\n{cot_trigger}{cot}\n{answer_extraction}",
+                                "answer_extraction_text": "",
+                                "answer": "A) condensation.",
+                                "correct_answer": true
+                            }
+                        ],
+                        "author": "thoughtsource",
+                        "date": "2023/03/14 17:28:04",
+                        "api_service": "openai_chat",
+                        "model": "{'name': 'gpt-3.5-turbo', 'temperature': 0, 'max_tokens': 512}",
+                        "comment": "",
+                        "annotations": []
+                    }
+                ],
+                "feedback": []
+            }
+        ]
+    }
+}

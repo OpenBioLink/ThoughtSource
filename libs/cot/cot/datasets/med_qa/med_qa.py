@@ -142,6 +142,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.TRAIN,
                 gen_kwargs={
+                    "split": "train",
                     "filepath": paths["train"],
                     "cotspath": None,
                     "cotspath_2": None,
@@ -150,6 +151,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
+                    "split": "test",
                     "filepath": paths["test"],
                     "cotspath": cots_path,
                     "cotspath_2": cots_path_2,
@@ -158,6 +160,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
+                    "split": "validation",
                     "filepath": paths["valid"],
                     "cotspath": None,
                     "cotspath_2": None,
@@ -165,7 +168,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
             ),
         ]
 
-    def _generate_examples(self, filepath, cotspath, cotspath_2) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, cotspath, cotspath_2, split) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
         data = pd.read_json(filepath, lines=True)
 
@@ -212,7 +215,7 @@ class MedQADataset(datasets.GeneratorBasedBuilder):
                     generated_cots.extend(cot_items_2)
 
                 example_ = {
-                    "id": key,
+                    "id": "med_qa_" + split + "_" + str(key),
                     "ref_id": "",
                     "question": example["question"],
                     "type": "multiplechoice",

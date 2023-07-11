@@ -131,6 +131,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
                 name=datasets.Split.TRAIN,
                 # Whatever you put in gen_kwargs will be passed to _generate_examples
                 gen_kwargs={
+                    "split": "train",
                     "filepath": os.path.join(
                         data_dir,
                         "WorldtreeExplanationCorpusV2.1_Feb2020",
@@ -142,6 +143,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
                 gen_kwargs={
+                    "split": "test",
                     "filepath": os.path.join(
                         data_dir,
                         "WorldtreeExplanationCorpusV2.1_Feb2020",
@@ -153,6 +155,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(
                 name=datasets.Split.VALIDATION,
                 gen_kwargs={
+                    "split": "validation",
                     "filepath": os.path.join(
                         data_dir,
                         "WorldtreeExplanationCorpusV2.1_Feb2020",
@@ -163,7 +166,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
             ),
         ]
 
-    def _generate_examples(self, filepath) -> Tuple[int, Dict]:
+    def _generate_examples(self, filepath, split) -> Tuple[int, Dict]:
         """Yields examples as (key, example) tuples."""
 
         if self.config.schema == "source":
@@ -174,7 +177,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
         elif self.config.schema == "thoughtsource":
             with open(filepath, "r") as infile:
                 for key, example in enumerate(self._generate_parsed_documents(infile)):
-                    yield key, self._source_to_thoughtsource(example)
+                    yield key, self._source_to_thoughtsource(example, split)
 
     def _generate_parsed_documents(self, fstream):
         for raw_document in self._generate_raw_documents(fstream):
@@ -205,7 +208,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
         if raw_document:
             yield raw_document
 
-    def _source_to_thoughtsource(self, example):
+    def _source_to_thoughtsource(self, example, split):
         cot = example["explanation"]
 
         # resolve ( tree ; plant ) synsets
@@ -220,7 +223,7 @@ class WorldtreeDataset(datasets.GeneratorBasedBuilder):
         cot = [x + "." if x[-1] not in [".", "!", "?"] else x for x in cot]
 
         example_ = {
-            "id": example["question_id"],
+            "id": "worldtree_" + split + "_" + str(example["question_id"]),
             "ref_id": "",
             "question": example["question"],
             "type": "multiplechoice",

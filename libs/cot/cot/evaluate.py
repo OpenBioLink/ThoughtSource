@@ -2,16 +2,19 @@ import json
 import re
 import string
 import warnings
+import pandas as pd
 from ast import literal_eval
 from collections import defaultdict
 from pprint import pprint
+from typing import Tuple, Optional
 
 import datasets as ds
 from cot.generate import FRAGMENTS
 
 
-def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be deleted
-    assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
+def evaluate(dataset, title=None, overwrite=False, warn=True, config=None):  # config can be deleted
+    #commented out for test purposes
+    #assert isinstance(dataset, ds.arrow_dataset.Dataset), "dataset must be an arrow dataset"
 
     # get dataset type, e.g. multiplechoice
     type_ = dataset[0]["type"]
@@ -48,7 +51,13 @@ def evaluate(dataset, overwrite=False, warn=True, config=None):  # config can be
                     model_name = cot["model"]
                 model_names.add(model_name)
                 # make a key for each combination of triggers, e.g. "None_lievin-02_kojima-A-C"
-                key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
+                #key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
+                if title is not None:
+                    # if title is given use it as name for the key
+                    key = title
+                else:
+                    # automatically generate a name for the key
+                    key = f"{cot['instruction']}_{cot['cot_trigger']}_{answer['answer_extraction']}"
                 keys.add(key)
                 counter[model_name][key] += 1
                 if answer["correct_answer"]:
@@ -109,30 +118,31 @@ def _evaluate(example, type_, overwrite, warn):
             if answer["correct_answer"] is not None and not overwrite:
                 continue
             prediction = answer["answer"]
-            answer_eval = is_correct(type_, prediction, dataset_correct_answer, dataset_choices, warn)
+            answer_eval, answer_from_choices = is_correct(type_, prediction, dataset_correct_answer, dataset_choices, warn)
             answer["correct_answer"] = answer_eval
+            if answer_from_choices is not None:
+                answer["answer_from_choices"] = answer_from_choices.upper()
+            if answer_from_choices is None:
+                answer["answer_from_choices"] = None
     return example
 
 
-
-
-
-def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bool:
+def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> Tuple[bool, Optional[str]]:
     """Compares prediction with gold answer."""
     # warn if pred is empty
     if pred == "":
         if warn:
             warnings.warn(f"Prediction is empty: {pred}")
-        return False
-    
-    # if the pred starts with any of the answer sequences in fragements, remove it
+        return (None, None)
+
     # save the original pred for debugging
     original_pred = pred
 
     # Sort the list of strings by length (longest to shortest) as one might include another
     answer_extractions = list(FRAGMENTS["answer_extractions"].values())
     answer_extractions = sorted(answer_extractions, key=len, reverse=True)
-    
+
+    # if the pred starts with any of the answer sequences in fragments, remove it
     # Loop through the list of answer_extractions and remove the longest matching prefix
     for e in answer_extractions:
         if pred.startswith(e):
@@ -144,22 +154,12 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
     if choices:
         choices = [choice.lower() for choice in choices]
 
-    # # strip whitespaces from prediction
-    # pred = pred.strip()
-    # # strip whitespaces from gold
-    # gold = gold.strip()
-    # # strip a trailing period from prediction
-    # if pred.endswith("."):
-    #     pred = pred[:-1]
-
     if type_ not in ["bool", "multiplechoice"]:
         warnings.warn(f"Answer type {type_} not supported yet.")
-        return None
+        return (None, None)
 
     if type_ == "multiplechoice":
-        # E.g.: "Therefore, among A through E, the answer is (c)"
-
-        # make dict of choices with uppercase letters A,B,C,...
+        # make dict of choices with lowercase letters a,b,c,...
         choices_dict = dict(zip(string.ascii_lowercase, choices))
         choices_keys = list(choices_dict.keys())
         choices_values_raw = list(choices_dict.values())
@@ -177,27 +177,19 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             if warn:
                 warnings.warn(f"Choices: {choices_dict} contain common elements: {common_elements}. This might lead to false positives.")
 
-    if type_ == "bool":
-        # E.g.: "Therefore, the answer (Yes or No) is NO."
-        choices_dict = {"yes": "true", "no": "false"}
-        choices_keys = list(choices_dict.keys())
-        choices_values = list(choices_dict.values())
-        choices_values_raw = choices_values  # in bool case, we need the raw values for the quick check
-        keys_lower = [i.lower() for i in choices_dict.keys()]
-        values_lower = [j.lower() for j in choices_dict.values()]
-
     # quick check if pred is in choices_dict
-    if (
-        # We need to take the raw values here, as this is not regex
-        pred in choices_values_raw
-        or pred in choices_keys
-        or pred in keys_lower
-        or pred in values_lower
-    ):
-        # raise ValueError("not in choices_dict")
-        is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+    if type_ == "multiplechoice":
+        if (
+            # We need to take the raw values here, as this is not regex
+            pred in choices_values_raw
+            or pred in choices_keys
+            or pred in keys_lower
+            or pred in values_lower
+        ):
+            # raise ValueError("not in choices_dict")
+            is_correct = compare_pred_with_gold(pred, gold, choices_dict)
 
-        return is_correct
+            return is_correct
 
     if type_ == "multiplechoice":        
     # check if only one of the choices are part of the pred and report this as answer
@@ -209,26 +201,49 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                 # This following pattern almost perfectly, much better than with using \\bword\\b to mark the words beginning and end,
                 # since this pattern works also if special characters like brackets are in the value
                 # (only thing it does not catch if the model answers in plural and appends and "s" to the end of the word,
-                # but I do not want to change it since this could also be two seperate answer choices singular/plural, which we need to distinguish)
+                # but I do not want to change it since this could also be two separate answer choices singular/plural, which we need to distinguish)
                 pattern = r'(?<!\w){}(?!\w)'.format(re.escape(value))
                 if re.search(pattern, pred, re.IGNORECASE):
                     hits.append(value)
+
         # Old version of the above, just stays here for reference and debugging          
-        hits_2 = []
-        for value in choices_values_raw:
-            # only check if length of value is smaller or same than pred
-            if len(value) <= len(pred):
-                # we go for the simple solution here, the one that is used in type_ == "bool" below does not work here
-                if value.lower() in pred.lower():
-                    hits_2.append(value)
+        # hits_2 = []
+        # for value in choices_values_raw:
+        #     # only check if length of value is smaller or same than pred
+        #     if len(value) <= len(pred):
+        #         # we go for the simple solution here, the one that is used in type_ == "bool" below does not work here
+        #         if value.lower() in pred.lower():
+        #             hits_2.append(value)
+
         # if only one hit, use that as predicted answer
         if len(hits) == 1:
             pred = hits[0]
             is_correct = compare_pred_with_gold(pred, gold, choices_dict)
             return is_correct
-        # if more than one hit return false
+        # if more than one hit check if one of the hits is a substring of another hit
         elif len(hits) > 1:
-            return False
+            # sort hits by length
+            hits_sorted = sorted(hits, key=len)
+            # check if one of the hits is a substring of another hit
+            for i in range(len(hits_sorted)):
+                for j in range(len(hits_sorted)):
+                    # do not use same index
+                    if i != j:
+                        # if is already None, do not check
+                        if hits_sorted[i] is not None and hits_sorted[j] is not None:
+                            # if substring
+                            if hits_sorted[i] in hits_sorted[j]:
+                                # set to None if substring
+                                hits_sorted[i] = None
+            # remove None values
+            hits_sorted = [x for x in hits_sorted if x is not None]
+            # if only one hit left, use that as predicted answer
+            if len(hits_sorted) == 1:
+                pred = hits_sorted[0]
+                is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+                return is_correct
+        # if not return false
+            return (None, None)
         
         # it that did not work, check if only keys (a,b,c,d,...) are given as answers
         # remove unnecessary words
@@ -255,12 +270,19 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                 pattern = r'(?<!\w){}(?!\w)'.format(re.escape(key))
                 if re.search(pattern, pred, re.IGNORECASE):
                     hits_letters.append(key)
+            # if there is only one standalone letter, then we return this as answer (only if it is not "a", since this is a common word)
+            if len(hits_letters) == 1 and hits_letters[0] != "a":
+                is_correct = compare_pred_with_gold(hits_letters[0], gold, choices_dict)
+                return is_correct
+            # if there are more than one standalone letter, then we return false as answer
             if sorted(hits_letters) == sorted(letters):
-                return False
+                return (None, None)
 
     if type_ == "bool":
         hits = []
-        choices_keys_and_values = choices_keys + choices_values
+        a = ['a', 'yes', 'true']
+        b = ['b', 'no', 'false']
+        choices_keys_and_values = a + b
         for value in choices_keys_and_values:
             # only check if length of value is smaller or same than pred
             if len(value) <= len(pred):
@@ -271,9 +293,47 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
                     hits.append(value)
         # if only one hit, use that as predicted answer
         if len(hits) == 1:
-            pred = hits[0]
-            is_correct = compare_pred_with_gold(pred, gold, choices_dict)
-            return is_correct
+            # if the hit is a or b, then we need to return the corresponding value
+            # just check for 'yes' 'no' and 'true' 'false'
+            if hits[0] in a[1:]:
+                pred = 'true'
+            elif hits[0] in b[1:]:
+                pred = 'false'
+            else:
+                # only do this if the string is short, so no sentences with "a" or "b" in it are falsely classified
+                if hits[0] in ['a', 'b'] and len(pred) < 10:
+                    if hits[0] == 'a':
+                        pred = 'true'
+                    elif hits[0] == 'b':
+                        pred = 'false'
+                    
+        elif len(hits) > 1:
+            # if all hits in a pred is true
+            if all(x in a for x in hits):
+                pred = 'true'
+            # if all hits in b pred is false
+            if all(x in b for x in hits):
+                pred = 'false'
+
+            # hits excluding a or b, just go for yes/no and true/false
+            hits_no_ab = [x for x in hits if x not in ['a', 'b']]
+            if len (hits_no_ab) > 0:
+                # if only 'yes' and/or 'true' in pred, then pred is true
+                if all(x in a[1:] for x in hits_no_ab):
+                    pred = 'true'
+                # if only 'no' and/or 'false' in pred, then pred is false
+                if all(x in b[1:] for x in hits_no_ab):
+                    pred = 'false'
+
+        # if pred is not true or false, then return None
+        if pred not in ['true', 'false']:
+            return (None, None)
+        
+        # if pred is true or false, then check if it is correct
+        choices_dict = {"yes": "true", "no": "false"}
+        is_correct = compare_pred_with_gold(pred, gold, choices_dict)
+        return is_correct
+    
         # makes errors in examples like "Yes, bla bla has no effect", since it counts yes and no
         # could be corrected by:
         # 1) checking if multiple hits
@@ -305,141 +365,7 @@ def is_correct(type_: str, pred: str, gold: str, choices=None, warn=False) -> bo
             possible answers: {choices_dict}
             """
         )
-    return False
-
-    # ############# OLD CODE BELOW #############
-
-    # # if pred is not in choices_dict, we need to use regex
-
-    # # uppercase and lowercase is not important, as we will match the pattern case insensitive.
-    # expected_answer = r"|".join(choices_values + choices_keys)
-
-    # # Matches A or A. or (A). or {A}. or [A]. to  just "A".
-    # # Matches word or word. or (word). or {word}. or [word]. to  just "word".
-    # expected_answer_location = r"[\(\{\[\'\"]?(" + expected_answer + r")[\)\}\]\'\"]?"
-
-    # # match only answer directly or the index of the answer in the choices_dict without sentence
-    # only_answer_sequence = r"^\s?" + expected_answer_location + r"\.?\s?$"
-
-    # # If the answer is at the end of the sentence. e.g. "The answer is A."
-    # # At the moment does NOT match "isA" or "answerA" to A. As this leads to false positives...
-    # starting_sequence = (
-    #     # e.g. '..., the answer is A, apple.' # answer A is apple
-    #     # answer
-    #     r"answer:?"
-    #     +
-    #     # is or most likely or probably
-    #     r"(?: \(Yes or No\))?(?: is)?:?(?: most likely)?(?: probably)?\s?"
-    #     +
-    #     # capturing group "answer" or "answer as string" # possibly inside brackets, etc
-    #     expected_answer_location
-    #     +
-    #     # , the
-    #     r"(?:,)?(?: the)?\s?(?:"
-    #     +
-    #     # non-capturing group "answer_as_string" # optional
-    #     expected_answer
-    #     + r")?"
-    #     +
-    #     # . end of sentence
-    #     r"\.?\s?$"
-    # )
-
-    # # If the answer is at the beginning of the sentence. e.g. "A is the answer"
-    # ending_sequence = r"^\s?" + expected_answer_location + r"(?: is)?(?: the)?(?: correct| right| true)?(?: answer)?\.?" + r"\.?\s?$"
-
-    # # individual sequences at the moment only for multiplechoice
-    # if type_ == "multiplechoice":
-    #     # the following part of the individual sequences needs some simplification....
-    #     expected_answer_raw_as_group = r"(" + r"|".join(choices_values_raw + choices_keys) + r")"
-
-    #     individual_sequences = [
-    #         # insert your individual answer sequences here
-    #         # replace both places of the answer (A,B,C,...) and the full text answer with the expected_answer_raw
-    #         # the rest part of the sequence put with raw strings in between.
-    #         # e.g. for "The answer is: A) answer_as_text."
-    #         # rewrite as: r"The answer is: " + expected_answer_raw + r") " + expected_answer_raw + r"."
-    #         # expected_answer_raw + re.escape(r") ") + expected_answer_raw + re.escape(r".")
-    #         expected_answer_raw_as_group
-    #         + escape_special_characters(") ")
-    #         + expected_answer_raw_as_group
-    #         + escape_special_characters(".")
-    #     ]
-    #     # idea to generalize the individual sequences:
-    #     # make file in codebase where people can add their individual sequences
-    #     # let people replace the answer with the placeholder "expected_answer_location"
-    #     # then read the file
-    #     # split the sentences by the placeholder
-    #     # for every split that is not the placeholder, apply the escape_special_characters function
-    #     # then join the sentences again with the placeholder in between
-
-    #     # make individual sequences have start and end of sentence
-    #     individual_sequences = [r"^" + sequence + r"$" for sequence in individual_sequences]
-
-    # if type_ == "multiplechoice":
-    #     sequences_for_search = [only_answer_sequence] + individual_sequences + [starting_sequence, ending_sequence]
-    # else:
-    #     sequences_for_search = [
-    #         only_answer_sequence,
-    #         starting_sequence,
-    #         ending_sequence,
-    #     ]
-
-    # # search for the sequences in the prediction
-    # pred_match = search_regex(pred, sequences_for_search, warn=warn)
-
-    # # if not one specific value is found, search if multiple are found and return the first one
-    # if pred_match == "":
-    #     # select the string after the last word "answer"
-    #     if "answer" in pred:
-    #         str_after_word = pred.rsplit("answer", 1)[1]
-    #         if str_after_word:
-    #             if type_ == "bool":
-    #                 # remove "(Yes or No)" from the string
-    #                 str_after_word = str_after_word.replace("(Yes or No)", "")
-    #                 multiple_findings = r"[\s|\,|\.|\:]" + expected_answer_location + r"[\s|\,|\.]"
-
-    #             if type_ == "multiplechoice":
-    #                 multiple_findings = " " + expected_answer_location + r"[\s|\,|\.]"
-
-    #             pred_match = search_regex(str_after_word, [multiple_findings], warn=warn)
-
-    # if pred_match == "" and warn:
-    #     warnings.warn(
-    #         f"""Your answer could not be extracted from this sequence.
-    #         sequence: {pred}
-    #         possible answers: {choices_dict}"""
-    #     )
-
-    # # match for: "Answer is A" and for "Answer is 'word'", using keys and values of choices_dict
-    # is_correct = compare_pred_with_gold(pred_match, gold, choices_dict)
-
-    # return is_correct
-
-# def search_regex(s: str, patterns: list, warn: bool) -> str:
-#     """Searches a string for a list of regex patterns and returns the first found match."""
-#     # strip the string from whitespaces
-#     s = s.strip()
-#     for pattern in patterns:
-#         # Compile the regular expression
-#         regex = re.compile(pattern, re.MULTILINE | re.IGNORECASE)
-#         # Search the string for the regex pattern
-#         match = regex.search(s)
-#         if match:
-#             # If more than one group is defined in the regex, print a warning return the last group
-#             if len(match.groups()) > 1 and warn:
-#                 warnings.warn(
-#                     f"""Found more than one possible answer to compute the evaluation score. By default returning the first found answer.
-#                                  In the answer sentence '{s}' these possible answers were found: '{match.groups()}'
-#                                  If you want to return a specific answer, please define a regex pattern with only one group.
-#                 """
-#                 )
-
-#             # If the regex pattern is found, return the group you defined in the regex
-#             return match.group(1)
-#     # If none of the regex patterns are found, return an empty string
-#     return ""
-
+    return (None, None)
 
 def escape_special_characters(string):
     result = r""
@@ -469,11 +395,27 @@ def compare_pred_with_gold(pred: str, gold: str, choices_dict: dict) -> bool:
 
     comparison = pred.lower() == gold_key.lower() or pred.lower() == gold_value.lower()
 
-    return comparison
+    # for boolean
+    if choices_dict == {"yes": "true", "no": "false"}:
+        if pred == "true":
+            pred_as_key = "A"
+        elif pred == "false":
+            pred_as_key = "B"
+        else:
+            pred_as_key = None
+
+    else: # get prediction as key (a,b,c,...)
+        if pred in choices_dict.keys():
+            pred_as_key = pred
+        elif pred in choices_dict.values():
+            pred_as_key = list(choices_dict.keys())[list(choices_dict.values()).index(pred)]
+    
+    return (comparison, pred_as_key)
 
 # evaluating all files in a directory
 def print_evaluation_of_all_files_in_dir(dir):
     import os
+    from cot import Collection
     for filename in os.listdir(dir):
         if filename.endswith(".json"):
             collection = Collection.from_json(os.path.join(dir, filename))
@@ -502,13 +444,46 @@ def compare_evaluation_difference(collection):
     collection_after_json = collection_after.to_json()
 
     if collection_before_json == collection_after_json:
-        print("No difference in collection before/after evaluation overwrite. No files files for comparison are created.")
+        print("No difference in collection old/new evaluation overwrite. No files files for comparison are created.")
 
     else:
-        collection_before.dump("compare_evaluation_" + timestamp + "_before.json")
-        collection_after.dump("compare_evaluation_" + timestamp + "_after.json")
+        collection_before.dump("compare_evaluation_" + timestamp + "_a_old.json")
+        collection_after.dump("compare_evaluation_" + timestamp + "_b_new.json")
         # then just compare the two json files inside vscode or any other editor
+        print("Found difference in collection old/new evaluation overwrite. Files for comparison are created: compare_evaluation_" + timestamp + "_a_old.json and compare_evaluation_" + timestamp + "_b_new.json")
     
     # evaluation_before = collection.evaluate()
     # pprint(evaluation_after)
     # pprint(evaluation_before)
+
+
+def json_to_dataframe(json_data: json):
+    """
+    This function accepts as an input a generated json and outputs a formated dataframe
+    to be used for further evaluation
+    returns: a dataframe
+    """
+    df_data = []
+    for category, data in json_data.items():
+        for subset, questions in data.items():
+            for question in questions:
+                row = {
+                    'dataset': category,
+                    'split': subset,
+                    'id': question['id'],
+                    'model': question['generated_cot'][0]['model'],
+                    'generated_cot': question['generated_cot'][0]['cot'],
+                    'correct_answer': question['generated_cot'][0]['answers'][0]['correct_answer'],
+                     }
+                df_data.append(row)
+    df = pd.DataFrame(df_data)
+    df["model"] = clean_column(df, "model")
+    return df
+
+
+def clean_column(df: pd.DataFrame, col_name: str):
+    """
+    Remove all characters in the model string except for the model_name
+    """
+    pattern = r"^.*?'(.*?)'.*?'(.*?)'.*?'(.*?)'.*?'(.*?)'.*$"
+    return(df[col_name].apply(lambda x: re.sub(pattern, r"'\2", x)[1:]))
