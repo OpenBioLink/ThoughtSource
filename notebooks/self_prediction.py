@@ -9,8 +9,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def predictions(data,idx_cot,dataset,split,plot_title):
-    scores_with_indicator= parse_data_test(data,idx_cot=1,dataset='med_qa',split='test')
+    scores_with_indicator= parse_data_test(data,idx_cot,dataset='med_qa',split='test')
     prediction_results(scores_with_indicator,plot_title)
+
+def extra_predictors(data,idx_cot,dataset,split,plot_title):
+    scores_with_indicator= parse_data_test(data,idx_cot,dataset='med_qa',split='test')
+    other_predictors(scores_with_indicator,plot_title)
 
 def parse_data_test(new_data,idx_cot,dataset,split):
 
@@ -193,3 +197,108 @@ def minimum_graph(scores_with_indicator,plot_title):
     plt.grid(True)
     plt.legend()
     plt.show()
+
+#from xgboost import XGBClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+
+def other_predictors(scores_with_indicator,plot_title):
+    #xgb_classifier = XGBClassifier()
+    dt_classifier = DecisionTreeClassifier()
+    rf_classifier = RandomForestClassifier()
+
+
+    data = scores_with_indicator
+    data = [(t[0], False if t[1] is None else t[1]) for t in data]
+
+    #all objs
+    df = pd.DataFrame([t[0] for t in data])
+    df['Indicator'] = [t[1] for t in data]
+
+    #df_for_regression does not include variables created later 
+    df_for_reg = copy.deepcopy(df)
+    handle_string(df_for_reg,'average')
+    handle_string(df,'average')
+
+    df = df[df['average'].notna()]
+    df = df.sort_values(by='average')
+
+    df['Cumulative Count'] = df['Indicator'].cumsum()
+
+    # Create a new column 'Cumulative Count False' that contains the cumulative count of 'False' values
+    df['Cumulative Count False'] = (~df['Indicator']).cumsum()
+
+    df['Difference'] = df['Cumulative Count False'] - df['Cumulative Count']
+
+    # Find the maximum value in 'Difference'
+    max_diff = df['Difference'].max()
+
+
+    #out of sample accuracy
+    df_for_reg = df_for_reg[df_for_reg['average'].notna()]
+
+    for column in df_for_reg.columns:
+        if column.startswith('obj_'):
+            is_float = df_for_reg[column].apply(lambda x: not isinstance(x, str))
+            df_for_reg = df_for_reg[is_float]
+
+    X = df_for_reg.drop('Indicator', axis=1)  # Features
+    y = df_for_reg['Indicator'].values  # Target variable
+
+    
+    loo = LeaveOneOut()
+    classifier = LogisticRegression(max_iter=10000)
+
+    accuracies_lr = []  # List to store all accuracies
+    accuracies_xgb = []  # List to store all accuracies
+    accuracies_rf = []  # List to store all accuracies
+    accuracies_dt = []  # List to store all accuracies
+   
+
+    for train_index, test_index in loo.split(X):
+        X_train, X_test = X.iloc[train_index], X.iloc[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+
+        classifier.fit(X_train, y_train)
+        y_pred_lr  = classifier.predict(X_test)
+
+        accuracy_lr = accuracy_score(y_test, y_pred_lr)
+        accuracies_lr.append(accuracy_lr)
+        
+        ###
+        # Train the XGBoost classifier
+        # xgb_classifier.fit(X_train, y_train)
+        # y_pred_xgb = xgb_classifier.predict(X_test)
+
+        # accuracy_xgb = accuracy_score(y_test, y_pred_xgb)
+        # accuracies_xgb.append(accuracy_xgb)
+        
+
+        # Train the Decision Tree classifier
+        dt_classifier.fit(X_train, y_train)
+        y_pred_dt = dt_classifier.predict(X_test)
+
+        accuracy_dt = accuracy_score(y_test, y_pred_dt)
+        accuracies_dt.append(accuracy_dt)
+
+         # Train the Random Forest classifier
+        rf_classifier.fit(X_train, y_train)
+        y_pred_rf = rf_classifier.predict(X_test)
+
+        accuracy_rf = accuracy_score(y_test, y_pred_rf)
+        accuracies_rf.append(accuracy_rf)
+
+        
+        ###
+    
+    # Print the average accuracy
+    print("Average Accuracy by LeaveOneOut strategy Logistic Regression:", np.mean(accuracies_lr))
+    # print("Average Accuracy by LeaveOneOut strategy xgBoost:", np.mean(accuracies_xgb))
+    print("Average Accuracy by LeaveOneOut strategy Decision tree:", np.mean(accuracies_dt))
+    print("Average Accuracy by LeaveOneOut strategy random forest:", np.mean(accuracies_rf))
+
+
+   
+
+
