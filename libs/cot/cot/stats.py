@@ -276,7 +276,7 @@ def plot_dataset_overlap(collection, N=3):
 
     from plotly.subplots import make_subplots
 
-    subpl = make_subplots(rows=1, cols=2, subplot_titles=("Question", "CoT"), print_grid=False)
+    subpl = make_subplots(rows=2, cols=1, subplot_titles=("Question", "CoT"), print_grid=False, vertical_spacing=0.2)
 
     for index, key in enumerate(["question", "cot"]):
         n_grams_merge, data = prepare_overlap_matrix(collection, key, N)
@@ -289,29 +289,36 @@ def plot_dataset_overlap(collection, N=3):
             x=list(sorted(n_grams_merge.keys())),
             y=list(sorted(n_grams_merge.keys(), reverse=True)),
             hoverongaps=False,
-            coloraxis="coloraxis",
+            # coloraxis="coloraxis",
+            colorscale="tempo",
+            showscale=False,  # This will remove the colorbar
             text=[["" if (element is None or element < 0.01) else f"{element:.2f}" for element in row] for row in data],
             texttemplate="%{text}",
         )
-        subpl.add_trace(fig, row=1, col=index + 1)
+        subpl.add_trace(fig, row=index + 1, col= 1)
 
-    subpl.update_layout(height=700, width=1400)
-    subpl.update_layout(coloraxis=dict(colorscale="tempo", cmin=0.0, cmax=1.0), showlegend=False)
-    subpl.for_each_xaxis(lambda x: x.update(showgrid=False, zeroline=False))
+    subpl.update_layout(height=1400, width=700, showlegend=False)
+    # subpl.update_layout(coloraxis=dict(colorscale="tempo", cmin=0.0, cmax=1.0), showlegend=False)
+    subpl.for_each_xaxis(lambda x: x.update(showgrid=False, zeroline=False, tickangle=45))
     subpl.for_each_yaxis(lambda x: x.update(showgrid=False, zeroline=False))
     subpl.write_image(f"dataset_overlap.svg")
+    subpl.write_image(f"dataset_overlap.pdf")
     subpl.write_image(f"dataset_overlap.png")
     subpl.show()
+
+
+from plotly.subplots import make_subplots
 
 
 def plot_token_length_distribution(collection, splits=False):
     token_len = _generate_token_length_data(collection)
 
     table = token_len[["dataset", "context", "question", "cot"]].groupby("dataset").agg(["max", "mean"])
-    # table.columns = table.columns.map('_'.join).reset_index()
     _print_table(table)
 
-    for key in ["context", "question", "cot"]:
+    figs = []
+
+    for idx, key in enumerate(["question", "cot"], 1): # "context", "question", "cot"
         token_len_ = token_len[token_len[key] > 0]
         fig = px.box(
             token_len_,
@@ -327,10 +334,81 @@ def plot_token_length_distribution(collection, splits=False):
             width=1100,
             points=False,
         )
+
+        # reverse the y-axis
+        fig.update_yaxes(autorange="reversed")
+
+        # logaritmic scale
+        fig.update_xaxes(type="log")
+
+        # add annotation
+        fig.add_annotation(
+            x=0.00,  
+            y=1.00,  
+            text='<b>' + chr(96 + idx) + '</b>',  
+            showarrow=False,
+            font=dict(
+                size=16
+            ),
+            xref="paper",
+            yref="paper",
+            xanchor="left",
+            yanchor="bottom"
+        )
+
         fig.write_image(f"token_length_distribution_{key}.svg")
+        fig.write_image(f"token_length_distribution_{key}.pdf")
         fig.write_image(f"token_length_distribution_{key}.png")
         fig.show()
-    return (table, fig)
+        figs.append(fig)
+
+    # Create subplots: 2 rows, 1 column
+    final_fig = make_subplots(rows=2, cols=1)
+
+    # Add figures to the subplots
+    final_fig.add_trace(figs[0]['data'][0], row=1, col=1)
+    final_fig.add_trace(figs[1]['data'][0], row=2, col=1)
+
+    # Adjust layout
+    final_fig.update_layout(height=1200, width=1100)
+
+    # logaritmic scale
+    final_fig.update_xaxes(type="log")
+
+    # Save figure as a PDF
+    final_fig.write_image("token_length_distribution.jpg")
+
+    return (table, final_fig)
+
+
+# def plot_token_length_distribution(collection, splits=False):
+#     token_len = _generate_token_length_data(collection)
+
+#     table = token_len[["dataset", "context", "question", "cot"]].groupby("dataset").agg(["max", "mean"])
+#     # table.columns = table.columns.map('_'.join).reset_index()
+#     _print_table(table)
+
+#     for key in ["question", "cot"]: # "context", "question", "cot"
+#         token_len_ = token_len[token_len[key] > 0]
+#         fig = px.box(
+#             token_len_,
+#             x=key,
+#             y="dataset",
+#             color="split" if splits else None,
+#             labels={
+#                 "dataset": "Dataset",
+#                 "cot": "Number of tokens in CoT",
+#                 "question": "Number of tokens in question",
+#                 "context": "Number of tokens in context",
+#             },
+#             width=1100,
+#             points=False,
+#         )
+#         fig.write_image(f"token_length_distribution_{key}.svg")
+#         fig.write_image(f"token_length_distribution_{key}.pdf")
+#         fig.write_image(f"token_length_distribution_{key}.png")
+#         fig.show()
+#     return (table, fig)
 
 
 def get_n_outlier(dataset, field="cot", n=5):
