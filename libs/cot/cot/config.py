@@ -73,7 +73,7 @@ class Config:
 
     def __post_init__(self):
         # raise error if API key is not supported
-        available_endpoints = ["openai", "openai_chat", "huggingface_hub", "huggingface_endpoint", "cohere", "mock_api"]
+        available_endpoints = ["openai", "openai_chat", "huggingface_hub", "huggingface_endpoint", "cohere", "mock_api", "local_huggingface"]
         if self.api_service not in available_endpoints:
             raise ValueError(f"API service '{self.api_service}' not in available endpoints {available_endpoints}")
         

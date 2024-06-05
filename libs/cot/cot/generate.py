@@ -778,6 +778,19 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
         template = "{prompt}"
         prompt = Prompt(template=template, input_variables=["prompt"])
 
+        if api_service == "local_huggingface":
+
+            from langchain_community.llms.huggingface_pipeline import HuggingFacePipeline
+
+            hf = HuggingFacePipeline.from_model_id(
+                model_id=engine,
+                task="text-generation",
+                pipeline_kwargs={"max_new_tokens": max_tokens, "temperature": temperature},
+            )
+
+            response = hf.predict(text=input, stop=None)
+            return response
+
         if api_service == "openai":
             from langchain import OpenAI
 
