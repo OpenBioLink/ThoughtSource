@@ -773,6 +773,7 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
     # langchain package implementation
     else:
         from langchain import LLMChain, Prompt
+        import torch
 
         time.sleep(api_time_interval)
         template = "{prompt}"
@@ -781,11 +782,17 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
         if api_service == "local_huggingface":
 
             from langchain_community.llms.huggingface_pipeline import HuggingFacePipeline
+            device = 0 if torch.cuda.is_available() else -1
+            # print("GPU available: ", device)  
 
             hf = HuggingFacePipeline.from_model_id(
                 model_id=engine,
                 task="text-generation",
-                pipeline_kwargs={"max_new_tokens": max_tokens, "temperature": temperature},
+                device=device,
+                pipeline_kwargs={
+                    "max_new_tokens": max_tokens, 
+                    "temperature": temperature,
+                    },
             )
 
             response = hf.predict(text=input, stop=None)
