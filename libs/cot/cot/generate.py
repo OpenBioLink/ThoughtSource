@@ -763,12 +763,63 @@ class Correct_output(dict):
 #     string.replace("{None}", "")
 #     return string
 
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+
+class ModelLoader:
+    _instances = {}
+    def __new__(cls, engine, *args, **kwargs):
+        
+        if engine not in cls._instances:
+            cls._instances[engine] = super(ModelLoader, cls).__new__(cls, *args, **kwargs)
+            cls._instances[engine].model = AutoModelForCausalLM.from_pretrained(
+                engine,
+                trust_remote_code=True, 
+                torch_dtype="auto"
+            )
+            cls._instances[engine].tokenizer = AutoTokenizer.from_pretrained(
+                engine,
+                trust_remote_code=True, 
+                torch_dtype="auto"
+            )
+        return cls._instances[engine]
+
+    def get_model_and_tokenizer(self):
+        return self.model, self.tokenizer
+
 
 def query_model(input, api_service, engine, temperature, max_tokens, api_time_interval):
     if api_service == "mock_api":
         # time.sleep(api_time_interval)
         return " Test mock chain of thought."
         # return ("This is a " + 20 * "long " + "Mock CoT.\n")*20
+
+    if api_service == "local_huggingface":
+
+        time.sleep(api_time_interval)
+
+        device = "cuda" # the device to load the model onto
+
+        model_loader = ModelLoader(engine)
+        model, tokenizer = model_loader.get_model_and_tokenizer()
+
+        messages = [{"role": "user", "content": f"{input}"}]
+
+        encodeds = tokenizer.apply_chat_template(messages, return_tensors="pt")
+
+        model_inputs = encodeds.to(device)
+
+        generated_ids = model.generate(model_inputs, max_new_tokens=512, do_sample=True)
+        decoded = tokenizer.batch_decode(generated_ids)
+
+        text = decoded[0]
+
+        start = text.rfind("<|end_header_id|>") + len("<|end_header_id|>")
+        end = text.rfind("<|eot_id|>")
+
+        response = text[start:end].strip()
+
+        return response
 
     # langchain package implementation
     else:
@@ -797,6 +848,19 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
 
             response = hf.predict(text=input, stop=None)
             return response
+        
+
+            # this throws an error when device is set to 0:
+            # llm_chain = LLMChain(
+            #     prompt=prompt,
+            #     llm=HuggingFacePipeline.from_model_id(
+            #         model_id=engine,
+            #         # assuming GPU is available
+            #         device=0,
+            #         task="text-generation",
+            #         pipeline_kwargs={"max_new_tokens": max_tokens, "temperature": temperature},
+            #     ),
+            # ) 
 
         if api_service == "openai":
             from langchain import OpenAI
