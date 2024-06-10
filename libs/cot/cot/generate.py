@@ -762,9 +762,7 @@ class Correct_output(dict):
 #     # string.replace("\n{None}", "") # TODO: do I need this?
 #     string.replace("{None}", "")
 #     return string
-
-from transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
+from unsloth import FastLanguageModel
 
 class ModelLoader:
     _instances = {}
@@ -772,21 +770,16 @@ class ModelLoader:
         
         if engine not in cls._instances:
             cls._instances[engine] = super(ModelLoader, cls).__new__(cls, *args, **kwargs)
-            cls._instances[engine].model = AutoModelForCausalLM.from_pretrained(
-                engine,
-                trust_remote_code=True, 
-                torch_dtype="auto"
-            )
-            cls._instances[engine].tokenizer = AutoTokenizer.from_pretrained(
-                engine,
-                trust_remote_code=True, 
-                torch_dtype="auto"
+            cls._instances[engine].model, cls._instances[engine].tokenizer = FastLanguageModel.from_pretrained(
+                model_name = engine,
+                max_seq_length = 512,
+                dtype = None,
+                load_in_4bit = True,
             )
         return cls._instances[engine]
 
     def get_model_and_tokenizer(self):
         return self.model, self.tokenizer
-
 
 def query_model(input, api_service, engine, temperature, max_tokens, api_time_interval):
     if api_service == "mock_api":
