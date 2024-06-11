@@ -795,12 +795,17 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
 
         model_loader = ModelLoader(engine)
         model, tokenizer = model_loader.get_model_and_tokenizer()
+        # adding special tokens so they are always the same
+        tokenizer.bos_token_id = 128000
+        tokenizer.bos_token = '<|begin_of_text|>'
+        tokenizer.eos_token_id = 128001
+        tokenizer.eos_token = '<|end_of_text|>'
+        # Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+        tokenizer.pad_token_id = 128001
+        tokenizer.pad_token = '<|end_of_text|>'
 
         FastLanguageModel.for_inference(model) # Enable native 2x faster inference
         inputs = tokenizer([input], return_tensors = "pt").to("cuda")
-
-        generated_ids = model.generate(model_inputs, max_new_tokens=512, do_sample=True)
-        decoded = tokenizer.batch_decode(generated_ids)
 
         outputs = model.generate(**inputs, max_new_tokens = 512, use_cache = True)
         decoded = tokenizer.batch_decode(outputs)
