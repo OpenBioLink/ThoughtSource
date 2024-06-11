@@ -807,7 +807,7 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
         FastLanguageModel.for_inference(model) # Enable native 2x faster inference
         inputs = tokenizer([input], return_tensors = "pt").to("cuda")
 
-        outputs = model.generate(**inputs, max_new_tokens = 512, use_cache = True)
+        outputs = model.generate(**inputs, max_new_tokens = 512, do_sample=True)
         decoded = tokenizer.batch_decode(outputs)
         text = decoded[0]
 
