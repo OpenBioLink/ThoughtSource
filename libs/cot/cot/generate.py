@@ -796,19 +796,18 @@ def query_model(input, api_service, engine, temperature, max_tokens, api_time_in
         model_loader = ModelLoader(engine)
         model, tokenizer = model_loader.get_model_and_tokenizer()
 
-        messages = [{"role": "user", "content": f"{input}"}]
-
-        encodeds = tokenizer.apply_chat_template(messages, return_tensors="pt")
-
-        model_inputs = encodeds.to(device)
+        FastLanguageModel.for_inference(model) # Enable native 2x faster inference
+        inputs = tokenizer([input], return_tensors = "pt").to("cuda")
 
         generated_ids = model.generate(model_inputs, max_new_tokens=512, do_sample=True)
         decoded = tokenizer.batch_decode(generated_ids)
 
+        outputs = model.generate(**inputs, max_new_tokens = 512, use_cache = True)
+        decoded = tokenizer.batch_decode(outputs)
         text = decoded[0]
 
-        start = text.rfind("<|end_header_id|>") + len("<|end_header_id|>")
-        end = text.rfind("<|eot_id|>")
+        start = text.rfind("<|begin_of_text|>") + len("<|begin_of_text|>") + len(input)
+        end = text.rfind("<|end_of_text|>")
 
         response = text[start:end].strip()
 
