@@ -32,12 +32,6 @@ model reasoning data"__](https://arxiv.org/abs/2301.11596), arXiv, 2023
  
  Our [dataloaders](./libs/cot/) allow you to access the following datasets in a standardized chain-of-thought format. The dataloaders create objects in the [Hugging Face 🤗 Datasets format](https://huggingface.co/docs/datasets/index). We (sometimes extensively) post-processed the source datasets in different ways to create more coherent reasoning chains.
 
- ---
-<p align="center">
- Datasets can be <a href="http://thought.samwald.info/"><b>browsed online through the Dataset Viewer 🔎</b></a> 
-</p>
-
----
 
 
 ### General question answering
@@ -94,13 +88,6 @@ __We welcome dataset contributions! 👉 Have a look at our [contribution guide]
   The annotator allows for highlighting similarities between different generated reasoning chains, making it easier to spot strenghts and weaknesses and to select best results.
 </p>
 
----
-<p align="center">
- <a href="http://thought.samwald.info:3000/"><b> Use the web-based annotator 📝</b></a><br/>
- To try out the annotator, simply type in your name and load this<a href="https://github.com/OpenBioLink/ThoughtSource/blob/main/notebooks/worldtree_10.json" target="_blank"> example file</a>
-</p>
-
----
 
 <br/>
 
