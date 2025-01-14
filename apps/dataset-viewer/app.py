@@ -10,6 +10,8 @@ from datasets import load_dataset
 from cot import Collection
 import yaml
 
+st.set_page_config(page_title="ThoughtSource⚡", layout="wide")
+
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.yml'), 'r') as file:
     config = yaml.safe_load(file)
 
@@ -156,7 +158,7 @@ def display_dataset(dataset):
 
 def run_app():
     
-    st.set_page_config(page_title="ThoughtSource⚡", layout="wide")
+    
 
     # st.title('ThoughtSource⚡ Viewer')
 
